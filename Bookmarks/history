@@ -1,0 +1,1 @@
+dbicdump -o dump_directory=./lib -o components='["InflateColumn::DateTime"]' BM::Schema dbi:mysql:database=bookmarks bookmark_adder xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
