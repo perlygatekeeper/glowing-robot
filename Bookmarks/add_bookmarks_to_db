@@ -41,15 +41,17 @@ sub parse_bookmarks_file {
   my ( $bookmarks, %marks, %hosts);
   my ( $icons, %icons );
   my ( $dirs, %dirs, $saved_dir );
+  my @marks = ();
+  my $batch_size = 1000;
   open(BM,"<", $bookmarks_file) || die("$name: Cannot read from '$bookmarks_file': $!\n");
   while (<BM>) {
     $lines++;
     my ( $add_date_dir, $last_modififed, $tool_folder, $dir) = ( $_ =~ m/\s*<DT><H3 ADD_DATE="(\d+)" LAST_MODIFIED="(\d+)"(?: PERSONAL_TOOLBAR_FOLDER="([^"]+)")?>([^<]+)/ );
-    $saved_dir = $dir || $saved_dir;
-    $dirs++  if $dir;
-	#
-	# INSERT new dir here!
-	#
+	if $dir {
+	  # INSERT new dir here!
+      $saved_dir = $dir || $saved_dir;
+      $dirs++
+	}
     my ( $href, $add_date, $icon, $bookmark) = ( $_ =~ m/\s*<DT><A HREF="([^"]+)" ADD_DATE="(\d+)"(?: ICON="([^"]+)")?>([^<]+)/ );
     if ($icon) {
       $icons++;
@@ -61,13 +63,25 @@ sub parse_bookmarks_file {
       $dirs{$href} = $saved_dir;
       my $uri = URI->new($href);
 	  $hosts{$uri->host()}++ if ($uri->scheme() and $uri->scheme() =~ /http/i);
+      push( @marks,  [ $href, $bookmark, $add_date ]);
+    }
+	if ( scalar(@marks) >= $batch_size ) {
+	  print "Pushing another batch of $batch_size to the database.\n";
       $schema->populate('Bookmark', [
         [ qw/href bookmark add_date/ ],
-        [ $href, $bookmark, $add_date ] 
+        @marks
       ] );
+	  @marks = ();
     }
   }
   close(BM);
+  if ( scalar(@marks) ) {
+	print "Pushing last batch of " . scalar(@marks) . " to the database.\n";
+    $schema->populate('Bookmark', [
+      [ qw/href bookmark add_date/ ],
+      @marks
+    ] );
+  }
   #
 # $schema->populate('Icon', [
 #   [ qw/icon/ ],
