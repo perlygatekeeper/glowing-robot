@@ -36,6 +36,14 @@ __END__
    pieceUR,  rotationUR,
    score ]
 
+                   0   1   2   3   4   5   C 
+                   P R P R P R P R P R P R P R Score
+   possible board: 0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
+                   123456789012345678901234567890
+                            1         2         3
+stored as 30 characters (with 14 spaces)
+stored as 16 characters compact
+
  0 - 5 outside 0 on top, counted clock-wise.
  6 center
 
@@ -56,7 +64,9 @@ TRY will have a BOARD and a SCORE
 
 SCORE will be 1 for every CONNECTION for which the pieces numbers match.
 
-possible boards are 
+
+Number of Possible Boards
+--------------------------------------------------------------------
 first location choose from 6 pieces,
 second location choose from remaining 5 pieces
 seventh location no choice.
@@ -67,8 +77,15 @@ each piece may have 6 possible rotations, so 6^7 = 279,936
 
 total boards possible = 201,553,920
 
+symmetry (each outer piece advanced clockwise and all pieces rotated clockwise) 
 
-checking a single connection
+33,592,320
+
+How do I walk all 33.5 million possible boards without any of the other 5
+symmetricly equivalent boards?
+
+
+Checking a Single Connection
 --------------------------------------------------------------------
 Esxample #1, connection involving the center (6 of these)
 Pc = piece on center
