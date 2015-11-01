@@ -36,11 +36,17 @@ __END__
    pieceUR,  rotationUR,
    score ]
 
-                   0   1   2   3   4   5   C 
-                   P R P R P R P R P R P R P R Score
-   possible board: 0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
-                   123456789012345678901234567890
-                            1         2         3
+                     0   1   2   3   4   5   C 
+                     P R P R P R P R P R P R P R Score
+   possible board:   0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
+                     123456789012345678901234567890
+                              1         2         3
+
+   original board:   0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
+   rotate clockwise: 2 0 0 0 3 0 1 0 5 0 6 0 4 0 12
+   rotate cw x 2:    6 1 2 1 0 1 3 1 1 1 5 1 4 1 12
+   rotate cw x 3:    5 2 6 2 2 2 0 2 3 2 1 2 4 2 12
+   rotate cw x 4:    1 3 5 3 6 3 2 3 0 3 3 3 4 3 12
 stored as 30 characters (with 14 spaces)
 stored as 16 characters compact
 
