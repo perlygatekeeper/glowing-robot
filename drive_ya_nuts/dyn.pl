@@ -8,16 +8,24 @@ use strict;
 use warnings;
 
 my $pieces = [
-  [ 1, 2, 3, 4, 5, 6 ],
-  [ 1, 6, 5, 4, 3, 2 ],
-  [ 1, 6, 4, 2, 5, 3 ],
-  [ 1, 4, 6, 2, 3, 5 ],
-  [ 1, 4, 3, 6, 5, 2 ],
-  [ 1, 6, 5, 3, 2, 4 ],
-  [ 1, 6, 2, 4, 5, 3 ] ];
+  [ 1, 2, 3, 4, 5, 6 ],    # 0
+  [ 1, 6, 5, 4, 3, 2 ],    # 1
+  [ 1, 6, 4, 2, 5, 3 ],    # 2
+  [ 1, 4, 6, 2, 3, 5 ],    # 3
+  [ 1, 4, 3, 6, 5, 2 ],    # 4
+  [ 1, 6, 5, 3, 2, 4 ],    # 5
+  [ 1, 6, 2, 4, 5, 3 ] ];  # 6
 
-my $board = [ ] ;
+my $board = { locations => [ ], score => 0 };
 
+# choose a piece for the center
+foreach $locations->[6] ( 0 .. 6 ) {
+    $pieces_left = [ 0 .. 6 ];
+    # print "( " . join(", ", @$pieces_left) . " )\n";
+    splice(@$pieces_left, $locations->[6]);
+    foreach $locations->[0] ( 0 .. 6 ) {
+    }
+}
 
 
 
@@ -36,17 +44,18 @@ __END__
    pieceUR,  rotationUR,
    score ]
 
-                     0   1   2   3   4   5   C 
+                     C   0   1   2   3   4   5  
                      P R P R P R P R P R P R P R Score
-   possible board:   0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
+   possible board:   4 5 0 5 3 5 1 5 5 5 6 5 2 5 12
                      123456789012345678901234567890
                               1         2         3
 
-   original board:   0 5 3 5 1 5 5 5 6 5 2 5 4 5 12
-   rotate clockwise: 2 0 0 0 3 0 1 0 5 0 6 0 4 0 12
-   rotate cw x 2:    6 1 2 1 0 1 3 1 1 1 5 1 4 1 12
-   rotate cw x 3:    5 2 6 2 2 2 0 2 3 2 1 2 4 2 12
-   rotate cw x 4:    1 3 5 3 6 3 2 3 0 3 3 3 4 3 12
+   original board:   4 5 0 5 3 5 1 5 5 5 6 5 2 5 12
+   rotate clockwise: 4 0 2 0 0 0 3 0 1 0 5 0 6 0 12
+   rotate cw x 2:    4 1 6 1 2 1 0 1 3 1 1 1 5 1 12
+   rotate cw x 3:    4 2 5 2 6 2 2 2 0 2 3 2 1 2 12
+   rotate cw x 4:    4 3 1 3 5 3 6 3 2 3 0 3 3 3 12
+   rotate cw x 5:    4 4 1 4 5 4 6 4 2 4 0 4 3 4 12
 stored as 30 characters (with 14 spaces)
 stored as 16 characters compact
 
@@ -89,6 +98,24 @@ symmetry (each outer piece advanced clockwise and all pieces rotated clockwise)
 
 How do I walk all 33.5 million possible boards without any of the other 5
 symmetricly equivalent boards?
+--------------------------------------------------------------------
+
+Answer: We are free to choose any one of the group of six symmetrically
+equivalent boards.  I will choose the one with the center hex in the orientation
+with it's '1' side facing up.  Additionally that will set the rotation of the
+hex in the top location to 3 (this causes it's '1' side to match the center's
+'1' side).
+
+This also substatially reduces our search set, as the other 5 hexes may NOT have
+their '1' side facing center, equivalent to their rotation != ( location + 3 ) % 6.
+
+With 7 choices for the center hex and 6 for the top hex, both with their rotations
+fixed, we will produce 42 files.
+
+Each file will have the following number of boards.   5 x 4 x 3 x 2 x 1 = 120.
+5^5 = 3125
+
+120 * 3125 = 375,000
 
 
 Checking a Single Connection
@@ -128,4 +155,5 @@ number on piece in direction upper right (trailing piece's number (4) + 1 ) % 6)
 
 Nur = number from piece (direction=(my location(5) - 2) + Rc) % 6
 --------------------------------------------------------------------
+
 
