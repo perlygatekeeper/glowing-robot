@@ -6,25 +6,42 @@ my $usage = "usage:\n$name";
 
 use strict;
 use warnings;
+use Algorithm::Combinatorics qw(permutations);
 
 my $pieces = [
-  [ 1, 2, 3, 4, 5, 6 ],    # 0
-  [ 1, 6, 5, 4, 3, 2 ],    # 1
-  [ 1, 6, 4, 2, 5, 3 ],    # 2
-  [ 1, 4, 6, 2, 3, 5 ],    # 3
-  [ 1, 4, 3, 6, 5, 2 ],    # 4
-  [ 1, 6, 5, 3, 2, 4 ],    # 5
-  [ 1, 6, 2, 4, 5, 3 ] ];  # 6
+    [ 1, 2, 3, 4, 5, 6 ],    # 0
+    [ 1, 6, 5, 4, 3, 2 ],    # 1
+    [ 1, 6, 4, 2, 5, 3 ],    # 2
+    [ 1, 4, 6, 2, 3, 5 ],    # 3
+    [ 1, 4, 3, 6, 5, 2 ],    # 4
+    [ 1, 6, 5, 3, 2, 4 ],    # 5
+    [ 1, 6, 2, 4, 5, 3 ] ];  # 6
 
-my $board = { locations => [ ], score => 0 };
+my $debug = 1;
+my $board;        # $board->{locations}[location] containsa hash containing piece id and rotation for piece at location
+                  # $board->{score}               contains the score for the board 0 to 12
+my $pieces_left;  # $pieces_left->[location]      contains an array ref to pieces left after choosing a piece for [location]
 
 # choose a piece for the center
-foreach $locations->[6] ( 0 .. 6 ) {
-    $pieces_left = [ 0 .. 6 ];
-    # print "( " . join(", ", @$pieces_left) . " )\n";
-    splice(@$pieces_left, $locations->[6]);
-    foreach $locations->[0] ( 0 .. 6 ) {
+foreach my $center ( 0 .. 6 ) {
+	my $location1 = 6;
+    $board->{locations}[$location1] = { piece => $center, rotation => 0 };
+    $pieces_left->[$location1] = [ ];
+    foreach my $piece ( 0 .. 6 ) {
+  	    push( @{$pieces_left->[$location1]}, $piece) unless ( $piece == $center);
     }
+    print "$center: ( " . join(", ", @{$pieces_left->[$location1]}) . " )\n" if ($debug);
+
+    foreach my $top ( @{$pieces_left->[$location1]} ) { # pieces left after choosing last location
+    	my $location2 = 0;                          # new location
+        $board->{locations}[$location2] = { piece => $top, rotation => 3 };
+        $pieces_left->[$location2] = [ ];
+        foreach my $piece ( @{$pieces_left->[$location1]} ) {
+  	        push( @{$pieces_left->[$location2]}, $piece) unless ( $piece == $top);
+        }
+        print "  $top ( " . join(", ", @{$pieces_left->[$location2]}) . " )\n" if ($debug);
+    }
+
 }
 
 
@@ -157,3 +174,13 @@ Nur = number from piece (direction=(my location(5) - 2) + Rc) % 6
 --------------------------------------------------------------------
 
 
+# splice @array, pos, [n], [list]
+#   removes and returns n elements from @array
+#   starting at pos, replacing them with list if given
+#   if n is not given will remove to end of @array
+#
+#        push(@a,$x,$y)      splice(@a,$#a+1,0,$x,$y)
+#        pop(@a)             splice(@a,-1)
+#        shift(@a)           splice(@a,0,1)
+#        unshift(@a,$x,$y)   splice(@a,0,0,$x,$y)
+#        $a[$x] = $y         splice(@a,$x,1,$y);
