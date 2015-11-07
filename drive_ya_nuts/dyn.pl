@@ -40,10 +40,38 @@ foreach my $center ( 0 .. 6 ) {
   	        push( @{$pieces_left->[$location2]}, $piece) unless ( $piece == $top);
         }
         print "  $top ( " . join(", ", @{$pieces_left->[$location2]}) . " )\n" if ($debug);
+        foreach my $rest ( permutations( $pieces_left->[$location2] ) ) {
+            foreach my $location ( 1 .. 5 ) {
+                $board->{locations}[$location] = {
+                	piece => $rest->[$location-1],  # arrays are indexed starting from 0, so rest will have 0 .. 4
+                 	rotation => &point_my_what_where(
+                	                $rest->[$location-1],  
+                 	                $board->{locations}[6]{piece}[$location], # the center pieces value pointing in direction  equal to the piece's location
+                 	                ( $location + 3 ) % 6
+                                ),
+                };
+			}
+		}
     }
-
 }
 
+sub score_me {
+    my( $board ) = shift_;
+    my $score = 0;
+	# score connections to center
+	# score connections amoung outer ring
+    return $board->{score} = $score;
+}
+
+sub point_my_what_where {
+    my( $piece, $value, $direction ) = @_;
+    foreach my $rotation ( 0 .. 4 ) {
+    	if ( $piece->[ ( $direction + $rotation ) % 6 ] == $value ) {
+    		return $rotation;
+		} 
+	}
+	return undef;
+}
 
 
 exit 0;
