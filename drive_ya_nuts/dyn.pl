@@ -16,9 +16,11 @@ my $pieces = [
     [ 1, 4, 3, 6, 5, 2 ],    # 4
     [ 1, 6, 5, 3, 2, 4 ],    # 5
     [ 1, 6, 2, 4, 5, 3 ] ];  # 6
+my $location_names  = (  'top', 'upper left',  'lower left',   'bottom', 'lower right',    'upper right',  'center', );
+my $direction_names = (  'up',  'up and left', 'down and left', 'down',  'down and right', 'up and right', );
 
 my $debug = 1;
-my $board;        # $board->{locations}[location] containsa hash containing piece id and rotation for piece at location
+my $board;        # $board->{locations}[location] contains a hash containing piece id and rotation for piece at location
                   # $board->{score}               contains the score for the board 0 to 12
 my $pieces_left;  # $pieces_left->[location]      contains an array ref to pieces left after choosing a piece for [location]
 
@@ -55,8 +57,34 @@ foreach my $center ( 0 .. 6 ) {
     }
 }
 
+sub from_string {
+    my ( $string ) = shift;
+    my $board ;
+    ( $board{locations}[6]{piece}, $board{locations}[6]{rotation},
+      $board{locations}[0]{piece}, $board{locations}[0]{rotation},
+      $board{locations}[1]{piece}, $board{locations}[1]{rotation},
+      $board{locations}[2]{piece}, $board{locations}[2]{rotation},
+      $board{locations}[3]{piece}, $board{locations}[3]{rotation},
+      $board{locations}[4]{piece}, $board{locations}[4]{rotation},
+      $board{locations}[5]{piece}, $board{locations}[5]{rotation},
+      $board{score} ) =
+    split( //, $string);
+    return $board;
+}
+
+sub to_string {
+    my ( $board ) = shift;
+    my $string = '';
+    foreach my $location ( 6, 0 .. 5 ) {
+        $string .= $board{locations}[$location]{piece};
+        $string .= $board{locations}[$location]{rotation};
+	}
+    $string .= sprintf ( "%01x", ($board{score} || '0') );
+    return $string;
+}
+
 sub score_me {
-    my( $board ) = shift_;
+    my( $board ) = shift;
     my $score = 0;
 	# score connections to center
 	# score connections amoung outer ring
@@ -64,7 +92,7 @@ sub score_me {
 }
 
 sub point_my_what_where {
-    my( $piece, $value, $direction ) = @_;
+    my ( $piece, $value, $direction ) = @_;
     foreach my $rotation ( 0 .. 4 ) {
     	if ( $piece->[ ( $direction + $rotation ) % 6 ] == $value ) {
     		return $rotation;
@@ -114,6 +142,7 @@ stored as 16 characters compact
  3 - bottom 
  4 - lower right 
  5 - upper right 
+ 6 center
 
 CONNECTIONS 
 for center piece, 6 connections are all directions
