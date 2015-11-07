@@ -60,14 +60,14 @@ foreach my $center ( 0 .. 6 ) {
 sub from_string {
     my ( $string ) = shift;
     my $board ;
-    ( $board{locations}[6]{piece}, $board{locations}[6]{rotation},
-      $board{locations}[0]{piece}, $board{locations}[0]{rotation},
-      $board{locations}[1]{piece}, $board{locations}[1]{rotation},
-      $board{locations}[2]{piece}, $board{locations}[2]{rotation},
-      $board{locations}[3]{piece}, $board{locations}[3]{rotation},
-      $board{locations}[4]{piece}, $board{locations}[4]{rotation},
-      $board{locations}[5]{piece}, $board{locations}[5]{rotation},
-      $board{score} ) =
+    ( $board->{locations}[6]{piece}, $board->{locations}[6]{rotation},
+      $board->{locations}[0]{piece}, $board->{locations}[0]{rotation},
+      $board->{locations}[1]{piece}, $board->{locations}[1]{rotation},
+      $board->{locations}[2]{piece}, $board->{locations}[2]{rotation},
+      $board->{locations}[3]{piece}, $board->{locations}[3]{rotation},
+      $board->{locations}[4]{piece}, $board->{locations}[4]{rotation},
+      $board->{locations}[5]{piece}, $board->{locations}[5]{rotation},
+      $board->{score} ) =
     split( //, $string);
     return $board;
 }
@@ -76,10 +76,10 @@ sub to_string {
     my ( $board ) = shift;
     my $string = '';
     foreach my $location ( 6, 0 .. 5 ) {
-        $string .= $board{locations}[$location]{piece};
-        $string .= $board{locations}[$location]{rotation};
+        $string .= $board->{locations}[$location]{piece};
+        $string .= $board->{locations}[$location]{rotation};
 	}
-    $string .= sprintf ( "%01x", ($board{score} || '0') );
+    $string .= sprintf ( "%01x", ($board->{score} || '0') );
     return $string;
 }
 
@@ -87,7 +87,37 @@ sub score_me {
     my( $board ) = shift;
     my $score = 0;
 	# score connections to center
+	foreach my $location ( 0 .. 5 ) {
+		my $direction1 =   $location;           # direction of number on center piece
+		my $direction2 = ( $location + 3 ) % 6; # direction of number on touching piece (opposite of center direction)
+		my $number_on_center_piece   = $board->{locations}[6]{piece}[$direction1];
+		my $number_on_touching_piece = $board->{locations}[$location]{piece}[$direction2];
+		if ( $number_on_center_piece == $number_on_touching_piece) {
+		    $score++;
+	    }
+	}
+# Example #2, connection between 2 outside pieces (six of these as well)
+# Plr = piece on lower right
+# Rlr = rotation of piece on lower right
+# Pur = piece on upper right
+# Rur = rotation of piece on upper right
+# number from lower right piece involved in connection ( location trailing in a clock-wise manner )
+# number on piece in direction lower right (4)
+# Nlr = number from piece (direction=(my location(4) + 2) + Rc) % 6
+# location top
+# number on piece in direction upper right (trailing piece's number (4) + 1 ) % 6) =  5
+# Nur = number from piece (direction=(my location(5) - 2) + Rc) % 6
 	# score connections amoung outer ring
+	foreach my $first_location ( 0 .. 5 ) {
+		my $touching_location = ( $first_piece + 1 ) % 6; # touching piece is piece located one space clock-wise
+		my $direction1 = ( $location + 2 ) % 6;           # direction of number on touching piece (opposite of center direction)
+		my $direction2 = ( $location - 2 ) % 6;           # direction of number on touching piece (opposite of center direction)
+		my $number_on_first_piece    = $board->{locations}[$first_location]{piece}[$direction1];
+		my $number_on_touching_piece = $board->{locations}[$touching_location]{piece}[$direction2];
+		if ( $number_on_first_piece == $number_on_touching_piece) {
+		    $score++;
+	    }
+	}
     return $board->{score} = $score;
 }
 
@@ -194,7 +224,7 @@ Each file will have the following number of boards.   5 x 4 x 3 x 2 x 1 = 120.
 
 Checking a Single Connection
 --------------------------------------------------------------------
-Esxample #1, connection involving the center (6 of these)
+Example #1, connection involving the center (6 of these)
 Pc = piece on center
 Rc = rotation of piece on center
 
