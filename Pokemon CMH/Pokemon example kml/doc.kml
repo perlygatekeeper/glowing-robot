@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Pokemon</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>PS's</name>
+			<Placemark>
+				<name>Downtown</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0023956,39.9830393,0.0 -83.02351,39.9684376,0.0 -83.0173302,39.951201,0.0 -82.979908,39.9555434,0.0 -82.9845428,39.972779,0.0 -83.0023956,39.9830393,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Thomson Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0704594,40.047033,0.0 -83.0736995,40.047148,0.0 -83.0737853,40.0448647,0.0 -83.0741501,40.0439612,0.0 -83.0742574,40.0415793,0.0 -83.0752873,40.0412014,0.0 -83.0752015,40.0407414,0.0 -83.0710602,40.0407579,0.0 -83.0710387,40.0412671,0.0 -83.0702662,40.0417764,0.0 -83.0699229,40.0434684,0.0 -83.0708456,40.044684,0.0 -83.0706096,40.0453575,0.0 -83.0704594,40.047033,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>OSU Main Campus</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0198193,40.0040814,0.0 -83.0200768,40.0029637,0.0 -83.0212355,40.002865,0.0 -83.021965,40.0011556,0.0 -83.0223513,39.9988215,0.0 -83.0221796,39.9975722,0.0 -83.0213642,39.9958297,0.0 -83.0207205,39.9922131,0.0 -83.0071163,39.9953366,0.0 -83.0092192,40.0059551,0.0 -83.0194759,40.0063496,0.0 -83.0198193,40.0040814,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Highbanks Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0183172,40.1532932,0.0 -83.0208707,40.1522272,0.0 -83.0252051,40.1513908,0.0 -83.0297327,40.151358,0.0 -83.031857,40.1506855,0.0 -83.0350113,40.1504887,0.0 -83.0335951,40.1488813,0.0 -83.0370069,40.1482253,0.0 -83.0386591,40.1501771,0.0 -83.038938,40.1515712,0.0 -83.038187,40.1541625,0.0 -83.0391526,40.1554909,0.0 -83.0407834,40.1561633,0.0 -83.0427361,40.1561633,0.0 -83.0441308,40.1544413,0.0 -83.0437446,40.1529652,0.0 -83.0416203,40.1511775,0.0 -83.0408907,40.1503411,0.0 -83.0401826,40.1489634,0.0 -83.0389595,40.1476184,0.0 -83.0357194,40.1469623,0.0 -83.032608,40.1478644,0.0 -83.0301833,40.1481433,0.0 -83.0284667,40.149357,0.0 -83.0248833,40.1502427,0.0 -83.0217075,40.1508003,0.0 -83.0193901,40.1509807,0.0 -83.018167,40.1520796,0.0 -83.0183172,40.1532932,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Fancyburg Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0900717,40.0242625,0.0 -83.0903721,40.0227507,0.0 -83.0897713,40.0222578,0.0 -83.0887842,40.0221592,0.0 -83.0846643,40.0220606,0.0 -83.084321,40.0240653,0.0 -83.0900717,40.0242625,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Langston Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0597305,40.0468195,0.0 -83.0600416,40.0470741,0.0 -83.0616618,40.0470002,0.0 -83.062284,40.0465977,0.0 -83.0616617,40.0451193,0.0 -83.0597305,40.0450947,0.0 -83.0592906,40.0454807,0.0 -83.0595374,40.0465977,0.0 -83.0597305,40.0468195,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Rush Run Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0225658,40.0747548,0.0 -83.0229521,40.0768893,0.0 -83.0246258,40.0766922,0.0 -83.0246687,40.0772176,0.0 -83.0294323,40.0774147,0.0 -83.0295181,40.0781699,0.0 -83.0308056,40.0781699,0.0 -83.0315351,40.0766922,0.0 -83.033123,40.0757071,0.0 -83.0335093,40.074919,0.0 -83.0225658,40.0747548,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Scioto Boat Club</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0960369,40.0207296,0.0 -83.0983329,40.020746,0.0 -83.0968308,40.0187905,0.0 -83.0961764,40.0185276,0.0 -83.0960369,40.0207296,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Kaltenbach Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.155421,40.077661,0.0 -83.1552762,40.076684,0.0 -83.1531787,40.0768154,0.0 -83.1525725,40.0770576,0.0 -83.1477392,40.0772546,0.0 -83.1491715,40.0780591,0.0 -83.155421,40.077661,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Franklin Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9597378,39.9667273,0.0 -82.9598236,39.9658228,0.0 -82.9546738,39.9651156,0.0 -82.9510904,39.9631586,0.0 -82.9490948,39.9630763,0.0 -82.9518414,39.9673522,0.0 -82.955618,39.9671385,0.0 -82.9597378,39.9667273,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>State house area</name>
+				<styleUrl>#poly-7C3592-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0065155,39.9642604,0.0 -83.0029964,39.9611027,0.0 -83.0035973,39.9580764,0.0 -82.9954433,39.958833,0.0 -82.996645,39.9652472,0.0 -83.0065155,39.9642604,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Franklin University</name>
+				<styleUrl>#poly-7C3592-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9934263,39.9581669,0.0 -82.9931796,39.9568839,0.0 -82.9898858,39.9572376,0.0 -82.9901004,39.9585698,0.0 -82.9934263,39.9581669,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Library</name>
+				<styleUrl>#poly-7C3592-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9864526,39.9604366,0.0 -82.9866457,39.9613741,0.0 -82.9886305,39.9612178,0.0 -82.9905725,39.9615961,0.0 -82.9905832,39.9610205,0.0 -82.988416,39.960231,0.0 -82.9864526,39.9604366,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Columbus Museum of Art</name>
+				<styleUrl>#poly-7C3592-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9904115,39.9661764,0.0 -82.9900467,39.963471,0.0 -82.9870319,39.9637999,0.0 -82.9875362,39.9665053,0.0 -82.9904115,39.9661764,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Thurber House</name>
+				<styleUrl>#poly-7C3592-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9845428,39.9668918,0.0 -82.9851758,39.9658146,0.0 -82.9849184,39.9648607,0.0 -82.9844677,39.964614,0.0 -82.9841781,39.9650827,0.0 -82.9844248,39.9660613,0.0 -82.9845428,39.9668918,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Capital University
+</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9378939,39.958504,0.0 -82.9429579,39.9573198,0.0 -82.9394388,39.9527143,0.0 -82.9338598,39.9525169,0.0 -82.9339457,39.9577804,0.0 -82.9378939,39.958504,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Ballantrae Community Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.1635106,40.0875772,0.0 -83.1653988,40.0874541,0.0 -83.1651092,40.0861243,0.0 -83.1628668,40.0864116,0.0 -83.1610966,40.0864445,0.0 -83.1609356,40.087766,0.0 -83.1635106,40.0875772,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Woodward Park (nearby)</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9765391,40.071947,0.0 -82.9765177,40.0701079,0.0 -82.9742861,40.0699601,0.0 -82.974329,40.071947,0.0 -82.9765391,40.071947,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Park of Roses</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.028059,40.0445526,0.0 -83.0285096,40.0424828,0.0 -83.0249262,40.042532,0.0 -83.0219221,40.0431234,0.0 -83.0216646,40.0443226,0.0 -83.028059,40.0445526,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Easton Town Center</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.918539,40.0577092,0.0 -82.9202557,40.0488398,0.0 -82.9146767,40.0479857,0.0 -82.9114151,40.0483142,0.0 -82.9123592,40.0557383,0.0 -82.918539,40.0577092,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Blendon Woods Park</name>
+				<styleUrl>#poly-DB4436-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.8874683,40.0765609,0.0 -82.8874683,40.0732113,0.0 -82.8733921,40.0730143,0.0 -82.8860092,40.0700586,0.0 -82.8843784,40.067497,0.0 -82.866354,40.0726202,0.0 -82.8727055,40.0754444,0.0 -82.8874683,40.0765609,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Hilliard</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.1574059,40.042532,0.0 -83.1574059,40.0361908,0.0 -83.1634998,40.0380473,0.0 -83.1655598,40.0380637,0.0 -83.1621908,40.0339892,0.0 -83.1604528,40.0301776,0.0 -83.1536508,40.0300137,0.0 -83.1423855,40.031492,0.0 -83.1512254,40.036158,0.0 -83.1574059,40.042532,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Schiller Park</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9955292,39.9431732,0.0 -82.9949284,39.9408042,0.0 -82.9903793,39.940541,0.0 -82.9901218,39.9438971,0.0 -82.9955292,39.9431732,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Livingston Park</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-82.9756165,39.952813,0.0 -82.9779124,39.9518672,0.0 -82.9813242,39.9526074,0.0 -82.9824293,39.9523113,0.0 -82.9790926,39.9506746,0.0 -82.9766142,39.9503949,0.0 -82.9756165,39.952813,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Mt. Calavary Cemetery</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.027662,39.9478781,0.0 -83.0259454,39.9454764,0.0 -83.021847,39.9462825,0.0 -83.0225337,39.949227,0.0 -83.027662,39.9478781,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Green Lawn Cemetery</name>
+				<styleUrl>#poly-A61B4A-1-77-nodesc</styleUrl>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<tessellate>1</tessellate>
+							<coordinates>-83.0204201,39.9399487,0.0 -83.0277586,39.9444235,0.0 -83.0370283,39.943272,0.0 -83.0379295,39.9324462,0.0 -83.0332088,39.9324133,0.0 -83.0354405,39.9349965,0.0 -83.0308914,39.937448,0.0 -83.0329514,39.9405246,0.0 -83.0305481,39.9419641,0.0 -83.0264282,39.9396526,0.0 -83.0204201,39.9399487,0.0</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Point 27</name>
+				<styleUrl>#icon-ci-1-nodesc</styleUrl>
+				<Point>
+					<coordinates>-83.0534971,40.0266368,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Point 28</name>
+				<styleUrl>#icon-1739-0288D1-nodesc</styleUrl>
+				<Point>
+					<coordinates>-83.0520487,40.0270065,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Point 29</name>
+				<styleUrl>#icon-1898-0097A7-nodesc</styleUrl>
+				<Point>
+					<coordinates>-83.0548167,40.0244596,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Style id='icon-1739-0288D1-nodesc-normal'>
+			<IconStyle>
+				<scale>1.0</scale>
+				<Icon>
+					<href>images/icon-2.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-1739-0288D1-nodesc-highlight'>
+			<IconStyle>
+				<scale>1.0</scale>
+				<Icon>
+					<href>images/icon-2.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-1739-0288D1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1739-0288D1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1739-0288D1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-1898-0097A7-nodesc-normal'>
+			<IconStyle>
+				<scale>1.0</scale>
+				<Icon>
+					<href>images/icon-3.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-1898-0097A7-nodesc-highlight'>
+			<IconStyle>
+				<scale>1.0</scale>
+				<Icon>
+					<href>images/icon-3.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-1898-0097A7-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-1898-0097A7-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-1898-0097A7-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='icon-ci-1-nodesc-normal'>
+			<IconStyle>
+				<scale>0.9</scale>
+				<Icon>
+					<href>images/icon-1.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-ci-1-nodesc-highlight'>
+			<IconStyle>
+				<scale>1.1</scale>
+				<Icon>
+					<href>images/icon-1.png</href>
+				</Icon>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-ci-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-ci-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-ci-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='poly-7C3592-1-77-nodesc-normal'>
+			<LineStyle>
+				<color>ff92357C</color>
+				<width>1</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D92357C</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='poly-7C3592-1-77-nodesc-highlight'>
+			<LineStyle>
+				<color>ff92357C</color>
+				<width>2.0</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D92357C</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='poly-7C3592-1-77-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#poly-7C3592-1-77-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#poly-7C3592-1-77-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='poly-A61B4A-1-77-nodesc-normal'>
+			<LineStyle>
+				<color>ff4A1BA6</color>
+				<width>1</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D4A1BA6</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='poly-A61B4A-1-77-nodesc-highlight'>
+			<LineStyle>
+				<color>ff4A1BA6</color>
+				<width>2.0</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D4A1BA6</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='poly-A61B4A-1-77-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#poly-A61B4A-1-77-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#poly-A61B4A-1-77-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='poly-DB4436-1-77-nodesc-normal'>
+			<LineStyle>
+				<color>ff3644DB</color>
+				<width>1</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D3644DB</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='poly-DB4436-1-77-nodesc-highlight'>
+			<LineStyle>
+				<color>ff3644DB</color>
+				<width>2.0</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>4D3644DB</color>
+				<fill>1</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='poly-DB4436-1-77-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#poly-DB4436-1-77-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#poly-DB4436-1-77-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>
