@@ -150,7 +150,7 @@ sub pretty {
             $numbers->[$location][$direction] =
               $pieces->[ $b->[$location]{piece} ][ ( $direction + $b->[$location]{rotation}) % 6 ];
         }
-    }
+     }
     printf("\n          ___\n");
     printf("         / %1d \\\n",                   $numbers->[0][0]);
     printf("     ___/ %1d %1d \\___\n",             $numbers->[0][5], $numbers->[0][1]);
