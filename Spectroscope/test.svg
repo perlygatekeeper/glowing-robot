@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg height="1500" width="1000" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<rect height="1480" id="doc_window" rx="0.5" ry="0.5" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="980" x="10" y="10" />
-	<path d=" m  100 280  l  80 5  l  0 -200  l  -160 0  l  0 200  z " style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+<svg height="1500" width="950" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<rect height="1480" id="doc_window" rx="0.5" ry="0.5" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="930" x="10" y="10" />
+	<path d="M   591.750000, 1476.000000   593.750000, 1428.000000   595.750000, 1476.000000   831.250000, 1476.000000 
+  831.250000, 1428.000000   915.910196, 1336.034511   741.175768, 1175.180138   741.175768, 975.180138 
+  593.675768, 975.180138   641.675768, 973.180138   641.675768, 829.680138   593.675768, 827.680138 
+  641.675768, 825.680138   641.675768, 629.680138   593.675768, 627.680138   641.675768, 625.680138 
+  641.675768, 392.180138   593.675768, 390.180138   641.675768, 388.180138   641.675768, 265.180138 
+  593.675768, 263.180138   593.675768, 25.680138 
+  356.324232, 25.680138   356.324232, 263.180138 
+  308.324232, 265.180138   308.324232, 388.180138   356.324232, 390.180138   308.324232, 392.180138 
+  308.324232, 625.680138   356.324232, 627.680138   308.324232, 629.680138   308.324232, 825.680138 
+  356.324232, 827.680138   308.324232, 829.680138   308.324232, 973.180138   356.324232, 975.180138 
+  208.824232, 975.180138   208.824232, 1175.180138   34.089804, 1336.034511   118.750000, 1428.000000 
+  118.750000, 1476.000000   354.250000, 1476.000000   356.250000, 1428.000000   358.250000, 1476.000000 
+Z
+" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
 	<rect height="63.5" id="viewer" rx="0.5" ry="0.5" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="127" x="350" y="500" />
-	<rect height="2" id="slit" rx="0.2" ry="0.2" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="170" x="350" y="1000" />
+	<rect height="2" id="slit" rx="0.2" ry="0.2" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="170" x="389.925767668349" y="875.180137904745" />
+	<path d="M 831.250000 1428.000000 118.750000 1428.000000" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 356.324232 975.180138 593.675768 975.180138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 593.675768 827.680138 356.324232 827.680138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 356.324232 627.680138 593.675768 627.680138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 593.675768 390.180138 356.324232 390.180138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 356.324232 263.180138 593.675768 263.180138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 593.675768 263.180138 593.750000 1428.000000" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 593.750000 1428.000000 356.250000 1428.000000" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
+	<path d="M 356.250000 1428.000000 356.324232 263.180138" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" />
 </svg>

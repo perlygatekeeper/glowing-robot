@@ -19,11 +19,11 @@ my $svg = SVG->new(
         -elsep      => "\n",
         -nocredits  => 1,
           );
-# path_doc_window(   $params, $svg );
+  path_doc_window(   $params, $svg );
   path_outside_cut(  $params, $svg );
   path_viewer_cut(   $params, $svg );
   path_slit_cut(     $params, $svg );
-# paths_for_scoring( $params, $svg , $lines);
+  paths_for_scoring( $params, $svg );
 
 # or, explicitly use svg namespace and generate a document with its own DTD
 print $svg->xmlify() . "\n";
@@ -36,6 +36,8 @@ sub path_doc_window {
   my ( $params, $svg ) = @_;
   my $x = 10;
   my $y = 10;
+  my $save_stroke = $params->{style}{stroke};
+  $params->{style}{stroke} = 'rgb(100,0,100)';
   my $rect = $svg->rectangle(
             id     => 'doc_window',
             x      => $x,
@@ -46,6 +48,7 @@ sub path_doc_window {
             ry     => 0.5,
             style  => $params->{style},
         );
+  $params->{style}{stroke} = $save_stroke;
 }
 
 sub path_outside_cut {
@@ -58,13 +61,13 @@ sub path_outside_cut {
 # 	 -relative => 1,
 # 	 -closed   => 1,
 # );
+#           %$points, # from get_apath call
 # print STDERR ref $points; 
 # print STDERR join(", ", keys %$points)   . "\n"; 
 # print STDERR join(", ", values %$points) . "\n"; 
 # print STDERR "\n\n\n";
   my $path_string = construct_outside_path($params);
   my $path = $svg->path(
-#           %$points, # from get_apath call
             d      => $path_string,
             style  => $params->{style},
   );
@@ -82,8 +85,8 @@ sub construct_outside_path {
   # scoring/folding points will be stored in params in the array ref
   # keyed by string "folds"
   my $x = $params->{doc_width} / 2 + $params->{width} / 2 - $params->{epsilon};
-  my $y = $params->{doc_height} - $params->{tab_width} * 2;
-  $params->{origin} = [ $x, $y ];
+  my $y = $params->{doc_height} - $params->{tab_width} / 2;
+  $params->{first_cut_point} = [ $x, $y ];
 
 # right slit of bottom, center tab
   push(    @$up_path,  [ $x, $y ] );
@@ -93,6 +96,8 @@ sub construct_outside_path {
   $y -= $params->{tab_width};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{vertical_fold}[1] = [ $x, $y ];
+  $params->{vertical_fold}[2] = [ ( $params->{doc_width} - $x ), $y ];
 
 # bottom, right tab
   $x += $params->{epsilon};
@@ -107,7 +112,7 @@ sub construct_outside_path {
   $y -= $params->{tab_width};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 1 is right to left
+  push( @{ $params->{folds} }, [ [ $x, $y ], [ ( $params->{doc_width} - $x ), $y ] ] ); # fold 1 is right to left
 
   # trace upper portion of right side of spectroscope
 
@@ -128,8 +133,11 @@ sub construct_outside_path {
   $x -= $params->{front_height};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 2 is left  to right
+  push( @{ $params->{folds} }, [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y ] ] ); # fold 2 is left  to right
 
+  # position slit
+  $params->{slit_x} = $x - ( $params->{slit_width} / 2 ) - ( $params->{width} / 2 );
+  $params->{slit_y} = $y - $params->{viewer_tube_height} * 0.8;
 
   # first tab up right-hand side
   $x += $params->{tab_width};
@@ -145,7 +153,7 @@ sub construct_outside_path {
   $y -= $params->{epsilon};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 3 is right to left
+  push( @{ $params->{folds} }, [ [ $x, $y ], [ ( $params->{doc_width} - $x ), $y ] ] ); # fold 3 is right to left
 
 
   # second tab up right-hand side
@@ -162,7 +170,7 @@ sub construct_outside_path {
   $y -= $params->{epsilon};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 4 is left  to right
+  push( @{ $params->{folds} }, [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y ] ] ); # fold 4 is left  to right
 
 
   # third tab up right-hand side
@@ -179,7 +187,7 @@ sub construct_outside_path {
   $y -= $params->{epsilon};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 5 is right to left
+  push( @{ $params->{folds} }, [ [ $x, $y ], [ ( $params->{doc_width} - $x ), $y ] ] ); # fold 5 is right to left
 
 
   # forth and final tab up right-hand side
@@ -196,7 +204,9 @@ sub construct_outside_path {
   $y -= $params->{epsilon};
   push(    @$up_path,  [ $x, $y ] );
   unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
-  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 6 is left  to right
+  push( @{ $params->{folds} }, [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y ] ] ); # fold 6 is left  to right
+  $params->{vertical_fold}[0] = [ $x, $y ];
+  $params->{vertical_fold}[3] = [ ( $params->{doc_width} - $x ), $y ];
 
   # last segement of right-hand side
   $y -= $params->{back_height};
@@ -206,18 +216,18 @@ sub construct_outside_path {
   # -------------------------------------------------------------------
   # now construct and return the path "d" string
   # -------------------------------------------------------------------
-  my $d_string = '"m ';
+  my $d_string = 'M ';
   my $i = 0;
   foreach my $point ( @$up_path ) {
-    $d_string .= sprintf( "%f, %f ", @$point);
+    $d_string .= sprintf( "  %f, %f ", @$point);
     $d_string .= "\n" if ( not ( ++$i % 4 ) );
   }
   $d_string .= "\n";
   foreach my $point ( @$ret_path ) {
-    $d_string .= sprintf( "%f, %f ", @$point);
+    $d_string .= sprintf( "  %f, %f ", @$point);
     $d_string .= "\n" if ( not ( ++$i % 4 ) );
   }
-  $d_string .= qq( z"\n);
+  $d_string .= qq(Z\n);
 }
 
 sub path_viewer_cut {
@@ -249,24 +259,38 @@ sub path_viewer_cut {
 }
 
 sub paths_for_scoring {
-  my ( $params, $svg, $lines ) = @_;
+  my ( $params, $svg ) = @_;
+  my $path;
+  foreach my $line ( @{ $params->{folds} } ) {
+    $path = $svg->path(
+            d      => sprintf("M %f %f %f %f", @{ $line->[0] }, @{ $line->[1] } ),
+            style  => $params->{style},
+    );
+  }
+  foreach my $index ( 0 .. 2 ) {
+#   print STDERR $index . "\n";
+    $path = $svg->path(
+            d      => sprintf("M %f %f %f %f", @{ $params->{vertical_fold}[$index] }, @{ $params->{vertical_fold}[$index+1] } ),
+            style  => $params->{style},
+    );
+  }
 }
 
 sub set_parameters {
   my $params;
 
-  $params->{doc_width}          = 1000;
+  $params->{doc_width}          =  950;
   $params->{doc_height}         = 1500;
 
-  $params->{tab}                =   52.0; 
+  $params->{tab_width}          =   48.0; 
   $params->{epsilon}            =    2.0; # intertab distance
 
   $params->{width}              =  237.5; # overall width
   $params->{front_length}       =  200.0; # front   length
   $params->{length}             =  467.5; # overall length 
 
-  $params->{front_height}       =  237.5; # height of slit end
-  $params->{back_height}        =  147.5; # height of viewer end
+  $params->{front_height}       =  147.5; # height of slit end
+  $params->{back_height}        =  237.5; # height of viewer end
 
   $params->{viewer_width}       =  127.0;
   $params->{viewer_height}      =   63.5;
@@ -284,6 +308,7 @@ sub set_parameters {
   $params->{alpha}  = asin_real( $params->{viewer_tube_height} / $params->{viewer_tube_length} );
   $params->{beta}   = asin_real( ( $params->{back_height} - $params->{front_height} ) / ( $params->{length} - $params->{front_length} ) );
   $params->{gamma}  = ( $params->{alpha} - $params->{beta} );
+  $params->{gamma}  = pi/3.8;
   $params->{theta}  = pi - $params->{gamma} ; # viewer angle 
   $params->{style}  = { 'fill'            => 'none',
                         'fill-rule'       => 'evenodd',
