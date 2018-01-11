@@ -19,7 +19,7 @@ my $svg = SVG->new(
         -elsep      => "\n",
         -nocredits  => 1,
           );
-  path_doc_window(   $params, $svg );
+# path_doc_window(   $params, $svg );
   path_outside_cut(  $params, $svg );
   path_viewer_cut(   $params, $svg );
   path_slit_cut(     $params, $svg );
@@ -50,22 +50,161 @@ sub path_doc_window {
 
 sub path_outside_cut {
   my ( $params, $svg ) = @_;
-  my $path_string = "m 100 280  80 0  0 -200  -160 0  0 200 z";
-  my $points = $svg->get_path(
-  	 x         => [100, 80,    0, -160,   0],
-  	 y         => [280,  5, -200,    0, 200],
-  	 -type     => 'path',
-  	 -relative => 1,
-  	 -closed   => 1,
-  );
+# my $path_string = "m 100 280  80 0  0 -200  -160 0  0 200 z";
+# my $points = $svg->get_path(
+# 	 x         => [100, 80,    0, -160,   0],
+# 	 y         => [280,  5, -200,    0, 200],
+# 	 -type     => 'path',
+# 	 -relative => 1,
+# 	 -closed   => 1,
+# );
 # print STDERR ref $points; 
 # print STDERR join(", ", keys %$points)   . "\n"; 
 # print STDERR join(", ", values %$points) . "\n"; 
 # print STDERR "\n\n\n";
+  my $path_string = construct_outside_path($params);
   my $path = $svg->path(
-            %$points,
+#           %$points, # from get_apath call
+            d      => $path_string,
             style  => $params->{style},
   );
+}
+
+sub construct_outside_path {
+  # constructing outside path for spectroscope
+  # absolute points will be used
+  my ( $params, ) = @_;
+  my $up_path;  # array of points up right-hand side
+  my $ret_path; # array of points down left-hand side
+  # each point will be pushed onto end of points array
+  # it's mirror will be unshifted onto return array
+  # two arrays will be merged and a path string constructed
+  # scoring/folding points will be stored in params in the array ref
+  # keyed by string "folds"
+  my $x = $params->{doc_width} / 2 + $params->{width} / 2 - $params->{epsilon};
+  my $y = $params->{doc_height} - $params->{tab_width} * 2;
+  $params->{origin} = [ $x, $y ];
+
+# right slit of bottom, center tab
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x += $params->{epsilon};
+  $y -= $params->{tab_width};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+# bottom, right tab
+  $x += $params->{epsilon};
+  $y += $params->{tab_width};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x += ( $params->{back_height} - $params->{epsilon} );
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $y -= $params->{tab_width};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 1 is right to left
+
+  # trace upper portion of right side of spectroscope
+  # two diagonal moves go here
+
+  $y -= $params->{front_length};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{front_height};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 2 is left  to right
+
+
+  # first tab up right-hand side
+  $x += $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $y -= ( $params->{front_height} - $params->{epsilon} * 2 );
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 3 is right to left
+
+
+  # second tab up right-hand side
+  $x += $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $y -= ( $params->{front_length} - $params->{epsilon} * 2 );
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 4 is left  to right
+
+
+  # third tab up right-hand side
+  $x += $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $y -= ( $params->{viewer_tube_length} - $params->{epsilon} * 2 );
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 5 is right to left
+
+
+  # forth and final tab up right-hand side
+  $x += $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $y -= ( $params->{viewer_tube_height} - $params->{epsilon} );
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{tab_width};
+  $y -= $params->{epsilon};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  $params->{folds} = [ [ ( $params->{doc_width} - $x ), $y ], [ $x, $y] ]; # fold 6 is left  to right
+
+  # last segement of right-hand side
+  $y -= $params->{back_height};
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+  
+  # -------------------------------------------------------------------
+  # now construct and return the path "d" string
+  # -------------------------------------------------------------------
+  my $d_string = '"m ';
+  foreach my $point ( @$up_path ) {
+    $d_string .= sprintf( "%f, %f ", @$point);
+  }
+  foreach my $point ( @$ret_path ) {
+    $d_string .= sprintf( "%f, %f ", @$point);
+  }
+  $d_string .= qq( z"\n);
 }
 
 sub path_viewer_cut {
@@ -103,31 +242,31 @@ sub paths_for_scoring {
 sub set_parameters {
   my $params;
 
-  $params->{doc_width}          = 200;
-  $params->{doc_height}         = 300;
+  $params->{doc_width}          = 1000;
+  $params->{doc_height}         = 1500;
 
-  $params->{tab}                =  10.4; 
-  $params->{epsilon}            =   0.4; # intertab distance
+  $params->{tab}                =   52.0; 
+  $params->{epsilon}            =    2.0; # intertab distance
 
-  $params->{width}              =  47.5; # overall width
-  $params->{front_length}       =  40.0; # front   length
-  $params->{length}             =  93.5; # overall length 
+  $params->{width}              =  237.5; # overall width
+  $params->{front_length}       =  200.0; # front   length
+  $params->{length}             =  467.5; # overall length 
 
-  $params->{front_height}       =  47.5; # height of slit end
-  $params->{back_height}        =  29.5; # height of viewer end
+  $params->{front_height}       =  237.5; # height of slit end
+  $params->{back_height}        =  147.5; # height of viewer end
 
-  $params->{viewer_width}       =  25.4;
-  $params->{viewer_height}      =  12.7;
-  $params->{viewer_x}           =  70.0;
-  $params->{viewer_y}           = 100.0;
+  $params->{viewer_width}       =  127.0;
+  $params->{viewer_height}      =   63.5;
+  $params->{viewer_x}           =  350.0;
+  $params->{viewer_y}           =  500.0;
 
-  $params->{slit_width}         =  34.0;
-  $params->{slit_height}        =   0.4;
-  $params->{slit_x}             =  70.0;
-  $params->{slit_y}             = 200.0;
+  $params->{slit_width}         =  170.0;
+  $params->{slit_height}        =    2.0;
+  $params->{slit_x}             =  350.0;
+  $params->{slit_y}             = 1000.0;
 
-  $params->{viewer_tube_length} = 47.5; # view portal length
-  $params->{viewer_tube_height} = 25.0; # view portal height
+  $params->{viewer_tube_length} =  237.5; # view portal length
+  $params->{viewer_tube_height} =  125.0; # view portal height
 
   $params->{alpha}  = asin_real( $params->{viewer_tube_height} / $params->{viewer_tube_length} );
   $params->{beta}   = asin_real( ( $params->{back_height} - $params->{front_height} ) / ( $params->{length} - $params->{front_length} ) );
@@ -159,12 +298,6 @@ __END__
             ry     => 2.4,
             id     => 'rect_1'
         );
-
-
-
-
-
-
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
