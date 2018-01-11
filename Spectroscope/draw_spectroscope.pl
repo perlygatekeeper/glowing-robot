@@ -110,7 +110,16 @@ sub construct_outside_path {
   $params->{folds} = [ [ $x, $y], [ ( $params->{doc_width} - $x ), $y ] ]; # fold 1 is right to left
 
   # trace upper portion of right side of spectroscope
-  # two diagonal moves go here
+
+  $x += $params->{viewer_tube_height} * cos($params->{gamma});
+  $y -= $params->{viewer_tube_height} * sin($params->{gamma});
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
+
+  $x -= $params->{viewer_tube_length} * sin($params->{gamma});
+  $y -= $params->{viewer_tube_length} * cos($params->{gamma});
+  push(    @$up_path,  [ $x, $y ] );
+  unshift( @$ret_path, [ ( $params->{doc_width} - $x ), $y ] );
 
   $y -= $params->{front_length};
   push(    @$up_path,  [ $x, $y ] );
@@ -198,11 +207,15 @@ sub construct_outside_path {
   # now construct and return the path "d" string
   # -------------------------------------------------------------------
   my $d_string = '"m ';
+  my $i = 0;
   foreach my $point ( @$up_path ) {
     $d_string .= sprintf( "%f, %f ", @$point);
+    $d_string .= "\n" if ( not ( ++$i % 4 ) );
   }
+  $d_string .= "\n";
   foreach my $point ( @$ret_path ) {
     $d_string .= sprintf( "%f, %f ", @$point);
+    $d_string .= "\n" if ( not ( ++$i % 4 ) );
   }
   $d_string .= qq( z"\n);
 }
@@ -270,7 +283,8 @@ sub set_parameters {
 
   $params->{alpha}  = asin_real( $params->{viewer_tube_height} / $params->{viewer_tube_length} );
   $params->{beta}   = asin_real( ( $params->{back_height} - $params->{front_height} ) / ( $params->{length} - $params->{front_length} ) );
-  $params->{theta}  = pi - $params->{alpha} - $params->{beta} ; # viewer angle 
+  $params->{gamma}  = ( $params->{alpha} - $params->{beta} );
+  $params->{theta}  = pi - $params->{gamma} ; # viewer angle 
   $params->{style}  = { 'fill'            => 'none',
                         'fill-rule'       => 'evenodd',
                         'stroke'          => 'rgb(100,200,50)',
