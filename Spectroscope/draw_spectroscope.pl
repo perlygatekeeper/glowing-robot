@@ -13,12 +13,13 @@ my $params = set_parameters();
 # print ref($params) . "\n";
 
 my $svg = SVG->new(
-         width      => 200,
-         height     => 300,
+         width      => $params->{doc_width},
+         height     => $params->{doc_height},
         -indent     => "\t",
         -elsep      => "\n",
         -nocredits  => 1,
           );
+  path_doc_window(   $params, $svg );
   path_outside_cut(  $params, $svg );
   path_viewer_cut(   $params, $svg );
   path_slit_cut(     $params, $svg );
@@ -30,6 +31,22 @@ print $svg->xmlify() . "\n";
 exit 0;
 
 # -------------------------------------------------------------------------
+
+sub path_doc_window {
+  my ( $params, $svg ) = @_;
+  my $x = 10;
+  my $y = 10;
+  my $rect = $svg->rectangle(
+            id     => 'doc_window',
+            x      => $x,
+            y      => $y,
+            width  => $params->{doc_width}  - 2 * $x,
+            height => $params->{doc_height} - 2 * $y,
+            rx     => 0.5,
+            ry     => 0.5,
+            style  => $params->{style},
+        );
+}
 
 sub path_outside_cut {
   my ( $params, $svg ) = @_;
@@ -86,23 +103,26 @@ sub paths_for_scoring {
 sub set_parameters {
   my $params;
 
-  $params->{tab}                = 10.4; 
-  $params->{epsilon}            =  0.4; # intertab distance
+  $params->{doc_width}          = 200;
+  $params->{doc_height}         = 300;
 
-  $params->{width}              = 47.5; # overall width
-  $params->{front_length}       = 40.0; # front   length
-  $params->{length}             = 93.5; # overall length 
+  $params->{tab}                =  10.4; 
+  $params->{epsilon}            =   0.4; # intertab distance
 
-  $params->{front_height}       = 47.5; # height of slit end
-  $params->{back_height}        = 29.5; # height of viewer end
+  $params->{width}              =  47.5; # overall width
+  $params->{front_length}       =  40.0; # front   length
+  $params->{length}             =  93.5; # overall length 
 
-  $params->{viewer_width}       = 25.4;
-  $params->{viewer_height}      = 12.7;
+  $params->{front_height}       =  47.5; # height of slit end
+  $params->{back_height}        =  29.5; # height of viewer end
+
+  $params->{viewer_width}       =  25.4;
+  $params->{viewer_height}      =  12.7;
   $params->{viewer_x}           =  70.0;
   $params->{viewer_y}           = 100.0;
 
-  $params->{slit_width}         = 34.0;
-  $params->{slit_height}        =  0.4;
+  $params->{slit_width}         =  34.0;
+  $params->{slit_height}        =   0.4;
   $params->{slit_x}             =  70.0;
   $params->{slit_y}             = 200.0;
 
