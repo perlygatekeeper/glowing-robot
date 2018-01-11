@@ -208,6 +208,10 @@ sub construct_outside_path {
   $params->{vertical_fold}[0] = [ $x, $y ];
   $params->{vertical_fold}[3] = [ ( $params->{doc_width} - $x ), $y ];
 
+  # position viewer
+  $params->{viewer_x} = $x - ( $params->{viewer_width} / 2 ) - ( $params->{width} / 2 );
+  $params->{viewer_y} = $y + ( $params->{viewer_tube_height} - $params->{viewer_height} ) / 2;
+
   # last segement of right-hand side
   $y -= $params->{back_height};
   push(    @$up_path,  [ $x, $y ] );
