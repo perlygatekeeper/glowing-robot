@@ -1,0 +1,432 @@
+#!/usr/bin/env perl
+#
+# A perl-5 script to printout an
+# ASCII ( American Standard Code for Information Interchange ) table
+#
+# Later may be modified to also be able to print out an
+# EBCDIC (Extended Binary Coded Decimal Interchange Code) table 
+# and perhaps MORSE CODE as well.
+#
+$name = $0; $name =~ s'.*/''; # remove path--like basename
+$usage = "usage:\n$name [-octal || -hexadecimal || -decimal] [-columns [#] || -single] [-specials]";
+
+$debug=0;
+
+# Defaults
+$type="octal";
+$table=1;
+$add_specials=0;
+$start=0; $end=127;
+$columns{"binary"}=5;
+$columns{"octal"}=8;
+$columns{"hexadecimal"}=16;
+$columns{"decimal"}=10;
+
+select(STDOUT); $\="\n";
+&parse_args();
+&specials(); # apply this if, when I split names and specials routines if ($add_specials);
+&ascii_numbers(@ascii_numbers) if (@ascii_numbers);
+&characters(@characters)       if (@characters);
+&output($type)                 if (not $output);
+
+exit 0;
+
+sub ascii_numbers {
+  my(@ascii_numbers)=@_;
+  my $number, $special, $character, $number_in_hex;
+  foreach $number (@ascii_numbers) {
+#   if ($number =~ /^\d+$/) {                # decimal number
+#     $character=chr $number;
+#     $number_in_hex = sprintf("%02x",$number);
+#     $number_in_dec = $number;
+#   } elsif ($number =~ /^0x[\da-f]{2}$/i) { # hexadecimal number
+#     $character=chr $number;
+#     $number_in_hex = $number;
+#     $number_in_dec = hex $number; # change number to decimal 
+#   }
+    $character=chr $number;
+    $special=$specials{$number_in_hex = sprintf("%02x",$number)};
+    printf "%04o %3d 0x%02x; '%s'\n", $number, $number, $number, $special || $character;
+  }
+  $output++;
+}
+
+sub characters {
+  my(@characters)=@_;
+  printf "     Dec Oct  Hex Binary\n";
+  foreach $character (@characters) {
+    $special=$specials{$character};
+    $name=$names{$special};
+    $long_name=$long_names{$special};
+    $ascii=unpack('C',$character);
+    printf "%3s: %3d %03o 0x%02x %8s\n",$special || $character, $ascii, $ascii, $ascii, &binary($ascii);
+    if ($special or $name or $long_name) {
+      printf "%3s: %s %s \n",$special || $character, $name, $long_name;
+    }
+  }
+  $output++;
+}
+
+sub output {
+# elsif ($type =~ /hexadecimal/i)	{ $format='0x%02x'; $spaces=" " x 4; }
+  $type=shift;
+     if ($type =~ /octal/i)       { $format='%03o';   $spaces=" " x 3; }
+  elsif ($type =~ /hexadecimal/i) { $format='%02x';   $spaces=" " x 2; }
+  elsif ($type =~ /decimal/i)     { $format='%3d';    $spaces=" " x 3; }
+  elsif ($type =~ /binary/i)      { $format='%8s';    $spaces=" " x 8; }
+  else { die "unknown type: '$type'"; }
+  $column=0;
+  foreach $ascii ( $start .. $end ) {
+    $column++;
+#   chr function is equivalent to $char=pack('C',$i);
+    $special=$specials{sprintf("%02x",$ascii)};
+    $name=$names{$special || $ascii} || chr $ascii;
+    $number=($type=~/binary/i) ? sprintf("%s",&binary($ascii)) : $ascii;
+
+    $line .=		sprintf(" $format %3s",$number,$name);
+    if ($add_specials) {
+      if ($special_line) {
+        $special_line .= sprintf(" $spaces %3s", $special)
+      } elsif ($special) { # first one
+        printf "%d\t%d\n", $column, (($column-1)%$columns) if ($debug);
+        $special_line .= sprintf("%s $spaces %3s", " $spaces    " x (($column-1)%($columns)),
+                                                	  $special)
+      }
+    }
+    if (not $column%$columns) {
+      print "$special_line" if ($special_line);
+      print "$line";
+      $line=$special_line='';
+    }
+  }
+  print "$special_line" if ($special_line);
+  print "$line";
+  $line=$special_line='';
+}
+
+sub binary {
+  my(@numbers)=@_;
+  my(@binaries);
+  my($num_digits)=8;
+  my($use_unpack)=0;
+  foreach $number (@numbers) {
+    if ($number>255)	{ $num_digits=16; } 
+    if ($number>65535)	{ $num_digits=32; } 
+    $binary='';
+    if ($use_unpack) {
+      push(@binaries,$binary=unpack("8b",$number));
+    } else {
+      foreach $digit ( reverse 0 .. ($num_digits-1)  ) {
+        if ($number & 2**$digit) {
+          $binary.='1';
+        } else {
+          $binary.='0';
+        }
+      }
+      push(@binaries,$binary);
+    }
+  }
+  if (wantwarray) {
+    return @binaries;
+  } else {
+    return $binaries[0];
+  }
+}
+
+sub parse_args {
+
+  my $abbrev = {};
+
+  @args=('?','help');
+  @help=('print this message','print this message');
+
+  push(@args,'octal','hexadecimal','decimal','binary','columns','single','debug');
+  push(@help,'output numerical values in octal (the default)',
+             'output numerical values in hexadecimal',
+             'output numerical values in decimal',
+             'output numerical values in binary',
+             'tabular output (the default) (#columns may be specified)',
+             'single column output',
+             'increment debug level');
+  push(@args,'start','end');
+  push(@help,'starting numerical value for table',
+             'ending   numerical value for table');
+  push(@args,'specials');
+  push(@help,'add control-identities (ie. BEL is ^G and ESC is ^])');
+
+  grep(s/^([^-])/-\1/,@args);
+
+  use Text::Abbrev;
+  abbrev($abbrev, @args);
+
+  while ( @ARGV >= 1 ) {
+    print "parsing '$ARGV[0]'" if ($debug);
+    $ARGV[0] =~ s/^--/-/;
+    if      ( ($abbrev->{$ARGV[0]} eq '-help' )
+           || ($abbrev->{$ARGV[0]} eq '-?' ) ) {
+      help($usage);
+      shift(@ARGV);
+
+    } elsif ( $abbrev->{$ARGV[0]} eq '-debug' ) {
+      $debug++;
+      shift(@ARGV);
+    } elsif ( $abbrev->{$ARGV[0]} eq '-octal' ) {
+      $type="octal";
+      shift(@ARGV);
+    } elsif ( $abbrev->{$ARGV[0]} eq '-hexadecimal' ) {
+      $type="hexadecimal";
+      shift(@ARGV);
+    } elsif ( $abbrev->{$ARGV[0]} eq '-decimal' ) {
+      $type="decimal";
+      shift(@ARGV);
+    } elsif ( $abbrev->{$ARGV[0]} eq '-binary' ) {
+      $type="binary";
+      shift(@ARGV);
+
+    } elsif ( $abbrev->{$ARGV[0]} eq '-single' ) {
+      $columns=1; $table=0;
+      shift(@ARGV);
+    } elsif ( $abbrev->{$ARGV[0]} eq '-columns' ) {
+      shift(@ARGV);
+      if ($ARGV[0] =~ /\d+/) {
+        $columns=$ARGV[0];
+        shift(@ARGV);
+      } else {
+        $table=1;
+      }
+
+    } elsif ( $abbrev->{$ARGV[0]} eq '-start' ) {
+      shift(@ARGV);
+      if ( $ARGV[0] =~ /^[1-9]\d*$|^0$/ ) { # decimal number
+        $start=$ARGV[0]; shift(@ARGV);
+      } elsif ( $ARGV[0] =~ /^0[xX][\dA-Fa-f]+$/ ) { # hexadecimal number
+        $start=unpack("h",$ARGV[0]); shift(@ARGV);
+      } elsif ( $ARGV[0] =~ /^0[0-7]+$/ ) { # octal number
+        $start=unpack("o",$ARGV[0]); shift(@ARGV);
+      }
+    } elsif ( $abbrev->{$ARGV[0]} eq '-end' ) {
+      shift(@ARGV);
+      if ( $ARGV[0] =~ /^\d+$|^0[xX][\dA-Fa-f]+$/ ) { # dec/oct/hex number
+        $end=0+$ARGV[0]; shift(@ARGV);
+      }
+
+    } elsif ( $abbrev->{$ARGV[0]} eq '-specials' ) {
+      $add_specials=1;
+      shift(@ARGV);
+
+    } elsif ( $ARGV[0] =~ /^0b[01]+$/ ) { # octal number
+        print STDERR "Got a octal number.\n" if ($debug);
+      push(@ascii_numbers,oct($ARGV[0]));
+      shift(@ARGV);
+
+    } elsif ( $ARGV[0] =~ /^0[0-7]+$/ ) { # octal number
+        print STDERR "Got a octal number.\n" if ($debug);
+      push(@ascii_numbers,oct($ARGV[0]));
+      shift(@ARGV);
+
+    } elsif ( $ARGV[0] =~ /^(0[xX]|%)[\dA-Fa-f]+$/ ) { # hexadecimal number
+        print STDERR "Got a hexadecimal number.\n" if ($debug);
+      $ARGV[0] =~ s/^%/0x/;
+      push(@ascii_numbers,hex($ARGV[0]));
+      shift(@ARGV);
+
+    } elsif ( $ARGV[0] =~ /^[1-9]\d*$/ ) { # decimal number
+        print STDERR "Got a decimal number.\n" if ($debug);
+      push(@ascii_numbers,$ARGV[0]);
+      shift(@ARGV);
+
+    } elsif ( $abbrev->{$ARGV[0]} eq '-character' ) {
+      shift(@ARGV);
+      if ($ARGV[0] =~ /^.$/) {
+        push(@characters,"$ARGV[1]");
+        shift(@ARGV);
+      }
+
+    } elsif ( $ARGV[0] =~ /^.$/ ) { # single character
+      push(@characters,$ARGV[0]);
+      shift(@ARGV);
+
+    } else {
+      warn("ignoring unknown option, '$ARGV[0]'"); 
+      shift(@ARGV);
+
+    } # end if .. elsif .. else's
+  }  # end while
+  if ($table and not $columns) {
+    $columns=$columns{$type};
+  }
+}  # end parse_args
+
+sub help {
+  select(STDOUT); $|=1; $\=''; 
+  print "@_[0]\n";
+  if (@help) {
+    for ($arg=$[; $arg<=$#args; $arg++) {
+      printf "%-16s\t%s\n", $args[$arg], $help[$arg];
+    }
+  } else {
+    for ($arg=$[; $arg<=$#args; $arg++) {
+      print "$args[$arg]\t";
+    }
+    print "\n";
+  }
+  exit 1;
+}
+
+sub specials {
+  # Null
+# $special{0}=
+# $specials{sprintf("%03o",0)}=
+  $specials{sprintf("%02x",0)}=
+  $specials{"\000"}='^@';
+  $names{'^@'}="NUL"; $long_names{'^@'}= $long_names{$names{'^@'}}="Null";
+  foreach ( 1 .. 26) {
+#   $specials{$_}=
+#   $specials{sprintf("%03o",$_)}=
+    $specials{sprintf("%02x",$_)}=
+    $specials{chr $_}=
+    sprintf("^%c",($_+64));
+    printf "%2d:  %03o %02x '%s'\n", $_, $_, $_, $specials{$_} if ($debug > 1);
+  }
+  # Escape
+# $special{27}=
+# $specials{sprintf("%03o",27)}=
+  $specials{sprintf("%02x",27)}=
+  $specials{chr $_}='^]';
+  $names{'^]'}="ESC"; $long_names{'^]'}= $long_names{$names{'^]'}}="Escape";
+  # Delete
+# $special{127}=
+# $specials{sprintf("%03o",127)}=
+  $specials{sprintf("%02x",127)}=
+  $specials{chr $_}='^?';
+  $names{'^?'}="DEL"; $long_names{'^?'}= $long_names{$names{'^?'}}="Delete";
+
+  $names{"^A"}="SOH"; $long_names{"^A"}= $long_names{$names{"^A"}}="Start of heading";
+  $names{"^B"}="STX"; $long_names{"^B"}= $long_names{$names{"^B"}}="Start of text";
+  $names{"^C"}="ETX"; $long_names{"^C"}= $long_names{$names{"^C"}}="End of text";
+  $names{"^D"}="EOT"; $long_names{"^D"}= $long_names{$names{"^D"}}="End of transmission";
+  $names{"^E"}="ENQ"; $long_names{"^E"}= $long_names{$names{"^E"}}="Enquiry";
+  $names{"^F"}="ACK"; $long_names{"^F"}= $long_names{$names{"^F"}}="Acknowledge";
+  $names{"^G"}="BEL"; $long_names{"^G"}= $long_names{$names{"^G"}}="Bell, ar alarm";
+  $names{"^H"}="BS";  $long_names{"^H"}= $long_names{$names{"^H"}}="Backspace";
+  $names{"^I"}="HT";  $long_names{"^I"}= $long_names{$names{"^I"}}="Horizontal tabulation";
+  $names{"^J"}="NL";  $long_names{"^J"}= $long_names{$names{"^J"}}="Newline (also LF for linefeed)";
+  $names{"^K"}="VT";  $long_names{"^K"}= $long_names{$names{"^K"}}="Vertical tabulation";
+  $names{"^L"}="NP";  $long_names{"^L"}= $long_names{$names{"^L"}}="Newpage (also FF for formfeed)";
+  $names{"^M"}="CR";  $long_names{"^M"}= $long_names{$names{"^M"}}="Carriage return";
+  $names{"^N"}="SO";  $long_names{"^N"}= $long_names{$names{"^N"}}="Shift out";
+  $names{"^O"}="SI";  $long_names{"^O"}= $long_names{$names{"^O"}}="Shift in";
+  $names{"^P"}="DLE"; $long_names{"^P"}= $long_names{$names{"^P"}}="Data link escape";
+  $names{"^Q"}="DC1"; $long_names{"^Q"}= $long_names{$names{"^Q"}}="Device control 1";
+  $names{"^R"}="DC2"; $long_names{"^R"}= $long_names{$names{"^R"}}="Device control 2";
+  $names{"^S"}="DC3"; $long_names{"^S"}= $long_names{$names{"^S"}}="Device control 3";
+  $names{"^T"}="DC4"; $long_names{"^T"}= $long_names{$names{"^T"}}="Device control 4";
+  $names{"^U"}="NAK"; $long_names{"^U"}= $long_names{$names{"^U"}}="Negative Acknowledge";
+  $names{"^V"}="SYN"; $long_names{"^V"}= $long_names{$names{"^V"}}="Synchronous idle";
+  $names{"^W"}="ETB"; $long_names{"^W"}= $long_names{$names{"^W"}}="End of transmission block";
+  $names{"^X"}="CAN"; $long_names{"^X"}= $long_names{$names{"^X"}}="Cancel";
+  $names{"^Y"}="EM";  $long_names{"^Y"}= $long_names{$names{"^Y"}}="End of medium";
+  $names{"^Z"}="SUB"; $long_names{"^Z"}= $long_names{$names{"^Z"}}="Substitute";
+  $names{"28"}="FS";  $long_names{"28"}= $long_names{$names{"28"}}="File   separator";
+  $names{"29"}="GS";  $long_names{"29"}= $long_names{$names{"29"}}="Group  separator";
+  $names{"30"}="RS";  $long_names{"30"}= $long_names{$names{"30"}}="Record separator";
+  $names{"31"}="US";  $long_names{"31"}= $long_names{$names{"31"}}="Unit   separator";
+  $names{"32"}="SP";  $long_names{"32"}= $long_names{$names{"32"}}="Space";
+}
+
+__END__
+#! /bin/sh
+(
+echo '     Octal - Character'
+echo ' '
+echo '                  ^A      ^B      ^C      ^D      ^E      ^F      ^G  '
+echo '     |000 NUL|001 SOH|002 STX|003 ETX|004 EOT|005 ENQ|006 ACK|007 BEL|'
+echo '          ^H      ^I      ^J      ^K      ^L      ^M      ^N      ^O  '
+echo '     |010 BS |011 HT |012 NL |013 VT |014 NP |015 CR |016 SO |017 SI |'
+echo '          ^P      ^Q      ^R      ^S      ^T      ^U      ^V      ^W  '
+echo '     |020 DLE|021 DC1|022 DC2|023 DC3|024 DC4|025 NAK|026 SYN|027 ETB|'
+echo '          ^X      ^Y      ^Z      ^]      ^       ^       ^       ^   '
+echo '     |030 CAN|031 EM |032 SUB|033 ESC|034 FS |035 GS |036 RS |037 US |'
+echo '     |040 SP |041  ! |042  " |043  # |044  $ |045  % |046  & |047  '"'"' |'
+echo '     |050  ( |051  ) |052  * |053  + |054  , |055  - |056  . |057  / |'
+echo '     |060  0 |061  1 |062  2 |063  3 |064  4 |065  5 |066  6 |067  7 |'
+echo '     |070  8 |071  9 |072  : |073  ; |074  < |075  = |076  > |077  ? |'
+echo '     |100  @ |101  A |102  B |103  C |104  D |105  E |106  F |107  G |'
+echo '     |110  H |111  I |112  J |113  K |114  L |115  M |116  N |117  O |'
+echo '     |120  P |121  Q |122  R |123  S |124  T |125  U |126  V |127  W |'
+echo '     |130  X |131  Y |132  Z |133  [ |134  \ |135  ] |136  ^ |137  _ |'
+echo '     |140  ` |141  a |142  b |143  c |144  d |145  e |146  f |147  g |'
+echo '     |150  h |151  i |152  j |153  k |154  l |155  m |156  n |157  o |'
+echo '     |160  p |161  q |162  r |163  s |164  t |165  u |166  v |167  w |'
+echo '     |170  x |171  y |172  z |173  { |174  | |175  } |176  ~ |177 DEL|'
+echo
+echo ' From Teleray 10 Serial Instructional Manual:'
+echo
+
+crk '(.) (\S+)\t(.*)' '\$names{"^\1"}="\2"; \$long_names{"^\1"}= \$long_names{\$names{"^\1"}}="\3";'
+
+
+SOH	Start of heading
+STX	Start of text
+ETX	End of text
+EOT	End of transmission
+ENQ	Enquiry
+ACK	Acknowledge
+BEL	Bell, ar alarm
+BS	Backspace
+HT	Horizontal tabulation
+NL	Newline (also LF for linefeed)
+VT	Vertical tabulation
+NP	Newpage (also FF for formfeed)
+CR	Carriage return
+SO	Shift out
+SI	Shift in
+DLE	Data link escape
+DC1	Device control 1
+DC2	Device control 2
+DC3	Device control 3
+DC4	Device control 4
+NAK	Negative Acknowledge
+SYN	Synchronous idle
+ETB	End of transmission block
+CAN	Cancel
+EM	End of medium
+SUB	Substitute
+FS	File   separator
+GS	Group  separator
+RS	Record separator
+US	Unit   separator
+SP	Space
+
+A SOH	Start of heading
+B STX	Start of text
+C ETX	End of text
+D EOT	End of transmission
+E ENQ	Enquiry
+F ACK	Acknowledge
+G BEL	Bell, ar alarm
+H BS	Backspace
+I HT	Horizontal tabulation
+J NL	Newline (also LF for linefeed)
+K VT	Vertical tabulation
+L NP	Newpage (also FF for formfeed)
+M CR	Carriage return
+N SO	Shift out
+O SI	Shift in
+P DLE	Data link escape
+Q DC1	Device control 1
+R DC2	Device control 2
+S DC3	Device control 3
+T DC4	Device control 4
+U NAK	Negative Acknowledge
+V SYN	Synchronous idle
+W ETB	End of transmission block
+X CAN	Cancel
+Y EM	End of medium
+Z SUB	Substitute
+^ FS	File   separator
+^ GS	Group  separator
+^ RS	Record separator
+^ US	Unit   separator
+  SP	Space
+

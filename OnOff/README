@@ -1,0 +1,44 @@
+$usage .= "\t[ ( -on | -begin | -start ) start_regexp ] [ ( -off | -end | -stop ) stop_regexp ] [ -lead N -linger M | -context N ]";
+$usage .= "\t[ N | N.. | ..M | N..M ]";
+$usage .= "\t[ [ -file ] file1 file2 .. ]";
+
+What should happen if...
+
+1) no args
+  a) onoff
+  a) onoff -help
+  a) onoff -usage
+2) Number ranges
+  a) onoff 13
+  b) onoff 4..
+  c) onoff ..27
+  d) onoff 4..27
+3) regular expressions for starting, stopping
+  a) onoff -start 'one'
+  b) onoff 'one' 'teen'
+
+Notes:
+ 1) Lead, Linger and Context will only be allowed in numbered cases in the special Single Number case.
+ 2) For now, only one regular expression or regular expression pair will be allowed.
+ 3) Include starts and stops will be on by default.  May add way to change this behavior in the future.
+
+ 4) Should starts and stops be independant or in pairs?
+   a) Pairs allows for multiple different start-stop regexp's.  
+      Also, each trigger pair could have it's only lead or linger or both.
+      Print all lines between 'Steve' and line 400, possible with paired triggers.
+   b) Indepentant allows for more flexibility.
+
+ 5) Can a start trigger also be a stop trigger?
+ 6) While lingering, should start conditions be searched for?
+
+NO onoff 1../__END__/ unfold_xif                      N..regexp doesn't work?
+   onoff -start 1 -end /__END__/ unfold_xif           no //'s in regexp
+   onoff -start 1 -end '__END__' unfold_xif           -start REGEXP  so started on first line with a '1' in it
+NO onoff --help                                       no --'s, use -\? instead
+NO onoff 1 -stop '__END__' unfold_xif                 gave only line one
+NO onoff 1.. -stop '__END__'+2 unfold_xif             no +2's
+   onoff 1.. -stop '__END__' unfold_xif
+NO onoff 1.. -stop '__END__' --linger 2 unfold_xif    no --'s
+   onoff -\?
+   onoff 1.. -stop '__END__' -linger 2 unfold_xif
+   onoff 1.. -stop '__END__' -linger 4 unfold_xif

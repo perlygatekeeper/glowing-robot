@@ -1,0 +1,109 @@
+     1	One
+     2	Two
+     3	Three
+     4	Four
+     5	Five
+     6	Six
+     7	Seven
+     8	Eight
+     9	Nine
+    10	Ten
+    11	Eleven
+    12	Twelve
+    13	Thirteen
+    14	Fourteen
+    15	Fifteen
+    16	Sixteen
+    17	Seventeen
+    18	Eighteen
+    19	Nineteen
+    20	Twenty
+    21	Twenty One
+    22	Twenty Two
+    23	Twenty Three
+    24	Twenty Four
+    25	Twenty Five
+    26	Twenty Six
+    27	Twenty Seven
+    28	Twenty Eight
+    29	Twenty Nine
+    30	Thrity
+    31	Thrity One
+    32	Thrity Two
+    33	Thrity Three
+    34	Thrity Four
+    35	Thrity Five
+    36	Thrity Six
+    37	Thrity Seven
+    38	Thrity Eight
+    39	Thrity Nine
+    40	Forty
+    41	Forty One
+    42	Forty Two
+    43	Forty Three
+    44	Forty Four
+    45	Forty Five
+    46	Forty Six
+    47	Forty Seven
+    48	Forty Eight
+    49	Forty Nine
+    50	Fifty
+    51	Fifty One
+    52	Fifty Two
+    53	Fifty Three
+    54	Fifty Four
+    55	Fifty Five
+    56	Fifty Six
+    57	Fifty Seven
+    58	Fifty Eight
+    59	Fifty Nine
+    60	Sixty
+    61	Sixty One
+    62	Sixty Two
+    63	Sixty Three
+    64	Sixty Four
+    65	Sixty Five
+    66	Sixty Six
+    67	Sixty Seven
+    68	Sixty Eight
+    69	Sixty Nine
+    70	Seventy
+    71	Seventy One
+    72	Seventy Two
+    73	Seventy Three
+    74	Seventy Four
+    75	Seventy Five
+    76	Seventy Six
+    77	Seventy Seven
+    78	Seventy Eight
+    79	Seventy Nine
+    80	Eighty
+    81	Eighty One
+    82	Eighty Two
+    83	Eighty Three
+    84	Eighty Four
+    85	Eighty Five
+    86	Eighty Six
+    87	Eighty Seven
+    88	Eighty Eight
+    89	Eighty Nine
+    90	Ninty
+    91	Ninty One
+    92	Ninty Two
+    93	Ninty Three
+    94	Ninty Four
+    95	Ninty Five
+    96	Ninty Six
+    97	Ninty Seven
+    98	Ninty Eight
+    99	Ninty Nine
+   100	Hundred
+   101	Hundred One
+   102	Hundred Two
+   103	Hundred Three
+   104	Hundred Four
+   105	Hundred Five
+   106	Hundred Six
+   107	Hundred Seven
+   108	Hundred Eight
+   109	Hundred Nine
