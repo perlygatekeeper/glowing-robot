@@ -19,7 +19,7 @@ my $svg = SVG->new(
         -elsep      => "\n",
         -nocredits  => 1,
           );
-  path_doc_window(   $params, $svg );
+# path_doc_window(   $params, $svg );
   path_outside_cut(  $params, $svg );
   path_viewer_cut(   $params, $svg );
   path_slit_cut(     $params, $svg );

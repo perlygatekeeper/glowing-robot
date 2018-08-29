@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg height="1500" width="950" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<rect height="1480" id="doc_window" rx="0.5" ry="0.5" style="fill: none; fill-rule: evenodd; stroke: rgb(100,200,50); stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; stroke-width: 1px" width="930" x="10" y="10" />
 	<path d="M   591.750000, 1476.000000   593.750000, 1428.000000   595.750000, 1476.000000   831.250000, 1476.000000 
   831.250000, 1428.000000   915.910196, 1336.034511   741.175768, 1175.180138   741.175768, 975.180138 
   593.675768, 975.180138   641.675768, 973.180138   641.675768, 829.680138   593.675768, 827.680138 
