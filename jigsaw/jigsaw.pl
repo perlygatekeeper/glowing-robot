@@ -60,9 +60,9 @@ foreach my $line ( 1 .. $number_of_horizontal_lines ) {
   my ( $start_direction, $end_direction );
   my ( $start_key, $end_key );
   my ( $x_start, $x_end );
-  #           __
+  #           2_
   #          /  \
-  # _________\  /_____
+  # __1______\  /___3_
   # start    key      end
   $x_start = $puzzle_left_margin;
   $start_direction = (-1) ** (1+int(rand(2)));
@@ -70,13 +70,25 @@ foreach my $line ( 1 .. $number_of_horizontal_lines ) {
   foreach my $piece ( 1 .. ($number_of_vertical_lines+1) ) {
     # https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#Bezier_Curves
     # svg::cubic_bezier   C  starting_control_point ( x1 x2 ) ending_control_point ( x2 y2 )  end point ( x, y )
-    $start_key = $x_start + (0.25 + 0.025 * rand()) * $piece_width; # same as 1/4 + 1/4 * rand/10
+    $start_key = $x_start + (0.25 + 0.25 * rand()) * $piece_width; # same as 1/4 + 1/4 * rand/10
     $end_key   = $start_key + 0.25 * $piece_width;
+    printf STDERR "start,end of key: %5.1f, %5.1f \n", 100*($start_key-$x_start)/$piece_width, 100*($end_key-$x_start)/$piece_width;
     my $x_end = $puzzle_left_margin + $piece * $piece_width;
     $end_direction = (-1) ** (1+int(rand(2)));
+    # segment 1
     $path .= sprintf("C %5.1f %5.1f  %5.1f %5.1f  %5.1f %5.1f  ",
     	              $x_start + $dx, $y + $start_direction * $dy, # start control point
-    	              $x_end   - $dx, $y + $end_direction   * $dy, # end control point
+    	              $x_start,     , $y,                          # end control point
+    	              $start_key,   , $y );                        # end point
+    # segment 2
+    $path .= sprintf("C %5.1f %5.1f  %5.1f %5.1f  %5.1f %5.1f  ",
+    	              $start_key    , $y+$dx,                      # start control point
+    	              $end_key      , $y+$dx,                      # end control point
+    	              $end_key      , $y );                        # end point
+    # segment 3
+    $path .= sprintf("C %5.1f %5.1f  %5.1f %5.1f  %5.1f %5.1f  ",
+    	              $x_end        , $y,                          # start control point
+    	              $x_end - $dx  , $y + $end_direction   * $dy, # end control point
     	              $x_end        , $y );                        # end point
     $x_start = $x_end;
     $start_direction = (-1) * $end_direction;
