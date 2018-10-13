@@ -16,13 +16,17 @@ my $histogram;
 my $from;
 my $to;
 
-@$puzzle = <DATA>;
+while (<DATA>) {
+  next if (/^\s*$|^\s*#/); # skip white, blank and commented lines.
+  push(@$puzzle, $_);
+}
 foreach my $c ( 'A' .. 'Z' ) {
   $translate->{$c} = ' ';
 }
-$translate->{Z} = 'T';
-$translate->{I} = 'H';
-$translate->{H} = 'E';
+$translate->{D} = 'R';
+$translate->{Q} = 'E';
+$translate->{P} = 'M';
+$translate->{G} = 'B';
 foreach my $c ( keys %$translate ) {
   $from .= $c;
   $to   .= $translate->{$c};
@@ -32,7 +36,7 @@ while ( $response = &response( $prompt, 1 ) ) {
   next unless ($response =~ /./ );
   $response = uc $response;
   print "response was '$response'\n" if ( $debug );
-  if (      $response =~ m/\./ ) {
+  if (      $response =~ m/\./ ) { # print out puzzle with translations
     my $i = 0;
     print "\n";
     foreach my $line ( @$puzzle ) {
@@ -42,20 +46,20 @@ while ( $response = &response( $prompt, 1 ) ) {
         print " $new_line";
       }
       print " $line";
+      print "\n";
     }
-    print "\n";
-  } elsif ( $response =~ m/([A-Z])[-,.>|;:'_ ]+([A-Z])?/ ) {
+  } elsif ( $response =~ m/([A-Z])[-,.>|;:'_ ]+([A-Z])?/ ) { # add/clear translation
     $from = '';
     $to   = '';
     my $c_from = uc $1;
-    my $c_to   = uc $2 || ' ';
+    my $c_to   = $2 ? uc $2 : ' ';
     print "($c_from) -> ($c_to)\n";
     $translate->{$c_from} = $c_to;
     foreach my $c ( keys %$translate ) {
       $from .= $c;
       $to   .= $translate->{$c};
     }
-  } elsif ( $response =~ m/(:|h(ist)?)$/i ) {
+  } elsif ( $response =~ m/(:|h(ist)?)$/i ) { # print out a histogram
     if ( scalar(keys %$histogram) == 0 ) {
       foreach my $line ( @$puzzle ) {
         foreach my $c ( split(//,$line) ) {
@@ -67,28 +71,28 @@ while ( $response = &response( $prompt, 1 ) ) {
     foreach my $c ( keys %$histogram ) {
       printf "%s - %d\n", $c, $histogram->{$c};
     }
-  } elsif ( $response =~ m/(\>|t(rans)?)$/i ) {
+  } elsif ( $response =~ m/(\>|t(rans)?)$/i ) { # print out translation matrix
     if ( $from ) {
       print "$from\n";
       print "$to\n";
     } else { 
       print "No translation characters yet defined.\n"
     }
-  } elsif ( $response =~ m/2$/i ) {
+  } elsif ( $response =~ m/2$/i ) { # print out common 2 letter words
     print "25 of some of the most common 2-letter words.\n";
     print "am	an	as	at	be\n";
     print "by	do	go	he	hi\n";
     print "if	in	is	it	me\n";
     print "my	no	of	on	or\n";
     print "so	to	up	us	we\n";
-  } elsif ( $response =~ m/(c(lear)?|\*)$/i ) {
+  } elsif ( $response =~ m/(c(lear)?|\*)$/i ) { # clear the transltion matrix
     print "Translation matrix has been cleaned.\n";
     foreach my $c ( 'A' .. 'Z' ) {
       $translate->{$c} = ' ';
       $from .= $c;
       $to   .= ' ';
     }
-  } elsif ( $response =~ m/(h(elp)?|\?)$/i ) {
+  } elsif ( $response =~ m/(h(elp)?|\?)$/i ) { # print out help
     print "-" x 40 . "\n";
     print ".|print   - print puzzle\n";
     print ":|hist    - print histogram of puzzle's characters\n";
@@ -122,7 +126,16 @@ sub response {
 exit 0;
 
 __END__
-NFYS FT ZIH CBTFJ MU
-KBZBCGKY NFGST KCMGDTZ
-ZIH UKSHS NMMST.
-- NFYYFKC NMLSTNMLZI
+# NFYS FT ZIH CBTFJ MU
+# KBZBCGKY NFGST KCMGDTZ
+# ZIH UKSHS NMMST.
+# - NFYYFKC NMLSTNMLZI
+
+# WC JBX HQF BKIQD DQPQPGQD
+# JBX ZWEQ WYBFZQD ZWYI:
+# FZQ AMDCF MC FB ZQKT
+# JBXDCQKA. FZQ CQVBYI
+# MC FB ZQKT BFZQDC.
+# - WXIDQJ ZQTGXDY
+# QNVFKRJOAYUDBIMXLPTWCSEGHZ
+# E CTL Y FN RODIU MPAS VBGH
