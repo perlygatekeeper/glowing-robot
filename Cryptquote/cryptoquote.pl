@@ -123,7 +123,7 @@ while ( $response = &response( $prompt, 1 ) ) {
       print "No translation characters yet defined.\n"
     }
 
-  } elsif ( $response =~ m/3$/i ) { # print out common 2 letter words
+  } elsif ( $response =~ m/3$/i ) { # print out common 3 letter words
     print "the	and	for	are	but	not	you	all	any	can\n";
     print "her	was	one	our	out	day	get	has	him	his\n";
     print "how	man	new	now	old	see	two	way	who	boy\n";
@@ -143,6 +143,8 @@ while ( $response = &response( $prompt, 1 ) ) {
     print "so	to	up	us	we\n";
     print "T N S H R D L\n";
     print "E A I O U\n";
+    print "SS, EE, TT, FF, LL, MM and OO\n";
+    print "th er on an re he in ed nd ha at en es of or nt ea ti to it st io le is ou ar as de rt ve\n";
 
   } elsif ( $response =~ m/(c(lear)?|\*)$/i ) { # clear the transltion matrix
     print "Translation matrix has been cleaned.\n";
@@ -274,11 +276,13 @@ __END__
 # F ISAURHPK LM  ECGTDOW N  
 #
 # puzzle 08 2018-10-26 Dispatch
- KSMMLWZALLM DQMDKLW. MJL
- PLXXDA, PLZZB, XLTG-RSQRSHI,
- YLWGLQM YTEZL KLMALLH MJL
- DYYDZSHI PSZLWSLZ DG
- ZEPPLW THF ASHMLW.
- - QTWDX KSZJDY JSYYZ
- PP ZZ LL YY
+# KSMMLWZALLM DQMDKLW. MJL
+# PLXXDA, PLZZB, XLTG-RSQRSHI,
+# YLWGLQM YTEZL KLMALLH MJL
+# DYYDZSHI PSZLWSLZ DG
+# ZEPPLW THF ASHMLW.
+# - QTWDX KSZJDY JSYYZ
+# PP ZZ LL YY
 # solution 08
+# EGWKOALPVHTFDIBQSYMUJZXRNC
+# UFRB WEM NADOGYCIPT HSLK  
