@@ -92,7 +92,9 @@ while ( $response = &response( $prompt, 1 ) ) {
   } elsif ( $response =~ m/l(eft)?$/i ) { # print out not translated to characters
     my $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     foreach my $char ( values %$translate ) {
-       $alphabet =~ tr/$char/ /;
+       next if $char =~ / /;
+       print "$char\n";
+       eval "\$alphabet =~ tr/$char/ /";
     }
     print "$alphabet\n";
 
@@ -102,18 +104,21 @@ while ( $response = &response( $prompt, 1 ) ) {
       push(@{$counts->{$translate->{$key}}},$key);
     }
     foreach my $char ( values %$translate ) {
+      next if $char =~ / /;
       if ( scalar @{$counts->{$char}} > 1 ) {
       	print "Found duplicate translations leading to ($char)\n";
       	print "Namely, " . join(', ',@{$counts->{$char}}) . "\n";
       }
     }
   } elsif ( $response =~ m/t(ran(s)?)?$/i ) { # input new translation matrix
-    $from = <>; $from = uc $from;
-    $to   = <>; $to   = uc $to;
-    my $c_from = $1;
-    my $c_to   = $2 || ' ';
-    print "($c_from) -> ($c_to)\n" if ( $debug );
-    $translate->{$c_from} = $c_to;
+    $from = <>; $from = uc $from; chomp $from;
+    $to   = <>; $to   = uc $to;   chomp $to;
+    for (my($i)=0; $i<length($from); $i++) {
+      my $c_from = substr($from, $i, 1);
+      my $c_to   = substr($to,   $i, 1)   || ' ';
+      print "($c_from) -> ($c_to)\n" if ( $debug );
+      $translate->{$c_from} = $c_to;
+    }
 
   } elsif ( $response =~ m/(\>|t(rans)?)$/i ) { # print out translation matrix
     if ( $from ) {
@@ -123,6 +128,9 @@ while ( $response = &response( $prompt, 1 ) ) {
       print "No translation characters yet defined.\n"
     }
 
+  } elsif ( $response =~ m/4$/i ) { # print out common 4 letter words
+    print "that, with, have, this, will, your, from, they, know, want, been, good, much, some, time\n";
+
   } elsif ( $response =~ m/3$/i ) { # print out common 3 letter words
     print "the	and	for	are	but	not	you	all	any	can\n";
     print "her	was	one	our	out	day	get	has	him	his\n";
@@ -131,8 +139,7 @@ while ( $response = &response( $prompt, 1 ) ) {
     print "act	bar	car	dew	eat	far	gym	hey	ink	jet\n";
     print "key	log	mad	nap	odd	pal	ram	saw	tan	urn\n";
     print "vet	wed	yap	zoo\n";
-    print "T N S H R D L\n";
-    print "E A I O U\n";
+    print "THE AND THA ENT ION TIO FOR NDE HAS NCE EDT TIS OFT STH MEN\n";
 
   } elsif ( $response =~ m/2$/i ) { # print out common 2 letter words
     print "25 of some of the most common 2-letter words.\n";
@@ -143,8 +150,10 @@ while ( $response = &response( $prompt, 1 ) ) {
     print "so	to	up	us	we\n";
     print "T N S H R D L\n";
     print "E A I O U\n";
-    print "SS, EE, TT, FF, LL, MM and OO\n";
-    print "th er on an re he in ed nd ha at en es of or nt ea ti to it st io le is ou ar as de rt ve\n";
+    print "Initial Letters: T O A W B C D S F M R H I Y E G L N P U J K\n";
+    print "Final Letters:   E S T D N R Y F L O G H A K M P U W\n";
+    print "Doubled Letters: SS, EE, TT, FF, LL, MM and OO\n";
+    print "Digraphs:        TH ER ON AN RE HE IN ED ND HA AT EN ES OF OR NT EA TI TO IT ST IO LE IS OU AR AS DE RT VE\n";
 
   } elsif ( $response =~ m/(c(lear)?|\*)$/i ) { # clear the transltion matrix
     print "Translation matrix has been cleaned.\n";
@@ -162,8 +171,11 @@ while ( $response = &response( $prompt, 1 ) ) {
     print "*|clear   - clear translation matrix\n";
     print ">|trans   - print translation matrix\n";
     print "l|left    - print characters for which there is yet a translation entry made\n";
-    print "2         - print out the 25 most common 2-letter words\n";
-    print "3         - print out some of most common 3-letter words\n";
+    print "d|dups    - print characters to which there are two or more translations\n";
+    print "t|trans   - input new translation matrix (on two following lines)\n";
+    print "2         - print out the 25 most common 2-letter words and combinations\n";
+    print "3         - print out some of most common 3-letter words and combinations\n";
+    print "4         - print out some of most common 3-letter words and combinations\n";
     print "?|help    - print puzzle\n";
     print "X Y       - translate X's into Y's\n";
     print "X <space> - remove translation for X's\n";
@@ -276,13 +288,13 @@ __END__
 # F ISAURHPK LM  ECGTDOW N  
 #
 # puzzle 08 2018-10-26 Dispatch
-# KSMMLWZALLM DQMDKLW. MJL
-# PLXXDA, PLZZB, XLTG-RSQRSHI,
-# YLWGLQM YTEZL KLMALLH MJL
-# DYYDZSHI PSZLWSLZ DG
-# ZEPPLW THF ASHMLW.
-# - QTWDX KSZJDY JSYYZ
-# PP ZZ LL YY
+  KSMMLWZALLM DQMDKLW. MJL
+  PLXXDA, PLZZB, XLTG-RSQRSHI,
+  YLWGLQM YTEZL KLMALLH MJL
+  DYYDZSHI PSZLWSLZ DG
+  ZEPPLW THF ASHMLW.
+  - QTWDX KSZJDY JSYYZ
+  PP ZZ LL YY
 # solution 08
 # EGWKOALPVHTFDIBQSYMUJZXRNC
 # UFRB WEM NADOGYCIPT HSLK  
