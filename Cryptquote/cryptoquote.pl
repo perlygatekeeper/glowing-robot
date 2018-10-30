@@ -10,6 +10,14 @@ use warnings;
 use Term::ReadLine;
 my $term = new Term::ReadLine
 my $hist_save = "~/.cryptoquote";
+if (-s $hist_save) {
+  open(HIST,"<$hist_save")
+    || warn("$name: Cannot read from '$hist_save': $!\n");
+  my(@hist)=<HIST>;
+  @hist=grep((chomp($_),$_),@hist);
+  close(HIST);
+  $term->SetHistory(@hist)
+}
 
 my $puzzle;
 my $response;
