@@ -7,6 +7,10 @@ my $usage = "usage:\n$name [-opt1] [-opt2] [-opt3]";
 use strict;
 use warnings;
 
+use Term::ReadLine;
+my $term = new Term::ReadLine
+my $hist_save = "~/.cryptoquote";
+
 my $puzzle;
 my $response;
 my $translate;
@@ -24,19 +28,20 @@ foreach my $c ( 'A' .. 'Z' ) {
   $translate->{$c} = ' ';
 }
 # $translate->{H} = 'T';
-# $translate->{X} = 'H';
-# $translate->{Q} = 'E';
-# $translate->{G} = 'B';
 foreach my $c ( keys %$translate ) {
   $from .= $c;
   $to   .= $translate->{$c};
 }
 
-while ( $response = &response( $prompt, 1 ) ) {
-  next unless ($response =~ /./ );
+while ( defined ($response = $term->readline($prompt)) ) {
+  print STDERR "read a line.\n" if ( $debug );
   $response = uc $response;
+  chomp($response); $term->add_history($response);
   print "response was '$response'\n" if ( $debug );
-  if (      $response =~ m/\./ ) { # print out puzzle with translations
+  if (      $response =~ /^\s*$|^\s*#/) { # skip white, blank and commented lines.
+    next;
+
+  } elsif ( $response =~ m/\./ ) { # print out puzzle with translations
     my $i = 0;
     print "\n";
     foreach my $line ( @$puzzle ) {
@@ -110,15 +115,37 @@ while ( $response = &response( $prompt, 1 ) ) {
       	print "Namely, " . join(', ',@{$counts->{$char}}) . "\n";
       }
     }
+
   } elsif ( $response =~ m/t(ran(s)?)?$/i ) { # input new translation matrix
     $from = <>; $from = uc $from; chomp $from;
     $to   = <>; $to   = uc $to;   chomp $to;
+    $translate = {};
     for (my($i)=0; $i<length($from); $i++) {
       my $c_from = substr($from, $i, 1);
       my $c_to   = substr($to,   $i, 1)   || ' ';
       print "($c_from) -> ($c_to)\n" if ( $debug );
       $translate->{$c_from} = $c_to;
     }
+
+  } elsif ( $response =~ m/a(dd)?$/i ) { # input additions to the translation matrix
+    my $add_from = <>; $add_from = uc $add_from; chomp $add_from;
+    my $add_to   = <>; $add_to   = uc $add_to;   chomp $add_to;
+    for (my($i)=0; $i<length($add_from); $i++) {
+      my $c_from = substr($add_from, $i, 1);
+      my $c_to   = substr($add_to,   $i, 1)   || ' ';
+      print "($c_from) -> ($c_to)\n" if ( $debug );
+      $translate->{$c_from} = $c_to;
+    }
+    $from = '';
+    $to   = '';
+    foreach my $c ( keys %$translate ) {
+      $from .= $c;
+      $to   .= $translate->{$c};
+    }
+
+  } elsif ( $response =~ m/p(attern)?$/i ) { # print out pattern-matching words
+    my $pattern = <>; chomp $pattern;
+    &pattern($pattern);
 
   } elsif ( $response =~ m/(\>|t(rans)?)$/i ) { # print out translation matrix
     if ( $from ) {
@@ -163,6 +190,20 @@ while ( $response = &response( $prompt, 1 ) ) {
       $to   .= ' ';
     }
 
+  } elsif ( $response =~ /^e(xit)?$|^q(uit)?$/ ) {
+    # apparently Term::ReadLine's GetHistory method returns an array poisoned with nulls
+    my(@hist)= grep(/\S/,$term->GetHistory());
+    if (@hist) {
+      open(HIST, ">", $hist_save)
+        || warn("$name: Cannot write to '$hist_save': $!\n");
+      foreach my $hist (@hist) {
+        chomp($hist); next if not $hist;
+        printf HIST "%s\n", $hist;
+      } 
+      close(HIST);
+    } 
+    exit 0;
+
   } elsif ( $response =~ m/(h(elp)?|\?)$/i ) { # print out help
     print "-" x 40 . "\n";
     print ".|print   - print puzzle\n";
@@ -172,7 +213,9 @@ while ( $response = &response( $prompt, 1 ) ) {
     print ">|trans   - print translation matrix\n";
     print "l|left    - print characters for which there is yet a translation entry made\n";
     print "d|dups    - print characters to which there are two or more translations\n";
-    print "t|trans   - input new translation matrix (on two following lines)\n";
+    print "t|trans   - input NEW translation matrix (on two following lines)\n";
+    print "a|add     - input additions to the translation matrix (on two following lines)\n";
+    print "p|pattern - print some known words matching the pattern of a input word\n";
     print "2         - print out the 25 most common 2-letter words and combinations\n";
     print "3         - print out some of most common 3-letter words and combinations\n";
     print "4         - print out some of most common 3-letter words and combinations\n";
@@ -200,7 +243,53 @@ sub response {
     return ($response =~ /$regexp/i);
   }
 }
+
 exit 0;
+
+sub pattern {
+  my $pattern = shift;
+  my ( $backref, $unique, $regexp, $characters );
+  $backref->[1]  = '\1';
+  $backref->[2]  = '\2';
+  $backref->[3]  = '\3';
+  $backref->[4]  = '\4';
+  $backref->[5]  = '\5';
+  $backref->[6]  = '\6';
+  $backref->[7]  = '\7';
+  $backref->[8]  = '\8';
+  $backref->[9]  = '\9';
+  $unique->[1]  = '(.)';
+  $unique->[2]  = '((?!\1).)';
+  $unique->[3]  = '((?!\1)(?!\2).)';
+  $unique->[4]  = '((?!\1)(?!\2)(?!\3).)';
+  $unique->[5]  = '((?!\1)(?!\2)(?!\3)(?!\4).)';
+  $unique->[6]  = '((?!\1)(?!\2)(?!\3)(?!\4)(?!\5).)';
+  $unique->[7]  = '((?!\1)(?!\2)(?!\3)(?!\4)(?!\5)(?!\6).)';
+  $unique->[8]  = '((?!\1)(?!\2)(?!\3)(?!\4)(?!\5)(?!\6)(?!\7).)';
+  $unique->[9]  = '((?!\1)(?!\2)(?!\3)(?!\4)(?!\5)(?!\6)(?!\7)(?!\8).)';
+  $unique->[10] = '((?!\1)(?!\2)(?!\3)(?!\4)(?!\5)(?!\6)(?!\7)(?!\8)(?!\9).)';
+  $regexp = '^';
+  my $next_unique = 1;
+  for (my($i)=0; $i<length($pattern); $i++) {
+    my $char = substr($pattern, $i, 1);
+    if ( exists $characters->{$char} ) {
+      $regexp .= $characters->{$char};
+    } else {
+      $regexp .= $unique->[$next_unique];
+      $characters->{$char} = $backref->[$next_unique];
+      $next_unique++;
+    }
+  }
+  $regexp .= '$';
+  print "$regexp\n" if ( $debug );
+  $regexp = qr($regexp);
+  my $words_file="/usr/share/dict/web2";
+  open(WORDS,"<", $words_file) || die("$name: Cannot read from '$words_file': $!\n");
+  while (<WORDS>) {
+    print if /$regexp/;
+  }
+  close(WORDS);
+}
 
 __END__
 # T N S H R D L
@@ -288,13 +377,31 @@ __END__
 # F ISAURHPK LM  ECGTDOW N  
 #
 # puzzle 08 2018-10-26 Dispatch
-  KSMMLWZALLM DQMDKLW. MJL
-  PLXXDA, PLZZB, XLTG-RSQRSHI,
-  YLWGLQM YTEZL KLMALLH MJL
-  DYYDZSHI PSZLWSLZ DG
-  ZEPPLW THF ASHMLW.
-  - QTWDX KSZJDY JSYYZ
-  PP ZZ LL YY
+# KSMMLWZALLM DQMDKLW. MJL
+# PLXXDA, PLZZB, XLTG-RSQRSHI,
+# YLWGLQM YTEZL KLMALLH MJL
+# DYYDZSHI PSZLWSLZ DG
+# ZEPPLW THF ASHMLW.
+# - QTWDX KSZJDY JSYYZ
+# PP ZZ LL YY
 # solution 08
 # EGWKOALPVHTFDIBQSYMUJZXRNC
 # UFRB WEM NADOGYCIPT HSLK  
+
+# puzzle 09 2018-10-27 Dispatch
+# LPW'M KHM MOH EHTN PE
+# KPIAW SH UNHTMHN MOTW
+# MOH HYRAMHGHWM PE
+# VAWWAWU. - NPSHNM ZAQPITZA
+# solution 09
+# TWJQIEPHGRLVYSBNMFACZUDXOK
+# AN YSFOEMCDWXB RT I KG  HL
+
+# puzzle 10 2018-10-29 Dispatch
+# FXU EQCA CLNLF FE EZY
+# YUBCLRBFLEQ ES FENEYYED
+# DLCC HU EZY KEZHFM
+# ES FEKBA. - SYBQPCLQ K. YEEMUOUCF
+# solution 10
+# WLUGFMKIBCJNAPQTOVERYZXHSD
+#  IE TSD AL MYKN V OZRUHBFW
