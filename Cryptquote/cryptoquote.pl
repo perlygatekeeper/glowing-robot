@@ -9,7 +9,7 @@ use warnings;
 
 use Term::ReadLine;
 my $term = new Term::ReadLine
-my $hist_save = "~/.cryptoquote";
+my $hist_save = $ENV{HOME} . "/.cryptoquote";
 if (-s $hist_save) {
   open(HIST,"<$hist_save")
     || warn("$name: Cannot read from '$hist_save': $!\n");
@@ -22,7 +22,7 @@ if (-s $hist_save) {
 my $puzzle;
 my $response;
 my $translate;
-my $debug = 0;
+my $debug = 1;
 my $prompt = 'Command: ';
 my $histogram;
 my $from;
@@ -44,12 +44,17 @@ foreach my $c ( keys %$translate ) {
 while ( defined ($response = $term->readline($prompt)) ) {
   print STDERR "read a line.\n" if ( $debug );
   $response = uc $response;
-  chomp($response); $term->add_history($response);
+  chomp($response);
+  $response =~ s/^\s+|\s+$//g;
+# $term->add_history($response);
   print "response was '$response'\n" if ( $debug );
+
   if (      $response =~ /^\s*$|^\s*#/) { # skip white, blank and commented lines.
+    print "Skip line.\n" if ( $debug );
     next;
 
-  } elsif ( $response =~ m/\./ ) { # print out puzzle with translations
+  } elsif ( $response =~ m/^\.$/ ) { # print out puzzle with translations
+    print "Print puzzle.\n" if ( $debug );
     my $i = 0;
     print "\n";
     foreach my $line ( @$puzzle ) {
@@ -62,12 +67,14 @@ while ( defined ($response = $term->readline($prompt)) ) {
       print "\n";
     }
 
-  } elsif ( $response =~ m/,/ ) { # print out puzzle without translations
+  } elsif ( $response =~ m/^,$/ ) { # print out puzzle without translations
+    print "Print raw puzzle.\n" if ( $debug );
     foreach my $line ( @$puzzle ) {
       print "$line";
     }
 
-  } elsif ( $response =~ m/([A-Z])[-,.>|;:'_ ]+([A-Z])?/ ) { # add/clear translation
+  } elsif ( $response =~ m/^([A-Z])[-,.>|;:'_ ]+([A-Z])?$/ ) { # add/clear translation
+    print "Single new translation.\n" if ( $debug );
     $from = '';
     $to   = '';
     my $c_from = uc $1;
@@ -79,7 +86,8 @@ while ( defined ($response = $term->readline($prompt)) ) {
       $to   .= $translate->{$c};
     }
 
-  } elsif ( $response =~ m/(:|h(ist)?)$/i ) { # print out a histogram
+  } elsif ( $response =~ m/^(:|h(ist)?)$/i ) { # print out a histogram
+    print "Print out a histogram of puzzle characters.\n" if ( $debug );
     if ( scalar(keys %$histogram) == 0 ) {
       foreach my $line ( @$puzzle ) {
         foreach my $c ( split(//,$line) ) {
@@ -102,16 +110,18 @@ while ( defined ($response = $term->readline($prompt)) ) {
       print $_;
     }
 
-  } elsif ( $response =~ m/l(eft)?$/i ) { # print out not translated to characters
+  } elsif ( $response =~ m/^l(eft)?$/i ) { # print out not translated to characters
+    print "Print out characters to which there is yet a translation.\n" if ( $debug );
     my $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     foreach my $char ( values %$translate ) {
        next if $char =~ / /;
-       print "$char\n";
+       print "$char\n" if ( $debug );
        eval "\$alphabet =~ tr/$char/ /";
     }
     print "$alphabet\n";
 
-  } elsif ( $response =~ m/d(up(s)?)?$/i ) { # find dupicate translation values
+  } elsif ( $response =~ m/^d(up(s)?)?$/i ) { # find dupicate translation values
+    print "Print out characters to which there is two or more translations.\n" if ( $debug );
     my $counts;
     foreach my $key ( keys %$translate ) {
       push(@{$counts->{$translate->{$key}}},$key);
@@ -124,8 +134,11 @@ while ( defined ($response = $term->readline($prompt)) ) {
       }
     }
 
-  } elsif ( $response =~ m/t(ran(s)?)?$/i ) { # input new translation matrix
+  } elsif ( $response =~ m/^t(ran(s)?)?$/i ) { # input new translation matrix
+    print "Input a completely new translation matrix.\n" if ( $debug );
+    print "Input targets of new translation matrix: ";
     $from = <>; $from = uc $from; chomp $from;
+    print "Input outputs of new translation matrix: ";
     $to   = <>; $to   = uc $to;   chomp $to;
     $translate = {};
     for (my($i)=0; $i<length($from); $i++) {
@@ -135,8 +148,11 @@ while ( defined ($response = $term->readline($prompt)) ) {
       $translate->{$c_from} = $c_to;
     }
 
-  } elsif ( $response =~ m/a(dd)?$/i ) { # input additions to the translation matrix
+  } elsif ( $response =~ m/^a(dd)?$/i ) { # input additions to the translation matrix
+    print "Input a multicharacter addition to the translation matrix.\n" if ( $debug );
+    print "Input targets of addition to translation matrix: ";
     my $add_from = <>; $add_from = uc $add_from; chomp $add_from;
+    print "Input outputs of addition to translation matrix: ";
     my $add_to   = <>; $add_to   = uc $add_to;   chomp $add_to;
     for (my($i)=0; $i<length($add_from); $i++) {
       my $c_from = substr($add_from, $i, 1);
@@ -151,11 +167,13 @@ while ( defined ($response = $term->readline($prompt)) ) {
       $to   .= $translate->{$c};
     }
 
-  } elsif ( $response =~ m/p(attern)?$/i ) { # print out pattern-matching words
+  } elsif ( $response =~ m/^p(attern)?$/i ) { # print out pattern-matching words
+    print "Input pattern for which to search: ";
     my $pattern = <>; chomp $pattern;
     &pattern($pattern);
 
-  } elsif ( $response =~ m/(\>|t(rans)?)$/i ) { # print out translation matrix
+  } elsif ( $response =~ m/^(\>|t(rans)?)$/i ) { # print out translation matrix
+    print "Display the present translation matrix.\n" if ( $debug );
     if ( $from ) {
       print "$from\n";
       print "$to\n";
@@ -163,21 +181,8 @@ while ( defined ($response = $term->readline($prompt)) ) {
       print "No translation characters yet defined.\n"
     }
 
-  } elsif ( $response =~ m/4$/i ) { # print out common 4 letter words
-    print "that, with, have, this, will, your, from, they, know, want, been, good, much, some, time\n";
-
-  } elsif ( $response =~ m/3$/i ) { # print out common 3 letter words
-    print "the	and	for	are	but	not	you	all	any	can\n";
-    print "her	was	one	our	out	day	get	has	him	his\n";
-    print "how	man	new	now	old	see	two	way	who	boy\n";
-    print "did	its	let	put	say	she	too	use	dad	mom\n";
-    print "act	bar	car	dew	eat	far	gym	hey	ink	jet\n";
-    print "key	log	mad	nap	odd	pal	ram	saw	tan	urn\n";
-    print "vet	wed	yap	zoo\n";
-    print "THE AND THA ENT ION TIO FOR NDE HAS NCE EDT TIS OFT STH MEN\n";
-
-  } elsif ( $response =~ m/2$/i ) { # print out common 2 letter words
-    print "25 of some of the most common 2-letter words.\n";
+  } elsif ( $response =~ m/^2$/i ) { # print out common 2 letter words
+    print "25 of some of the most common 2-letter words/combinations.\n";
     print "am	an	as	at	be\n";
     print "by	do	go	he	hi\n";
     print "if	in	is	it	me\n";
@@ -190,15 +195,31 @@ while ( defined ($response = $term->readline($prompt)) ) {
     print "Doubled Letters: SS, EE, TT, FF, LL, MM and OO\n";
     print "Digraphs:        TH ER ON AN RE HE IN ED ND HA AT EN ES OF OR NT EA TI TO IT ST IO LE IS OU AR AS DE RT VE\n";
 
-  } elsif ( $response =~ m/(c(lear)?|\*)$/i ) { # clear the transltion matrix
-    print "Translation matrix has been cleaned.\n";
+  } elsif ( $response =~ m/^3$/i ) { # print out common 3 letter words
+    print "Some of the most common 3-letter words/combinations.\n";
+    print "the	and	for	are	but	not	you	all	any	can\n";
+    print "her	was	one	our	out	day	get	has	him	his\n";
+    print "how	man	new	now	old	see	two	way	who	boy\n";
+    print "did	its	let	put	say	she	too	use	dad	mom\n";
+    print "act	bar	car	dew	eat	far	gym	hey	ink	jet\n";
+    print "key	log	mad	nap	odd	pal	ram	saw	tan	urn\n";
+    print "vet	wed	yap	zoo\n";
+    print "THE AND THA ENT ION TIO FOR NDE HAS NCE EDT TIS OFT STH MEN\n";
+
+  } elsif ( $response =~ m/^4$/i ) { # print out common 4 letter words
+    print "Some of the most common 4-letter words.\n";
+    print "that, with, have, this, will, your, from, they, know, want, been, good, much, some, time\n";
+
+  } elsif ( $response =~ m/^(c(lear)?|\*)$/i ) { # clear the transltion matrix
+    print "Translation matrix has been cleared.\n";
     foreach my $c ( 'A' .. 'Z' ) {
       $translate->{$c} = ' ';
       $from .= $c;
       $to   .= ' ';
     }
 
-  } elsif ( $response =~ /^e(xit)?$|^q(uit)?$/ ) {
+  } elsif ( $response =~ /^(e(xit)?|q(uit)?)$/i ) {
+    print "exiting...\n" if ( $debug );
     # apparently Term::ReadLine's GetHistory method returns an array poisoned with nulls
     my(@hist)= grep(/\S/,$term->GetHistory());
     if (@hist) {
@@ -233,6 +254,7 @@ while ( defined ($response = $term->readline($prompt)) ) {
     print "QUIT|EXIT\n";
     print "-" x 40 . "\n";
   }
+  print "End of command loop: response was '$response'\n" if ( $debug );
 }
 
 sub response {
@@ -406,10 +428,10 @@ __END__
 # AN YSFOEMCDWXB RT I KG  HL
 
 # puzzle 10 2018-10-29 Dispatch
-# FXU EQCA CLNLF FE EZY
-# YUBCLRBFLEQ ES FENEYYED
-# DLCC HU EZY KEZHFM
-# ES FEKBA. - SYBQPCLQ K. YEEMUOUCF
+  FXU EQCA CLNLF FE EZY
+  YUBCLRBFLEQ ES FENEYYED
+  DLCC HU EZY KEZHFM
+  ES FEKBA. - SYBQPCLQ K. YEEMUOUCF
 # solution 10
 # WLUGFMKIBCJNAPQTOVERYZXHSD
 #  IE TSD AL MYKN V OZRUHBFW
