@@ -2,7 +2,7 @@
 # A perl script to help solve cryptoquote puzzles.
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
-my $usage = "usage:\n$name [-opt1] [-opt2] [-opt3]";
+my $usage = "usage:\n$name";
 
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use Term::ReadLine;
 my $term = new Term::ReadLine
 my $hist_save = $ENV{HOME} . "/.cryptoquote";
 if (-s $hist_save) {
-  open(HIST,"<$hist_save")
+  open(HIST, "<", $hist_save)
     || warn("$name: Cannot read from '$hist_save': $!\n");
   my(@hist)=<HIST>;
   @hist=grep((chomp($_),$_),@hist);
@@ -22,7 +22,7 @@ if (-s $hist_save) {
 my $puzzle;
 my $response;
 my $translate;
-my $debug = 1;
+my $debug = 0;
 my $prompt = 'Command: ';
 my $histogram;
 my $from;
@@ -73,7 +73,7 @@ while ( defined ($response = $term->readline($prompt)) ) {
       print "$line";
     }
 
-  } elsif ( $response =~ m/^([A-Z])[-,.>|;:'_ ]+([A-Z])?$/ ) { # add/clear translation
+  } elsif ( $response =~ m/^([A-Z])[-,.>|;:'_ \t]+([A-Z])?$/ ) { # add/clear translation
     print "Single new translation.\n" if ( $debug );
     $from = '';
     $to   = '';
@@ -126,8 +126,10 @@ while ( defined ($response = $term->readline($prompt)) ) {
     foreach my $key ( keys %$translate ) {
       push(@{$counts->{$translate->{$key}}},$key);
     }
+    my $printed;
     foreach my $char ( values %$translate ) {
-      next if $char =~ / /;
+      next if ( $char =~ / / or $printed->{$char} );
+      $printed->{$char}++;
       if ( scalar @{$counts->{$char}} > 1 ) {
       	print "Found duplicate translations leading to ($char)\n";
       	print "Namely, " . join(', ',@{$counts->{$char}}) . "\n";
@@ -428,10 +430,17 @@ __END__
 # AN YSFOEMCDWXB RT I KG  HL
 
 # puzzle 10 2018-10-29 Dispatch
-  FXU EQCA CLNLF FE EZY
-  YUBCLRBFLEQ ES FENEYYED
-  DLCC HU EZY KEZHFM
-  ES FEKBA. - SYBQPCLQ K. YEEMUOUCF
+# FXU EQCA CLNLF FE EZY
+# YUBCLRBFLEQ ES FENEYYED
+# DLCC HU EZY KEZHFM
+# ES FEKBA. - SYBQPCLQ K. YEEMUOUCF
 # solution 10
 # WLUGFMKIBCJNAPQTOVERYZXHSD
 #  IE TSD AL MYKN V OZRUHBFW
+
+# puzzle 11 2018-10-30 Dispatch
+  P TAZTBU JTN FJH TSPAPFB
+  FY UTB VY.  FJTF'Y JYZ P
+  LTAAHN RB YZV UJYFU.
+  - UPNVHB KYPFPHC
+# solution 11
