@@ -280,7 +280,7 @@ exit 0;
 
 sub pattern {
   my $pattern = shift;
-  my ( $backref, $unique, $regexp, $characters );
+  my ( $backref, $unique, $regexp, $atoms, $escape );
   $backref->[1]  = '\1';
   $backref->[2]  = '\2';
   $backref->[3]  = '\3';
@@ -304,11 +304,16 @@ sub pattern {
   my $next_unique = 1;
   for (my($i)=0; $i<length($pattern); $i++) {
     my $char = substr($pattern, $i, 1);
-    if ( exists $characters->{$char} ) {
-      $regexp .= $characters->{$char};
+    if ( $escape ) {
+      $regexp .= $char;
+      $escape = 0;
+    } elsif ( $char eq '\' ) {
+      $escape = 1;
+    } elsif ( exists $atoms->{$char} ) {
+      $regexp .= $atoms->{$char};
     } else {
       $regexp .= $unique->[$next_unique];
-      $characters->{$char} = $backref->[$next_unique];
+      $atoms->{$char} = $backref->[$next_unique];
       $next_unique++;
     }
   }
@@ -439,8 +444,10 @@ __END__
 #  IE TSD AL MYKN V OZRUHBFW
 
 # puzzle 11 2018-10-30 Dispatch
-  P TAZTBU JTN FJH TSPAPFB
-  FY UTB VY.  FJTF'Y JYZ P
-  LTAAHN RB YZV UJYFU.
-  - UPNVHB KYPFPHC
+# P TAZTBU JTN FJH TSPAPFB
+# FY UTB VY.  FJTF'U JYZ P
+# LTAAHN RB YZV UJYFU.
+# - UPNVHB KYPFPHC
 # solution 11
+# PRBKDYHQAGWJNSXMFCIVLEZOUT
+# IMYP OE L  HDB  TR NC W SA
