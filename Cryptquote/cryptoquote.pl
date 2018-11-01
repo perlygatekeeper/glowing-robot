@@ -214,6 +214,8 @@ while ( defined ($response = $term->readline($prompt)) ) {
 
   } elsif ( $response =~ m/^(c(lear)?|\*)$/i ) { # clear the transltion matrix
     print "Translation matrix has been cleared.\n";
+    $from = '';
+    $to   = '';
     foreach my $c ( 'A' .. 'Z' ) {
       $translate->{$c} = ' ';
       $from .= $c;
@@ -307,7 +309,7 @@ sub pattern {
     if ( $escape ) {
       $regexp .= $char;
       $escape = 0;
-    } elsif ( $char eq '\' ) {
+    } elsif ( $char eq "\\" ) {
       $escape = 1;
     } elsif ( exists $atoms->{$char} ) {
       $regexp .= $atoms->{$char};
@@ -451,3 +453,10 @@ __END__
 # solution 11
 # PRBKDYHQAGWJNSXMFCIVLEZOUT
 # IMYP OE L  HDB  TR NC W SA
+
+# puzzle 12 2018-10-31 Dispatch
+  AJ GAAD. LCAZJPN
+  QGANYATF XANCYCQ.
+  XLDPF XP FYID!
+  - KYCYVNPE FLCEPNFAC
+# solution 12
