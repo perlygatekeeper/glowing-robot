@@ -1,0 +1,59 @@
+02:01:17.144381 git.c:344               trace: built-in: git 'push' 'origin'
+02:01:17.151220 run-command.c:626       trace: run_command: 'ssh' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+02:04:46.636178 git.c:344               trace: built-in: git 'push' 'origin'
+02:04:46.643197 run-command.c:626       trace: run_command: '/opt/local/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+02:31:41.791097 git.c:344               trace: built-in: git 'push' 'origin'
+02:31:41.803855 run-command.c:626       trace: run_command: '/opt/local/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+02:40:39.528041 git.c:344               trace: built-in: git 'push' 'origin'
+02:40:39.547632 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+02:48:38.050495 git.c:344               trace: built-in: git 'push' 'origin'
+02:48:38.057005 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+02:49:31.810509 git.c:344               trace: built-in: git 'push' 'origin'
+02:49:31.818625 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+21:07:27.910782 git.c:344               trace: built-in: git 'push' 'origin'
+21:07:27.922928 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@github.com' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+21:38:23.463602 git.c:344               trace: built-in: git 'remote' '-v'
+21:38:33.981991 git.c:344               trace: built-in: git 'help' 'push'
+21:40:23.500703 git.c:344               trace: built-in: git 'help' 'push'
+21:45:15.899471 git.c:344               trace: built-in: git 'push' 'origin'
+21:45:15.925960 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@192.30.253.112' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+21:45:16.496682 pkt-line.c:80           packet:         push< 9d8fab0df65e374572e5f24af2573ce761f46901 refs/heads/master\0report-status delete-refs side-band-64k quiet atomic ofs-delta agent=git/github-gb357fbbbd066
+21:45:16.496740 pkt-line.c:80           packet:         push< 0000
+21:45:16.511073 pkt-line.c:80           packet:         push> 9d8fab0df65e374572e5f24af2573ce761f46901 69193b745d86a4821da0f04052fc758c376828dd refs/heads/master\0 report-status side-band-64k agent=git/2.15.1.(Apple.Git-101)
+21:45:16.511112 pkt-line.c:80           packet:         push> 0000
+21:45:16.511257 run-command.c:626       trace: run_command: 'pack-objects' '--all-progress-implied' '--revs' '--stdout' '--thin' '--delta-base-offset' '--progress'
+21:45:16.541785 git.c:344               trace: built-in: git 'pack-objects' '--all-progress-implied' '--revs' '--stdout' '--thin' '--delta-base-offset' '--progress'
+21:45:16.720347 pkt-line.c:80           packet:     sideband< \2Resolving deltas:   0% (0/22)   \15
+21:45:16.763211 pkt-line.c:80           packet:     sideband< \2Resolving deltas:  31% (7/22)   \15
+21:45:16.763284 pkt-line.c:80           packet:     sideband< \2Resolving deltas:  63% (14/22)   \15
+21:45:16.763319 pkt-line.c:80           packet:     sideband< \2Resolving deltas: 100% (22/22)   \15Resolving deltas: 100% (22/22), completed with 1 local object.
+21:45:18.455607 pkt-line.c:80           packet:     sideband< \1000eunpack ok
+21:45:18.455673 pkt-line.c:80           packet:     sideband< \10019ok refs/heads/master
+21:45:18.455691 pkt-line.c:80           packet:         push< unpack ok
+21:45:18.455723 pkt-line.c:80           packet:         push< ok refs/heads/master
+21:45:18.760034 pkt-line.c:80           packet:     sideband< \10000
+21:45:18.760104 pkt-line.c:80           packet:     sideband< 0000
+21:45:18.760111 pkt-line.c:80           packet:         push< 0000
+21:46:24.424732 git.c:344               trace: built-in: git 'status'
+21:46:48.387954 git.c:344               trace: built-in: git 'add' 'Cryptquote/cryptoquote.pl'
+21:48:16.569062 git.c:344               trace: built-in: git 'commit' '-m' 'fixed escape'
+21:48:22.563193 git.c:344               trace: built-in: git 'push' 'origin'
+21:48:22.565936 run-command.c:626       trace: run_command: '/usr/bin/ssh -v -v -v' 'git@192.30.253.112' 'git-receive-pack '\''perlygatekeeper/glowing-robot.git'\'''
+21:48:23.070365 pkt-line.c:80           packet:         push< 69193b745d86a4821da0f04052fc758c376828dd refs/heads/master\0report-status delete-refs side-band-64k quiet atomic ofs-delta agent=git/github-gb357fbbbd066
+21:48:23.070482 pkt-line.c:80           packet:         push< 0000
+21:48:23.074142 pkt-line.c:80           packet:         push> 69193b745d86a4821da0f04052fc758c376828dd efb812c15d3aa90a12335fab95466a26cdfce029 refs/heads/master\0 report-status side-band-64k agent=git/2.15.1.(Apple.Git-101)
+21:48:23.074185 pkt-line.c:80           packet:         push> 0000
+21:48:23.074332 run-command.c:626       trace: run_command: 'pack-objects' '--all-progress-implied' '--revs' '--stdout' '--thin' '--delta-base-offset' '--progress'
+21:48:23.079856 git.c:344               trace: built-in: git 'pack-objects' '--all-progress-implied' '--revs' '--stdout' '--thin' '--delta-base-offset' '--progress'
+21:48:23.172822 pkt-line.c:80           packet:     sideband< \2Resolving deltas:   0% (0/3)   \15
+21:48:23.219181 pkt-line.c:80           packet:     sideband< \2Resolving deltas:  33% (1/3)   \15
+21:48:23.219253 pkt-line.c:80           packet:     sideband< \2Resolving deltas:  66% (2/3)   \15
+21:48:23.219287 pkt-line.c:80           packet:     sideband< \2Resolving deltas: 100% (3/3)   \15Resolving deltas: 100% (3/3), completed with 3 local objects.
+21:48:24.723880 pkt-line.c:80           packet:     sideband< \1000eunpack ok
+21:48:24.723945 pkt-line.c:80           packet:     sideband< \10019ok refs/heads/master
+21:48:24.723962 pkt-line.c:80           packet:         push< unpack ok
+21:48:24.723994 pkt-line.c:80           packet:         push< ok refs/heads/master
+21:48:25.001033 pkt-line.c:80           packet:     sideband< \10000
+21:48:25.001167 pkt-line.c:80           packet:         push< 0000
+21:48:25.001451 pkt-line.c:80           packet:     sideband< 0000
+21:48:27.192302 git.c:344               trace: built-in: git 'status'
