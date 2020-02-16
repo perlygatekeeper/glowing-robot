@@ -1,6 +1,8 @@
-# Resulting Element	Ingredient Combination(s)
+# Air	Available from start.
+# Earth	Available from start.
+# Fire	Available from start.
+# Water	Available from start.
 Acid Rain	rain, smoke / rain, smog
-Air	Available from start.
 Airplane	bird, steel / bird, metal
 Alarm Clock	clock, sound
 Alcohol	fruit, time / juice, time
@@ -154,7 +156,6 @@ Dune	sand, wind / desert, wind / beach, wind
 Dust	earth, air / sun, vampire / day, vampire
 Dynamite	gunpowder, wire
 Eagle	mountain, bird
-Earth	Available from start.
 Earthquake	earth, energy / earth, wave
 Eclipse	sun, moon
 Egg	life, stone / bird, bird / turtle, turtle / lizard, lizard
@@ -178,7 +179,6 @@ Farmer	human, plant / field, human / human, pitchfork
 Faun	goat, human
 Fence	wall, wood
 Field	earth, farmer / earth, tool
-Fire	Available from start.
 Fire Extinguisher	fire, carbon dioxide / pressure, carbon dioxide / metal, carbon dioxide
 Fireman	human, fire / human, firetruck
 Fireplace	house, campfire / campfire, brick / campfire, wall
@@ -553,7 +553,6 @@ Wallet	leather, money
 Wand	wizard, wood
 Warrior	sword, human
 Watch	human, clock
-Water	Available from start.
 Water Gun	water, gun
 Water Lilly	flower, pond
 Water Pipe	water, pipe
