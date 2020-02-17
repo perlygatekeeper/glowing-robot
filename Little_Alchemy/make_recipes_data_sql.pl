@@ -8,7 +8,7 @@ use strict;
 use warnings;
 
 my $sql_statement_format;
-$sql_statement_format  = "INSERT INTO recipes ( product, ingredient_1, ingredient_2, last_updated, date_added )\n";
+$sql_statement_format  = "INSERT INTO recipes ( product, ingredient_1, ingredient_2, last_modified, date_added )\n";
 $sql_statement_format .= " SELECT e1.id, e2.id, e3.id, now(), now()\n";
 $sql_statement_format .= " FROM elements e1, elements e2, elements e3\n";
 $sql_statement_format .= " WHERE e1.name = '%s' AND e2.name = '%s' AND e3.name = '%s';\n";
@@ -303,7 +303,7 @@ Igloo	house, ice / house, snow
 Internet	computer, computer / computer, wire / computer, web
 Isle	ocean, volcano / volcano, sea
 Ivy	plant, wall
-Jack-O'-Lantern	pumpkin, fire / blade, pumpkin / pumpkin, candle
+Jack-O-Lantern	pumpkin, fire / blade, pumpkin / pumpkin, candle
 Jam	juice, sugar
 Jedi	lightsaber, human / knight, lightsaber
 Jerky	meat, sun / meat, salt
