@@ -32,6 +32,7 @@ while (<DATA>) {
 exit 0;
 
 __END__
+# https://www.ign.com/wikis/little-alchemy/Little_Alchemy_Cheats_-_List_of_All_Combinations
 # Air	Available from start.
 # Earth	Available from start.
 # Fire	Available from start.
