@@ -1,0 +1,813 @@
+achilles               /icons/1_84.svg  A Greek warrior known more for the idiom his death created than his exploits in the Trojan War.
+acid-rain              /icons/152.svg   Rain that has been corrupted by pollution.
+aegis                  /icons/1_1.svg   The shield Athena is always borrowing from Zeus.
+aeolus                 /icons/1_2.svg   The god of winds passed by nature, not man.
+airplane               /icons/153.svg   A large winged vehicle that relies on thrust to fly.
+alarm-clock            /icons/404.svg   A clock that can be timed to make a noise so irritating it will force someone out of bed.
+alchemist              /icons/716.svg   One who thinks deeply about the nature of things.
+alcohol                /icons/203.svg   A volatile liquid used in chemistry and certain adult beverages.
+algae                  /icons/154.svg   Aquatic plants that don't have true roots, stems, and leaves, but do have the hope of millions that they will replace fossil fuels in the near future.
+alien                  /icons/341.svg   That which is not of this Earth.
+allergy                /icons/155.svg   The body's response to something it doesn't like.
+alligator              /icons/156.svg   The one with the wider, u-shaped snout.
+alpaca                 /icons/509.svg   Bet you didn't know that llamas have banana ears and alpacas have spear ears.
+ambulance              /icons/334.svg   Specialty vehicles that ferry people to and from hospitals, and are not required to obey traffic laws in an emergency.
+angel                  /icons/158.svg   Divine servant of God.
+angler                 /icons/495.svg   Fisherman evolved to use tools and not their bare hands.
+animal                 /icons/140.svg   Multicellular organisms that perpetually hunger for other organic matter, and are commonly classified in cracker form.
+ankh                   /icons/1_3.svg   How to show you're reppin' life in ancient Egypt.
+ant                    /icons/518.svg   Insect member of a royalty-based society, and mortal enemy of magnifying glasses.
+ant-farm               /icons/754.svg   Artificial apartment complex for ants.
+antarctica             /icons/159.svg   The forgotten continent at the end of the world.
+anthill                /icons/711.svg   Community housing made by ants, for ants.
+apple-of-discord       /icons/1_4.svg   The prize for a beauty competition amongst the gods that got a little out of hand and kind of started the whole Trojan War.
+apron                  /icons/740.svg   One's armor when waging culinary warfare.
+aquarium               /icons/34.svg    Fish limbo.
+archeologist           /icons/744.svg   Someone who's really into the lives of old people; the older, the better.
+archipelago            /icons/160.svg   A motley crew of islands.
+arctic                 /icons/639.svg   The regional domain of Santa Claus.
+armadillo              /icons/381.svg   The safety mammal that's decked out in bony plating, and which moves under the cover of darkness.
+armor                  /icons/161.svg   Wearable defenses. 
+arrow                  /icons/666.svg   A bow's ammunition, used to deliver pain and/or love.
+ash                    /icons/29.svg    Fire dandruff.
+astronaut              /icons/162.svg   A space adventurer.
+astronomer             /icons/881.svg   A scientist with their head in the interstellar clouds.
+atmosphere             /icons/163.svg   The layer of gases surrounding our planet that protects us from various invisible space horrors.
+atomic-bomb            /icons/164.svg   A very atomically-correct bomb.
+aurora                 /icons/566.svg   When Earth's atmosphere gets confrontational with solar particles, there be fireworks.
+avalanche              /icons/347.svg   A rapid descent of mountain accumulation.
+aviary                 /icons/894.svg   A loft apartment for birds.
+axe                    /icons/57.svg    Instrument used to question trees.
+baast                  /icons/1_107.svg Egyptian goddess of cats, protection, and sleeping in the sun.
+baba-yaga              /icons/1_5.svg   An old witch that enjoys flying through the air in a giant bowl while wielding a pestle and mysterious intentions.
+babe-the-blue-ox       /icons/1_85.svg  Paul Bunyon's landscaping partner.
+bacon                  /icons/220.svg   Meat from the back and sides of a pig that is salted, smoked, and lusted over.
+bacteria               /icons/166.svg   Microorganisms that are essential for life even though they sometimes help take it away.
+baker                  /icons/232.svg   A bread magician.
+bakery                 /icons/527.svg   The best smelling place on Earth. 
+banana                 /icons/394.svg   Fruit loved by certain monkeys and fans of physical comedy.
+banana-bread           /icons/555.svg   The sole purpose of brown bananas.
+bandage                /icons/506.svg   Artifical scabs.
+bank                   /icons/434.svg   The main producer of sacks with dollar signs on them.
+banshee                /icons/1_86.svg  A spritual alarm warning of an impending death in a family.
+barn                   /icons/167.svg   The farm garage.
+barrel                 /icons/887.svg   A box with a belly.
+bat                    /icons/264.svg   Flying mammal and inspiration for vigilantes.
+batter                 /icons/479.svg   A cooking beat'em up featuring flour, milk, and eggs.
+battery                /icons/686.svg   A container of chemical energy that can be converted into electricity, sometimes heralded by a drumming bunny.
+bayonet                /icons/168.svg   The knife that's brought to a gun fight.
+bbq                    /icons/493.svg   Portable cooker with a clothing requirement of very dumb aprons.
+beach                  /icons/107.svg   The body of sand along a shore, where glistening volleyball games are played.
+beaver                 /icons/169.svg   The lumberjack of the animal kingdom.
+bee                    /icons/461.svg   Bumbly insects armed with a single stinger and excellent dance instincts.
+beehive                /icons/463.svg   The residency of the queen bee.
+beekeeper              /icons/753.svg   Keeper of bees, master of honey, and bearer of swelling.
+beer                   /icons/254.svg   Casual alcohol.
+bell                   /icons/678.svg   A hollow, metal mouth that emits a musical note when struck by its tongue.
+bicycle                /icons/83.svg    A two-wheeled vehicle that's powered by YOU.
+binoculars             /icons/880.svg   The second evolution of handheld telescopes.
+bird                   /icons/46.svg    Dinosaur in hiding.
+birdcage               /icons/690.svg   A cage to confine birds and tempt cats.
+birdhouse              /icons/170.svg   A human-approved dwelling for birds.
+black-hole             /icons/291.svg   Space hole that grows hungrier the more it eats, and whose tastes include everything in existence.
+blade                  /icons/55.svg    The part that cuts instead of stabs!
+blender                /icons/488.svg   A machine that replicates mother birds chewing up food and regurgitating liquids.
+blizzard               /icons/171.svg   A snowy windstorm.
+blood                  /icons/112.svg   Red liquid that keeps humans and vampires alive.
+blood-bag              /icons/697.svg   A travel-sized container for blood.
+boat                   /icons/100.svg   A craft that allows one to travel over water while still being at its mercy.
+boiler                 /icons/38.svg    A generator of steam and nightmares for young children who dared to explore their family's basement.
+bone                   /icons/270.svg   Skeleton puzzle pieces.
+bonsai-tree            /icons/567.svg   A permanent baby tree.
+book                   /icons/342.svg   An imagination igniter.
+book-of-the-dead       /icons/1_6.svg   Book carrying life's cheat codes.
+bottle                 /icons/693.svg   A container for liquids, and favored weapon of bar patrons.
+boulder                /icons/620.svg   A big rock, prone to chasing archaeologists.
+bow                    /icons/665.svg   Arrow propellant.
+box                    /icons/703.svg   A flat-sided container that is perfect for stacking, packing, and trapping.
+bread                  /icons/87.svg    A baked food made from flour, water, and yeast, that is sometimes broken in the pursuit of fellowship.
+brick                  /icons/172.svg   A block of hardened clay that's used for construction and metaphors.
+bridge                 /icons/365.svg   A structure that provides passage over a problematic area, and may go nowhere.
+broom                  /icons/366.svg   A brush with handle attached to it that's used to shuffle rubbish from one place to another
+bucket                 /icons/702.svg   An open cylindrical container with a handle that can be used to carry materials, or worn as a hat.
+bullet                 /icons/39.svg    Gun currency.
+bulletproof-vest       /icons/489.svg   Extra health.
+bunyip                 /icons/1_87.svg  Not content with the already sizable number of deadly animals around them, Aboriginal Australians created this mythical creature of the marshlands.
+bus                    /icons/508.svg   Public transportation on wheels.
+butcher                /icons/174.svg   A person who cuts up meat for fun or profit.
+butter                 /icons/354.svg   The incredible, spreadable, edible fat.
+butterfly              /icons/462.svg   Insect with a rorschach test for wings.
+butterfly-net          /icons/722.svg   A tool for catching butterflies that lets them glimpse sweet freedom while they're in your grasp.
+cable-car              /icons/741.svg   A vehicle that's always working out.
+cactus                 /icons/102.svg   Desert trees that are VERY against hugging.
+cage                   /icons/699.svg   A structure for confinement that taunts its prisoners by having dozens of small openings to look out from.
+cake                   /icons/492.svg   An excuse to use and eat frosting.
+calydonian-boar        /icons/1_88.svg  When gods want to punish you for neglecting them, they send a gigantic boar to mess up your land.
+camazotz               /icons/1_89.svg  They wouldn't call a bat god 'Death Bat' if he didn't love ritual sacrifices and lopping people's heads off.
+camel                  /icons/246.svg   The humped horse of the desert.
+campfire               /icons/63.svg    Outdoor communal heat dispenser and cooker.
+candle                 /icons/466.svg   Wax fire sticks.
+candy-cane             /icons/374.svg   A striped, minty candy shaped like a cane that heralds the arrival of Christmas.
+cannon                 /icons/487.svg   Weapon of warfare inspired by firing off champagne corks.
+canvas                 /icons/755.svg   A cloth window to imagination.
+car                    /icons/175.svg   A four-wheeled vehicle that is powered by an engine, and is used for cruising on land in various capacities.
+caramel                /icons/728.svg   Sugar you can chew.
+carbon-dioxide         /icons/363.svg   A colorless, odorless gas that may end up causing a few mass extinctions.
+carrot                 /icons/562.svg   An orange vegetable with green hair, and inspiration for the greatest comedian in history.
+cart                   /icons/205.svg   A two-wheeled wagon.
+cashmere               /icons/597.svg   Super-fine goat wool.
+castle                 /icons/282.svg   Fortified building and occasional home of royalty.
+cat                    /icons/238.svg   A small mammal that is kept as a pet and believes it owns everything.
+catnip                 /icons/401.svg   Cat-safe drug.
+cauldron               /icons/594.svg   An ominous kettle.
+cave                   /icons/700.svg   A hollow space underground that can serve as a home for bats and batmen.
+caviar                 /icons/66.svg    Salty fish eggs.
+centaur                /icons/283.svg   The wild man-horse.
+cereal                 /icons/290.svg   Breakfast food made from roasted grains, and a contested member of a balanced breakfast.
+chain                  /icons/590.svg   A metal link, often used to connect commands.
+chainsaw               /icons/120.svg   Mechanical saw with spinning teeth of DEATH.
+chameleon              /icons/418.svg   Lizard of many colors and eyelines.
+chang'e                /icons/1_7.svg   A young woman who drank an immortality potion, sought refuge in the moon, and became its goddess, as you do.
+changeling             /icons/1_90.svg  A child that has been secretly switched with another child by fairies or the LAPD.
+charcoal               /icons/176.svg   What's left when wood or other organic things aren't allowed access to air, and then set ablaze.
+cheese                 /icons/78.svg    The only benefit to letting milk go bad.
+cheeseburger           /icons/484.svg   Hot sandwich with two different cow products in it.
+chicken                /icons/74.svg    Apparently everything tastes like it.
+chicken-coop           /icons/671.svg   Women's dorm for chickens.
+chicken-soup           /icons/545.svg   Trademarked cure for the common cold.
+chicken-wing           /icons/541.svg   The delicious result of a chicken arm dunked in a hot oil bath.
+chill                  /icons/631.svg   A feeling of coldness, and common cause of goosebumps.
+chimera                /icons/1_8.svg   The mythological proto-platypus; a monster with the head of a lion, the body of a goat, and a snake for a tail.
+chimney                /icons/376.svg   An escape hatch for smoke.
+chinese-dragon         /icons/1_91.svg  A more snake-like dragon with control over water and the outlook of certain people's lives (if they are born at the right time).
+chocolate              /icons/322.svg   Ground-up sweet seeds.
+chocolate-milk         /icons/327.svg   What many believe to be the result of milking brown cows and/or feeding cows chocolate.
+christmas-stocking     /icons/375.svg   A large sock that Santa makes some of his Christmas deposits in.
+christmas-tree         /icons/116.svg   A light-strewn tree used as part of an arcane ritual to summon the immortal creature known as Santa.
+cigarette              /icons/221.svg   The most commonly used tobacco consumption system.
+circus                 /icons/889.svg   A traveling show with acrobats, animals, and clowns performing acts that are daring, dangerous, and possibly illegal.
+city                   /icons/331.svg   A grown-up town.
+clay                   /icons/50.svg    There's wet dirt and then there's fine, wet dirt.
+clock                  /icons/117.svg   An instrument for measuring time and driving hooked pirates insane.
+closet                 /icons/707.svg   A small room used for storing things and hiding monsters.
+cloud                  /icons/15.svg    Natural containers of water suspended in the air.
+coal                   /icons/30.svg    The original fossil fuel.
+cockatrice             /icons/1_82.svg  The death-dealing missing link between birds and dinosaurs that is only afraid of weasels, roosters, and mirrors.
+coconut                /icons/261.svg   Natural candy of a certain type of palm tree.
+coconut-milk           /icons/262.svg   A delicious natural laxative found within coconuts.
+coffin                 /icons/97.svg    The last bed most of us will ever sleep in.
+cold                   /icons/143.svg   A brisk feeling, possibly leading to uncontrollable shaking. 
+combustion-engine      /icons/688.svg   A mechanical stomach that eats fuel.
+computer               /icons/230.svg   An electronic device that can both aid and hinder work.
+computer-mouse         /icons/441.svg   An input device for computers that would resemble a rodent if you were drunk.
+confetti               /icons/451.svg   Paper snow for parties.
+constellation          /icons/440.svg   Connect the Dots: Star Edition.
+continent              /icons/624.svg   A large, continuous mass of land separated by an expanse of water, country borders, or other arbitrary distinctions.
+cook                   /icons/657.svg   A person who takes food and makes it better or worse.
+cookbook               /icons/736.svg   A rulebook for cooking.
+cookie                 /icons/267.svg   A delightfully small and flattened cake.
+cookie-cutter          /icons/734.svg   Cookie silhouette-maker.
+cookie-dough           /icons/328.svg   Raw cookie meat.
+coral                  /icons/667.svg   The rocky substance secreted by tiny marine animals that is currently suffering at the hands of global warming.
+corpse                 /icons/95.svg    A lifeless human body.
+cosmic-egg             /icons/1_9.svg   What came first.
+cotton                 /icons/431.svg   Soft clothes for plant seeds that are then used to make clothes for humans.
+cotton-candy           /icons/714.svg   Sweetened air.
+cow                    /icons/76.svg    A female ox that is used for its milk, beef, and likeability as a mascot.
+crayon                 /icons/579.svg   Edible wax rainbows.
+crow                   /icons/485.svg   The smartest bird on Earth, and member of a murderous group.
+crystal-ball           /icons/459.svg   An orb used to predict the future, preceded by vigorous hand rubbing and temple pointing.
+cthulhu                /icons/1_10.svg  High Priest of the Great Old Ones, the Sleeper of R'lyeh, and the Great--aaagggghhhhHHHHHHHHHHHH!
+cuckoo                 /icons/179.svg   A bird with a call so annoying, it was adopted as an alarm for clocks.
+cup                    /icons/712.svg   The universal drinking container. 
+cupid                  /icons/1_11.svg  The god you can blame for all of your romantic relationships that never should've happened.
+current                /icons/638.svg   Underwater wind.
+curse                  /icons/1_12.svg  A case where words really can hurt you.
+cutting-board          /icons/720.svg   A surface to cut things on, but which cannot be cut itself
+cyborg                 /icons/338.svg   The next stage of humanity.
+cyclist                /icons/105.svg   A rider of one, two, or three-wheeled contraptions, but NEVER FOUR.
+cyclops                /icons/1_83.svg  One-eyed giant that DOESN'T have the power to shoot optic blasts from its peeper.
+dam                    /icons/344.svg   An attempt at taming water.
+darkness               /icons/674.svg   The absence of photons.
+dawn                   /icons/668.svg   When the sun wakes up in the sky.
+day                    /icons/126.svg   The Sun's gaze upon Earth.
+death                  /icons/645.svg   One of life's constants, along with taxes.
+deity                  /icons/1_13.svg  A supernatural being that is worshipped by people, like an immortal pop star.
+demon                  /icons/1_14.svg  A spirit that loves to raise hell (figuratively... and sometimes literally).
+desert                 /icons/101.svg   The land that rain forgot.
+dew                    /icons/399.svg   When cool surfaces sweat water at night.
+diamond                /icons/31.svg    Super Hyper Pressurized Carbon Turbo: Crystal Edition.
+dinosaur               /icons/180.svg   Earth's long gone reptile overlords.
+dionysus               /icons/1_110.svg The Greek god of good times.
+diver                  /icons/685.svg   Someone who enjoys spending long periods of time underwater, especially while having access to a supply of air.
+djinn                  /icons/1_15.svg  A magical shapeshifting spirit that is able to influence humankind, but is occasionally bound to lamps. 
+doctor                 /icons/207.svg   Someone who practices medicine or time traveling.
+dog                    /icons/181.svg   A domesticated mammal that longs to be your best friend.
+doge                   /icons/531.svg   Wow. Much dog. 
+doghouse               /icons/286.svg   A shelter for dogs to sit in or lay on top of.
+domestication          /icons/647.svg   Taming an animal so that they're more amenable to hard labor and pets of the head.
+domovoi                /icons/1_16.svg  A protective spirit that guards homes by looking like a tiny and very hairy old man.
+don-quixote            /icons/587.svg   Some guy who attacked a bunch of windmills, and a movie Terry Gilliam will never complete.
+donut                  /icons/447.svg   A small mound of fried dough that grows more exotic in its variations every year.
+double-rainbow!        /icons/134.svg   An extremely rare occurence, with exposure to it resulting in exaltations of awe and wonder.
+dough                  /icons/86.svg    Wheat's third evolution.
+dragon                 /icons/104.svg   A mythical giant reptile that flies, breathes fire, and is voiced by a British actor.
+drone                  /icons/556.svg   The scouts of the impending robot uprising.
+drum                   /icons/478.svg   Musical instrument that prefers to be hit with sticks or hands.
+drunk                  /icons/251.svg   When the mechanical gears and pulleys controlling your body's motor functions are gunked up with too much alcohol.
+dry-ice                /icons/397.svg   What carbon dioxide turns into when it gets too cold.
+dryad                  /icons/1_17.svg  Female tree spirit who definitely hears when something falls in the forest.
+duck                   /icons/182.svg   Short aquatic birds with webbed feet and surly dispositions.
+duckling               /icons/549.svg   Baby quacker.
+dune                   /icons/183.svg   A ridge of sand formed by wind and sandworms.
+durendal               /icons/1_92.svg  A sword so sharp, it's easier to just stick it in a wall than sheathe it.
+dust                   /icons/14.svg    Earth's dandruff.
+dynamite               /icons/288.svg   Highly volatile and explosive moldable stick.
+eagle                  /icons/332.svg   Large bird that enjoys gliding, crushing the skulls of its prey, and inspiring Americans.
+earthquake             /icons/19.svg    Ground ripples caused by movements within the Earth's crust. 
+eclipse                /icons/129.svg   Celestial shadow puppets.
+egg                    /icons/49.svg    An organic container of life, and important subject of certain philosophical questions related to causality.
+egg-timer              /icons/353.svg   An hourglass that lasts as long as an egg takes to boil.
+electric-car           /icons/425.svg   A car that doesn't run on dinosaur remains.
+electric-eel           /icons/123.svg   Electric river snake. 
+electrician            /icons/121.svg   An electricity tamer.
+electricity            /icons/114.svg   Charged particles, or as it's more technically known: THE POWER OF THE GODS.
+elf                    /icons/1_80.svg  Beings with supernatural power and beauty whose habitat ranges from the North Pole to Tolkien-esque forests.
+elixir-of-life         /icons/1_18.svg  A fabled brew that is said to grant immortality.
+email                  /icons/314.svg   Mail that can be sent without getting up.
+energy                 /icons/11.svg    The universal motivator.
+engineer               /icons/184.svg   The machine whisperer.
+epona                  /icons/1_19.svg  Celtic goddess of horses, and popular name for fictional steeds.
+eruption               /icons/21.svg    What happens when a volcano sneezes.
+excalibur              /icons/435.svg   A famous British sword that nobody can agree on whether it came from a stone or a lake.
+excavator              /icons/882.svg   The lazy person's shovel.
+explosion              /icons/26.svg    Violent expansion used for destruction and spectacle.
+fabric                 /icons/433.svg   The brick of the clothing and textile world.
+factory                /icons/893.svg   The building building.
+faerie                 /icons/1_21.svg  A tiny magical person that sometimes has wings, sometimes is human-sized, and always loves messing with human affiars.
+fairy-tale             /icons/558.svg   Stories told to children by parents to soften the soul-crushing blow of the universe's indifference.
+family                 /icons/186.svg   A group that is united by blood, marriage, and/or a love of high-speed cars.
+family-tree            /icons/524.svg   The only way you can remember your extended family's names.
+farm                   /icons/496.svg   Development center for crops, animals, and spies.
+farmer                 /icons/71.svg    Major supplier of fruits, vegetables, and/or can-do attitudes.
+father-time            /icons/1_22.svg  A man so old he personifies time itself.
+faun                   /icons/350.svg   A human who looks like they're slowly turning into a goat, but actually isn't. They just have the horns, ears, legs, and tail of one.
+fence                  /icons/424.svg   A wall, but outside.
+fenrir                 /icons/1_23.svg  A giant wolf that just loves to eat gods.
+field                  /icons/70.svg    Land ripe for planting.
+fire-extinguisher      /icons/568.svg   Canned fire-killer and DIY space booster pack.
+firefighter            /icons/106.svg   Person sworn to war against fires.
+fireplace              /icons/132.svg   The only place where an accidental fire isn't a dangerous mistake.
+firestation            /icons/696.svg   Where firefighters wait for the call of the flames.
+firetruck              /icons/421.svg   Fire ambulance and vehicle of choice for Dalmations.
+firewall               /icons/879.svg   An electronic bouncer for your network.
+fireworks              /icons/189.svg   Socially-acceptable explosions that are often used for celebrations.
+fish                   /icons/68.svg    Any gill-breathing vertebrate that hangs out under the sea.
+fishing-rod            /icons/448.svg   A device that preys on the ignorance of fish in order to capture them.
+flamethrower           /icons/515.svg   More like a flame spewer.
+flashlight             /icons/398.svg   A portable light and scary face-maker.
+flood                  /icons/190.svg   A large amount of water that has temporarily outgrown its home.
+flour                  /icons/85.svg    The white powder created by grinding grains.
+flower                 /icons/416.svg   A plant-based weapon in romantic courtship.
+flute                  /icons/138.svg   Wind-powered instrument with a holey sound.
+flying-fish            /icons/390.svg   Fish that dream of one day flying out of their watery prison, but will only ever be able to glide short distances.
+flying-squirrel        /icons/423.svg   Rats with wings-that-aren't-really-wings-but-actually-folds-of-skin-connecting-the-fore-and-hind-legs.
+fog                    /icons/191.svg   Land clouds.
+force-knight           /icons/241.svg   Guardians of peace and justice in the Old Republic.
+forest                 /icons/58.svg    It takes trees to tango. 
+fork                   /icons/884.svg   The utensil for those who think spoons are too safe, and knives too dangerous.
+fortune-cookie         /icons/540.svg   Thin folded wafer with a prophetic message inside.
+fossil                 /icons/224.svg   The petrified remains of ancient organisms.
+fountain               /icons/476.svg   An artificial geyser.
+fountain-of-youth      /icons/1_24.svg  A public fountain where bathing or drinking from it isn't against the rules AND doing either lets you stay young forever.
+fox                    /icons/419.svg   The slyest of all animals and frequent patron of chicken coops.
+frankenstein's-monster /icons/118.svg   The tragic result of a mad scientist's quest to conquer death
+french-fries           /icons/543.svg   Hot and oiled potato sticks.
+fridge                 /icons/368.svg   A cold food closet.
+frog                   /icons/504.svg   Amphibean that's a ribbit-er and not a croak-er.
+frozen-yogurt          /icons/715.svg   Yogurt that's even colder!
+fruit                  /icons/88.svg    A totally sweet plant product.
+fruit-tree             /icons/187.svg   A tree bearing gifts.
+galaxy                 /icons/305.svg   A collection of stars held together by gravity.
+galaxy-cluster         /icons/609.svg   A gravity party bumpin' with galaxies. 
+garage                 /icons/704.svg   The clubhouse for vehicles.
+garden                 /icons/192.svg   A small area used for growing flowers, fruits, vegetables, or rocks.
+gardener               /icons/529.svg   Lord of plants. 
+gargoyle               /icons/1_25.svg  Stone monster that watch over buildings and occasionally fights crime.
+garuda                 /icons/1_26.svg  Look up in the sky! It's a bird! It's a bird-like creature! It's the king of birds!
+gas                    /icons/602.svg   An airy fluid.
+gashadokuro            /icons/1_27.svg  Spirits that take the form of giant human skeletons and love long walks after midnight and biting the heads off of weary travelers.
+geyser                 /icons/17.svg    An exclamatory jet of water and steam that is exhaled by a hot spring.
+ghost                  /icons/456.svg   Life after death, sometimes as a translucent body, and often on the receiving end of busts.
+giant                  /icons/1_28.svg  An extremely tall person, and not always big and friendly.
+gift                   /icons/378.svg   Something that is given without payment.
+gingerbread-house      /icons/536.svg   Edible housing for edible people.
+gingerbread-man        /icons/535.svg   Uncatchable human-shaped cookie.
+glacier                /icons/202.svg   An enormous moving ice blanket.
+glass                  /icons/32.svg    A brittle, transparent substance, and primary weapon in the war against ants.
+glasses                /icons/185.svg   A wearable device that helps with eyesight by compensating for bad genetic luck or staring at the TV too much.
+gnome                  /icons/569.svg   A protector of gardens who also happens to be an insurance salesman.
+goat                   /icons/289.svg   Frisky horned sheep.
+goblin                 /icons/1_29.svg  Grotestque, greedy monster prone to obsessing over people who dress like spiders.
+gold                   /icons/351.svg   THE precious metal.
+golem                  /icons/51.svg    A human figure made out of clay, and given unnatural life.
+granite                /icons/570.svg   Stop me if you've heard this before: quartz, mica, and feldspar walk into a bar...
+grass                  /icons/75.svg    Nature's carpet.
+grave                  /icons/98.svg    An area where a dead body has been deposited publicly or secretly.
+gravestone             /icons/136.svg   Nameplate for the dead.
+graveyard              /icons/99.svg    The deadest of subterranean parties.
+green-man              /icons/1_31.svg  Did you know that a dude with foliage all over his face can be a symbol for rebirth? Well it can!
+greenhouse             /icons/35.svg    Daycare for plants.
+gremlin                /icons/1_32.svg  The monsterly cause of most flight delays.
+grenade                /icons/193.svg   A portable explosion.
+griffin                /icons/1_33.svg  You ever see the fiercest animal of land standing next to the fiercest animal of the air and think, "Why not combine them?"
+grilled-cheese         /icons/512.svg   Proof that you don't need meat for a perfect sandwich. 
+grim-reaper            /icons/244.svg   An attempt at making death easier to comprehend.
+gun                    /icons/94.svg    A weapon where a projectile is explosively propelled out of a metal tube.
+gunpowder              /icons/25.svg    A powder that explodes when excited.
+gust                   /icons/629.svg   A cough of wind.
+hacker                 /icons/204.svg   An exceedingly skillful programmer and wearer of monochromatic hats.
+hail                   /icons/194.svg   Rain that has frozen on its way to the ground.
+ham                    /icons/93.svg    The upper leg meat of a pig that has been made tasty.
+hamburger              /icons/313.svg   Cow sandwich.
+hammer                 /icons/522.svg   The premiere pounding tool. 
+hamster                /icons/560.svg   An adorable rodent whose primary means of transportation is a giant ball.
+hangar                 /icons/701.svg   THE place to house one's airplane collection.
+harp                   /icons/539.svg   Plucked instrument of the gods.
+hay                    /icons/195.svg   Dried grass that is used to feed livestock and hide needles.
+hay-bale               /icons/538.svg   An informal, off the cuff greeting to Christian Bale, a celebrated actor. 
+heat                   /icons/600.svg   A quality of either increased temperature, feeling, social standing, or police presence.
+heaven                 /icons/1_34.svg  The "good" place.
+hedge                  /icons/571.svg   A plant-link fence.
+hedgehog               /icons/727.svg   A spiny mammal that can roll into a ball for defense, and which the populace loves to see go fast.
+helicopter             /icons/411.svg   When someone takes a Bond villain's death machine and turns it into a vehicle.
+hell                   /icons/1_35.svg  The "bad" place.
+hellhound              /icons/1_36.svg  Hell's guard dog.
+hero                   /icons/196.svg   A person who is idealized or admired for courageous actions like saving a drowning child or refilling the communal coffee pot.
+hill                   /icons/621.svg   A belly of land.
+hippo                  /icons/468.svg   The most deadly yet cutest animal in Africa.
+holy-grail             /icons/1_38.svg  Just one sip will give death the slip!
+holy-water             /icons/1_39.svg  Locally sourced water that's been purified with a proprietary blend of minerals and holiness.
+honey                  /icons/464.svg   Bee-made liquid that never expires and always tastes good with chicken nuggets.
+horizon                /icons/197.svg   The line where earth and sky meet.
+horse                  /icons/198.svg   A hornless unicorn, commonly used for transportation and racing.
+horseshoe              /icons/501.svg   The only set of shoes with nails for laces.
+hospital               /icons/199.svg   An institution for receiving medical care, and inspiration for countless TV shows.
+hot-chocolate          /icons/752.svg   Finally, a faster way to consume chocolate.
+hourglass              /icons/33.svg    Egg timer prototype.
+house                  /icons/72.svg    A building for people to live in, with an option for pets and/or ghosts.
+human                  /icons/48.svg    The most dangerous game.
+hummingbird            /icons/417.svg   A bird that has superseded dogs with its ability to fly backwards.
+hurricane              /icons/640.svg   A cycloptic storm.
+husky                  /icons/583.svg   A dog that loves to mush.
+hydra                  /icons/1_40.svg  Snake monster that you just can't get ahead of.
+ice                    /icons/148.svg   Solid water that's allergic to heat.
+ice-cream              /icons/200.svg   A frozen food made from dairy products that can be combined with a comically-large range of ingredients.
+ice-cream-truck        /icons/528.svg   Vehicle that preys on sweet tooths and children.
+ice-sculpture          /icons/739.svg   When an artist really wants to drive the point home that 'nothing lasts.'
+iceberg                /icons/268.svg   Great ice cube of the sea.
+iced-tea               /icons/546.svg   Cold leafy drink.
+idea                   /icons/304.svg   A thought given weight.
+igloo                  /icons/213.svg   Snow forts for adults.
+internet               /icons/345.svg   The information superhighway.
+island                 /icons/18.svg    A small body of land surrounded by water, frequently the location of escapist daydreams.
+ivy                    /icons/559.svg   A plant with a passion for climbing using its five point technique.
+jack-o-lantern         /icons/460.svg   A lobotomized pumpkin that is lit from the inside.
+jackalope              /icons/1_42.svg  A creature with some crazy stories on how its parents met.
+jam                    /icons/483.svg   Fruity preserves with a good beat.
+jar                    /icons/708.svg   A bottle with a big mouth.
+jerky                  /icons/557.svg   Slim-as-a-jim sunbathed strips of meat.
+jiangshi               /icons/1_43.svg  A vampire that's hopping mad.
+jormungandr            /icons/1_44.svg  THE GOD SNAKE OF THE NORTH.
+jotunn                 /icons/1_45.svg  Frosty the Norse Giant.
+juice                  /icons/256.svg   The delicious liquid obtained from fruit or vegetables.
+jupiter                /icons/651.svg   The largest planet in our solar system, fifth from the sun, and home of the all-powerful Great Red Spot.
+kaiju                  /icons/500.svg   Japan's most vocal proponent of nuclear disarmament.
+kanab                  /icons/1_46.svg  A studded or spiked club beloved by samurai and supernatural ogres.
+kappa                  /icons/1_47.svg  A human-like turtle demon that loves wrestling, being polite, and keeping the plate on their head filled with water.
+katana                 /icons/679.svg   A single-sided, curved sword used by warriors of the past and future.
+kelpie                 /icons/1_48.svg  Shapeshifting Scottish water-horse spirit that loves appearing in lochs and grainy photos.
+kite                   /icons/317.svg   A toy that lets you play tug of war with wind.
+kitsune                /icons/1_49.svg  Fox of many tales AND tails.
+knife                  /icons/719.svg   A small blade with a handle that can help you or end you.
+knight                 /icons/178.svg   An armorclad warrior who served under a designated ruler, an honorary title bestowed upon a man, and an outdated notion of chivalry.
+kraken                 /icons/1_50.svg  A giant squid-like creature that would surprise sailors by jumping out of the water and shouting, "What's kraken?!"
+krampus                /icons/1_94.svg  St. Nick may make the list and check it twice, but Krampus is the one who REALLY finds out if you've been naughty or nice, and you best not be naughty.
+lake                   /icons/548.svg   A big pond.
+lamp                   /icons/306.svg   Creator of unnatural light.
+land                   /icons/622.svg   Anything on Earth's surface that isn't covered by water, but is owned by Woody Guthrie and YOU!
+laptop                 /icons/890.svg   A computer that doesn't crush your lap, but may burn it instead.
+lasso                  /icons/592.svg   A persuasion device to rope in horses and cattle.
+lava                   /icons/6.svg     Hot-n-Ready liquefied rock.
+lava-lamp              /icons/312.svg   A liquid lamp that doesn't actually contain magma.
+lawn                   /icons/687.svg   A stretch of grass that is kept short and neat like a fine mustache.
+lawn-mower             /icons/429.svg   The instrument of grass barbers.
+leaf                   /icons/367.svg   Solar panel for plants and wind surfing board for insects.
+leather                /icons/348.svg   Tanned, commodified skin.
+legend                 /icons/649.svg   A story handed down over time that is believed to be true, but cannot be verified, like the Batman.
+lens                   /icons/750.svg   Transparent material that, for better or worse, helps you see what's right in front of you.
+letter                 /icons/260.svg   Physical emails.
+librarian              /icons/706.svg   Guardian of the written word.
+library                /icons/705.svg   The brain cultivation center.
+life                   /icons/44.svg    It finds a way.
+light-bulb             /icons/115.svg   An illuminator, both physically and mentally.
+light-sword            /icons/240.svg   An elegant weapon for a more civilized age.
+lighthouse             /icons/301.svg   A structure containing a light bright enough for ships at sea to interpret.
+lightning              /icons/644.svg   When clouds try to be flashy.
+lion                   /icons/285.svg   Inexplicable King of the Animal Kingdom despite the lionesses doing all the work.
+liquid                 /icons/599.svg   A substance that knows how to flow, but keeps its composure.
+little-alchemy         /icons/717.svg   A game of arbitrarily combining nouns to create something magical: a whole new noun.
+livestock              /icons/73.svg    Farm animals with a purpose.
+lizard                 /icons/69.svg    A type of reptile that is prone to lounging.
+log-cabin              /icons/507.svg   Tree house, but on the ground.
+love                   /icons/59.svg    The eternal fire shared with someone else.
+lumberjack             /icons/60.svg    A tree wrangler.
+maahes                 /icons/1_51.svg  Rawr rhymes with war, and that's what this lion-headed god stands for!
+mac-and-cheese         /icons/553.svg   Pasta doused in hot cow sauce.
+machine                /icons/656.svg   An apparatus performing a particular task using mechanical power, and which possibly has murderous intentions toward its creators.
+magic                  /icons/672.svg   Sufficiently advanced technology and/or supernatural power that can be wielded and manipulated. 
+magic-lamp             /icons/1_52.svg  A tool to summon a djinn away from whatever it was doing and force it to grant you wishes.
+magma                  /icons/682.svg   Liquefied rock not yet ready for primetime on the surface.
+mail-truck             /icons/878.svg   Temporary repository of mail, and almighty dodger of parking tickets.
+mailbox                /icons/710.svg   The end of the line for mail.
+mailman                /icons/505.svg   An email facilitator made human.
+manatee                /icons/335.svg   A chill sea mammal that is a friend to all except boats.
+map                    /icons/428.svg   A bird's eye view made pictorial.
+maple-syrup            /icons/729.svg   The boiled life juices of maple trees.
+mara                   /icons/1_99.svg  In olden times, bad dreams were often caused by 1) an unclean conscience 2) fever, or 3) a demon sitting on your chest while you slept.
+mars                   /icons/573.svg   The red-headed step child of the solar system.
+marshmallows           /icons/409.svg   Delightful pillowy sugar sponges.
+maui                   /icons/1_95.svg  Polynesian trickerster hero who, depending on who you ask, created the Hawaiian islands, gave humans fire, and told the Sun to slow down so days could be longer.
+maui's-fishhook        /icons/1_96.svg  Made from the jaw of Maui's grandmother, it can catch anything, including the islands of Hawaii from the ocean floor, and the North Island of New Zealand.
+mayonnaise             /icons/450.svg   Eggy sandwich fixings.
+meat                   /icons/90.svg    The edible body parts of animals.
+medusa                 /icons/422.svg   Serpentine lady with a stoney stare.
+mercury                /icons/650.svg   Our sun's best planetary friend.
+mermaid                /icons/339.svg   A woman who has a beautiful singing voice and a fish tail instead of legs.
+meteor                 /icons/309.svg   A small object from outer space that has entered earth's atmosphere and brought with it fire, wishes, and omens.
+meteoroid              /icons/308.svg   A small object cruising through space.
+microscope             /icons/572.svg   A tricked-out magnifying lens.
+milk                   /icons/77.svg    Cereal sauce.
+milk-shake             /icons/427.svg   Delicious ice cream slurry. 
+mimic                  /icons/1_53.svg  A treasure chest that doesn't want to give you the goods.
+mineral                /icons/625.svg   All-natural, homemade, inorganic substances produced humanely by the underground.
+minotaur               /icons/472.svg   Half man, half bull, all gross.
+mirror                 /icons/307.svg   A reflective surface from which anyone but vampires can see themselves.
+mist                   /icons/632.svg   Fog's tiny sibling, prone to hiding monsters.
+mjolnir                /icons/1_54.svg  Thor's preferred instrument for when he really wants to hammer home a point.
+mold                   /icons/526.svg   Nature's moisture-loving beard stubble.
+monarch                /icons/364.svg   A supreme ruler.
+money                  /icons/389.svg   A medium of exchange, and potential bringer of happiness or ruin.
+monkey                 /icons/303.svg   Tree-dwelling primate with a tail.
+moon                   /icons/79.svg    A planetary groupie.
+moon-rover             /icons/748.svg   The only way to travel on the Moon.
+moss                   /icons/352.svg   Official plant of dark and dank places.
+moth                   /icons/593.svg   Drably-winged insects in love with lights.
+mothman                /icons/1_97.svg  A legendary winged creature with red eyes known to terrorize the citizens of West Virginia and Richard Gere.
+motorcycle             /icons/346.svg   Motorized vehicle resembling a beefed-up version of a bicycle or tricycle.
+mount-olympus          /icons/1_81.svg  Where else do you think the Greek gods are going to live?
+mountain               /icons/201.svg   An abrubtly tall land formation.
+mountain-goat          /icons/561.svg   A devil-eyed mountain dweller.
+mountain-range         /icons/523.svg   Earth's wrinkles.
+mouse                  /icons/231.svg   A small rodent that has inspired and annoyed millions.
+mousetrap              /icons/430.svg   A horrible board game inspired by real-life capture devices.
+mud                    /icons/12.svg    Water and earthy matter's soft, sodden child.
+mummy                  /icons/388.svg   A dead body that has been wrapped in bandages, but may be filled with terrifying unnatural life at a later date.
+music                  /icons/252.svg   Sounds as art.
+musician               /icons/673.svg   One who plays a musical instrument, even if they're not talented. At all.
+narwhal                /icons/384.svg   The whale version of a unicorn, but real.
+necromancer            /icons/1_98.svg  Someone who practices magic to communicate with the dead in order to: raise them, discover secret knowledge, or learn about future events like World Cup scores.
+necronomicon           /icons/1_56.svg  Ancient telephone book for the Old Ones.
+needle                 /icons/477.svg   Hole punched pin that's good at bringing threads together.
+nessie                 /icons/554.svg   A shared hallucination by the visitors to Loch Ness.
+nest                   /icons/284.svg   Beds made out of twigs, mud, and leaves that baby birds have to live in no matter how much they crow about it.
+net                    /icons/663.svg   A meshy trap you can see through.
+newspaper              /icons/209.svg   A periodical publication printed with timely articles and funnies.
+night                  /icons/127.svg   The time when the Earth is hiding from the Sun.
+ninja                  /icons/444.svg   A practicioner of ninjistics.
+ninja-turtle           /icons/534.svg   Hero in a half shell. 
+nuts                   /icons/664.svg   The puzzle fruit, consisting of a tough-to-crack shell around a tasty center.
+oasis                  /icons/215.svg   An area in the desert where there's enough water for trees and hope to grow.
+obsidian               /icons/387.svg   Hardcore rock.
+ocean                  /icons/10.svg    A vast expanse of salt water that is filled with unimaginable horrors.
+oil                    /icons/125.svg   The juices left from a decomposing body.
+omelette               /icons/65.svg    An egg-based dish containing whatever's left in one's refrigerator.
+oni                    /icons/1_58.svg  A red-skinned demonic ogre that loves to go clubbing.
+ooze                   /icons/1_100.svg Ye olde slime.
+optical-fiber          /icons/551.svg   What's inside the Internet's series of tubes.
+orc                    /icons/1_59.svg  Elf with a skin condition and a bad attitude.
+orchard                /icons/188.svg   A fruit tree neighborhood.
+ore                    /icons/646.svg   Rock-encased minerals that enterprising individuals and/or shady conglomerates extract via mining.
+organic-matter         /icons/626.svg   Matter from a living organism, like leaves from a tree, or recently living organism, like rotten flesh on a zombie.
+origami                /icons/318.svg   Paper that has been purposefully folded to make art.
+ostrich                /icons/426.svg   The biggest bird. 
+ouroboros              /icons/1_60.svg  When you have to show how the circle of life functions but only have a snake to work with.
+owl                    /icons/173.svg   The terror that (silently) flaps in the night.
+oxygen                 /icons/355.svg   An odorless gas that's only important if you want to live.
+ozone                  /icons/517.svg   When oxygen gets a little gassy after too many electric shocks.
+paint                  /icons/519.svg   Colored artificial skin that's slathered onto a surface. 
+painter                /icons/756.svg   Professional color smearer.
+painting               /icons/733.svg   A work of art produced by applying liquid to a setting, and after drying, is admired or disliked by many.
+paladin                /icons/1_93.svg  Chivalry personified.
+paleontologist         /icons/743.svg   Professional fossil enthusiast.
+palm                   /icons/109.svg   Branchless tree that's fond of warm weather.
+pan-flute              /icons/718.svg   The musical instrument of choice for kids who never want to grow up.
+pandora's-box          /icons/1_61.svg  The box you shouldn't open, but you know you want to, but you really shouldn't.
+paper                  /icons/208.svg   Finely shaved, pulped, and pressed tree meat.
+paper-airplane         /icons/393.svg   An aircraft made of paper and imagination.
+paper-cup              /icons/726.svg   A cup that should be recycled after being used unless the drinker enjoys destroying the world.
+parachute              /icons/582.svg   The safest way to survive jumping out of a fast-moving aircraft.
+paraglider             /icons/888.svg   Some say skydiving is only fun when the parachute is open.
+park                   /icons/681.svg   Public land that is used for recreation and dog watching.
+parrot                 /icons/396.svg   The comedian of birds
+pasta                  /icons/442.svg   Hot, boiled, doughy deliciousness from Italia.
+paul-bunyan            /icons/1_62.svg  Just a tall guy who likes cutting down trees, eating flapjacks, and hanging out with a blue ox.
+peach-of-immortality   /icons/1_63.svg  Fruit that is so full of life it can add 360 years to your lifespan just by being sniffed.
+peacock                /icons/414.svg   A bird with a built-in stageshow. 
+peanut-butter          /icons/757.svg   Crunchy or smooth peanut ooze, though the superior option is definitively smooth.
+peat                   /icons/713.svg   Soggy plant corpses.
+pebble                 /icons/618.svg   A small rock after being roughed up by sand or water.
+pegasus                /icons/226.svg   A winged hornless unicorn.
+pencil                 /icons/233.svg   A mighty wooden marker.
+pencil-sharpener       /icons/585.svg   Writing and drawing enabler.
+penguin                /icons/150.svg   Nature's finest dressers.
+penicillin             /icons/563.svg   The only time in history when someone was glad to see mold.
+perfume                /icons/596.svg   Good-smelling sweat that you wish came out of your body.
+petroleum              /icons/689.svg   Liquid hydrocarbons freshy squeezed from rocks.
+philosopher's-stone    /icons/1_64.svg  An alchemical substance capable of wondrous feats like turning lead to gold and granting immortality, but sadly cannot make marmite palatable.
+phoenix                /icons/47.svg    A pyromaniacal bird that's very difficult to kill.
+picnic                 /icons/413.svg   Not just eating outdoors, but eating outdoors with a purpose. 
+pie                    /icons/89.svg    A deliciously-filled pastry that is the bane of all clowns.
+pig                    /icons/165.svg   Clean, delicious, snout-nosed animal known for their sheep-herding skills.
+pigeon                 /icons/382.svg   Bird of the streets.
+piggy-bank             /icons/407.svg   Coin deposit box in the hollowed-out artificial remains of a pig.
+pilot                  /icons/222.svg   Someone who literally has their head in the clouds all the time.
+pinocchio              /icons/470.svg   A very nosy and deceitful boy.
+pipe                   /icons/81.svg    A small bowl that one smokes from by way of a connected tube.
+piranha                /icons/385.svg   Fish that is filled with teeth and a taste for blood.
+pirate                 /icons/311.svg   Scoundrel of the seas.
+pirate-ship            /icons/439.svg   A vessel manned by an ARRRRRdy group of individuals, and which docks in an ARRRRRRRbor.
+pitchfork              /icons/490.svg   Farm tool #666.
+pizza                  /icons/237.svg   The greatest of the dinner pies.
+planet                 /icons/248.svg   A star dancer.
+plankton               /icons/45.svg    Fish finger food.
+plant                  /icons/24.svg    The original solar-powered organism.
+plasma                 /icons/633.svg   The state of matter that everyone forgets, and is the stuff of stars and lightning.
+platypus               /icons/310.svg   The animal example of 'Ok, but what if we added this...'
+plow                   /icons/648.svg   A blade used to vanquish dirt and create homes for seeds.
+polar-bear             /icons/669.svg   Bear of the arctic, and popularly believed to love cola.
+pollen                 /icons/642.svg   The unmentionables of a male plant.
+pond                   /icons/360.svg   A really small lake.
+popsicle               /icons/436.svg   Flavored ice that has been frozen around most of a stick.
+poseidon               /icons/1_57.svg  God of the Sea: Greek Edition.
+post-office            /icons/709.svg   Where the fate of mail is decided.
+potato                 /icons/680.svg   The most popular tuber in the world.
+potter                 /icons/658.svg   A person who makes organically-sourced things like vases, plates, bowls, and sometimes magic.
+pottery                /icons/52.svg    Objects made out of clay, and hardened by heat and tenacity.
+pressure               /icons/7.svg     The exertion of force upon an object by something in contact with it, be it physical or figurative.
+primordial-soup        /icons/643.svg   A body of water so theoretically amazing that it can actually give birth.
+printer                /icons/369.svg   A machine that can print anything onto paper as long as it has enough ink.
+prism                  /icons/315.svg   Rainbow glass.
+prometheus             /icons/1_102.svg The Titan who gave fire to the people and got burned figuartively, not literally.
+pterodactyl            /icons/513.svg   The original dinosaur bird before they were all birds.
+puddle                 /icons/511.svg   A natural kiddie pool.
+pumpkin                /icons/458.svg   Large, orange fruit that is ceremoniously lobotomized every year and rabidly devoured in coffee drinks.
+pyramid                /icons/356.svg   A three-dimensional triangle you could die in.
+quetzalcoatl           /icons/1_65.svg  The Aztec god of wind and learning who helped bring about life and the 'plumed serpent' style.
+quicksand              /icons/581.svg   A way to drown on land.
+quicksilver            /icons/731.svg   Liquid death metal.
+ra                     /icons/1_66.svg  Egyptians couldn't JUST worship the sun so they looked around for the next best thing.
+rabbit                 /icons/738.svg   A small mammal that loves carrots, holes in the ground, and comedic patter.
+rain                   /icons/13.svg    Tears of the clouds.
+rainbow                /icons/110.svg   A curved band of colors caused by refraction, rain, and the occasional pot of gold.
+rainbow-serpent        /icons/1_67.svg  How else do you think rainbows are made?
+rainforest             /icons/746.svg   Nature's armpit: hot, sweaty, and teeming with life!
+rat                    /icons/481.svg   Close relative of mice and often depicted as villains in animated movies, except when they're cooks.
+recipe                 /icons/542.svg   How to Cook When You Don't Know Anything About Cooking and Not Set Yourself on Fire - A Lesson.
+reed                   /icons/670.svg   The wet grass of wetlands.
+reindeer               /icons/372.svg   Fancy deer of the north and herald of Santa Claus.
+restaurant             /icons/885.svg   A place you trust enough to let strangers cook for you.
+ring                   /icons/225.svg   A small circular band of material used for decoration, and may be set with gemstones or the black speech of the dark lord.
+river                  /icons/266.svg   Nature's open-air water pipe.
+rivulet                /icons/611.svg   A baby stream.
+robot                  /icons/216.svg   A machine that can be electronically programmed to carry out a variety of physical tasks automatically, and is the face of humanity's downfall.
+robot-vacuum           /icons/574.svg   A robotic floor cleaner and spy for the impending robot uprising.
+roc                    /icons/1_68.svg  An eagle that's big enough to make an elephant feel like a mouse.
+rock                   /icons/619.svg   Any innocuous solid mineral, and when preceded by "The," gains world-class acting and professional wrestling abilities.
+rocket                 /icons/249.svg   A self-propelled device that's as inspiring as it is deadly.
+roe                    /icons/64.svg    Baby fish containers.
+roller-coaster         /icons/584.svg   Real life mine cart sequences.
+rope                   /icons/510.svg   Two great cords that braid great together.
+rose                   /icons/415.svg   A flowery bush with a thorn in its side.
+ruins                  /icons/497.svg   Buildings that are falling apart at the seams.
+ruler                  /icons/544.svg   A straight edge and measuring instrument for arcane units of length.
+rust                   /icons/37.svg    Chapped lips for Iron. Thanks Oxygen!
+rv                     /icons/525.svg   A big van designed to be slept in, and in real beds instead of jacking the seats back and kinda propping your head against the window.
+sack                   /icons/695.svg   A common tool for carrying stolen money or Christmas presents.
+saddle                 /icons/445.svg   A seat to assert humanity's dominance over animals.
+safe                   /icons/588.svg   A strong box or room requiring a key, impressive hearing skills, or explosives to open.
+safety-glasses         /icons/537.svg   Protective eyewear in case of flying debris or harsh verbal burns.
+sailboat               /icons/113.svg   A boat that travels at the mercy of the wind gods.
+sailor                 /icons/245.svg   Crewmember of a seafaring vessel, and singer of shanties.
+salamander             /icons/1_69.svg  Fire type lizard.
+salt                   /icons/210.svg   A crystalline substance commonly used in food consumption, preservation, and competitive wrestling rituals.
+samurai                /icons/876.svg   A romanticized warrior of old who served a master, practiced bushido, and inspired a staggering amount of manga.
+sand                   /icons/28.svg    A fine debris of stones that gets everywhere.
+sand-castle            /icons/357.svg   A formidable structure made out of wet sand.
+sandman                /icons/1_101.svg An unlicensed child doctor with an unorthodox treatment to help kids sleep.
+sandpaper              /icons/316.svg   Angry paper.
+sandstone              /icons/395.svg   Sand that has been cemented together.
+sandstorm              /icons/214.svg   When you don't have time to go to the beach, but still want to find sand on your persons for the next month.
+sandwich               /icons/91.svg    Unruly edibles held together by bread bouncers.
+santa                  /icons/371.svg   The big man up north who holds humanity in constant judgment.
+sap                    /icons/730.svg   Plant blood.
+saturn                 /icons/652.svg   That planet with the rings that also happens to be sixth from the sun.
+scalpel                /icons/402.svg   A surgeon's favorite knife.
+scarecrow              /icons/362.svg   An object resembling a human figure that's meant to scare birds that don't know any better.
+scissors               /icons/258.svg   An instrument to make cutting easier.
+scorpion               /icons/370.svg   An arachnid's impersonation of a lobster taken to the next level.
+scuba-tank             /icons/684.svg   A device that allows humans to breathe underwater without actually breathing water.
+scythe                 /icons/135.svg   A deadly tool against grass that is often wielded by death itself.
+sea                    /icons/9.svg     Commonly mistaken for an ocean, it is a smaller body of water that's at least partially surrounded by land.
+seagull                /icons/255.svg   Noisy ducks. Well, noisier.
+seahorse               /icons/223.svg   A small fish whose head barely resembles a horse.
+seal                   /icons/410.svg   Dogs who never left the water.
+seaplane               /icons/383.svg   A plane that can take off and land on water without crashing.
+seasickness            /icons/145.svg   The nauseating result of seeing things move one way, but feeling them move another.
+seaweed                /icons/103.svg   Sea grass. 
+seed                   /icons/641.svg   A plant egg.
+selkie                 /icons/1_108.svg A mythical creature that's human in the streets and a seal in the sea.
+sewing-machine         /icons/586.svg   Surgical device for garments and cloth.
+shark                  /icons/227.svg   A type of carnivorous fish known for their flexible skeletons, occasional encounters with humans, and fondness for oxygen tanks.
+sheep                  /icons/340.svg   Wool-covered animals known for their flocking tendencies and secret passwords.
+sheet-music            /icons/446.svg   A series of bars, lines, and dots on a piece of paper that correspond to sounds.
+shipwreck              /icons/1_70.svg  The broken playthings of sea monsters.
+shovel                 /icons/751.svg   A tool that really gets underneath the Earth's skin.
+shuriken               /icons/443.svg   The instrument of choice for a Professor of Ninjistics.
+sickness               /icons/142.svg   Being unwell, either through genetics or foreign contaminant.
+silo                   /icons/694.svg   A tower full of grain that looks like it's about to blast off into space.
+skateboard             /icons/403.svg   A board with four wheels that can be ridden in casual, extreme, or EXXXTREME situations.
+skeleton               /icons/453.svg   The only thing stopping any of our bodies from toppling over into a disgusting meat pile.
+ski-goggles            /icons/336.svg   Glasses used by those too cool for snowblindness.
+skier                  /icons/676.svg   A master of snow traversal using only narrow strips of material attached to their feet.
+sky                    /icons/22.svg    The domain of clouds.
+skyscraper             /icons/287.svg   A building that's reaching for the sky.
+sleigh                 /icons/373.svg   A sled-like vehicle, but totally not a sled, built to slide over snow and ice by the pulling of various animals.
+sloth                  /icons/408.svg   An animal that moves slow enough for moss to grow on it, along with several layers of sedimentary rock.
+smartphone             /icons/892.svg   A phone-y computer.
+smog                   /icons/253.svg   Evil fog. 
+smoke                  /icons/92.svg    Herald of fire.
+smoke-signal           /icons/591.svg   All-natural morse code.
+smoothie               /icons/575.svg   When fruit and ice meet up, things get messy.
+snake                  /icons/141.svg   An armless and legless undulating nightmare of an animal.
+snow                   /icons/144.svg   Baby ice crystals! 
+snow-globe             /icons/514.svg   Miniature city or scene doomed to suffer frequent gravity shifts and blizzards simultaneously.
+snowball               /icons/379.svg   A ball of packed snow that serves as the most popular winter weapon.
+snowboard              /icons/380.svg   A board one stands on while descending snowy slopes at high speeds.
+snowboarder            /icons/877.svg   Off-season surfer.
+snowman                /icons/146.svg   Snow that has been crudely shaped to resemble a person and given sentimental value.
+snowmobile             /icons/480.svg   A sledge powered by an engine instead of dogs and hope.
+soap                   /icons/475.svg   A cleaning substance with sometimes intense smells, sometimes intense colors, and sometimes intense CLEANING POWER.
+soda                   /icons/502.svg   Fizzy sugar drink that's more commonly known as 'pop.'
+soil                   /icons/617.svg   The organic scalp of the Earth where plants, not hair, grows.
+solar-cell             /icons/128.svg   A light glutton.
+solar-system           /icons/392.svg   Our immediate planetary family in reach of the sun.
+solid                  /icons/601.svg   The stiffest state of matter.
+sound                  /icons/239.svg   Earsight.
+space                  /icons/228.svg   The realm in which planets and stars live.
+space-station          /icons/474.svg   A potentially fully armed and operational manned structure in outer space.
+spaceship              /icons/499.svg   Vehicle for the final frontier. 
+spaghetti              /icons/724.svg   Pasta that is made in thin solid strings, and is the beloved food of pastafarians everywhere.
+sphinx                 /icons/482.svg   A lion with a face transplant.
+spider                 /icons/454.svg   An eight-legged nightmare that eats insects, unless you're in Australia, in which case they eat EVERYTHING.
+spoon                  /icons/883.svg   The food shovel.
+spotlight              /icons/675.svg   A gaze made visible.
+sprinkles              /icons/589.svg   Sugary dandruff.
+squirrel               /icons/265.svg   Bushy-tailed rodents that live in trees and feast on nuts and stolen birdseed.
+star                   /icons/177.svg   A ball of perpetually exploding gas in space.
+starfish               /icons/234.svg   A fish that is solely composed of arms and feet.
+statue                 /icons/320.svg   An immobile reproduction of something.
+steak                  /icons/498.svg   Sliced hindquarters, cooked on a range from 'Still Bleeding' to 'Ash'.
+steam                  /icons/5.svg     Hot air-sweats.
+steam-engine           /icons/54.svg    Energy brought to you by Steam!
+steamboat              /icons/62.svg    A boat that runs on water vapor, and is now mostly enjoyed by history aficionados.
+steel                  /icons/40.svg    Harder and stronger sibling of Iron, though a bit tempermental.
+steel-wool             /icons/578.svg   The highly prized coat shorn from robot sheep.
+stethoscope            /icons/552.svg   A doctor's hearing aid.
+stone                  /icons/27.svg    Breaker of bones and other such valuables.
+storm                  /icons/16.svg    Violent clouds.
+story                  /icons/259.svg   A series of events or incidents told via campfire, book, cave drawing, or laborious voice over.
+stream                 /icons/610.svg   A baby river.
+string-phone           /icons/725.svg   A phone with bad reception, poor sound quality, and very limited range, BUT it's easy to repair and always affordable.
+stun-gun               /icons/486.svg   An adult joy buzzer.
+sugar                  /icons/263.svg   The double-edged sword of ingredients.
+sun                    /icons/108.svg   The center of our galactic party.
+sun-wukong             /icons/1_71.svg  Magical monkey monarch with westward ambitions.
+sundial                /icons/133.svg   The OG clock.
+sunflower              /icons/124.svg   The sun groupie of plants.
+sunglasses             /icons/212.svg   Glasses with darkened lenses that protect one's eyes from the glares of sunlight and jealousy.
+supernova              /icons/530.svg   A really big star burp. 
+surfer                 /icons/302.svg   Rider of waves, chiller of attitudes.
+sushi                  /icons/217.svg   A culturally acceptable way of eating raw fish.
+swamp                  /icons/43.svg    You will never find a more wretched hive of scum and wetland-that's-heavily-dependant-upon-natural-water-fluctuations.
+sweater                /icons/377.svg   A knitted long-sleeved shirt that has an above average chance of looking terrible.
+swim-goggles           /icons/337.svg   Glasses that work underwater.
+swimmer                /icons/494.svg   One who can sink in water on purpose.
+swimming-pool          /icons/732.svg   A structure that can be filled with water for swimming, or emptied for skateboarding.
+sword                  /icons/149.svg   A really long knife that's sharp on both sides.
+swordfish              /icons/250.svg   Fish that are saddled with a sword for a nose.
+syringe                /icons/747.svg   The result of a mad genius watching a mosquito bite them and thinking, "I can do better!"
+tablet                 /icons/891.svg   A MORE portable portable computer.
+tailor                 /icons/886.svg   Someone who does know whether those pants make your butt look big, and can actually do something about it.
+tank                   /icons/391.svg   An enormous armored gun that moves around on treads.
+tawaret                /icons/1_72.svg  When you're having a baby and need protection, you call the hippo goddess.
+tea                    /icons/412.svg   Hot Leaves - The Drink.
+telescope              /icons/236.svg   Squinting instrument.
+tengu                  /icons/1_73.svg  A mythical man-bird that originally had a beak, but has since evolved it into an obscenely long human nose.
+tent                   /icons/595.svg   Blanket forts for grown ups.
+the-one-ring           /icons/532.svg   Isildur's bane.
+thermometer            /icons/721.svg   An instrument for measuring temperature, and a useful tool for skipping school.
+thor                   /icons/1_74.svg  Mister Thunder and Lightning.
+thread                 /icons/432.svg   The kind of fiber that's used for sewing, not for pooping.
+tide                   /icons/131.svg   When the Earth is caught between the love of the moon and the Sun, and oceans and inlets can't decide which way to go.
+titanic                /icons/386.svg   The boat that dared to be huge.
+toast                  /icons/147.svg   Bread that is burned on purpose.
+tobacco                /icons/80.svg    Dried leaves that are enjoyed smoked, chewed, or sniffed.
+tool                   /icons/53.svg    A device used to achieve a goal, like a hammer to pound a nail or a Skynet to eliminate humanity.
+toolbox                /icons/691.svg   The only place you can find a non-alcoholic screwdriver.
+tornado                /icons/23.svg    God's straw.
+toucan                 /icons/550.svg   A tropical bird with a massive bill who is an eater of fruits and sometimes loops.
+tractor                /icons/503.svg   Farm vehicle that's half monster truck.
+train                  /icons/61.svg    Rail-mounted vehicle used for the transportation of people, supplies, and dreams.
+trainyard              /icons/692.svg   The ultimate destination for trains and railroad cars.
+treasure               /icons/521.svg   Objects contained within a chest that produce a glow when opened, and are subsequently mirrored in the discoverer's eyes.
+treasure-map           /icons/520.svg   Valuable pieces of paper that can possibly lead to riches, but more likely mutiny and/or death.
+tree                   /icons/42.svg    Source of wood, and eternal adversary of lumberjacks.
+treehouse              /icons/218.svg   A hideout for children that's located in a tree.
+trojan-horse           /icons/400.svg   Common metaphor describing something that slips past defenses and destroys from within, like memes.
+troll                  /icons/1_75.svg  Giant, unhelpful and quarrelsome monsters that live in caves, under bridges, and around internet forums.
+tsunami                /icons/111.svg   A wave that's probably too big to surf. 
+tunnel                 /icons/580.svg   A long horizontal hole. 
+turtle                 /icons/67.svg    Slow, but steady shellborn reptiles. 
+twilight               /icons/137.svg   Last call for light!
+tyrannosaurus-rex      /icons/547.svg   The figurehead king of the dinosaurs.
+ufo                    /icons/491.svg   Objects prone to close encounters. 
+umbrella               /icons/359.svg   A rain shield.
+unicorn                /icons/219.svg   A majestic horse with a single horn in the middle of its forehead.
+universe               /icons/608.svg   EVERYTHING THAT EXISTS.
+vacuum-cleaner         /icons/564.svg   A sucker.
+valhalla               /icons/1_104.svg The big afterparty in the afterlife, but only if you 1) are slain in battle, and 2) are on Odin's guestlist.
+valkyrie               /icons/1_103.svg One of twelve boss ladies who work for Odin and decide who lives or dies in battle.
+vampire                /icons/211.svg   An undead individual who feasts on the blood of others, and is very self-conscious about arriving uninvited.
+vase                   /icons/473.svg   Fancy cup for flowers.
+vault                  /icons/723.svg   A secure space for storage where the more valuable its contents are, the higher the chance it will get broken into by a team of colorful characters.
+vegetable              /icons/457.svg   Edible plants and the bane of children worldwide.
+venus                  /icons/677.svg   The second planet from the sun, and flashiest among them in our solar system.
+village                /icons/257.svg   A small community in a rural area.
+vine                   /icons/745.svg   A plant that's way too touchy-feely.
+vinegar                /icons/742.svg   The answer for when someone asks you, "Pickle me this?"
+vodyanoy               /icons/1_109.svg Creepy old frog man who loves the simple things in life: floating, splashing, and drowning people.
+volcano                /icons/8.svg     A fiery pimple of the Earth.
+vulcan                 /icons/1_37.svg  Roman god of fire, metal, and ð¤.
+vulture                /icons/269.svg   Balding bird that feasts on the dead.
+wagon                  /icons/206.svg   A four-wheeled cart.
+wall                   /icons/247.svg   A vertical structure used to keep things in. Or out.
+wand                   /icons/438.svg   Tool for wizarding, witching, casting, and conjuring.
+warmth                 /icons/630.svg   A feeling of comfortable heat up to, but not including, sweating.
+warrior                /icons/157.svg   One who wars.
+watch                  /icons/333.svg   A wearable clock.
+water-gun              /icons/405.svg   A toy that makes one reconsider what "childsafe" really means.
+water-lily             /icons/467.svg   Water-based flower cups.
+water-pipe             /icons/139.svg   A device for when one's really into smoke on the water.
+waterfall              /icons/516.svg   When water takes a leap of faith.
+wave                   /icons/130.svg   Recurring disturbances through a medium, such as the sound produced by a gong being hit or the ripples spread from a slapped belly.
+wax                    /icons/465.svg   The moldable secretiono of honeybees and ears.
+web                    /icons/455.svg   A spider's home AND place of work.
+werewolf               /icons/243.svg   Someone who changes into a wolf during a full moon and is allergic to silver.
+wheat                  /icons/84.svg    A cereal grain, and bedrock of baked goods.
+wheel                  /icons/82.svg    That which rolled first.
+wild-boar              /icons/420.svg   A wild pig, one that the common house pigs dream of becoming one day.
+will-o'-the-wisp       /icons/1_105.svg If you're ever walking on a trail late at night and you see some ghostly lights off to the side somewhere, DON'T follow it. Trust me.
+wind                   /icons/20.svg    Air that blows all over the place and defies all attempts at prediction.
+wind-turbine           /icons/406.svg   A giant rotary propeller that uses wind to generate electricity and inconvenience birds.
+windmill               /icons/151.svg   Wind-powered grain grinder.
+windsurfer             /icons/735.svg   A surfer who's done waiting for the right wave.
+wine                   /icons/235.svg   Classy, grape-flavored alcohol.
+wire                   /icons/119.svg   Electric veins!
+witch                  /icons/452.svg   Magic practicioner with a fondness for broom-based transport.
+wizard                 /icons/349.svg   Someone who makes the impossible possible.
+wolf                   /icons/242.svg   A dog who doesn't play by the rules.
+wolpertinger           /icons/1_106.svg The most hunted animals in Germany got together and decided they'd literally be stronger together rather than apart.
+wood                   /icons/56.svg    Tree meat.
+woodpecker             /icons/437.svg   A bird who is a very, very insistent knocker.
+wool                   /icons/361.svg   Animal hair that's good enough for you to want on your body.
+world-turtle           /icons/1_76.svg  The world may not be flat, but it IS held up by a giant turtle.
+wrapping-paper         /icons/471.svg   Tearaway skin for presents.
+writer                 /icons/895.svg   A storytelling masochist.
+yeti                   /icons/565.svg   The real snowman of the Himalayas.
+yggdrasil              /icons/1_77.svg  Now just stay with me on this, but what if... the universe was a tree.
+yogurt                 /icons/229.svg   Bacteria + dairy = profit.
+zeus                   /icons/1_78.svg  The first king of the mountain.
+ziz                    /icons/1_79.svg  A really big catbird.
+zombie                 /icons/96.svg    Something alive that should be dead. 
+zoo                    /icons/698.svg   A collection of wild animals for public display and funny internet videos.

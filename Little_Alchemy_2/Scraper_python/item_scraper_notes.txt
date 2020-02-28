@@ -1,0 +1,197 @@
+  https://hints.littlealchemy2.com/item/reed
+
+  <div class="content item-route">
+  <main id="item" class="entry ">
+  <div class="main-item">
+  <a class="button" data-hint="true" style="margin-bottom:10px" href="/item/mac-and-cheese">next hint »</a>
+<div class="item-icon"> <img src="/icons/5.svg" alt="Little Alchemy 2 Official Hints and Cheats - steam"> </div>
+<h2 class="item-name"> steam</h2></div>
+<div class="item-description" style="margin-bottom:20px"> Hot air-sweats.</div>
+
+
+
+
+
+
+  <div id="combination">
+  </div>
+<!-- /52555387/littlealchemy.com_hint_300x250_adaptive -->
+<script>
+  googletag.cmd.push(function() {var _YB=_YB||{ab:function(){return (_YB.dool?'b':'a'+Math.floor(Math.random()*10));},dc:function(){return (_YB.dool?'d':'c'+Math.floor(Math.random()*20));},mx:function(){return (!_YB.dool?'x':'m'+Math.floor(Math.random()*180));},tt:function(){return ('tt'+Math.floor(Math.random()*10));},dool:Math.random()>
+=0.1}; var _yt=new Date(),yb_th=_yt.getUTCHours()-8,yb_tm=_yt.getUTCMinutes(),yb_wd=_yt.getUTCDay();if(yb_th<0){yb_th=24+yb_th;yb_wd-=1;};if(yb_wd<0){yb_wd=7+yb_wd}; var YBmapping = googletag.sizeMapping().addSize([768,0],[[300,250]]).addSize([0,0],[[300,250],[320,100],[320,50],[300,100],[300,50]]).build(); googletag.defineSlot('/52555387/littlealchemy.com_hint_300x250_adaptive', [[300, 250], [320, 100], [320, 50], [300, 100], [300, 50]], 'div-gpt-ad-littlealchemy.com_hint_300x250_adaptive').defineSizeMapping(YBmapping).setTargeting('yb_ab', _YB.ab()).setTargeting('yb_dc', _YB.dc()).setTargeting('yb_mx', _YB.mx()).setTargeting('yb_tt', _YB.tt()).setTargeting('yb_ff', ''+Math.round(Math.random())).setTargeting('yb_th', yb_th.toString()).setTargeting('yb_tm', yb_tm.toString()).setTargeting('yb_wd', yb_wd.toString()).addService(googletag.pubads());googletag.enableServices();});
+</script>
+
+<div id="div-gpt-ad-littlealchemy.com_hint_300x250_adaptive" class="ad-inner">
+<script>
+
+        googletag.cmd.push(function() {
+                googletag.display('div-gpt-ad-littlealchemy.com_hint_300x250_adaptive');
+                    });
+          </script>
+</div>
+
+<div class="prev-next" data-controls="true" style="display: flex;">
+<span data-prev="true" class="prev" rel="prev" style="visibility: visible;">
+« previous<br>
+combination</span>
+<div>
+<span data-current-index="true">
+4</span>
+/4</div>
+<span data-next="true" class="next" rel="next" style="visibility: hidden;">
+next »<br>
+combination</span>
+</div>
+<div class="pair" data-parents="0" style="display: none;">
+<div>
+<a href="/item/water" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - water" src="/icons/1.svg">
+<div class="item-name">
+water</div>
+</a>
+</div>
+<div class="plus">
++</div>
+<div>
+<a href="/item/heat" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - heat" src="/icons/600.svg">
+<div class="item-name">
+heat</div>
+</a>
+</div>
+</div>
+<div class="pair" data-parents="1" style="display: none;">
+<div>
+<a href="/item/water" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - water" src="/icons/1.svg">
+<div class="item-name">
+water</div>
+</a>
+</div>
+<div class="plus">
++</div>
+<div>
+<a href="/item/fire" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - fire" src="/icons/2.svg">
+<div class="item-name">
+fire</div>
+</a>
+</div>
+</div>
+<div class="pair" data-parents="2" style="display: none;">
+<div>
+<a href="/item/water" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - water" src="/icons/1.svg">
+<div class="item-name">
+water</div>
+</a>
+</div>
+<div class="plus">
++</div>
+<div>
+<a href="/item/lava" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - lava" src="/icons/6.svg">
+<div class="item-name">
+lava</div>
+</a>
+</div>
+</div>
+<div class="pair" data-parents="3" style="display: flex;">
+<div>
+<a href="/item/water" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - water" src="/icons/1.svg">
+<div class="item-name">
+water</div>
+</a>
+</div>
+<div class="plus">
++</div>
+<div>
+<a href="/item/gas" class="pair-item">
+<img class="item-icon" alt="Little Alchemy 2 Official Hints and Cheats - gas" src="/icons/602.svg">
+<div class="item-name">
+gas</div>
+</a>
+</div>
+</div>
+<a class="button" data-hint="true" href="/item/mac-and-cheese">
+next hint »</a>
+</main>
+<aside class="extras">
+<div class="section">
+<a class="header-link" href="https://littlealchemy2.com" title="Little Alchemy 2">
+<h2>
+Little Alchemy 2</h2>
+</a>
+<div class="platforms">
+<div>
+<a class="app-store" href="https://itunes.apple.com/us/app/little-alchemy-2/id1214190989?ls=1&amp;mt=8" title="Little Alchemy 2 App Store" rel="noopener">
+<img alt="Download on the App Store" src="/img/app-store-135x40.svg" loading="lazy">
+</a>
+</div>
+<div>
+<a class="play-store" href="https://play.google.com/store/apps/details?id=com.recloak.littlealchemy2&amp;utm_source=la2-hints" title="Little Alchemy 2 Play Store" rel="noopener">
+<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" loading="lazy">
+</a>
+</div>
+</div>
+<div class="center-small">
+<a href="https://littlealchemy2.com" title="Little Alchemy 2">
+littlealchemy2.com</a>
+</div>
+</div>
+<div class="section bump">
+<!-- /52555387/littlealchemy.com_hint_300x250_1_adaptive -->
+<script>
+
+            googletag.cmd.push(function() {var _YB=_YB||{ab:function(){return (_YB.dool?'b':'a'+Math.floor(Math.random()*10));},dc:function(){return (_YB.dool?'d':'c'+Math.floor(Math.random()*20));},mx:function(){return (!_YB.dool?'x':'m'+Math.floor(Math.random()*180));},tt:function(){return ('tt'+Math.floor(Math.random()*10));},dool:Math.random()>
+=0.1}; var _yt=new Date(),yb_th=_yt.getUTCHours()-8,yb_tm=_yt.getUTCMinutes(),yb_wd=_yt.getUTCDay();if(yb_th<0){yb_th=24+yb_th;yb_wd-=1;};if(yb_wd<0){yb_wd=7+yb_wd}; var YBmapping = googletag.sizeMapping().addSize([768,0],[[300,250]]).addSize([0,0],[[300,250],[320,100],[320,50],[300,100],[300,50]]).build(); googletag.defineSlot('/52555387/littlealchemy.com_hint_300x250_1_adaptive' + code_name, [[300, 250], [320, 100], [320, 50], [300, 100], [300, 50]], 'div-gpt-ad-littlealchemy.com_hint_300x250_1_adaptive').defineSizeMapping(YBmapping).setTargeting('yb_ab', _YB.ab()).setTargeting('yb_dc', _YB.dc()).setTargeting('yb_mx', _YB.mx()).setTargeting('yb_tt', _YB.tt()).setTargeting('yb_ff', ''+Math.round(Math.random())).setTargeting('yb_th', yb_th.toString()).setTargeting('yb_tm', yb_tm.toString()).setTargeting('yb_wd', yb_wd.toString()).addService(googletag.pubads());googletag.pubads().disableInitialLoad();googletag.enableServices();});
+              </script>
+<div id="div-gpt-ad-littlealchemy.com_hint_300x250_1_adaptive" class="ad-sidebar">
+<script>
+
+                  googletag.cmd.push(function() {
+                          googletag.display('div-gpt-ad-littlealchemy.com_hint_300x250_1_adaptive');
+                              });
+                    </script>
+</div>
+</div>
+<div class="section">
+<a class="header-link" href="/content-pack/myths-and-monsters" title="Myths and Monsters content pack">
+<h2>
+Myths and Monsters</h2>
+</a>
+<div class="center-small">
+Little&nbsp;Alchemy&nbsp;2 has a brand new content pack!<br>
+<a href="/content-pack/myths-and-monsters">
+Check how to get "Myths and Monsters" here.</a>
+</div>
+</div>
+<div class="section">
+<a class="header-link" href="https://littlealchemy.com/cheats" title="Little Alchemy Official Cheats">
+<h2>
+Little Alchemy Classic Hints</h2>
+</a>
+<div class="center-small">
+Are you looking for how to make things in the original Little&nbsp;Alchemy?<br>
+<a href="https://littlealchemy.com/cheats">
+Find Little Alchemy Classic's hints here!</a>
+</div>
+</div>
+<div class="section">
+<h2>
+<a href="https://help.littlealchemy2.com/" title="Little Alchemy 2 Help and Contact">
+Help And Contact</a>
+</h2>
+</div>
+<div class="section">
+<a class="header-link" href="https://hints.littlealchemy2.com">
+<h2>
+Little Alchemy 2 Official Hints and Cheats</h2>
+</a>
+<div class="center-small">
+Official cheats guide is here to help if you get stuck on your Little Alchemy 2 research. Use hints to discover whole new world of exciting items combinations. Current page let's you find out how to make "steam".</div>
+</div>
+</aside>
+</div>
+

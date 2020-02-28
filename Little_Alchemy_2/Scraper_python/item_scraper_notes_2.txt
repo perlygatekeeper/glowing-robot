@@ -1,0 +1,187 @@
+https://littlealchemy2guide.com/air
+
+<div class="content">
+<div class="entry">
+<div class="links-box">
+<a class="link small" href="/update/december-2018">
+<h2>
+December 2018 update</h2>
+</a>
+<a class="link small" href="https://littlealchemy2cheats.com" target="_blank">
+<h2>
+Step by Step Cheats</h2>
+</a>
+</div>
+<h2 style="margin-top:40px">
+How to make 'air' in Little Alchemy 2?</h2>
+<div class="main-item">
+<div class="item-icon">
+<img src="/icons/4.svg" alt="Little Alchemy 2 - air" class="loading" data-was-processed="true">
+</div>
+<div class="item-name">
+air</div>
+</div>
+<div class="ad-inside">
+<!-- Little Alchemy 2 Guide Inside Ad UTF -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2967235022013215" data-ad-slot="4770498349" data-ad-format="auto">
+</ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="item-info">
+It's a starting item!</div>
+<div class="item-info">
+Cheats on how to create 'air'. Contains all of possible combinations. You need to have parent items discovered to succeed.</div>
+<div class="pair">
+<a href="/fire" class="pair-item">
+<img class="item-icon loaded" alt="Little Alchemy 2 - fire" src="/icons/2.svg" data-was-processed="true">
+<div class="item-name">
+fire</div>
+</a>
+<div class="plus">
++</div>
+<a href="/mist" class="pair-item">
+<img class="item-icon loaded" alt="Little Alchemy 2 - mist" src="/icons/632.svg" data-was-processed="true">
+<div class="item-name">
+mist</div>
+</a>
+</div>
+<div class="box">
+<span>
+Hints what to make using <strong>
+air</strong>
+:</span>
+<ul>
+<li>
+<a href="/pressure">
+pressure</a>
+</li>
+<li>
+<a href="/dust">
+dust</a>
+</li>
+<li>
+<a href="/wind">
+wind</a>
+</li>
+<li>
+<a href="/sky">
+sky</a>
+</li>
+<li>
+<a href="/stone">
+stone</a>
+</li>
+<li>
+<a href="/sand">
+sand</a>
+</li>
+<li>
+<a href="/rust">
+rust</a>
+</li>
+<li>
+<a href="/bird">
+bird</a>
+</li>
+<li>
+<a href="/smoke">
+smoke</a>
+</li>
+<li>
+<a href="/dragon">
+dragon</a>
+</li>
+<li>
+<a href="/flute">
+flute</a>
+</li>
+<li>
+<a href="/atmosphere">
+atmosphere</a>
+</li>
+<li>
+<a href="/sound">
+sound</a>
+</li>
+<li>
+<a href="/smog">
+smog</a>
+</li>
+<li>
+<a href="/bat">
+bat</a>
+</li>
+<li>
+<a href="/meteor">
+meteor</a>
+</li>
+<li>
+<a href="/kite">
+kite</a>
+</li>
+<li>
+<a href="/flying-fish">
+flying fish</a>
+</li>
+<li>
+<a href="/flying-squirrel">
+flying squirrel</a>
+</li>
+<li>
+<a href="/pterodactyl">
+pterodactyl</a>
+</li>
+<li>
+<a href="/ozone">
+ozone</a>
+</li>
+<li>
+<a href="/heat">
+heat</a>
+</li>
+<li>
+<a href="/gas">
+gas</a>
+</li>
+<li>
+<a href="/gust">
+gust</a>
+</li>
+<li>
+<a href="/warmth">
+warmth</a>
+</li>
+<li>
+<a href="/chill">
+chill</a>
+</li>
+<li>
+<a href="/mist">
+mist</a>
+</li>
+<li>
+<a href="/scuba-tank">
+scuba tank</a>
+</li>
+<li>
+<a href="/cotton-candy">
+cotton candy</a>
+</li>
+<li>
+<a href="/vinegar">
+vinegar</a>
+</li>
+<li>
+<a href="/aeolus">
+aeolus</a>
+</li>
+</ul>
+</div>
+<div class="back back-bottom">
+<a href="/">
+back to hints list</a>
+</div>
+</div>
+</div>
+
