@@ -135,6 +135,7 @@ elements = [ "achilles", "acid-rain", "aegis", "aeolus", "airplane",
 
 # Loop over all items.
 base = 'https://hints.littlealchemy2.com/item/'
+sql_format = 'UPDATE elements SET img="%s", description="%s" WHERE element="%s"'
 
 # Send HTTP GET request
 for element in elements:
@@ -147,7 +148,10 @@ for element in elements:
   img_tag = next(icon.descendants)
   img = img_tag.attrs.get('src','')
   description = soup.find(class_="item-description").contents[0]
-  print("%-23s %-16s %s" % (element, img, description ))
+# simple print
+# print("%-23s %-16s %s" % (element, img, description ))
+# SQL print
+  print( sql_format % (img, description, element ))
 
 # print("%s" % type(icon))
 # for method in dir(icon):
