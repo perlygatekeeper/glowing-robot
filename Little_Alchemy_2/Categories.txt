@@ -1,45 +1,48 @@
-basic
-final
-depleted
+ essentials
+ basic
+ final
+ depleted
 
-Air
-Animals
-Biology
-Birds
-Construction
-Containers
-Death
-Decorations
-Drinks
-Electricity
-Entropy
-Events
-Fish
-Food
-Forces
-Furniture
-Geology
-Information
-Insects
-Legends
-Light
-Machine
-Materials
-Minerals
-Monsters
-People
-Place
-Plants
-Pressure
-Protection
-Reptiles
-Space
-States
-Temperature
-Time
-Tools
-Valuables
-Vehicles
-Water
-Weapons
-Weather
+ categories
+ Air
+ Animals
+ Biology
+ Birds
+ Construction
+ Containers
+ Death
+ Decorations
+ Drinks
+ Electricity
+ Entropy
+ Events
+ Fish
+ Food
+ Forces
+ Furniture
+ Geology
+ Information
+ Insects
+ Legends
+ Light
+ Machine
+ Materials
+ Minerals
+ People
+ Place
+ Plants
+ Pressure
+ Protection
+ Reptiles
+ Space
+ States
+ Temperature
+ Time
+ Tools
+ Valuables
+ Vehicles
+ Water
+ Weapons
+ Weather
+</div>
+

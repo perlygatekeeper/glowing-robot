@@ -131,6 +131,10 @@ elements = [ "achilles", "acid-rain", "aegis", "aeolus", "airplane",
         "wolf", "wolpertinger", "wood", "woodpecker", "wool", "world-turtle",
         "wrapping-paper", "writer", "yeti", "yggdrasil", "yogurt", "zeus", "ziz",
         "zombie", "zoo" ]
+elements = [
+        "air", "big", "container", "earth", "fire", "light", "metal", "motion",
+        "philosophy", "rock", "science", "small", "syringe", "time", "vinegar",
+        "water", "water gun", "frankenstein's-monster" ]
 
 
 # Loop over all items.

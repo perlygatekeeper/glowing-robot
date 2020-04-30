@@ -1,0 +1,3246 @@
+County or equivalent	State or equivalent	2013 Pop	Core Based Statistical Area
+Autauga	 Alabama	55,246	Montgomery, AL Metropolitan Statistical Area
+Baldwin	195,540	Daphne-Fairhope-Foley, AL Metropolitan Statistical Area
+Barbour	27,076	
+Bibb	22,512	Birmingham-Hoover, AL Metropolitan Statistical Area
+Blount	57,872	Birmingham-Hoover, AL Metropolitan Statistical Area
+Bullock	10,639	
+Butler	20,265	
+Calhoun	116,736	Anniston-Oxford-Jacksonville, AL Metropolitan Statistical Area
+Chambers	34,162	Valley, AL Micropolitan Statistical Area
+Cherokee	26,203	
+Chilton	43,951	Birmingham-Hoover, AL Metropolitan Statistical Area
+Choctaw	13,426	
+Clarke	25,207	
+Clay	13,486	
+Cleburne	14,994	
+Coffee	50,938	Enterprise, AL Micropolitan Statistical Area
+Colbert	54,520	Florence-Muscle Shoals, AL Metropolitan Statistical Area
+Conecuh	12,887	
+Coosa	10,898	Talladega-Sylacauga, AL Micropolitan Statistical Area
+Covington	37,886	
+Crenshaw	13,986	
+Cullman	80,811	Cullman, AL Micropolitan Statistical Area
+Dale	49,884	Ozark, AL Micropolitan Statistical Area
+Dallas	41,996	Selma, AL Micropolitan Statistical Area
+DeKalb	71,013	
+Elmore	80,902	Montgomery, AL Metropolitan Statistical Area
+Escambia	37,983	
+Etowah	103,931	Gadsden, AL Metropolitan Statistical Area
+Fayette	16,909	
+Franklin	31,532	
+Geneva	26,727	Dothan, AL Metropolitan Statistical Area
+Greene	8,744	
+Hale	15,406	Tuscaloosa, AL Metropolitan Statistical Area
+Henry	17,296	Dothan, AL Metropolitan Statistical Area
+Houston	103,668	Dothan, AL Metropolitan Statistical Area
+Jackson	52,951	Scottsboro, AL Micropolitan Statistical Area
+Jefferson	659,479	Birmingham-Hoover, AL Metropolitan Statistical Area
+Lamar	14,236	
+Lauderdale	92,797	Florence-Muscle Shoals, AL Metropolitan Statistical Area
+Lawrence	33,587	Decatur, AL Metropolitan Statistical Area
+Lee	150,933	Auburn-Opelika, AL Metropolitan Statistical Area
+Limestone	88,845	Huntsville, AL Metropolitan Statistical Area
+Lowndes	10,703	Montgomery, AL Metropolitan Statistical Area
+Macon	19,688	
+Madison	346,892	Huntsville, AL Metropolitan Statistical Area
+Marengo	20,155	
+Marion	30,334	
+Marshall	94,760	Albertville, AL Micropolitan Statistical Area
+Mobile	414,079	Mobile, AL Metropolitan Statistical Area
+Monroe	22,236	
+Montgomery	226,659	Montgomery, AL Metropolitan Statistical Area
+Morgan	119,787	Decatur, AL Metropolitan Statistical Area
+Perry	10,020	
+Pickens	19,401	Tuscaloosa, AL Metropolitan Statistical Area
+Pike	33,339	Troy, AL Micropolitan Statistical Area
+Randolph	22,727	
+Russell	59,585	Columbus, GA-AL Metropolitan Statistical Area
+St. Clair	86,308	Birmingham-Hoover, AL Metropolitan Statistical Area
+Shelby	204,180	Birmingham-Hoover, AL Metropolitan Statistical Area
+Sumter	13,361	
+Talladega	81,096	Talladega-Sylacauga, AL Micropolitan Statistical Area
+Tallapoosa	41,203	
+Tuscaloosa	200,821	Tuscaloosa, AL Metropolitan Statistical Area
+Walker	65,998	Birmingham-Hoover, AL Metropolitan Statistical Area
+Washington	16,877	
+Wilcox	11,307	
+Winston	24,146	
+Aleutians East Borough[d]	 Alaska	3,092	
+Aleutians West Census Area[e]	5,511	
+Anchorage, Municipality of[d][f]	300,950	Anchorage, AK Metropolitan Statistical Area
+Bethel Census Area[e]	17,758	
+Bristol Bay Borough[d]	960	
+Chugach Census Area[e]	6,734	
+Copper River Census Area[e]	2,764	
+Denali Borough[d]	1,867	
+Dillingham Census Area[e]	5,010	
+Fairbanks North Star Borough[d]	100,436	Fairbanks, AK Metropolitan Statistical Area
+Haines Borough[d]	2,592	
+Hoonah–Angoon Census Area[e]	2,145	
+Juneau, City and Borough of[d][g]	32,660	Juneau, AK Micropolitan Statistical Area
+Kenai Peninsula Borough[d]	57,147	
+Ketchikan Gateway Borough[d]	13,729	Ketchikan, AK Micropolitan Statistical Area
+Kodiak Island Borough[d]	14,135	
+Kusilvak Census Area[e]	7,977	
+Lake and Peninsula Borough[d]	1,648	
+Matanuska-Susitna Borough[d]	95,192	Anchorage, AK Metropolitan Statistical Area
+Nome Census Area[e]	9,892	
+North Slope Borough[d]	9,686	
+Northwest Arctic Borough[d]	7,685	
+Petersburg Borough[d][h]	3,774	
+Prince of Wales – Hyder Census Area[e]	5,786	
+Sitka, City and Borough of[d][i]	9,020	
+Skagway, Municipality of[d]	995	
+Southeast Fairbanks Census Area[e]	6,985	
+Wrangell, City and Borough of[d]	2,400	
+Yakutat, City and Borough of[d][j]	642	
+Yukon–Koyukuk Census Area[e]	5,695	
+Eastern District[12]	 American Samoa	23,030	
+Manu'a District[12]	1,143	
+Rose Atoll (Rose Island)[12]	0	
+Swains Island[12]	17	
+Western District[12]	31,329	
+Apache	 Arizona	71,934	
+Cochise	129,473	Sierra Vista-Douglas, AZ Metropolitan Statistical Area
+Coconino	136,539	Flagstaff, AZ Metropolitan Statistical Area
+Gila	53,053	Payson, AZ Micropolitan Statistical Area
+Graham	37,482	Safford, AZ Micropolitan Statistical Area
+Greenlee	9,049	
+La Paz	20,324	
+Maricopa	4,009,412	Phoenix-Mesa-Scottsdale, AZ Metropolitan Statistical Area
+Mohave	203,030	Lake Havasu City-Kingman, AZ Metropolitan Statistical Area
+Navajo	107,322	Show Low, AZ Micropolitan Statistical Area
+Pima	996,554	Tucson, AZ Metropolitan Statistical Area
+Pinal	389,350	Phoenix-Mesa-Scottsdale, AZ Metropolitan Statistical Area
+Santa Cruz	46,768	Nogales, AZ Micropolitan Statistical Area
+Yavapai	215,133	Prescott, AZ Metropolitan Statistical Area
+Yuma	201,201	Yuma, AZ Metropolitan Statistical Area
+Arkansas	 Arkansas	18,777	
+Ashley	21,283	
+Baxter	40,957	Mountain Home, AR Micropolitan Statistical Area
+Benton	237,297	Fayetteville-Springdale-Rogers, AR-MO Metropolitan Statistical Area
+Boone	37,396	Harrison, AR Micropolitan Statistical Area
+Bradley	11,249	
+Calhoun	5,241	Camden, AR Micropolitan Statistical Area
+Carroll	27,808	
+Chicot	11,335	
+Clark	22,743	Arkadelphia, AR Micropolitan Statistical Area
+Clay	15,402	
+Cleburne	25,686	
+Cleveland	8,593	Pine Bluff, AR Metropolitan Statistical Area
+Columbia	24,164	Magnolia, AR Micropolitan Statistical Area
+Conway	21,245	
+Craighead	101,488	Jonesboro, AR Metropolitan Statistical Area
+Crawford	61,640	Fort Smith, AR-OK Metropolitan Statistical Area
+Crittenden	49,746	Memphis, TN-MS-AR Metropolitan Statistical Area
+Cross	17,548	
+Dallas	7,933	
+Desha	12,505	
+Drew	18,785	
+Faulkner	119,580	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Franklin	18,034	
+Fulton	12,304	
+Garland	97,173	Hot Springs, AR Metropolitan Statistical Area
+Grant	18,019	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Greene	43,097	Paragould, AR Micropolitan Statistical Area
+Hempstead	22,474	
+Hot Spring	33,500	Malvern, AR Micropolitan Statistical Area
+Howard	13,581	
+Independence	36,997	Batesville, AR Micropolitan Statistical Area
+Izard	13,368	
+Jackson	17,615	
+Jefferson	73,191	Pine Bluff, AR Metropolitan Statistical Area
+Johnson	25,846	
+Lafayette	7,252	
+Lawrence	17,011	
+Lee	10,015	
+Lincoln	14,031	Pine Bluff, AR Metropolitan Statistical Area
+Little River	12,730	Texarkana, TX-AR Metropolitan Statistical Area
+Logan	22,082	
+Lonoke	70,753	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Madison	15,701	Fayetteville-Springdale-Rogers, AR-MO Metropolitan Statistical Area
+Marion	16,430	
+Miller	43,402	Texarkana, TX-AR Metropolitan Statistical Area
+Mississippi	44,765	Blytheville, AR Micropolitan Statistical Area
+Monroe	7,682	
+Montgomery	9,226	
+Nevada	8,799	
+Newton	8,064	Harrison, AR Micropolitan Statistical Area
+Ouachita	25,002	Camden, AR Micropolitan Statistical Area
+Perry	10,345	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Phillips	20,399	Helena-West Helena, AR Micropolitan Statistical Area
+Pike	11,177	
+Poinsett	24,145	Jonesboro, AR Metropolitan Statistical Area
+Polk	20,406	
+Pope	62,547	Russellville, AR Micropolitan Statistical Area
+Prairie	8,374	
+Pulaski	391,284	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Randolph	17,692	
+St. Francis	27,260	Forrest City, AR Micropolitan Statistical Area
+Saline	114,404	Little Rock-North Little Rock-Conway, AR Metropolitan Statistical Area
+Scott	10,950	
+Searcy	8,023	
+Sebastian	127,342	Fort Smith, AR-OK Metropolitan Statistical Area
+Sevier	17,366	
+Sharp	17,049	
+Stone	12,581	
+Union	40,694	El Dorado, AR Micropolitan Statistical Area
+Van Buren	16,932	
+Washington	216,410	Fayetteville-Springdale-Rogers, AR-MO Metropolitan Statistical Area
+White	78,483	Searcy, AR Micropolitan Statistical Area
+Woodruff	7,072	
+Yell	21,893	Russellville, AR Micropolitan Statistical Area
+Alameda	 California	1,578,891	San Francisco-Oakland-Hayward, CA Metropolitan Statistical Area
+Alpine	1,159	
+Amador	36,519	
+Butte	222,090	Chico, CA Metropolitan Statistical Area
+Calaveras	44,515	
+Colusa	21,358	
+Contra Costa	1,094,205	San Francisco-Oakland-Hayward, CA Metropolitan Statistical Area
+Del Norte	27,873	Crescent City, CA Micropolitan Statistical Area
+El Dorado	181,737	Sacramento–Roseville–Arden-Arcade, CA Metropolitan Statistical Area
+Fresno	955,272	Fresno, CA Metropolitan Statistical Area
+Glenn	27,940	
+Humboldt	134,493	Eureka-Arcata-Fortuna, CA Micropolitan Statistical Area
+Imperial	176,584	El Centro, CA Metropolitan Statistical Area
+Inyo	18,467	
+Kern	864,124	Bakersfield, CA Metropolitan Statistical Area
+Kings	150,960	Hanford-Corcoran, CA Metropolitan Statistical Area
+Lake	63,860	Clearlake, CA Micropolitan Statistical Area
+Lassen	32,163	Susanville, CA Micropolitan Statistical Area
+Los Angeles	10,017,068	Los Angeles-Long Beach-Anaheim, CA Metropolitan Statistical Area
+Madera	152,389	Madera, CA Metropolitan Statistical Area
+Marin	258,365	San Francisco-Oakland-Hayward, CA Metropolitan Statistical Area
+Mariposa	17,755	
+Mendocino	87,192	Ukiah, CA Micropolitan Statistical Area
+Merced	263,228	Merced, CA Metropolitan Statistical Area
+Modoc	9,147	
+Mono	14,074	
+Monterey	428,826	Salinas, CA Metropolitan Statistical Area
+Napa	140,326	Napa, CA Metropolitan Statistical Area
+Nevada	98,200	Truckee-Grass Valley, CA Micropolitan Statistical Area
+Orange	3,114,363	Los Angeles-Long Beach-Anaheim, CA Metropolitan Statistical Area
+Placer	367,309	Sacramento–Roseville–Arden-Arcade, CA Metropolitan Statistical Area
+Plumas	18,859	
+Riverside	2,292,507	Riverside-San Bernardino-Ontario, CA Metropolitan Statistical Area
+Sacramento	1,462,131	Sacramento–Roseville–Arden-Arcade, CA Metropolitan Statistical Area
+San Benito	57,600	San Jose-Sunnyvale-Santa Clara, CA Metropolitan Statistical Area
+San Bernardino	2,088,371	Riverside-San Bernardino-Ontario, CA Metropolitan Statistical Area
+San Diego	3,211,252	San Diego-Carlsbad, CA Metropolitan Statistical Area
+San Francisco, City and County of[k]	837,442	San Francisco-Oakland-Hayward, CA Metropolitan Statistical Area
+San Joaquin	704,379	Stockton-Lodi, CA Metropolitan Statistical Area
+San Luis Obispo	276,443	San Luis Obispo-Paso Robles-Arroyo Grande, CA Metropolitan Statistical Area
+San Mateo	747,373	San Francisco-Oakland-Hayward, CA Metropolitan Statistical Area
+Santa Barbara	435,697	Santa Maria-Santa Barbara, CA Metropolitan Statistical Area
+Santa Clara	1,862,041	San Jose-Sunnyvale-Santa Clara, CA Metropolitan Statistical Area
+Santa Cruz	269,419	Santa Cruz-Watsonville, CA Metropolitan Statistical Area
+Shasta	178,980	Redding, CA Metropolitan Statistical Area
+Sierra	3,047	
+Siskiyou	43,799	
+Solano	424,788	Vallejo-Fairfield, CA Metropolitan Statistical Area
+Sonoma	495,025	Santa Rosa, CA Metropolitan Statistical Area
+Stanislaus	525,491	Modesto, CA Metropolitan Statistical Area
+Sutter	95,350	Yuba City, CA Metropolitan Statistical Area
+Tehama	63,057	Red Bluff, CA Micropolitan Statistical Area
+Trinity	13,448	
+Tulare	454,143	Visalia-Porterville, CA Metropolitan Statistical Area
+Tuolumne	53,874	Sonora, CA Micropolitan Statistical Area
+Ventura	839,620	Oxnard-Thousand Oaks-Ventura, CA Metropolitan Statistical Area
+Yolo	204,593	Sacramento–Roseville–Arden-Arcade, CA Metropolitan Statistical Area
+Yuba	73,340	Yuba City, CA Metropolitan Statistical Area
+Adams	 Colorado	469,193	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Alamosa	16,253	
+Arapahoe	607,070	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Archuleta	12,194	
+Baca	3,682	
+Bent	5,688	
+Boulder	310,048	Boulder, CO Metropolitan Statistical Area
+Broomfield, City and County of[l]	59,471	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Chaffee	18,510	
+Cheyenne	1,890	
+Clear Creek	9,031	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Conejos	8,277	
+Costilla	3,518	
+Crowley	5,322	
+Custer	4,285	
+Delta	30,483	
+Denver, City and County of[m]	649,495	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Dolores	2,029	
+Douglas	305,963	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Eagle	52,460	Edwards, CO Micropolitan Statistical Area
+Elbert	23,733	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+El Paso	655,044	Colorado Springs, CO Metropolitan Statistical Area
+Fremont	46,451	Cañon City, CO Micropolitan Statistical Area
+Garfield	57,302	Glenwood Springs, CO Micropolitan Statistical Area
+Gilpin	5,601	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Grand	14,289	
+Gunnison	15,507	
+Hinsdale	813	
+Huerfano	6,519	
+Jackson	1,365	
+Jefferson	551,798	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Kiowa	1,423	
+Kit Carson	8,037	
+Lake	7,306	
+La Plata	53,284	Durango, CO Micropolitan Statistical Area
+Larimer	315,988	Fort Collins, CO Metropolitan Statistical Area
+Las Animas	14,446	
+Lincoln	5,430	
+Logan	22,450	Sterling, CO Micropolitan Statistical Area
+Mesa	147,554	Grand Junction, CO Metropolitan Statistical Area
+Mineral	721	
+Moffat	13,103	Craig, CO Micropolitan Statistical Area
+Montezuma	25,642	
+Montrose	40,713	Montrose, CO Micropolitan Statistical Area
+Morgan	28,404	Fort Morgan, CO Micropolitan Statistical Area
+Otero	18,703	
+Ouray	4,557	
+Park	16,121	Denver-Aurora-Lakewood, CO Metropolitan Statistical Area
+Phillips	4,356	
+Pitkin	17,379	Glenwood Springs, CO Micropolitan Statistical Area
+Prowers	12,291	
+Pueblo	161,451	Pueblo, CO Metropolitan Statistical Area
+Rio Blanco	6,807	
+Rio Grande	11,803	
+Routt	23,513	Steamboat Springs, CO Micropolitan Statistical Area
+Saguache	6,208	
+San Juan	692	
+San Miguel	7,678	
+Sedgwick	2,360	
+Summit	28,649	Breckenridge, CO Micropolitan Statistical Area
+Teller	23,275	Colorado Springs, CO Metropolitan Statistical Area
+Washington	4,803	
+Weld	269,785	Greeley, CO Metropolitan Statistical Area
+Yuma	10,151	
+Fairfield[n]	 Connecticut	939,904	Bridgeport-Stamford-Norwalk, CT Metropolitan Statistical Area
+Hartford[n]	898,272	Hartford-West Hartford-East Hartford, CT Metropolitan Statistical Area
+Litchfield[n]	186,924	Torrington, CT Micropolitan Statistical Area
+Middlesex[n]	165,562	Hartford-West Hartford-East Hartford, CT Metropolitan Statistical Area
+New Haven[n]	862,287	New Haven-Milford, CT Metropolitan Statistical Area
+New London[n]	274,150	Norwich-New London, CT Metropolitan Statistical Area
+Tolland[n]	151,377	Hartford-West Hartford-East Hartford, CT Metropolitan Statistical Area
+Windham[n]	117,604	Worcester, MA-CT Metropolitan Statistical Area
+Kent	 Delaware	169,416	Dover, DE Metropolitan Statistical Area
+New Castle	549,684	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Sussex	206,649	Salisbury, MD-DE Metropolitan Statistical Area
+District of Columbia[o]	 District of Columbia	646,449	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Alachua	 Florida	253,451	Gainesville, FL Metropolitan Statistical Area
+Baker	27,013	Jacksonville, FL Metropolitan Statistical Area
+Bay	174,987	Panama City, FL Metropolitan Statistical Area
+Bradford	26,850	
+Brevard	550,823	Palm Bay-Melbourne-Titusville, FL Metropolitan Statistical Area
+Broward	1,838,844	Miami-Fort Lauderdale-West Palm Beach, FL Metropolitan Statistical Area
+Calhoun	14,682	
+Charlotte	164,736	Punta Gorda, FL Metropolitan Statistical Area
+Citrus	139,271	Homosassa Springs, FL Metropolitan Statistical Area
+Clay	196,399	Jacksonville, FL Metropolitan Statistical Area
+Collier	339,642	Naples-Immokalee-Marco Island, FL Metropolitan Statistical Area
+Columbia	67,543	Lake City, FL Micropolitan Statistical Area
+DeSoto	34,517	Arcadia, FL Micropolitan Statistical Area
+Dixie	15,940	
+Duval	885,855	Jacksonville, FL Metropolitan Statistical Area
+Escambia	305,817	Pensacola-Ferry Pass-Brent, FL Metropolitan Statistical Area
+Flagler	99,956	Deltona-Daytona Beach-Ormond Beach, FL Metropolitan Statistical Area
+Franklin	11,598	
+Gadsden	46,194	Tallahassee, FL Metropolitan Statistical Area
+Gilchrist	16,931	Gainesville, FL Metropolitan Statistical Area
+Glades	13,345	
+Gulf	15,829	Panama City, FL Metropolitan Statistical Area
+Hamilton	14,354	
+Hardee	27,519	Wauchula, FL Micropolitan Statistical Area
+Hendry	37,471	Clewiston, FL Micropolitan Statistical Area
+Hernando	174,441	Tampa-St. Petersburg-Clearwater, FL Metropolitan Statistical Area
+Highlands	97,616	Sebring, FL Metropolitan Statistical Area
+Hillsborough	1,291,578	Tampa-St. Petersburg-Clearwater, FL Metropolitan Statistical Area
+Holmes	19,717	
+Indian River	141,994	Sebastian-Vero Beach, FL Metropolitan Statistical Area
+Jackson	48,922	
+Jefferson	14,194	Tallahassee, FL Metropolitan Statistical Area
+Lafayette	8,848	
+Lake	308,034	Orlando-Kissimmee-Sanford, FL Metropolitan Statistical Area
+Lee	661,115	Cape Coral-Fort Myers, FL Metropolitan Statistical Area
+Leon	281,845	Tallahassee, FL Metropolitan Statistical Area
+Levy	39,644	
+Liberty	8,349	
+Madison	18,728	
+Manatee	342,106	North Port-Sarasota-Bradenton, FL Metropolitan Statistical Area
+Marion	337,362	Ocala, FL Metropolitan Statistical Area
+Martin	151,263	Port St. Lucie, FL Metropolitan Statistical Area
+Miami-Dade	2,617,176	Miami-Fort Lauderdale-West Palm Beach, FL Metropolitan Statistical Area
+Monroe	76,351	Key West, FL Micropolitan Statistical Area
+Nassau	75,710	Jacksonville, FL Metropolitan Statistical Area
+Okaloosa	193,811	Crestview-Fort Walton Beach-Destin, FL Metropolitan Statistical Area
+Okeechobee	39,330	Okeechobee, FL Micropolitan Statistical Area
+Orange	1,225,267	Orlando-Kissimmee-Sanford, FL Metropolitan Statistical Area
+Osceola	298,504	Orlando-Kissimmee-Sanford, FL Metropolitan Statistical Area
+Palm Beach	1,372,171	Miami-Fort Lauderdale-West Palm Beach, FL Metropolitan Statistical Area
+Pasco	475,502	Tampa-St. Petersburg-Clearwater, FL Metropolitan Statistical Area
+Pinellas	929,048	Tampa-St. Petersburg-Clearwater, FL Metropolitan Statistical Area
+Polk	623,009	Lakeland-Winter Haven, FL Metropolitan Statistical Area
+Putnam	72,577	Palatka, FL Micropolitan Statistical Area
+St. Johns	209,647	Jacksonville, FL Metropolitan Statistical Area
+St. Lucie	286,832	Port St. Lucie, FL Metropolitan Statistical Area
+Santa Rosa	161,096	Pensacola-Ferry Pass-Brent, FL Metropolitan Statistical Area
+Sarasota	390,429	North Port-Sarasota-Bradenton, FL Metropolitan Statistical Area
+Seminole	436,041	Orlando-Kissimmee-Sanford, FL Metropolitan Statistical Area
+Sumter	107,056	The Villages, FL Metropolitan Statistical Area
+Suwannee	43,734	
+Taylor	22,857	
+Union	15,136	
+Volusia	500,800	Deltona-Daytona Beach-Ormond Beach, FL Metropolitan Statistical Area
+Wakulla	31,022	Tallahassee, FL Metropolitan Statistical Area
+Walton	59,807	Crestview-Fort Walton Beach-Destin, FL Metropolitan Statistical Area
+Washington	24,624	
+Appling	Georgia (U.S. state) Georgia	18,440	
+Atkinson	8,290	
+Bacon	11,216	
+Baker	3,341	Albany, GA Metropolitan Statistical Area
+Baldwin	46,039	Milledgeville, GA Micropolitan Statistical Area
+Banks	18,415	
+Barrow	71,453	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Bartow	101,273	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Ben Hill	17,515	Fitzgerald, GA Micropolitan Statistical Area
+Berrien	19,048	
+Bibb	154,721	Macon, GA Metropolitan Statistical Area
+Bleckley	12,771	
+Brantley	18,292	Brunswick, GA Metropolitan Statistical Area
+Brooks	15,516	Valdosta, GA Metropolitan Statistical Area
+Bryan	33,157	Savannah, GA Metropolitan Statistical Area
+Bulloch	71,214	Statesboro, GA Micropolitan Statistical Area
+Burke	22,923	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Butts	23,361	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Calhoun	6,523	
+Camden	51,476	St. Marys, GA Micropolitan Statistical Area
+Candler	10,937	
+Carroll	112,355	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Catoosa	65,311	Chattanooga, TN-GA Metropolitan Statistical Area
+Charlton	13,255	
+Chatham	278,434	Savannah, GA Metropolitan Statistical Area
+Chattahoochee	12,842	Columbus, GA-AL Metropolitan Statistical Area
+Chattooga	25,138	Summerville, GA Micropolitan Statistical Area
+Cherokee	225,106	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Clarke	121,265	Athens-Clarke County, GA Metropolitan Statistical Area
+Clay	3,045	
+Clayton	264,220	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Clinch	6,795	
+Cobb	717,190	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Coffee	43,220	Douglas, GA Micropolitan Statistical Area
+Colquitt	46,275	Moultrie, GA Micropolitan Statistical Area
+Columbia	135,416	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Cook	17,066	
+Coweta	133,180	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Crawford	12,504	Macon, GA Metropolitan Statistical Area
+Crisp	23,336	Cordele, GA Micropolitan Statistical Area
+Dade	16,507	Chattanooga, TN-GA Metropolitan Statistical Area
+Dawson	22,686	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Decatur	27,359	Bainbridge, GA Micropolitan Statistical Area
+DeKalb	713,340	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Dodge	21,221	
+Dooly	14,304	
+Dougherty	92,969	Albany, GA Metropolitan Statistical Area
+Douglas	136,379	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Early	10,542	
+Echols	4,057	Valdosta, GA Metropolitan Statistical Area
+Effingham	54,456	Savannah, GA Metropolitan Statistical Area
+Elbert	19,599	
+Emanuel	22,867	
+Evans	10,833	
+Fannin	23,760	
+Fayette	108,365	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Floyd	95,821	Rome, GA Metropolitan Statistical Area
+Forsyth	195,405	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Franklin	22,009	
+Fulton	1,010,562	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Gilmer	28,579	
+Glascock	3,102	
+Glynn	81,508	Brunswick, GA Metropolitan Statistical Area
+Gordon	55,757	Calhoun, GA Micropolitan Statistical Area
+Grady	25,278	
+Greene	16,321	
+Gwinnett	859,304	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Habersham	43,300	Cornelia, GA Micropolitan Statistical Area
+Hall	187,745	Gainesville, GA Metropolitan Statistical Area
+Hancock	8,879	Milledgeville, GA Micropolitan Statistical Area
+Haralson	28,495	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Harris	32,663	Columbus, GA-AL Metropolitan Statistical Area
+Hart	25,446	
+Heard	11,558	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Henry	211,128	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Houston	147,658	Warner Robins, GA Metropolitan Statistical Area
+Irwin	9,427	
+Jackson	61,044	Jefferson, GA Micropolitan Statistical Area
+Jasper	13,601	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Jeff Davis	15,004	
+Jefferson	16,320	
+Jenkins	9,269	
+Johnson	9,767	Dublin, GA Micropolitan Statistical Area
+Jones	28,569	Macon, GA Metropolitan Statistical Area
+Lamar	17,959	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Lanier	10,408	Valdosta, GA Metropolitan Statistical Area
+Laurens	47,999	Dublin, GA Micropolitan Statistical Area
+Lee	29,071	Albany, GA Metropolitan Statistical Area
+Liberty	64,135	Hinesville, GA Metropolitan Statistical Area
+Lincoln	7,751	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Long	16,624	Hinesville, GA Metropolitan Statistical Area
+Lowndes	112,916	Valdosta, GA Metropolitan Statistical Area
+Lumpkin	30,918	
+McDuffie	21,565	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+McIntosh	14,007	Brunswick, GA Metropolitan Statistical Area
+Macon	14,009	
+Madison	28,057	Athens-Clarke County, GA Metropolitan Statistical Area
+Marion	8,640	Columbus, GA-AL Metropolitan Statistical Area
+Meriwether	21,232	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Miller	5,932	
+Mitchell	23,045	
+Monroe	26,984	Macon, GA Metropolitan Statistical Area
+Montgomery	9,021	Vidalia, GA Micropolitan Statistical Area
+Morgan	17,781	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Murray	39,267	Dalton, GA Metropolitan Statistical Area
+Muscogee	202,824	Columbus, GA-AL Metropolitan Statistical Area
+Newton	102,446	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Oconee	34,035	Athens-Clarke County, GA Metropolitan Statistical Area
+Oglethorpe	14,548	Athens-Clarke County, GA Metropolitan Statistical Area
+Paulding	146,950	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Peach	27,014	Warner Robins, GA Metropolitan Statistical Area
+Pickens	29,584	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Pierce	18,938	Waycross, GA Micropolitan Statistical Area
+Pike	17,796	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Polk	41,183	Cedartown, GA Micropolitan Statistical Area
+Pulaski	11,542	Warner Robins, GA Metropolitan Statistical Area
+Putnam	21,371	
+Quitman	2,367	
+Rabun	16,235	
+Randolph	7,197	
+Richmond	202,003	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Rockdale	86,919	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Schley	5,089	Americus, GA Micropolitan Statistical Area
+Screven	14,240	
+Seminole	8,945	
+Spalding	63,829	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Stephens	25,683	Toccoa, GA Micropolitan Statistical Area
+Stewart	5,868	
+Sumter	31,364	Americus, GA Micropolitan Statistical Area
+Talbot	6,456	
+Taliaferro	1,703	
+Tattnall	25,526	
+Taylor	8,464	
+Telfair	16,591	
+Terrell	9,022	Albany, GA Metropolitan Statistical Area
+Thomas	44,869	Thomasville, GA Micropolitan Statistical Area
+Tift	40,286	Tifton, GA Micropolitan Statistical Area
+Toombs	27,273	Vidalia, GA Micropolitan Statistical Area
+Towns	10,771	
+Treutlen	6,712	
+Troup	69,053	LaGrange, GA Micropolitan Statistical Area
+Turner	8,134	
+Twiggs	8,481	Macon, GA Metropolitan Statistical Area
+Union	21,566	
+Upson	26,566	Thomaston, GA Micropolitan Statistical Area
+Walker	68,198	Chattanooga, TN-GA Metropolitan Statistical Area
+Walton	85,754	Atlanta-Sandy Springs-Roswell, GA Metropolitan Statistical Area
+Ware	35,709	Waycross, GA Micropolitan Statistical Area
+Warren	5,558	
+Washington	20,676	
+Wayne	30,077	Jesup, GA Micropolitan Statistical Area
+Webster	2,719	
+Wheeler	7,909	
+White	27,797	
+Whitfield	102,945	Dalton, GA Metropolitan Statistical Area
+Wilcox	8,960	
+Wilkes	10,010	
+Wilkinson	9,432	
+Worth	21,291	Albany, GA Metropolitan Statistical Area
+Guam[9]	 Guam	162,742	
+Hawaii	Hawaii Hawaiʻi	190,821	Hilo, HI Micropolitan Statistical Area
+Honolulu, City and County of[p]	983,429	Urban Honolulu, HI Metropolitan Statistical Area
+Kalawao	90	Kahului-Wailuku-Lahaina, HI Metropolitan Statistical Area
+Kauai	69,512	Kapaa, HI Micropolitan Statistical Area
+Maui	160,202	Kahului-Wailuku-Lahaina, HI Metropolitan Statistical Area
+Ada	 Idaho	416,464	Boise City, ID Metropolitan Statistical Area
+Adams	3,828	
+Bannock	83,249	Pocatello, ID Metropolitan Statistical Area
+Bear Lake	5,943	
+Benewah	9,044	
+Bingham	45,290	Blackfoot, ID Micropolitan Statistical Area
+Blaine	21,329	Hailey, ID Micropolitan Statistical Area
+Boise	6,795	Boise City, ID Metropolitan Statistical Area
+Bonner	40,699	Sandpoint, ID Micropolitan Statistical Area
+Bonneville	107,517	Idaho Falls, ID Metropolitan Statistical Area
+Boundary	10,853	
+Butte	2,642	Idaho Falls, ID Metropolitan Statistical Area
+Camas	1,042	Hailey, ID Micropolitan Statistical Area
+Canyon	198,871	Boise City, ID Metropolitan Statistical Area
+Caribou	6,808	
+Cassia	23,331	Burley, ID Micropolitan Statistical Area
+Clark	867	
+Clearwater	8,577	
+Custer	4,249	
+Elmore	26,170	Mountain Home, ID Micropolitan Statistical Area
+Franklin	12,854	Logan, UT-ID Metropolitan Statistical Area
+Fremont	12,927	Rexburg, ID Micropolitan Statistical Area
+Gem	16,686	Boise City, ID Metropolitan Statistical Area
+Gooding	15,080	
+Idaho	16,116	
+Jefferson	26,914	Idaho Falls, ID Metropolitan Statistical Area
+Jerome	22,514	Twin Falls, ID Micropolitan Statistical Area
+Kootenai	144,265	Coeur d'Alene, ID Metropolitan Statistical Area
+Latah	38,078	Moscow, ID Micropolitan Statistical Area
+Lemhi	7,712	
+Lewis	3,902	
+Lincoln	5,315	Hailey, ID Micropolitan Statistical Area
+Madison	37,450	Rexburg, ID Micropolitan Statistical Area
+Minidoka	20,292	Burley, ID Micropolitan Statistical Area
+Nez Perce	39,915	Lewiston, ID-WA Metropolitan Statistical Area
+Oneida	4,275	
+Owyhee	11,472	Boise City, ID Metropolitan Statistical Area
+Payette	22,610	Ontario, OR-ID Micropolitan Statistical Area
+Power	7,719	
+Shoshone	12,690	
+Teton	10,275	Jackson, WY-ID Micropolitan Statistical Area
+Twin Falls	79,957	Twin Falls, ID Micropolitan Statistical Area
+Valley	9,606	
+Washington	9,944	
+Adams	 Illinois	67,130	Quincy, IL-MO Micropolitan Statistical Area
+Alexander	7,629	Cape Girardeau, MO-IL Metropolitan Statistical Area
+Bond	17,470	St. Louis, MO-IL Metropolitan Statistical Area
+Boone	53,957	Rockford, IL Metropolitan Statistical Area
+Brown	6,860	
+Bureau	34,056	Ottawa-Peru, IL Micropolitan Statistical Area
+Calhoun	5,059	St. Louis, MO-IL Metropolitan Statistical Area
+Carroll	14,910	
+Cass	13,324	
+Champaign	204,897	Champaign-Urbana, IL Metropolitan Statistical Area
+Christian	34,298	Taylorville, IL Micropolitan Statistical Area
+Clark	16,182	
+Clay	13,566	
+Clinton	37,907	St. Louis, MO-IL Metropolitan Statistical Area
+Coles	53,697	Charleston-Mattoon, IL Micropolitan Statistical Area
+Cook	5,240,700	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Crawford	19,505	
+Cumberland	10,939	Charleston-Mattoon, IL Micropolitan Statistical Area
+DeKalb	104,741	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+De Witt	16,420	Bloomington, IL Metropolitan Statistical Area
+Douglas	19,887	
+DuPage	932,126	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Edgar	17,960	
+Edwards	6,672	
+Effingham	34,307	Effingham, IL Micropolitan Statistical Area
+Fayette	22,060	
+Ford	13,832	Champaign-Urbana, IL Metropolitan Statistical Area
+Franklin	39,202	
+Fulton	36,346	Canton, IL Micropolitan Statistical Area
+Gallatin	5,415	
+Greene	13,629	
+Grundy	50,228	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Hamilton	8,368	
+Hancock	18,618	Fort Madison-Keokuk, IA-IL-MO Micropolitan Statistical Area
+Hardin	4,181	
+Henderson	6,990	Burlington, IA-IL Micropolitan Statistical Area
+Henry	49,860	Davenport-Moline-Rock Island, IA-IL Metropolitan Statistical Area
+Iroquois	28,982	
+Jackson	59,814	Carbondale-Marion, IL Metropolitan Statistical Area
+Jasper	9,592	
+Jefferson	38,644	Mount Vernon, IL Micropolitan Statistical Area
+Jersey	22,641	St. Louis, MO-IL Metropolitan Statistical Area
+Jo Daviess	22,407	
+Johnson	12,677	
+Kane	523,643	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Kankakee	112,120	Kankakee, IL Metropolitan Statistical Area
+Kendall	119,348	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Knox	52,078	Galesburg, IL Micropolitan Statistical Area
+Lake	703,019	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+LaSalle	112,183	Ottawa-Peru, IL Micropolitan Statistical Area
+Lawrence	16,558	
+Lee	34,858	Dixon, IL Micropolitan Statistical Area
+Livingston	38,186	Pontiac, IL Micropolitan Statistical Area
+Logan	29,964	Lincoln, IL Micropolitan Statistical Area
+McDonough	32,464	Macomb, IL Micropolitan Statistical Area
+McHenry	307,409	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+McLean	174,647	Bloomington, IL Metropolitan Statistical Area
+Macon	109,278	Decatur, IL Metropolitan Statistical Area
+Macoupin	46,880	St. Louis, MO-IL Metropolitan Statistical Area
+Madison	267,225	St. Louis, MO-IL Metropolitan Statistical Area
+Marion	38,622	Centralia, IL Micropolitan Statistical Area
+Marshall	12,153	Peoria, IL Metropolitan Statistical Area
+Mason	14,248	
+Massac	15,073	Paducah, KY-IL Micropolitan Statistical Area
+Menard	12,607	Springfield, IL Metropolitan Statistical Area
+Mercer	16,178	Davenport-Moline-Rock Island, IA-IL Metropolitan Statistical Area
+Monroe	33,493	St. Louis, MO-IL Metropolitan Statistical Area
+Montgomery	29,654	
+Morgan	35,067	Jacksonville, IL Micropolitan Statistical Area
+Moultrie	14,876	
+Ogle	52,385	Rochelle, IL Micropolitan Statistical Area
+Peoria	188,429	Peoria, IL Metropolitan Statistical Area
+Perry	21,887	
+Piatt	16,433	Champaign-Urbana, IL Metropolitan Statistical Area
+Pike	16,150	
+Pope	4,312	
+Pulaski	5,908	
+Putnam	5,801	Ottawa-Peru, IL Micropolitan Statistical Area
+Randolph	32,890	
+Richland	16,182	
+Rock Island	147,258	Davenport-Moline-Rock Island, IA-IL Metropolitan Statistical Area
+St. Clair	266,955	St. Louis, MO-IL Metropolitan Statistical Area
+Saline	24,939	
+Sangamon	199,145	Springfield, IL Metropolitan Statistical Area
+Schuyler	7,444	
+Scott	5,222	Jacksonville, IL Micropolitan Statistical Area
+Shelby	22,119	
+Stark	5,907	Peoria, IL Metropolitan Statistical Area
+Stephenson	46,740	Freeport, IL Micropolitan Statistical Area
+Tazewell	136,352	Peoria, IL Metropolitan Statistical Area
+Union	17,583	
+Vermilion	80,329	Danville, IL Metropolitan Statistical Area
+Wabash	11,665	
+Warren	17,726	
+Washington	14,448	
+Wayne	16,612	
+White	14,549	
+Whiteside	57,557	Sterling, IL Micropolitan Statistical Area
+Will	682,829	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Williamson	66,924	Carbondale-Marion, IL Metropolitan Statistical Area
+Winnebago	290,666	Rockford, IL Metropolitan Statistical Area
+Woodford	39,273	Peoria, IL Metropolitan Statistical Area
+Adams	 Indiana	34,614	Decatur, IN Micropolitan Statistical Area
+Allen	363,014	Fort Wayne, IN Metropolitan Statistical Area
+Bartholomew	79,587	Columbus, IN Metropolitan Statistical Area
+Benton	8,767	Lafayette-West Lafayette, IN Metropolitan Statistical Area
+Blackford	12,481	
+Boone	60,477	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Brown	15,023	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Carroll	20,086	Lafayette-West Lafayette, IN Metropolitan Statistical Area
+Cass	38,463	Logansport, IN Micropolitan Statistical Area
+Clark	112,938	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Clay	26,803	Terre Haute, IN Metropolitan Statistical Area
+Clinton	32,916	Frankfort, IN Micropolitan Statistical Area
+Crawford	10,621	
+Daviess	32,407	Washington, IN Micropolitan Statistical Area
+Dearborn	49,904	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Decatur	26,277	Greensburg, IN Micropolitan Statistical Area
+DeKalb	42,307	Auburn, IN Micropolitan Statistical Area
+Delaware	117,484	Muncie, IN Metropolitan Statistical Area
+Dubois	42,361	Jasper, IN Micropolitan Statistical Area
+Elkhart	200,563	Elkhart-Goshen, IN Metropolitan Statistical Area
+Fayette	23,861	Connersville, IN Micropolitan Statistical Area
+Floyd	76,244	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Fountain	16,880	
+Franklin	22,951	
+Fulton	20,449	
+Gibson	33,612	
+Grant	69,126	Marion, IN Micropolitan Statistical Area
+Greene	32,781	
+Hamilton	296,693	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Hancock	71,575	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Harrison	39,163	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Hendricks	153,879	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Henry	49,044	New Castle, IN Micropolitan Statistical Area
+Howard	82,760	Kokomo, IN Metropolitan Statistical Area
+Huntington	36,791	Huntington, IN Micropolitan Statistical Area
+Jackson	43,466	Seymour, IN Micropolitan Statistical Area
+Jasper	33,389	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Jay	21,330	
+Jefferson	32,458	Madison, IN Micropolitan Statistical Area
+Jennings	28,241	North Vernon, IN Micropolitan Statistical Area
+Johnson	145,535	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Knox	37,954	Vincennes, IN Micropolitan Statistical Area
+Kosciusko	77,963	Warsaw, IN Micropolitan Statistical Area
+LaGrange	37,996	
+Lake	491,456	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+LaPorte	111,281	Michigan City-La Porte, IN Metropolitan Statistical Area
+Lawrence	45,844	Bedford, IN Micropolitan Statistical Area
+Madison	130,482	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Marion	928,281	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Marshall	47,109	Plymouth, IN Micropolitan Statistical Area
+Martin	10,160	
+Miami	36,140	Peru, IN Micropolitan Statistical Area
+Monroe	141,888	Bloomington, IN Metropolitan Statistical Area
+Montgomery	38,177	Crawfordsville, IN Micropolitan Statistical Area
+Morgan	69,782	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Newton	14,087	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Noble	47,570	Kendallville, IN Micropolitan Statistical Area
+Ohio	5,994	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Orange	19,773	
+Owen	21,201	Bloomington, IN Metropolitan Statistical Area
+Parke	17,202	
+Perry	19,558	
+Pike	12,683	Jasper, IN Micropolitan Statistical Area
+Porter	166,557	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Posey	25,486	Evansville, IN-KY Metropolitan Statistical Area
+Pulaski	13,007	
+Putnam	37,505	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Randolph	25,627	
+Ripley	28,419	
+Rush	17,004	
+St. Joseph	266,709	South Bend-Mishawaka, IN-MI Metropolitan Statistical Area
+Scott	23,972	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Shelby	44,729	Indianapolis-Carmel-Anderson, IN Metropolitan Statistical Area
+Spencer	20,944	
+Starke	23,197	
+Steuben	34,358	Angola, IN Micropolitan Statistical Area
+Sullivan	21,223	Terre Haute, IN Metropolitan Statistical Area
+Switzerland	10,526	
+Tippecanoe	180,174	Lafayette-West Lafayette, IN Metropolitan Statistical Area
+Tipton	15,650	
+Union	7,277	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Vanderburgh	181,398	Evansville, IN-KY Metropolitan Statistical Area
+Vermillion	15,878	Terre Haute, IN Metropolitan Statistical Area
+Vigo	108,291	Terre Haute, IN Metropolitan Statistical Area
+Wabash	32,358	Wabash, IN Micropolitan Statistical Area
+Warren	8,415	
+Warrick	61,049	Evansville, IN-KY Metropolitan Statistical Area
+Washington	27,780	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Wayne	67,893	Richmond, IN Micropolitan Statistical Area
+Wells	27,814	Fort Wayne, IN Metropolitan Statistical Area
+White	24,466	
+Whitley	33,294	Fort Wayne, IN Metropolitan Statistical Area
+Adair	 Iowa	7,472	
+Adams	3,894	
+Allamakee	14,169	
+Appanoose	12,692	
+Audubon	5,873	
+Benton	25,699	Cedar Rapids, IA Metropolitan Statistical Area
+Black Hawk	132,546	Waterloo-Cedar Falls, IA Metropolitan Statistical Area
+Boone	26,364	Boone, IA Micropolitan Statistical Area
+Bremer	24,624	Waterloo-Cedar Falls, IA Metropolitan Statistical Area
+Buchanan	20,976	
+Buena Vista	20,567	Storm Lake, IA Micropolitan Statistical Area
+Butler	15,021	
+Calhoun	9,926	
+Carroll	20,598	
+Cass	13,598	
+Cedar	18,393	
+Cerro Gordo	43,575	Mason City, IA Micropolitan Statistical Area
+Cherokee	11,945	
+Chickasaw	12,321	
+Clarke	9,325	
+Clay	16,491	Spencer, IA Micropolitan Statistical Area
+Clayton	17,773	
+Clinton	48,420	Clinton, IA Micropolitan Statistical Area
+Crawford	17,434	
+Dallas	74,641	Des Moines-West Des Moines, IA Metropolitan Statistical Area
+Davis	8,791	Ottumwa, IA Micropolitan Statistical Area
+Decatur	8,136	
+Delaware	17,534	
+Des Moines	40,480	Burlington, IA-IL Micropolitan Statistical Area
+Dickinson	16,955	Spirit Lake, IA Micropolitan Statistical Area
+Dubuque	95,697	Dubuque, IA Metropolitan Statistical Area
+Emmet	9,996	
+Fayette	20,502	
+Floyd	16,092	
+Franklin	10,548	
+Fremont	7,080	
+Greene	9,139	
+Grundy	12,314	Waterloo-Cedar Falls, IA Metropolitan Statistical Area
+Guthrie	10,687	Des Moines-West Des Moines, IA Metropolitan Statistical Area
+Hamilton	15,312	
+Hancock	11,094	
+Hardin	17,441	
+Harrison	14,431	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Henry	20,222	
+Howard	9,526	
+Humboldt	9,688	
+Ida	7,141	
+Iowa	16,330	
+Jackson	19,587	
+Jasper	36,641	Newton, IA Micropolitan Statistical Area
+Jefferson	16,810	Fairfield, IA Micropolitan Statistical Area
+Johnson	139,155	Iowa City, IA Metropolitan Statistical Area
+Jones	20,611	Cedar Rapids, IA Metropolitan Statistical Area
+Keokuk	10,329	
+Kossuth	15,321	
+Lee	35,682	Fort Madison-Keokuk, IA-IL-MO Micropolitan Statistical Area
+Linn	216,111	Cedar Rapids, IA Metropolitan Statistical Area
+Louisa	11,282	
+Lucas	8,746	
+Lyon	11,712	
+Madison	15,448	Des Moines-West Des Moines, IA Metropolitan Statistical Area
+Mahaska	22,417	Oskaloosa, IA Micropolitan Statistical Area
+Marion	33,252	
+Marshall	40,994	Marshalltown, IA Micropolitan Statistical Area
+Mills	14,896	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Mitchell	10,709	
+Monona	9,121	
+Monroe	8,012	
+Montgomery	10,424	
+Muscatine	42,836	Muscatine, IA Micropolitan Statistical Area
+O'Brien	14,044	
+Osceola	6,211	
+Page	15,713	
+Palo Alto	9,185	
+Plymouth	24,957	Sioux City, IA-NE-SD Metropolitan Statistical Area
+Pocahontas	7,154	
+Polk	451,677	Des Moines-West Des Moines, IA Metropolitan Statistical Area
+Pottawattamie	92,728	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Poweshiek	18,601	
+Ringgold	5,072	
+Sac	10,071	
+Scott	170,385	Davenport-Moline-Rock Island, IA-IL Metropolitan Statistical Area
+Shelby	11,961	
+Sioux	34,547	
+Story	92,406	Ames, IA Metropolitan Statistical Area
+Tama	17,576	
+Taylor	6,161	
+Union	12,583	
+Van Buren	7,436	
+Wapello	35,391	Ottumwa, IA Micropolitan Statistical Area
+Warren	47,336	Des Moines-West Des Moines, IA Metropolitan Statistical Area
+Washington	22,015	Iowa City, IA Metropolitan Statistical Area
+Wayne	6,402	
+Webster	37,044	Fort Dodge, IA Micropolitan Statistical Area
+Winnebago	10,554	
+Winneshiek	20,994	
+Woodbury	102,130	Sioux City, IA-NE-SD Metropolitan Statistical Area
+Worth	7,541	Mason City, IA Micropolitan Statistical Area
+Wright	12,972	
+Allen	 Kansas	13,124	
+Anderson	7,897	
+Atchison	16,749	Atchison, KS Micropolitan Statistical Area
+Barber	4,947	
+Barton	27,509	Great Bend, KS Micropolitan Statistical Area
+Bourbon	14,852	
+Brown	9,997	
+Butler	65,803	Wichita, KS Metropolitan Statistical Area
+Chase	2,700	
+Chautauqua	3,552	
+Cherokee	20,978	
+Cheyenne	2,694	
+Clark	2,193	
+Clay	8,406	
+Cloud	9,292	
+Coffey	8,412	
+Comanche	1,955	
+Cowley	36,204	Arkansas City-Winfield, KS Micropolitan Statistical Area
+Crawford	39,278	Pittsburg, KS Micropolitan Statistical Area
+Decatur	2,930	
+Dickinson	19,609	
+Doniphan	7,851	St. Joseph, MO-KS Metropolitan Statistical Area
+Douglas	114,322	Lawrence, KS Metropolitan Statistical Area
+Edwards	2,945	
+Elk	2,655	
+Ellis	29,061	Hays, KS Micropolitan Statistical Area
+Ellsworth	6,398	
+Finney	37,098	Garden City, KS Micropolitan Statistical Area
+Ford	34,819	Dodge City, KS Micropolitan Statistical Area
+Franklin	25,740	Ottawa, KS Micropolitan Statistical Area
+Geary	37,384	Junction City, KS Micropolitan Statistical Area
+Gove	2,769	
+Graham	2,593	
+Grant	7,950	
+Gray	6,009	
+Greeley	1,290	
+Greenwood	6,424	
+Hamilton	2,609	
+Harper	5,860	
+Harvey	34,741	Wichita, KS Metropolitan Statistical Area
+Haskell	4,141	
+Hodgeman	1,950	
+Jackson	13,366	Topeka, KS Metropolitan Statistical Area
+Jefferson	18,813	Topeka, KS Metropolitan Statistical Area
+Jewell	3,046	
+Johnson	566,933	Kansas City, MO-KS Metropolitan Statistical Area
+Kearny	3,923	Garden City, KS Micropolitan Statistical Area
+Kingman	7,844	Wichita, KS Metropolitan Statistical Area
+Kiowa	2,523	
+Labette	20,916	Parsons, KS Micropolitan Statistical Area
+Lane	1,720	
+Leavenworth	78,185	Kansas City, MO-KS Metropolitan Statistical Area
+Lincoln	3,147	
+Linn	9,516	Kansas City, MO-KS Metropolitan Statistical Area
+Logan	2,798	
+Lyon	33,510	Emporia, KS Micropolitan Statistical Area
+McPherson	29,569	McPherson, KS Micropolitan Statistical Area
+Marion	12,219	
+Marshall	10,002	
+Meade	4,343	
+Miami	32,835	Kansas City, MO-KS Metropolitan Statistical Area
+Mitchell	6,378	
+Montgomery	34,292	Coffeyville, KS Micropolitan Statistical Area
+Morris	5,741	
+Morton	3,143	
+Nemaha	10,161	
+Neosho	16,430	
+Ness	3,073	
+Norton	5,622	
+Osage	16,142	Topeka, KS Metropolitan Statistical Area
+Osborne	3,818	
+Ottawa	6,042	Salina, KS Micropolitan Statistical Area
+Pawnee	6,971	
+Phillips	5,540	
+Pottawatomie	22,691	Manhattan, KS Metropolitan Statistical Area
+Pratt	9,878	
+Rawlins	2,589	
+Reno	64,190	Hutchinson, KS Micropolitan Statistical Area
+Republic	4,820	
+Rice	10,011	
+Riley	75,394	Manhattan, KS Metropolitan Statistical Area
+Rooks	5,190	
+Rush	3,186	
+Russell	6,933	
+Saline	55,740	Salina, KS Micropolitan Statistical Area
+Scott	5,035	
+Sedgwick	505,415	Wichita, KS Metropolitan Statistical Area
+Seward	23,390	Liberal, KS Micropolitan Statistical Area
+Shawnee	178,831	Topeka, KS Metropolitan Statistical Area
+Sheridan	2,553	
+Sherman	6,115	
+Smith	3,706	
+Stafford	4,359	
+Stanton	2,194	
+Stevens	5,816	
+Sumner	23,591	Wichita, KS Metropolitan Statistical Area
+Thomas	7,948	
+Trego	2,980	
+Wabaunsee	7,051	Topeka, KS Metropolitan Statistical Area
+Wallace	1,569	
+Washington	5,629	
+Wichita	2,192	
+Wilson	9,105	
+Woodson	3,221	
+Wyandotte	160,384	Kansas City, MO-KS Metropolitan Statistical Area
+Adair	 Kentucky	18,732	
+Allen	20,311	Bowling Green, KY Metropolitan Statistical Area
+Anderson	21,811	Frankfort, KY Micropolitan Statistical Area
+Ballard	8,332	Paducah, KY-IL Micropolitan Statistical Area
+Barren	43,027	Glasgow, KY Micropolitan Statistical Area
+Bath	11,961	Mount Sterling, KY Micropolitan Statistical Area
+Bell	27,885	Middlesborough, KY Micropolitan Statistical Area
+Boone	124,442	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Bourbon	19,998	Lexington-Fayette, KY Metropolitan Statistical Area
+Boyd	48,886	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Boyle	29,013	Danville, KY Micropolitan Statistical Area
+Bracken	8,416	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Breathitt	13,545	
+Breckinridge	20,040	
+Bullitt	76,854	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Butler	12,793	Bowling Green, KY Metropolitan Statistical Area
+Caldwell	12,823	
+Calloway	37,657	Murray, KY Micropolitan Statistical Area
+Campbell	90,988	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Carlisle	5,001	
+Carroll	10,953	
+Carter	27,202	
+Casey	16,067	
+Christian	74,167	Clarksville, TN-KY Metropolitan Statistical Area
+Clark	35,614	Lexington-Fayette, KY Metropolitan Statistical Area
+Clay	21,364	
+Clinton	10,146	
+Crittenden	9,255	
+Cumberland	6,789	
+Daviess	98,218	Owensboro, KY Metropolitan Statistical Area
+Edmonson	12,062	Bowling Green, KY Metropolitan Statistical Area
+Elliott	7,637	
+Estill	14,488	
+Fayette	308,428	Lexington-Fayette, KY Metropolitan Statistical Area
+Fleming	14,508	
+Floyd	38,728	
+Franklin	49,648	Frankfort, KY Micropolitan Statistical Area
+Fulton	6,385	Union City, TN-KY Micropolitan Statistical Area
+Gallatin	8,474	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Garrard	16,915	
+Grant	24,753	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Graves	37,451	Mayfield, KY Micropolitan Statistical Area
+Grayson	25,997	
+Green	11,180	
+Greenup	36,519	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Hancock	8,687	Owensboro, KY Metropolitan Statistical Area
+Hardin	108,191	Elizabethtown-Fort Knox, KY Metropolitan Statistical Area
+Harlan	28,499	
+Harrison	18,518	
+Hart	18,573	
+Henderson	46,347	Evansville, IN-KY Metropolitan Statistical Area
+Henry	15,445	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Hickman	4,745	
+Hopkins	46,634	Madisonville, KY Micropolitan Statistical Area
+Jackson	13,427	
+Jefferson	756,832	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Jessamine	50,173	Lexington-Fayette, KY Metropolitan Statistical Area
+Johnson	23,449	
+Kenton	163,145	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Knott	15,976	
+Knox	31,790	London, KY Micropolitan Statistical Area
+LaRue	14,064	Elizabethtown-Fort Knox, KY Metropolitan Statistical Area
+Laurel	59,563	London, KY Micropolitan Statistical Area
+Lawrence	15,856	
+Lee	7,260	
+Leslie	11,019	
+Letcher	23,619	
+Lewis	13,806	
+Lincoln	24,370	Danville, KY Micropolitan Statistical Area
+Livingston	9,359	Paducah, KY-IL Micropolitan Statistical Area
+Logan	26,876	
+Lyon	8,451	
+McCracken	65,373	Paducah, KY-IL Micropolitan Statistical Area
+McCreary	17,989	
+McLean	9,496	Owensboro, KY Metropolitan Statistical Area
+Madison	85,590	Richmond-Berea, KY Micropolitan Statistical Area
+Magoffin	12,950	
+Marion	20,045	
+Marshall	31,107	
+Martin	12,647	
+Mason	17,278	Maysville, KY Micropolitan Statistical Area
+Meade	29,210	Elizabethtown-Fort Knox, KY Metropolitan Statistical Area
+Menifee	6,288	Mount Sterling, KY Micropolitan Statistical Area
+Mercer	21,349	
+Metcalfe	9,983	Glasgow, KY Micropolitan Statistical Area
+Monroe	10,681	
+Montgomery	27,251	Mount Sterling, KY Micropolitan Statistical Area
+Morgan	13,380	
+Muhlenberg	31,179	
+Nelson	44,540	Bardstown, KY Micropolitan Statistical Area
+Nicholas	7,039	
+Ohio	23,988	
+Oldham	62,364	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Owen	10,662	
+Owsley	4,654	
+Pendleton	14,570	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Perry	28,010	
+Pike	63,380	
+Powell	12,494	
+Pulaski	63,907	Somerset, KY Micropolitan Statistical Area
+Robertson	2,235	
+Rockcastle	16,693	Richmond-Berea, KY Micropolitan Statistical Area
+Rowan	23,527	
+Russell	17,752	
+Scott	49,947	Lexington-Fayette, KY Metropolitan Statistical Area
+Shelby	44,216	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Simpson	17,793	
+Spencer	17,637	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Taylor	24,649	Campbellsville, KY Micropolitan Statistical Area
+Todd	12,503	
+Trigg	14,293	Clarksville, TN-KY Metropolitan Statistical Area
+Trimble	8,816	Louisville/Jefferson County, KY-IN Metropolitan Statistical Area
+Union	15,029	
+Warren	118,370	Bowling Green, KY Metropolitan Statistical Area
+Washington	11,875	
+Wayne	20,678	
+Webster	13,452	
+Whitley	35,766	London, KY Micropolitan Statistical Area
+Wolfe	7,248	
+Woodford	25,275	Lexington-Fayette, KY Metropolitan Statistical Area
+Acadia Parish	 Louisiana	62,204	Lafayette, LA Metropolitan Statistical Area
+Allen Parish	25,537	
+Ascension Parish	114,393	Baton Rouge, LA Metropolitan Statistical Area
+Assumption Parish	23,187	
+Avoyelles Parish	41,299	
+Beauregard Parish	36,167	DeRidder, LA Micropolitan Statistical Area
+Bienville Parish	13,981	
+Bossier Parish	123,823	Shreveport-Bossier City, LA Metropolitan Statistical Area
+Caddo Parish	254,887	Shreveport-Bossier City, LA Metropolitan Statistical Area
+Calcasieu Parish	195,296	Lake Charles, LA Metropolitan Statistical Area
+Caldwell Parish	9,989	
+Cameron Parish	6,744	Lake Charles, LA Metropolitan Statistical Area
+Catahoula Parish	10,238	
+Claiborne Parish	16,650	
+Concordia Parish	20,442	Natchez, MS-LA Micropolitan Statistical Area
+De Soto Parish	27,083	Shreveport-Bossier City, LA Metropolitan Statistical Area
+East Baton Rouge Parish	445,227	Baton Rouge, LA Metropolitan Statistical Area
+East Carroll Parish	7,529	
+East Feliciana Parish	19,728	Baton Rouge, LA Metropolitan Statistical Area
+Evangeline Parish	33,578	
+Franklin Parish	20,571	
+Grant Parish	22,030	Alexandria, LA Metropolitan Statistical Area
+Iberia Parish	73,878	Lafayette, LA Metropolitan Statistical Area
+Iberville Parish	33,367	Baton Rouge, LA Metropolitan Statistical Area
+Jackson Parish	16,112	
+Jefferson Parish	434,767	New Orleans-Metairie, LA Metropolitan Statistical Area
+Jefferson Davis Parish	31,301	
+Lafayette Parish	230,845	Lafayette, LA Metropolitan Statistical Area
+Lafourche Parish	97,141	Houma-Thibodaux, LA Metropolitan Statistical Area
+LaSalle Parish	14,777	
+Lincoln Parish	47,414	Ruston, LA Micropolitan Statistical Area
+Livingston Parish	134,053	Baton Rouge, LA Metropolitan Statistical Area
+Madison Parish	11,927	
+Morehouse Parish	27,057	Bastrop, LA Micropolitan Statistical Area
+Natchitoches Parish	39,138	Natchitoches, LA Micropolitan Statistical Area
+Orleans Parish[q]	378,715	New Orleans-Metairie, LA Metropolitan Statistical Area
+Ouachita Parish	156,220	Monroe, LA Metropolitan Statistical Area
+Plaquemines Parish	23,550	New Orleans-Metairie, LA Metropolitan Statistical Area
+Pointe Coupee Parish	22,499	Baton Rouge, LA Metropolitan Statistical Area
+Rapides Parish	132,723	Alexandria, LA Metropolitan Statistical Area
+Red River Parish	8,894	
+Richland Parish	20,857	
+Sabine Parish	24,235	
+St. Bernard Parish	43,482	New Orleans-Metairie, LA Metropolitan Statistical Area
+St. Charles Parish	52,617	New Orleans-Metairie, LA Metropolitan Statistical Area
+St. Helena Parish	10,875	Baton Rouge, LA Metropolitan Statistical Area
+St. James Parish	21,752	New Orleans-Metairie, LA Metropolitan Statistical Area
+St. John the Baptist Parish	43,761	New Orleans-Metairie, LA Metropolitan Statistical Area
+St. Landry Parish	83,454	Opelousas, LA Micropolitan Statistical Area
+St. Martin Parish	52,936	Lafayette, LA Metropolitan Statistical Area
+St. Mary Parish	53,543	Morgan City, LA Micropolitan Statistical Area
+St. Tammany Parish	242,333	New Orleans-Metairie, LA Metropolitan Statistical Area
+Tangipahoa Parish	125,412	Hammond, LA Metropolitan Statistical Area
+Tensas Parish	4,908	
+Terrebonne Parish	112,749	Houma-Thibodaux, LA Metropolitan Statistical Area
+Union Parish	22,344	Monroe, LA Metropolitan Statistical Area
+Vermilion Parish	59,253	Lafayette, LA Metropolitan Statistical Area
+Vernon Parish	52,606	Fort Polk South, LA Micropolitan Statistical Area
+Washington Parish	46,419	Bogalusa, LA Micropolitan Statistical Area
+Webster Parish	40,678	Shreveport-Bossier City, LA Metropolitan Statistical Area
+West Baton Rouge Parish	24,573	Baton Rouge, LA Metropolitan Statistical Area
+West Carroll Parish	11,465	
+West Feliciana Parish	15,444	Baton Rouge, LA Metropolitan Statistical Area
+Winn Parish	14,813	
+Androscoggin	 Maine	107,604	Lewiston-Auburn, ME Metropolitan Statistical Area
+Aroostook	70,055	
+Cumberland	285,456	Portland-South Portland, ME Metropolitan Statistical Area
+Franklin	30,495	
+Hancock	54,845	
+Kennebec	121,164	Augusta-Waterville, ME Micropolitan Statistical Area
+Knox	39,550	
+Lincoln	34,088	
+Oxford	57,277	
+Penobscot	153,364	Bangor, ME Metropolitan Statistical Area
+Piscataquis	17,124	
+Sagadahoc	35,013	Portland-South Portland, ME Metropolitan Statistical Area
+Somerset	51,706	
+Waldo	38,940	
+Washington	32,190	
+York	199,431	Portland-South Portland, ME Metropolitan Statistical Area
+Allegany	 Maryland	73,521	Cumberland, MD-WV Metropolitan Statistical Area
+Anne Arundel	555,743	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Baltimore	823,015	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Calvert	90,484	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Caroline	32,693	
+Carroll	167,564	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Cecil	101,913	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Charles	152,864	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Dorchester	32,660	Cambridge, MD Micropolitan Statistical Area
+Frederick	241,409	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Garrett	29,889	
+Harford	249,215	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Howard	304,580	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Kent	19,944	
+Montgomery	1,016,677	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Prince George's	890,081	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Queen Anne's	48,517	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+St. Mary's	109,633	California-Lexington Park, MD Metropolitan Statistical Area
+Somerset	26,273	Salisbury, MD-DE Metropolitan Statistical Area
+Talbot	37,931	Easton, MD Micropolitan Statistical Area
+Washington	149,588	Hagerstown-Martinsburg, MD-WV Metropolitan Statistical Area
+Wicomico	100,896	Salisbury, MD-DE Metropolitan Statistical Area
+Worcester	51,620	Salisbury, MD-DE Metropolitan Statistical Area
+Baltimore City[r]	622,104	Baltimore-Columbia-Towson, MD Metropolitan Statistical Area
+Barnstable	 Massachusetts	214,990	Barnstable Town, MA Metropolitan Statistical Area
+Berkshire[n]	129,585	Pittsfield, MA Metropolitan Statistical Area
+Bristol	552,780	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Dukes	17,256	Vineyard Haven, MA Micropolitan Statistical Area
+Essex[n]	762,550	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Franklin[n]	71,221	Greenfield Town, MA Micropolitan Statistical Area
+Hampden[n]	467,319	Springfield, MA Metropolitan Statistical Area
+Hampshire[n]	159,596	Springfield, MA Metropolitan Statistical Area
+Middlesex[n]	1,552,802	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Nantucket, Town and County of[s]	10,399	
+Norfolk	687,802	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Plymouth	501,915	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Suffolk[n]	755,503	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Worcester[n]	809,106	Worcester, MA-CT Metropolitan Statistical Area
+Alcona	 Michigan	10,578	
+Alger	9,522	
+Allegan	112,531	Holland, MI Micropolitan Statistical Area
+Alpena	29,091	Alpena, MI Micropolitan Statistical Area
+Antrim	23,370	
+Arenac	15,487	
+Baraga	8,695	
+Barry	59,097	Grand Rapids-Wyoming, MI Metropolitan Statistical Area
+Bay	106,832	Bay City, MI Metropolitan Statistical Area
+Benzie	17,428	Traverse City, MI Micropolitan Statistical Area
+Berrien	155,252	Niles-Benton Harbor, MI Metropolitan Statistical Area
+Branch	43,649	Coldwater, MI Micropolitan Statistical Area
+Calhoun	135,012	Battle Creek, MI Metropolitan Statistical Area
+Cass	51,910	South Bend-Mishawaka, IN-MI Metropolitan Statistical Area
+Charlevoix	26,129	
+Cheboygan	25,726	
+Chippewa	38,696	Sault Ste. Marie, MI Micropolitan Statistical Area
+Clare	30,569	
+Clinton	76,739	Lansing-East Lansing, MI Metropolitan Statistical Area
+Crawford	13,904	
+Delta	36,905	Escanaba, MI Micropolitan Statistical Area
+Dickinson	26,098	Iron Mountain, MI-WI Micropolitan Statistical Area
+Eaton	108,348	Lansing-East Lansing, MI Metropolitan Statistical Area
+Emmet	33,140	
+Genesee	415,376	Flint, MI Metropolitan Statistical Area
+Gladwin	25,493	
+Gogebic	15,916	
+Grand Traverse	89,987	Traverse City, MI Micropolitan Statistical Area
+Gratiot	41,968	Alma, MI Micropolitan Statistical Area
+Hillsdale	46,101	Hillsdale, MI Micropolitan Statistical Area
+Houghton	36,225	Houghton, MI Micropolitan Statistical Area
+Huron	32,224	
+Ingham	282,234	Lansing-East Lansing, MI Metropolitan Statistical Area
+Ionia	64,073	Ionia, MI Micropolitan Statistical Area
+Iosco	25,429	
+Iron	11,516	
+Isabella	70,436	Mount Pleasant, MI Micropolitan Statistical Area
+Jackson	160,369	Jackson, MI Metropolitan Statistical Area
+Kalamazoo	256,725	Kalamazoo-Portage, MI Metropolitan Statistical Area
+Kalkaska	17,196	Traverse City, MI Micropolitan Statistical Area
+Kent	621,700	Grand Rapids-Wyoming, MI Metropolitan Statistical Area
+Keweenaw	2,191	Houghton, MI Micropolitan Statistical Area
+Lake	11,386	
+Lapeer	88,389	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+Leelanau	21,747	Traverse City, MI Micropolitan Statistical Area
+Lenawee	99,188	Adrian, MI Micropolitan Statistical Area
+Livingston	184,443	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+Luce	6,502	
+Mackinac	11,061	
+Macomb	854,769	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+Manistee	24,450	
+Marquette	67,700	Marquette, MI Micropolitan Statistical Area
+Mason	28,605	Ludington, MI Micropolitan Statistical Area
+Mecosta	43,108	Big Rapids, MI Micropolitan Statistical Area
+Menominee	23,791	Marinette, WI-MI Micropolitan Statistical Area
+Midland	83,919	Midland, MI Metropolitan Statistical Area
+Missaukee	15,051	Cadillac, MI Micropolitan Statistical Area
+Monroe	150,376	Monroe, MI Metropolitan Statistical Area
+Montcalm	63,105	Grand Rapids-Wyoming, MI Metropolitan Statistical Area
+Montmorency	9,350	
+Muskegon	171,008	Muskegon, MI Metropolitan Statistical Area
+Newaygo	48,001	
+Oakland	1,231,640	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+Oceana	26,245	
+Ogemaw	21,234	
+Ontonagon	6,322	
+Osceola	23,259	
+Oscoda	8,379	
+Otsego	24,129	
+Ottawa	272,701	Grand Rapids-Wyoming, MI Metropolitan Statistical Area
+Presque Isle	13,062	
+Roscommon	24,014	
+Saginaw	196,542	Saginaw, MI Metropolitan Statistical Area
+St. Clair	160,469	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+St. Joseph	60,964	Sturgis, MI Micropolitan Statistical Area
+Sanilac	41,823	
+Schoolcraft	8,247	
+Shiawassee	68,900	Owosso, MI Micropolitan Statistical Area
+Tuscola	54,263	
+Van Buren	75,455	Kalamazoo-Portage, MI Metropolitan Statistical Area
+Washtenaw	354,240	Ann Arbor, MI Metropolitan Statistical Area
+Wayne	1,775,273	Detroit-Warren-Dearborn, MI Metropolitan Statistical Area
+Wexford	32,645	Cadillac, MI Micropolitan Statistical Area
+Aitkin	 Minnesota	15,742	
+Anoka	339,534	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Becker	33,231	
+Beltrami	45,670	Bemidji, MN Micropolitan Statistical Area
+Benton	39,214	St. Cloud, MN Metropolitan Statistical Area
+Big Stone	5,122	
+Blue Earth	65,528	Mankato-North Mankato, MN Metropolitan Statistical Area
+Brown	25,332	New Ulm, MN Micropolitan Statistical Area
+Carlton	35,460	Duluth, MN-WI Metropolitan Statistical Area
+Carver	95,562	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Cass	28,555	Brainerd, MN Micropolitan Statistical Area
+Chippewa	12,093	
+Chisago	53,761	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Clay	60,661	Fargo, ND-MN Metropolitan Statistical Area
+Clearwater	8,838	
+Cook	5,200	
+Cottonwood	11,616	
+Crow Wing	63,208	Brainerd, MN Micropolitan Statistical Area
+Dakota	408,509	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Dodge	20,349	Rochester, MN Metropolitan Statistical Area
+Douglas	36,545	Alexandria, MN Micropolitan Statistical Area
+Faribault	14,191	
+Fillmore	20,835	Rochester, MN Metropolitan Statistical Area
+Freeborn	30,948	Albert Lea, MN Micropolitan Statistical Area
+Goodhue	46,464	Red Wing, MN Micropolitan Statistical Area
+Grant	5,989	
+Hennepin	1,198,778	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Houston	18,799	La Crosse-Onalaska, WI-MN Metropolitan Statistical Area
+Hubbard	20,658	
+Isanti	38,204	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Itasca	45,564	
+Jackson	10,260	
+Kanabec	15,996	
+Kandiyohi	42,410	Willmar, MN Micropolitan Statistical Area
+Kittson	4,503	
+Koochiching	13,206	
+Lac qui Parle	7,027	
+Lake	10,777	
+Lake of the Woods	3,929	
+Le Sueur	27,810	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Lincoln	5,830	
+Lyon	25,487	Marshall, MN Micropolitan Statistical Area
+McLeod	35,918	Hutchinson, MN Micropolitan Statistical Area
+Mahnomen	5,532	
+Marshall	9,425	
+Martin	20,422	
+Meeker	23,119	
+Mille Lacs	25,833	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Morrison	32,872	
+Mower	39,327	Austin, MN Micropolitan Statistical Area
+Murray	8,533	
+Nicollet	33,032	Mankato-North Mankato, MN Metropolitan Statistical Area
+Nobles	21,617	Worthington, MN Micropolitan Statistical Area
+Norman	6,631	
+Olmsted	149,226	Rochester, MN Metropolitan Statistical Area
+Otter Tail	57,581	Fergus Falls, MN Micropolitan Statistical Area
+Pennington	14,118	
+Pine	29,104	
+Pipestone	9,270	
+Polk	31,569	Grand Forks, ND-MN Metropolitan Statistical Area
+Pope	10,932	
+Ramsey	526,714	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Red Lake	4,057	
+Redwood	15,744	
+Renville	15,166	
+Rice	65,049	Faribault-Northfield, MN Micropolitan Statistical Area
+Rock	9,520	
+Roseau	15,520	
+St. Louis	200,540	Duluth, MN-WI Metropolitan Statistical Area
+Scott	137,232	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Sherburne	90,158	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Sibley	15,072	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Stearns	152,092	St. Cloud, MN Metropolitan Statistical Area
+Steele	36,465	Owatonna, MN Micropolitan Statistical Area
+Stevens	9,735	
+Swift	9,546	
+Todd	24,382	
+Traverse	3,445	
+Wabasha	21,443	Rochester, MN Metropolitan Statistical Area
+Wadena	13,804	
+Waseca	19,098	
+Washington	246,603	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Watonwan	11,137	
+Wilkin	6,557	Wahpeton, ND-MN Micropolitan Statistical Area
+Winona	51,232	Winona, MN Micropolitan Statistical Area
+Wright	128,470	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Yellow Medicine	10,143	
+Adams	 Mississippi	32,090	Natchez, MS-LA Micropolitan Statistical Area
+Alcorn	37,316	Corinth, MS Micropolitan Statistical Area
+Amite	12,899	McComb, MS Micropolitan Statistical Area
+Attala	19,317	
+Benton	8,571	Memphis, TN-MS-AR Metropolitan Statistical Area
+Bolivar	34,049	Cleveland, MS Micropolitan Statistical Area
+Calhoun	14,734	
+Carroll	10,385	Greenwood, MS Micropolitan Statistical Area
+Chickasaw	17,311	
+Choctaw	8,371	
+Claiborne	9,253	Vicksburg, MS Micropolitan Statistical Area
+Clarke	16,415	Meridian, MS Micropolitan Statistical Area
+Clay	20,408	
+Coahoma	25,182	Clarksdale, MS Micropolitan Statistical Area
+Copiah	28,921	Jackson, MS Metropolitan Statistical Area
+Covington	19,423	
+DeSoto	168,240	Memphis, TN-MS-AR Metropolitan Statistical Area
+Forrest	77,059	Hattiesburg, MS Metropolitan Statistical Area
+Franklin	7,931	
+George	23,159	
+Greene	14,244	
+Grenada	21,612	Grenada, MS Micropolitan Statistical Area
+Hancock	45,566	Gulfport-Biloxi-Pascagoula, MS Metropolitan Statistical Area
+Harrison	196,500	Gulfport-Biloxi-Pascagoula, MS Metropolitan Statistical Area
+Hinds	244,899	Jackson, MS Metropolitan Statistical Area
+Holmes	18,428	
+Humphreys	8,922	
+Issaquena	1,395	
+Itawamba	23,434	Tupelo, MS Micropolitan Statistical Area
+Jackson	140,450	Gulfport-Biloxi-Pascagoula, MS Metropolitan Statistical Area
+Jasper	16,470	Laurel, MS Micropolitan Statistical Area
+Jefferson	7,629	
+Jefferson Davis	11,948	
+Jones	68,961	Laurel, MS Micropolitan Statistical Area
+Kemper	10,294	Meridian, MS Micropolitan Statistical Area
+Lafayette	51,318	Oxford, MS Micropolitan Statistical Area
+Lamar	58,801	Hattiesburg, MS Metropolitan Statistical Area
+Lauderdale	80,254	Meridian, MS Micropolitan Statistical Area
+Lawrence	12,514	
+Leake	23,389	
+Lee	85,340	Tupelo, MS Micropolitan Statistical Area
+Leflore	31,607	Greenwood, MS Micropolitan Statistical Area
+Lincoln	34,810	Brookhaven, MS Micropolitan Statistical Area
+Lowndes	59,922	Columbus, MS Micropolitan Statistical Area
+Madison	100,412	Jackson, MS Metropolitan Statistical Area
+Marion	26,180	
+Marshall	36,515	Memphis, TN-MS-AR Metropolitan Statistical Area
+Monroe	36,116	
+Montgomery	10,553	
+Neshoba	29,507	
+Newton	21,689	
+Noxubee	11,089	
+Oktibbeha	49,043	Starkville, MS Micropolitan Statistical Area
+Panola	34,402	
+Pearl River	55,072	Picayune, MS Micropolitan Statistical Area
+Perry	12,131	Hattiesburg, MS Metropolitan Statistical Area
+Pike	40,014	McComb, MS Micropolitan Statistical Area
+Pontotoc	30,897	Tupelo, MS Micropolitan Statistical Area
+Prentiss	25,388	
+Quitman	7,803	
+Rankin	146,767	Jackson, MS Metropolitan Statistical Area
+Scott	28,273	
+Sharkey	4,708	
+Simpson	27,500	Jackson, MS Metropolitan Statistical Area
+Smith	16,225	
+Stone	18,016	
+Sunflower	27,997	Indianola, MS Micropolitan Statistical Area
+Tallahatchie	15,081	
+Tate	28,373	Memphis, TN-MS-AR Metropolitan Statistical Area
+Tippah	22,084	
+Tishomingo	19,529	
+Tunica	10,560	Memphis, TN-MS-AR Metropolitan Statistical Area
+Union	27,754	
+Walthall	14,931	
+Warren	48,218	Vicksburg, MS Micropolitan Statistical Area
+Washington	49,688	Greenville, MS Micropolitan Statistical Area
+Wayne	20,539	
+Webster	9,987	
+Wilkinson	9,381	
+Winston	18,788	
+Yalobusha	12,373	
+Yazoo	27,883	Jackson, MS Metropolitan Statistical Area
+Adair	 Missouri	25,572	Kirksville, MO Micropolitan Statistical Area
+Andrew	17,445	St. Joseph, MO-KS Metropolitan Statistical Area
+Atchison	5,449	
+Audrain	25,661	Mexico, MO Micropolitan Statistical Area
+Barry	35,572	
+Barton	12,275	
+Bates	16,550	Kansas City, MO-KS Metropolitan Statistical Area
+Benton	18,932	
+Bollinger	12,490	Cape Girardeau, MO-IL Metropolitan Statistical Area
+Boone	170,773	Columbia, MO Metropolitan Statistical Area
+Buchanan	89,631	St. Joseph, MO-KS Metropolitan Statistical Area
+Butler	43,083	Poplar Bluff, MO Micropolitan Statistical Area
+Caldwell	9,097	Kansas City, MO-KS Metropolitan Statistical Area
+Callaway	44,359	Jefferson City, MO Metropolitan Statistical Area
+Camden	43,862	
+Cape Girardeau	77,320	Cape Girardeau, MO-IL Metropolitan Statistical Area
+Carroll	9,127	
+Carter	6,291	
+Cass	100,641	Kansas City, MO-KS Metropolitan Statistical Area
+Cedar	13,913	
+Chariton	7,628	
+Christian	80,899	Springfield, MO Metropolitan Statistical Area
+Clark	6,910	Fort Madison-Keokuk, IA-IL-MO Micropolitan Statistical Area
+Clay	230,473	Kansas City, MO-KS Metropolitan Statistical Area
+Clinton	20,571	Kansas City, MO-KS Metropolitan Statistical Area
+Cole	76,699	Jefferson City, MO Metropolitan Statistical Area
+Cooper	17,647	
+Crawford	24,543	
+Dade	7,578	
+Dallas	16,535	Springfield, MO Metropolitan Statistical Area
+Daviess	8,294	
+DeKalb	12,840	St. Joseph, MO-KS Metropolitan Statistical Area
+Dent	15,730	
+Douglas	13,515	
+Dunklin	31,712	Kennett, MO Micropolitan Statistical Area
+Franklin	101,816	St. Louis, MO-IL Metropolitan Statistical Area
+Gasconade	14,901	
+Gentry	6,775	
+Greene	283,870	Springfield, MO Metropolitan Statistical Area
+Grundy	10,355	
+Harrison	8,741	
+Henry	22,059	
+Hickory	9,305	
+Holt	4,568	
+Howard	10,257	
+Howell	40,393	West Plains, MO Micropolitan Statistical Area
+Iron	10,344	
+Jackson	679,996	Kansas City, MO-KS Metropolitan Statistical Area
+Jasper	116,398	Joplin, MO Metropolitan Statistical Area
+Jefferson	221,396	St. Louis, MO-IL Metropolitan Statistical Area
+Johnson	54,572	Warrensburg, MO Micropolitan Statistical Area
+Knox	4,067	
+Laclede	35,667	Lebanon, MO Micropolitan Statistical Area
+Lafayette	32,943	Kansas City, MO-KS Metropolitan Statistical Area
+Lawrence	38,185	
+Lewis	10,152	Quincy, IL-MO Micropolitan Statistical Area
+Lincoln	53,860	St. Louis, MO-IL Metropolitan Statistical Area
+Linn	12,368	
+Livingston	14,871	
+McDonald	22,558	Fayetteville-Springdale-Rogers, AR-MO Metropolitan Statistical Area
+Macon	15,544	
+Madison	12,431	
+Maries	9,018	
+Marion	28,904	Hannibal, MO Micropolitan Statistical Area
+Mercer	3,695	
+Miller	25,092	
+Mississippi	14,282	
+Moniteau	15,748	Jefferson City, MO Metropolitan Statistical Area
+Monroe	8,774	
+Montgomery	11,965	
+Morgan	20,265	
+New Madrid	18,365	
+Newton	58,845	Joplin, MO Metropolitan Statistical Area
+Nodaway	23,261	Maryville, MO Micropolitan Statistical Area
+Oregon	10,996	
+Osage	13,688	Jefferson City, MO Metropolitan Statistical Area
+Ozark	9,560	
+Pemiscot	17,823	
+Perry	19,072	
+Pettis	42,205	Sedalia, MO Micropolitan Statistical Area
+Phelps	44,807	Rolla, MO Micropolitan Statistical Area
+Pike	18,669	
+Platte	93,310	Kansas City, MO-KS Metropolitan Statistical Area
+Polk	30,974	Springfield, MO Metropolitan Statistical Area
+Pulaski	53,748	Fort Leonard Wood, MO Micropolitan Statistical Area
+Putnam	4,875	
+Ralls	10,192	Hannibal, MO Micropolitan Statistical Area
+Randolph	24,940	Moberly, MO Micropolitan Statistical Area
+Ray	23,039	Kansas City, MO-KS Metropolitan Statistical Area
+Reynolds	6,599	
+Ripley	14,032	
+St. Charles	373,495	St. Louis, MO-IL Metropolitan Statistical Area
+St. Clair	9,487	
+Ste. Genevieve	17,778	
+St. Francois	66,215	Farmington, MO Micropolitan Statistical Area
+St. Louis	1,001,444	St. Louis, MO-IL Metropolitan Statistical Area
+Saline	23,252	Marshall, MO Micropolitan Statistical Area
+Schuyler	4,358	Kirksville, MO Micropolitan Statistical Area
+Scotland	4,921	
+Scott	39,290	Sikeston, MO Micropolitan Statistical Area
+Shannon	8,297	
+Shelby	6,177	
+Stoddard	29,780	
+Stone	31,297	Branson, MO Micropolitan Statistical Area
+Sullivan	6,448	
+Taney	53,575	Branson, MO Micropolitan Statistical Area
+Texas	25,636	
+Vernon	20,949	
+Warren	32,999	St. Louis, MO-IL Metropolitan Statistical Area
+Washington	25,172	
+Wayne	13,404	
+Webster	36,466	Springfield, MO Metropolitan Statistical Area
+Worth	2,090	
+Wright	18,473	
+St. Louis, City of[t]	318,416	St. Louis, MO-IL Metropolitan Statistical Area
+Beaverhead	 Montana	9,341	
+Big Horn	13,042	
+Blaine	6,604	
+Broadwater	5,692	
+Carbon	10,340	Billings, MT Metropolitan Statistical Area
+Carter	1,174	
+Cascade	82,384	Great Falls, MT Metropolitan Statistical Area
+Chouteau	5,849	
+Custer	11,951	
+Daniels	1,791	
+Dawson	9,445	
+Deer Lodge	9,329	
+Fallon	3,079	
+Fergus	11,501	
+Flathead	93,068	Kalispell, MT Micropolitan Statistical Area
+Gallatin	94,720	Bozeman, MT Micropolitan Statistical Area
+Garfield	1,290	
+Glacier	13,739	
+Golden Valley	859	Billings, MT Metropolitan Statistical Area
+Granite	3,138	
+Hill	16,568	
+Jefferson	11,512	Helena, MT Micropolitan Statistical Area
+Judith Basin	2,016	
+Lake	29,017	
+Lewis and Clark	65,338	Helena, MT Micropolitan Statistical Area
+Liberty	2,369	
+Lincoln	19,460	
+McCone	1,709	
+Madison	7,712	
+Meagher	1,937	
+Mineral	4,275	
+Missoula	111,807	Missoula, MT Metropolitan Statistical Area
+Musselshell	4,629	
+Park	15,682	
+Petroleum	506	
+Phillips	4,179	
+Pondera	6,211	
+Powder River	1,748	
+Powell	6,993	
+Prairie	1,179	
+Ravalli	40,823	
+Richland	11,214	
+Roosevelt	11,125	
+Rosebud	9,329	
+Sanders	11,363	
+Sheridan	3,668	
+Silver Bow	34,523	Butte-Silver Bow, MT Micropolitan Statistical Area
+Stillwater	9,318	
+Sweet Grass	3,669	
+Teton	6,065	
+Toole	5,138	
+Treasure	700	
+Valley	7,630	
+Wheatland	2,134	
+Wibaux	1,121	
+Yellowstone	154,162	Billings, MT Metropolitan Statistical Area
+Adams	 Nebraska	31,610	Hastings, NE Micropolitan Statistical Area
+Antelope	6,456	
+Arthur	458	
+Banner	759	Scottsbluff, NE Micropolitan Statistical Area
+Blaine	482	
+Boone	5,388	
+Box Butte	11,305	
+Boyd	2,032	
+Brown	2,926	
+Buffalo	47,893	Kearney, NE Micropolitan Statistical Area
+Burt	6,574	
+Butler	8,312	
+Cass	25,357	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Cedar	8,711	
+Chase	4,000	
+Cherry	5,788	
+Cheyenne	10,091	
+Clay	6,392	
+Colfax	10,425	
+Cuming	8,996	
+Custer	10,792	
+Dakota	20,947	Sioux City, IA-NE-SD Metropolitan Statistical Area
+Dawes	9,088	
+Dawson	24,207	Lexington, NE Micropolitan Statistical Area
+Deuel	1,937	
+Dixon	5,851	Sioux City, IA-NE-SD Metropolitan Statistical Area
+Dodge	36,515	Fremont, NE Micropolitan Statistical Area
+Douglas	537,256	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Dundy	1,981	
+Fillmore	5,698	
+Franklin	3,085	
+Frontier	2,709	
+Furnas	4,865	
+Gage	21,864	Beatrice, NE Micropolitan Statistical Area
+Garden	1,902	
+Garfield	2,035	
+Gosper	1,972	Lexington, NE Micropolitan Statistical Area
+Grant	633	
+Greeley	2,494	
+Hall	60,720	Grand Island, NE Metropolitan Statistical Area
+Hamilton	9,112	Grand Island, NE Metropolitan Statistical Area
+Harlan	3,513	
+Hayes	976	
+Hitchcock	2,872	
+Holt	10,449	
+Hooker	738	
+Howard	6,355	Grand Island, NE Metropolitan Statistical Area
+Jefferson	7,560	
+Johnson	5,144	
+Kearney	6,548	Kearney, NE Micropolitan Statistical Area
+Keith	8,130	
+Keya Paha	790	
+Kimball	3,702	
+Knox	8,565	
+Lancaster	297,036	Lincoln, NE Metropolitan Statistical Area
+Lincoln	36,051	North Platte, NE Micropolitan Statistical Area
+Logan	763	North Platte, NE Micropolitan Statistical Area
+Loup	576	
+McPherson	526	North Platte, NE Micropolitan Statistical Area
+Madison	35,278	Norfolk, NE Micropolitan Statistical Area
+Merrick	7,802	Grand Island, NE Metropolitan Statistical Area
+Morrill	4,908	
+Nance	3,623	
+Nemaha	7,157	
+Nuckolls	4,413	
+Otoe	15,752	
+Pawnee	2,709	
+Perkins	2,921	
+Phelps	9,213	
+Pierce	7,150	Norfolk, NE Micropolitan Statistical Area
+Platte	32,505	Columbus, NE Micropolitan Statistical Area
+Polk	5,275	
+Red Willow	11,006	
+Richardson	8,125	
+Rock	1,411	
+Saline	14,416	
+Sarpy	169,331	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Saunders	20,929	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Scotts Bluff	36,848	Scottsbluff, NE Micropolitan Statistical Area
+Seward	17,089	Lincoln, NE Metropolitan Statistical Area
+Sheridan	5,251	
+Sherman	3,106	
+Sioux	1,313	Scottsbluff, NE Micropolitan Statistical Area
+Stanton	6,133	Norfolk, NE Micropolitan Statistical Area
+Thayer	5,189	
+Thomas	699	
+Thurston	6,895	
+Valley	4,193	
+Washington	20,223	Omaha-Council Bluffs, NE-IA Metropolitan Statistical Area
+Wayne	9,411	
+Webster	3,688	
+Wheeler	759	
+York	13,883	
+Churchill	 Nevada	24,063	Fallon, NV Micropolitan Statistical Area
+Clark	2,027,868	Las Vegas-Henderson-Paradise, NV Metropolitan Statistical Area
+Douglas	47,118	Gardnerville Ranchos, NV Micropolitan Statistical Area
+Elko	52,384	Elko, NV Micropolitan Statistical Area
+Esmeralda	832	
+Eureka	2,076	Elko, NV Micropolitan Statistical Area
+Humboldt	17,363	Winnemucca, NV Micropolitan Statistical Area
+Lander	6,032	
+Lincoln	5,245	
+Lyon	51,557	Fernley, NV Micropolitan Statistical Area
+Mineral	4,614	
+Nye	42,297	Pahrump, NV Micropolitan Statistical Area
+Pershing	6,877	
+Storey	3,942	Reno, NV Metropolitan Statistical Area
+Washoe	433,731	Reno, NV Metropolitan Statistical Area
+White Pine	10,057	
+Carson City, Consolidated Municipality of[u]	54,080	Carson City, NV Metropolitan Statistical Area
+Belknap	 New Hampshire	60,179	Laconia, NH Micropolitan Statistical Area
+Carroll	47,499	
+Cheshire	76,610	Keene, NH Micropolitan Statistical Area
+Coos	31,997	Berlin, NH-VT Micropolitan Statistical Area
+Grafton	89,629	Claremont-Lebanon, NH-VT Micropolitan Statistical Area
+Hillsborough	403,985	Manchester-Nashua, NH Metropolitan Statistical Area
+Merrimack	146,849	Concord, NH Micropolitan Statistical Area
+Rockingham	299,134	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Strafford	124,593	Boston-Cambridge-Newton, MA-NH Metropolitan Statistical Area
+Sullivan	42,984	Claremont-Lebanon, NH-VT Micropolitan Statistical Area
+Atlantic	 New Jersey	275,862	Atlantic City-Hammonton, NJ Metropolitan Statistical Area
+Bergen	925,328	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Burlington	450,838	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Camden	512,854	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Cape May	95,897	Ocean City, NJ Metropolitan Statistical Area
+Cumberland	157,332	Vineland-Bridgeton, NJ Metropolitan Statistical Area
+Essex	789,565	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Gloucester	290,265	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Hudson	660,282	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Hunterdon	126,250	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Mercer	370,414	Trenton, NJ Metropolitan Statistical Area
+Middlesex	828,919	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Monmouth	629,672	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Morris	499,397	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Ocean	583,414	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Passaic	505,672	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Salem	65,166	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Somerset	330,585	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Sussex	145,992	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Union	548,256	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Warren	107,379	Allentown-Bethlehem-Easton, PA-NJ Metropolitan Statistical Area
+Bernalillo	 New Mexico	674,221	Albuquerque, NM Metropolitan Statistical Area
+Catron	3,607	
+Chaves	65,823	Roswell, NM Micropolitan Statistical Area
+Cibola	27,335	Grants, NM Micropolitan Statistical Area
+Colfax	13,094	
+Curry	50,598	Clovis, NM Micropolitan Statistical Area
+De Baca	1,907	
+Doña Ana	213,460	Las Cruces, NM Metropolitan Statistical Area
+Eddy	55,471	Carlsbad-Artesia, NM Micropolitan Statistical Area
+Grant	29,328	Silver City, NM Micropolitan Statistical Area
+Guadalupe	4,551	
+Harding	693	
+Hidalgo	4,654	
+Lea	68,062	Hobbs, NM Micropolitan Statistical Area
+Lincoln	20,105	
+Los Alamos[v]	17,798	Los Alamos, NM Micropolitan Statistical Area
+Luna	24,659	Deming, NM Micropolitan Statistical Area
+McKinley	73,308	Gallup, NM Micropolitan Statistical Area
+Mora	4,704	
+Otero	65,616	Alamogordo, NM Micropolitan Statistical Area
+Quay	8,662	
+Rio Arriba	40,072	Española, NM Micropolitan Statistical Area
+Roosevelt	19,955	Portales, NM Micropolitan Statistical Area
+Sandoval	136,575	Albuquerque, NM Metropolitan Statistical Area
+San Juan	126,503	Farmington, NM Metropolitan Statistical Area
+San Miguel	28,541	Las Vegas, NM Micropolitan Statistical Area
+Santa Fe	147,423	Santa Fe, NM Metropolitan Statistical Area
+Sierra	11,572	
+Socorro	17,584	
+Taos	33,035	Taos, NM Micropolitan Statistical Area
+Torrance	15,717	Albuquerque, NM Metropolitan Statistical Area
+Union	4,370	
+Valencia	76,284	Albuquerque, NM Metropolitan Statistical Area
+Albany	New York (state) New York	306,945	Albany-Schenectady-Troy, NY Metropolitan Statistical Area
+Allegany	48,109	
+Bronx	1,418,733	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Broome	197,534	Binghamton, NY Metropolitan Statistical Area
+Cattaraugus	78,892	Olean, NY Micropolitan Statistical Area
+Cayuga	79,477	Auburn, NY Micropolitan Statistical Area
+Chautauqua	133,080	Jamestown-Dunkirk-Fredonia, NY Micropolitan Statistical Area
+Chemung	88,506	Elmira, NY Metropolitan Statistical Area
+Chenango	49,503	
+Clinton	81,591	Plattsburgh, NY Micropolitan Statistical Area
+Columbia	62,243	Hudson, NY Micropolitan Statistical Area
+Cortland	48,976	Cortland, NY Micropolitan Statistical Area
+Delaware	46,722	
+Dutchess	296,916	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Erie	919,866	Buffalo-Cheektowaga-Niagara Falls, NY Metropolitan Statistical Area
+Essex	38,762	
+Franklin	51,688	Malone, NY Micropolitan Statistical Area
+Fulton	54,586	Gloversville, NY Micropolitan Statistical Area
+Genesee	59,454	Batavia, NY Micropolitan Statistical Area
+Greene	48,455	
+Hamilton	4,773	
+Herkimer	64,181	Utica-Rome, NY Metropolitan Statistical Area
+Jefferson	119,504	Watertown-Fort Drum, NY Metropolitan Statistical Area
+Kings	2,592,149	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Lewis	27,149	
+Livingston	64,705	Rochester, NY Metropolitan Statistical Area
+Madison	72,382	Syracuse, NY Metropolitan Statistical Area
+Monroe	749,606	Rochester, NY Metropolitan Statistical Area
+Montgomery	49,897	Amsterdam, NY Micropolitan Statistical Area
+Nassau	1,352,146	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+New York	1,626,159	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Niagara	214,249	Buffalo-Cheektowaga-Niagara Falls, NY Metropolitan Statistical Area
+Oneida	233,585	Utica-Rome, NY Metropolitan Statistical Area
+Onondaga	468,387	Syracuse, NY Metropolitan Statistical Area
+Ontario	109,103	Rochester, NY Metropolitan Statistical Area
+Orange	375,592	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Orleans	42,235	Rochester, NY Metropolitan Statistical Area
+Oswego	121,165	Syracuse, NY Metropolitan Statistical Area
+Otsego	61,683	Oneonta, NY Micropolitan Statistical Area
+Putnam	99,645	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Queens	2,296,175	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Rensselaer	159,918	Albany-Schenectady-Troy, NY Metropolitan Statistical Area
+Richmond	472,621	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Rockland	320,903	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+St. Lawrence	111,963	Ogdensburg-Massena, NY Micropolitan Statistical Area
+Saratoga	223,865	Albany-Schenectady-Troy, NY Metropolitan Statistical Area
+Schenectady	155,333	Albany-Schenectady-Troy, NY Metropolitan Statistical Area
+Schoharie	31,844	Albany-Schenectady-Troy, NY Metropolitan Statistical Area
+Schuyler	18,460	
+Seneca	35,409	Seneca Falls, NY Micropolitan Statistical Area
+Steuben	98,650	Corning, NY Micropolitan Statistical Area
+Suffolk	1,499,738	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Sullivan	76,665	
+Tioga	50,243	Binghamton, NY Metropolitan Statistical Area
+Tompkins	103,617	Ithaca, NY Metropolitan Statistical Area
+Ulster	180,998	Kingston, NY Metropolitan Statistical Area
+Warren	65,337	Glens Falls, NY Metropolitan Statistical Area
+Washington	63,093	Glens Falls, NY Metropolitan Statistical Area
+Wayne	92,473	Rochester, NY Metropolitan Statistical Area
+Westchester	968,802	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Wyoming	41,531	
+Yates	25,156	Rochester, NY Metropolitan Statistical Area
+Alamance	 North Carolina	154,378	Burlington, NC Metropolitan Statistical Area
+Alexander	36,930	Hickory-Lenoir-Morganton, NC Metropolitan Statistical Area
+Alleghany	10,939	
+Anson	26,161	
+Ashe	27,151	
+Avery	17,713	
+Beaufort	47,464	Washington, NC Micropolitan Statistical Area
+Bertie	20,344	
+Bladen	34,843	
+Brunswick	115,301	Myrtle Beach-Conway-North Myrtle Beach, SC-NC Metropolitan Statistical Area
+Buncombe	247,912	Asheville, NC Metropolitan Statistical Area
+Burke	89,842	Hickory-Lenoir-Morganton, NC Metropolitan Statistical Area
+Cabarrus	187,226	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Caldwell	81,990	Hickory-Lenoir-Morganton, NC Metropolitan Statistical Area
+Camden	10,187	Elizabeth City, NC Micropolitan Statistical Area
+Carteret	68,434	Morehead City, NC Micropolitan Statistical Area
+Caswell	23,190	
+Catawba	154,810	Hickory-Lenoir-Morganton, NC Metropolitan Statistical Area
+Chatham	66,817	Durham-Chapel Hill, NC Metropolitan Statistical Area
+Cherokee	27,218	
+Chowan	14,726	
+Clay	10,584	
+Cleveland	97,047	Shelby, NC Micropolitan Statistical Area
+Columbus	57,246	
+Craven	104,489	New Bern, NC Metropolitan Statistical Area
+Cumberland	325,871	Fayetteville, NC Metropolitan Statistical Area
+Currituck	24,396	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Dare	35,019	Kill Devil Hills, NC Micropolitan Statistical Area
+Davidson	163,420	Winston-Salem, NC Metropolitan Statistical Area
+Davie	41,554	Winston-Salem, NC Metropolitan Statistical Area
+Duplin	60,084	
+Durham	288,133	Durham-Chapel Hill, NC Metropolitan Statistical Area
+Edgecombe	55,574	Rocky Mount, NC Metropolitan Statistical Area
+Forsyth	361,220	Winston-Salem, NC Metropolitan Statistical Area
+Franklin	62,260	Raleigh, NC Metropolitan Statistical Area
+Gaston	209,420	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Gates	11,650	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Graham	8,736	
+Granville	58,275	Oxford, NC Micropolitan Statistical Area
+Greene	21,232	
+Guilford	506,610	Greensboro-High Point, NC Metropolitan Statistical Area
+Halifax	53,453	Roanoke Rapids, NC Micropolitan Statistical Area
+Harnett	124,987	Dunn, NC Micropolitan Statistical Area
+Haywood	59,183	Asheville, NC Metropolitan Statistical Area
+Henderson	109,540	Asheville, NC Metropolitan Statistical Area
+Hertford	24,431	
+Hoke	51,322	Fayetteville, NC Metropolitan Statistical Area
+Hyde	5,721	
+Iredell	164,517	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Jackson	40,919	Cullowhee, NC Micropolitan Statistical Area
+Johnston	177,967	Raleigh, NC Metropolitan Statistical Area
+Jones	10,215	New Bern, NC Metropolitan Statistical Area
+Lee	60,266	Sanford, NC Micropolitan Statistical Area
+Lenoir	58,914	Kinston, NC Micropolitan Statistical Area
+Lincoln	79,740	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+McDowell	44,961	Marion, NC Micropolitan Statistical Area
+Macon	33,857	
+Madison	21,022	Asheville, NC Metropolitan Statistical Area
+Martin	23,699	
+Mecklenburg	1,076,837	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Mitchell	15,328	
+Montgomery	27,571	
+Moore	91,587	Pinehurst-Southern Pines, NC Micropolitan Statistical Area
+Nash	95,093	Rocky Mount, NC Metropolitan Statistical Area
+New Hanover	213,267	Wilmington, NC Metropolitan Statistical Area
+Northampton	20,839	Roanoke Rapids, NC Micropolitan Statistical Area
+Onslow	185,220	Jacksonville, NC Metropolitan Statistical Area
+Orange	140,352	Durham-Chapel Hill, NC Metropolitan Statistical Area
+Pamlico	12,953	New Bern, NC Metropolitan Statistical Area
+Pasquotank	39,981	Elizabeth City, NC Micropolitan Statistical Area
+Pender	55,334	Wilmington, NC Metropolitan Statistical Area
+Perquimans	13,601	Elizabeth City, NC Micropolitan Statistical Area
+Person	39,276	Durham-Chapel Hill, NC Metropolitan Statistical Area
+Pitt	174,263	Greenville, NC Metropolitan Statistical Area
+Polk	20,411	
+Randolph	142,577	Greensboro-High Point, NC Metropolitan Statistical Area
+Richmond	46,405	Rockingham, NC Micropolitan Statistical Area
+Robeson	134,841	Lumberton, NC Micropolitan Statistical Area
+Rockingham	91,878	Greensboro-High Point, NC Metropolitan Statistical Area
+Rowan	138,323	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Rutherford	66,956	Forest City, NC Micropolitan Statistical Area
+Sampson	64,150	
+Scotland	36,025	Laurinburg, NC Micropolitan Statistical Area
+Stanly	60,635	Albemarle, NC Micropolitan Statistical Area
+Stokes	46,588	Winston-Salem, NC Metropolitan Statistical Area
+Surry	73,050	Mount Airy, NC Micropolitan Statistical Area
+Swain	14,058	
+Transylvania	32,903	Brevard, NC Micropolitan Statistical Area
+Tyrrell	4,109	Kill Devil Hills, NC Micropolitan Statistical Area
+Union	212,756	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Vance	44,808	Henderson, NC Micropolitan Statistical Area
+Wake	1,072,203	Raleigh, NC Metropolitan Statistical Area
+Warren	20,575	
+Washington	12,722	
+Watauga	52,372	Boone, NC Micropolitan Statistical Area
+Wayne	124,583	Goldsboro, NC Metropolitan Statistical Area
+Wilkes	69,023	North Wilkesboro, NC Micropolitan Statistical Area
+Wilson	81,667	Wilson, NC Micropolitan Statistical Area
+Yadkin	38,038	Winston-Salem, NC Metropolitan Statistical Area
+Yancey	17,566	
+Adams	 North Dakota	2,360	
+Barnes	11,190	
+Benson	6,877	
+Billings	874	
+Bottineau	6,736	
+Bowman	3,214	
+Burke	2,306	
+Burleigh	88,457	Bismarck, ND Metropolitan Statistical Area
+Cass	162,829	Fargo, ND-MN Metropolitan Statistical Area
+Cavalier	3,896	
+Dickey	5,248	
+Divide	2,314	
+Dunn	4,162	
+Eddy	2,404	
+Emmons	3,486	
+Foster	3,366	
+Golden Valley	1,823	
+Grand Forks	69,179	Grand Forks, ND-MN Metropolitan Statistical Area
+Grant	2,377	
+Griggs	2,296	
+Hettinger	2,660	
+Kidder	2,428	
+LaMoure	4,166	
+Logan	1,946	
+McHenry	5,922	Minot, ND Micropolitan Statistical Area
+McIntosh	2,754	
+McKenzie	9,314	
+McLean	9,517	
+Mercer	8,592	
+Morton	28,990	Bismarck, ND Metropolitan Statistical Area
+Mountrail	9,376	
+Nelson	3,095	
+Oliver	1,874	Bismarck, ND Metropolitan Statistical Area
+Pembina	7,181	
+Pierce	4,451	
+Ramsey	11,554	
+Ransom	5,516	
+Renville	2,608	Minot, ND Micropolitan Statistical Area
+Richland	16,339	Wahpeton, ND-MN Micropolitan Statistical Area
+Rolette	14,582	
+Sargent	3,890	
+Sheridan	1,304	
+Sioux	4,430	Bismarck, ND Metropolitan Statistical Area
+Slope	761	
+Stark	28,212	Dickinson, ND Micropolitan Statistical Area
+Steele	1,960	
+Stutsman	21,120	Jamestown, ND Micropolitan Statistical Area
+Towner	2,317	
+Traill	8,245	
+Walsh	11,104	
+Ward	67,990	Minot, ND Micropolitan Statistical Area
+Wells	4,206	
+Williams	29,595	Williston, ND Micropolitan Statistical Area
+Northern Islands Municipality[9]	 Northern Mariana Islands	0	
+Rota Municipality	2,477	
+Saipan Municipality	48,220	
+Tinian Municipality	3,136	
+Adams	 Ohio	28,105	
+Allen	105,298	Lima, OH Metropolitan Statistical Area
+Ashland	53,043	Ashland, OH Micropolitan Statistical Area
+Ashtabula	99,811	Ashtabula, OH Micropolitan Statistical Area
+Athens	64,681	Athens, OH Micropolitan Statistical Area
+Auglaize	45,920	Wapakoneta, OH Micropolitan Statistical Area
+Belmont	69,571	Wheeling, WV-OH Metropolitan Statistical Area
+Brown	44,264	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Butler	371,272	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Carroll	28,275	Canton-Massillon, OH Metropolitan Statistical Area
+Champaign	39,455	Urbana, OH Micropolitan Statistical Area
+Clark	136,167	Springfield, OH Metropolitan Statistical Area
+Clermont	200,218	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Clinton	41,945	Wilmington, OH Micropolitan Statistical Area
+Columbiana	105,893	Salem, OH Micropolitan Statistical Area
+Coshocton	36,760	Coshocton, OH Micropolitan Statistical Area
+Crawford	42,808	Bucyrus, OH Micropolitan Statistical Area
+Cuyahoga	1,263,154	Cleveland-Elyria, OH Metropolitan Statistical Area
+Darke	52,376	Greenville, OH Micropolitan Statistical Area
+Defiance	38,532	Defiance, OH Micropolitan Statistical Area
+Delaware	184,979	Columbus, OH Metropolitan Statistical Area
+Erie	76,048	Sandusky, OH Micropolitan Statistical Area
+Fairfield	148,867	Columbus, OH Metropolitan Statistical Area
+Fayette	28,800	Washington Court House, OH Micropolitan Statistical Area
+Franklin	1,212,263	Columbus, OH Metropolitan Statistical Area
+Fulton	42,488	Toledo, OH Metropolitan Statistical Area
+Gallia	30,621	Point Pleasant, WV-OH Micropolitan Statistical Area
+Geauga	93,972	Cleveland-Elyria, OH Metropolitan Statistical Area
+Greene	163,204	Dayton, OH Metropolitan Statistical Area
+Guernsey	39,636	Cambridge, OH Micropolitan Statistical Area
+Hamilton	804,520	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Hancock	75,773	Findlay, OH Micropolitan Statistical Area
+Hardin	31,641	
+Harrison	15,622	
+Henry	28,092	
+Highland	43,299	
+Hocking	28,665	Columbus, OH Metropolitan Statistical Area
+Holmes	43,593	
+Huron	58,889	Norwalk, OH Micropolitan Statistical Area
+Jackson	32,783	Jackson, OH Micropolitan Statistical Area
+Jefferson	67,964	Weirton-Steubenville, WV-OH Metropolitan Statistical Area
+Knox	60,810	Mount Vernon, OH Micropolitan Statistical Area
+Lake	229,857	Cleveland-Elyria, OH Metropolitan Statistical Area
+Lawrence	61,917	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Licking	168,375	Columbus, OH Metropolitan Statistical Area
+Logan	45,481	Bellefontaine, OH Micropolitan Statistical Area
+Lorain	302,827	Cleveland-Elyria, OH Metropolitan Statistical Area
+Lucas	436,393	Toledo, OH Metropolitan Statistical Area
+Madison	43,277	Columbus, OH Metropolitan Statistical Area
+Mahoning	233,869	Youngstown-Warren-Boardman, OH-PA Metropolitan Statistical Area
+Marion	65,905	Marion, OH Micropolitan Statistical Area
+Medina	174,915	Cleveland-Elyria, OH Metropolitan Statistical Area
+Meigs	23,496	
+Mercer	40,784	Celina, OH Micropolitan Statistical Area
+Miami	103,439	Dayton, OH Metropolitan Statistical Area
+Monroe	14,585	
+Montgomery	535,846	Dayton, OH Metropolitan Statistical Area
+Morgan	14,904	
+Morrow	35,033	Columbus, OH Metropolitan Statistical Area
+Muskingum	85,231	Zanesville, OH Micropolitan Statistical Area
+Noble	14,628	
+Ottawa	41,153	Port Clinton, OH Micropolitan Statistical Area
+Paulding	19,254	
+Perry	35,997	Columbus, OH Metropolitan Statistical Area
+Pickaway	56,304	Columbus, OH Metropolitan Statistical Area
+Pike	28,367	
+Portage	163,862	Akron, OH Metropolitan Statistical Area
+Preble	41,732	
+Putnam	34,088	
+Richland	121,773	Mansfield, OH Metropolitan Statistical Area
+Ross	77,910	Chillicothe, OH Micropolitan Statistical Area
+Sandusky	60,098	Fremont, OH Micropolitan Statistical Area
+Scioto	78,153	Portsmouth, OH Micropolitan Statistical Area
+Seneca	55,914	Tiffin, OH Micropolitan Statistical Area
+Shelby	49,192	Sidney, OH Micropolitan Statistical Area
+Stark	375,432	Canton-Massillon, OH Metropolitan Statistical Area
+Summit	541,824	Akron, OH Metropolitan Statistical Area
+Trumbull	206,442	Youngstown-Warren-Boardman, OH-PA Metropolitan Statistical Area
+Tuscarawas	92,672	New Philadelphia-Dover, OH Micropolitan Statistical Area
+Union	53,306	Columbus, OH Metropolitan Statistical Area
+Van Wert	28,459	Van Wert, OH Micropolitan Statistical Area
+Vinton	13,276	
+Warren	219,169	Cincinnati, OH-KY-IN Metropolitan Statistical Area
+Washington	61,310	Marietta, OH Micropolitan Statistical Area
+Wayne	115,071	Wooster, OH Micropolitan Statistical Area
+Williams	37,500	
+Wood	129,264	Toledo, OH Metropolitan Statistical Area
+Wyandot	22,447	
+Adair	 Oklahoma	22,194	
+Alfalfa	5,847	
+Atoka	13,898	
+Beaver	5,566	
+Beckham	23,637	Elk City, OK Micropolitan Statistical Area
+Blaine	9,720	
+Bryan	44,244	Durant, OK Micropolitan Statistical Area
+Caddo	29,594	
+Canadian	126,123	Oklahoma City, OK Metropolitan Statistical Area
+Carter	48,491	Ardmore, OK Micropolitan Statistical Area
+Cherokee	48,017	Tahlequah, OK Micropolitan Statistical Area
+Choctaw	15,045	
+Cimarron	2,335	
+Cleveland	269,340	Oklahoma City, OK Metropolitan Statistical Area
+Coal	5,867	
+Comanche	124,937	Lawton, OK Metropolitan Statistical Area
+Cotton	6,152	Lawton, OK Metropolitan Statistical Area
+Craig	14,672	
+Creek	70,470	Tulsa, OK Metropolitan Statistical Area
+Custer	29,377	Weatherford, OK Micropolitan Statistical Area
+Delaware	41,377	
+Dewey	4,844	
+Ellis	4,170	
+Garfield	62,267	Enid, OK Micropolitan Statistical Area
+Garvin	27,334	
+Grady	53,685	Oklahoma City, OK Metropolitan Statistical Area
+Grant	4,528	
+Greer	6,171	
+Harmon	2,869	
+Harper	3,813	
+Haskell	13,052	
+Hughes	13,823	
+Jackson	26,088	Altus, OK Micropolitan Statistical Area
+Jefferson	6,432	
+Johnston	10,990	
+Kay	45,633	Ponca City, OK Micropolitan Statistical Area
+Kingfisher	15,276	
+Kiowa	9,341	
+Latimer	10,775	
+Le Flore	49,774	Fort Smith, AR-OK Metropolitan Statistical Area
+Lincoln	34,351	Oklahoma City, OK Metropolitan Statistical Area
+Logan	44,422	Oklahoma City, OK Metropolitan Statistical Area
+Love	9,742	
+McClain	36,511	Oklahoma City, OK Metropolitan Statistical Area
+McCurtain	33,065	
+McIntosh	20,493	
+Major	7,683	
+Marshall	15,988	
+Mayes	40,804	
+Murray	13,712	
+Muskogee	70,303	Muskogee, OK Micropolitan Statistical Area
+Noble	11,446	
+Nowata	10,555	
+Okfuskee	12,377	
+Oklahoma	755,245	Oklahoma City, OK Metropolitan Statistical Area
+Okmulgee	39,438	Tulsa, OK Metropolitan Statistical Area
+Osage	47,987	Tulsa, OK Metropolitan Statistical Area
+Ottawa	32,245	Miami, OK Micropolitan Statistical Area
+Pawnee	16,513	Tulsa, OK Metropolitan Statistical Area
+Payne	79,066	Stillwater, OK Micropolitan Statistical Area
+Pittsburg	44,703	McAlester, OK Micropolitan Statistical Area
+Pontotoc	37,992	Ada, OK Micropolitan Statistical Area
+Pottawatomie	71,158	Shawnee, OK Micropolitan Statistical Area
+Pushmataha	11,233	
+Roger Mills	3,743	
+Rogers	89,044	Tulsa, OK Metropolitan Statistical Area
+Seminole	25,426	
+Sequoyah	41,218	Fort Smith, AR-OK Metropolitan Statistical Area
+Stephens	44,919	Duncan, OK Micropolitan Statistical Area
+Texas	22,081	Guymon, OK Micropolitan Statistical Area
+Tillman	7,711	
+Tulsa	622,409	Tulsa, OK Metropolitan Statistical Area
+Wagoner	75,700	Tulsa, OK Metropolitan Statistical Area
+Washington	51,577	Bartlesville, OK Micropolitan Statistical Area
+Washita	11,678	
+Woods	9,041	
+Woodward	21,221	Woodward, OK Micropolitan Statistical Area
+Baker	 Oregon	16,018	
+Benton	86,591	Corvallis, OR Metropolitan Statistical Area
+Clackamas	388,263	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Clatsop	37,244	Astoria, OR Micropolitan Statistical Area
+Columbia	49,344	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Coos	62,282	Coos Bay, OR Micropolitan Statistical Area
+Crook	20,815	Prineville, OR Micropolitan Statistical Area
+Curry	22,339	Brookings, OR Micropolitan Statistical Area
+Deschutes	165,954	Bend-Redmond, OR Metropolitan Statistical Area
+Douglas	106,940	Roseburg, OR Micropolitan Statistical Area
+Gilliam	1,947	
+Grant	7,283	
+Harney	7,146	
+Hood River	22,675	Hood River, OR Micropolitan Statistical Area
+Jackson	208,545	Medford, OR Metropolitan Statistical Area
+Jefferson	21,145	
+Josephine	83,306	Grants Pass, OR Metropolitan Statistical Area
+Klamath	65,910	Klamath Falls, OR Micropolitan Statistical Area
+Lake	7,820	
+Lane	356,212	Eugene, OR Metropolitan Statistical Area
+Lincoln	46,350	Newport, OR Micropolitan Statistical Area
+Linn	118,765	Albany, OR Metropolitan Statistical Area
+Malheur	30,479	Ontario, OR-ID Micropolitan Statistical Area
+Marion	323,614	Salem, OR Metropolitan Statistical Area
+Morrow	11,336	Hermiston-Pendleton, OR Micropolitan Statistical Area
+Multnomah	766,135	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Polk	76,794	Salem, OR Metropolitan Statistical Area
+Sherman	1,731	
+Tillamook	25,317	
+Umatilla	76,720	Hermiston-Pendleton, OR Micropolitan Statistical Area
+Union	25,652	La Grande, OR Micropolitan Statistical Area
+Wallowa	6,814	
+Wasco	25,477	The Dalles, OR Micropolitan Statistical Area
+Washington	554,996	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Wheeler	1,381	
+Yamhill	100,725	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Adams	 Pennsylvania	101,546	Gettysburg, PA Metropolitan Statistical Area
+Allegheny	1,231,527	Pittsburgh, PA Metropolitan Statistical Area
+Armstrong	68,107	Pittsburgh, PA Metropolitan Statistical Area
+Beaver	170,115	Pittsburgh, PA Metropolitan Statistical Area
+Bedford	49,055	
+Berks	413,521	Reading, PA Metropolitan Statistical Area
+Blair	126,314	Altoona, PA Metropolitan Statistical Area
+Bradford	62,316	Sayre, PA Micropolitan Statistical Area
+Bucks	626,976	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Butler	185,476	Pittsburgh, PA Metropolitan Statistical Area
+Cambria	140,499	Johnstown, PA Metropolitan Statistical Area
+Cameron	4,886	
+Carbon	64,786	Allentown-Bethlehem-Easton, PA-NJ Metropolitan Statistical Area
+Centre	155,403	State College, PA Metropolitan Statistical Area
+Chester	509,468	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Clarion	39,155	
+Clearfield	81,174	DuBois, PA Micropolitan Statistical Area
+Clinton	39,954	Lock Haven, PA Micropolitan Statistical Area
+Columbia	66,797	Bloomsburg-Berwick, PA Metropolitan Statistical Area
+Crawford	87,376	Meadville, PA Micropolitan Statistical Area
+Cumberland	241,212	Harrisburg-Carlisle, PA Metropolitan Statistical Area
+Dauphin	270,937	Harrisburg-Carlisle, PA Metropolitan Statistical Area
+Delaware	561,973	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Elk	31,479	
+Erie	280,294	Erie, PA Metropolitan Statistical Area
+Fayette	134,999	Pittsburgh, PA Metropolitan Statistical Area
+Forest	7,631	
+Franklin	152,085	Chambersburg-Waynesboro, PA Metropolitan Statistical Area
+Fulton	14,670	
+Greene	37,838	
+Huntingdon	45,694	Huntingdon, PA Micropolitan Statistical Area
+Indiana	87,745	Indiana, PA Micropolitan Statistical Area
+Jefferson	44,966	
+Juniata	24,768	
+Lackawanna	213,931	Scranton–Wilkes-Barre–Hazleton, PA Metropolitan Statistical Area
+Lancaster	529,600	Lancaster, PA Metropolitan Statistical Area
+Lawrence	89,333	New Castle, PA Micropolitan Statistical Area
+Lebanon	135,486	Lebanon, PA Metropolitan Statistical Area
+Lehigh	355,092	Allentown-Bethlehem-Easton, PA-NJ Metropolitan Statistical Area
+Luzerne	320,103	Scranton–Wilkes-Barre–Hazleton, PA Metropolitan Statistical Area
+Lycoming	116,754	Williamsport, PA Metropolitan Statistical Area
+McKean	42,979	Bradford, PA Micropolitan Statistical Area
+Mercer	115,195	Youngstown-Warren-Boardman, OH-PA Metropolitan Statistical Area
+Mifflin	46,616	Lewistown, PA Micropolitan Statistical Area
+Monroe	167,148	East Stroudsburg, PA Metropolitan Statistical Area
+Montgomery	812,376	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Montour	18,541	Bloomsburg-Berwick, PA Metropolitan Statistical Area
+Northampton	299,791	Allentown-Bethlehem-Easton, PA-NJ Metropolitan Statistical Area
+Northumberland	94,076	Sunbury, PA Micropolitan Statistical Area
+Perry	45,562	Harrisburg-Carlisle, PA Metropolitan Statistical Area
+Philadelphia[w]	1,553,165	Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metropolitan Statistical Area
+Pike	56,591	New York-Newark-Jersey City, NY-NJ-PA Metropolitan Statistical Area
+Potter	17,497	
+Schuylkill	146,920	Pottsville, PA Micropolitan Statistical Area
+Snyder	39,865	Selinsgrove, PA Micropolitan Statistical Area
+Somerset	76,520	Somerset, PA Micropolitan Statistical Area
+Sullivan	6,351	
+Susquehanna	42,286	
+Tioga	42,463	
+Union	44,867	Lewisburg, PA Micropolitan Statistical Area
+Venango	53,907	Oil City, PA Micropolitan Statistical Area
+Warren	40,885	Warren, PA Micropolitan Statistical Area
+Washington	208,206	Pittsburgh, PA Metropolitan Statistical Area
+Wayne	51,548	
+Westmoreland	362,437	Pittsburgh, PA Metropolitan Statistical Area
+Wyoming	28,003	Scranton–Wilkes-Barre–Hazleton, PA Metropolitan Statistical Area
+York	438,965	York-Hanover, PA Metropolitan Statistical Area
+Adjuntas Municipality	 Puerto Rico	19,483	
+Aguada Municipality	41,959	Aguadilla–Isabela–San Sebastián metropolitan area
+Aguadilla Municipality	54,582	Aguadilla–Isabela–San Sebastián metropolitan area
+Aguas Buenas Municipality	28,659	San Juan–Caguas–Guaynabo metropolitan area
+Aibonito Municipality	25,900	San Juan–Caguas–Guaynabo metropolitan area
+Añasco Municipality	29,261	Aguadilla–Isabela–San Sebastián metropolitan area
+Arecibo Municipality	96,440	San Juan–Caguas–Guaynabo metropolitan area
+Arroyo Municipality	19,575	Guayama metropolitan area
+Barceloneta Municipality	24,816	San Juan–Caguas–Guaynabo metropolitan area
+Barranquitas Municipality	30,318	San Juan–Caguas–Guaynabo metropolitan area
+Bayamón Municipality	208,116	San Juan–Caguas–Guaynabo metropolitan area
+Cabo Rojo Municipality	50,917	San Germán–Cabo Rojo metropolitan area
+Caguas Municipality	142,893	San Juan–Caguas–Guaynabo metropolitan area
+Camuy Municipality	35,159	San Juan–Caguas–Guaynabo metropolitan area
+Canóvanas Municipality	47,648	San Juan–Caguas–Guaynabo metropolitan area
+Carolina Municipality	176,762	San Juan–Caguas–Guaynabo metropolitan area
+Cataño Municipality	28,140	San Juan–Caguas–Guaynabo metropolitan area
+Cayey Municipality	48,119	San Juan–Caguas–Guaynabo metropolitan area
+Ceiba Municipality	13,631	Fajardo metropolitan area
+Ciales Municipality	18,782	San Juan–Caguas–Guaynabo metropolitan area
+Cidra Municipality	43,480	San Juan–Caguas–Guaynabo metropolitan area
+Coamo Municipality	40,512	
+Comerío Municipality	20,778	San Juan–Caguas–Guaynabo metropolitan area
+Corozal Municipality	37,142	San Juan–Caguas–Guaynabo metropolitan area
+Culebra Municipality	1,818	
+Dorado Municipality	38,165	San Juan–Caguas–Guaynabo metropolitan area
+Fajardo Municipality	36,993	Fajardo metropolitan area
+Florida Municipality	12,680	San Juan–Caguas–Guaynabo metropolitan area
+Guánica Municipality	19,427	Yauco metropolitan area
+Guayama Municipality	45,362	Guayama metropolitan area
+Guayanilla Municipality	21,581	Yauco metropolitan area
+Guaynabo Municipality	97,924	San Juan–Caguas–Guaynabo metropolitan area
+Gurabo Municipality	45,369	San Juan–Caguas–Guaynabo metropolitan area
+Hatillo Municipality	41,953	San Juan–Caguas–Guaynabo metropolitan area
+Hormigueros Municipality	17,250	Mayagüez metropolitan area
+Humacao Municipality	58,466	San Juan–Caguas–Guaynabo metropolitan area
+Isabela Municipality	45,631	Aguadilla–Isabela–San Sebastián metropolitan area
+Jayuya Municipality	16,642	
+Juana Díaz Municipality	79,897	Ponce metropolitan area
+Juncos Municipality	40,290	San Juan–Caguas–Guaynabo metropolitan area
+Lajas Municipality	25,753	San Germán–Cabo Rojo metropolitan area
+Lares Municipality	30,753	Aguadilla–Isabela–San Sebastián metropolitan area
+Las Marías Municipality	9,881	
+Las Piedras Municipality	38,675	San Juan–Caguas–Guaynabo metropolitan area
+Loíza Municipality	30,060	San Juan–Caguas–Guaynabo metropolitan area
+Luquillo Municipality	20,068	Fajardo metropolitan area
+Manatí Municipality	44,113	San Juan–Caguas–Guaynabo metropolitan area
+Maricao Municipality	6,276	
+Maunabo Municipality	12,225	San Juan–Caguas–Guaynabo metropolitan area
+Mayagüez Municipality	89,080	Mayagüez metropolitan area
+Moca Municipality	40,109	Aguadilla–Isabela–San Sebastián metropolitan area
+Morovis Municipality	32,610	San Juan–Caguas–Guaynabo metropolitan area
+Naguabo Municipality	26,720	San Juan–Caguas–Guaynabo metropolitan area
+Naranjito Municipality	30,402	San Juan–Caguas–Guaynabo metropolitan area
+Orocovis Municipality	23,423	San Juan–Caguas–Guaynabo metropolitan area
+Patillas Municipality	19,277	Guayama metropolitan area
+Peñuelas Municipality	24,282	Yauco metropolitan area
+Ponce Municipality	166,327	Ponce metropolitan area
+Quebradillas Municipality	25,919	San Juan–Caguas–Guaynabo metropolitan area
+Rincón Municipality	15,200	Aguadilla–Isabela–San Sebastián metropolitan area
+Río Grande Municipality	54,304	San Juan–Caguas–Guaynabo metropolitan area
+Sabana Grande Municipality	25,265	San Germán–Cabo Rojo metropolitan area
+Salinas Municipality	31,078	
+San Germán Municipality	35,527	San Germán–Cabo Rojo metropolitan area
+San Juan Municipality	395,326	San Juan–Caguas–Guaynabo metropolitan area
+San Lorenzo Municipality	41,058	San Juan–Caguas–Guaynabo metropolitan area
+San Sebastián Municipality	42,430	Aguadilla–Isabela–San Sebastián metropolitan area
+Santa Isabel Municipality	23,274	
+Toa Alta Municipality	74,066	San Juan–Caguas–Guaynabo metropolitan area
+Toa Baja Municipality	89,609	San Juan–Caguas–Guaynabo metropolitan area
+Trujillo Alto Municipality	74,842	San Juan–Caguas–Guaynabo metropolitan area
+Utuado Municipality	33,149	
+Vega Alta Municipality	39,951	San Juan–Caguas–Guaynabo metropolitan area
+Vega Baja Municipality	59,662	San Juan–Caguas–Guaynabo metropolitan area
+Vieques Municipality	9,301	
+Villalba Municipality	26,073	Ponce metropolitan area
+Yabucoa Municipality	37,941	San Juan–Caguas–Guaynabo metropolitan area
+Yauco Municipality	42,043	Yauco metropolitan area
+Bristol[n]	 Rhode Island	49,220	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Kent[n]	165,035	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Newport[n]	82,397	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Providence[n]	628,600	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Washington[n]	126,259	Providence-Warwick, RI-MA Metropolitan Statistical Area
+Abbeville	 South Carolina	25,007	Greenwood, SC Micropolitan Statistical Area
+Aiken	164,176	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Allendale	9,839	
+Anderson	190,641	Greenville-Anderson-Mauldin, SC Metropolitan Statistical Area
+Bamberg	15,430	
+Barnwell	22,119	
+Beaufort	171,838	Hilton Head Island-Bluffton-Beaufort, SC Metropolitan Statistical Area
+Berkeley	194,020	Charleston-North Charleston, SC Metropolitan Statistical Area
+Calhoun	15,055	Columbia, SC Metropolitan Statistical Area
+Charleston	372,803	Charleston-North Charleston, SC Metropolitan Statistical Area
+Cherokee	55,885	Gaffney, SC Micropolitan Statistical Area
+Chester	32,578	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Chesterfield	46,197	
+Clarendon	34,355	
+Colleton	37,788	
+Darlington	67,935	Florence, SC Metropolitan Statistical Area
+Dillon	31,229	
+Dorchester	145,397	Charleston-North Charleston, SC Metropolitan Statistical Area
+Edgefield	26,436	Augusta-Richmond County, GA-SC Metropolitan Statistical Area
+Fairfield	23,109	Columbia, SC Metropolitan Statistical Area
+Florence	138,326	Florence, SC Metropolitan Statistical Area
+Georgetown	60,440	Georgetown, SC Micropolitan Statistical Area
+Greenville	474,266	Greenville-Anderson-Mauldin, SC Metropolitan Statistical Area
+Greenwood	69,723	Greenwood, SC Micropolitan Statistical Area
+Hampton	20,408	
+Horry	289,650	Myrtle Beach-Conway-North Myrtle Beach, SC-NC Metropolitan Statistical Area
+Jasper	26,629	Hilton Head Island-Bluffton-Beaufort, SC Metropolitan Statistical Area
+Kershaw	62,516	Columbia, SC Metropolitan Statistical Area
+Lancaster	80,458	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Laurens	66,229	Greenville-Anderson-Mauldin, SC Metropolitan Statistical Area
+Lee	18,347	
+Lexington	273,752	Columbia, SC Metropolitan Statistical Area
+McCormick	9,947	
+Marion	32,072	
+Marlboro	28,003	Bennettsville, SC Micropolitan Statistical Area
+Newberry	37,521	Newberry, SC Micropolitan Statistical Area
+Oconee	75,045	Seneca, SC Micropolitan Statistical Area
+Orangeburg	90,942	Orangeburg, SC Micropolitan Statistical Area
+Pickens	119,829	Greenville-Anderson-Mauldin, SC Metropolitan Statistical Area
+Richland	399,256	Columbia, SC Metropolitan Statistical Area
+Saluda	20,091	Columbia, SC Metropolitan Statistical Area
+Spartanburg	290,969	Spartanburg, SC Metropolitan Statistical Area
+Sumter	108,123	Sumter, SC Metropolitan Statistical Area
+Union	28,030	Spartanburg, SC Metropolitan Statistical Area
+Williamsburg	33,067	
+York	239,363	Charlotte-Concord-Gastonia, NC-SC Metropolitan Statistical Area
+Aurora	 South Dakota	2,720	
+Beadle	18,080	Huron, SD Micropolitan Statistical Area
+Bennett	3,452	
+Bon Homme	7,046	
+Brookings	32,968	Brookings, SD Micropolitan Statistical Area
+Brown	37,907	Aberdeen, SD Micropolitan Statistical Area
+Brule	5,366	
+Buffalo	2,024	
+Butte	10,330	
+Campbell	1,334	
+Charles Mix	9,241	
+Clark	3,610	
+Clay	13,935	Vermillion, SD Micropolitan Statistical Area
+Codington	27,853	Watertown, SD Micropolitan Statistical Area
+Corson	4,215	
+Custer	8,468	Rapid City, SD Metropolitan Statistical Area
+Davison	19,823	Mitchell, SD Micropolitan Statistical Area
+Day	5,596	
+Deuel	4,320	
+Dewey	5,586	
+Douglas	3,023	
+Edmunds	4,041	Aberdeen, SD Micropolitan Statistical Area
+Fall River	6,839	
+Faulk	2,386	
+Grant	7,281	
+Gregory	4,242	
+Haakon	1,894	
+Hamlin	5,961	
+Hand	3,391	
+Hanson	3,405	Mitchell, SD Micropolitan Statistical Area
+Harding	1,262	
+Hughes	17,508	Pierre, SD Micropolitan Statistical Area
+Hutchinson	7,145	
+Hyde	1,391	
+Jackson	3,216	
+Jerauld	2,066	
+Jones	1,001	
+Kingsbury	5,065	
+Lake	12,055	
+Lawrence	24,910	Spearfish, SD Micropolitan Statistical Area
+Lincoln	49,858	Sioux Falls, SD Metropolitan Statistical Area
+Lyman	3,892	
+McCook	5,654	Sioux Falls, SD Metropolitan Statistical Area
+McPherson	2,457	
+Marshall	4,763	
+Meade	27,202	Rapid City, SD Metropolitan Statistical Area
+Mellette	2,081	
+Miner	2,333	
+Minnehaha	179,640	Sioux Falls, SD Metropolitan Statistical Area
+Moody	6,404	
+Oglala Lakota	14,118	
+Pennington	105,761	Rapid City, SD Metropolitan Statistical Area
+Perkins	3,037	
+Potter	2,394	
+Roberts	10,251	
+Sanborn	2,324	
+Spink	6,610	
+Stanley	2,981	Pierre, SD Micropolitan Statistical Area
+Sully	1,437	Pierre, SD Micropolitan Statistical Area
+Todd	9,982	
+Tripp	5,498	
+Turner	8,361	Sioux Falls, SD Metropolitan Statistical Area
+Union	14,829	Sioux City, IA-NE-SD Metropolitan Statistical Area
+Walworth	5,524	
+Yankton	22,696	Yankton, SD Micropolitan Statistical Area
+Ziebach	2,834	
+Anderson	 Tennessee	75,542	Knoxville, TN Metropolitan Statistical Area
+Bedford	45,901	Shelbyville, TN Micropolitan Statistical Area
+Benton	16,290	
+Bledsoe	12,841	
+Blount	125,099	Knoxville, TN Metropolitan Statistical Area
+Bradley	101,848	Cleveland, TN Metropolitan Statistical Area
+Campbell	40,238	Knoxville, TN Metropolitan Statistical Area
+Cannon	13,775	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Carroll	28,513	
+Carter	57,338	Johnson City, TN Metropolitan Statistical Area
+Cheatham	39,492	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Chester	17,321	Jackson, TN Metropolitan Statistical Area
+Claiborne	31,560	
+Clay	7,774	
+Cocke	35,479	Newport, TN Micropolitan Statistical Area
+Coffee	53,357	Tullahoma-Manchester, TN Micropolitan Statistical Area
+Crockett	14,591	Jackson, TN Metropolitan Statistical Area
+Cumberland	57,466	Crossville, TN Micropolitan Statistical Area
+Davidson	658,602	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Decatur	11,661	
+DeKalb	19,164	
+Dickson	50,266	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Dyer	38,213	Dyersburg, TN Micropolitan Statistical Area
+Fayette	38,690	Memphis, TN-MS-AR Metropolitan Statistical Area
+Fentress	17,909	
+Franklin	41,129	Tullahoma-Manchester, TN Micropolitan Statistical Area
+Gibson	49,457	
+Giles	28,746	
+Grainger	22,702	Knoxville, TN Metropolitan Statistical Area
+Greene	68,267	Greeneville, TN Micropolitan Statistical Area
+Grundy	13,498	
+Hamblen	63,074	Morristown, TN Metropolitan Statistical Area
+Hamilton	348,673	Chattanooga, TN-GA Metropolitan Statistical Area
+Hancock	6,679	
+Hardeman	26,306	
+Hardin	26,034	
+Hawkins	56,800	Kingsport-Bristol-Bristol, TN-VA Metropolitan Statistical Area
+Haywood	18,224	
+Henderson	28,048	
+Henry	32,210	Paris, TN Micropolitan Statistical Area
+Hickman	24,267	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Houston	8,292	
+Humphreys	18,243	
+Jackson	11,517	Cookeville, TN Micropolitan Statistical Area
+Jefferson	52,123	Morristown, TN Metropolitan Statistical Area
+Johnson	17,977	
+Knox	444,622	Knoxville, TN Metropolitan Statistical Area
+Lake	7,731	
+Lauderdale	27,795	
+Lawrence	41,990	Lawrenceburg, TN Micropolitan Statistical Area
+Lewis	11,961	
+Lincoln	33,633	
+Loudon	50,448	Knoxville, TN Metropolitan Statistical Area
+McMinn	52,341	Athens, TN Micropolitan Statistical Area
+McNairy	26,140	
+Macon	22,701	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Madison	98,733	Jackson, TN Metropolitan Statistical Area
+Marion	28,374	Chattanooga, TN-GA Metropolitan Statistical Area
+Marshall	31,130	Lewisburg, TN Micropolitan Statistical Area
+Maury	83,761	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Meigs	11,649	
+Monroe	45,265	
+Montgomery	184,119	Clarksville, TN-KY Metropolitan Statistical Area
+Moore	6,301	Tullahoma-Manchester, TN Micropolitan Statistical Area
+Morgan	21,915	Knoxville, TN Metropolitan Statistical Area
+Obion	31,131	Union City, TN-KY Micropolitan Statistical Area
+Overton	22,075	Cookeville, TN Micropolitan Statistical Area
+Perry	7,869	
+Pickett	5,090	
+Polk	16,690	Cleveland, TN Metropolitan Statistical Area
+Putnam	73,525	Cookeville, TN Micropolitan Statistical Area
+Rhea	32,513	Dayton, TN Micropolitan Statistical Area
+Roane	53,047	Knoxville, TN Metropolitan Statistical Area
+Robertson	67,383	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Rutherford	281,029	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Scott	22,015	
+Sequatchie	14,681	Chattanooga, TN-GA Metropolitan Statistical Area
+Sevier	93,570	Sevierville, TN Micropolitan Statistical Area
+Shelby	939,465	Memphis, TN-MS-AR Metropolitan Statistical Area
+Smith	19,074	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Stewart	13,362	
+Sullivan	156,595	Kingsport-Bristol-Bristol, TN-VA Metropolitan Statistical Area
+Sumner	168,888	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Tipton	61,586	Memphis, TN-MS-AR Metropolitan Statistical Area
+Trousdale	7,828	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Unicoi	18,082	Johnson City, TN Metropolitan Statistical Area
+Union	19,102	Knoxville, TN Metropolitan Statistical Area
+Van Buren	5,583	
+Warren	39,965	McMinnville, TN Micropolitan Statistical Area
+Washington	125,546	Johnson City, TN Metropolitan Statistical Area
+Wayne	16,939	
+Weakley	34,450	Martin, TN Micropolitan Statistical Area
+White	26,244	
+Williamson	198,901	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Wilson	121,945	Nashville-Davidson–Murfreesboro–Franklin, TN Metropolitan Statistical Area
+Anderson	 Texas	57,938	Palestine, TX Micropolitan Statistical Area
+Andrews	16,799	Andrews, TX Micropolitan Statistical Area
+Angelina	87,441	Lufkin, TX Micropolitan Statistical Area
+Aransas	24,356	Corpus Christi, TX Metropolitan Statistical Area
+Archer	8,681	Wichita Falls, TX Metropolitan Statistical Area
+Armstrong	1,949	Amarillo, TX Metropolitan Statistical Area
+Atascosa	47,093	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Austin	28,847	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Bailey	7,114	
+Bandera	20,601	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Bastrop	75,825	Austin-Round Rock, TX Metropolitan Statistical Area
+Baylor	3,614	
+Bee	32,799	Beeville, TX Micropolitan Statistical Area
+Bell	326,843	Killeen-Temple, TX Metropolitan Statistical Area
+Bexar	1,817,610	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Blanco	10,723	
+Borden	637	
+Bosque	17,855	
+Bowie	93,487	Texarkana, TX-AR Metropolitan Statistical Area
+Brazoria	330,242	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Brazos	203,164	College Station-Bryan, TX Metropolitan Statistical Area
+Brewster	9,286	
+Briscoe	1,537	
+Brooks	7,237	
+Brown	37,749	Brownwood, TX Micropolitan Statistical Area
+Burleson	17,169	College Station-Bryan, TX Metropolitan Statistical Area
+Burnet	43,823	
+Caldwell	39,232	Austin-Round Rock, TX Metropolitan Statistical Area
+Calhoun	21,806	Port Lavaca, TX Micropolitan Statistical Area
+Callahan	13,525	Abilene, TX Metropolitan Statistical Area
+Cameron	417,276	Brownsville-Harlingen, TX Metropolitan Statistical Area
+Camp	12,413	
+Carson	6,010	Amarillo, TX Metropolitan Statistical Area
+Cass	30,331	
+Castro	8,030	
+Chambers	36,812	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Cherokee	50,878	Jacksonville, TX Micropolitan Statistical Area
+Childress	7,095	
+Clay	10,473	Wichita Falls, TX Metropolitan Statistical Area
+Cochran	3,016	
+Coke	3,210	
+Coleman	8,543	
+Collin	854,778	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Collingsworth	3,099	
+Colorado	20,752	
+Comal	118,480	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Comanche	13,623	
+Concho	4,043	
+Cooke	38,467	Gainesville, TX Micropolitan Statistical Area
+Coryell	76,192	Killeen-Temple, TX Metropolitan Statistical Area
+Cottle	1,452	
+Crane	4,773	
+Crockett	3,807	
+Crosby	5,991	Lubbock, TX Metropolitan Statistical Area
+Culberson	2,277	
+Dallam	7,057	
+Dallas	2,480,331	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Dawson	13,810	Lamesa, TX Micropolitan Statistical Area
+Deaf Smith	19,177	Hereford, TX Micropolitan Statistical Area
+Delta	5,238	
+Denton	728,799	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+DeWitt	20,503	
+Dickens	2,291	
+Dimmit	10,897	
+Donley	3,522	
+Duval	11,640	
+Eastland	18,245	
+Ector	149,378	Odessa, TX Metropolitan Statistical Area
+Edwards	1,884	
+Ellis	155,976	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+El Paso	827,718	El Paso, TX Metropolitan Statistical Area
+Erath	39,658	Stephenville, TX Micropolitan Statistical Area
+Falls	17,493	Waco, TX Metropolitan Statistical Area
+Fannin	33,659	
+Fayette	24,821	
+Fisher	3,856	
+Floyd	6,230	
+Foard	1,277	
+Fort Bend	652,365	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Franklin	10,660	
+Freestone	19,646	
+Frio	18,065	
+Gaines	18,921	
+Galveston	306,782	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Garza	6,317	
+Gillespie	25,357	Fredericksburg, TX Micropolitan Statistical Area
+Glasscock	1,251	Big Spring, TX Micropolitan Statistical Area
+Goliad	7,465	Victoria, TX Metropolitan Statistical Area
+Gonzales	20,312	
+Gray	23,043	Pampa, TX Micropolitan Statistical Area
+Grayson	122,353	Sherman-Denison, TX Metropolitan Statistical Area
+Gregg	123,024	Longview, TX Metropolitan Statistical Area
+Grimes	26,859	
+Guadalupe	143,183	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Hale	35,764	Plainview, TX Micropolitan Statistical Area
+Hall	3,239	
+Hamilton	8,310	
+Hansford	5,555	
+Hardeman	4,016	
+Hardin	55,417	Beaumont-Port Arthur, TX Metropolitan Statistical Area
+Harris	4,336,853	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Harrison	66,886	Marshall, TX Micropolitan Statistical Area
+Hartley	6,100	
+Haskell	5,875	
+Hays	176,026	Austin-Round Rock, TX Metropolitan Statistical Area
+Hemphill	4,158	
+Henderson	78,675	Athens, TX Micropolitan Statistical Area
+Hidalgo	815,996	McAllen-Edinburg-Mission, TX Metropolitan Statistical Area
+Hill	34,823	
+Hockley	23,530	Levelland, TX Micropolitan Statistical Area
+Hood	52,905	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Hopkins	35,565	Sulphur Springs, TX Micropolitan Statistical Area
+Houston	22,911	
+Howard	36,147	Big Spring, TX Micropolitan Statistical Area
+Hudspeth	3,318	El Paso, TX Metropolitan Statistical Area
+Hunt	87,048	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Hutchinson	21,819	Borger, TX Micropolitan Statistical Area
+Irion	1,612	San Angelo, TX Metropolitan Statistical Area
+Jack	8,957	
+Jackson	14,591	
+Jasper	35,649	
+Jeff Davis	2,253	
+Jefferson	252,358	Beaumont-Port Arthur, TX Metropolitan Statistical Area
+Jim Hogg	5,245	
+Jim Wells	41,680	Alice, TX Micropolitan Statistical Area
+Johnson	154,707	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Jones	19,859	Abilene, TX Metropolitan Statistical Area
+Karnes	15,081	
+Kaufman	108,568	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Kendall	37,766	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Kenedy	412	Kingsville, TX Micropolitan Statistical Area
+Kent	807	
+Kerr	49,953	Kerrville, TX Micropolitan Statistical Area
+Kimble	4,481	
+King	285	
+Kinney	3,586	
+Kleberg	32,101	Kingsville, TX Micropolitan Statistical Area
+Knox	3,767	
+Lamar	49,426	Paris, TX Micropolitan Statistical Area
+Lamb	13,775	
+Lampasas	20,222	Killeen-Temple, TX Metropolitan Statistical Area
+La Salle	7,369	
+Lavaca	19,581	
+Lee	16,628	
+Leon	16,742	
+Liberty	76,907	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Limestone	23,326	
+Lipscomb	3,485	
+Live Oak	11,867	
+Llano	19,444	
+Loving	95	
+Lubbock	289,324	Lubbock, TX Metropolitan Statistical Area
+Lynn	5,723	Lubbock, TX Metropolitan Statistical Area
+McCulloch	8,330	
+McLennan	241,481	Waco, TX Metropolitan Statistical Area
+McMullen	764	
+Madison	13,781	
+Marion	10,235	
+Martin	5,312	Midland, TX Metropolitan Statistical Area
+Mason	4,128	
+Matagorda	36,592	Bay City, TX Micropolitan Statistical Area
+Maverick	55,932	Eagle Pass, TX Micropolitan Statistical Area
+Medina	47,399	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Menard	2,148	
+Midland	151,468	Midland, TX Metropolitan Statistical Area
+Milam	24,167	
+Mills	4,907	
+Mitchell	9,402	
+Montague	19,503	
+Montgomery	499,137	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Moore	22,141	Dumas, TX Micropolitan Statistical Area
+Morris	12,834	
+Motley	1,196	
+Nacogdoches	65,330	Nacogdoches, TX Micropolitan Statistical Area
+Navarro	48,038	Corsicana, TX Micropolitan Statistical Area
+Newton	14,140	Beaumont-Port Arthur, TX Metropolitan Statistical Area
+Nolan	15,037	Sweetwater, TX Micropolitan Statistical Area
+Nueces	352,107	Corpus Christi, TX Metropolitan Statistical Area
+Ochiltree	10,806	
+Oldham	2,102	Amarillo, TX Metropolitan Statistical Area
+Orange	82,957	Beaumont-Port Arthur, TX Metropolitan Statistical Area
+Palo Pinto	27,889	Mineral Wells, TX Micropolitan Statistical Area
+Panola	23,870	
+Parker	121,418	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Parmer	9,965	
+Pecos	15,697	
+Polk	45,790	
+Potter	121,661	Amarillo, TX Metropolitan Statistical Area
+Presidio	7,201	
+Rains	11,065	
+Randall	126,474	Amarillo, TX Metropolitan Statistical Area
+Reagan	3,601	
+Real	3,350	
+Red River	12,470	
+Reeves	13,965	Pecos, TX Micropolitan Statistical Area
+Refugio	7,305	
+Roberts	831	
+Robertson	16,486	College Station-Bryan, TX Metropolitan Statistical Area
+Rockwall	85,245	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Runnels	10,309	
+Rusk	53,622	Longview, TX Metropolitan Statistical Area
+Sabine	10,361	
+San Augustine	8,769	
+San Jacinto	26,856	
+San Patricio	66,137	Corpus Christi, TX Metropolitan Statistical Area
+San Saba	6,012	
+Schleicher	3,206	
+Scurry	17,302	Snyder, TX Micropolitan Statistical Area
+Shackelford	3,375	
+Shelby	25,792	
+Sherman	3,093	
+Smith	216,080	Tyler, TX Metropolitan Statistical Area
+Somervell	8,658	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Starr	61,963	Rio Grande City, TX Micropolitan Statistical Area
+Stephens	9,247	
+Sterling	1,219	
+Stonewall	1,432	
+Sutton	4,006	
+Swisher	7,763	
+Tarrant	1,911,541	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Taylor	134,117	Abilene, TX Metropolitan Statistical Area
+Terrell	903	
+Terry	12,743	
+Throckmorton	1,600	
+Titus	32,581	Mount Pleasant, TX Micropolitan Statistical Area
+Tom Green	114,954	San Angelo, TX Metropolitan Statistical Area
+Travis	1,120,954	Austin-Round Rock, TX Metropolitan Statistical Area
+Trinity	14,393	Huntsville, TX Micropolitan Statistical Area
+Tyler	21,464	
+Upshur	39,884	Longview, TX Metropolitan Statistical Area
+Upton	3,372	
+Uvalde	26,926	Uvalde, TX Micropolitan Statistical Area
+Val Verde	48,623	Del Rio, TX Micropolitan Statistical Area
+Van Zandt	52,481	
+Victoria	90,028	Victoria, TX Metropolitan Statistical Area
+Walker	68,817	Huntsville, TX Micropolitan Statistical Area
+Waller	45,213	Houston-The Woodlands-Sugar Land, TX Metropolitan Statistical Area
+Ward	11,244	
+Washington	34,147	Brenham, TX Micropolitan Statistical Area
+Webb	262,495	Laredo, TX Metropolitan Statistical Area
+Wharton	41,216	El Campo, TX Micropolitan Statistical Area
+Wheeler	5,751	
+Wichita	132,047	Wichita Falls, TX Metropolitan Statistical Area
+Wilbarger	13,131	Vernon, TX Micropolitan Statistical Area
+Willacy	21,921	Raymondville, TX Micropolitan Statistical Area
+Williamson	471,014	Austin-Round Rock, TX Metropolitan Statistical Area
+Wilson	45,418	San Antonio-New Braunfels, TX Metropolitan Statistical Area
+Winkler	7,606	
+Wise	60,939	Dallas-Fort Worth-Arlington, TX Metropolitan Statistical Area
+Wood	42,306	
+Yoakum	8,184	
+Young	18,341	
+Zapata	14,390	Zapata, TX Micropolitan Statistical Area
+Zavala	12,156	
+Bajo Nuevo Bank[x][y]	United States U.S. Minor Outlying Islands	0	
+Baker Island[8][x]	0	
+Howland Island[x]	0	
+Jarvis Island[x]	0	
+Johnston Atoll[x]	0	
+Kingman Reef[x]	0	
+Midway Islands[x]	40	
+Navassa Island[x]	0	
+Palmyra Atoll[x]	20	
+Serranilla Bank[x][y]	0	
+Wake Island[x]	100	
+Beaver	 Utah	6,459	
+Box Elder	50,794	Ogden-Clearfield, UT Metropolitan Statistical Area
+Cache	116,909	Logan, UT-ID Metropolitan Statistical Area
+Carbon	20,988	Price, UT Micropolitan Statistical Area
+Daggett	1,127	
+Davis	322,094	Ogden-Clearfield, UT Metropolitan Statistical Area
+Duchesne	20,308	
+Emery	10,749	
+Garfield	5,083	
+Grand	9,360	
+Iron	46,780	Cedar City, UT Micropolitan Statistical Area
+Juab	10,348	Provo-Orem, UT Metropolitan Statistical Area
+Kane	7,260	
+Millard	12,662	
+Morgan	10,173	Ogden-Clearfield, UT Metropolitan Statistical Area
+Piute	1,510	
+Rich	2,288	
+Salt Lake	1,079,721	Salt Lake City, UT Metropolitan Statistical Area
+San Juan	14,973	
+Sanpete	28,237	
+Sevier	20,852	
+Summit	38,486	Summit Park, UT Micropolitan Statistical Area
+Tooele	60,762	Salt Lake City, UT Metropolitan Statistical Area
+Uintah	35,555	Vernal, UT Micropolitan Statistical Area
+Utah	551,891	Provo-Orem, UT Metropolitan Statistical Area
+Wasatch	26,437	Heber, UT Micropolitan Statistical Area
+Washington	147,800	St. George, UT Metropolitan Statistical Area
+Wayne	2,747	
+Weber	238,519	Ogden-Clearfield, UT Metropolitan Statistical Area
+Addison	 Vermont	36,791	
+Bennington	36,659	Bennington, VT Micropolitan Statistical Area
+Caledonia	31,157	
+Chittenden	159,515	Burlington-South Burlington, VT Metropolitan Statistical Area
+Essex	6,211	Berlin, NH-VT Micropolitan Statistical Area
+Franklin	48,294	Burlington-South Burlington, VT Metropolitan Statistical Area
+Grand Isle	6,987	Burlington-South Burlington, VT Metropolitan Statistical Area
+Lamoille	25,067	
+Orange	28,915	Claremont-Lebanon, NH-VT Micropolitan Statistical Area
+Orleans	27,169	
+Rutland	60,622	Rutland, VT Micropolitan Statistical Area
+Washington	59,319	Barre, VT Micropolitan Statistical Area
+Windham	43,857	
+Windsor	56,067	Claremont-Lebanon, NH-VT Micropolitan Statistical Area
+Saint Croix Island[9]	United States Virgin Islands Virgin Islands (U.S.)	50,601	
+Saint John Island	4,170	
+Saint Thomas Island	51,634	
+Accomack	 Virginia	33,148	
+Albemarle	103,000	Charlottesville, VA Metropolitan Statistical Area
+Alleghany	16,161	
+Amelia	12,745	Richmond, VA Metropolitan Statistical Area
+Amherst	32,178	Lynchburg, VA Metropolitan Statistical Area
+Appomattox	15,255	Lynchburg, VA Metropolitan Statistical Area
+Arlington	224,906	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Augusta	73,912	Staunton-Waynesboro, VA Metropolitan Statistical Area
+Bath	4,616	
+Bedford[z]	75,773	Lynchburg, VA Metropolitan Statistical Area
+Bland	6,735	
+Botetourt	33,002	Roanoke, VA Metropolitan Statistical Area
+Brunswick	16,973	
+Buchanan	23,597	
+Buckingham	17,136	Charlottesville, VA Metropolitan Statistical Area
+Campbell	55,235	Lynchburg, VA Metropolitan Statistical Area
+Caroline	29,298	Richmond, VA Metropolitan Statistical Area
+Carroll	29,883	
+Charles City	7,130	Richmond, VA Metropolitan Statistical Area
+Charlotte	12,305	
+Chesterfield	327,745	Richmond, VA Metropolitan Statistical Area
+Clarke	14,348	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Craig	5,210	Roanoke, VA Metropolitan Statistical Area
+Culpeper	48,506	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Cumberland	9,841	
+Dickenson	15,486	Big Stone Gap, VA Micropolitan Statistical Area
+Dinwiddie	27,904	Richmond, VA Metropolitan Statistical Area
+Essex	11,229	
+Fairfax	1,130,924	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Fauquier	67,207	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Floyd	15,528	Blacksburg-Christiansburg-Radford, VA Metropolitan Statistical Area
+Fluvanna	25,977	Charlottesville, VA Metropolitan Statistical Area
+Franklin	56,335	Roanoke, VA Metropolitan Statistical Area
+Frederick	81,319	Winchester, VA-WV Metropolitan Statistical Area
+Giles	16,925	Blacksburg-Christiansburg-Radford, VA Metropolitan Statistical Area
+Gloucester	36,834	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Goochland	21,626	Richmond, VA Metropolitan Statistical Area
+Grayson	15,161	
+Greene	18,804	Charlottesville, VA Metropolitan Statistical Area
+Greensville	11,886	
+Halifax	35,401	
+Hanover	101,330	Richmond, VA Metropolitan Statistical Area
+Henrico	318,611	Richmond, VA Metropolitan Statistical Area
+Henry	52,617	Martinsville, VA Micropolitan Statistical Area
+Highland	2,215	
+Isle of Wight	35,656	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+James City	70,516	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+King and Queen	7,130	
+King George	24,926	
+King William	16,097	Richmond, VA Metropolitan Statistical Area
+Lancaster	11,148	
+Lee	25,185	
+Loudoun	349,679	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Louisa	33,945	
+Lunenburg	12,527	
+Madison	13,200	
+Mathews	8,897	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Mecklenburg	31,426	
+Middlesex	10,762	
+Montgomery	96,207	Blacksburg-Christiansburg-Radford, VA Metropolitan Statistical Area
+Nelson	14,789	Charlottesville, VA Metropolitan Statistical Area
+New Kent	19,507	Richmond, VA Metropolitan Statistical Area
+Northampton	12,125	
+Northumberland	12,200	
+Nottoway	15,773	
+Orange	34,689	
+Page	23,821	
+Patrick	18,368	
+Pittsylvania	62,426	Danville, VA Micropolitan Statistical Area
+Powhatan	28,259	Richmond, VA Metropolitan Statistical Area
+Prince Edward	22,802	
+Prince George	37,253	Richmond, VA Metropolitan Statistical Area
+Prince William	438,580	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Pulaski	34,507	Blacksburg-Christiansburg-Radford, VA Metropolitan Statistical Area
+Rappahannock	7,478	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Richmond	8,953	
+Roanoke	93,524	Roanoke, VA Metropolitan Statistical Area
+Rockbridge	22,307	
+Rockingham	77,741	Harrisonburg, VA Metropolitan Statistical Area
+Russell	28,264	
+Scott	22,640	Kingsport-Bristol-Bristol, TN-VA Metropolitan Statistical Area
+Shenandoah	42,684	
+Smyth	31,652	
+Southampton	18,128	
+Spotsylvania	127,348	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Stafford	136,788	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Surry	6,765	
+Sussex	11,810	Richmond, VA Metropolitan Statistical Area
+Tazewell	44,103	Bluefield, WV-VA Micropolitan Statistical Area
+Warren	38,699	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Washington	54,907	Kingsport-Bristol-Bristol, TN-VA Metropolitan Statistical Area
+Westmoreland	17,612	
+Wise	40,589	Big Stone Gap, VA Micropolitan Statistical Area
+Wythe	29,344	
+York	66,269	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Alexandria, City of[aa]	148,892	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Bristol, City of[aa]	17,341	Kingsport-Bristol-Bristol, TN-VA Metropolitan Statistical Area
+Buena Vista, City of[aa]	6,680	
+Charlottesville, City of[aa]	44,349	Charlottesville, VA Metropolitan Statistical Area
+Chesapeake, City of[aa]	230,571	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Colonial Heights, City of[aa]	17,634	Richmond, VA Metropolitan Statistical Area
+Covington, City of[aa]	5,818	
+Danville, City of[aa]	42,907	Danville, VA Micropolitan Statistical Area
+Emporia, City of[aa]	5,588	
+Fairfax, City of[aa]	23,973	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Falls Church, City of[aa]	13,508	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Franklin, City of[aa]	8,638	
+Fredericksburg, City of[aa]	28,132	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Galax, City of[aa]	7,035	
+Hampton, City of[aa]	136,699	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Harrisonburg, City of[aa]	51,395	Harrisonburg, VA Metropolitan Statistical Area
+Hopewell, City of[aa]	22,163	Richmond, VA Metropolitan Statistical Area
+Lexington, City of[aa]	7,170	
+Lynchburg, City of[aa]	78,014	Lynchburg, VA Metropolitan Statistical Area
+Manassas, City of[aa]	41,705	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Manassas Park, City of[aa]	16,149	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Martinsville, City of[aa]	13,755	Martinsville, VA Micropolitan Statistical Area
+Newport News, City of[aa]	182,020	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Norfolk, City of[aa]	246,139	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Norton, City of[aa]	4,017	Big Stone Gap, VA Micropolitan Statistical Area
+Petersburg, City of[aa]	32,538	Richmond, VA Metropolitan Statistical Area
+Poquoson, City of[aa]	12,104	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Portsmouth, City of[aa]	96,205	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Radford, City of[aa]	17,184	Blacksburg-Christiansburg-Radford, VA Metropolitan Statistical Area
+Richmond, City of[aa]	214,114	Richmond, VA Metropolitan Statistical Area
+Roanoke, City of[aa]	98,465	Roanoke, VA Metropolitan Statistical Area
+Salem, City of[aa]	25,299	Roanoke, VA Metropolitan Statistical Area
+Staunton, City of[aa]	24,350	Staunton-Waynesboro, VA Metropolitan Statistical Area
+Suffolk, City of[aa]	85,728	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Virginia Beach, City of[aa]	448,479	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Waynesboro, City of[aa]	21,263	Staunton-Waynesboro, VA Metropolitan Statistical Area
+Williamsburg, City of[aa]	15,206	Virginia Beach-Norfolk-Newport News, VA-NC Metropolitan Statistical Area
+Winchester, City of[aa]	27,216	Winchester, VA-WV Metropolitan Statistical Area
+Adams	Washington (state) Washington	19,067	Othello, WA Micropolitan Statistical Area
+Asotin	22,110	Lewiston, ID-WA Metropolitan Statistical Area
+Benton	184,486	Kennewick-Richland, WA Metropolitan Statistical Area
+Chelan	73,967	Wenatchee, WA Metropolitan Statistical Area
+Clallam	72,312	Port Angeles, WA Micropolitan Statistical Area
+Clark	443,817	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Columbia	4,032	Walla Walla, WA Metropolitan Statistical Area
+Cowlitz	101,860	Longview, WA Metropolitan Statistical Area
+Douglas	39,471	Wenatchee, WA Metropolitan Statistical Area
+Ferry	7,646	
+Franklin	86,638	Kennewick-Richland, WA Metropolitan Statistical Area
+Garfield	2,256	
+Grant	91,878	Moses Lake, WA Micropolitan Statistical Area
+Grays Harbor	71,078	Aberdeen, WA Micropolitan Statistical Area
+Island	78,801	Oak Harbor, WA Micropolitan Statistical Area
+Jefferson	30,076	
+King	2,044,449	Seattle-Tacoma-Bellevue, WA Metropolitan Statistical Area
+Kitsap	253,968	Bremerton-Silverdale, WA Metropolitan Statistical Area
+Kittitas	41,765	Ellensburg, WA Micropolitan Statistical Area
+Klickitat	20,866	
+Lewis	75,081	Centralia, WA Micropolitan Statistical Area
+Lincoln	10,301	
+Mason	60,497	Shelton, WA Micropolitan Statistical Area
+Okanogan	41,193	
+Pacific	20,498	
+Pend Oreille	12,896	Spokane-Spokane Valley, WA Metropolitan Statistical Area
+Pierce	819,743	Seattle-Tacoma-Bellevue, WA Metropolitan Statistical Area
+San Juan	15,875	
+Skagit	118,837	Mount Vernon-Anacortes, WA Metropolitan Statistical Area
+Skamania	11,274	Portland-Vancouver-Hillsboro, OR-WA Metropolitan Statistical Area
+Snohomish	745,913	Seattle-Tacoma-Bellevue, WA Metropolitan Statistical Area
+Spokane	479,398	Spokane-Spokane Valley, WA Metropolitan Statistical Area
+Stevens	43,430	Spokane-Spokane Valley, WA Metropolitan Statistical Area
+Thurston	262,388	Olympia-Tumwater, WA Metropolitan Statistical Area
+Wahkiakum	4,042	
+Walla Walla	59,530	Walla Walla, WA Metropolitan Statistical Area
+Whatcom	206,353	Bellingham, WA Metropolitan Statistical Area
+Whitman	46,570	Pullman, WA Micropolitan Statistical Area
+Yakima	247,044	Yakima, WA Metropolitan Statistical Area
+Barbour	 West Virginia	16,770	
+Berkeley	108,706	Hagerstown-Martinsburg, MD-WV Metropolitan Statistical Area
+Boone	24,224	Charleston, WV Metropolitan Statistical Area
+Braxton	14,502	
+Brooke	23,737	Weirton-Steubenville, WV-OH Metropolitan Statistical Area
+Cabell	97,133	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Calhoun	7,564	
+Clay	9,244	Charleston, WV Metropolitan Statistical Area
+Doddridge	8,344	Clarksburg, WV Micropolitan Statistical Area
+Fayette	45,599	Beckley, WV Metropolitan Statistical Area
+Gilmer	8,672	
+Grant	11,759	
+Greenbrier	35,644	
+Hampshire	23,445	Winchester, VA-WV Metropolitan Statistical Area
+Hancock	30,291	Weirton-Steubenville, WV-OH Metropolitan Statistical Area
+Hardy	13,920	
+Harrison	68,972	Clarksburg, WV Micropolitan Statistical Area
+Jackson	29,178	
+Jefferson	55,073	Washington-Arlington-Alexandria, DC-VA-MD-WV Metropolitan Statistical Area
+Kanawha	191,275	Charleston, WV Metropolitan Statistical Area
+Lewis	16,452	
+Lincoln	21,559	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Logan	35,987	Logan, WV Micropolitan Statistical Area
+McDowell	20,876	
+Marion	56,868	Fairmont, WV Micropolitan Statistical Area
+Marshall	32,459	Wheeling, WV-OH Metropolitan Statistical Area
+Mason	27,126	Point Pleasant, WV-OH Micropolitan Statistical Area
+Mercer	61,984	Bluefield, WV-VA Micropolitan Statistical Area
+Mineral	27,704	Cumberland, MD-WV Metropolitan Statistical Area
+Mingo	25,900	
+Monongalia	102,274	Morgantown, WV Metropolitan Statistical Area
+Monroe	13,483	
+Morgan	17,498	
+Nicholas	25,965	
+Ohio	43,727	Wheeling, WV-OH Metropolitan Statistical Area
+Pendleton	7,471	
+Pleasants	7,577	
+Pocahontas	8,669	
+Preston	33,859	Morgantown, WV Metropolitan Statistical Area
+Putnam	56,650	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Raleigh	78,833	Beckley, WV Metropolitan Statistical Area
+Randolph	29,415	Elkins, WV Micropolitan Statistical Area
+Ritchie	10,073	
+Roane	14,656	
+Summers	13,563	
+Taylor	16,973	Clarksburg, WV Micropolitan Statistical Area
+Tucker	6,968	
+Tyler	8,995	
+Upshur	24,665	
+Wayne	41,437	Huntington-Ashland, WV-KY-OH Metropolitan Statistical Area
+Webster	8,893	
+Wetzel	16,204	
+Wirt	5,901	Parkersburg-Vienna, WV Metropolitan Statistical Area
+Wood	86,569	Parkersburg-Vienna, WV Metropolitan Statistical Area
+Wyoming	23,019	
+Adams	 Wisconsin	20,480	
+Ashland	16,016	
+Barron	45,676	
+Bayfield	15,156	
+Brown	254,586	Green Bay, WI Metropolitan Statistical Area
+Buffalo	13,357	
+Burnett	15,333	
+Calumet	49,617	Appleton, WI Metropolitan Statistical Area
+Chippewa	63,132	Eau Claire, WI Metropolitan Statistical Area
+Clark	34,615	
+Columbia	56,653	Madison, WI Metropolitan Statistical Area
+Crawford	16,397	
+Dane	509,939	Madison, WI Metropolitan Statistical Area
+Dodge	88,344	Beaver Dam, WI Micropolitan Statistical Area
+Door	27,896	
+Douglas	43,887	Duluth, MN-WI Metropolitan Statistical Area
+Dunn	44,122	Menomonie, WI Micropolitan Statistical Area
+Eau Claire	101,438	Eau Claire, WI Metropolitan Statistical Area
+Florence	4,520	Iron Mountain, MI-WI Micropolitan Statistical Area
+Fond du Lac	101,798	Fond du Lac, WI Metropolitan Statistical Area
+Forest	9,126	
+Grant	51,069	Platteville, WI Micropolitan Statistical Area
+Green	37,090	Madison, WI Metropolitan Statistical Area
+Green Lake	18,959	
+Iowa	23,749	Madison, WI Metropolitan Statistical Area
+Iron	5,886	
+Jackson	20,644	
+Jefferson	84,509	Watertown-Fort Atkinson, WI Micropolitan Statistical Area
+Juneau	26,547	
+Kenosha	167,757	Chicago-Naperville-Elgin, IL-IN-WI Metropolitan Statistical Area
+Kewaunee	20,505	Green Bay, WI Metropolitan Statistical Area
+La Crosse	116,713	La Crosse-Onalaska, WI-MN Metropolitan Statistical Area
+Lafayette	16,766	
+Langlade	19,575	
+Lincoln	28,684	Merrill, WI Micropolitan Statistical Area
+Manitowoc	80,654	Manitowoc, WI Micropolitan Statistical Area
+Marathon	135,416	Wausau, WI Metropolitan Statistical Area
+Marinette	41,610	Marinette, WI-MI Micropolitan Statistical Area
+Marquette	15,176	
+Menominee	4,317	Shawano, WI Micropolitan Statistical Area
+Milwaukee	956,023	Milwaukee-Waukesha-West Allis, WI Metropolitan Statistical Area
+Monroe	45,298	
+Oconto	37,318	Green Bay, WI Metropolitan Statistical Area
+Oneida	35,689	
+Outagamie	180,345	Appleton, WI Metropolitan Statistical Area
+Ozaukee	87,054	Milwaukee-Waukesha-West Allis, WI Metropolitan Statistical Area
+Pepin	7,360	
+Pierce	40,976	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Polk	43,476	
+Portage	70,380	Stevens Point, WI Micropolitan Statistical Area
+Price	13,802	
+Racine	195,041	Racine, WI Metropolitan Statistical Area
+Richland	17,717	
+Rock	160,739	Janesville-Beloit, WI Metropolitan Statistical Area
+Rusk	14,395	
+St. Croix	85,930	Minneapolis-St. Paul-Bloomington, MN-WI Metropolitan Statistical Area
+Sauk	63,162	Baraboo, WI Micropolitan Statistical Area
+Sawyer	16,513	
+Shawano	41,643	Shawano, WI Micropolitan Statistical Area
+Sheboygan	114,922	Sheboygan, WI Metropolitan Statistical Area
+Taylor	20,610	
+Trempealeau	29,582	
+Vernon	30,329	
+Vilas	21,368	
+Walworth	102,945	Whitewater-Elkhorn, WI Micropolitan Statistical Area
+Washburn	15,686	
+Washington	132,739	Milwaukee-Waukesha-West Allis, WI Metropolitan Statistical Area
+Waukesha	393,843	Milwaukee-Waukesha-West Allis, WI Metropolitan Statistical Area
+Waupaca	52,285	
+Waushara	24,329	
+Winnebago	169,541	Oshkosh-Neenah, WI Metropolitan Statistical Area
+Wood	73,959	Wisconsin Rapids-Marshfield, WI Micropolitan Statistical Area
+Albany	 Wyoming	37,422	Laramie, WY Micropolitan Statistical Area
+Big Horn	11,994	
+Campbell	48,176	Gillette, WY Micropolitan Statistical Area
+Carbon	15,748	
+Converse	14,313	
+Crook	7,184	
+Fremont	40,998	Riverton, WY Micropolitan Statistical Area
+Goshen	13,612	
+Hot Springs	4,847	
+Johnson	8,628	
+Laramie	95,809	Cheyenne, WY Metropolitan Statistical Area
+Lincoln	18,364	
+Natrona	80,973	Casper, WY Metropolitan Statistical Area
+Niobrara	2,541	
+Park	29,227	
+Platte	8,765	
+Sheridan	29,824	Sheridan, WY Micropolitan Statistical Area
+Sublette	10,041	
+Sweetwater	45,237	Rock Springs, WY Micropolitan Statistical Area
+Teton	22,268	Jackson, WY-ID Micropolitan Statistical Area
+Uinta	21,066	Evanston, WY Micropolitan Statistical Area
+Washakie	8,463	
+Weston	7,158	

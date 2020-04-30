@@ -1,0 +1,79 @@
+# https://www.irs.gov/pub/irs-utl/zip_code_and_state_abbreviations.pdf
+# on Wed Mar 11 2020
+
+# Standard Postal Service State Abbreviations and ZIP Codes
+# State Abbr. ZIP Code
+Alabama AL 350nn-352nn, 354nn-369nn
+Alaska AK 995nn-999nn
+Arizona AZ 850nn-853nn, 855nn-857nn, 859nn-850nn, 863nn-865nn
+Arkansas AR 716nn-729nn
+California CA 900nn-908nn, 910nn-928nn, 930nn-961nn
+Colorado CO 800nn-816nn
+Connecticut CT 060nn-06389, 06391-069nn
+Delaware DE 197nn-199nn
+District of Columbia DC 200nn, 202nn-205nn, 569nn
+Florida FL 320nn-339nn, 341nn, 342nn, 344nn, 346nn, 347nn, 349nn
+Georgia GA 300nn-319nn, 398nn-399nn
+Hawaii HI 967nn, 968nn
+Idaho ID 832nn-838nn
+Illinois IL 600nn-620nn, 622nn-629nn
+Indiana IN 460nn-479nn
+Iowa IA 500nn-516nn, 520nn-528nn
+Kansas KS 660nn-662nn, 664nn-679nn
+Kentucky KY 400nn-427nn
+Louisiana LA 700nn-701nn, 703nn-708nn, 710nn-714nn
+Maine ME 039nn-049nn
+Maryland MD 206nn-212nn, 214nn-219nn
+Massachusetts MA 010nn-027nn, 055nn
+Michigan MI 480nn-499nn
+Minnesota MN 550nn-551nn, 553nn-567nn
+Mississippi MS 386nn-397nn
+Missouri MO 630nn-631nn, 633nn-641nn, 644nn-658nn
+Montana MT 590nn-599nn
+Nebraska NE 680nn-681nn, 683nn-693nn
+Nevada NV 889nn-891nn, 893nn-895nn, 897nn-898nn
+New Hampshire NH 030nn-038nn
+New Jersey NJ 070nn-089nn
+New Mexico NM 870nn-871nn, 873nn-875nn, 877nn-884nn
+New York NY 005nn, 06390, 100nn-149nn
+North Carolina NC 270nn-289nn
+North Dakota ND 580nn-588nn
+Ohio OH 430nn-459nn
+Oklahoma OK 730nn-731nn, 734nn-741nn, 743nn-749nn
+Oregon OR 970nn-979nn
+Pennsylvania PA 150nn-196nn
+Rhode Island RI 028nn, 029nn 
+South Carolina SC 290nn-299nn
+South Dakota SD 570nn-577nn
+Tennessee TN 370nn-385nn
+Texas TX 733nn, 750nn-770nn, 772nn-799nn
+Utah UT 840nn-847nn
+Vermont VT 050nn-054nn, 056nn-059nn
+Virginia VA 201nn, 220nn-246nn
+Washington WA 980nn-986nn, 988nn-994nn
+West Virginia WV 247nn-268nn
+Wisconsin WI 530nn-532nn, 534nn-535nn, 537nn-549nn
+Wyoming WY 820nn-831nn, 834nn
+
+# Standard Postal Service State Abbreviations and ZIP Codes
+# For U.S. Possessions
+# U.S. Possession Abbr. ZIP Code
+American Somoa AS 96799
+Federated States of Micronesia FM 969nn
+Guam GU 969nn
+Marshall Islands MH 969nn
+Commonwealth of the Northern Mariana Islands MP 969nn
+Palau PW 969nn
+Puerto Rico PR 006nn-007nn, 009nn
+U.S. Virgin Islands VI 008nn
+
+# Form 1120 and 1120S returns with addresses in the American Possessions are considered to
+# have domestic addresses for processing purposes. The corporate return filer address
+# (1120/1120S) must contain a state abbreviation to be treated as (and processed in Philadelphia)
+# an American Possession.
+
+# APO/FPO/DPO CITY/STATE/ZIP Codes for Military Overseas Addresses
+# City State ZIP Code
+APO or FPO or DPO AA 340nn
+APO or FPO or DPO AE 090nn-098nn
+APO or FPO or DPO AP 962nn-966nn 

@@ -1,0 +1,141 @@
+# from https://www.lavasurfer.com/info/socialsecurity.html
+
+The first three digits of a Social Security Number correspond to locations as follows:
+SSN	State
+
+001-003	New Hampshire
+004-007	Maine
+008-009	Vermont
+010-034	Massachusetts
+035-039	Rhode Island
+040-049	Connecticut
+050-134	New York
+135-158	New Jersey
+159-211	Pennsylvania
+212-220	Maryland
+221-222	Delaware
+223-231 691-699	Virginia
+232 237-246 681-690	North Carolina
+232-236	West Virginia
+247-251 654-658	South Carolina
+252-260 667-675	Georgia
+261-267 589-595 766-772	Florida
+268-302	Ohio
+303-317	Indiana
+318-361	Illinois
+362-386	Michigan
+387-399	Wisconsin
+400-407	Kentucky
+408-415 756-763	Tennessee
+416-424	Alabama
+425-428 587-588 752-755	Mississippi
+429-432 676-679	Arkansas
+433-439 659-665	Louisiana
+440-448	Oklahoma
+449-467 627-645	Texas
+468-477	Minnesota
+478-485	Iowa
+486-500	Missouri
+501-502	North Dakota
+503-504	South Dakota
+505-508	Nebraska
+509-515	Kansas
+516-517	Montana
+518-519	Idaho
+520	Wyoming
+521-524 650-653	Colorado
+525,585 648-649	New Mexico
+526-527 600-601 764-765	Arizona
+528-529 646-647	Utah
+530, 680	Nevada
+531-539	Washington
+540-544	Oregon
+545-573 602-626	California
+574	Alaska
+575-576 750-751	Hawaii
+577-579	District of Columbia
+580	Virgin Islands
+580-584 596-599	Puerto Rico
+586	American Samoa
+586	Guam
+586	Philippine Islands
+700-728	Railroad Board*
+729-733	Enumeration at Entry
+
+237-246, 587-665, 667-679, 681-699, 750-772	Officially: Not Issued
+734-749, 773-899	Unknown
+000, 666, 900-999	Never valid numbers
+
+-------------------------------------------------------------------------------
+
+How to Decipher a Social Security Number
+
+This information isn't really a secret. It just isn't very well known.
+According to the Social Security Administration, your nine-digit Social
+Security Number (SSN) is divided into three parts:
+
+1. The first three digits are known as the "area number". Until June 25, 2011,
+this is generally the State or territory where your SSN was assigned.
+Thereafter, the number was randomly assigned.
+
+2. The second two numbers are known as the "group numbers". They really do not
+have any geographical or data significance.
+
+3. The third set of four numbers is simply the numerical sequence of digits
+0001 to 9999 issued within each group.
+
+By using the first three numbers of anyone's SSN, you can often tell in which
+State they were born, or at the least, one of the States where they once lived.
+Try it!
+
+-------------------------------------------------------------------------------
+
+Important Notes:
+
+1) * = 700-728 issuance of these numbers to railroad employees was discontinued
+July 1, 1963.
+
+2) If the same area number appears above more than once, it is because certain
+numbers were transferred from one State to another or that the area number was
+divided for use amongst certain geographical locations.
+
+3) Any number beginning with "000", "666", "900-999", has a middle "00", or
+ends in "0000" will never be a valid SSN.
+
+4) Originally, the first three digits were assigned by the geographical region
+in which the person was residing at the time the number was assigned.
+"Generally, numbers were assigned beginning in the northeast and moved
+westward. So people on the east coast had the lowest numbers and those on the
+west coast had the highest numbers".
+
+5) Since 1972/1973, when SSA started assigning SSNs and issuing cards centrally
+from Baltimore, the Area Number assigned has been based on the ZIP code in the
+mailing address provided on the application for the original Social Security
+card. The applicant's mailing address does not have to be the same as their
+place of birth or residence. Prior to 1972/1973, social security numbers were
+assigned by field offices. Therefore, the Area Number does not necessarily
+represent the State of residence of the applicant, either prior to 1972/1973 or
+since.
+
+6) People born in the United States since 1987 may have had their SSN applied
+for them by the hospital at birth. This policy varies by State.
+
+7) Effective June 25, 2011, the SSA began a new randomized assignment
+methodology, called "SSN Randomization", in an effort to extend the longevity
+of the nine-digit SSN nationwide as well as for security since randomization
+makes the newly assigned SSN's more difficult to reconstruct using public
+information. Unused area numbers previously assigned to states, as well as
+previously unassigned area numbers, will now be available in the new
+randomization system.
+
+8) Numbers in red were originally assigned to these states but were
+subsequently unassigned come June 2011 and used in the new randomized
+assignment. Numbers in these "officially" unissued series may still have been
+issued for applicants in these states prior to randomization.
+
+9) Social Security Numbers are never reassigned after someone dies. Despite
+issuing over 450 million SSN's since 1936, and assigning about 5.5 million new
+numbers a year, they can still issue new numbers for several generations.
+
+Original Source: www.socialsecurity.gov. All data is current as of April 15, 2019.
+
