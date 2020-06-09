@@ -1,0 +1,13 @@
+     anger
+     boredom
+     contempt
+     disgust
+     excitement
+     excitement
+     fear
+     guilt
+     happy
+     joy
+     sadness
+     shame
+     surprise

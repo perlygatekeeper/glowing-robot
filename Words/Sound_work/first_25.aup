@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="first_25_data" version="1.3.0" audacityversion="2.3.3" sel0="1.7183837792" sel1="1.7183837792" vpos="144" h="0.0000000000" zoom="231.6129870565" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="ARTIST" value="Steve Parker"/>
+		<tag name="ALBUM" value="100 most common words"/>
+		<tag name="TRACKNUMBER" value="01"/>
+		<tag name="YEAR" value="2020"/>
+		<tag name="TITLE" value="the"/>
+		<tag name="GENRE" value="audio clips"/>
+	</tags>
+	<wavetrack name="first_25" isSelected="0" height="221" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439071">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f872.au" len="226864" min="-0.600665" max="0.602902" rms="0.073921"/>
+				</waveblock>
+				<waveblock start="226864">
+					<simpleblockfile filename="eff1ff12.au" len="212207" min="-0.760939" max="0.891251" rms="0.077362"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="9.95625850" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="952">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f5b3.au" len="952" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="first_25" isSelected="0" height="221" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="439071">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f4dc.au" len="226864" min="-0.600665" max="0.602902" rms="0.073921"/>
+				</waveblock>
+				<waveblock start="226864">
+					<simpleblockfile filename="eff1f022.au" len="212207" min="-0.760939" max="0.891251" rms="0.077362"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="9.95625850" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="952">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fbf5.au" len="952" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<labeltrack name="Label Track" isSelected="0" height="73" minimized="0" numlabels="23">
+		<label t="-0.0400000000" t1="0.2900000000" title="1"/>
+		<label t="0.4300000000" t1="0.7300000000" title="2"/>
+		<label t="0.9200000000" t1="1.1800000000" title="3"/>
+		<label t="1.1600000000" t1="1.5600000000" title="4"/>
+		<label t="2.2700000000" t1="2.5700000000" title="5"/>
+		<label t="2.7700000000" t1="2.7700000000" title="S"/>
+		<label t="3.1200000000" t1="3.4200000000" title="6"/>
+		<label t="3.5100000000" t1="3.7300000000" title="7"/>
+		<label t="3.6600000000" t1="4.0000000000" title="8"/>
+		<label t="3.9900000000" t1="4.3000000000" title="9"/>
+		<label t="4.5000000000" t1="4.8600000000" title="10"/>
+		<label t="4.9600000000" t1="5.3000000000" title="11"/>
+		<label t="5.3800000000" t1="5.7700000000" title="12"/>
+		<label t="5.8800000000" t1="6.2400000000" title="13"/>
+		<label t="6.7400000000" t1="6.9600000000" title="14"/>
+		<label t="7.1200000000" t1="7.1200000000" title="S"/>
+		<label t="7.1700000000" t1="7.5100000000" title="15"/>
+		<label t="7.5500000000" t1="7.8700000000" title="16"/>
+		<label t="8.1500000000" t1="8.4000000000" title="17"/>
+		<label t="8.8100000000" t1="9.0900000000" title="18"/>
+		<label t="9.2500000000" t1="9.2500000000" title="S"/>
+		<label t="9.3000000000" t1="9.6900000000" title="19"/>
+		<label t="9.6800000000" t1="9.9900000000" title="20"/>
+	</labeltrack>
+	<labeltrack name="Label Track" isSelected="1" height="73" minimized="0" numlabels="3">
+		<label t="2.0700000000" t1="2.0700000000" title="S"/>
+		<label t="2.9402496322" t1="2.9402496322" title="S "/>
+		<label t="8.6000000000" t1="8.6000000000" title="S"/>
+	</labeltrack>
+</project>

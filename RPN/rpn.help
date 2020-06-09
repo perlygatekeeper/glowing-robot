@@ -1,0 +1,105 @@
+           Command        Type  Help Message
+                != (   boolian) pops two numbers off the stack, pushes the result of a !=  b
+                 < (   boolian) pops two numbers off the stack, pushes the result of a <   b
+                <= (   boolian) pops two numbers off the stack, pushes the result of a <=  b
+               <=> (   boolian) pops two numbers off the stack, pushes the result of a <=> b
+                == (   boolian) pops two numbers off the stack, pushes the result of a ==  b
+                 > (   boolian) pops two numbers off the stack, pushes the result of a >   b
+                >= (   boolian) pops two numbers off the stack, pushes the result of a >=  b
+               cmp (   boolian) pops two numbers off the stack, pushes the result of a cmp b
+                eq (   boolian) pops two numbers off the stack, pushes the result of a eq  b
+                ge (   boolian) pops two numbers off the stack, pushes the result of a ge  b
+                gt (   boolian) pops two numbers off the stack, pushes the result of a gt  b
+                le (   boolian) pops two numbers off the stack, pushes the result of a le  b
+                lt (   boolian) pops two numbers off the stack, pushes the result of a lt  b
+                ne (   boolian) pops two numbers off the stack, pushes the result of a ne  b
+
+          constant (   contant) lists constants known or pushes a named constant on the stack
+
+celsius_fahrenheit (conversion) treat number on top of stack as a celsius temperature and convert it to fahrenheit
+   centimeter_inch (conversion) treat number on top of stack as a distance in centimeters and convert it to inches
+fahrenheit_celsius (conversion) treat number on top of stack as a fahrenheit temperature and convert it to celsius
+        gram_ounce (conversion) treat number on top of stack as a weight in grams and convert it to ounces
+   inch_centimeter (conversion) treat number on top of stack as a distance in inches and convert it to centimeters
+    kilogram_pound (conversion) treat number on top of stack as a weight in kilograms and convert it to pounds
+    kilometer_mile (conversion) treat number on top of stack as a distance in kilometers and convert it to miles
+       liter_quart (conversion) treat number on top of stack as a volume in liters and convert it to quarts
+    mile_kilometer (conversion) treat number on top of stack as a distance in miles and convert it to kilometers
+        ounce_gram (conversion) treat number on top of stack as a weight in ounces and convert it to grams
+    pound_kilogram (conversion) treat number on top of stack as a weight in pounds and convert it to kilograms
+       quart_liter (conversion) treat number on top of stack as a volume in quarts and convert it to liters
+
+              eval (     debug) meant for debugging, will eval argument string
+              num2 (     debug) meant for debugging, there is no num2 function
+
+                if (      flow) top two elements of stack are popped,
+                                the top value is a boolean and second is a RPN function
+                                RPN function is executed if the boolean was true
+            ifelse (      flow) top 3 elements of stack are popped,
+                                the top value is a boolean and second and third are a RPN functions
+                                first RPN function is executed if the boolean was true
+                                second RPN function is executed if the boolean was false
+              noop (      flow) no operation
+
+                 / (   numeric) shifts two numbers off the stack and pushes their integer quotient and modulus
+               add (   numeric) shifts two numbers off the stack and pushes their sum
+           average (   numeric) replace the first n values of the stack with the average of these values
+              cube (   numeric) cube number on top of the stack
+         decrement (   numeric) decrement number on top of stack
+            divide (   numeric) shifts two numbers off the stack and pushes their quotient
+               exp (   numeric) replaces number on top of stack with E raised to that number
+      exponentiate (   numeric) shifts two numbers off the stack and pushes X ^ Y
+         increment (   numeric) increment number on top of stack
+               log (   numeric) replaces number on top of stack with it's natural logaritm
+             log10 (   numeric) replaces number on top of stack with it's logaritm base 10
+           maximum (   numeric) replace the first n values of the stack with the largest of these values
+           minimum (   numeric) replace the first n values of the stack with the smallest of these values
+            modulo (   numeric) shifts two numbers off the stack and pushes the modulus
+          multiply (   numeric) shifts two numbers off the stack and pushes their product
+            negate (   numeric) negates  number on top of stack
+            square (   numeric) square number on top of the stack
+        squareroot (   numeric) replaces number on top of stack with it's square root
+          subtract (   numeric) pops two numbers off the stack and pushes their difference
+               sum (   numeric) replace the first n values of the stack with the sum of these values
+
+             clear (     stack) empties stack
+              copy (     stack) replaces top value of the stack with n copies of itself
+         duplicate (     stack) duplicates number on top of stack
+          exchange (     stack) swaps top two values on the stack
+               pop (     stack) pop the top element of the stack
+            rotate (     stack) rotate range movement,
+                                rotates top "range" elements of the stack by "movement" steps deeper
+             slide (     stack) pops value off present stack and pushes it onto new stack N times
+             stack (     stack) moves to a different stack, or reports present stack, name and depth
+          transfer (     stack) moves top N values (defaults to entire stack) on present stack to new stack
+
+       concatenate (    string) replaces top two values on the stack with the string concatenation of them
+
+            cosine (      trig) replace number on top of stack with that number's cosine
+              sine (      trig) replace number on top of stack with that number's sine
+           tangent (      trig) replace number on top of stack with that number's tangent
+
+            binary (   utility) prints top value on stack (does not pop it) in binary format(doesn't work)
+           decimal (   utility) prints top value on stack (does not pop it) in decimal format
+             depth (   utility) pushes depth of the stack unto stack
+           execute (   utility) treats top element of the stack as an RPN function and executes it
+          function (   utility) treats first argument as a perl funcation and applies to top element of the stack
+                                ie, 'function oct' would replace top value of the stack with perl's oct(value)
+              help (   utility) prints help on given command or all commands if none is specified
+       hexadecimal (   utility) prints top value on stack (does not pop it) in hexadecimal format
+             octal (   utility) prints top value on stack (does not pop it) in octal format
+          operator (   utility) treats first argument as a perl operator and applies to top element of the stack
+                                ie, 'operator +=2' would replace top value of the stack with value+2
+              peek (   utility) prints top value on stack (does not pop it)
+           peekall (   utility) prints entire stack (does not effect stack)
+             peekf (   utility) prints top value on stack (does not pop it) with first arg as a format
+                                formats like printf.
+             print (   utility) pops and prints top value on stack
+            printf (   utility) pops and prints top value on stack with first arg as a format
+                                some useful formats (letter must follow a '%' character):
+                                d,i - decimal
+                                x,X - hexadecimal with (abcdef) or (ABCDEF) respectively
+                                o   - octal
+                                nb  - binary format
+
+              quit (   utility) exits the program
