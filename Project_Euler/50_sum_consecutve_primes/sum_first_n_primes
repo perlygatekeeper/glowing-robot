@@ -1,0 +1,36 @@
+#!/opt/local/bin/python
+
+import timeit
+import time
+import sys
+
+def sieveOfSundaram(n=1000):
+   k = int(( n - 2 ) / 2 )
+   a = [0] * ( k + 1 )
+   for i in range( 1, k + 1):
+       j = i
+       while(( i + j + 2 * i * j ) <= k):
+           a[ i + j + 2 * i * j ] = 1
+           j+=1
+   if n > 2:
+       primes.append( 2 )
+   for i in range(1, k + 1):
+       if a[i] == 0:
+           primes.append( (2*i + 1 ))
+   return primes
+
+if len(sys.argv) == 3:
+  limit    = int(sys.argv[1])
+  length   = int(sys.argv[2])
+else: 
+  limit    = 1000
+  length   = 21
+
+primes = []
+primes = sieveOfSundaram(limit)
+sum_of_primes = 0
+for i in range(0,length):
+   print(i,primes[i])
+   sum_of_primes += primes[i]
+
+print ("Sum of the first %d consecutive primes (ending with %d) is %d" % (length, primes[length-1], sum_of_primes) )

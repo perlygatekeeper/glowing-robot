@@ -1,0 +1,207 @@
+#!/opt/local/bin/python
+
+import timeit
+import time
+import sys
+
+limit   = 1000000000
+# limit   = 10
+
+def sieveOfSundaram(n=1000):
+   k = int(( n - 2 ) / 2 )
+   a = [0] * ( k + 1 )
+   print("We made a list of %d zeros" % (k+1) )
+   print("In %f seconds." % ( timeit.default_timer() - start_time) )
+   for i in range( 1, k + 1):
+       if i%1000000 == 0:
+           print("one million processed")
+       j = i
+       while(( i + j + 2 * i * j ) <= k):
+           a[ i + j + 2 * i * j ] = 1
+           j+=1
+   if n > 2:
+       primes.append( 2 )
+   for i in range(1, k + 1):
+       if a[i] == 0:
+           primes.append( (2*i + 1 ))
+   return primes
+
+def findLargestConsecutiveSum(index_of_first_prime, smallest_sequence, primes):
+#    print("starting at %d and a minimum sequence of %d primes." % (primes[index_of_first_prime], smallest_sequence))
+    record        = 0
+    record_prime  = 0
+    sum_of_primes = 0
+    for i in range(smallest_sequence):
+        sum_of_primes += primes[index_of_first_prime + i]
+#        if index_of_first_prime== 3 and ( i < 5 or i > (smallest_sequence-3)):
+#            print("%d - %d:%d" % ( i, primes[index_of_first_prime + i], sum_of_primes) )
+    if sum_of_primes > limit:
+        print("starting at %d and a minimum sequence of %d primes." % (primes[index_of_first_prime], smallest_sequence))
+        print("lead to a number bigger than %d (%d) so we are done!" % ( limit, sum_of_primes ) )
+        return []
+    if (sum_of_primes in primes):
+        record = smallest_sequence
+        record_prime = sum_of_primes
+    for i in range(smallest_sequence,50001):
+        sum_of_primes += primes[index_of_first_prime + i]
+#        if index_of_first_prime== 1 and i < (smallest_sequence+3):
+#            print("%d - %d:%d" % ( i, primes[i], sum_of_primes) )
+        if (sum_of_primes >= limit):
+            break
+        if sum_of_primes % 2 == 0:
+            continue
+        if (sum_of_primes in prime_lookup):
+            prime_sum_is_prime = "Prime"
+            record = i+1
+            record_prime = sum_of_primes
+        else:
+            prime_sum_is_prime = "Nope"
+#       if index_of_first_prime == 0:
+#           print("%4d -%6d:%6d %s" % ( i+1, primes[i], sum_of_primes, prime_sum_is_prime ))
+    if (record > smallest_sequence):
+      print ("record is %d consecutive primes starting at %d summing to %d" % (record, primes[index_of_first_prime], record_prime) )
+      return [record, record_prime]
+    else:
+      return [ 0 , 0 ]
+
+
+start_time = timeit.default_timer()
+primes  = []
+records = []
+prime_lookup = {}
+print("First we will find all primes up to %d" % (limit))
+primes = sieveOfSundaram(limit)
+print("We found %d primes" % (len(primes)))
+print("In %f seconds." % ( timeit.default_timer() - start_time) )
+# set up a dictionary for a faster way to look up if a number is prime or not.
+i = 0
+for prime in primes:
+    prime_lookup[prime]=i
+    i += 1
+
+smallest_sequence = 1
+for i in range(3000):
+    returned = findLargestConsecutiveSum(i, smallest_sequence, primes)
+    if len(returned) != 2:
+        break
+    if returned[0] != 0:
+      records.append(
+        { "Starts at"       : primes[i],
+          "Sequence length" : returned[0],
+          "Sums to"         : returned[1] } )
+      smallest_sequence = returned[0]
+
+for this_record in records:
+    print("Record sequence of primes starting at %d which sum to another prime below %d is %d long and sums to %d" \
+        % ( this_record["Starts at"], limit, this_record["Sequence length"], this_record["Sums to"] ) )
+print( "Ran in %f seconds." % ( timeit.default_timer() - start_time) )
+
+'''
+First we will find all primes up to 1000000000
+We made a list of 500000000 zeros
+In 2.318009 seconds.
+We found 50847534 primes
+In 1611.230890 seconds.
+record is 13932 consecutive primes starting at 2 summing to 998658581
+record is 13935 consecutive primes starting at 11 summing to 999715711
+starting at 17 and a minimum sequence of 13935 primes.
+lead to a number bigger than 1000000000 (1000017835) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 1000000000 is 13932 long and sums to 998658581
+Record sequence of primes starting at 11 which sum to another prime below 1000000000 is 13935 long and sums to 999715711  <-- 1,000,000,000
+Ran in 1654.292752 seconds.   (that's 27:34)
+
+First we will find all primes up to 100000000
+We found 5761455 primes
+In 131.043881 seconds.
+record is 4676 consecutive primes starting at 2 summing to 99278407
+record is 4685 consecutive primes starting at 7 summing to 99819619
+starting at 19 and a minimum sequence of 4685 primes.
+lead to a number bigger than 1,000,000 (100000319) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 100000000 is 4676 long and sums to 99278407
+Record sequence of primes starting at 7 which sum to another prime below 100000000 is 4685 long and sums to 99819619  <-- 100,000,000
+Ran in 134.989453 seconds.
+
+First we will find all primes up to 100000000
+We found 5761455 primes
+record is 1546 consecutive primes starting at 2 summing to 9384209
+record is 1583 consecutive primes starting at 3 summing to 9884311
+record is 1587 consecutive primes starting at 5 summing to 9951191
+starting at 17 and a minimum sequence of 1587 primes.
+lead to a number bigger than 10,000,000 (10004845) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 10000000 is 1546 long and sums to 9384209
+Record sequence of primes starting at 3 which sum to another prime below 10000000 is 1583 long and sums to 9884311
+Record sequence of primes starting at 5 which sum to another prime below 10000000 is 1587 long and sums to 9951191  <-- 10,000,000
+Ran in 11.663082 seconds.
+
+First we will find all primes up to 1000000
+We found 78498 primes
+In 0.995822 seconds.
+record is 536 consecutive primes starting at 2 summing to 958577
+record is 539 consecutive primes starting at 5 summing to 978037
+record is 543 consecutive primes starting at 7 summing to 997651
+starting at 11 and a minimum sequence of 543 primes.
+lead to a number bigger than 1000000 (1001587) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 1000000 is 536 long and sums to 958577
+Record sequence of primes starting at 5 which sum to another prime below 1000000 is 539 long and sums to 978037
+Record sequence of primes starting at 7 which sum to another prime below 1000000 is 543 long and sums to 997651  <-- 1,000,000
+Ran in 1.030690 seconds.
+
+
+First we will find all primes up to 100000
+We found 9592 primes
+In 0.083815 seconds.
+record is 178 consecutive primes starting at 2 summing to 86453
+record is 183 consecutive primes starting at 3 summing to 92951
+starting at 23 and a minimum sequence of 183 primes.
+lead to a number bigger than 100000 (100761) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 100000 is 178 long and sums to 86453
+Record sequence of primes starting at 3 which sum to another prime below 100000 is 183 long and sums to 92951
+Record sequence of primes starting at 3 which sum to another prime below 100000 is 183 long and sums to 92951 <-- 100,000
+Ran in 0.085508 seconds.
+
+First we will find all primes up to 10000
+We found 1229 primes
+In 0.005929 seconds.
+record is 64 consecutive primes starting at 2 summing to 8893
+record is 65 consecutive primes starting at 3 summing to 9521
+starting at 7 and a minimum sequence of 65 primes.
+lead to a number bigger than 10000 (10181) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 10000 is 64 long and sums to 8893
+Record sequence of primes starting at 3 which sum to another prime below 10000 is 65 long and sums to 9521 <-- 10,000
+Ran in 0.006619 seconds.
+
+First we will find all primes up to 1000
+We found 168 primes
+In 0.000566 seconds.
+record is 14 consecutive primes starting at 2 summing to 281
+record is 17 consecutive primes starting at 3 summing to 499
+record is 21 consecutive primes starting at 7 summing to 953
+starting at 11 and a minimum sequence of 21 primes.
+lead to a number bigger than 1000 (1043) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 1000 is 14 long and sums to 281
+Record sequence of primes starting at 3 which sum to another prime below 1000 is 17 long and sums to 499
+Record sequence of primes starting at 7 which sum to another prime below 1000 is 21 long and sums to 953
+Record sequence of primes starting at 7 which sum to another prime below 1000 is 21 long and sums to 953 <-- 1,000
+Ran in 0.000593 seconds.
+
+First we will find all primes up to 100
+We found 25 primes
+In 0.000100 seconds.
+record is 6 consecutive primes starting at 2 summing to 41
+starting at 11 and a minimum sequence of 6 primes.
+lead to a number bigger than 100 (112) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 100 is 6 long and sums to 41
+Record sequence of primes starting at 2 which sum to another prime below 100 is 6 long and sums to 41  <--- 100
+Ran in 0.000176 seconds.
+
+First we will find all primes up to 10
+We found 4 primes
+In 0.000074 seconds.
+record is 2 consecutive primes starting at 2 summing to 5
+starting at 5 and a minimum sequence of 2 primes.
+lead to a number bigger than 10 (12) so we are done!
+Record sequence of primes starting at 2 which sum to another prime below 10 is 2 long and sums to 5
+Record sequence of primes starting at 2 which sum to another prime below 10 is 2 long and sums to 5 <-- 10
+Ran in 0.000130 seconds.
+
+'''

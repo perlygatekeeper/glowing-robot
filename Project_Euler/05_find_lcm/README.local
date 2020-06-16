@@ -1,0 +1,18 @@
+https://projecteuler.net/problem=5
+
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+Solution:
+adding multiple (2 ^ 4)
+adding multiple (3 ^ 2)
+adding multiple (5 ^ 1)
+adding multiple (7 ^ 1)
+adding multiple (11 ^ 1)
+adding multiple (13 ^ 1)
+adding multiple (17 ^ 1)
+adding multiple (19 ^ 1)
+Found lowest common multiple of numbers 1 .. 20 is 232792560
+0.00019305000000000017
+

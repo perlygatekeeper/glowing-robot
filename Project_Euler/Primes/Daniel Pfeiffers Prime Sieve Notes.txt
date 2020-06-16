@@ -1,0 +1,74 @@
+Fast Prime Sieve
+
+The famous Sieve of Eratosthenes has a few drawbacks: it is very inefficient,
+barring the same values again and again.  It requires space for as many
+numbers as you want to analyse, and can not be used to continue if you want
+more numbers.
+
+Inverting Eratosthenes
+
+That's why I invert it: I look at candidates one by one, checking if they are
+zero modulo any of the primes up to its square root, i.e. divisible by it.
+Only otherwise have I found another prime.  To do this I must store each
+encountered prime.  To save calculating a modulus at each step, I add a
+counter to each, where modulus is an addition, one or two comparisons, and
+maybe a substraction.
+
+When looking at Eratosthenes, it becomes evident that every second candidate
+is even.  So I skip them, by adding two at each step.  Then every other
+remaining candidate is divisible by three.  I can skip those too, by
+alternately adding two and four instead.  When driving this further, it
+becomes more complicated: the remaining multiples of five to skip are 25, 35,
+55, 65...
+
+When calculating these series of skips, they become exponentially long, before
+they can be repeated, even for a small number of prime multiples I want to
+skip.  For primes up to 17 the skip list is 92159 entries long, up to 19
+already 1658879, and up to 23 a whopping 36495360.  But it means looking at
+far less candidates, and doing a few less divisibility tests for each
+candidate.  So it's definitely worth it, as timing tests show!
+
+Predictable Non-Primes
+
+Since I never test a candidate divisible by the first few primes, I never need
+to modulus test against those.  So the next non-primes are predictable: 29*29,
+29*31, 29*37..., 31*31, 31*37..., 37*37...  By calculating the next of each
+series and ordering them all, I must only look for the smallest of them to
+know it's not a prime.  Then I multiply that by the next prime and reinsert it
+into the prediction list.
+
+This alas fails, when I pass 29**3, 31**3, 37**3...  So at each of those
+stages I take the prime out of the prediction list into the modulus check
+list.  Result is that modulus checking starts not at the square of a prime,
+but only at the power of three.  And checks no loger go up to the square root
+of each candidate, but only up to the 3rd root.
+
+Performance
+
+The table shows how much CPU time it takes to obtain all primes
+up to the given power of ten.  Such an upper bound can be passsed to primes
+as a command line parameter.  The memory sizes are those shown by ps -l
+less that for a naked Perl.
+
+For all the tricks, this algorithm is still O( I<n> log I<n> ).  The times given
+above were obtained with Perl 5.8.5 on a 1.5GHz Pentium with
+1Gb.
+
+While time is theoretically an illimited resource, memory alas is not.  And
+memory consumption is still O( log I<n> ).  It could be reduced by a factor,
+when using bit vectors, instead of lists of scalars.  The skip list only needs
+one byte values and could even be compressed, because it is fairly repetitive.
+The as yet unneeded primes (greater than third root of the candidate) could be
+spooled out to disk, which would tremendously save main memory.  But
+consumption cannot be indefinitely kept within a given upper limit :-(
+
+Parallelization would be possible, e.g. by having one thread perform the 1st +
+2nd + 3rd skip, followed by the 4th + 5th + 6th skip, the next thread the 1st,
+followed by the 2nd + 3rd + 4th skip, and the last the 1st + 2nd, followed by
+the 3rd + 4th + 5th skip, etc.  The threads would all have to catch up, when
+reordering the prediction list, and when reaching a prime greater than the last
+coordinated prime to a power of three.
+
+Author
+
+Daniel Pfeiffer <occitan@esperanto.org>
