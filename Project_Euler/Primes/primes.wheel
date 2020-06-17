@@ -113,48 +113,51 @@ __END__
   # Third, since this new generator gives us prime canidates in groups of four, and our larges known prime might have not have been the last
   # member of a set of four, we will have to detect that and handle it, ie. if our largest known prime at the end of @primes is 53, then
   # our first generator would be 6, giving us 61, 63, 67 and 69, but we would have not then considered 57(divisable by 3) and 59 (59 is prime).
-  #   I then discovered the wheel method of prime seiving: https://en.wikipedia.org/wiki/Wheel_factorization.
-  # I relalized that a generator based on 10, is an incomplete wheel seive.  Wheel seives are based on numbers which are products of the first
-  # few primes, so there are wheel seives based on 2, 2x3 = 6, 2x3x5 = 30, 2x3x5x7 = 210 etc.
+  #   I then discovered the wheel factorization method of prime seiving: https://en.wikipedia.org/wiki/Wheel_factorization.
+  # I relalized that a generator based on 10, is an incomplete wheel.  Wheels are based on numbers which are products of the first
+  # few primes, so there are wheels based on 2, 2x3 = 6, 2x3x5 = 30, 2x3x5x7 = 210 etc.
 
-  # A wheel seive starts immediately AFTER the base number, so the wheel seive based on 30, produces the generator:
+  # A wheel starts immediately AFTER the base number, so the wheel based on 30, produces the generator:
   # preload primes: ( 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 )
   # 30 * N + 1, 7, 11, 13, 17, 19, 23, 29; and test prime canidates with primes P; where P >= 7 and P < SQRT(MAX)
-  #
+
   # After removing the numbers between 2 and 30 (2*3*5) which are compound numbers with only prime factors 2, 3 and 5
   # we have only primes.
   #
-  # this is 8 numbers of each 30 consecutive natural numbers (26.7%)
+  # This wheels yeilds 8 prime candidates in each 30 consecutive natural numbers. (26.7%)
   #
-  # The number of divisions needed is reduced when using a wheel sieve with the basis {2, 3}       to 1/3    < 34%
+  # The number of divisions needed is reduced when using a wheel with the basis:      {2, 3}       to 1/3    < 34%
   # of the number necessary for trial division.
-  # Larger bases reduce this proportion even further; for example, with basis         {2, 3, 5}    to 8/30   < 27%;
-  # and with basis                                                                    {2, 3, 5, 7} to 48/210 < 23%.
+  # Larger bases reduce this proportion even further; for example, with basis:        {2, 3, 5}    to 8/30   < 27%;
+  # and with basis:                                                                   {2, 3, 5, 7} to 48/210 < 23%.
 
-  # A wheel seive based on 2x3x5x7 = 210 produces the generator:
+  # A wheel based on 2x3x5x7 = 210 produces the generator:
   # preload primes (below 210): ( 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
   # 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199 )
   #
   # After removing the numbers between 2 and 210 (2*3*5*7) which are compound numbers with only prime factors 2, 3, 5 and 7
-  # we have MOSTLY primes, 
-  # unlike the wheel based on 30, this wheel's innermost ring contains 5 numbers which are not eliminated but are non-the-less compound:
+  # we have MOSTLY primes, # unlike the wheel based on 30, this wheel's innermost ring contains 5 compound numbers which
+  # have not been eliminated:
+  #
   # 121, 143, 169, 187 and 209.
   #
   # 11*11  11*13  13*13 11*17  11*19  | 13*17   11*23
-  # 121    143          187    209    |         253
-  #        143    169                 | 221
+  # 121    143    169   187    209    | 221     253
   #
-  # these 5 numbers NEED to be included in the generator, but need to be REMOVED from the the preloaded primes.
-
-  # 210 * N +    1,  11,  13,  17,  19,  23,  29,  31,  37,  41,  43,  47,  53,  59,  61,  67,  71,  73,  79,  83,  89,  97,
-  #            101, 103, 107, 109, 113, 121, 127, 131, 137, 139, 143, 149, 151, 157, 163, 167, 169, 173, 179, 181, 187, 191,
-  #            193, 197, 199, 209
+  # these 5 numbers NEED to be included in the generator, but need to be REMOVED from the the preloaded primes,
+  # our prime candidates for each turn of the wheel will be made from these 48 offsets:
+  #
+  # 210 * N +    1,  11,  13,  17,  19,  23,  29,  31,
+  #             37,  41,  43,  47,  53,  59,  61,  67,
+  #             71,  73,  79,  83,  89,  97, 101, 103,
+  #            107, 109, 113, 121, 127, 131, 137, 139,
+  #            143, 149, 151, 157, 163, 167, 169, 173,
+  #            179, 181, 187, 191, 193, 197, 199, 209
   # and we will be testing prime canidates generated with known primes P; starting with 11 and stopping with the last prime less
   # than SQRT(MAX) where MAX is the largest number to be considered.
   # ie. where P >= 11 and P < SQRT(MAX)
-  # this is 48 of each 210 conscutive numbers (22.9%).
 
-  # Here are the primes between 2 and 99_960
+  # Here are the primes between 2 and 99_960 (476 full turns of the wheel)
   # 600 * 16 - 12 = 9588	
 
      2     3     5     7    11    13    17    19    23    29    31    37    41    43    47    53 

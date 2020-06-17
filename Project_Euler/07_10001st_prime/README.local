@@ -1,0 +1,36 @@
+https://projecteuler.net/problem=7
+
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+What is the 10 001st prime number?
+
+Notes:
+
+https://en.wikipedia.org/wiki/Prime-counting_function
+
+The number of primes below a certain number x: Pi(x) is called the Prime counting function
+and is approximated well by
+
+Pi(x) ~= x / ln(x)
+
+so if we want Pi(x) = 10001 then:
+
+x / ln(x) = 10001
+
+ln(x) = 10001/x
+
+binary search for where x/ln(x) = 10001 gives:
+116684
+
+this estimate is approximately 10% too low at this x
+
+116684
+ 11668
+128352 ~= 130,000
+
+Solution:
+
+Finding 10001th prime
+104743
+0.112251685
+

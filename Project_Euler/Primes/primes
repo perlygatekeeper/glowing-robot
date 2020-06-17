@@ -15,7 +15,9 @@ my $t0 = Benchmark->new;
 my ($i, @primes, );
 my $preload = 0;
 my $MAX = 100000;
+my $quiet = 0;
 if ($ARGV[0] and $ARGV[0]=~/^\d+$/) { $MAX=$ARGV[0]; shift; }
+if ($ARGV[0] and $ARGV[0]=~/q/)     { $quiet=1; shift; }
 my $L=length($MAX)+1;    # $L is the number of characters needed to print the biggest prime + one space delimiter
 my $N=int(96/$L);        # $N is the number of primes to print on a 96-character-long line----\
 #         |         |         |         |         |         |         |         |         |    .   |
@@ -39,8 +41,8 @@ if ( not @primes ) { push( @primes, 2, 3 ) }
 # DO WE NEED TO LOOK FOR MORE PRIMES?
 if ( $MAX > $primes[$#primes] ) {
   my $first = (@primes) ? ( $primes[$#primes] + 1 )/2 : 1;
-# print "(first..last) generators are ( $first .. " .  int($MAX/2) . " )\n";
-  foreach my $generator ( $first .. int($MAX/2)) {
+  print "(first..last) generators are ( $first .. " .  int(($MAX-1)/2) . " )\n";
+  foreach my $generator ( $first .. int(($MAX-1)/2)) {
     my $prime_canidate = 2*$generator + 1;
     my $sqrt = sqrt $prime_canidate;
     my $is_prime = 1;
@@ -64,11 +66,13 @@ foreach my $prime (@primes) {
   printf "%${L}d", $prime; $i++;
   printf "\n" if (not ($i%$N));
 }
-printf "\n";
-my $t1 = Benchmark->new;
-my $td = timediff($t1, $t0);
-printf "%d to %d.\n", $primes[0], $primes[$#primes];
-printf "Found %d primes in %s.\n", $#primes, timestr($td);
+if (not $quiet) {
+  printf "\n";
+  my $t1 = Benchmark->new;
+  my $td = timediff($t1, $t0);
+  printf "%d to %d.\n", $primes[0], $primes[$#primes];
+  printf "Found %d primes in %s.\n", scalar(@primes), timestr($td);
+}
 printf "\n";
 
 exit 0;

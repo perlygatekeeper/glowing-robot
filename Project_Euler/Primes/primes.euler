@@ -1,0 +1,40 @@
+#!/opt/local/bin/python
+
+import timeit
+import time
+import sys
+import math
+
+def sieveOfEuler(n=1000):
+    primes = [2]
+    candidates = [ True ] * (n+1)
+    for sieve_base in range( 3, int(math.sqrt(n))+2, 2 ):
+        if candidates[sieve_base]:
+            for i in range ( int(n/(sieve_base*2)), int((sieve_base-2)/2), -1 ):
+                multiplier = 2 * i + 1
+                if candidates[multiplier]:
+                    candidate = sieve_base * multiplier
+                    if candidate > n:
+                       continue
+                    print(f"{sieve_base} * {multiplier} leads to {candidate} being removed.")
+                    candidates[candidate] = False
+            primes.append(sieve_base)
+            print(f"Pushing prime {sieve_base}.")
+    for i in range( int(math.sqrt(n)/2)+1, int(n/2) ):
+        candidate = 2 * i + 1
+        if candidates[candidate]:
+            primes.append(candidate)
+            print(f"Pushing prime {candidate} from {i}.")
+    return primes
+
+print(f"Finding primes up to: {sys.argv[1]=}")
+start_time = timeit.default_timer()
+primes = sieveOfEuler(int(sys.argv[1]))
+i = 0
+for prime in primes:
+    print(f"{prime:5d}",end="")
+    i += 1
+    if i % 19 == 0:
+        print()
+print("\nFound %d primes up to %s" % (len(primes), sys.argv[1]) )
+print(timeit.default_timer() - start_time)

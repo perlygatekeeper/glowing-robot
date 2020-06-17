@@ -1,4 +1,6 @@
 #!/opt/local/bin/python
+# a script to find the longest sequence of primes whose sum is also a prime
+# below a given number.
 
 import timeit
 import time

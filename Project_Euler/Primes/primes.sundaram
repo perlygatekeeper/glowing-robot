@@ -4,21 +4,53 @@ import timeit
 import time
 import sys
 
+# From: https://en.wikipedia.org/wiki/Sieve_of_Sundaram
+# 1) Two is added as a prime.
+# 2) All odd numbers 2x+1 represented by x = 1 .. k { where k = (n-2)/2 } are flagged as prime.
+# 3) All representatives, x,  of the form x = ( i + j + 2ij ) <= k : where 1 <= i <= j
+#    are marked as NOT prime.
+# 4) The representive numbers x in 1 .. k which are still flagged as prime are converted to
+#    odd numbers via 2x+1.
 def sieveOfSundaram(n):
-   k = int(( n - 2 ) / 2 )
-   a = [0] * ( k + 1 )
-   for i in range( 1, k + 1):
-       j = i
-       while(( i + j + 2 * i * j ) <= k):
-           a[ i + j + 2 * i * j ] = 1
-           j+=1
-   if n > 2:
-       print(2,' ',end='')
-   for i in range(1, k + 1):
-       if a[i] == 0:
-           print((2 * i +1),' ',end='')
+    k = int(( n - 2 ) / 2 )
+    a = [0] * ( k + 1 )
+    primes = []
+    for i in range( 1, k + 1):
+        j = i
+        while(( i + j + 2 * i * j ) <= k):
+            a[ i + j + 2 * i * j ] = 1
+            j+=1
+    if n > 2:
+        primes.append(2)
+    for i in range(1, k + 1):
+        if a[i] == 0:
+            primes.append( (2*i + 1 ))
+    return primes
 
 print(f"Finding primes up to: {sys.argv[1]=}")
 start_time = timeit.default_timer()
-sieveOfSundaram(int(sys.argv[1]))
-print(timeit.default_timer() - start_time)
+primes = sieveOfSundaram(int(sys.argv[1]))
+print("Found %d primes in %8.3f seconds." % ( len(primes), (timeit.default_timer() - start_time) ))
+
+'''
+From: https://en.wikipedia.org/wiki/Sieve_of_Sundaram
+
+Correctness:
+If we start with integers from 1 to n, the final list contains only odd integers from 3 to 2n+1.
+From this final list, some odd integers have been excluded;
+we must show these are precisely the composite odd integers less than 2n + 2.
+
+Let q be an odd integer of the form 2k + 1.
+Then, q is excluded if and only if k is of the form i + j + 2ij,
+that is q = 2(i + j + 2ij) + 1.
+
+Then we have:
+
+q = 2 ( i + j + 2ij ) + 1
+  = 2i + 2j + 4ij + 1
+  = ( 2i +1 ) ( 2j + 1 ).
+
+So, an odd integer is excluded from the final list if and only if it has a factorization of the form
+( 2i + 1 ) ( 2j + 1 ) — which is to say, if it has a non-trivial odd factor.
+Therefore the list must be composed of exactly the set of odd prime numbers less than or equal to 2n + 2.
+'''

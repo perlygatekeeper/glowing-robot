@@ -1,0 +1,34 @@
+https://projecteuler.net/problem=9
+
+Special Pythagorean triplet
+
+Problem 9
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+a^2 + b2^ = c^2
+For example, 3^2 + 4^2 = 9 + 16 = 25 = 5^2.
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
+
+Notes:
+
+a + b + c = 1000   means that c = 1000 - a - b and we need only two loops over a and b
+and a < b < c
+means that loop over b will start at a + 1
+biggest value for any of the three a, b or c can be only 998 (actually lower, as a + b <= c, the triangle law)
+if   a = 332 and b = 333 -> c = 335     ( 1000 - a ) / 2 => 668 / 2 = 334
+and  a = 333 and b = 334 -> c = 333     ( 1000 - a ) / 2 => 667 / 2 = 334
+
+so a < 333
+   b < (1000 - a) / 2
+
+Solution:
+
+Found pythagorean triplet (201, 375, 425) with a product of 31875000 with a + b + c = 1000
+0.110305177
+
+after tighter restraints on a and b (see Notes above):
+
+Found pythagorean triplet (201, 375, 425) with a product of 31875000 with a + b + c = 1000
+0.042399796000000003

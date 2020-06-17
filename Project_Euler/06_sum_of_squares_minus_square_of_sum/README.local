@@ -1,0 +1,58 @@
+https://projecteuler.net/problem=6
+
+The sum of the squares of the first ten natural numbers is,
+1^2 + 2^2 + ... + 10^2 = 385
+
+The square of the sum of the first ten natural numbers is,
+( 1 + 2 + ... + 10 )^2 = 55^2 = 3025
+
+Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is
+3025 − 385 = 2640.
+
+Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+
+NOTES:
+
+from https://www.wolframalpha.com/input/?i=expand+%28a+%2B+b+%2B+c+%2B+d+%2B+e+%2B+f%29%5E2
+
+expand | (a + b + c + d + e + f)^2
+Result:
+a^2 + 2 a b + 2 a c + 2 a d + 2 a e + 2 a f + b^2 + 2 b c + 2 b d + 2 b e + 2 b f + c^2 + 2 c d + 2 c e + 2 c f + d^2 + 2 d e + 2 d f + e^2 + 2 e f + f^2
+a^2                                         + b^2                                 + c^2                         + d^2                 + e^2         + f^2
+      2 a b + 2 a c + 2 a d + 2 a e + 2 a f       + 2 b c + 2 b d + 2 b e + 2 b f       + 2 c d + 2 c e + 2 c f       + 2 d e + 2 d f       + 2 e f
+(21 terms)
+
+So there will be two approaches,
+
+I  - brute force: calcuate the "sum of the squares" and the "square of the sum" and subtrace them.
+     n + 1 muliplications and 2n additions
+
+II - sum the product of all possible combinations, and multiple the result by 2.
+     (n-1) * n / 2 + 1 multiplications, and 
+     (n-1) * n / 2     additions
+
+I will time both, though the brute force method is only O(n) where as the "clever" method is O(n^2).
+
+
+Solution:
+
+
+The difference of the sum_of_squares from the square_of_sums for the numbers 1 .. 100 is 25164150 <- ANSWER!
+The brute force method took 0.000069 seconds
+
+The difference of the sum_of_squares from the square_of_sums for the numbers 1 .. 100 is 25164150
+Where the fancy method took 0.000686 seconds
+
+FANCY is not always better!  Here it was 10 times as long!
+
+
+For the numbers 1 .. 1000
+
+The difference of the sum_of_squares from the square_of_sums for the numbers 1 .. 1000 is 250166416500
+The brute force method took 0.000,241 seconds
+
+The difference of the sum_of_squares from the square_of_sums for the numbers 1 .. 1000 is 250166416500
+Where the fancy method took 0.072,343 seconds
+
+is even worse at ~350 times as long!

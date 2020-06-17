@@ -1,5 +1,5 @@
 #!/opt/local/bin/python
-# Python program to find largest palidrome product
+# Python program to find largest common multiple
   
 import sys 
 import math 
