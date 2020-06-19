@@ -1,0 +1,37 @@
+    Multiplication         Addition
+       odd even               odd even 
+  odd  odd even          odd even  odd 
+ even even even         even  odd even 
+
+ 3*3 = 9                3+3 = 6
+ 2*3 = 6                2+3 = 5
+ 3*2 = 6                3+2 = 5
+ 2*2 = 4                2+2 = 4
+
+if odd is True  then    Muliplication works like And
+                whereas Addition      works like Xor
+
+
+
+        And
+        True False
+  True  True False
+ False False False
+
+        Nand
+        True False
+  True  False True
+ False  True  True
+
+        Or
+        True False
+  True  True  True
+ False  True False
+
+        Xor
+        True False
+  True False  True
+ False  True False
+
+
+

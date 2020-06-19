@@ -6,12 +6,9 @@ import math
 import timeit
 import time
 
-def sieveOfSundaram(n=20):
-    # this version returns a dictionary for quick lookup and
-    # therefore verification if some number in range is a prime or composite
+def sieveOfSundaram(n=80):
     k = int(( n - 2 ) / 2 )
     a = [0] * ( k + 1 )
-#   primes = {}
     primes = []
     for i in range( 1, k + 1):
         if i%1000000 == 0:
@@ -20,14 +17,10 @@ def sieveOfSundaram(n=20):
         while(( i + j + 2 * i * j ) <= k):
             a[ i + j + 2 * i * j ] = 1
             j+=1
-    sequence = 0 
     if n > 2:
-#       primes[2] = sequence
         primes.append(2)
     for i in range(1, k + 1):
         if a[i] == 0:
-            sequence += 1 
-#           primes[2+i+1] = sequence
             primes.append( (2*i + 1 ))
     return primes
 
@@ -60,38 +53,45 @@ def primeFactors(n):
     return(factors)
 
 
-def findTriangleNumberWithOver500Factors(limit=1000): 
+def printPrimeFactorizations(primes, limit=1000000): 
     solution = {}
     for n in range(1,limit):
-        triangle = int( n * ( n + 1 ) / 2 )
-        prime_factors = primeFactors(triangle)
+        prime_factors = primeFactors(n)
         number_of_factors = 0
         for prime_factor in prime_factors:
             number_of_factors += ( prime_factors[prime_factor] + 1 ) 
-        print("%9d - %9d: %3d" % ( n, triangle, number_of_factors ) )
-        if number_of_factors > 500:
-            solution["n"] = n
-            solution["prime_factors"] = prime_factors
-            solution["triangle"] = triangle
-            solution["number_of_factors"] = number_of_factors
-            return(solution)
-    return(None)
+        print("%9d-%2d:" % ( n, number_of_factors ), end="" )
+        for prime in primes:
+            if prime in prime_factors:
+                print(" %2d" % (prime_factors[prime] ), end="")
+            else:
+                print("  0", end="")
+        print(" ")
+
+              
 
 
 start_time = timeit.default_timer()
 
-limit = 100000
-solution = findTriangleNumberWithOver500Factors(limit)
+limit = 100000000 # hundred million
+primes = sieveOfSundaram(230)
+print( len(primes) )
+for prime in primes:
+    print(" %2d" % (prime), end="")
+print(" ")
+solution = printPrimeFactorizations(primes,limit)
+print("Printing out the first %d primefactorizations took %f seconds."
+% ( limit, ( timeit.default_timer() - start_time ) ) )
 
-if bool(solution):
-    print("The %d-th triangle number is %d and has %d factors, the search for which took %f seconds."
-            % ( solution["n"], solution["triangle"], solution["number_of_factors"], ( timeit.default_timer() - start_time ) ) )
-    print("%d's prime factors are:" % (solution["triangle"]) )
-    for prime in solution["prime_factors"]:
-        print("%d^%d " % ( prime, solution["prime_factors"][prime] ) )
-else:
-    print("No triangle number with more than 500 factors within the first %d, this search took %f seconds."
-            % ( limit, ( timeit.default_timer() - start_time ) ) )
+# if bool(solution):
+#     print("The %d-th triangle number is %d and has %d factors, the search for which took %f seconds."
+#             % ( solution["n"], solution["triangle"], solution["number_of_factors"], ( timeit.default_timer() - start_time ) ) )
+#     print("%d's prime factors are:" % (solution["triangle"]) )
+#     for prime in solution["prime_factors"]:
+#         print("%d^%d " % ( prime, solution["prime_factors"][prime] ) )
+# else:
+#     print("No triangle number with more than 500 factors within the first %d, this search took %f seconds."
+#             % ( limit, ( timeit.default_timer() - start_time ) ) )
 
 
 
