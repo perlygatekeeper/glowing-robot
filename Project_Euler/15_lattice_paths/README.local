@@ -1,0 +1,132 @@
+https://projecteuler.net/problem=15
+
+Lattice paths
+
+Problem 15
+Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
+
+
+How many such routes are there through a 20×20 grid?
+
+--------------------------------------------------------
+Notes:
+
+Hmmm.. no idea how to solve this off-the-bat.
+
+At first glance it appears that there is a axis of symmetry from the start
+point to end point.
+
+This means that we can start with a move to the right, count all solutions
+from there and mulitply that number x2.
+
+Determining the choices at each node "corner" of the grid:
+
+2 x 2  grid, the X's are to eliminate the first choice down:
+
+_3  _3  _1         Number of paths   3 x 2 = 6
+
+X_  _2  _1
+
+X_  _1  _0
+
+
+
+3 x 3  grid, the X's are to eliminate the first choice down:
+
+10  10  _4  _1     Number of paths  10 x 2 = 20
+
+X_  _6  _3  _1
+
+X_  _3  _2  _1  <- each node is then the sum of the nodes either down or right of it.
+
+X_  _1  _1  _1  <- start here
+
+
+     1, 2, 6, 20, 70, 252, 924, 3432
+/2   x  1, 3, 10, 35, 126, 462, 1716
+diff x  1, 2,  7, 25,  91, 264, 1646
+
+https://oeis.org/search?q=+1%2C+2%2C+6%2C+20%2C+70%2C+252%2C+924%2C+3432&language=english&go=Search
+
+The Online Encyclopedia of Integer Series gives this as:
+
+(Greetings from The On-Line Encyclopedia of Integer Sequences!)
+Search: seq:1,2,6,20,70,252,924,3432
+
+Displaying 1-4 of 4 results found.	page 1
+     Sort: relevance | references | number | modified | created      Format: long | short | data
+A000984		Central binomial coefficients: binomial(2*n,n) = (2*n)!/(n!)^2.
+(Formerly M1645 N0643)		+30
+807
+1, 2, 6, 20, 70, 252, 924, 3432, 12870, 48620, 184756, 705432, 2704156, 10400600, 40116600, 155117520, 601080390, 2333606220, 9075135300, 35345263800, 137846528820, 538257874440, 2104098963720, 8233430727600, 32247603683100, 126410606437752, 495918532948104, 1946939425648112 (list; graph; refs; listen; history; text; internal format)
+OFFSET	
+0,2
+
+COMMENTS	
+Devadoss refers to these numbers as type B Catalan numbers (cf. A000108).
+
+Equal to the binomial coefficient sum Sum_{k=0..n} binomial(n,k)^2.
+
+Number of possible interleavings of a program with n atomic instructions when executed by two processes. - Manuel Carro (mcarro(AT)fi.upm.es), Sep 22 2001
+
+Convolving a(n) with itself yields A000302, the powers of 4. - T. D. Noe, Jun 11 2002
+
+a(n) = Max_{ (i+j)!/(i!j!) | 0<=i,j<=n }. - Benoit Cloitre, May 30 2002
+
+Number of ordered trees with 2n+1 edges, having root of odd degree and nonroot nodes of outdegree 0 or 2. - Emeric Deutsch, Aug 02 2002
+
+Also number of directed, convex polyominoes having semiperimeter n+2.
+
+Also number of diagonally symmetric, directed, convex polyominoes having semiperimeter 2n+2. - Emeric Deutsch, Aug 03 2002
+
+Also Sum_{k=0..n} binomial(n+k-1,k). - Vladeta Jovovic, Aug 28 2002
+
+The second inverse binomial transform of this sequence is this sequence with interpolated zeros. Its g.f. is (1 - 4*x^2)^(-1/2), with n-th term C(n,n/2)(1+(-1)^n)/2. - Paul Barry, Jul 01 2003
+
+Number of possible values of a 2n-bit binary number for which half the bits are on and half are off. - Gavin Scott (gavin(AT)allegro.com), Aug 09 2003
+
+Ordered partitions of n with zeros to n+1, e.g., for n=4 we consider the ordered partitions of 11110 (5), 11200 (30), 13000 (20), 40000 (5) and 22000 (10), total 70 and a(4)=70. See A001700 (esp. Mambetov Bektur's comment). - Jon Perry, Aug 10 2003
+
+Number of nondecreasing sequences of n integers from 0 to n: a(n) = Sum_{i_1=0..n} Sum_{i_2=i_1..n}...Sum_{i_n=i_{n-1}..n}(1). - J. N. Bearden (jnb(AT)eller.arizona.edu), Sep 16 2003
+
+Number of peaks at odd level in all Dyck paths of semilength n+1. Example: a(2)=6 because we have U*DU*DU*D, U*DUUDD, UUDDU*D, UUDUDD, UUU*DDD, where U=(1,1), D=(1,-1) and * indicates a peak at odd level. Number of ascents of length 1 in all Dyck paths of semilength n+1 (an ascent in a Dyck path is a maximal string of up steps). Example: a(2)=6 because we have uDuDuD, uDUUDD, UUDDuD, UUDuDD, UUUDDD, where an ascent of length 1 is indicated by a lower case letter. - Emeric Deutsch, Dec 05 2003
+
+a(n-1) = number of subsets of 2n-1 distinct elements taken n at a time that contain a given element. E.g., n=4 -> a(3)=20 and if we consider the subsets of 7 taken 4 at a time with a 1 we get (1234, 1235, 1236, 1237, 1245, 1246, 1247, 1256, 1257, 1267, 1345, 1346, 1347, 1356, 1357, 1367, 1456, 1457, 1467, 1567) and there are 20 of them. - Jon Perry, Jan 20 2004
+
+The dimension of a particular (necessarily existent) absolutely universal embedding of the unitary dual polar space DSU(2n,q^2) where q>2. - J. Taylor (jt_cpp(AT)yahoo.com), Apr 02 2004.
+
+Number of standard tableaux of shape (n+1, 1^n). - Emeric Deutsch, May 13 2004
+
+Erdős, Graham et al. conjectured that a(n) is never squarefree for sufficiently large n (cf. Graham, Knuth, Patashnik, Concrete Math., 2nd ed., Exercise 112). Sárközy showed that if s(n) is the square part of a(n), then s(n) is asymptotically (sqrt(2)-2)*(sqrt(n))*(Riemann Zeta Function(1/2)). Granville and Ramare proved that the only squarefree values are a(1)=2, a(2)=6 and a(4)=70. - Jonathan Vos Post, Dec 04 2004 [For more about this conjecture, see A261009. - N. J. A. Sloane, Oct 25 2015]
+
+The MathOverflow link contains the following comment (slightly edited): The Erdős square-free conjecture (that a(n) is never squarefree for n>4) was proved in 1980 by Sárközy, A. (On divisors of binomial coefficients. I. J. Number Theory 20 (1985), no. 1, 70-80.) who showed that the conjecture holds for all sufficiently large values of n, and by A. Granville and O. Ramaré (Explicit bounds on exponential sums and the scarcity of squarefree binomial coefficients. Mathematika 43 (1996), no. 1, 73-107) who showed that it holds for all n>4. - Fedor Petrov, Nov 13 2010. [From N. J. A. Sloane, Oct 29 2015]
+
+A000984(n)/(n+1) = A000108(n), the Catalan numbers.
+
+
+
+
+Solution:
+
+ 3.5e+10 1.8e+10 8.6e+09 4.1e+09 1.9e+09 8.2e+08 3.5e+08 1.4e+08 5.5e+07 2.0e+07 6906900 2220075  657800  177100   42504    8855    1540     210      20       1
+ 1.8e+10 9.1e+09 4.5e+09 2.2e+09 1.0e+09 4.7e+08 2.1e+08 8.6e+07 3.5e+07 1.3e+07 4686825 1562275  480700  134596   33649    7315    1330     190      19       1
+ 8.6e+09 4.5e+09 2.3e+09 1.2e+09 5.7e+08 2.7e+08 1.2e+08 5.2e+07 2.1e+07 8436285 3124550 1081575  346104  100947   26334    5985    1140     171      18       1
+ 4.1e+09 2.2e+09 1.2e+09 6.0e+08 3.0e+08 1.5e+08 6.8e+07 3.0e+07 1.3e+07 5311735 2042975  735471  245157   74613   20349    4845     969     153      17       1
+ 1.9e+09 1.0e+09 5.7e+08 3.0e+08 1.6e+08 7.8e+07 3.7e+07 1.7e+07 7726160 3268760 1307504  490314  170544   54264   15504    3876     816     136      16       1
+ 8.2e+08 4.7e+08 2.7e+08 1.5e+08 7.8e+07 4.0e+07 2.0e+07 9657700 4457400 1961256  817190  319770  116280   38760   11628    3060     680     120      15       1
+ 3.5e+08 2.1e+08 1.2e+08 6.8e+07 3.7e+07 2.0e+07 1.0e+07 5200300 2496144 1144066  497420  203490   77520   27132    8568    2380     560     105      14       1
+ 1.4e+08 8.6e+07 5.2e+07 3.0e+07 1.7e+07 9657700 5200300 2704156 1352078  646646  293930  125970   50388   18564    6188    1820     455      91      13       1
+ 5.5e+07 3.5e+07 2.1e+07 1.3e+07 7726160 4457400 2496144 1352078  705432  352716  167960   75582   31824   12376    4368    1365     364      78      12       1
+ 2.0e+07 1.3e+07 8436285 5311735 3268760 1961256 1144066  646646  352716  184756   92378   43758   19448    8008    3003    1001     286      66      11       1
+ 6906900 4686825 3124550 2042975 1307504  817190  497420  293930  167960   92378   48620   24310   11440    5005    2002     715     220      55      10       1
+ 2220075 1562275 1081575  735471  490314  319770  203490  125970   75582   43758   24310   12870    6435    3003    1287     495     165      45       9       1
+  657800  480700  346104  245157  170544  116280   77520   50388   31824   19448   11440    6435    3432    1716     792     330     120      36       8       1
+  177100  134596  100947   74613   54264   38760   27132   18564   12376    8008    5005    3003    1716     924     462     210      84      28       7       1
+   42504   33649   26334   20349   15504   11628    8568    6188    4368    3003    2002    1287     792     462     252     126      56      21       6       1
+    8855    7315    5985    4845    3876    3060    2380    1820    1365    1001     715     495     330     210     126      70      35      15       5       1
+    1540    1330    1140     969     816     680     560     455     364     286     220     165     120      84      56      35      20      10       4       1
+     210     190     171     153     136     120     105      91      78      66      55      45      36      28      21      15      10       6       3       1
+      20      19      18      17      16      15      14      13      12      11      10       9       8       7       6       5       4       3       2       1
+       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1       1
+
+Number of paths from top left, to bottom right is 35345263800 and took 0.002260 seconds.
