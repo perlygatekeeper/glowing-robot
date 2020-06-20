@@ -36,6 +36,7 @@ def primeFactorization(n):
 
 # We will also need a function that will multiply the two factors by adding the two "prime-vectors",
 # and calculate the products total_number_of_factors.
+# NOTE: PFN = Prime Factorized Number
 def PFN_product(first, second): 
     product = {}  
     product["prime_factors"] = first.copy()
@@ -56,7 +57,7 @@ def findTriangleNumberWithOver500Factors(limit,target_factors):
 # INITIALIZE:
     smaller = 0
     larger  = 1
-    RPN_larger = primeFactorization(larger)
+    PFN_larger = primeFactorization(larger)
 # LOOP:
     while smaller <= limit:
         smaller += 1
@@ -65,8 +66,8 @@ def findTriangleNumberWithOver500Factors(limit,target_factors):
 ##            dots += 1
 ##            if dots%100 == 0:
 ##                print("")
-        RPN_smaller = primeFactorization(smaller)
-        product = PFN_product(RPN_smaller, RPN_larger)
+        PFN_smaller = primeFactorization(smaller)
+        product = PFN_product(PFN_smaller, PFN_larger)
         print("%6d: %6d - %6d - %3d" % ( larger, smaller, larger, product["number_of_factors"]) )
         if product["number_of_factors"] > target_factors:
             product["n"]        = smaller
@@ -75,8 +76,8 @@ def findTriangleNumberWithOver500Factors(limit,target_factors):
             product["larger"]   = larger
             return(product)
         larger += 2
-        RPN_larger = primeFactorization(larger)
-        product = PFN_product(RPN_smaller, RPN_larger)
+        PFN_larger = primeFactorization(larger)
+        product = PFN_product(PFN_smaller, PFN_larger)
         print("%6d: %6d - %6d - %3d" % ( smaller*2, smaller, larger, product["number_of_factors"]) )
         if product["number_of_factors"] > target_factors:
             product["n"]        = larger - 1

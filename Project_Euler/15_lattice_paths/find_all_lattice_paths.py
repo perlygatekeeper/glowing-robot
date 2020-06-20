@@ -7,10 +7,10 @@ import timeit
 import time
 
 def find_lattice_paths(grid_size=2):
-    grid = [] * grid_size
-    for row in range(grid_size):
+    grid = [] * (grid_size+1)
+    for row in range(grid_size+1):
         this_row = []
-        for col in range(grid_size):
+        for col in range(grid_size+1):
             this_row.append(0)
         grid.append(this_row)
 
@@ -22,9 +22,9 @@ def find_lattice_paths(grid_size=2):
 #       print(row)
         for col in range(len(grid[row])-1, -1, -1):
 #           print(f" {col}")
-            if (col+1) < grid_size:
+            if (col+1) < grid_size+1:
                 grid[row][col] += grid[row][col+1]
-            if (row+1) < grid_size:
+            if (row+1) < grid_size+1:
                 grid[row][col] += grid[row+1][col]
             if grid[row][col] == 0:
                  grid[row][col] = 1

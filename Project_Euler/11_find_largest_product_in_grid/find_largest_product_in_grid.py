@@ -1,5 +1,5 @@
 #!/opt/local/bin/python
-# Python program to find largest product of any straigt-line
+# Python program to find largest product of any straight-line
 # sequence of length four in any direction amount
 # horizontal, vertical or diagonal
 

@@ -6,7 +6,7 @@ import timeit
 import time
 import sys
 
-limit   = 1000000000
+limit   = 1000000
 # limit   = 10
 
 def sieveOfSundaram(n=1000):
