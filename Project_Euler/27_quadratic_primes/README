@@ -13,6 +13,7 @@ Quadratic primes
   and certainly when n=41, 41^2 + 41 + 41 is clearly divisible by 41.
 
   The incredible formula n^2 − 79n + 1601 was discovered, which produces 80 primes for the consecutive values 0 ≤ n ≤ 79.
+
   The product of the coefficients, −79 and 1601, is −126479.
 
   Considering quadratics of the form:
@@ -35,6 +36,9 @@ for a in range(-1000,1001,2):      # b is even so a must be even for (a+b) to be
 for b in primes_less_than_1000:    # there are 167 such primes where 2 < P < 1000
     for a in range(-999,1000,2):   # b is  odd so a must be  odd for (a+b) to be even
   
+Checks at 
+
+  n^2 +  1n +   41    0 ≤ n ≤ 39   a =   1  &  b =   41
+  n^2 + -79n + 1601   0 ≤ n ≤ 79   a = -79  &  b = 1601
+
 Solution:
-
-
