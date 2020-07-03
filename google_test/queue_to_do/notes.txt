@@ -1,6 +1,4 @@
 
-
-
 Again the triangle numbers rear their ugly heads!
 
 with 2,000,000,001 employee ids the longest line length that will potentially be

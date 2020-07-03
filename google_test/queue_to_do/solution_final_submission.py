@@ -22,7 +22,7 @@ def checksum_single_line(line, start_id, end_id):
 def solution(start, length):
     # End  - employees will stop lining up after id 2,000,000,000
     NUMBER_OF_EMPLOYEES = 2000000001
-    line_handling_threshold = 1000
+    line_handling_threshold = 999
     # done is flag to terminate outer "line" loop when a condition in inner loop triggers
     done = False
     checksum = 0
@@ -55,49 +55,3 @@ def solution(start, length):
            if end_id >= NUMBER_OF_EMPLOYEES:
                break
     return checksum
-
-test   = 1 # 1
-start  = 0
-length = 3
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 2
- 
-test  += 1 # 2
-start  = 17
-length = 4
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 14
-
-test  += 1 # 3
-start  = 999
-length = 10000
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 129179904
-test  += 1 # 4
-test  += 1 # 5
-test  += 1 # 6
-
-test  += 1 # 7
-start  = 999
-length = 1000
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 89472
-
-test  += 1 # 8
-start  = 999
-length = 100
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 7690
-test  += 1 # 9
-
-test  += 1 # 10
-start  = 999
-length = 10
-print("Test %2d: start is %d length is %5d: " % (test, start, length))
-print(solution(start,length))
-# 1150
