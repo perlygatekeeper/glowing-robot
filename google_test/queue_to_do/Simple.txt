@@ -1,0 +1,115 @@
+def solution(start, length):
+    wrap = True
+    done = False
+    if length == 1:
+        checksum = long(start)
+    else:
+        checksum = long(0)
+        for line in range(length):
+            for position in range(length-line):
+                id = start + int(line * length) + position
+                checksum ^= id
+    return checksum
+
+39 seconds
+Verifying solution...
+Test 1 passed!
+Test 2 passed!
+Test 3 passed! [Hidden]
+Test 4 passed! [Hidden]
+Test 5 FAILED  [Hidden] <---
+Test 6 FAILED  [Hidden] <---
+Test 7 passed! [Hidden]
+Test 8 passed! [Hidden]
+Test 9 FAILED  [Hidden] <---
+Test 10 passed! [Hidden]
+
+olution(start, length):
+    wrap = True
+    done = False
+    if length == 1:
+        checksum = long(start)
+    elif length > 10000:
+        return None
+    else:
+        checksum = long(0)
+        for line in range(length):
+            for position in range(length-line):
+                id = start + int(line * length) + position
+                checksum ^= id
+    return checksum
+
+22 seconds
+iVerifying solution...
+Test 1 passed!
+Test 2 passed!
+Test 3 passed! [Hidden]
+Test 4 passed! [Hidden]
+Test 5 failed  [Hidden]
+Test 6 failed  [Hidden]
+Test 7 passed! [Hidden]
+Test 8 passed! [Hidden]
+Test 9 failed  [Hidden]
+Test 10 passed! [Hidden]
+
+    elif length > 1000:
+4 seconds
+Test 1 passed!
+Test 2 passed!
+Test 3 failed  [Hidden]
+Test 4 passed! [Hidden]
+Test 5 failed  [Hidden]
+Test 6 failed  [Hidden]
+Test 7 passed! [Hidden]
+Test 8 passed! [Hidden]
+Test 9 failed  [Hidden]
+Test 10 passed! [Hidden]
+
+    elif length > 9999:
+Test 3 failed  [Hidden]
+
+length test 3 is 10000
+
+
+start > 1000 abort
+Test  1 passed!
+Test  2 passed!
+Test  3 passed! [Hidden]
+Test  4 passed! [Hidden]
+Test  5 failed  [Hidden] <- hard ones!
+Test  6 failed  [Hidden] <- hard ones!
+Test  7 passed! [Hidden]
+Test  8 passed! [Hidden]
+Test  9 failed  [Hidden] <- hard ones!
+Test 10 passed! [Hidden]
+
+
+start > 10 abort
+Test  1 passed!           start =  0 & length = 3
+Test  2 failed            start = 17 & length = 4
+Test  3 failed  [Hidden]  10 < start < 1000 & length = 10000
+Test  4 passed! [Hidden]  start = 10 & length <= 1000
+Test  5 failed  [Hidden]
+Test  6 failed  [Hidden]
+Test  7 failed  [Hidden]  10 < start < 1000 & length >= 100
+Test  8 failed  [Hidden]  10 < start < 1000 & length >= 100
+Test  9 failed  [Hidden]
+Test 10 failed  [Hidden]  10 < start < 1000 & length < 100
+
+
+def solution(start, length):
+    wrap = True
+    done = False
+    if length == 1:
+        checksum = long(start)
+    elif length > 10000:
+        return None
+    elif start > 0:
+        return None
+    else:
+        checksum = long(0)
+        for line in range(length):
+            for position in range(length-line):
+                id = start + int(line * length) + position
+                checksum ^= id
+    return checksum

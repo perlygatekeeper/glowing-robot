@@ -1,0 +1,73 @@
+
+
+
+Again the triangle numbers rear their ugly heads!
+
+with 2,000,000,001 employee ids the longest line length that will potentially be
+complete (end with a line where only the lead employee is noted for the checksum)
+is the index of the largest triangle number less than or equal to 2,000,000,001.
+
+T(n) = n ( n + 1 ) / 2
+
+     ~= sqrt(2,000,000,001) / 2
+
+n^2 / 2 = 2,000,000,001
+n^2 = 4,000,000,002
+n = sqrt(4,000,000,002)
+
+ut [500022876] 2000000001
+Input [2000000001] 2
+Input [2] *
+Input [4000000002] sqrt
+Input [63245.553219179] 63246
+Input [63246] dup
+Input [63246] 1
+Input [1] +
+Input [63247] :
+Input [63247] *
+Input [4000119762] 2
+Input [2] div
+Input [2000059881] 63246
+
+Input [63246] dup
+Input [63246] 1
+Input [1] -
+Input [63245] *
+Input [3999993270] 2
+Input [2] div
+Input [1999996635] 
+
+63245
+
+
+
+OK THAT'S WRONG!   Forgot to count the employees that will not be noted:
+
+Answer is far simplier as we have to make a square
+
+   1    2    3    4 /   line = 0
+   5    6    7 /  8     line = 1
+   9   10 / 11   12     line = 2
+  13 / 14   15   16     line = 3
+
+
+   1    2    3    4    5 /
+   6    7    8    9 / 10
+  11   12   13 / 14   15
+  16   17 / 18   19   20
+  21 / 22   23   24   25
+
+
+ceil ( sqrt ( 2,000,000,001 )
+
+Input [4.58257569495584] 2000000001
+Input [2000000001] sqrt
+Input [44721.3595611761] 
+
+44722
+
+this is the largest line then, that when starting at id 0 or with wrapping
+(both cases will lead to all 2,000,000,001 employees being in line) 
+that will lead to the last line having only the lead of the line noted for
+the checksum.  All line lengths bigger will end with a line with more
+than one employee's id counted.
