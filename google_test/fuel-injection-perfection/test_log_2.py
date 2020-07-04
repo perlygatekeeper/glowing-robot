@@ -84,6 +84,10 @@ for i in range(1,41):
 # solution(41) returns 6: 
 # solution(42) returns 6: 
 # solution(43) returns 6: 
+#
+# solution(91) returns 9: 91 -> 92 -> 46 -> 23 -> 24 -> 12 ->  6 -> 3 -> 2 -> 1
+#                         91 -> 90 -> 45 -> 44 -> 22 -> 11 -> 10 -> 5 -> 4 -> 2 -> 1
+#                         91 -> 90 -> 45 -> 46 -> 23 -> 24 -> 12 ->  6 -> 3 -> 2 -> 1
 # 
 # solution(64) returns 6: 64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1
 # solution(128) returns 7: 128 -> 64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1

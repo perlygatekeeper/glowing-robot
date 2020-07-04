@@ -1,0 +1,12 @@
+
+
+  test  1: n =   15 ->  5
+  test  2: n =    4 ->  2
+  test  3: n is 308 digits long
+  test  4: n is 307 digits long
+  test  5: n is 308 digits long
+  test  6: n is 308 digits long
+  test  7: n is 308 digits long
+  test  8: n =  235 -> 11
+  test  9: n =    1 ->  0
+  test 10: n =   91 ->  9
