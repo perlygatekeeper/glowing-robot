@@ -20,7 +20,11 @@ def pathFinder(x, y, map, steps, lastX, lastY, wall):
             map[newY][newX] = steps
             if newX != 0 or newY != 0:
                 pathFinder(newX, newY, map, steps, lastX, lastY, wall)
-        elif ( map[newY][newX] == 1 or map[newY][newX] < 0 ) and not wall:
+        elif map[newY][newX] > 1 and steps <= map[newY][newX]:
+            map[newY][newX] = steps
+            if newX != 0 or newY != 0:
+                pathFinder(newX, newY, map, steps, lastX, lastY, wall)
+        elif ( map[newY][newX] == 1 or map[newY][newX] < 0 ) and not wall and (newX != lastX or newY != lastY):
             wall = True
             map[newY][newX] = steps * -1
             pathFinder(newX, newY, map, steps, lastX, lastY, wall)
@@ -51,8 +55,6 @@ def solution(map):
 # print(solution([[0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
 # print(solution([[0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
 
-
-'''
 print(solution([
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -99,3 +101,5 @@ print(solution([
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ]))
+
+'''

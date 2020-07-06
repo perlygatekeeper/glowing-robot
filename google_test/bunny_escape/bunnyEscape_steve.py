@@ -1,3 +1,11 @@
+def printMap(the_map,note):
+    print(note)
+    for row in the_map:
+        row_str = ""
+        for cell in row:
+            row_str += " {0:3d}".format(cell)
+        print(row_str)
+
 def pathFinder(x, y, m, steps, lastX, lastY):
     # count possible moves
     options = []
@@ -24,82 +32,97 @@ def pathFinder(x, y, m, steps, lastX, lastY):
             m[newY][newX] = steps
             if newX != 0 or newY != 0:
                 pathFinder(newX, newY, m, steps, lastX, lastY)
-    # print("I'm working with list at:", id(m))
     return m[0][0]
 
-def solution(map):
+def solution(the_map):
+    debug = True
     steps = 1
-    lastX = len(map[0]) - 1
-    lastY = len(map) - 1
+    lastX = len(the_map[0]) - 1
+    lastY = len(the_map) - 1
     x = lastX
     y = lastY
     solutions = []
-    print("\nGiven map")
-    print(id(map[0][0]))
-    for row in map:
-        print(row)
-
-    # first find solution with no walls removed
-    print("\ntestMap after path equal to 1 in testMap")
     testMap = []
-    for row in map:
+    for row in the_map:
         testMap.append(row[:])
-    testMap[0][0] = 8
-    print(id(testMap[0][0]))
-    for row in testMap:
-        print(row)
-
-    print("\nmap after escape path equal to 1 in testMap")
-    print(id(map[0][0]))
-    for row in map:
-        print(row)
-
-    return 0
-
-    print("------------------------------------------------------------------------")
-    print("map with NO removed walls")
-    print(id(testMap))
-    for row in testMap:
-        print(row)
+    testMap[y][x] = 1
+    if debug:
+        printMap(testMap, "----------------------\ntestMap: with all walls intack")
     solutions.append(pathFinder(x, y, testMap, steps, lastX, lastY))
-    map[5][5] = "Z"
-    print("testMap after call to pathFinder with NO wall removed")
-    print(id(testMap))
-    for row in testMap:
-        print(row)
-    print("map after call to pathFinder with NO wall removed")
-    print(id(map))
-    for row in map:
-        print(row)
+    if debug:
+        printMap(testMap, "----------------------\ntestMap: solved, with all walls intack")
 
-    return 0
-
-    for possible_one_x in range(len(map[0])):
-        for possible_one_y in range(len(map)):
-            if map[possible_one_y][possible_one_x] == 1:
+    for possible_one_x in range(len(the_map[0])):
+        for possible_one_y in range(len(the_map)):
+            if the_map[possible_one_y][possible_one_x] == 1:
                 # remove a wall at [possible_one_y][possible_one_x]
                 x = lastX
                 y = lastY
-                testMap = list(map)
+                testMap = []
+                for row in the_map:
+                    testMap.append(row[:])
                 testMap[possible_one_y][possible_one_x] = 0
                 testMap[y][x] = 1
-                print("------------------------------------------------------------------------")
-                print(id(testMap))
-                print("removed wall at {0:2d}:{1:2d} and {2}".format(possible_one_x,possible_one_y,solutions))
-                for row in testMap:
-                    print(row)
+                if debug:
+                    printMap(testMap, "-----\nremoved wall at {0:2d}:{1:2d}".format(possible_one_x,possible_one_y))
                 solutions.append(pathFinder(x, y, testMap, steps, lastX, lastY))
-                print("map after call to pathFinder with wall removed")
-                for row in testMap:
-                    print(row)
-                testMap[possible_one_y][possible_one_x] = 1
+                if debug:
+                    printMap(testMap, "-----\nsolved, after removal of wall at {0:2d}:{1:2d} and {2}".format(possible_one_x,possible_one_y,solutions))
+#               testMap[possible_one_y][possible_one_x] = 1
 
     return min(solutions)
 
 
 
-#print(solution([[0, 1], [0, 0]]))
-#print(solution([[0, 1, 1, 0], [0, 0, 0, 1], [1, 1, 0, 0], [1, 1, 1, 0]]))
-print(solution([[0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
-#print(solution([[0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
+# print(solution([[0, 1], [0, 0]]))
+# print(solution([[0, 1, 1, 0], [0, 0, 0, 1], [1, 1, 0, 0], [1, 1, 1, 0]]))
+# print(solution([[0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
+# print(solution([[0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
 
+'''
+print(solution([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+    [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0],
+    [0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]))
+
+'''
+print(solution([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]))
