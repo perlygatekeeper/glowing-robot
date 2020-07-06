@@ -1,0 +1,62 @@
+def pathFinder(x, y, map, steps, lastX, lastY, wall):
+    # count possible moves
+    options = []
+    if x-1 >= 0: # East
+        options.append([-1, 0])
+    if x+1 <= lastX: # West
+        options.append([ 1, 0])
+    if y-1 >= 0: # North
+        options.append([ 0,-1])
+    if y+1 <= lastY: # South
+        options.append([ 0, 1])
+    # increment step
+    steps += 1
+    for option in options:
+        print("{0:3d} {1:6} before options ---------------------------------".format(steps,wall))
+        for row in map:
+            print(row)
+        # new x and y 
+        newX = x + option[0]
+        newY = y + option[1]
+        # if statements
+        if map[newY][newX] == 0:
+            map[newY][newX] = steps
+            if newX != 0 or newY != 0:
+                pathFinder(newX, newY, map, steps, lastX, lastY, wall)
+        elif ( map[newY][newX] == 1 or map[newY][newX] < 0 ) and not wall:
+            print("Removing a wall at {0:2d}:{1:2d}".format(newX,newY))
+            wall = True
+            map[newY][newX] = steps * -1
+            pathFinder(newX, newY, map, steps, lastX, lastY, wall)
+            wall = False
+        elif map[newY][newX] > 1 and steps < abs(map[newY][newX]):
+            if(map[newY][newX] < 0):
+                map[newY][newX] = steps * -1
+            if(map[newY][newX] > 0):
+                map[newY][newX] = steps
+            if newX != 0 or newY != 0:
+                pathFinder(newX, newY, map, steps, lastX, lastY, wall)
+        print("{0:3d} {1:6} after options ---------------------------------".format(steps,wall))
+        for row in map:
+            print(row)
+
+def solution(map):
+    steps = 1
+    lastX = len(map[0]) - 1
+    lastY = len(map) - 1
+    x = lastX
+    y = lastY
+    testMap = map[:]
+    testMap[y][x] = 1
+    pathFinder(x, y, testMap, steps, lastX, lastY, False)
+    for row in testMap:
+        print(row)
+    return(testMap[0][0])
+
+
+
+#print(solution([[0, 1], [0, 0]]))
+#print(solution([[0, 1, 1, 0], [0, 0, 0, 1], [1, 1, 0, 0], [1, 1, 1, 0]]))
+print(solution([[0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
+#print(solution([[0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 0], [0, 0, 0, 0, 0, 0], [0, 1, 1, 1, 1, 1], [0, 1, 1, 1, 1, 1], [0, 0, 0, 0, 0, 0]]))
+
