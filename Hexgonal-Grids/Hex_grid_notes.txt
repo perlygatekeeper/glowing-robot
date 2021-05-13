@@ -1,0 +1,139 @@
+
+
+
+       _______W________
+      |                |
+      |    ___R____    |
+      |   |________|___|___________
+      |   /        \   |          |
+      |  /          \  |          |
+      | /            \ |          |
+      |/              \|_____     H
+      |\              /     |     |
+      | \            /      h     |
+      |  \          /       |     |
+      |   \____R___/ _______|_____|
+      |            |
+      |_____S______|
+
+S = 3/2 R
+W = 2 R
+H = sqrt(3) R  = sin(60) R
+h = sqrt(3)/2 R 
+
+
+---------------------------------------------------------------------------------------------
+                                        _______
+                                       /       \
+                                      /    Y    \
+                                     /           \
+                                     \  Z     X  /
+                                      \         /
+                                       \_______/
+
+ X + Y + Z = 0
+ X increases Down and Right
+ Y increases Up
+ Z increases Down and Left
+
+Given two hexes:
+( X1, Y1, Z1 )  &  ( X2, Y2, Z2 )
+
+Distance between 1-2:
+MAX ( abs( X1 - X2 ), abs( Y1 - Y2 ), abs( Z1 - Z2 ) )
+
+H1 and H2 are neighbors if
+one coordinate X, Y, or Z are equal
+one coordinate X, Y, or Z is -1 AND
+one coordinate X, Y, or Z is +1
+
+IE. if their distance is 1
+
+          _______             _______             _______             _______
+         /       \           /       \           /       \           /       \
+        /    1    \         /    2    \         /    3    \         /    4    \
+       /           \_______/           \_______/           \_______/           \
+       \  3    -3  /       \  1    -2  /       \  -1   -2  /       \  -3    0  /
+        \         /    1    \         /    2    \         /    3    \         /
+         \_______/           \_______/     _     \_______/           \_______/
+         /       \  2        /       \  0    -2  /       \  -2   -1  /       \
+        /    0    \         /    1    \         /    2    \         /    3    \
+       /           \_______/     _     \_______/     _     \_______/           \
+       \  3    -3  /       \  1    -2  /       \  -1   -1  /       \  -3    0  /
+        \         /    0    \         /    1    \         /    2    \         /
+         \_______/     _     \_______/     ,     \_______/     _     \_______/
+         /       \  2    -2  /       \  0    -1  /       \  -2    0  /       \
+        /   -1    \         /    0    \         /    1    \         /    2    \
+       /           \_______/     ,     \_______/     ,     \_______/           \
+       \  3    -2  /       \  1    -1  /       \  -1    0  /       \  -3    1  /
+        \         /   -1    \         /    0    \         /    1    \         /
+         \_______/     _     \_______/     .     \_______/           \_______/
+         /       \  2    -1  /       \  0     0  /       \  -2    1  /       \
+        /   -2    \         /   -1    \         /    0    \         /    1    \
+       /           \_______/     ,     \_______/     ,     \_______/           \
+       \  3    -1  /       \  1     0  /       \  -1    1  /       \  -3    2  /
+        \         /   -2    \         /   -1    \         /    0    \         /
+         \_______/     _     \_______/     ,     \_______/     _     \_______/
+         /       \  2     0  /       \  0     1  /       \  -2    2  /       \
+        /   -3    \         /   -2    \         /   -1    \         /    0    \
+       /           \_______/     _     \_______/     _     \_______/           \
+       \  3     0  /       \  1     1  /       \  -1    2  /       \  -3    3  /
+        \         /   -3    \         /   -2    \         /   -1    \         /
+         \_______/           \_______/     _     \_______/           \_______/
+         /       \  2     1  /       \  0     2  /       \  -2    3  /       \
+        /   -4    \         /   -3    \         /   -2    \         /   -1    \
+       /           \_______/           \_______/           \_______/           \
+       \  3     1  /       \  1     2  /       \  -1    3  /       \  -3    4  /
+        \         /         \         /         \         /         \         /
+         \_______/           \_______/           \_______/           \_______/
+
+
+                                        _______
+                                       /       \
+                                      /    Y    \
+                                     /           \
+                                     \  Z     X  /
+                                      \         /
+                                       \_______/
+
+Generate the Nth neighbors of H with coordinates ( X, Y, Z )
+
+
+neighbor_offsets = dict()
+# X + Y -> Z
+for X_offset in (-1 * N, N):
+    if X_offset < 0:
+        for Y_offset in range(0, -1 * X_offset):
+            Z_offset = -1 * ( Z_offset + Y_offset)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+    else:
+        for Y_offset in range(0, -1 * X_offset, -1):
+            Z_offset = -1 * ( Z_offset + X_offset)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+# Y + Z -> X
+for Y_offset in (-1 * N, N):                                             # N = 2  (-2, 2)
+    if Y_offset < 0:                                                     # Y_offset = -2
+        for Z_offset in range(0, -1 * Y_offset):                         # Z_offset in (0, 1)
+            X_offset = -1 * ( Y_offset + Z_offset)                       # X_offset in (2, 1)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+    else:                                                                # Y_offset =  2
+        for Z_offset in range(0, -1 * Y_offset, -1):                     # Z_offset in (0, -1)
+            X_offset = -1 * ( Y_offset + Z_offset)                       # X_offset in (-2, 1)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+# Z + X -> Y
+for Z_offset in (-1 * N, N):
+    if Z_offset < 0:
+        for X_offset in range(0, -1 * Z_offset):
+            Y_offset = -1 * ( Z_offset + X_offset)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+    else:
+        for X_offset in range(0, -1 * Z_offset, -1):
+            Y_offset = -1 * ( Z_offset + X_offset)
+            neighbor_offsets[ ( X_offset, Y_offset, Z_offset ) ] = True
+
+
+
+
+
+
+
