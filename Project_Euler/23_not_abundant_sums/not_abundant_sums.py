@@ -86,14 +86,14 @@ def find_all_abundant_numbers(n):
     for i in range(12,n+1):
         if d[i] > i:
             abundant_numbers.append(i)
-            print(f"{i:6d}: {d[i]:6d}")
+#           print(f"{i:6d}: {d[i]:6d}")
     return abundant_numbers
 
 start_time = timeit.default_timer()
 
-limit = 23124  # ten thousand
+limit = 23123  # ten thousand
 # numbers that can be made by the sum of two abundant numbers
-numbers_that_can_be = { i: False for i in range(limit) }
+numbers_that_can_be = { i: False for i in range(1,limit+1) }
 
 # find all numbers from 1 to limit that can be made by summing two abundant numbers
 # numbers_that_can_be is a dict keyed by all numbers 1 .. limit
@@ -104,7 +104,7 @@ abundant_numbers = find_all_abundant_numbers(limit)
 print("There are %5d numbers that are abundant numbers between 1 and %5d" % (len(abundant_numbers), limit))
 
 for abundant_number in abundant_numbers:
-    print("Considering %5d" % (abundant_number))
+#   print("Considering %5d" % (abundant_number))
     for other_abundant_number in abundant_numbers:
         if other_abundant_number < abundant_number:
             continue
@@ -113,7 +113,7 @@ for abundant_number in abundant_numbers:
             break
         if numbers_that_can_be[sum]:
             continue
-        print("%6d can be made as the sum of the two abundant numbers (%5d, %5d)" % (sum, abundant_number, other_abundant_number))
+#       print("%6d can be made as the sum of the two abundant numbers (%5d, %5d)" % (sum, abundant_number, other_abundant_number))
         numbers_that_can_be[sum] = True
 
 print("Found all numbers which can be made by summing two abundant numbers.")
@@ -122,12 +122,10 @@ sum_of_cant_be_numbers = 0
 
 for number in numbers_that_can_be:
     if not numbers_that_can_be[number]:
-        sum_of_non_abundant_numbers += number
+        if ( number > limit ):
+            break
+        sum_of_cant_be_numbers += number
+        print("%5d can not be made by summing two abundant numbers, sum is now %7d" % ( number, sum_of_cant_be_numbers))
 
-print("The number of non_abundant numbers below %d is %d which sum to %d and this took %f seconds to find."
-% ( limit, len(non_abundant_numbers), sum_of_non_abundant_numbers, ( timeit.default_timer() - start_time ) ) )
-
-for non_abundant in non_abundant_numbers:
-    print (non_abundant)
-
-
+print("The sum of all numbers which can't be made by summing two abundant numbers is %d and this took %f seconds to find."
+% ( sum_of_cant_be_numbers, ( timeit.default_timer() - start_time ) ) )

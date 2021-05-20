@@ -1,0 +1,48 @@
+https://projecteuler.net/problem=24
+
+Lexicographic permutations
+
+ Problem 24
+
+ A permutation is an ordered arrangement of objects. For example, 3124 is one
+ possible permutation of the digits 1, 2, 3 and 4. If all of the permutations
+ are listed numerically or alphabetically, we call it lexicographic order. The
+ lexicographic permutations of 0, 1 and 2 are:
+
+ 012   021   102   120   201   210
+
+ What is the millionth lexicographic permutation of the digits
+ 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+
+
+Notes:
+
+10! combinations
+
+9! beginning with 0    362880
+9! beginning with 1    725760
+9! beginning with 2   1088640  <- 1 millionth one will start with a 2
+9! beginning with 3   1451520
+9! beginning with 4   1814400
+9! beginning with 5   2177280
+9! beginning with 6   2540160
+9! beginning with 7   2903040
+9! beginning with 8   3265920
+9! beginning with 9   3628800
+
+ d      d!
+ 2       2
+ 3       6
+ 4      24
+ 5     120
+ 6     720
+ 7    5040
+ 8   40320
+ 9  362880
+10 3628800
+
+
+
+Solution:
+
+
