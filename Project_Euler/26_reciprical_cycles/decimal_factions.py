@@ -9,11 +9,15 @@ import time
 
 start_time = timeit.default_timer()
 
+debugging = False
+debugging = True
+record = 0
+answer = 0
 limit = 999
-limit = 7
+# for denominator in range(2,limit+1):
 
-for denominator in range(2,limit+1):
-    print("looking at 1 / %3d:" % denominator )
+limit = 983
+for denominator in range(983,limit+1):
     digits = {1: 1}
     decimal = []
     last_numerator = 1
@@ -22,17 +26,19 @@ for denominator in range(2,limit+1):
     digit = 0
     while (not done):
         digit += 1
-        if (digit >= 10): # safety net
+        if (digit >= 1000): # safety net
             done = True
         numerator = 10 * last_numerator
         if numerator < denominator: # quotient will be 0
             digits[last_numerator] = digit
             decimal.append('0')
+            last_numerator = numerator
             continue
         else:
             quotient  = numerator//denominator
             remainder = numerator%denominator
-            print("%5d:%5d" % ( quotient, remainder ) )
+            if debugging:
+                print("%5d:%5d" % ( quotient, remainder ) )
             if remainder == 0:
                 decimal.append(str(quotient))
                 done = True
@@ -40,7 +46,11 @@ for denominator in range(2,limit+1):
                 if remainder in digits:
                     # we have a repeating decimal
                     decimal.append(str(quotient))
-                    repeating = " last %d digits repeating" % (digit - digits[remainder] + 1)
+                    digits_repeating = (digit - digits[remainder] + 1)
+                    repeating = " last %d digits repeating" % digits_repeating
+                    if digits_repeating > record:
+                        record = digits_repeating
+                        answer = denominator
                     break
                 else:
                     # remember remainder in digits as this digit
@@ -48,8 +58,8 @@ for denominator in range(2,limit+1):
                     # append quotient to decimal
                     decimal.append(str(quotient))
         last_numerator = remainder
-        print(digits)
-    print ("0.", "".join(decimal), repeating)
+        # print(digits)
+    print( "1 / %3d = 0.%s %s" % ( denominator, "".join(decimal), repeating) )
             
     # loop ( quotient, remainder ) = quotient_and_remainder (last_numerator*10, denomiator)
     # if quotient = 0 mark a 0 for the digit and loop again
@@ -58,8 +68,8 @@ for denominator in range(2,limit+1):
     #    determine which digit was the first occurance of remainder
     # if remainder has NOT been seen before, record it in a dictionary,   memory[remainder] = which digit we are on
 
-
-print("this took %f seconds ." % ( ( timeit.default_timer() - start_time ) ) )
+print()
+print("Answer is %d with a repeat of %3d, this took %f seconds ." % ( answer, record, ( timeit.default_timer() - start_time ) ) )
 
 
 '''
