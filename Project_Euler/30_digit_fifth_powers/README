@@ -19,8 +19,11 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 Notes:
 
-5 * 9^5 = 5 * 59049  = 295245
-6 * 9^5 = 6 * 59049  = 354294
+5 * 9^5 = 5 * 59049  = 295,245
+6 * 9^5 = 6 * 59049  = 354,294
+7 * 9^5 = 7 * 59049  = 413,343
+
+(largest sum of 7 digits raised to the 5th power is 413,343 so 7 digits not possible)
 
 Solution:
 
