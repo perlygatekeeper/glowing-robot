@@ -1,0 +1,72 @@
+https://projecteuler.net/problem=32
+
+Pandigital products
+
+ Problem 32
+ We shall say that an n-digit number is pandigital if it makes use of all the
+ digits 1 to n exactly once; for example, the 5-digit number, 15234, is 1
+ through 5 pandigital.
+
+ The product 7254 is unusual, as the identity, 39 × 186 = 7254, containing
+ multiplicand, multiplier, and product is 1 through 9 pandigital.
+
+ Find the sum of all products whose multiplicand/multiplier/product identity
+ can be written as a 1 through 9 pandigital.
+
+ HINT: Some products can be obtained in more than one way so be sure to only
+ include it once in your sum.
+
+Notes:
+
+m x M = P
+
+1 x M = P  <- can never work, since M and P  will have same digits
+
+9876543 is largest number that will leave 2 digits to make up m and M:
+
+Real largest product will be much smaller:
+
+ 1 x    10 =     10 <- too few digits
+ 9 x    99 =    891 <- too few digits
+ 9 x   999 =   8991 <- too few digits
+ 1 x  1000 =   1000 <- 9 digit possible   1, 4 and 4
+ 9 x  9999 =  89991 <- 9 digit possible
+ 1 x 10000 =  10000 <- too many digits
+
+    2 -    9 =>    8 1-digit numbers  
+ 1234 - 9876 => 8643 4-digit numbers
+-------------------------------------------
+ 10 x  10   =    100   
+ 99 x  99   =   9801 <- too few digits
+ 10 x  100  =   1000 <- 9 digit possible 2, 3 and 4
+ 99 x  999  =  98901 <- 9 digit possible
+ 10 x 1000  =  10000 <- too many digits
+
+   12 -  98 =>   87  2-digit numbers
+  123 - 987 =>  865  3-digit numbers
+-------------------------------------------
+
+100 x 100 =  10000 <- too many digits
+999 x 999 = 998001 <- too many digits
+-------------------------------------------
+
+Digits   Digits    Digits 
+1             4         5
+
+2             3         4
+2             3         4
+
+3             1         4
+3             1         4
+
+3             1         4
+
+
+
+Solution:
+
+
+    2 -    9 =>    8 1-digit numbers  
+ 1234 - 9876 => 8643 4-digit numbers
+   12 -  98 =>   87  2-digit numbers
+  123 - 987 =>  865  3-digit numbers
