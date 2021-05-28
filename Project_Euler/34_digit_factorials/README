@@ -1,0 +1,58 @@
+https://projecteuler.net/problem=34
+
+Digit factorials
+
+ Problem 34
+ 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+
+ Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+
+ Note: As 1! = 1 and 2! = 2 are not sums they are not included.
+
+Notes:
+
+What are the limits where a number CAN be the sum of it's digits.
+
+
+Factorial of a Number
+
+n!
+
+         Expansion      
+         Value
+
+ 0!           0
+ 1!           1
+ 2!           2
+ 3!           6
+ 4!          24
+ 5!         120
+ 6!         720
+ 7!       5,040
+ 8!      40,320
+ 9!     362,880
+10!   3,628,800
+
+The maxium sum of digit factorials will grow linearly with the number of digits
+in the number.
+
+for a number with d digits:
+
+  d       number   Sum of Factorial of digits
+  1            9    1 * 362,880  =    362,880
+  2           99    2 * 362,880  =    725,760
+  3          999    3 * 362,880  =  1,088,640
+  4        9,999    4 * 362,880  =  1,451,520
+  5       99,999    5 * 362,880  =  1,814,400
+  6      999,999    6 * 362,880  =  2,177,280
+  7    9,999,999    7 * 362,880  =  2,540,160   <- after 7 digits it's no longer possible for
+                                                   sum of digit factorials to equal the number
+  8   99,999,999    8 * 362,880  =  2,903,040
+  9  999,999,999    9 * 362,880  =  3,265,920
+
+  2,999,999    2 + 6 * 362,880  =  2,177,282    <- ~3,000,000 is also too large to be equal
+                                                   the sum of it's digit's factorials
+
+Solution:
+
+
