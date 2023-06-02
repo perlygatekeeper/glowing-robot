@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# A perl script to SCRIPT_DESCRIPTION
+# A perl script to solve the drive ya nuts puzzle
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
 my $usage = "usage:\n$name";
