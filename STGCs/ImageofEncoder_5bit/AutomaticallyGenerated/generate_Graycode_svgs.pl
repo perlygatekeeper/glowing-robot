@@ -1,13 +1,5 @@
 #!/usr/bin/env perl
-# A perl script to generate graycode SVG's from an SVG
-# template file.  The template file was made in Inkscape.
-# These output SVG files will be modified, by moving the
-# outer track of arcs by an amount of degrees.
-#
-# This particular version has been modified to work on 
-# a 9-bit/9-sensor Single Track Gray Code, which will encode angles
-# at a 1 degree resolution.  So this script will generate 360 seperate
-# SVG files from the Template.
+# A perl script to generate graycode SVG's from the template file.
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
 my $usage = "usage:\n$name";
@@ -17,7 +9,7 @@ use strict;
 use warnings;
 
 # 1) read in template SVG file
-# 2) loop over degrees ( 0, 359, by 1)
+# 2) loop over degrees ( 0, 354, by 6)
 #   a) change degrees text
 #   b) change slots rotation
 #   c) change bits text and colors
@@ -35,7 +27,8 @@ my $template = Text::Template->new(SOURCE => "Template_inkscape.svg")
 my $pwd = `pwd`; chomp $pwd;
 my $parameters = { pwd => $pwd };
 
-for ( my $degrees = 0; $degrees <= 359; $degrees+=1 ) {
+for ( my $degrees = 0; $degrees <= 354; $degrees+=6 ) {
+# for ( my $degrees = 0; $degrees <= 24; $degrees+=6 ) {
   set_parameters($parameters, $degrees);
   if ( $debug ) {
     print "For degrees: $degrees\n";
@@ -65,17 +58,13 @@ sub set_parameters {
   my $sensors = sensors($degrees);
   my $dim = 'c0';
   my $bright = 'ff';
-  my $secondary = 'aa';
   my $colors = {
-    'green'      => "#00c000", 'bright_green'      => "#00ff00",   
-    'cyan'       => "#00c0aa", 'bright_cyan'       => "#00ffaa",   
-    'light_blue' => "#00aac0", 'bright_light_blue' => "#00aaff",   
-    'blue'       => "#0000c0", 'bright_blue'       => "#0000ff",   
-    'purple'     => "#aa00c0", 'bright_purple'     => "#aa00ff",   
-    'magneta'    => "#c000aa", 'bright_magneta'    => "#ff00aa",   
-    'red'        => "#c00000", 'bright_red'        => "#ff0000",   
-    'orange'     => "#c0aa00", 'bright_orange'     => "#ffaa00",   
-    'lime'       => "#aac000", 'bright_lime'       => "#aaff00",   
+    'red'    => "#${dim}0000",     'bright_red'    => "#${bright}0000", 
+    'green'  => "#00${dim}00",     'bright_green'  => "#00${bright}00", 
+    'blue'   => "#0000${dim}",     'bright_blue'   => "#0000${bright}", 
+    'yellow' => "#${dim}${dim}00", 'bright_yellow' => "#${bright}${bright}00", 
+    'purple' => "#${dim}00${dim}", 'bright_purple' => "#${bright}00${bright}", 
+    'cyan'   => "#00${dim}${dim}", 'bright_cyan'   => "#00${bright}${bright}", 
   };
   $parameters->{"degrees_string"} = sprintf('%3s', $degrees);
   $parameters->{"degrees"       } = sprintf('%03d', $degrees);
@@ -101,57 +90,41 @@ sub set_parameters {
 sub sensors {
   my $degrees = shift;
   my $sensors = {
-    'green'      => 0,
-    'cyan'       => 0,
-    'light_blue' => 0,
-    'blue'       => 0,
-    'purple'     => 0,
-    'magenta'    => 0,
-    'red'        => 0,
-    'orange'     => 0,
-    'lime'       => 0,
-
-
+    'green'  => 0, 
+    'red'    => 0, 
+    'purple' => 0, 
+    'yellow' => 0, 
+    'blue'   => 0, 
   };
+# Slots go from, to (in degrees)
+#   0, 120
+# 168, 204
+# 228, 252
   my $slots = [
-    { 'lower_limit' =>   3, 'upper_limit' =>   4, },
-    { 'lower_limit' =>  23, 'upper_limit' =>  28, },
-    { 'lower_limit' =>  31, 'upper_limit' =>  37, },
-    { 'lower_limit' =>  44, 'upper_limit' =>  48, },
-    { 'lower_limit' =>  56, 'upper_limit' =>  60, },
-    { 'lower_limit' =>  64, 'upper_limit' =>  71, },
-    { 'lower_limit' =>  74, 'upper_limit' =>  76, },
-    { 'lower_limit' =>  88, 'upper_limit' =>  91, },
-    { 'lower_limit' =>  94, 'upper_limit' =>  96, },
-    { 'lower_limit' =>  99, 'upper_limit' => 104, },
-    { 'lower_limit' => 110, 'upper_limit' => 115, },
-    { 'lower_limit' => 131, 'upper_limit' => 134, },
-    { 'lower_limit' => 138, 'upper_limit' => 154, },
-    { 'lower_limit' => 173, 'upper_limit' => 181, },
-    { 'lower_limit' => 186, 'upper_limit' => 187, },
-    { 'lower_limit' => 220, 'upper_limit' => 238, },
-    { 'lower_limit' => 242, 'upper_limit' => 246, },
-    { 'lower_limit' => 273, 'upper_limit' => 279, },
-    { 'lower_limit' => 286, 'upper_limit' => 289, },
-    { 'lower_limit' => 307, 'upper_limit' => 360, },
+    { 'lower_limit' =>   0, 
+      'upper_limit' => 120, 
+    }, 
+    { 'lower_limit' => 168, 
+      'upper_limit' => 204, 
+    }, 
+    { 'lower_limit' => 228, 
+      'upper_limit' => 252, 
+    }, 
   ];
-# Sensors are at 40 degree increments starting at 0
+# Sensors are at 72-degree increments starting at 0
+# 0, 72, 144, 216, 288
   my $locations = {
-    'green'      =>   0,
-    'cyan'       =>  40,
-    'light_blue' =>  80,
-    'blue'       => 120,
-    'purple'     => 160,
-    'magenta'    => 200,
-    'red'        => 240,
-    'orange'     => 280,
-    'lime'       => 320,
+    'green'  =>   0, 
+    'red'    =>  72, 
+    'purple' => 144, 
+    'yellow' => 216, 
+    'blue'   => 288, 
   };
   foreach my $sensor ( keys %$sensors ) {
     foreach my $slot ( @$slots ) {
-      if ( ( ( $locations 'upper_limit' =>>{$sensor}  'upper_limit' => $degrees  'upper_limit' => 1 ) % 360 ) > $slot 'upper_limit' =>>{'lower_limit'}
-       and ( ( $locations 'upper_limit' =>>{$sensor}  'upper_limit' => $degrees  'upper_limit' => 1 ) % 360 ) < $slot 'upper_limit' =>>{'upper_limit'} )  {
-        $sensors 'upper_limit' =>>{$sensor} = 1;
+      if ( ( ( $locations->{$sensor} - $degrees - 1 ) % 360 ) > $slot->{'lower_limit'}
+       and ( ( $locations->{$sensor} - $degrees - 1 ) % 360 ) < $slot->{'upper_limit'} )  {
+        $sensors->{$sensor} = 1;
         last; # if a sensor's in this slot we can stop looking
       }
     }
