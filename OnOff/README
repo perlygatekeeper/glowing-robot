@@ -2,12 +2,13 @@ $usage .= "\t[ ( -on | -begin | -start ) start_regexp ] [ ( -off | -end | -stop 
 $usage .= "\t[ N | N.. | ..M | N..M ]";
 $usage .= "\t[ [ -file ] file1 file2 .. ]";
 
+
 What should happen if...
 
 1) no args
   a) onoff
-  a) onoff -help
-  a) onoff -usage
+  b) onoff -help
+  c) onoff -usage
 2) Number ranges
   a) onoff 13
   b) onoff 4..
@@ -15,21 +16,29 @@ What should happen if...
   d) onoff 4..27
 3) regular expressions for starting, stopping
   a) onoff -start 'one'
-  b) onoff 'one' 'teen'
+  b) onoff 'one' 'teen'  (this fails as the arguments are taken as file names)
+
 
 Notes:
  1) Lead, Linger and Context will only be allowed in numbered cases in the special Single Number case.
  2) For now, only one regular expression or regular expression pair will be allowed.
  3) Include starts and stops will be on by default.  May add way to change this behavior in the future.
+    excluding the lines that match the start and stop conditions may be useful if one were
+    explicitly looking for the contents of a pair of html tags but not the tags themselves,
+    provided the tags appear on their own lines
 
- 4) Should starts and stops be independant or in pairs?
+ 4) Should starts and stops be independent or in pairs?
    a) Pairs allows for multiple different start-stop regexp's.  
       Also, each trigger pair could have it's only lead or linger or both.
       Print all lines between 'Steve' and line 400, possible with paired triggers.
-   b) Indepentant allows for more flexibility.
+   b) Indepentent allows for more flexibility.
+      by flexibility, I mean that one start condition could have multiple stop conditions
 
  5) Can a start trigger also be a stop trigger?
  6) While lingering, should start conditions be searched for?
+
+
+ What I found testing things after not using onoff for a long time
 
 NO onoff 1../__END__/ unfold_xif                      N..regexp doesn't work?
    onoff -start 1 -end /__END__/ unfold_xif           no //'s in regexp

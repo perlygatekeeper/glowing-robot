@@ -3,6 +3,11 @@
 use Test::Most tests => 1;
 use Data::Dumper;
 
+# this code tests Thingiverse module, it was meant as an example of Test::Most and needs
+# to be converted to test onoff
+
+my ($thing, $id, $public_url, $url, $layout_url, $creator_id, $default_image_id);
+
     is( $thing->id,                  $id,                                    'id accessor' ); 
     ok( $thing->creator->isa('Thingiverse::User'),                           'is the creator a Thingiverse::User object' ); 
     is( $thing->creator->id,         $creator_id,                            'creator_id correct' ); 

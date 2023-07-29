@@ -1,9 +1,11 @@
 #!/usr/bin/env perl
 # A perl script to start on a given regexp and stop on another
 # or a given line number and ending on another
-my $last_mod_date='Sat, Jun 23, 2018';
-my $version="1.1"; # added last_mod_date, etc., split off README and started tests
-my $todo="Things yet to do.";
+my $last_mod_date='Wed, Jun 21, 2023';
+my $version;
+#version="1.1"; # added last_mod_date, etc., split off README and started tests
+$version="1.2"; # added last_mod_date, etc., split off README and started tests
+my $todo="Finish 00_onoff.t and implement paired triggers.";
 my $author="Dr. Steven Parker";
 my $copyright="$last_mod_date. All rights reserved.";
 
