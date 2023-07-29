@@ -1,0 +1,187 @@
+From: http://techref.massmind.org/techref/io/sensor/pos/enc/greycodes.htm
+On: Mon Jul 24 2023
+
+Input sensors for position change
+Gray Code / Single Track Grey Code Encoders
+Another interesting system is Single Track Gray Code, which combines verner
+measurement with position encoding. As the name implies, there is only one
+track but the mask is broken up between light and dark around the ring, and the
+sensors are arranged around the shaft at different positions on that single
+track.
+
+Imagine a standard multi-track gray code encoder; all the sensors at one angular position:
+
+Now rotate the inner track 90' clockwise so that it lines up with the middle
+track. Obviously, you need to rotate the track sensor so that it still returns
+the same data. But now, since the inner and middle tracks exactly match, and
+the sensors for those tracks aren't at the same angle anymore, you can simply
+eliminate one track and move the sensors onto the one remaining track.
+
+If you can continue to do this, you can have a single track and all sensors at
+the same distance from the center of the shaft. Unfortunately, you will notice
+that the outer track is not the same. To move beyond a 2 sensor, 4 positions
+per rotation, one needs to find a pattern for the track so that only one sensor
+changes at each rotational position. This was long considered impossible, but
+in 1994 N. B. Spedding published NZ Patent 264738 (Cache 20141016) with several
+examples which do work, but are not very efficient,  e.g. 9 sensors for only 36
+positions.
+
+It turns out that n sensors can apparently distinguish as many as 2n-2
+positions. So 4 sensors can encode 8 positions, 5 encodes 30 positions, and 8
+sensors can encode 240 positions. Hiltgen and Paterson published a paper in
+2001 exhibiting a single-track gray code with exactly 360 angular positions,
+constructed using 9 sensors (actually, with a different track, one could encode
+494 positions).
+
+Mask for 240 position, 8 sensor, Single Track Grey Code.
+The sensors are placed 15 positions apart.
+
+000000000000011111100000110000000000001111111111111111111110
+000000111100000000001100000000001111111111111100111111111000
+111111111111100000011111001111111111110000000000000000000001
+111111000011111111110011111111110000000000000011000000000111
+
+This was developed from "Single-Track Gray Codes" by Alain P. Hiltgen, Kenneth
+G. Paterson, and Marco Brandestini (appendix) It was developed by using the
+Javascript program at STGC Explorer This is development code that makes the
+mask sequence (0 and 1 represent white and black) for the encoder disk or
+track, and then shows all possible readings and what position that reading
+represents.+
+
+Another advantage of this system is that most of the masks avoid patterns like
+010 or 101 where a tab or slot must be one sensor wide. This allows lower
+resolution masks with greater physical strength to be cut or 3D printed. For
+example, the original 2 sensor 4 position example uses the simplest possible
+half circle mask. And the Spedding masks start with only 1 or 2 lobes.
+
+STGC Explorer Verifies the "initial codeword" and "coordinate sequence" from
+the papers below for each STGC found, then makes the mask sequence for an
+encoder track (needs to be expanded to support disks with e.g. SVG) and finally
+shows all possible sensor readings and what position that reading represents.
+
+Also:
+
+December 2003 MassMind newsletter unusual position encoders.
+See Also:
+
+http://en.wikipedia.org/wiki/Gray_code#Single-track_Gray_code
+
+http://www.cs.technion.ac.il/~etzion/PUB/Gray1.pdf
+Near Optimal Single-Track Gray Codes, Tuvi Etzion Member, IEEE, and Kenneth G. Paterson,
+from IEEE TRANSACTIONS ON INFORMATION THEORY, VOL. 42, NO. 3, MAY 1996.
+Example 1 shows a 5 bit, 30 position mask: 001111000110000000011111111100
+
+http://phdtree.org/pdf/37603615-single-track-gray-codes/
+Single-track Gray codes by A. P. Hiltgen, K. G. Paterson, M. Brandestini
+from IEEE Transactions on Information Theory 42(5) 1555-1561 (1996)"
+...e coordinate sequences and initial codewords for the length 6, 7, 8, and 10 single-track Gray codes..."
+
+http://www.cs.technion.ac.il/~etzion/PUB/Gray2.pdf
+The Structure of Single-Track Gray Codes, Moshe Schwartz and Tuvi Etzion, Senior Member, IEEE,
+from IEEE TRANSACTIONS ON INFORMATION THEORY, VOL. 45, NO. 7, NOVEMBER 1999
+
+http://www.hpl.hp.com/techreports/2000/HPL-2000-81.pdf
+Single-Track Circuit Codes Alain P. Hiltgen and Kenneth G. Paterson, Member, IEEE
+
+http://www.yoctopuce.com/EN/article/how-to-measure-wind-part-2
+Brilliant animation of a 5 bit 30 position single track encoder.
+
+This mask is: 000111001100000000011111111110
+http://bsittler.livejournal.com/15895.html
+Multiple STGC's and a python program to find them.
+
+http://www.kroening.com/papers/ieee_inf_theory2008.pdf
+Computing Binary Combinatorial Gray Codes Via Exhaustive Search
+With SAT Solvers Igor Zinovik, Daniel Kroening, and Yury Chebiryak
+
+http://www.quirkfactory.com/robotics/single-encoder/
+Claims a track for 7 sensors that can encode 124 positions (2^7-2*7=114, so the claim is suspect)
+(Cached     track mask: png(http://techref.massmind.org/images/SingleTrackGreyCodeMask-7.png), pdf, ps.
+Sensor placement guide: png(http://techref.massmind.org/images/SingleTrackGreyCodeSensors-7.png), pdf, ps)
+
+Picture of the layout http://techref.massmind.org/images/SingleTrackGreyCode-7.png
+
+Decoding program:
+
+DATA 1, 5, 13, 9, 73, 89, 121, 125, 61, 53, 55,
+     39, 37, 101, 69, 71, 7, 3, 2, 10, 26, 18,
+     19, 51, 115, 123, 122, 106, 110, 78, 74,
+     75, 11, 15, 14, 6, 4, 20, 52, 36, 38, 102,
+     103, 119, 117, 85, 93, 29, 21, 23, 22, 30,
+     28, 12, 8, 40, 104, 72, 76, 77, 79, 111, 107,
+     43, 59, 58, 42, 46, 44, 60, 56, 24, 16, 80, 81,
+     17, 25, 27, 31, 95, 87, 86, 118, 116, 84, 92, 88,
+     120, 112, 48, 32, 33, 35, 34, 50, 54, 62, 63, 47,
+     45, 109, 105, 41, 57, 49, 113, 97, 96, 64, 66, 70,
+     68, 100, 108, 124, 126, 94, 90, 91, 83, 82, 114,
+     98, 99, 67, 65
+
+  FOR index = 0 TO 125
+    READ index,char
+    IF char = sensor THEN
+      DEBUG "position: ",DEC index,CR
+      RETURN
+    ENDIF
+  NEXT
+
+Google Books (http://books.google.com/books?id=XD9iAwAAQBAJ&lpg=PA474&ots=IZ9A_tI0OD&dq=Alain%20P.%20Hiltgen%20and%20Kenneth%20G.%20Paterson%2C&pg=PA316#v=snippet&q=single%20track%20gray%20code&f=false)
+https:__www.google.com_books_edition_Hacker_s_Delight_XD9iAwAAQBAJ_hl=en_gbpv=1_dq=Alain_P._Hiltgen_and_Kenneth_G._Paterson__pg=PA316_printsec=frontcover?pg=PA346&dq=Alain%20P.%20Hiltgen%20and%20Kenneth%20G.%20Paterson%2C
+------------------------------------------------------------------------------------------------
+
+120/8 = 15
+Number of shifts   Bit Shifted
+      15           0
+      15           1
+      15           2
+      15           3
+      15           4
+      15           5
+      15           6
+      15           7
+
+8-bit number does NOT work here, since 120 is divisable by 8 and results in an even number
+"15" which means that each bit in the code will change 
+15 times over the cycle and NOT change back to what it started at.
+
+180/8 = 22
+Number of shifts   Bit Shifted
+      24           0
+      22           1
+      22           2
+      22           3
+      22           4
+      22           5
+      22           6
+      24           7
+
+8-bit number does NOT work here, since 120 is divisable by 8 and results in "22.5"
+
+
+360/8 = 45 degree spacing for the sensors
+
+360 /   1 = 360
+360 /   2 = 180 <-  2 degrees means 180 8-bit numbers
+360 /   3 = 120 <-  3 degrees means 120 8-bit numbers
+360 /   4 =  90
+360 /   5 =  72
+360 /   6 =  60
+360 /   8 =  45
+360 /   9 =  40
+360 /  10 =  36
+360 /  12 =  30
+360 /  15 =  24
+360 /  18 =  20
+360 /  20 =  18
+360 /  24 =  15
+360 /  30 =  12
+360 /  36 =  10
+360 /  40 =   9
+360 /  45 =   8
+360 /  60 =   6
+360 /  72 =   5
+360 /  90 =   4
+360 / 120 =   3
+360 / 180 =   2
+360 / 360 =   1
+
+

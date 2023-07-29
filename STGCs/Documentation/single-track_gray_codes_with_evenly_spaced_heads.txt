@@ -1,0 +1,131 @@
+https://bsittler.livejournal.com/15895.html   on 2023/07/22
+
+single-track gray codes with evenly spaced heads	[Jan. 3rd, 2009|10:52 am]
+Previous Entry Share Flag Next Entry
+[	Tags	|	baudot, gray code, stgc	]
+
+Gray codes (so-called, despite having been used by Émile Baudot in the original
+Baudot code and its evolution, the International Telegraph Alphabet No. 1, many
+decades prior to Gray's patent) are good for many encoding applications because
+any two adjacent positions differ by exactly one bit, and the encoder wheels
+are trivial to construct by binary reflection. However, you can do better — by
+using a specially chosen sensor arrangement one can use a single encoder wheel
+which is sensed simultaneously at several points and decodes to a Gray code.
+The particular case where all the heads are evenly radially spaced is is called
+a single-track Gray code with evenly spaced heads — see Moshe Schwartz and Tuvi
+Etzion's The Structure of Single-Track Gray Codes for a good discussion and
+definition of this term.
+
+Anyhow, I became curious about these codes yesterday, and wrote and refined a
+Python program to find them. Here are some of the codes it found: (hover over a
+block of codes to see the command used to find it)
+
+123456781234567812345678123456781234567812345678 48; 360/48 = 7.5
+=======V=======V=======V=======V=======V=======V
+----------xxx------xxxx-----xxxxx-----xxxxxxxxxx
+-----------xxxxxx----xxxxx----xxxxxx---xxxxxxxxx
+-----------xxxx-----xxxxx----xxxxx----xxxxxxxxxx
+-----------xxx------xxxxx----xxxxx-----xxxxxxxxx
+-----------xx----xxxxx----xxxxxxxxxx---xxxxxxxxx
+------------xxxxxx-----xx-----xxxxx--xxxxxxxxxxx
+------------xxxxx----xxxxx----xxxxx----xxxxxxxxx
+------------xxxxx------xxx----xxxxx--xxxxxxxxxxx
+------------xxx-------xxxxxxxxxxx--xxxxxxx---xxx
+------------xx----xxxxx----xxxxxxxxxx----xxxxxxx
+------------xx-----xxxx--xxxxxxxxxxxx-----xxxxxx
+------------xx-----xxxx---xxxxxxxxxxx----xxxxxxx
+------------xx-----xxxx---xxxxxxx----xxxxxxxxxxx
+------------xx-------xxxxxxxxxxxx--xxxx---xxxxxx
+------------xx-------xxxxxxxxxx---xxxxxxx--xxxxx
+-------------xxxxx--xxxxxxxxxxx----xxx---xxxxxxx
+-------------xxxxx-------xx----xxxxx--xxxxxxxxxx
+-------------xxxx--xxxxxxxxxxxx-----xx----xxxxxx
+-------------xxxx---xxxxxxxxxxx----xxx----xxxxxx
+-------------xxxx------xxxx---xxxx--xxxxxxxxxxxx
+-------------xx--xxxxxxxxx--xxxxxxxxxx-----xxxxx
+-------------xx---xxxxxxx--xxxxxxxxxxx------xxxx
+-------------xx---xxxxxxx---xxxxxxxxxx-----xxxxx
+-------------xx----xxx----xxxxxxx---xxxxxxxxxxxx
+-------------xx-----xxxxxxxxxxxxx--xxx----xxxxxx
+-------------xx-----xxxxx--xxxxxxx----xxxxxxxxxx
+--------------xxxx--xxxxxxxxxxxxx----xx----xxxxx
+--------------xxxx--xxxxx----xxxxxxxxxx----xxxxx
+--------------xxxx---xxxx--xxxxxxxxx---xxxxxxxxx
+--------------xxxx---xxxx---xxxxxxx----xxxxxxxxx
+--------------xxxx---xx-----xxxxxxxxxxxxx--xxxxx
+--------------xxxx-----xxxx--xxxx---xxxxxxxxxxxx
+--------------xxxx-----xx---xxxxxxx--xxxxxxxxxxx
+--------------xxxx-------xxx---xxxx--xxxxxxxxxxx
+--------------xxx--xxxxxxx---xxxxxxxxxx-----xxxx
+--------------xxx---xxxxxxxxxxxxxx-----xxxx--xxx
+--------------xxx---xxxxxxxxxxx----xx-----xxxxxx
+--------------xxx---xxx---xxxxxxxxx--xxxxxxxxxxx
+--------------xxx---xxx----xxxxxxx---xxxxxxxxxxx
+--------------xxx----xxxxxxxxxxxxxx----xxx--xxxx
+--------------xxx----xxxxx--xxxxxxx----xxxxxxxxx
+--------------xxx----xx----xxxxxxx--xxxxxxxxxxxx
+---------------xxxx---xxxx---xxxxxxx-----xxxxxxx
+---------------xxxx------xxx--xxxx---xxxxxxxxxxx
+---------------xxx--xxxxx----xxxxxxxxx-----xxxxx
+---------------xx--xxxxxxx---xxxxxxxxx------xxxx
+---------------xx---xx-----xxxxxxx---xxxxxxxxxxx
+
+123456123456123456123456123456123456 = 36; 360/36 = 10
+=====V=====V=====V=====V=====V=====V
+----------xxxx---xxxxxxxx--xxxxxxxxx
+----------xxx--xxxxxxxx---------xxxx
+-----------xxxx----xxxxxxx--xxxxxxxx
+-----------xxx--------xxxxxxxxx--xxx
+-----------xx---xxxxxxxxxx-------xxx
+-----------xx--------xxxxx--xxxxxxxx
+-------------xxx----xxxxxxx--xxxxxxx
+-------------xx--xxxxx----xxxxxxxxxx
+--------------xxx--xxx-----xxxxxxxxx
+--------------xxx----xxxxxxx---xxxxx
+--------------xxx-----xxxxxxxxx--xxx
+--------------xx---xxxx----xxxxxxxxx
+--------------xx-----xxxxxxxx--xxxxx
+---------------xx--xxxxxxxxx----xxxx
+---------------xx--xxx----xxxxxxxxxx
+---------------xx---xxxxxxxx---xxxxx
+---------------xx---xxxxx---xxxxxxxx
+----------------xxxx---xx--xxxxxxxxx
+----------------xxx--xxxxx---xxxxxxx
+----------------xxx--xx---xxxxxxxxxx
+
+123456123456123456123456123456 = 30; 360/30 = 12
+=====V=====V=====V=====V=====V
+--------xxx----xxxx---xxxxxxxx
+--------xx-----xxxxxxxx--xxxxx
+---------xxxx---xxxx---xxxxxxx
+---------xxxx----xxx--xxxxxxxx
+---------xx--xxxxxxxxx----xxxx
+---------xx---xxxxxxxx---xxxxx
+---------xx---xxxxx---xxxxxxxx
+----------xxxx---xx--xxxxxxxxx
+----------xxx--xxxxx---xxxxxxx
+----------xxx--xx---xxxxxxxxxx
+
+12341234123412341234 = 20; 360/20 = 18
+===V===V===V===V===V
+-------xxx---xxxxxxx
+-------xx-----xxxxxx
+---------xx---xxxxxx
+----------xxx--xxxxx
+
+121212 = 6; 360/6 = 60
+=V=V=V
+---xxx
+
+=V
+-x
+
+(Yes, I have written about Gray codes previously.)
+
+edit: updated the program with a further heuristic and added results for 36 and
+      48 positions; also, the Gray code page at quirkfactory includes a 7-head,
+      126-position single-track Gray code.
+
+edit: updated with an even better heuristic; results can now be computed even
+      for 126-position single-track Gray codes in reasonable time.
+

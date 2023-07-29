@@ -1,0 +1,83 @@
+Number of shifts   Bit Shifted
+      10           0
+      10           1
+      10           2
+      10           3
+      10           4
+      10           5
+
+6-bit number works here, since 60 is divisable by 6 and results in an even number
+"10" which means that each bit in the code will change
+10 times over the cycle and change back to what it started at.
+
+Circle/Degrees = # of Codes
+360 /   1 = 360
+360 /   2 = 180
+360 /   3 = 120
+360 /   4 =  90
+360 /   5 =  72
+360 /   6 =  60 <-  6 degrees means 60 6-bit numbers
+360 /   8 =  45
+360 /   9 =  40
+360 /  10 =  36
+360 /  12 =  30
+360 /  15 =  24
+360 /  18 =  20
+360 /  20 =  18
+360 /  24 =  15
+360 /  30 =  12
+360 /  36 =  10
+360 /  40 =   9
+360 /  45 =   8
+360 /  60 =   6
+360 /  72 =   5
+360 /  90 =   4
+360 / 120 =   3
+360 / 180 =   2
+360 / 360 =   1
+
+
+
+The following is copied over from the (5-bit, 12 degree, 30 codes) version
+     1	10000   0
+     2	10100   2
+     3	11100   3
+     4	11110   1
+     5	11010   2
+     6	11000   1
+
+     7	01000   4
+     8	01010   1
+     9	01110   2
+    10	01111   0
+    11	01101   1
+    12	01100   0
+
+    13	00100   3
+    14	00101   0
+    15	00111   1
+    16	10111   4
+    17	10110   0
+    18	00110   4
+
+    19	00010   2
+    20	10010   4
+    21	10011   0
+    22	11011   3
+    23	01011   4
+    24	00011   3
+
+    25	00001   1
+    26	01001   3
+    27	11001   4
+    28	11101   2
+    29	10101   3
+    30	10001   2
+
+Transposing the 30 codes to emphize the shifting of the bit pattern by 5 in
+each verticle column.
+000000 000110 011100 001111 111111   <- 0 BITS
+000110 011100 001111 111111 000000   <- 1 BITS rotated by 5
+011100 001111 111111 000000 000110   <- 2 BITS rotated by 5
+001111 111111 000000 000110 011100   <- 3 BITS rotated by 5
+111111 000000 000110 011100 011111   <- 4 BITS rotated by 5

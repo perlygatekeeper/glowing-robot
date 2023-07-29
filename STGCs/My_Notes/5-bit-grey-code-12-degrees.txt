@@ -1,0 +1,93 @@
+Number of shifts   Bit Shifted
+       6           0
+       6           1
+       6           2
+       6           3
+       6           4
+
+5-bit number works here, since 30 is divisable by 5 and results in an even
+number "6" which means that each bit in the code will change 6 times over
+the cycle and change back to what it started at.
+
+5 sensors for the five bits.
+How is it determined where do the tracks go?
+
+Circle/Degrees = # of Codes
+360 /   1 = 360
+360 /   2 = 180
+360 /   3 = 120
+360 /   4 =  90
+360 /   5 =  72
+360 /   6 =  60
+360 /   8 =  45
+360 /   9 =  40
+360 /  10 =  36
+360 /  12 =  30 <- 12 degrees means 30 5-bit numbers
+360 /  15 =  24
+360 /  18 =  20
+360 /  20 =  18
+360 /  24 =  15
+360 /  30 =  12
+360 /  36 =  10
+360 /  40 =   9
+360 /  45 =   8
+360 /  60 =   6
+360 /  72 =   5
+360 /  90 =   4
+360 / 120 =   3
+360 / 180 =   2
+360 / 360 =   1
+
+     1	10000   0
+     2	10100   2
+     3	11100   3
+     4	11110   1
+     5	11010   2
+     6	11000   1
+
+     7	01000   4
+     8	01010   1
+     9	01110   2
+    10	01111   0
+    11	01101   1
+    12	01100   0
+
+    13	00100   3
+    14	00101   0
+    15	00111   1
+    16	10111   4
+    17	10110   0
+    18	00110   4
+
+    19	00010   2
+    20	10010   4
+    21	10011   0
+    22	11011   3
+    23	01011   4
+    24	00011   3
+
+    25	00001   1
+    26	01001   3
+    27	11001   4
+    28	11101   2
+    29	10101   3
+    30	10001   2
+
+Transposing the 30 codes to emphize the shifting of the bit pattern by 5 in
+each verticle column.
+
+000000 000110 011100 001111 111111   <- 0 BITS
+000110 011100 001111 111111 000000   <- 1 BITS rotated by 5
+011100 001111 111111 000000 000110   <- 2 BITS rotated by 5
+001111 111111 000000 000110 011100   <- 3 BITS rotated by 5
+111111 000000 000110 011100 011111   <- 4 BITS rotated by 5
+
+                                     9 2 2 3 4 10
+123456 789121 212312 341234 567890   9 0's, 2 1's, 2 0's, 3 1's, 4 0's, 10 1's
+...... ...11. .111.. ..1111 111111   <- 0 BITS
+000110 011100 001111 111111 000000   <- 1 BITS rotated by 5
+011100 001111 111111 000000 000110   <- 2 BITS rotated by 5
+001111 111111 000000 000110 011100   <- 3 BITS rotated by 5
+111111 000000 000110 011100 011111   <- 4 BITS rotated by 5
+
+30 codes into 360 degrees, 

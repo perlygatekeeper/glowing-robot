@@ -1,0 +1,119 @@
+from https://en.wikipedia.org/wiki/Gray_code#Single-track_Gray_code
+
+// Slots go from, to (in degrees)
+//   0, 120 10 starting at  0
+// 168, 204  3 starting at 14
+// 228, 252  2 starting at 19
+5 sensors equally spaced at 72 degrees
+
+Angles from image shown translated into 5-sensor view of (6 x 12 degree) segments or 72 degrees
+
+circle at 0 degrees
+| circle at 12 degrees
+|/
+||  circle at 24 degrees
+||/
+|||  circle at 36 degrees
+|||/
+||||  circle at 48 degrees
+||||/
+||||| circle at 60 degrees  at 72 degrees sensor 1 sees what sensor 2 did at 0 degrees and so forth
+|||||/                      represented by the first line '111111' going to the bottom and all other lines shifted up.
+111111  sensor 1     circle is   abcdef  each letter represents 12 degrees.
+111100  sensor 2                 ghijkl
+001110  sensor 3                 mnopqr
+011000  sensor 4                 stuvxy
+000000  sensor 5                 zABCDE
+
+012345
+678901
+234567
+890123
+456789
+012345
+(6 12-degree segments)
+
+00001    00001   
+00101    00101   
+00111    00111   
+01111    01111   
+01101 >  01011     < this change reduces the slots to 3 as above
+00011    00011   
+  /\
+  ||
+4 - slots
+from seeds for n-5 in Appendix C of 
+http://etzion.net.technion.ac.il/files/2016/02/P54.pdf
+
+Length 5:
+     12345   12345   12345   12345   12345
+ 1  [00001] [00010] [00100] [01000] [10000]
+ 2  [00011] [00110] [01100] [11000] [10001]
+ 3  [00111] [01110] [11100] [11001] [10011]
+ 4  [01111] [11110] [11101] [11011] [10111]
+ 5  [01101] [11010] [10101] [01011] [10110]
+ 6  [00101] [01010] [10100] [01001] [10010]
+
+Length 5:
+
+00001
+00010
+00100
+01000
+10000
+00011
+00110
+01100
+11000
+10001
+00111
+01110
+11100
+11001
+10011
+01111
+11110
+11101
+11011
+10111
+01101
+11010
+10101
+01011
+10110
+00101
+01010
+10100
+01001
+10010
+
+00001
+00011
+00111
+01111
+01101
+00101
+00010
+00110
+01110
+11110
+11010
+01010
+00100
+01100
+11100
+11101
+10101
+10100
+01000
+11000
+11001
+11011
+01011
+01001
+10000
+10001
+10011
+10111
+10110
+10010
