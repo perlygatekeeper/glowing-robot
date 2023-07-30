@@ -1,9 +1,10 @@
 #!/usr/bin/env perl
 # A perl script to give points on a circle of radius 85 
-# given angles in degrees
+# given each angle in degrees
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
-my $usage = "usage:\n$name [-opt1] [-opt2] [-opt3]";
+my $usage = "usage:\n$name [angle_1] [angle2] [angle3] ...";
+# ex.  ./points.pl 0 40 80 120 160 200 240 280 320
 
 use strict;
 use warnings;
