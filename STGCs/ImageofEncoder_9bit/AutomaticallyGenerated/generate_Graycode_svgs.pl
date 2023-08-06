@@ -11,7 +11,7 @@
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
 my $usage = "usage:\n$name";
-my $debug = 0;
+my $debug = 1;
 
 use strict;
 use warnings;
@@ -29,7 +29,7 @@ use Text::Template;
 use Math::Trig;
 use Data::Dumper;
 
-my $template = Text::Template->new(SOURCE => "Template_inkscape.svg")
+my $template = Text::Template->new(SOURCE => "Template.svg")
   or die "Couldn't construct template: $Text::Template::ERROR";
 
 my $pwd = `pwd`; chomp $pwd;
@@ -38,7 +38,22 @@ my $parameters = { pwd => $pwd };
 for ( my $degrees = 0; $degrees <= 359; $degrees+=1 ) {
   set_parameters($parameters, $degrees);
   if ( $debug ) {
-    print "For degrees: $degrees\n";
+    my $sensors = [
+      'lime'      ,
+      'orange'    ,
+      'red'       ,
+      'magenta'   ,
+      'purple'    ,
+      'blue'      ,
+      'light_blue',
+      'cyan'      ,
+      'green'     ,
+    ];
+    printf "For degrees: %03d ", $degrees;
+    foreach my $sensor ( @$sensors ) { 
+      print $parameters->{'bit_' . $sensor . '_value'}
+    }
+    print "\n";
     print Dumper($parameters);
     print "\n";
     next;
@@ -72,7 +87,7 @@ sub set_parameters {
     'light_blue' => "#00aac0", 'bright_light_blue' => "#00aaff",   
     'blue'       => "#0000c0", 'bright_blue'       => "#0000ff",   
     'purple'     => "#aa00c0", 'bright_purple'     => "#aa00ff",   
-    'magneta'    => "#c000aa", 'bright_magneta'    => "#ff00aa",   
+    'magenta'    => "#c000aa", 'bright_magenta'    => "#ff00aa",   
     'red'        => "#c00000", 'bright_red'        => "#ff0000",   
     'orange'     => "#c0aa00", 'bright_orange'     => "#ffaa00",   
     'lime'       => "#aac000", 'bright_lime'       => "#aaff00",   
@@ -80,12 +95,11 @@ sub set_parameters {
   $parameters->{"degrees_string"} = sprintf('%3s', $degrees);
   $parameters->{"degrees"       } = sprintf('%03d', $degrees);
   $parameters->{"rotate_matrix" } = sprintf("%7.5f,%7.5f,%7.5f,%7.5f,0.0,0.0",
-  	                                    cos(deg2rad($degrees+1)),
-  	                                    sin(deg2rad($degrees+1)),
-  	                               -1 * sin(deg2rad($degrees+1)),
-  	                                    cos(deg2rad($degrees+1))
+  	                                    cos(deg2rad($degrees)),
+  	                                    sin(deg2rad($degrees)),
+  	                               -1 * sin(deg2rad($degrees)),
+  	                                    cos(deg2rad($degrees))
   	                            );
-
   foreach my $sensor ( keys %$sensors ) {
     $parameters->{'bit_' . $sensor . '_value'} = $sensors->{$sensor};
     if ( $sensors->{$sensor} ) {
@@ -110,8 +124,6 @@ sub sensors {
     'red'        => 0,
     'orange'     => 0,
     'lime'       => 0,
-
-
   };
   my $slots = [
     { 'lower_limit' =>   3, 'upper_limit' =>   4, },
@@ -149,9 +161,9 @@ sub sensors {
   };
   foreach my $sensor ( keys %$sensors ) {
     foreach my $slot ( @$slots ) {
-      if ( ( ( $locations 'upper_limit' =>>{$sensor}  'upper_limit' => $degrees  'upper_limit' => 1 ) % 360 ) > $slot 'upper_limit' =>>{'lower_limit'}
-       and ( ( $locations 'upper_limit' =>>{$sensor}  'upper_limit' => $degrees  'upper_limit' => 1 ) % 360 ) < $slot 'upper_limit' =>>{'upper_limit'} )  {
-        $sensors 'upper_limit' =>>{$sensor} = 1;
+      if ( ( ( $locations->{$sensor} + $degrees ) % 360 ) >= $slot->{'lower_limit'}
+       and ( ( $locations->{$sensor} + $degrees ) % 360 ) <= $slot->{'upper_limit'} )  {
+        $sensors->{$sensor} = 1;
         last; # if a sensor's in this slot we can stop looking
       }
     }

@@ -29,4 +29,4 @@ pngs:
 	@echo $(GRAYCODE_PNGS)
 
 clean:
-	rm -f $(GRAYCODE_SVGS) $(GRAYCODE_PNGS)
+	@rm -f $(GRAYCODE_SVGS) $(GRAYCODE_PNGS)
