@@ -20,10 +20,15 @@ GRAYCODE_PNGS  = $(GRAYCODE_SVGS:%svg=%png)
 # Macros	deploy		man		suffixes
 # Makefile	if		patches		variables
 
-all: $(GRAYCODE_PNGS)
+# all: $(GRAYCODE_PNGS)
+
+debug:
+	@echo generating debug file, generate_Graycode_debug.txt
+	./generate_Graycode_svgs.pl -d > generate_Graycode_debug.txt
 
 svgs:
 	@echo $(GRAYCODE_SVGS)
+	./generate_Graycode_svgs.pl
 
 pngs:
 	@echo $(GRAYCODE_PNGS)

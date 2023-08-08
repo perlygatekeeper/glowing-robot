@@ -11,7 +11,12 @@
 
 my $name = $0; $name =~ s'.*/''; # remove path--like basename
 my $usage = "usage:\n$name";
-my $debug = 1;
+my $debug = 0;
+
+if ( $ARGV[0] =~ /^-d/ ) {
+  shift;
+  $debug = 1;
+}
 
 use strict;
 use warnings;
@@ -126,6 +131,7 @@ sub sensors {
     'lime'       => 0,
   };
   my $slots = [
+    { 'lower_limit' =>   0, 'upper_limit' =>   0, }, # this was the mistake, 0 or 360 needs to be part of a track
     { 'lower_limit' =>   3, 'upper_limit' =>   4, },
     { 'lower_limit' =>  23, 'upper_limit' =>  28, },
     { 'lower_limit' =>  31, 'upper_limit' =>  37, },
@@ -145,7 +151,7 @@ sub sensors {
     { 'lower_limit' => 242, 'upper_limit' => 246, },
     { 'lower_limit' => 273, 'upper_limit' => 279, },
     { 'lower_limit' => 286, 'upper_limit' => 289, },
-    { 'lower_limit' => 307, 'upper_limit' => 360, },
+    { 'lower_limit' => 307, 'upper_limit' => 359, },
   ];
 # Sensors are at 40 degree increments starting at 0
   my $locations = {
