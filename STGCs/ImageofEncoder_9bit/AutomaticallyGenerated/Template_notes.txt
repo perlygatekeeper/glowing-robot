@@ -1,0 +1,147 @@
+Export Filename for Inkscape, not necessary?
+21:     inkscape:export-filename="{$pwd}/Graycode-{$degrees}.png"
+
+Arc Ring Rotation
+
+71:       transform="matrix({$rotate_matrix})">
+
+Bits Colors and Values
+
+390:           id="{$bit_lime}"       style="fill:{$bit_lime_color};fill-opacity:1"      >{$bit_lime_value}</tspan><tspan
+391:           id="{$bit_orange}"     style="fill:{$bit_orange_color};fill-opacity:1"    >{$bit_orange_value}</tspan><tspan
+392:           id="{$bit_red}"        style="fill:{$bit_red_color};fill-opacity:1"       >{$bit_red_value}</tspan><tspan
+393:           id="{$bit_magenta}"    style="fill:{$bit_magenta_color};fill-opacity:1"   >{$bit_magenta_value}</tspan><tspan
+394:           id="{$bit_purple}"     style="fill:{$bit_purple_color};fill-opacity:1"    >{$bit_purple_value}</tspan><tspan
+395:           id="{$bit_blue}"       style="fill:{$bit_blue_color};fill-opacity:1"      >{$bit_blue_value}</tspan><tspan
+396:           id="{$bit_light_blue}" style="fill:{$bit_light_blue_color};fill-opacity:1">{$bit_light_blue_value}</tspan><tspan
+397:           id="{$bit_cyan}"       style="fill:{$bit_cyan_color};fill-opacity:1"      >{$bit_cyan_value}</tspan><tspan
+398:           id="{$bit_green}"      style="fill:{$bit_green_color};fill-opacity:1"     >{$bit_green_value}</tspan></tspan></text>
+
+Degrees String
+
+414:   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace">{$degrees_string}</tspan>°</tspan></text>
+
+Sensor Colors
+
+424:       style="fill:{$sensor_green};fill-opacity:1;stroke:none;stroke-opacity:1" />
+429:       style="fill:{$sensor_cyan};fill-opacity:1;stroke:none;stroke-opacity:1" />
+434:       style="fill:{$sensor_light_blue};fill-opacity:1;stroke:none;stroke-opacity:1" />
+439:       style="fill:{$sensor_blue};fill-opacity:1;stroke:none;stroke-opacity:1" />
+444:       style="fill:{$sensor_purple};fill-opacity:1;stroke:none;stroke-opacity:1" />
+449:       style="fill:{$sensor_magenta};fill-opacity:1;stroke:none;stroke-opacity:1" />
+454:       style="fill:{$sensor_red};fill-opacity:1;stroke:none;stroke-opacity:1" />
+459:       style="fill:{$sensor_orange};fill-opacity:1;stroke:none;stroke-opacity:1" />
+464:       style="fill:{$sensor_lime};fill-opacity:1;stroke:none;stroke-opacity:1" />
+
+==================================================================================================
+Same Grep with --context=5
+==================================================================================================
+
+16-  <sodipodi:namedview
+17-     id="namedview1"
+18-     pagecolor="#ffffff"
+19-     bordercolor="#000000"
+20-     borderopacity="0.25"
+21:     inkscape:export-filename="{$pwd}/Graycode-{$degrees}.png"
+22-     inkscape:showpageshadow="2"
+23-     inkscape:pageopacity="0.0"
+24-     inkscape:pagecheckerboard="0"
+25-     inkscape:deskcolor="#d1d1d1"
+26-     inkscape:zoom="4.04"
+
+
+66-     id="layer2"
+67-     inkscape:label="Arcs Display"
+68-     transform="matrix(1,0,0,1,90,90)">
+69-    <g
+70-       id="g1"
+71:       transform="matrix({$rotate_matrix})">
+72-      <path
+73-         id="path8"
+74-         style="opacity:1;fill:none;fill-opacity:0;stroke:#000000;stroke-width:13.6923;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+75-         inkscape:label="Arc Segment 20"
+76-         sodipodi:type="arc"
+
+
+385-       <tspan
+386-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:monospace;-inkscape-font-specification:monospace;fill:#000000;fill-opacity:1"
+387-         y="157.65456"
+388-         x="125.55443"
+389-         id="tspan5096-7"><tspan
+390:           id="{$bit_lime}"       style="fill:{$bit_lime_color};fill-opacity:1"      >{$bit_lime_value}</tspan><tspan
+391:           id="{$bit_orange}"     style="fill:{$bit_orange_color};fill-opacity:1"    >{$bit_orange_value}</tspan><tspan
+392:           id="{$bit_red}"        style="fill:{$bit_red_color};fill-opacity:1"       >{$bit_red_value}</tspan><tspan
+393:           id="{$bit_magenta}"    style="fill:{$bit_magenta_color};fill-opacity:1"   >{$bit_magenta_value}</tspan><tspan
+394:           id="{$bit_purple}"     style="fill:{$bit_purple_color};fill-opacity:1"    >{$bit_purple_value}</tspan><tspan
+395:           id="{$bit_blue}"       style="fill:{$bit_blue_color};fill-opacity:1"      >{$bit_blue_value}</tspan><tspan
+396:           id="{$bit_light_blue}" style="fill:{$bit_light_blue_color};fill-opacity:1">{$bit_light_blue_value}</tspan><tspan
+397:           id="{$bit_cyan}"       style="fill:{$bit_cyan_color};fill-opacity:1"      >{$bit_cyan_value}</tspan><tspan
+398:           id="{$bit_green}"      style="fill:{$bit_green_color};fill-opacity:1"     >{$bit_green_value}</tspan></tspan></text>
+399-  </g>
+400-  <g
+401-     id="layer3"
+402-     inkscape:label="Degrees Display">
+403-    <text
+
+
+409-       inkscape:label="Degrees Text"><tspan
+410-         y="12.380952"
+411-         x="148.66666"
+412-         id="tspan5092"><tspan
+413-   id="tspan4199"
+414:   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace">{$degrees_string}</tspan>°</tspan></text>
+415-  </g>
+416-  <g
+417-     inkscape:groupmode="layer"
+418-     id="layer1"
+419-     inkscape:label="Sensors Display">
+
+
+
+420-    <path
+421-       id="path1971-5-5-3-8-5-1-4-6"
+422-       d="m 164.5,90.299992 -25,-10.000011 v 20.000039 z"
+423-       inkscape:label="Sensor Green"
+424:       style="fill:{$sensor_green};fill-opacity:1;stroke:none;stroke-opacity:1" />
+425-    <path
+426-       id="path1971-5-5-3-8-5-1-4-6-3"
+427-       d="M 147.38613,139.18954 134.66289,115.45939 121.80712,130.7803 Z"
+428-       inkscape:label="Sensor Cyan"
+429:       style="fill:{$sensor_cyan};fill-opacity:1;stroke:none;stroke-opacity:1" />
+430-    <path
+431-       id="path1971-5-5-3-8-5-1-4-6-8"
+432-       d="m 104.08644,163.78201 5.50689,-26.35669 -19.696186,3.47297 z"
+433-       inkscape:label="Sensor Light-Blue"
+434:       style="fill:{$sensor_light_blue};fill-opacity:1;stroke:none;stroke-opacity:1" />
+435-    <path
+436-       id="path1971-5-5-3-8-5-1-4-6-4"
+437-       d="M 49.919864,154.42081 71.080128,137.77018 53.759601,127.77016 Z"
+438-       inkscape:label="Sensor Blue"
+439:       style="fill:{$sensor_blue};fill-opacity:1;stroke:none;stroke-opacity:1" />
+440-    <path
+441-       id="path1971-5-5-3-8-5-1-4-6-7"
+442-       d="m 20.401869,118.72969 26.912527,0.84642 -6.840409,-18.79386 z"
+443-       inkscape:label="Sensor Purple"
+444:       style="fill:{$sensor_purple};fill-opacity:1;stroke:none;stroke-opacity:1" />
+445-    <path
+446-       id="path1971-5-5-3-8-5-1-4-6-31"
+447-       d="m 20.101873,61.270298 20.07212,17.947443 6.840413,-18.79388 z"
+448-       inkscape:label="Sensor Magenta"
+449:       style="fill:{$sensor_magenta};fill-opacity:1;stroke:none;stroke-opacity:1" />
+450-    <path
+451-       id="path1971-5-5-3-8-5-1-4-6-9"
+452-       d="M 49.919868,25.579173 53.759613,52.229826 71.080147,42.22981 Z"
+453-       inkscape:label="Sensor Red"
+454:       style="fill:{$sensor_red};fill-opacity:1;stroke:none;stroke-opacity:1" />
+455-    <path
+456-       id="path1971-5-5-3-8-5-1-4-6-07"
+457-       d="M 104.58647,16.318014 90.397174,39.201717 110.09337,42.674681 Z"
+458-       inkscape:label="Sensor Orange"
+459:       style="fill:{$sensor_orange};fill-opacity:1;stroke:none;stroke-opacity:1" />
+460-    <path
+461-       id="path1971-5-5-3-8-5-1-4-6-09"
+462-       d="m 147.48612,41.010465 -25.579,8.409246 12.85577,15.320909 z"
+463-       inkscape:label="Sensor Lime"
+464:       style="fill:{$sensor_lime};fill-opacity:1;stroke:none;stroke-opacity:1" />
+465-  </g>
+466-</svg>

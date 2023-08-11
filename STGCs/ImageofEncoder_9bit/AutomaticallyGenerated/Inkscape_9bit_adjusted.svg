@@ -18,7 +18,6 @@
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
-     inkscape:export-filename="{$pwd}/Graycode-{$degrees}.png"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
@@ -66,13 +65,10 @@
      id="layer2"
      inkscape:label="Arcs Display"
      style="display:inline"
-     transform="translate(90,90)">
+     transform="translate(0.2)">
     <g
        id="g1"
-       transform="matrix({$rotate_matrix})">
-    <g
-       id="g2"
-       transform="translate(-90,-90)">
+       transform="translate(0.3)">
       <path
          id="path8"
          style="opacity:1;fill:none;fill-opacity:0;stroke:#000000;stroke-width:13.6923;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -354,7 +350,6 @@
          d="m 172.10383,92.867152 a 82.153862,82.15387 0 0 1 -0.15008,2.863635"
          sodipodi:open="true" />
     </g>
-    </g>
   </g>
   <g
      id="layer4"
@@ -362,7 +357,7 @@
      transform="translate(-71.771769,-63.034338)"
      style="display:inline">
     <text
-       id="bits"
+       id="bits-1"
        y="157.65456"
        x="125.55443"
        style="font-style:normal;font-weight:normal;font-size:13.3333px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -372,15 +367,24 @@
          y="157.65456"
          x="125.55443"
          id="tspan5096-7"><tspan
-           id="{$bit_lime}"       style="fill:{$bit_lime_color};fill-opacity:1"      >{$bit_lime_value}</tspan><tspan
-           id="{$bit_orange}"     style="fill:{$bit_orange_color};fill-opacity:1"    >{$bit_orange_value}</tspan><tspan
-           id="{$bit_red}"        style="fill:{$bit_red_color};fill-opacity:1"       >{$bit_red_value}</tspan><tspan
-           id="{$bit_magenta}"    style="fill:{$bit_magenta_color};fill-opacity:1"   >{$bit_magenta_value}</tspan><tspan
-           id="{$bit_purple}"     style="fill:{$bit_purple_color};fill-opacity:1"    >{$bit_purple_value}</tspan><tspan
-           id="{$bit_blue}"       style="fill:{$bit_blue_color};fill-opacity:1"      >{$bit_blue_value}</tspan><tspan
-           id="{$bit_light_blue}" style="fill:{$bit_light_blue_color};fill-opacity:1">{$bit_light_blue_value}</tspan><tspan
-           id="{$bit_cyan}"       style="fill:{$bit_cyan_color};fill-opacity:1"      >{$bit_cyan_value}</tspan><tspan
-           id="{$bit_green}"      style="fill:{$bit_green_color};fill-opacity:1"     >{$bit_green_value}</tspan></tspan></text>
+           style="fill:#aaff00;fill-opacity:1"
+           id="tspan19">1</tspan><tspan
+           style="fill:#ffaa00;fill-opacity:1"
+           id="tspan20">0</tspan><tspan
+           style="fill:#ff0000;fill-opacity:1"
+           id="tspan21">1</tspan><tspan
+           style="fill:#ff00aa;fill-opacity:1"
+           id="tspan22">0</tspan><tspan
+           style="fill:#aa00ff;fill-opacity:1"
+           id="tspan23">0</tspan><tspan
+           style="fill:#0000ff;fill-opacity:1"
+           id="tspan24">0</tspan><tspan
+           style="fill:#00aaff;fill-opacity:1"
+           id="tspan25">0</tspan><tspan
+           style="fill:#00ffaa;fill-opacity:1"
+           id="tspan26">0</tspan><tspan
+           style="fill:#aaff00;fill-opacity:1"
+           id="tspan27">1</tspan></tspan></text>
   </g>
   <g
      id="layer3"
@@ -397,7 +401,7 @@
          x="148.66666"
          id="tspan5092"><tspan
    id="tspan4199"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace">{$degrees_string}</tspan>°</tspan></text>
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace">  0</tspan>°</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -408,46 +412,46 @@
        id="path1971-5-5-3-8-5-1-4-6"
        d="m 164.5,90.087456 -25,-10.000011 v 20.000035 z"
        inkscape:label="Sensor Green"
-       style="fill:{$sensor_green};fill-opacity:1" />
+       style="fill:#00ff00;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-3"
        d="M 147.81121,138.55192 135.08797,114.82177 122.2322,130.14268 Z"
        inkscape:label="Sensor Cyan"
-       style="fill:{$sensor_cyan};fill-opacity:1" />
+       style="fill:#00ffaa;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-8"
        d="m 103.02374,163.78201 5.50689,-26.35669 -19.696166,3.47297 z"
-       inkscape:label="Sensor Light Blue"
-       style="fill:{$sensor_light_blue};fill-opacity:1" />
+       inkscape:label="SensorLight Blue"
+       style="fill:#00aaff;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-4"
        d="M 52.770008,154.63335 73.930272,137.98272 56.609745,127.9827 Z"
        inkscape:label="Sensor Blue"
-       style="fill:{$sensor_blue};fill-opacity:1" />
+       style="fill:#0000ff;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-7"
        d="m 20.401869,115.32905 26.912527,0.84642 -6.840409,-18.793808 z"
        inkscape:label="Sensor Purple"
-       style="fill:{$sensor_purple};fill-opacity:1" />
+       style="fill:#aa00ff;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-31"
        d="m 20.101873,64.458338 20.07212,17.947443 6.840413,-18.79388 z"
-       inkscape:label="Sensor Magenta"
-       style="fill:{$sensor_magenta};fill-opacity:1" />
+       inkscape:label="Sensor Magneta"
+       style="fill:#ff00aa;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-9"
        d="M 52.682836,25.579173 56.522581,52.229826 73.843115,42.22981 Z"
        inkscape:label="Sensor Red"
-       style="fill:{$sensor_red};fill-opacity:1" />
+       style="fill:#ff0000;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-07"
        d="M 103.09869,16.318014 88.909422,39.201717 108.60559,42.674681 Z"
        inkscape:label="Sensor Orange"
-       style="fill:{$sensor_orange};fill-opacity:1" />
+       style="fill:#ffaa00;fill-opacity:1" />
     <path
        id="path1971-5-5-3-8-5-1-4-6-09"
        d="m 147.69866,41.435537 -25.579,8.409246 12.85577,15.320909 z"
        inkscape:label="Sensor Lime"
-       style="fill:{$sensor_lime};fill-opacity:1" />
-    </g>
+       style="fill:#aaff00;fill-opacity:1" />
+  </g>
 </svg>

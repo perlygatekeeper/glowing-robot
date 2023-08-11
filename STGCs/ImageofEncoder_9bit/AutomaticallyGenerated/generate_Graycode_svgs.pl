@@ -167,8 +167,8 @@ sub sensors {
   };
   foreach my $sensor ( keys %$sensors ) {
     foreach my $slot ( @$slots ) {
-      if ( ( ( $locations->{$sensor} + $degrees ) % 360 ) >= $slot->{'lower_limit'}
-       and ( ( $locations->{$sensor} + $degrees ) % 360 ) <= $slot->{'upper_limit'} )  {
+      if ( ( ( $locations->{$sensor} - $degrees ) % 360 ) >= $slot->{'lower_limit'}
+       and ( ( $locations->{$sensor} - $degrees ) % 360 ) <= $slot->{'upper_limit'} )  {
         $sensors->{$sensor} = 1;
         last; # if a sensor's in this slot we can stop looking
       }
@@ -179,6 +179,9 @@ sub sensors {
 
 __END__
 
+    /  cos X  - sin X \
+R = |                 |
+    \  sin X    cos X /
 
 sodipodi:docname="Graycode-{$degrees}.svg"
 inkscape:export-filename="{$pwd}/Graycode-{$degrees}.png"
