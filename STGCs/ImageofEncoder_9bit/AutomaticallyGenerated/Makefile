@@ -40,4 +40,4 @@ clean:
 	@rm -f $(GRAYCODE_SVGS) $(GRAYCODE_PNGS)
 
 Graycode.gif: $(GRAYCODE_PNGS)
-	convert -dispose previous -delay 33 -loop 0 $(GRAYCODE_PNGS) $@
+	@convert -dispose previous -delay 33 -loop 0 $(GRAYCODE_PNGS) $@

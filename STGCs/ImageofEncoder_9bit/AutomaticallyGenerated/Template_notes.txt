@@ -2,8 +2,21 @@ Export Filename for Inkscape, not necessary?
 21:     inkscape:export-filename="{$pwd}/Graycode-{$degrees}.png"
 
 Arc Ring Rotation
+I later learned that the secret to this rotation was to translate the group containing
+the arcs center to the origin from x=90, y=90, do the rotation, then translate back to x=90. y=90 
 
-71:       transform="matrix({$rotate_matrix})">
+65:  <g
+66:     id="layer2"
+67:     inkscape:label="Arcs Display"
+68:     style="display:inline"
+69:     transform="translate(90,90)">
+70:    <g
+71:       id="g1"
+72:       transform="matrix({$rotate_matrix})">
+73:    <g
+74:       id="g2"
+75:       transform="translate(-90,-90)">
+
 
 Bits Colors and Values
 

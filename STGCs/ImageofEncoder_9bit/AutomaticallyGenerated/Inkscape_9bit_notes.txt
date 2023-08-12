@@ -29,6 +29,8 @@
      Each Sensor object was then moved manually to have it's point just touch the inner 
      portion of the Track circle.
 
+     This did NOT work.   I later used 9 small squares to align the sensors.
+
    2) Degrees Text
       Containing the text indicating the clockwise rotation of the Arcs in degrees
       Starting with
