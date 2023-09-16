@@ -7,16 +7,16 @@
       rough names for these colors were choosen to name each sensor objects,
       as follows:
       Hue  Color name  Sensor angle
-      120  green         0
-      160  green        40
-      200  green        80
-      240  green       120
-      280  green       160
-      320  green       200
-        0  green       240
-       40  green       280
-       80  green       320
-
+      120  lime           0	
+      160  orange        40	
+      200  red           80	
+      240  magenta      120	
+      280  purple       160	
+      320  blue         200	
+        0  light_blue   240	
+       40  cyan         280	
+       80  green        320	
+              	              	
      The sensors were distributed around a circle using Inkscape's
      Align and Distribute tool
      Circular tab

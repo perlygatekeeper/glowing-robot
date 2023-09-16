@@ -1,0 +1,160 @@
+REFERENCES:
+
+Tuvi Etzion and Kenneth G. Paterson
+https://etzion.net.technion.ac.il/files/2016/02/P36.pdf
+<ref name="Etzion-Paterson_1996"/>
+
+https://filedb.experts-exchange.com/incoming/2008/07_w31/46253/9x360-Single-Track-Gray-Code.PNG
+
+Garry Williams
+https://www.experts-exchange.com/questions/23594359/'single-track-gray-code'-sought-for-encoding-360-degrees-with-9-sensors.html#a22127642
+
+TEXT:
+
+Since this 30 degree example was added, there has been a lot of interest in examples with higher angular resolution. 
+In 2008, Gary Williams<ref name="Experts_Exchange_2008">, based on the previous work
+<ref=name="Etzion-Paterson_1996"/> discovered a 9-bit Single Track Gray Code that gives a 1 degree resolution.
+
+[[File:Animated 9-bit Graycode.gif|thumb|Animated and color-coded version of the 9-bit, 360-degree STGC rotor.]]
+
+An STGC for ''P''&nbsp;=&nbsp;360 and ''n''&nbsp;=&nbsp;9 is reproduced here:
+
+:{|class="wikitable" style="text-align:center; background:#FFFFFF; border-width:0;"
+|+ Single-track Gray code for 360 positions
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code |rowspan="41" style="text-align:center; background:#FFFFFF; border-width:0;"|
+! Angle || Code
+|-
+|   0° || {{mono|QQQ}} ||   1° || {{mono|QQQ}} ||   2° || {{mono|QQQ}} ||   3° || {{mono|QQQ}} ||   4° || {{mono|QQQ}} ||   5° || {{mono|QQQ}} ||   6° || {{mono|QQQ}} ||   7° || {{mono|QQQ}} ||   8° || {{mono|QQQ}}
+|-
+|   9° || {{mono|QQQ}} ||  10° || {{mono|QQQ}} ||  11° || {{mono|QQQ}} ||  12° || {{mono|QQQ}} ||  13° || {{mono|QQQ}} ||  14° || {{mono|QQQ}} ||  15° || {{mono|QQQ}} ||  16° || {{mono|QQQ}} ||  17° || {{mono|QQQ}}
+|-
+|  18° || {{mono|QQQ}} ||  19° || {{mono|QQQ}} ||  20° || {{mono|QQQ}} ||  21° || {{mono|QQQ}} ||  22° || {{mono|QQQ}} ||  23° || {{mono|QQQ}} ||  24° || {{mono|QQQ}} ||  25° || {{mono|QQQ}} ||  26° || {{mono|QQQ}}
+|-
+|  27° || {{mono|QQQ}} ||  28° || {{mono|QQQ}} ||  29° || {{mono|QQQ}} ||  30° || {{mono|QQQ}} ||  31° || {{mono|QQQ}} ||  32° || {{mono|QQQ}} ||  33° || {{mono|QQQ}} ||  34° || {{mono|QQQ}} ||  35° || {{mono|QQQ}}
+|-
+|  36° || {{mono|QQQ}} ||  37° || {{mono|QQQ}} ||  38° || {{mono|QQQ}} ||  39° || {{mono|QQQ}} ||  40° || {{mono|QQQ}} ||  41° || {{mono|QQQ}} ||  42° || {{mono|QQQ}} ||  43° || {{mono|QQQ}} ||  44° || {{mono|QQQ}}
+|-
+|  45° || {{mono|QQQ}} ||  46° || {{mono|QQQ}} ||  47° || {{mono|QQQ}} ||  48° || {{mono|QQQ}} ||  49° || {{mono|QQQ}} ||  50° || {{mono|QQQ}} ||  51° || {{mono|QQQ}} ||  52° || {{mono|QQQ}} ||  53° || {{mono|QQQ}}
+|-
+|  54° || {{mono|QQQ}} ||  55° || {{mono|QQQ}} ||  56° || {{mono|QQQ}} ||  57° || {{mono|QQQ}} ||  58° || {{mono|QQQ}} ||  59° || {{mono|QQQ}} ||  60° || {{mono|QQQ}} ||  61° || {{mono|QQQ}} ||  62° || {{mono|QQQ}}
+|-
+|  63° || {{mono|QQQ}} ||  64° || {{mono|QQQ}} ||  65° || {{mono|QQQ}} ||  66° || {{mono|QQQ}} ||  67° || {{mono|QQQ}} ||  68° || {{mono|QQQ}} ||  69° || {{mono|QQQ}} ||  70° || {{mono|QQQ}} ||  71° || {{mono|QQQ}}
+|-
+|  72° || {{mono|QQQ}} ||  73° || {{mono|QQQ}} ||  74° || {{mono|QQQ}} ||  75° || {{mono|QQQ}} ||  76° || {{mono|QQQ}} ||  77° || {{mono|QQQ}} ||  78° || {{mono|QQQ}} ||  79° || {{mono|QQQ}} ||  80° || {{mono|QQQ}}
+|-
+|  81° || {{mono|QQQ}} ||  82° || {{mono|QQQ}} ||  83° || {{mono|QQQ}} ||  84° || {{mono|QQQ}} ||  85° || {{mono|QQQ}} ||  86° || {{mono|QQQ}} ||  87° || {{mono|QQQ}} ||  88° || {{mono|QQQ}} ||  89° || {{mono|QQQ}}
+|-
+|  90° || {{mono|QQQ}} ||  91° || {{mono|QQQ}} ||  92° || {{mono|QQQ}} ||  93° || {{mono|QQQ}} ||  94° || {{mono|QQQ}} ||  95° || {{mono|QQQ}} ||  96° || {{mono|QQQ}} ||  97° || {{mono|QQQ}} ||  98° || {{mono|QQQ}}
+|-
+|  99° || {{mono|QQQ}} || 100° || {{mono|QQQ}} || 101° || {{mono|QQQ}} || 102° || {{mono|QQQ}} || 103° || {{mono|QQQ}} || 104° || {{mono|QQQ}} || 105° || {{mono|QQQ}} || 106° || {{mono|QQQ}} || 107° || {{mono|QQQ}}
+|-
+|  99° || {{mono|QQQ}} || 100° || {{mono|QQQ}} || 101° || {{mono|QQQ}} || 102° || {{mono|QQQ}} || 103° || {{mono|QQQ}} || 104° || {{mono|QQQ}} || 105° || {{mono|QQQ}} || 106° || {{mono|QQQ}} || 107° || {{mono|QQQ}}
+|-
+| 108° || {{mono|QQQ}} || 109° || {{mono|QQQ}} || 110° || {{mono|QQQ}} || 111° || {{mono|QQQ}} || 112° || {{mono|QQQ}} || 113° || {{mono|QQQ}} || 114° || {{mono|QQQ}} || 115° || {{mono|QQQ}} || 116° || {{mono|QQQ}}
+|-
+| 117° || {{mono|QQQ}} || 118° || {{mono|QQQ}} || 119° || {{mono|QQQ}} || 120° || {{mono|QQQ}} || 121° || {{mono|QQQ}} || 122° || {{mono|QQQ}} || 123° || {{mono|QQQ}} || 124° || {{mono|QQQ}} || 125° || {{mono|QQQ}}
+|-
+| 126° || {{mono|QQQ}} || 127° || {{mono|QQQ}} || 128° || {{mono|QQQ}} || 129° || {{mono|QQQ}} || 130° || {{mono|QQQ}} || 131° || {{mono|QQQ}} || 132° || {{mono|QQQ}} || 133° || {{mono|QQQ}} || 134° || {{mono|QQQ}}
+|-
+| 135° || {{mono|QQQ}} || 136° || {{mono|QQQ}} || 137° || {{mono|QQQ}} || 138° || {{mono|QQQ}} || 139° || {{mono|QQQ}} || 140° || {{mono|QQQ}} || 141° || {{mono|QQQ}} || 142° || {{mono|QQQ}} || 143° || {{mono|QQQ}}
+|-
+| 144° || {{mono|QQQ}} || 145° || {{mono|QQQ}} || 146° || {{mono|QQQ}} || 147° || {{mono|QQQ}} || 148° || {{mono|QQQ}} || 149° || {{mono|QQQ}} || 150° || {{mono|QQQ}} || 151° || {{mono|QQQ}} || 152° || {{mono|QQQ}}
+|-
+| 153° || {{mono|QQQ}} || 154° || {{mono|QQQ}} || 155° || {{mono|QQQ}} || 156° || {{mono|QQQ}} || 157° || {{mono|QQQ}} || 158° || {{mono|QQQ}} || 159° || {{mono|QQQ}} || 160° || {{mono|QQQ}} || 161° || {{mono|QQQ}}
+|-
+| 162° || {{mono|QQQ}} || 163° || {{mono|QQQ}} || 164° || {{mono|QQQ}} || 165° || {{mono|QQQ}} || 166° || {{mono|QQQ}} || 167° || {{mono|QQQ}} || 168° || {{mono|QQQ}} || 169° || {{mono|QQQ}} || 170° || {{mono|QQQ}}
+|-
+| 171° || {{mono|QQQ}} || 172° || {{mono|QQQ}} || 173° || {{mono|QQQ}} || 174° || {{mono|QQQ}} || 175° || {{mono|QQQ}} || 176° || {{mono|QQQ}} || 177° || {{mono|QQQ}} || 178° || {{mono|QQQ}} || 179° || {{mono|QQQ}}
+|-
+| 180° || {{mono|QQQ}} || 181° || {{mono|QQQ}} || 182° || {{mono|QQQ}} || 183° || {{mono|QQQ}} || 184° || {{mono|QQQ}} || 185° || {{mono|QQQ}} || 186° || {{mono|QQQ}} || 187° || {{mono|QQQ}} || 188° || {{mono|QQQ}}
+|-
+| 189° || {{mono|QQQ}} || 190° || {{mono|QQQ}} || 191° || {{mono|QQQ}} || 192° || {{mono|QQQ}} || 193° || {{mono|QQQ}} || 194° || {{mono|QQQ}} || 195° || {{mono|QQQ}} || 196° || {{mono|QQQ}} || 197° || {{mono|QQQ}}
+|-
+| 198° || {{mono|QQQ}} || 199° || {{mono|QQQ}} || 200° || {{mono|QQQ}} || 201° || {{mono|QQQ}} || 202° || {{mono|QQQ}} || 203° || {{mono|QQQ}} || 204° || {{mono|QQQ}} || 205° || {{mono|QQQ}} || 206° || {{mono|QQQ}}
+|-
+| 207° || {{mono|QQQ}} || 208° || {{mono|QQQ}} || 209° || {{mono|QQQ}} || 210° || {{mono|QQQ}} || 211° || {{mono|QQQ}} || 212° || {{mono|QQQ}} || 213° || {{mono|QQQ}} || 214° || {{mono|QQQ}} || 215° || {{mono|QQQ}}
+|-
+| 216° || {{mono|QQQ}} || 217° || {{mono|QQQ}} || 218° || {{mono|QQQ}} || 219° || {{mono|QQQ}} || 220° || {{mono|QQQ}} || 221° || {{mono|QQQ}} || 222° || {{mono|QQQ}} || 223° || {{mono|QQQ}} || 224° || {{mono|QQQ}}
+|-
+| 225° || {{mono|QQQ}} || 226° || {{mono|QQQ}} || 227° || {{mono|QQQ}} || 228° || {{mono|QQQ}} || 229° || {{mono|QQQ}} || 230° || {{mono|QQQ}} || 231° || {{mono|QQQ}} || 232° || {{mono|QQQ}} || 233° || {{mono|QQQ}}
+|-
+| 234° || {{mono|QQQ}} || 235° || {{mono|QQQ}} || 236° || {{mono|QQQ}} || 237° || {{mono|QQQ}} || 238° || {{mono|QQQ}} || 239° || {{mono|QQQ}} || 240° || {{mono|QQQ}} || 241° || {{mono|QQQ}} || 242° || {{mono|QQQ}}
+|-
+| 243° || {{mono|QQQ}} || 244° || {{mono|QQQ}} || 245° || {{mono|QQQ}} || 246° || {{mono|QQQ}} || 247° || {{mono|QQQ}} || 248° || {{mono|QQQ}} || 249° || {{mono|QQQ}} || 250° || {{mono|QQQ}} || 251° || {{mono|QQQ}}
+|-
+| 252° || {{mono|QQQ}} || 253° || {{mono|QQQ}} || 254° || {{mono|QQQ}} || 255° || {{mono|QQQ}} || 256° || {{mono|QQQ}} || 257° || {{mono|QQQ}} || 258° || {{mono|QQQ}} || 259° || {{mono|QQQ}} || 260° || {{mono|QQQ}}
+|-
+| 261° || {{mono|QQQ}} || 262° || {{mono|QQQ}} || 263° || {{mono|QQQ}} || 264° || {{mono|QQQ}} || 265° || {{mono|QQQ}} || 266° || {{mono|QQQ}} || 267° || {{mono|QQQ}} || 268° || {{mono|QQQ}} || 269° || {{mono|QQQ}}
+|-
+| 270° || {{mono|QQQ}} || 271° || {{mono|QQQ}} || 272° || {{mono|QQQ}} || 273° || {{mono|QQQ}} || 274° || {{mono|QQQ}} || 275° || {{mono|QQQ}} || 276° || {{mono|QQQ}} || 277° || {{mono|QQQ}} || 278° || {{mono|QQQ}}
+|-
+| 279° || {{mono|QQQ}} || 280° || {{mono|QQQ}} || 281° || {{mono|QQQ}} || 282° || {{mono|QQQ}} || 283° || {{mono|QQQ}} || 284° || {{mono|QQQ}} || 285° || {{mono|QQQ}} || 286° || {{mono|QQQ}} || 287° || {{mono|QQQ}}
+|-
+| 288° || {{mono|QQQ}} || 289° || {{mono|QQQ}} || 290° || {{mono|QQQ}} || 291° || {{mono|QQQ}} || 292° || {{mono|QQQ}} || 293° || {{mono|QQQ}} || 294° || {{mono|QQQ}} || 295° || {{mono|QQQ}} || 296° || {{mono|QQQ}}
+|-
+| 297° || {{mono|QQQ}} || 298° || {{mono|QQQ}} || 299° || {{mono|QQQ}} || 300° || {{mono|QQQ}} || 301° || {{mono|QQQ}} || 302° || {{mono|QQQ}} || 303° || {{mono|QQQ}} || 304° || {{mono|QQQ}} || 305° || {{mono|QQQ}}
+|-
+| 306° || {{mono|QQQ}} || 307° || {{mono|QQQ}} || 308° || {{mono|QQQ}} || 309° || {{mono|QQQ}} || 310° || {{mono|QQQ}} || 311° || {{mono|QQQ}} || 312° || {{mono|QQQ}} || 313° || {{mono|QQQ}} || 314° || {{mono|QQQ}}
+|-
+| 315° || {{mono|QQQ}} || 316° || {{mono|QQQ}} || 317° || {{mono|QQQ}} || 318° || {{mono|QQQ}} || 319° || {{mono|QQQ}} || 320° || {{mono|QQQ}} || 321° || {{mono|QQQ}} || 322° || {{mono|QQQ}} || 323° || {{mono|QQQ}}
+|-
+| 324° || {{mono|QQQ}} || 325° || {{mono|QQQ}} || 326° || {{mono|QQQ}} || 327° || {{mono|QQQ}} || 328° || {{mono|QQQ}} || 329° || {{mono|QQQ}} || 330° || {{mono|QQQ}} || 331° || {{mono|QQQ}} || 332° || {{mono|QQQ}}
+|-
+| 333° || {{mono|QQQ}} || 334° || {{mono|QQQ}} || 335° || {{mono|QQQ}} || 336° || {{mono|QQQ}} || 337° || {{mono|QQQ}} || 338° || {{mono|QQQ}} || 339° || {{mono|QQQ}} || 340° || {{mono|QQQ}} || 341° || {{mono|QQQ}}
+|-
+| 342° || {{mono|QQQ}} || 343° || {{mono|QQQ}} || 344° || {{mono|QQQ}} || 345° || {{mono|QQQ}} || 346° || {{mono|QQQ}} || 347° || {{mono|QQQ}} || 348° || {{mono|QQQ}} || 349° || {{mono|QQQ}} || 350° || {{mono|QQQ}}
+|-
+| 351° || {{mono|QQQ}} || 352° || {{mono|QQQ}} || 353° || {{mono|QQQ}} || 354° || {{mono|QQQ}} || 355° || {{mono|QQQ}} || 356° || {{mono|QQQ}} || 357° || {{mono|QQQ}} || 358° || {{mono|QQQ}} || 359° || {{mono|QQQ}}
+|}
+
+:{|class="wikitable" style="text-align:center; background:#FFFFFF; border-width:0;"
+|+ Single-track Gray 20 tracks for 9 sensors seperated by 40°
+! Start Angle || Ending Angle || Length |rowspan="21" style="text-align:center; background:#FFFFFF; border-width:0;"|
+|-
+|   3 ||   4 ||  2 ||
+|-
+|  23 ||  28 ||  6 ||
+|-
+|  31 ||  37 ||  7 ||
+|-
+|  44 ||  48 ||  5 ||
+|-
+|  56 ||  60 ||  5 ||
+|-
+|  64 ||  71 ||  8 ||
+|-
+|  74 ||  76 ||  3 ||
+|-
+|  88 ||  91 ||  4 ||
+|-
+|  94 ||  96 ||  3 ||
+|-
+|  99 || 104 ||  6 ||
+|-
+| 110 || 115 ||  6 ||
+|-
+| 131 || 134 ||  4 ||
+|-
+| 138 || 154 || 23 ||
+|-
+| 173 || 181 ||  9 ||
+|-
+| 186 || 187 ||  2 ||
+|-
+| 220 || 238 || 19 ||
+|-
+| 242 || 246 ||  5 ||
+|-
+| 273 || 279 ||  7 ||
+|-
+| 286 || 289 ||  4 ||
+|-
+| 307 || 360 || 54 ||
+|}

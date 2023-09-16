@@ -1,0 +1,7 @@
+9-bit,_Single-Track_Gray_Code.gif (563 × 563 pixels, file size: 2.94 MB, MIME type: image/gif, looped, 360 frames, 1 min 59 s); (request rotation)
+
+Note: Due to technical limitations, thumbnails of high resolution GIF images such as this one will not be animated. The limit on Wikimedia Commons is width × height × number of frames ≤ 100 million.
+
+SQRT(100,000,000/360 frames) = 527.04627669473
+
+This gives a max square resolution of 527, it's now 563.

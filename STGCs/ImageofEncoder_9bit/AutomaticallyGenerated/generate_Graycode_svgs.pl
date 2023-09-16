@@ -179,6 +179,14 @@ sub sensors {
 
 __END__
 
+Clockwise rotation by X
+
+    /  cos X  - sin X \
+R = |                 |
+    \  sin X    cos X /
+
+Counter-Clockwise rotation by X
+
     /  cos X  - sin X \
 R = |                 |
     \  sin X    cos X /
@@ -229,9 +237,24 @@ transform="matrix({$transform_matrix})">
  |  0    0    1  |      |  0    0    1                       |
  +-             -+      +-                                  -+
 
-// Slots go from, to (in degrees)
-//   0, 120
-// 168, 204
-// 228, 252
-
-
+ Slots go from, to (in degrees)
+   3,   4
+  23,  28
+  31,  37
+  44,  48
+  56,  60
+  64,  71
+  74,  76
+  88,  91
+  94,  96
+  99, 104
+ 110, 115
+ 131, 134
+ 138, 154
+ 173, 181
+ 186, 187
+ 220, 238
+ 242, 246
+ 273, 279
+ 286, 289
+ 307, 360

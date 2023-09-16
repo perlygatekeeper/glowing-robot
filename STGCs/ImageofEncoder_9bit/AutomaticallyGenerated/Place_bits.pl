@@ -1,3 +1,46 @@
+#!/usr/bin/env perl
+# A perl script to replace the string QQQ with the bit pattern
+# appropriate for the angle found in the string immediately
+# before the QQQ string.
+
+use strict;
+use warnings;
+
+my $name = $0; $name =~ s'.*/''; # remove path--like basename
+my $usage = "usage:\n$name [-opt1] [-opt2] [-opt3]";
+my $bitstrings;
+my $debug = 0;
+
+while (<DATA>) {
+  my $angle;
+  my $bits;
+  next if (/^\s*$|^\s*#/); # skip white, blank and commented lines.
+  chomp;
+  ($angle, $bits) = ( $_ =~ m/(\d+)\s(\d+)/ );
+  $bitstrings->[$angle] = $bits;
+}
+
+if ($debug) {
+  for (my($var)=$[; $var<=$#{$bitstrings}; $var++) {
+    print "$var: $bitstrings->[$var]\n";
+  }
+}
+
+while (<>) {
+  # print $_;
+  # if ( $_ =~ m/(\d{1,3})° \|\| \{\{mono\|QQQ\}\}/  ) {
+  #   print ">$1<\n";
+  # }
+  $_ =~ s/(\d{1,3})° \|\| \{\{mono\|QQQ\}\}/sprintf("%d° || {{mono||%s}}",$1,$bitstrings->[$1])/eg;
+  print $_;
+}
+
+exit 0;
+
+# |   0° || {{mono||100000001}} ||   1° || {{mono||110000001}} ||   2° || {{mono||111000001}} ||   3° || {{mono||111000011}} ||   4° || {{mono||111000111}} ||   5° || {{mono||111001111}} ||   6° || {{mono||111011111}} ||   7° || {{mono||111011011}} ||   8° || {{mono||101011011}}
+# |   0° || {{mono|QQQ}} ||   1° || {{mono|QQQ}} ||   2° || {{mono|QQQ}} ||   3° || {{mono|QQQ}} ||   4° || {{mono|QQQ}} ||   5° || {{mono|QQQ}} ||   6° || {{mono|QQQ}} ||   7° || {{mono|QQQ}} ||   8° || {{mono|QQQ}}
+
+__END__
  000 100000001
  001 110000001
  002 111000001

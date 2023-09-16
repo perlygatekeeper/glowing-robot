@@ -1,0 +1,133 @@
+
+     Scramble will be an encryption program started in python, perhaps moved to C if performance
+     is an issue.
+
+     Take input in 8 byte chunks.
+
+   ===================================================================================================
+
+   Originally, stats from each 8-byte block was going to determine how THAT back was scrambled.
+   Then I realized that each block would then always scramble to the same thing.
+   So now I think scramble will add a block of 8 random bytes to the front of each data file.
+   It will use stats and this block to scramble the first block of 8 btyes from the data stream.
+   Stats from the first block will be used to determine how the second block is scrambled and so forth.
+
+   I) Perform one or more of different classes of transformations, in this order.
+
+     0) count the one bits in the data block
+        calculate the total partity of the data block
+        construct btye by shifting in the partity of each byte
+        XOR all bytes
+
+     1) horizontal byte-rotations (to the left)
+        first   byte rotates left by N
+        second  byte rotates left by N+1
+        third   byte rotates left by N+2
+        . 
+        . 
+        seventh byte rotates left by N+6
+        last    byte rotates left by N+7
+
+     2) vertical   byte-rotations ( down )
+        LSB   column shifts down by P
+          2's column shifts down by P+1
+          4's column shifts down by P+2
+          8's column shifts down by P+3
+         16's column shifts down by P+4
+         32's column shifts down by P+5
+         64's column shifts down by P+6
+        128's column shifts down by P+7
+
+     3) block rotation 0, 90, 180 or 270, (clockwise)
+        executed based on last two digits of count of 1's
+        00 -  no rotation
+        01 -  90 rotation
+        10 - 180 rotation
+        11 - 270 rotation
+
+     4) flip all the bits 0->1 and 1->0
+        always - OR - only on even - OR - only on odd parity
+
+     These transformations and their parameters will be determined by the data in each block.
+
+     Things we will gleen from each block of 8 bytes.
+
+     Parity of the entire block
+          
+     can't really use this one:
+     - countNumber of 00's, 01's, 10's and 11's ( 0 - 32 ) preserved after even-only byte-rotations
+
+     * horzontal parity (AKA parity of each byte)   ( 0, 1 ) preserved through horizontal rotations
+
+     * vertical  parity (AKA parity of each column) ( 0, 1 ) preserved through vertical   rotations
+
+     * whole parity ( 0, 1 ) preserved through all transformations
+
+     * countNumber of 1's ( 0 - 64 ) not preserved after flipping all bits
+     ------------
+     1000000 - 64
+     0111111 - 63
+     0111110 - 62
+     0111101 - 61
+     .
+     .
+     .
+     0000011 -  3
+     0000010 -  2
+     0000001 -  1
+     0000000 -  0
+
+     Useful stored transformations
+     _
+     X  =>  NOT X
+
+     Bytes
+     Orginal     Reversed    Inverted    Parity    Ones
+                             ________
+     87654321    12345678    87654321         p    0-8
+     00000000    00000000    11111111         p    0-8
+     00000001    10000000    11111110         p    0-8
+     00001111    11110000    11110000         p    0-8
+     11110000    00001111    00001111         p    0-8
+     01111111    11111110    10000000         p    0-8
+     01010101    10101010    10101010         p    0-8
+     10101010    01010101    01010101         p    0-8
+     11111111    11111111    00000000         p    0-8
+
+     Block Rotations
+     Original      90 CW      180 CW      270 CW
+     _______1    1_______    11111111    11111111
+     ______11    11______    1_____1_    _1_____1
+     _____1_1    1_1_____    1____1__    __1____1
+     ____1__1    1__1____    1___1___    ___1___1
+     ___1___1    1___1___    1__1____    ____1__1
+     __1____1    1____1__    1_1_____    _____1_1
+     _1_____1    1_____1_    11______    ______11
+     11111111    11111111    1_______    _______1
+
+     Horizontal Byte Rotations Left (each sucsesive byte increments bits shifted)
+     Original      N = 1       N = 3       N = 7
+     _______1    ______1_    _____1__    1_______
+     _______1    _____1__    ___1____    _______1
+     _______1    ____1___    _1______    ______1_
+     _______1    ___1____    ______1_    _____1__
+     _______1    __1_____    ____1___    ____1___
+     _______1    _1______    __1_____    ___1____
+     _______1    1_______    1_______    __1_____
+     _______1    _______1    _______1    _1______
+
+     Vertical Byte Rotations Down (each sucsesive column increments bits shifted)
+     Original      N = 1       N = 3       N = 7
+     11111111    1_______    1_______    1_______
+     _______0    _______1    _____1__    _1______
+     _______0    ______1_    __1_____    __1_____
+     _______0    _____1__    _______1    ___1____
+     _______0    ____1___    ____1___    ____1___
+     _______0    ___1____    _1______    _____1__
+     _______0    __1_____    ______1_    ______1_
+     _______0    _1______    ___1____    _______1
+
+   ===================================================================================================
+
+  II) Reversing this we recieve a stream of scrambled data and reverse each step in reverse order.
+
