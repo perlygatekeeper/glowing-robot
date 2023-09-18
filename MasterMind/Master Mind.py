@@ -60,7 +60,6 @@ def determine_number_correct(puzzle, guess):
       correct += min(puzzle_digits[str(digit)], guess_digits[str(digit)])
 
     return correct
-      
 
 
 def determine_number_in_place(puzzle, guess):
@@ -98,6 +97,9 @@ while (1):
         else:
           if (results["correct"] == results["in_place"]) and (results["in_place"] == len(puzzle)):
             print("\n YOU SOLVED THE PUZZLE IN %d GUESSES!!!\n\n" % guesses)
+            print("Here are your past guesses:")
+            for event in guess_history:
+                print("%s: (%d,%d)" % (event["guess"], event["correct"], event["in_place"]))
             break
           else:
             print("\n You got %d digits correct and %d digits in the right position." % (results["correct"], results["in_place"]))
