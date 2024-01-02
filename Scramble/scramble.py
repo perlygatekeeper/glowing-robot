@@ -1,3 +1,5 @@
+#!/opt/local/bin/python
+
 useful  = {
   chr(0x00): { 'bit_string': '00000000', 'hexdecimal': '0x00', 'reversed': chr(0x00), \
     'inverted': chr(0xFF), 'parity': 0, 'ones': 0, '00': 4, '01': 0, '10': 0, '11': 0 },
@@ -512,6 +514,18 @@ useful  = {
   chr(0xFF): { 'bit_string': '11111111', 'hexdecimal': '0xFF', 'reversed': chr(0xFF), \
     'inverted': chr(0x00), 'parity': 0, 'ones': 8, '00': 0, '01': 0, '10': 0, '11': 4 }
 }
+
+def block_rotation (block, param):
+    print('not yet implemented')
+
+def horizontal_sheer (block, param):
+    print('not yet implemented')
+
+def vertical_sheer (block, param):
+    print('not yet implemented')
+
+def block_inversion (block, param):
+    print('not yet implemented')
 
 def parameters (block):
     total_ones = 0

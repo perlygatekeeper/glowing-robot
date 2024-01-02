@@ -1,0 +1,1398 @@
+ https://github.com/first20hours/google-10000-english
+ from Downloads/google-10000-english-master/google-10000-english-usa-no-swears-medium.txt
+
+Character distribution:
+ 758 e
+ 637 s
+ 621 a
+ 495 r
+ 458 o
+ 415 t
+ 413 l
+ 406 i
+ 366 n
+ 273 d
+ 253 c
+ 215 h
+ 193 u
+ 186 m
+ 171 p
+ 163 b
+ 159 y
+ 145 g
+ 127 k
+ 109 f
+  97 w
+  85 v
+  34 x
+  26 j
+  16 z
+  14 q
+
+about
+other
+which h
+their
+there e
+first
+would
+these e
+click c
+price
+state t
+email
+world
+music
+after
+video
+where e
+books o
+links
+years
+order r
+items
+group
+under
+games
+could
+great
+hotel
+store
+terms
+right
+local l
+those
+using
+phone
+forum
+based
+black
+check c
+index
+being
+women
+today
+south
+pages
+found
+house
+photo o
+power
+while
+three e
+total t
+place
+think
+north
+posts s
+media
+water
+since
+guide
+board
+white
+small l
+times
+sites s
+level l
+hours
+image
+title t
+shall l
+class s
+still l
+money
+every e
+visit i
+tools o
+reply
+value
+press s
+learn
+print
+stock
+point
+sales s
+large
+table
+start t
+model
+human
+movie
+march
+yahoo o
+going g
+study
+staff f
+again a
+april
+never e
+users s
+topic
+below
+party
+login
+legal l
+above
+quote
+story
+rates
+young
+field
+paper p
+girls
+night
+texas
+poker
+issue s
+range
+court
+audio
+light
+write
+offer f
+given
+files
+event e
+china
+needs e
+might
+month
+major
+areas a
+space
+cards
+child
+enter e
+share
+added dx3
+radio
+until
+color o
+track
+least
+trade
+David d
+green e
+close
+drive
+short
+means
+daily
+beach
+costs s
+style
+front
+parts
+early
+miles
+sound
+works
+rules
+final
+adult
+thing
+cheap
+third
+gifts
+cover
+often
+watch
+deals
+words
+linux
+james
+heart
+error rx3
+clear
+makes
+india i
+taken
+known n
+cases s
+quick
+whole
+later
+basic
+shows s
+along
+among
+death
+speed e
+brand
+stuff f
+Japan a
+doing
+loans
+shoes s
+entry
+notes
+force
+river r
+album
+views
+plans
+build
+types
+lines
+apply p
+asked
+cross s
+weeks e
+lower
+union n
+names
+leave e
+teens e
+woman
+cable
+score
+shown
+flash
+ideas
+allow l
+homes
+super
+asian a
+cause
+focus
+rooms o
+voice
+comes
+brown
+forms
+glass s
+happy p
+smith
+thank
+prior r
+sport
+ready
+round
+built
+blood o
+earth
+nokia
+italy
+basis s
+award a
+Peter e
+extra
+rated
+quite
+horse
+stars s
+lists s
+owner
+takes
+bring
+input
+agent
+valid
+grand
+trial
+units
+wrote
+ships s
+metal
+funds
+guest
+seems es
+trust t
+multi
+grade
+panel
+floor o
+match
+plant
+sense se
+stage
+goods o
+maybe
+spain
+youth
+break
+dance
+apple p
+enjoy
+block
+civil i
+steel e
+songs s
+fixed
+wrong
+hands
+paris
+fully l
+worth
+peace e
+coast
+grant
+agree e
+blogs
+scale
+stand
+frame
+chief
+gives
+heard
+begin
+royal
+clean
+bible b
+suite
+vegas
+chris
+piece e
+sheet e
+seven e
+older
+cells l
+looks o
+calls l
+whose
+naked
+lives
+stone
+tests ts
+buyer
+Steve e
+label l
+Scott t
+canon n
+waste
+chair
+phase
+motor o
+shirt
+crime
+count
+claim
+patch
+Santa a
+alone
+jones
+saint
+drugs
+joint
+fresh
+dates
+upper p
+prime
+limit i
+began
+Louis
+steps s
+shops s
+creek e
+urban
+tours
+labor
+admin
+heavy
+solid
+theme e
+touch
+goals
+serve e
+magic
+mount
+smart
+latin
+avoid
+birth
+virus
+abuse
+facts
+faith
+chain
+moved
+reach
+sorry r
+gamma am
+truth t
+films
+owned
+draft
+chart
+Jesus s
+clubs
+equal
+codes
+kinds
+teams
+funny n
+tried
+named
+laser
+Harry r
+taxes
+mouse
+brain
+dream
+false
+falls l
+stats st
+carry r
+hello l
+clips
+brief
+ended ed
+eight
+wants
+alert
+queen e
+sweet e
+diego
+truck
+votes
+ocean
+signs s
+depth
+train
+feeds e
+route
+frank
+anime
+speak
+query
+rural r
+judge
+bytes
+fight
+filed
+korea
+banks
+kelly l
+leads
+brian
+Miami im
+wales
+minor
+noted
+spent
+davis
+helps
+cycle c
+sleep e
+scene e
+drink
+intel
+rings
+henry
+guess s
+ahead a
+devel e
+delta
+cisco c
+alpha a
+bonus
+adobe
+trees e
+dress s
+refer er
+babes b
+layer
+spend
+clock c
+ratio
+proof o
+empty
+maine
+ideal
+specs s
+parks
+cream
+boxes
+hills l
+aware a
+shape
+irish i
+firms
+usage
+mixed
+exist
+wheel e
+angel
+width
+noise
+array ar
+greek e
+sharp
+occur c
+knows
+coach c
+kevin
+plate
+logic
+sizes s
+plain
+costa
+trail
+buddy d
+setup
+blues
+scope
+crazy
+bears
+mouth
+meter e
+fruit
+mysql
+lewis
+sugar
+stick
+allen l
+genre e
+slide
+exact
+bound
+storm
+micro
+dolls l
+paint
+delay
+pilot
+czech c
+novel
+ultra
+idaho
+plays
+truly
+lodge
+broad
+swiss s
+Sarah a
+clark
+foods o
+guard
+newly
+raise
+drama a
+bands
+lunch
+audit
+polls l
+tower
+yours
+jason
+shell l
+solar
+catch c
+doubt
+tasks s
+const
+doors o
+forth
+bruce
+split
+twice
+egypt
+shift
+simon
+marks
+loved
+birds
+saved
+shots s
+moore o
+treat t
+piano
+risks s
+ports
+teach
+rapid
+hairy
+dutch
+boots o
+holds
+pulse
+metro
+strip
+pearl
+heads
+logos o
+honda
+bills l
+opera
+asset s
+blank
+humor
+lived
+tight t
+meant
+plane
+meets e
+tampa a
+grace
+Susan s
+adams a
+villa l
+inner n
+roman
+taste t
+trips
+sides s
+turns
+cache c
+lease e
+proud
+giant
+seats s
+alarm a
+usual u
+angle
+vinyl
+worst
+honor o
+eagle e
+pants
+nurse
+quiet
+comic c
+crown
+maker
+crack c
+picks
+smoke
+craft
+apart a
+blind
+coins
+gross s
+epson
+actor
+finds
+fifth f
+prize
+dirty
+wayne
+alive
+prove
+wings
+ridge
+modem m
+Larry r
+skill l
+moves
+throw
+trend
+rhode
+worse
+boats
+tells l
+fiber
+graph
+talks
+bonds
+fraud
+roger r
+crash
+inter
+grove
+spray
+roads
+faces
+mayor
+yield
+hence e
+radar ar
+lakes
+diary
+kings
+flags
+baker
+shock
+walls l
+ebony
+drawn
+beast
+dodge d
+pizza z
+yards
+woods o
+jokes
+twiki i
+globe
+dicke
+kerry r
+ghost
+pride
+keith
+linda
+chile
+maria a
+brass s
+plaza a
+quest
+trans
+booty o
+acres
+venue e
+vital
+excel e
+modes
+enemy e
+wells l
+opens
+lucky
+thick
+iraqi i
+vista
+chips
+terry r
+flood o
+arena a
+grown
+jerry r
+smile
+lands
+armed
+Laura a
+Tokyo o
+Nikon n
+candy
+pills l
+tiger
+folks
+boost o
+icons
+moral
+keeps e
+pound
+roses s
+bread
+tough
+gonna n
+chest
+billy l
+craig
+solve
+nancy n
+tones
+sight
+towns
+worry r
+reads
+roles
+glory
+saudi
+fault
+Karen
+Jimmy m
+rugby
+fluid
+barry r
+devil
+grass s
+marie
+kenya
+sized
+manga a
+theft t
+swing
+dated d
+shoot o
+elite e
+poems
+robot o
+winds
+gnome
+roots o
+noble
+shore
+loves
+loose o
+slots s
+rocks
+genes e
+hosts s
+atlas a
+feels e
+ralph
+corps
+liver
+decor
+texts t
+evans
+fails
+aging g
+alice
+intro
+clerk
+mills l
+jeans
+fonts
+favor
+sigma
+xhtml
+aside
+essay s
+camps
+Aaron a
+trace
+packs
+spoke
+arrow r
+rough
+weird
+holes
+blade
+meals
+robin
+strap
+crowd
+cloud
+valve v
+knife
+shelf
+liked
+adopt
+fotos o
+outer
+tales
+islam
+nodes
+seeds es
+cited
+skype
+tired
+steam
+acute
+stood o
+carol
+stack
+curve
+amber
+trunk
+waves
+camel
+lamps
+juice
+chase
+sauce
+beads
+flows
+fewer e
+proxy
+lanka a
+voted
+bikes
+gates
+slave
+lycos
+zdnet
+combo o
+haven
+charm
+basin
+ranch
+drunk
+toner
+latex
+delhi
+alien
+broke
+nepal
+nylon n
+discs s
+rocky
+fleet e
+bunch
+cents
+omega
+civic ic
+saver
+grill l
+grain
+wanna an
+seeks es
+gains
+spots s
+salon
+turbo
+thats t
+aimed
+reset e
+brush
+spare
+kodak k
+skirt
+honey
+gauge g
+faced
+sixth
+farms
+cheat
+sandy
+macro
+laugh
+pitch
+autos
+perry r
+dozen
+teeth et
+cloth
+stamp
+lotus
+cargo
+salem
+likes
+tapes
+zones
+races
+maple
+depot
+blend
+julie
+janet
+phpbb bp
+probe
+Helen e
+lopez
+debug
+chuck c
+ebook o
+bingo
+minds
+xanax ax
+sunny n
+leeds e
+cedar
+blair
+hopes
+mason
+burns
+pumps p
+mario
+utils
+pairs
+chose
+blast
+Tommy m
+brake
+Congo o
+olive
+cyber
+clone
+relay
+tears
+oasis s
+angry
+lover
+rolls l
+malta a
+daddy dx3
+ferry r
+omaha a
+loads
+motel
+rally l
+dying
+stuck
+stops s
+vocal
+organ
+lemon
+toxic
+bench
+rider r
+butts t
+Bobby b
+sheep e
+wines
+salad a
+paste
+katie
+relax
+sword
+sells ls
+coral
+pixel
+float
+colin
+paths
+acids
+dairy
+admit
+fancy
+samoa a
+squad
+wages
+males
+chaos
+wheat
+bases s
+unity
+bride
+begun
+socks s
+essex s
+fever e
+drums
+rover r
+flame
+tanks
+spell l
+emily
+annex n
+sudan
+hints
+wired
+elvis
+argue
+arise
+jamie
+chess s
+oscar
+menus
+canal a
+amino
+herbs
+lying
+drill l
+bryan
+hobby b
+tries
+trick
+myers
+drops
+wider
+screw
+blame
+fifty f
+uncle
+jacob
+randy
+brick
+naval a
+Donna n
+cabin
+Eddie d
+fired
+perth
+syria
+klein
+tires
+retro r
+anger
+suits s
+glenn n
+handy
+crops
+guild
+tribe
+batch
+alter
+ghana a
+edges e
+twins
+amend
+chick c
+thong
+medal
+walks
+booth o
+indie i
+bones
+breed e
+polar
+msgid
+carey
+Danny n
+patio
+Lloyd l
+beans
+ellis l
+snake
+julia
+berry r
+ought
+fixes
+sends s
+mazda a
+timer
+tyler
+verse e
+highs h
+Ellen el
+racks
+nasty
+tumor
+watts t
+forty
+tubes
+floyd
+queue eu
+skins s
+exams
+welsh
+belly l
+haiti i
+elder e
+sonic
+thumb
+twist t
+ranks
+debut
+volvo ov
+penny n
+ivory
+remix
+alias a
+newer e
+spice
+ascii i
+donor o
+trash
+manor
+diane
+disco
+endif
+minus
+milan
+shade
+digit i
+lions
+pools o
+lyric
+grave
+howto o
+devon
+saves s
+lobby b
+punch
+gotta t
+karma a
+betty t
+lucas
+mardi
+shake
+holly l
+silly l
+mercy
+fence e
+Diana a
+shame
+fatal a
+flesh
+Jesse es
+qatar a
+sheer e
+witch
+cohen
+puppy px3
+kathy
+smell l
+satin
+promo o
+tunes
+lucia
+nerve e
+renew e
+locks
+euros
+rebel e
+hired
+hindu
+kills l
+slope
+nails
+whats
+rides
+rehab
+merit
+disks s
+condo o
+fairy
+shaft
+casio
+kitty t
+drain
+monte
+fires
+panic
+leone e
+onion on
+beats
+merry r
+scuba
+verde e
+dried d
+derby
+Annie n
+derek e
+steal
+fears
+tuner
+alike
+sagem
+scout
+dealt
+bucks
+badge
+wrist
+heath h
+lexus
+realm
+Jenny n
+yemen e
+buses s
+rouge
+yeast
+Kenny n
+yukon
+singh
+brook o
+wives
+xerox x
+sorts s
+vsnet
+papua ap
+armor r
+viral
+pipes p
+laden
+aruba a
+merge e
+edgar
+dubai
+Allan al
+sperm
+filme
+craps
+frost
+Sally l
+yacht
+Tracy
+whale
+shark
+grows
+cliff f
+tract t
+shine
+wendy
+diffs f
+ozone o
+pasta a
+serum
+swift
+inbox
+focal
+samba a
+wound
+belle el
+cindy
+lined
+boxed
+cubic c
+spies s
+elect e
+bunny n
+chevy
+tions
+flyer
+baths
+emacs
+climb
+sparc
+dover
+token
+kinda
+dylan
+belts
+burke
+Clara a
+flush
+hayes
+moses s
+johns
+jewel e
+teddy d
+dryer r
+ruled
+funky
+joins
+scary
+mpegs
+cakes
+mixer
+sbjct
+tooth ot
+stays s
+drove
+upset
+mines
+logan
+lance
+colon o
+lanes
+purse
+align
+bless s
+crest
+alloy l
+plots
+tulsa
+casey
+draws
+bloom o
+loops o
+surge
+tahoe
+souls s
+spank
+vault
+wires
+mails
+Blake
+orbit
+niger
+bacon
+paxil
+spine
+trout t
+apnic
+fatty t
+Joyce
+marco
+Isaac a
+oxide
+badly
+scoop o
+sanyo
+blink
+carlo
+tiles
+tamil
+fuzzy z
+grams
+forge
+dense e
+brave
+awful
+meyer e
+wagon
+knock k
+peers e
+quilt
+notre
+mambo m
+flour
+choir
+blond
+burst
+wiley
+fibre
+daisy
+crude
+bored
+Allah al
+fares
+hoped
+safer
+marsh
+ricky
+theta t
+stake
+arbor r

@@ -6,7 +6,7 @@
 
    ===================================================================================================
 
-   Originally, stats from each 8-byte block was going to determine how THAT back was scrambled.
+   Originally, stats from each 8-byte block was going to determine how THAT block was scrambled.
    Then I realized that each block would then always scramble to the same thing.
    So now I think scramble will add a block of 8 random bytes to the front of each data file.
    It will use stats and this block to scramble the first block of 8 btyes from the data stream.
@@ -16,37 +16,41 @@
 
      0) count the one bits in the data block
         calculate the total partity of the data block
-        construct btye by shifting in the partity of each byte
-        XOR all bytes
+        vertical parity - construct btye by shifting in the partity of each byte
+        horizontal parity - XOR all bytes
+     
+     1) load the next block
 
-     1) horizontal byte-rotations (to the left)
-        first   byte rotates left by N
-        second  byte rotates left by N+1
-        third   byte rotates left by N+2
-        . 
-        . 
-        seventh byte rotates left by N+6
-        last    byte rotates left by N+7
+     2) horizontal sheer by n (byte-rotations to the left)
+        first   byte rotates left by N + 1*n
+        second  byte rotates left by N + 2*n
+        third   byte rotates left by N + 3*n
+        forth   byte rotates left by N + 4*n
+        fifth   byte rotates left by N + 5*n
+        sixth   byte rotates left by N + 6*n
+        seventh byte rotates left by N + 7*n
+        last    byte rotates left by N
 
-     2) vertical   byte-rotations ( down )
-        LSB   column shifts down by P
-          2's column shifts down by P+1
-          4's column shifts down by P+2
-          8's column shifts down by P+3
-         16's column shifts down by P+4
-         32's column shifts down by P+5
-         64's column shifts down by P+6
-        128's column shifts down by P+7
+     3) vertical sheer by n ( column-rotations down )
+        LSB   column shifts down by P + 1*n
+          2's column shifts down by P + 2*n
+          4's column shifts down by P + 3*n
+          8's column shifts down by P + 4*n
+         16's column shifts down by P + 5*n
+         32's column shifts down by P + 6*n
+         64's column shifts down by P + 7*n
+        128's column shifts down by P
 
-     3) block rotation 0, 90, 180 or 270, (clockwise)
+     4) block rotation 0, 90, 180 or 270, (clockwise)
         executed based on last two digits of count of 1's
         00 -  no rotation
         01 -  90 rotation
         10 - 180 rotation
         11 - 270 rotation
 
-     4) flip all the bits 0->1 and 1->0
+     5) Inversion flip all the bits 0->1 and 1->0
         always - OR - only on even - OR - only on odd parity
+
 
      These transformations and their parameters will be determined by the data in each block.
 
@@ -65,17 +69,17 @@
 
      * countNumber of 1's ( 0 - 64 ) not preserved after flipping all bits
      ------------
-     1000000 - 64
-     0111111 - 63
-     0111110 - 62
+     1000000 - 64  <- mostly ones
+     0111111 - 63  <- mostly ones
+     0111110 - 62  <- mostly ones
      0111101 - 61
      .
      .
      .
      0000011 -  3
-     0000010 -  2
-     0000001 -  1
-     0000000 -  0
+     0000010 -  2 <- mostly zeroes
+     0000001 -  1 <- mostly zeroes
+     0000000 -  0 <- mostly zeroes
 
      Useful stored transformations
      _
@@ -106,26 +110,26 @@
      11111111    11111111    1_______    _______1
 
      Horizontal Byte Rotations Left (each sucsesive byte increments bits shifted)
-     Original      N = 1       N = 3       N = 7
+     Original      N = 1       N = 2       N = 7
      _______1    ______1_    _____1__    1_______
-     _______1    _____1__    ___1____    _______1
-     _______1    ____1___    _1______    ______1_
-     _______1    ___1____    ______1_    _____1__
-     _______1    __1_____    ____1___    ____1___
-     _______1    _1______    __1_____    ___1____
-     _______1    1_______    1_______    __1_____
-     _______1    _______1    _______1    _1______
+     _______1    _____1__    ___1____    _1______
+     _______1    ____1___    _1______    __1_____
+     _______1    ___1____    _______1    ___1____
+     _______1    __1_____    _____1__    ____1___
+     _______1    _1______    ___1____    _____1__
+     _______1    1_______    _1______    ______1_
+     _______1    _______1    _______1    _______1     <- this transform will always level the last byte the same
 
      Vertical Byte Rotations Down (each sucsesive column increments bits shifted)
      Original      N = 1       N = 3       N = 7
-     11111111    1_______    1_______    1_______
-     _______0    _______1    _____1__    _1______
-     _______0    ______1_    __1_____    __1_____
-     _______0    _____1__    _______1    ___1____
-     _______0    ____1___    ____1___    ____1___
-     _______0    ___1____    _1______    _____1__
-     _______0    __1_____    ______1_    ______1_
-     _______0    _1______    ___1____    _______1
+     11111111    1_______    1_______    1_______     <- this transform will always level the last column the same
+     ________    _______1    _____1__    _1______
+     ________    ______1_    __1_____    __1_____
+     ________    _____1__    _______1    ___1____
+     ________    ____1___    ____1___    ____1___
+     ________    ___1____    _1______    _____1__
+     ________    __1_____    ______1_    ______1_
+     ________    _1______    ___1____    _______1
 
    ===================================================================================================
 

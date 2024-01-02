@@ -1,0 +1,407 @@
+000 cigar
+001 rebut
+002 sissy
+003 humph
+004 awake
+005 blush
+006 focal
+007 evade
+008 naval
+009 serve
+010 heath
+011 dwarf
+012 model
+013 karma
+014 stink
+015 grade
+016 quiet
+017 bench
+018 abate
+019 fiegn
+020 major
+021 death
+022 fresh
+023 crust
+024 stool
+025 colon
+026 abase
+027 marry
+028 react
+029 batty
+030 pride
+031 floss
+032 helix
+033 croak
+034 staff
+035 paper
+036 unfed *
+037 whelp
+038 trawl
+039 outdo
+040 adobe
+041 crazy
+042 sower *
+043 repay
+044 digit
+045 crate
+046 cluck
+047 spike
+048 mimic
+049 pound
+
+050 maxim
+051 linen
+052 unmet
+053 flesh
+054 booby
+055 forth
+056 first
+057 stand
+058 belly
+059 ivory
+060 seedy
+061 print
+062 yearn
+063 drain
+064 bribe
+065 stout *
+066 panel
+067 crass
+068 flume
+069 offal
+070 agree
+071 error
+072 swirl
+073 agrue
+074 bleed
+075 delta
+076 flick
+077 totem
+078 wooer
+079 front
+080 shrub
+081 parry
+082 biome
+083 lapel
+084 start
+085 greet
+086 goner
+087 golem
+088 lusty
+089 loopy
+090 round
+091 audio
+092 lying
+093 gamma
+094 labor
+095 islet
+096 civic
+097 forge
+098 corny
+099 moult
+
+100 basic
+101 salad
+102 agate
+103 spicy
+104 spray
+105 essay
+106 fjord
+107 spend
+108 kebab
+109 guild
+110 aback
+111 motor
+112 alone
+113 hatch *
+114 hyper
+115 thumb
+116 dowry
+117 ought
+118 belch
+119 dutch
+120 pilot
+121 tweed
+122 comet
+123 jaunt
+124 enema
+125 steed
+126 abyss
+127 growl
+128 fling
+129 dozen
+130 boozy
+131 erode
+132 world
+133 gouge
+134 click
+135 briar
+136 great
+137 altar
+138 pulpy
+139 blurt
+140 coast
+141 duchy
+142 groin
+143 fixer
+144 group
+145 rogue
+146 badly
+147 smart
+148 pithy
+149 gaudy
+
+150 chill
+151 heron
+152 vodka
+153 finer
+154 surer
+155 radio
+156 rouge
+157 perch
+158 retch
+159 wrote
+160 clock
+161 tilde
+162 store
+163 prove
+164 bring
+165 solve
+166 cheat
+167 grime
+168 exult
+169 basic/usher
+170 epoch
+171 triad
+172 break
+173 rhino
+174 viral
+175 conic
+176 masse
+177 sonic
+178 vital
+179 trace
+180 using
+181 peach
+182 champ
+183 baton
+184 brake
+185 pluck
+186 craze
+187 gripe
+188 weary
+189 picky
+190 acute
+191 ferry
+192 aside
+193 tapir
+194 troll
+195 unify
+196 rebus
+197 boost
+198 truss
+199 siege
+
+200 tiger
+201 banal
+202 slump
+203 crank
+204 gorge
+205 query
+206 drink
+207 favor
+208 abbey
+209 tangy
+210 panic
+211 solar
+212 shire
+213 proxy
+214 point
+215 robot
+216 prick
+217 wince
+218 crimp
+219 knoll
+220 sugar
+221 whack
+222 mount
+223 perky
+224 could
+225 wrung
+226 light
+227 those
+228 moist
+229 shard
+230 pleat
+231 aloft
+232 skill
+233 elder
+234 frame
+235 humor
+236 pause
+237 ulcer
+238 ultra
+239 robin
+240 cynic
+241 aroma
+242 caulk
+243 shake
+244 dodge
+245 swill
+246 tacit
+247 other
+248 thorn
+249 trove
+
+250 bloke
+251 vivid
+252 spill
+253 chant
+254 choke
+255 
+256 nasty
+257 mourn
+258 ahead
+259 brine
+260 
+261 
+262 
+263 
+264 
+265 
+266 
+267 
+268 
+269 
+270 
+271 
+272 
+273 
+274 
+275 
+276 
+277 
+278 
+279 
+280 
+281 
+282 
+283 
+284 
+285 
+286 
+287 
+288 
+289 
+290 
+291 
+292 
+293 
+294 
+295 
+296 
+297 
+298 
+299 
+
+300 
+301 
+302 
+303 
+304 
+305 
+306 
+307 
+308 
+309 
+310 
+311 
+312 
+313 
+314 
+315 
+316 
+317 
+318 
+319 
+320 
+321 
+322 
+323 
+324 
+325 
+326 
+327 
+328 
+329 
+330 
+331 
+332 
+333 
+334 
+335 
+336 
+337 
+338 
+339 
+340 
+341 
+342 
+343 
+344 
+345 
+346 
+347 
+348 
+349 
+
+350 
+351 
+352 
+353 
+354 
+355 
+356 
+357 
+358 
+359 
+360 
+361 
+362 
+363 
+364 
+365 
+366 
+367 
+368 
+369 
+370 
+371 
+372 
+373 
+374 
+375 
+376 
+377 
+378 
+379 
+380 
+381 
+382 
+383 
+384 
+385 
+386 
+387 
+388 
+389 
+390 
+391 
+392 
+393 
+394 
+395 
+396 
+397 
+398 
+399 

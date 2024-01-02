@@ -8,26 +8,31 @@ my $usage = "usage:\n$name [-opt1] [-opt2] [-opt3]";
 use strict;
 use warnings;
 
-foreach my $byte ( 0x00 .. 0xFF) {
-  # printf "%c\n", $byte;
+foreach my $byte ( 0x00 .. 0xFF ) {
+  my %counts = ( '00' => 0, '01' => 0, '10' => 0, '11' => 0);
   my $bits = sprintf("%08B",$byte);
   my $inverted = (~$byte) & 0xFF;
   my $inverted_bits = sprintf("%08B",$inverted);
   my $reverse_bits = join('', reverse( split('', $bits)));
   my $reversed;
   eval "\$reversed = 0b$reverse_bits";
+  $bits =~ m/(..)(..)(..)(..)/;
+  foreach my $double_bit ( $1,  $2,  $3,  $4 ) {
+    $counts{$double_bit}++;
+  }
+  $counts{'ones'}  = scalar( $bits =~ tr/1// );
+  my $parity = $counts{'ones'} % 2;
 # my $ones_count = unpack( "%08B*", ($byte & 0xFF) );
-  my $ones_count = scalar($bits =~ tr/1// );
-  my $parity = ($ones_count % 2) ? 1 : 0;
 # printf "'%c' %s %s %s %d %d\n", $byte, $bits, $reverse_bits, $inverted_bits, $ones_count, $parity;
 #                    'reversed':   '%c',
 #                    'inverted':   '%c',
   printf(
-  "  chr(0x%02X): { 'bit_string': '%s', 'hexdecimal': '0x%02X', 'reversed': chr(0x%02X), 'inverted': chr(0x%02X), 'parity': %d, 'ones': %d },\n",
+  "    chr(0x%02X): { 'bit_string': '%s', 'hexdecimal': '0x%02X', 'reversed': chr(0x%02X), \\\n      'inverted': chr(0x%02X), 'parity': %d, 'ones': %d, '00': %d, '01': %d, '10': %d, '11': %d },\n",
             $byte, $bits, $byte, 
             $reversed, $inverted,
 #           ord($reversed), ord($inverted),
-            $parity, $ones_count
+            $parity, $counts{'ones'},
+            $counts{'00'}, $counts{'01'}, $counts{'10'}, $counts{'11'}
             )
 }
 

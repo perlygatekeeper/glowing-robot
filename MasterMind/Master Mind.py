@@ -75,16 +75,21 @@ guess_history = []
 # print(puzzle)
 
 # Game Loop
+clear()
 while (1):
     guesses += 1
-    user_input = input("\n Input your %d guess of %d decimal digits, q to quit, l to list previous guesses: " % (guesses, len(puzzle)) )
+    print("Here are your past guesses:")
+    if guesses > 1:
+        for event in guess_history:
+          print("%s: (%d,%d)" % (event["guess"], event["correct"], event["in_place"]))
+    user_input = input("\n Input your %d guess of %d decimal digits, q to quit: " % (guesses, len(puzzle)) )
     if user_input == 'q':
         print("you want to end our wonderful relationship :(")
         break
-    elif user_input == 'l':
-        print("Here are your past guesses:")
-        for event in guess_history:
-            print("%s: (%d,%d)" % (event["guess"], event["correct"], event["in_place"]))
+#   elif user_input == 'l':
+#       print("Here are your past guesses:")
+#       for event in guess_history:
+#           print("%s: (%d,%d)" % (event["guess"], event["correct"], event["in_place"]))
     elif user_input == '':
         print("you can't even input anything, COME ON...")
     else:
