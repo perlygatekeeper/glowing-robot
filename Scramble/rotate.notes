@@ -5,7 +5,7 @@ W         COLUMN
      7 6 5 4 3 2 1 0
      - - - - - - - -                       Rotation 90 degrees clockwise
 0 |  A B C D E F G H    0 0 0 a 0 0 0 A    Row 0 -> Column 0  Column 0 -> Row 7
-1 |  0 0 0 0 0 0 0 0    0 0 0 b 0 0 0 B    Row 1 -> Column 1  Column 0 -> Row 6
+1 |  0 0 0 0 0 0 0 0    0 0 0 b 0 0 0 B    Row 1 -> Column 1  Column 0 -> Row 7
 2 |  0 0 0 0 0 0 0 0    0 0 0 c 0 0 0 C    Row 2 -> Column 2  Column 0 -> Row 7
 3 |  0 0 0 0 0 0 0 0    0 0 0 d 0 0 0 D    Row 3 -> Column 3  Column 0 -> Row 7
 4 |  a b c d e f g h    0 0 0 e 0 0 0 E    Row 4 -> Column 4  Column 0 -> Row 7
@@ -28,20 +28,24 @@ O
 W         COLUMN
      7 6 5 4 3 2 1 0
      - - - - - - - -                       Rotation 90 degrees counter-clockwise
-0 |  A B C D E F G H    H 0 0 0 h 0 0 0    Row 0 -> Column 7  Column 0 -> Row 1
-1 |  0 0 0 0 0 0 0 0    G 0 0 0 g 0 0 0    Row 1 -> Column 6  Column 0 -> Row 1
-2 |  0 0 0 0 0 0 0 0    F 0 0 0 f 0 0 0    Row 2 -> Column 5  Column 0 -> Row 1
-3 |  0 0 0 0 0 0 0 0    E 0 0 0 e 0 0 0    Row 3 -> Column 4  Column 0 -> Row 1
-4 |  a b c d e f g h    D 0 0 0 d 0 0 0    Row 4 -> Column 3  Column 0 -> Row 1
-5 |  0 0 0 0 0 0 0 0    C 0 0 0 c 0 0 0    Row 5 -> Column 2  Column 0 -> Row 1
-6 |  0 0 0 0 0 0 0 0    B 0 0 0 b 0 0 0    Row 6 -> Column 1  Column 0 -> Row 1
-7 |  0 0 0 0 0 0 0 0    A 0 0 0 a 0 0 0    Row 7 -> Column 0  Column 0 -> Row 1
+0 |  A B C D E F G H    H 0 0 0 h 0 0 0    Row 0 -> Column 7  Column 0 -> Row 0
+1 |  0 0 0 0 0 0 0 0    G 0 0 0 g 0 0 0    Row 1 -> Column 6  Column 0 -> Row 0
+2 |  0 0 0 0 0 0 0 0    F 0 0 0 f 0 0 0    Row 2 -> Column 5  Column 0 -> Row 0
+3 |  0 0 0 0 0 0 0 0    E 0 0 0 e 0 0 0    Row 3 -> Column 4  Column 0 -> Row 0
+4 |  a b c d e f g h    D 0 0 0 d 0 0 0    Row 4 -> Column 3  Column 0 -> Row 0
+5 |  0 0 0 0 0 0 0 0    C 0 0 0 c 0 0 0    Row 5 -> Column 2  Column 0 -> Row 0
+6 |  0 0 0 0 0 0 0 0    B 0 0 0 b 0 0 0    Row 6 -> Column 1  Column 0 -> Row 0
+7 |  0 0 0 0 0 0 0 0    A 0 0 0 a 0 0 0    Row 7 -> Column 0  Column 0 -> Row 0
 
   for row in range(8):    # loop over rows from top to bottom
-    set_mask = 1 << row
+    set_mask = 1 << (7 - row)
     for col in range(8):  # loop over cols from right to left
       # bit at input[row,col] will be isolated as a single-one binary number,
       # ie 00010000 for col = 4
       bit = input[row] & (1 << col)
-      rotated[ 7 - col ] |= set_mask
+      rotated[ col ] |= set_mask
   return rotated
+
+
+
+

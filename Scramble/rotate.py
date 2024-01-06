@@ -15,14 +15,28 @@ def bytearray_to_8x8_bits(bytearray):
  # return "\n".join(row_strings)
 
 
-def rotate_bits_90_clockwise(input):
+def rotate_bits_90_counter_clockwise(input):
   """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
-
   rotated = bytearray(8)
-
   print("Input bytearray:")
   bytearray_to_8x8_bits(input)
+  for row in range(8):    # loop over rows from top to bottom
+    set_mask = 1 << ( 7 - row )
+    for col in range(8):  # loop over cols from right to left
+      # bit at input[row,col] will be isolated as a single-one binary number,
+      # ie 00010000 for col = 4
+      bit = input[row] & (1 << col)
+      if (bit):
+        rotated[col] |= set_mask
+  print("Rotated bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
 
+def rotate_bits_90_clockwise(input):
+  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input)
   for row in range(8):    # loop over rows from top to bottom
     set_mask = 1 << row
     for col in range(8):  # loop over cols from right to left
@@ -35,10 +49,11 @@ def rotate_bits_90_clockwise(input):
   bytearray_to_8x8_bits(rotated)
   return rotated
 
-
-
+print("Clockwise Rotation:")
 bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
 rotate_bits_90_clockwise(bytearray_input)  # This will print both input and output arrays
 
-
+print("Counter-Clockwise Rotation:")
+bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+rotate_bits_90_counter_clockwise(bytearray_input)  # This will print both input and output arrays
 
