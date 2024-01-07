@@ -514,79 +514,92 @@ useful  = {
   chr(0xFF): { 'bit_string': '11111111', 'hexdecimal': '0xFF', 'reversed': chr(0xFF), \
     'inverted': chr(0x00), 'parity': 0, 'ones': 8, '00': 0, '01': 0, '10': 0, '11': 4 }
 }
+shift_mask_left  = [ 0b00000000, 0b10000000, 0b11000000, 0b11100000, 0b11110000, 0b11111000, 0b11111100, 0b11111110]
+shift_mask_right = [ 0b11111111, 0b01111111, 0b00111111, 0b00011111, 0b00001111, 0b00000111, 0b00000011, 0b00000001]
 
 # print(useful)
 
-def bytearray_to_8x8_bits(bytearray):
+def bytearray_to_8x8_bits(input_bytearray):
  """Converts a bytearray of length 8 into an 8x8 grid of bits."""
-
- if len(bytearray) != 8:
+ if len(input_bytearray) != 8:
    raise ValueError("Input bytearray must have length 8")
-
- bits = []
- for byte in bytearray:
+ # bits = []
+ for byte in input_bytearray:
      print(f"{byte:08b}")
 
-def rotate_bits_90_counter_clockwise(input):
+def rotate_bits_90_counter_clockwise(input_bytearray):
   """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
   rotated = bytearray(8)
   print("Input bytearray:")
-  bytearray_to_8x8_bits(input)
+  bytearray_to_8x8_bits(input_bytearray)
   for row in range(8):    # loop over rows from top to bottom
     set_mask = 1 << ( 7 - row )
     for col in range(8):  # loop over cols from right to left
-      # bit at input[row,col] will be isolated as a single-one binary number,
+      # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
       # ie 00010000 for col = 4
-      bit = input[row] & (1 << col)
+      bit = input_bytearray[row] & (1 << col)
       if (bit):
         rotated[col] |= set_mask
   print("Rotated CCW bytearray:")  # Print output array
   bytearray_to_8x8_bits(rotated)
   return rotated
 
-def rotate_bits_90_clockwise(input):
+def rotate_bits_90_clockwise(input_bytearray):
   """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
   rotated = bytearray(8)
   print("Input bytearray:")
-  bytearray_to_8x8_bits(input)
+  bytearray_to_8x8_bits(input_bytearray)
   for row in range(8):    # loop over rows from top to bottom
     set_mask = 1 << row
     for col in range(8):  # loop over cols from right to left
-      bit = input[row] & (1 << col)
+      bit = input_bytearray[row] & (1 << col)
       if (bit):
         rotated[ 7 - col ] |= set_mask
   print("Rotated CW bytearray:")  # Print output array
   bytearray_to_8x8_bits(rotated)
   return rotated
 
-def rotate_bits_180 (input):
+def rotate_bits_180 (input_bytearray):
   """Rotates the bits in a bytearray of length 8 by 180 degrees."""
   rotated = bytearray(8)
   print("Input bytearray:")
-  bytearray_to_8x8_bits(input)
+  bytearray_to_8x8_bits(input_bytearray)
   for row in range(8):    # loop over rows from top to bottom
-    rotated[ 7 - row ] = ord(useful[chr(input[row])]['reversed'])
+    rotated[ 7 - row ] = ord(useful[chr(input_bytearray[row])]['reversed'])
   print("Rotated 180 bytearray:")  # Print output array
   bytearray_to_8x8_bits(rotated)
   return rotated
 
 # --------------------------------------------------------------------------------
-
-def invert_bits (input):
+def invert_bits (input_bytearray):
   """inverts the block of bits, changing all the zeroes to ones and all the ones to zeroes ."""
   inverted = bytearray(8)
   print("Input bytearray:")
-  bytearray_to_8x8_bits(input)
+  bytearray_to_8x8_bits(input_bytearray)
   for row in range(8):    # loop over rows from top to bottom
-    inverted[row] = ord(useful[chr(input[row])]['inverted'])
+    inverted[row] = ord(useful[chr(input_bytearray[row])]['inverted'])
   print("Inverted bytearray:")  # Print output array
   bytearray_to_8x8_bits(inverted)
   return inverted
 
-def horizontal_sheer (block, param):
-    print('not yet implemented')
+def horizontal_sheer (input_bytearray, param):
+  """sheers the block of bits, rotating each row of bits by a number of bits
+     to the left.  The number of bits shifted starts at param (which must be
+     between 1 and 7 inclusive) and increases by one for each row, modulo 8.
+     The last row is always unchanged, see Notes.txt"""
+  sheered = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(7):    # loop over rows from top to bottom
+    shift = (param+row)%8  # BROKE HERE   SEE NOTES.txt
+    sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
+  sheered[7] = input_bytearray[7]
+  print("Horizontally sheered bytearray:")  # Print output array
+  bytearray_to_8x8_bits(sheered)
+  return sheered
 
-def vertical_sheer (block, param):
+
+def vertical_sheer (input_bytearray, param):
     print('not yet implemented')
 
 
@@ -598,13 +611,25 @@ rotate_bits_90_clockwise(bytearray_input)  # This will print both input and outp
 
 print("Counter-Clockwise Rotation:")
 bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
-rotate_bits_90_counter_clockwise(bytearray_input)  # This will print both input and output arrays
+rotate_bits_90_counter_clockwise(bytearray_input)
 
 print("180 Rotation:")
 bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
-rotate_bits_180(bytearray_input)  # This will print both input and output arrays
+rotate_bits_180(bytearray_input)
 
 print("Inversion:")
 bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
-invert_bits(bytearray_input)  # This will print both input and output arrays
+invert_bits(bytearray_input)
+
+print("Horizontal shift 1:")
+bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+horizontal_sheer(bytearray_input, 1)
+
+print("Horizontal shift 2:")
+bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+horizontal_sheer(bytearray_input, 2)
+
+print("Horizontal shift 7:")
+bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+horizontal_sheer(bytearray_input, 7)
 

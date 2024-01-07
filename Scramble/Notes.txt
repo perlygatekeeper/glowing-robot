@@ -118,11 +118,11 @@
      _______1    __1_____    _____1__    ____1___
      _______1    _1______    ___1____    _____1__
      _______1    1_______    _1______    ______1_
-     _______1    _______1    _______1    _______1     <- this transform will always level the last byte the same
+     _______1    _______1    _______1    _______1     <- this transform will always leave the last byte the same
 
      Vertical Byte Rotations Down (each sucsesive column increments bits shifted)
      Original      N = 1       N = 3       N = 7
-     11111111    1_______    1_______    1_______     <- this transform will always level the last column the same
+     11111111    1_______    1_______    1_______     <- this transform will always leave the last column the same
      ________    _______1    _____1__    _1______
      ________    ______1_    __1_____    __1_____
      ________    _____1__    _______1    ___1____
