@@ -109,8 +109,9 @@
      _1_____1    1_____1_    11______    ______11
      11111111    11111111    1_______    _______1
 
-     Horizontal Byte Rotations Left (each sucsesive byte increments bits shifted)
+     Horizontal Byte Rotations Left (each sucsesive row shifts bits N*row%8 times)
      Original      N = 1       N = 2       N = 7
+     _______1    _______1    _______1    _______1     <- this transform will always leave the first byte the same
      _______1    ______1_    _____1__    1_______
      _______1    _____1__    ___1____    _1______
      _______1    ____1___    _1______    __1_____
@@ -118,18 +119,17 @@
      _______1    __1_____    _____1__    ____1___
      _______1    _1______    ___1____    _____1__
      _______1    1_______    _1______    ______1_
-     _______1    _______1    _______1    _______1     <- this transform will always leave the last byte the same
 
-     Vertical Byte Rotations Down (each sucsesive column increments bits shifted)
+     Vertical Byte Rotations Down (each sucsesive column shifts bits N*row%8 times)
      Original      N = 1       N = 3       N = 7
-     11111111    1_______    1_______    1_______     <- this transform will always leave the last column the same
-     ________    _______1    _____1__    _1______
-     ________    ______1_    __1_____    __1_____
-     ________    _____1__    _______1    ___1____
-     ________    ____1___    ____1___    ____1___
-     ________    ___1____    _1______    _____1__
-     ________    __1_____    ______1_    ______1_
-     ________    _1______    ___1____    _______1
+     11111111    _______1    _______1    _______1     <- this transform will always leave the first column the same
+     ________    ______1_    ____1___    1_______
+     ________    _____1__    _1______    _1______
+     ________    ____1___    ______1_    __1_____
+     ________    ___1____    ___1____    ___1____
+     ________    __1_____    1_______    ____1___
+     ________    _1______    _____1__    _____1__
+     ________    1_______    __1_____    ______1_
 
    ===================================================================================================
 

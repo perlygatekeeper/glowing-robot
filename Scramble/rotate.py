@@ -591,7 +591,7 @@ def horizontal_sheer (input_bytearray, param):
   print("Input bytearray:")
   bytearray_to_8x8_bits(input_bytearray)
   for row in range(7):    # loop over rows from top to bottom
-    shift = (param+row)%8  # BROKE HERE   SEE NOTES.txt
+    shift = (param*row)%8  # BROKE HERE   SEE NOTES.txt
     sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
   sheered[7] = input_bytearray[7]
   print("Horizontally sheered bytearray:")  # Print output array
