@@ -559,8 +559,6 @@ def rotate_bits_90_clockwise(input):
   bytearray_to_8x8_bits(rotated)
   return rotated
 
-# --------------------------------------------------------------------------------
-
 def rotate_bits_180 (input):
   """Rotates the bits in a bytearray of length 8 by 180 degrees."""
   rotated = bytearray(8)
@@ -572,14 +570,25 @@ def rotate_bits_180 (input):
   bytearray_to_8x8_bits(rotated)
   return rotated
 
+# --------------------------------------------------------------------------------
+
+def invert_bits (input):
+  """inverts the block of bits, changing all the zeroes to ones and all the ones to zeroes ."""
+  inverted = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input)
+  for row in range(8):    # loop over rows from top to bottom
+    inverted[row] = ord(useful[chr(input[row])]['inverted'])
+  print("Inverted bytearray:")  # Print output array
+  bytearray_to_8x8_bits(inverted)
+  return inverted
+
 def horizontal_sheer (block, param):
     print('not yet implemented')
 
 def vertical_sheer (block, param):
     print('not yet implemented')
 
-def block_inversion (block, param):
-    print('not yet implemented')
 
 # --------------------------------------------------------------------------------
 
@@ -594,4 +603,8 @@ rotate_bits_90_counter_clockwise(bytearray_input)  # This will print both input 
 print("180 Rotation:")
 bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
 rotate_bits_180(bytearray_input)  # This will print both input and output arrays
+
+print("Inversion:")
+bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+invert_bits(bytearray_input)  # This will print both input and output arrays
 
