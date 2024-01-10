@@ -1,5 +1,7 @@
 #!/opt/local/bin/python
 
+import random
+
 useful  = {
   chr(0x00): { 'bit_string': '00000000', 'hexdecimal': '0x00', 'reversed': chr(0x00), \
     'inverted': chr(0xFF), 'parity': 0, 'ones': 0, '00': 4, '01': 0, '10': 0, '11': 0 },
@@ -515,65 +517,208 @@ useful  = {
     'inverted': chr(0x00), 'parity': 0, 'ones': 8, '00': 0, '01': 0, '10': 0, '11': 4 }
 }
 
-def block_rotation (block, param):
-    print('not yet implemented')
+shift_mask_left  = [ 0b00000000, 0b10000000, 0b11000000, 0b11100000, 0b11110000, 0b11111000, 0b11111100, 0b11111110 ]
+shift_mask_right = [ 0b11111111, 0b01111111, 0b00111111, 0b00011111, 0b00001111, 0b00000111, 0b00000011, 0b00000001 ]
+bit_sensor       = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
 
-def horizontal_sheer (block, param):
-    print('not yet implemented')
+# print(useful)
+def parameters (input_bytearray):
+    parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
+    debug = 0
+#   print(block)
+    for i in range(len(input_bytearray)):
+      row = ( 7 - i )
+      byte = input_bytearray[row]
+      if (debug):
+          print(f"{byte:3d}", useful[chr(byte)]['bit_string'], useful[chr(byte)]['parity'], useful[chr(byte)]['ones'])
+      parameters['v_parity'] |= useful[chr(byte)]['parity']
+#     if row < (len(input_bytearray)):
+      if row > 0:
+          parameters['v_parity'] <<= 1
+      parameters['ones']     += useful[chr(byte)]['ones']
+      parameters['00']       += useful[chr(byte)]['00']
+      parameters['01']       += useful[chr(byte)]['01']
+      parameters['10']       += useful[chr(byte)]['10']
+      parameters['11']       += useful[chr(byte)]['11']
+      parameters['h_parity'] ^= byte
+    if (debug):
+      print('   ', useful[chr(parameters['h_parity'])]['bit_string'], ' horizontal parity')
+      print('   ', useful[chr(parameters['v_parity'])]['bit_string'], ' vertical   parity')
+      print('Total one bits: ', parameters['ones'] )
+      print('Total 00  bits: ', parameters['00'] )
+      print('Total 01  bits: ', parameters['01'] )
+      print('Total 10  bits: ', parameters['10'] )
+      print('Total 11  bits: ', parameters['11'] )
+      print('----------------\n')
 
-def vertical_sheer (block, param):
-    print('not yet implemented')
+def random_bytearray(length=8):
+  byte_array = btye_array(length)
+  for row in range(length):
+    btye_array[row] = random.randint(0,255)
+  return byte_array
 
-def block_inversion (block, param):
-    print('not yet implemented')
+def bytearrays_to_8x8_arrays(input_bytearray,output_bytearray):
+ """Converts two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
+ if len(input_bytearray) != 8:
+   raise ValueError("Input bytearray must have length 8")
+ # bits = []
+ for row in range(8):
+     left  = input_bytearray[row]
+     right = output_bytearray[row]
+     print(f"{left:08b}\t{right:08b}")
 
-def parameters (block):
-    total_ones = 0
-    total_00 = 0
-    total_01 = 0
-    total_10 = 0
-    total_11 = 0
-    h_parity = 0
-    v_parity = 0
-    print(block)
-    for i in range(len(this_string)):
-      # print(i)
-      t = this_string[ len(this_string) - 1 - i ]
-      print(t,useful[t]['bit_string'],useful[t]['parity'],useful[t]['ones'])
-      v_parity = (v_parity | useful[t]['parity'])
-      if i < (len(this_string)-1):
-          v_parity = v_parity<<1
-      total_ones += useful[t]['ones']
-      total_00 += useful[t]['00']
-      total_01 += useful[t]['01']
-      total_10 += useful[t]['10']
-      total_11 += useful[t]['11']
-      h_parity = h_parity ^ ord(t)
-    print(' ', useful[chr(h_parity)]['bit_string'], ' horizontal parity')
-    print(' ', useful[chr(v_parity)]['bit_string'], ' vertical   parity')
-    print('Total one bits: ', total_ones)
-    print('Total 00  bits: ', total_00)
-    print('Total 01  bits: ', total_01)
-    print('Total 10  bits: ', total_10)
-    print('Total 11  bits: ', total_11)
-    print('----------------\nParamters:')
-    # print(' ', useful[chr(total_ones)]['bit_string'])
+def bytearray_to_8x8_bits(input_bytearray):
+ """Converts a bytearray of length 8 into an 8x8 grid of bits."""
+ if len(input_bytearray) != 8:
+   raise ValueError("Input bytearray must have length 8")
+ # bits = []
+ for byte in input_bytearray:
+     print(f"{byte:08b}")
 
-this_string = "        "
-parameters(this_string)
-this_string = "a b c d "
-parameters(this_string)
-this_string = "abacuses"
-parameters(this_string)
-this_string = "medicine"
-parameters(this_string)
-this_string = "fireteam"
-parameters(this_string)
+def rotate_bits_90_counter_clockwise(input_bytearray):
+  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    set_mask = 1 << ( 7 - row )
+    for col in range(8):  # loop over cols from right to left
+      # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
+      # ie 00010000 for col = 4
+      bit = input_bytearray[row] & (1 << col)
+      if (bit):
+        rotated[col] |= set_mask
+  print("Rotated CCW bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
 
-# debuging for double-bit counts
-# for i in range(256):
-#      t = chr(i)
-#      if ( useful[t]['ones'] != ( 2 * useful[t]['11'] + useful[t]['01'] + useful[t]['10'] ) ):
-#          print ( 'Ones dont add up for:\n', useful[t] )
-#      if ( ( useful[t]['00'] + useful[t]['01'] + useful[t]['10'] + useful[t]['11'] ) != 4 ):
-#          print ( 'Not 4:\n', useful[t] )
+def rotate_bits_90_clockwise(input_bytearray):
+  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    set_mask = 1 << row
+    for col in range(8):  # loop over cols from right to left
+      bit = input_bytearray[row] & (1 << col)
+      if (bit):
+        rotated[ 7 - col ] |= set_mask
+  print("Rotated CW bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
+
+def rotate_bits_180 (input_bytearray):
+  """Rotates the bits in a bytearray of length 8 by 180 degrees."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    rotated[ 7 - row ] = ord(useful[chr(input_bytearray[row])]['reversed'])
+  print("Rotated 180 bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
+
+# --------------------------------------------------------------------------------
+def invert_bits (input_bytearray):
+  """inverts the block of bits, changing all the zeroes to ones and all the ones to zeroes ."""
+  inverted = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    inverted[row] = ord(useful[chr(input_bytearray[row])]['inverted'])
+  print("Inverted bytearray:")  # Print output array
+  bytearray_to_8x8_bits(inverted)
+  return inverted
+
+def horizontal_sheer (input_bytearray, param):
+  """sheers the block of bits, rotating each row of bits by a number of bits
+     to the left.  The number of bits shifted starts at param (which must be
+     between 1 and 7 inclusive) and increases by param for each row, modulo 8.
+     The last row is always unchanged, see Notes.txt"""
+  sheered = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(7):    # loop over rows from top to bottom
+    shift = (param*row)%8
+    sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
+  sheered[7] = input_bytearray[7]
+  print("Horizontally sheered bytearray:")  # Print output array
+  bytearray_to_8x8_bits(sheered)
+  return sheered
+
+def vertical_sheer (input_bytearray, param):
+  """sheers the block of bits, rotating each column of bits by a number of bits
+     to the down.  The number of bits shifted starts at param (which must be
+     between 1 and 7 inclusive) and increases by param for each col, modulo 8.
+     The last row is always unchanged, see Notes.txt
+     unlike horizontal sheer, we will locate each bit seperately and place it
+     into the sheered array.  """
+  sheered = bytearray(8)
+# print("Input bytearray:")
+# bytearray_to_8x8_bits(input_bytearray)
+  for col in range(8):      # loop over cols from right to left
+    sensor=bit_sensor[col]
+    for row in range(8):    # loop over rows from top to bottom
+      if (sensor & input_bytearray[row]): # detect bit at this row,col
+        shift = (param*col+row)%8        # if bit detected, find new row for vertically-shifted bit
+        sheered[shift] |= sensor
+  # print("Vertically sheered bytearray:") # Print output array
+  bytearrays_to_8x8_arrays(input_bytearray, sheered)
+  return sheered
+
+# --------------------------------------------------------------------------------
+  '''
+  Preloop
+    Generate random block
+    Output random block
+    Determine Parameters from block
+  Loop
+    Read input block
+    Determine and save Parameters for next block
+    Scramble block
+    Output scrambled block
+    Set parameters from the saved pre-scrambled version of this block
+  '''
+# --------------------------------------------------------------------------------
+
+if (0):
+  print("Clockwise Rotation:")
+  bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+  rotate_bits_90_clockwise(bytearray_input)  # This will print both input and output arrays
+  print("Counter-Clockwise Rotation:")
+  bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+  rotate_bits_90_counter_clockwise(bytearray_input)
+  print("180 Rotation:")
+  bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+  rotate_bits_180(bytearray_input)
+  print("Inversion:")
+  bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+  invert_bits(bytearray_input)
+  print("Horizontal shift 1:")
+  bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+  horizontal_sheer(bytearray_input, 1)
+  print("Horizontal shift 2:")
+  bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+  horizontal_sheer(bytearray_input, 2)
+  print("Horizontal shift 7:")
+  bytearray_input = bytearray([ 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001, 0b00000001 ])
+  horizontal_sheer(bytearray_input, 7)
+  print("Vertically shift 1:")
+  bytearray_input = bytearray([ 0b11111111, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 ])
+  vertical_sheer(bytearray_input, 1)
+  print("Vertically shift 3:")
+  bytearray_input = bytearray([ 0b11111111, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 ])
+  vertical_sheer(bytearray_input, 3)
+  print("Vertically shift 7:")
+  bytearray_input = bytearray([ 0b11111111, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 ])
+  vertical_sheer(bytearray_input, 7)
+
+# --------------------------------------------------------------------------------
+
+print("Paramters Checks:\n")
+bytearray_input = bytearray([ 0b11111110, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000001 ])
+parameters(bytearray_input)
+bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+parameters(bytearray_input)
+
+# --------------------------------------------------------------------------------
