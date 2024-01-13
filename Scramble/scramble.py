@@ -712,13 +712,10 @@ if (0):
   print("Vertically shift 7:")
   bytearray_input = bytearray([ 0b11111111, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000 ])
   vertical_sheer(bytearray_input, 7)
-
-# --------------------------------------------------------------------------------
-
-print("Paramters Checks:\n")
-bytearray_input = bytearray([ 0b11111110, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000001 ])
-parameters(bytearray_input)
-bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
-parameters(bytearray_input)
+  print("Paramters Checks:\n")
+  bytearray_input = bytearray([ 0b11111110, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000000, 0b00000001 ])
+  parameters(bytearray_input)
+  bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
+  parameters(bytearray_input)
 
 # --------------------------------------------------------------------------------
