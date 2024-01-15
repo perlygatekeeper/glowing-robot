@@ -2,13 +2,12 @@
 
 import sys
 
-
 def bytearray_to_8x8_bits(input_bytearray):
- """Converts a bytearray of length 8 into an 8x8 grid of bits."""
-#if len(input_bytearray) != 8:
-#  raise ValueError("Input bytearray must have length 8")
- for byte in input_bytearray:
-     print(f"{byte:08b}")
+  """Converts a bytearray of length 8 into an 8x8 grid of bits."""
+  print("-----------")
+  for i in range(len(input_bytearray)):
+    byte = input_bytearray[i]
+    print(f"{byte:08b}  {byte:c}")
 
 
 def read_8_bytes_at_a_time(input_source):
@@ -42,9 +41,10 @@ def read_8_bytes_at_a_time(input_source):
       input_file.close()
 
 # Example usage with a file:
-for chunk in read_8_bytes_at_a_time("input.py"):
-  # Process the chunk of 8 bytes
-  bytearray_to_8x8_bits(chunk)  # Example usage of previous function
+if (0):
+  for chunk in read_8_bytes_at_a_time("input.py"):
+    # Process the chunk of 8 bytes
+    bytearray_to_8x8_bits(chunk)  # Example usage of previous function
 
 # Example usage with standard input:
 for chunk in read_8_bytes_at_a_time("-"):
