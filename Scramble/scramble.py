@@ -1,6 +1,28 @@
 #!/opt/local/bin/python
 
 import random
+import sys
+import argparse
+
+# Create a parser object
+parser = argparse.ArgumentParser(description="Process input filename")
+
+# Add a required argument for the input filename
+parser.add_argument("input_filename",  default="-", type=str, help="The path to the input file")
+parser.add_argument("output_filename", default="-", type=str, help="The path to the input file")
+
+# Parse the arguments
+args = parser.parse_args()
+
+# Access the input filename from the parsed arguments
+input_filename  = args.input_filename
+output_filename = args.output_filename
+
+# Print the parsed input filename
+print("Input filename:",  input_filename)
+print("Output filename:", output_filename)
+
+# Now you can use the input_filename variable in your code to access the file's contents
 
 useful  = {
   chr(0x00): { 'bit_string': '00000000', 'hexdecimal': '0x00', 'reversed': chr(0x00), \
@@ -665,6 +687,53 @@ def vertical_sheer (input_bytearray, param):
   # print("Vertically sheered bytearray:") # Print output array
   bytearrays_to_8x8_arrays(input_bytearray, sheered)
   return sheered
+
+def bytearray_compare(input_bytearray, output_bytearray):
+  """Converts a bytearray of length 8 into an 8x8 grid of bits."""
+  print("-----------")
+  for i in range(len(input_bytearray)):
+    input_byte  = input_bytearray[i]
+    output_byte = output_bytearray[i]
+    print(f"{input_byte:08b}  {input_byte:c} : {output_byte:08b}  {output_byte:c}")
+
+def read_8_bytes_at_a_time(input_source):
+  """Reads 8 bytes at a time from a file or standard input.
+  Args:
+    input_source: The input source, either a filename as a string or '-' for standard input.
+  Yields:
+    Chunks of 8 bytes as bytearrays.
+  Raises:
+    ValueError: If the input source is not a valid file or '-'.
+  """
+  if input_source == '-':
+    input_file = sys.stdin.buffer  # Use binary mode for standard input
+  elif isinstance(input_source, str):
+    try:
+      input_file = open(input_source, 'rb')  # Open file in binary mode
+    except FileNotFoundError:
+      raise ValueError(f"Invalid input source: File '{input_source}' not found")
+  else:
+    raise ValueError(f"Invalid input source: {input_source}")
+  try:
+    while True:
+      chunk = input_file.read(8)
+      if not chunk:
+        break
+      yield bytearray(chunk)
+  finally:
+    if input_source != '-':
+      input_file.close()
+
+# Example usage with a file:
+if (0):
+  for chunk in read_8_bytes_at_a_time("input.py"):
+    # Process the chunk of 8 bytes
+    bytearray_to_8x8_bits(chunk)  # Example usage of previous function
+# Example usage with standard input:
+if (1):
+  for chunk in read_8_bytes_at_a_time("-"):
+    # Process the chunk of 8 bytes
+    bytearray_to_8x8_bits(chunk)  # Example usage of previous function
 
 # --------------------------------------------------------------------------------
   '''
