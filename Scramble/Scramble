@@ -534,21 +534,27 @@ class ByteTransformer:
 
     def random(self):
         self.data = (random.randint(0, 255) for _ in range(8))
-        # print("Not yet implemented")
 
-    def reverse_bytes(self):
+    def flip_vertically(self):
+        self.data = ( byte_transforms[chr(self.data[_]),'reversed'] for _ in range(8))
+
+    def flip_horizontally(self):
         self.data = self.data[::-1]
 
     def increment_bytes(self):
         for i in range(len(self.data)):
             self.data[i] = (self.data[i] + 1) % 256  # Handle overflow
 
+    def decrement_bytes(self):
+        for i in range(len(self.data)):
+            self.data[i] = (self.data[i] - 1) % 256  # Handle underflow
+
     def to_hex_string(self):
         return self.data.hex()
 
     def parameters (self):
         parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
-        debug = 0
+        debug = 1
         for i in range(len(self.data)):
           row = ( 7 - i )
           byte = self.data[row]
@@ -574,49 +580,79 @@ class ByteTransformer:
           print('Total 11  bits: ', parameters['11'] )
           print('----------------\n')
 
+    def duplicate(self, other):
+     """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
+        self.data = (other.data[_] for _ in range(8))
+
+    def read_from(self, filehandle):
+        self.data = (filehandle.read(8))
+
+    def not_a_method(self):
+        print("Not yet implemented")
+
+    def rotate_bits_90_counter_clockwise(self):
+        """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+        debug = 1
+        rotated = bytearray(8)
+        if (debug):
+            self.print_as_bit_array("Input bytearray:")
+        for row in range(8):    # loop over rows from top to bottom
+            set_mask = 1 << ( 7 - row )
+            for col in range(8):  # loop over cols from right to left
+                # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
+                # ie 00010000 for col = 4
+                bit = self.data[row] & (1 << col)
+                if (bit):
+                    rotated[col] |= set_mask
+        if (debug):
+            self.print_as_bit_array("Rotated CCW bytearray:")
+            bytearray_to_8x8_bits(rotated)
+        return rotated
+
+    def print_as_bytes(self, label=""):
+         """ Output as an list of 8 bytes."""
+         if (label):
+             print(label)
+         for byte in self.data:
+             print(f"{byte:02x}")
+
+    def print_as_bit_array(self, label=""):
+         """ Output as an 8x8 grid of bits."""
+         if (label):
+             print(label)
+         for byte in self.data:
+             print(f"{byte:08b}")
+
+    def print_comparison(self, other):
+       """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
+       for row in range(8):
+           left  = self.data[row]
+           right = other.data[row]
+           print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
+           # print(f"{left:08b}\t{right:08b}")
+
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 #  Transforms
 #   - rotate_90_CCW
 #   - rotate_90_CW
 #   - rotate_180
 #   - invert
-#   - flip_horizontal
-#   - flip_vertical
 #   - horizontal_sheer
 #   - vertical_sheer
+#   + flip_horizontal
+#   + flip_vertical
+#   + increment_bytes
+#   + decrement_bytes
 #  Utilities
-#   - initialize_from_filehandle
-#   - parameters
-#   - print_as_bit_array
-#   - print_as_bytes
 #   - compare
-#   - duplicate
-#   - random
+#   + print_as_bytes
+#   + print_as_bit_array
+#   + print_comparison
+#   + read_from
+#   + duplicate
+#   + parameters
+#   + random
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-
-def random_bytearray(length=8):
-  byte_array = btye_array(length)
-  for row in range(length):
-    btye_array[row] = random.randint(0,255)
-  return byte_array
-
-def bytearrays_to_8x8_arrays(input_bytearray,output_bytearray):
- """Converts two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
- if len(input_bytearray) != 8:
-   raise ValueError("Input bytearray must have length 8")
- # bits = []
- for row in range(8):
-     left  = input_bytearray[row]
-     right = output_bytearray[row]
-     print(f"{left:08b}\t{right:08b}")
-
-def bytearray_to_8x8_bits(input_bytearray):
- """Converts a bytearray of length 8 into an 8x8 grid of bits."""
- if len(input_bytearray) != 8:
-   raise ValueError("Input bytearray must have length 8")
- # bits = []
- for byte in input_bytearray:
-     print(f"{byte:08b}")
 
 def bytearray_compare(input_bytearray, output_bytearray):
   """Converts a bytearray of length 8 into an 8x8 grid of bits."""
@@ -653,23 +689,6 @@ def read_8_bytes_at_a_time(input_source):
   finally:
     if input_source != '-':
       input_file.close()
-
-def rotate_bits_90_counter_clockwise(input_bytearray):
-  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
-  rotated = bytearray(8)
-  print("Input bytearray:")
-  bytearray_to_8x8_bits(input_bytearray)
-  for row in range(8):    # loop over rows from top to bottom
-    set_mask = 1 << ( 7 - row )
-    for col in range(8):  # loop over cols from right to left
-      # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
-      # ie 00010000 for col = 4
-      bit = input_bytearray[row] & (1 << col)
-      if (bit):
-        rotated[col] |= set_mask
-  print("Rotated CCW bytearray:")  # Print output array
-  bytearray_to_8x8_bits(rotated)
-  return rotated
 
 def rotate_bits_90_clockwise(input_bytearray):
   """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
