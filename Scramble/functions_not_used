@@ -1,0 +1,110 @@
+
+def bytearray_compare(input_bytearray, output_bytearray):
+  """Converts a bytearray of length 8 into an 8x8 grid of bits."""
+  print("-----------")
+  for i in range(len(input_bytearray)):
+    input_byte  = input_bytearray[i]
+    output_byte = output_bytearray[i]
+    print(f"{input_byte:08b}  {input_byte:c} : {output_byte:08b}  {output_byte:c}")
+
+def read_8_bytes_at_a_time(input_source):
+  """Reads 8 bytes at a time from a file or standard input.
+  Args:
+    input_source: The input source, either a filename as a string or '-' for standard input.
+  Yields:
+    Chunks of 8 bytes as bytearrays.
+  Raises:
+    ValueError: If the input source is not a valid file or '-'.
+  """
+  if input_source == '-':
+    input_file = sys.stdin.buffer  # Use binary mode for standard input
+  elif isinstance(input_source, str):
+    try:
+      input_file = open(input_source, 'rb')  # Open file in binary mode
+    except FileNotFoundError:
+      raise ValueError(f"Invalid input source: File '{input_source}' not found")
+  else:
+    raise ValueError(f"Invalid input source: {input_source}")
+  try:
+    while True:
+      chunk = input_file.read(8)
+      if not chunk:
+        break
+      yield bytearray(chunk)
+  finally:
+    if input_source != '-':
+      input_file.close()
+
+def rotate_bits_90_clockwise(input_bytearray):
+  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    set_mask = 1 << row
+    for col in range(8):  # loop over cols from right to left
+      bit = input_bytearray[row] & (1 << col)
+      if (bit):
+        rotated[ 7 - col ] |= set_mask
+  print("Rotated CW bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
+
+def rotate_bits_180 (input_bytearray):
+  """Rotates the bits in a bytearray of length 8 by 180 degrees."""
+  rotated = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    rotated[ 7 - row ] = ord(useful[chr(input_bytearray[row])]['reversed'])
+  print("Rotated 180 bytearray:")  # Print output array
+  bytearray_to_8x8_bits(rotated)
+  return rotated
+
+# --------------------------------------------------------------------------------
+def invert_bits (input_bytearray):
+  """inverts the block of bits, changing all the zeroes to ones and all the ones to zeroes ."""
+  inverted = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(8):    # loop over rows from top to bottom
+    inverted[row] = ord(useful[chr(input_bytearray[row])]['inverted'])
+  print("Inverted bytearray:")  # Print output array
+  bytearray_to_8x8_bits(inverted)
+  return inverted
+
+def horizontal_sheer (input_bytearray, param):
+  """sheers the block of bits, rotating each row of bits by a number of bits
+     to the left.  The number of bits shifted starts at param (which must be
+     between 1 and 7 inclusive) and increases by param for each row, modulo 8.
+     The last row is always unchanged, see Notes.txt"""
+  sheered = bytearray(8)
+  print("Input bytearray:")
+  bytearray_to_8x8_bits(input_bytearray)
+  for row in range(7):    # loop over rows from top to bottom
+    shift = (param*row)%8
+    sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
+  sheered[7] = input_bytearray[7]
+  print("Horizontally sheered bytearray:")  # Print output array
+  bytearray_to_8x8_bits(sheered)
+  return sheered
+
+def vertical_sheer (input_bytearray, param):
+  """sheers the block of bits, rotating each column of bits by a number of bits
+     to the down.  The number of bits shifted starts at param (which must be
+     between 1 and 7 inclusive) and increases by param for each col, modulo 8.
+     The last row is always unchanged, see Notes.txt
+     unlike horizontal sheer, we will locate each bit seperately and place it
+     into the sheered array.  """
+  sheered = bytearray(8)
+# print("Input bytearray:")
+# bytearray_to_8x8_bits(input_bytearray)
+  for col in range(8):      # loop over cols from right to left
+    sensor=bit_sensor[col]
+    for row in range(8):    # loop over rows from top to bottom
+      if (sensor & input_bytearray[row]): # detect bit at this row,col
+        shift = (param*col+row)%8        # if bit detected, find new row for vertically-shifted bit
+        sheered[shift] |= sensor
+  # print("Vertically sheered bytearray:") # Print output array
+  bytearrays_to_8x8_arrays(input_bytearray, sheered)
+  return sheered

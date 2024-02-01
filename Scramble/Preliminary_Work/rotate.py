@@ -632,7 +632,7 @@ def vertical_sheer (input_bytearray, param):
 
 # --------------------------------------------------------------------------------
 
-if (0):
+if (1):
   print("Clockwise Rotation:")
   bytearray_input = bytearray([ 0b10101010, 0b00101010, 0b01101010, 0b01011010, 0b00101000, 0b11111111, 0b00000000, 0b01010101 ])
   rotate_bits_90_clockwise(bytearray_input)  # This will print both input and output arrays

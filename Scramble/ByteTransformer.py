@@ -556,35 +556,35 @@ class ByteTransformer:
         parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
         debug = 1
         for i in range(len(self.data)):
-          row = ( 7 - i )
-          byte = self.data[row]
-          if (debug):
-              print(f"{byte:3d}", useful[chr(byte)]['bit_string'], useful[chr(byte)]['parity'], useful[chr(byte)]['ones'])
-          parameters['v_parity'] |= useful[chr(byte)]['parity']
-          if row > 0:
-              parameters['v_parity'] <<= 1
-          parameters['ones']     += useful[chr(byte)]['ones']
-          parameters['00']       += useful[chr(byte)]['00']
-          parameters['01']       += useful[chr(byte)]['01']
-          parameters['10']       += useful[chr(byte)]['10']
-          parameters['11']       += useful[chr(byte)]['11']
-          parameters['h_parity'] ^= byte
-        return parameters
+            row = ( 7 - i )
+            byte = self.data[row]
+            if (debug):
+                print(f"{byte:3d}", ByteTransformer.byte_transforms[chr(byte)]['bit_string'], ByteTransformer.byte_transforms[chr(byte)]['parity'], ByteTransformer.byte_transforms[chr(byte)]['ones'])
+            parameters['v_parity'] |= ByteTransformer.byte_transforms[chr(byte)]['parity']
+            if row > 0:
+                parameters['v_parity'] <<= 1
+            parameters['ones']     += ByteTransformer.byte_transforms[chr(byte)]['ones']
+            parameters['00']       += ByteTransformer.byte_transforms[chr(byte)]['00']
+            parameters['01']       += ByteTransformer.byte_transforms[chr(byte)]['01']
+            parameters['10']       += ByteTransformer.byte_transforms[chr(byte)]['10']
+            parameters['11']       += ByteTransformer.byte_transforms[chr(byte)]['11']
+            parameters['h_parity'] ^= byte
         if (debug):
-          print('   ', useful[chr(parameters['h_parity'])]['bit_string'], ' horizontal parity')
-          print('   ', useful[chr(parameters['v_parity'])]['bit_string'], ' vertical   parity')
-          print('Total one bits: ', parameters['ones'] )
-          print('Total 00  bits: ', parameters['00'] )
-          print('Total 01  bits: ', parameters['01'] )
-          print('Total 10  bits: ', parameters['10'] )
-          print('Total 11  bits: ', parameters['11'] )
-          print('----------------\n')
+            print('   ', ByteTransformer.byte_transforms[chr(parameters['h_parity'])]['bit_string'], ' horizontal parity')
+            print('   ', ByteTransformer.byte_transforms[chr(parameters['v_parity'])]['bit_string'], ' vertical   parity')
+            print('Total one bits: ', parameters['ones'] )
+            print('Total 00  bits: ', parameters['00'] )
+            print('Total 01  bits: ', parameters['01'] )
+            print('Total 10  bits: ', parameters['10'] )
+            print('Total 11  bits: ', parameters['11'] )
+            print('----------------\n')
+        return parameters
 
     def invert(self):
-        self.data = ( byte_transforms[chr(self.data[_]),'inverted'] for _ in range(8))
+        self.data = ( ByteTransformer.byte_transforms[chr(self.data[_]),'inverted'] for _ in range(8))
 
     def duplicate(self, other):
-     """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
+        """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
         self.data = (other.data[_] for _ in range(8))
 
     def read_from(self, filehandle):
@@ -631,9 +631,9 @@ class ByteTransformer:
            print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
            # print(f"{left:08b}\t{right:08b}")
 
-
     def not_a_method(self):
         print("Not yet implemented")
+
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 #  Transforms
 #   - rotate_90_CCW
@@ -657,112 +657,3 @@ class ByteTransformer:
 #   + random
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-def bytearray_compare(input_bytearray, output_bytearray):
-  """Converts a bytearray of length 8 into an 8x8 grid of bits."""
-  print("-----------")
-  for i in range(len(input_bytearray)):
-    input_byte  = input_bytearray[i]
-    output_byte = output_bytearray[i]
-    print(f"{input_byte:08b}  {input_byte:c} : {output_byte:08b}  {output_byte:c}")
-
-def read_8_bytes_at_a_time(input_source):
-  """Reads 8 bytes at a time from a file or standard input.
-  Args:
-    input_source: The input source, either a filename as a string or '-' for standard input.
-  Yields:
-    Chunks of 8 bytes as bytearrays.
-  Raises:
-    ValueError: If the input source is not a valid file or '-'.
-  """
-  if input_source == '-':
-    input_file = sys.stdin.buffer  # Use binary mode for standard input
-  elif isinstance(input_source, str):
-    try:
-      input_file = open(input_source, 'rb')  # Open file in binary mode
-    except FileNotFoundError:
-      raise ValueError(f"Invalid input source: File '{input_source}' not found")
-  else:
-    raise ValueError(f"Invalid input source: {input_source}")
-  try:
-    while True:
-      chunk = input_file.read(8)
-      if not chunk:
-        break
-      yield bytearray(chunk)
-  finally:
-    if input_source != '-':
-      input_file.close()
-
-def rotate_bits_90_clockwise(input_bytearray):
-  """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
-  rotated = bytearray(8)
-  print("Input bytearray:")
-  bytearray_to_8x8_bits(input_bytearray)
-  for row in range(8):    # loop over rows from top to bottom
-    set_mask = 1 << row
-    for col in range(8):  # loop over cols from right to left
-      bit = input_bytearray[row] & (1 << col)
-      if (bit):
-        rotated[ 7 - col ] |= set_mask
-  print("Rotated CW bytearray:")  # Print output array
-  bytearray_to_8x8_bits(rotated)
-  return rotated
-
-def rotate_bits_180 (input_bytearray):
-  """Rotates the bits in a bytearray of length 8 by 180 degrees."""
-  rotated = bytearray(8)
-  print("Input bytearray:")
-  bytearray_to_8x8_bits(input_bytearray)
-  for row in range(8):    # loop over rows from top to bottom
-    rotated[ 7 - row ] = ord(useful[chr(input_bytearray[row])]['reversed'])
-  print("Rotated 180 bytearray:")  # Print output array
-  bytearray_to_8x8_bits(rotated)
-  return rotated
-
-# --------------------------------------------------------------------------------
-def invert_bits (input_bytearray):
-  """inverts the block of bits, changing all the zeroes to ones and all the ones to zeroes ."""
-  inverted = bytearray(8)
-  print("Input bytearray:")
-  bytearray_to_8x8_bits(input_bytearray)
-  for row in range(8):    # loop over rows from top to bottom
-    inverted[row] = ord(useful[chr(input_bytearray[row])]['inverted'])
-  print("Inverted bytearray:")  # Print output array
-  bytearray_to_8x8_bits(inverted)
-  return inverted
-
-def horizontal_sheer (input_bytearray, param):
-  """sheers the block of bits, rotating each row of bits by a number of bits
-     to the left.  The number of bits shifted starts at param (which must be
-     between 1 and 7 inclusive) and increases by param for each row, modulo 8.
-     The last row is always unchanged, see Notes.txt"""
-  sheered = bytearray(8)
-  print("Input bytearray:")
-  bytearray_to_8x8_bits(input_bytearray)
-  for row in range(7):    # loop over rows from top to bottom
-    shift = (param*row)%8
-    sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
-  sheered[7] = input_bytearray[7]
-  print("Horizontally sheered bytearray:")  # Print output array
-  bytearray_to_8x8_bits(sheered)
-  return sheered
-
-def vertical_sheer (input_bytearray, param):
-  """sheers the block of bits, rotating each column of bits by a number of bits
-     to the down.  The number of bits shifted starts at param (which must be
-     between 1 and 7 inclusive) and increases by param for each col, modulo 8.
-     The last row is always unchanged, see Notes.txt
-     unlike horizontal sheer, we will locate each bit seperately and place it
-     into the sheered array.  """
-  sheered = bytearray(8)
-# print("Input bytearray:")
-# bytearray_to_8x8_bits(input_bytearray)
-  for col in range(8):      # loop over cols from right to left
-    sensor=bit_sensor[col]
-    for row in range(8):    # loop over rows from top to bottom
-      if (sensor & input_bytearray[row]): # detect bit at this row,col
-        shift = (param*col+row)%8        # if bit detected, find new row for vertically-shifted bit
-        sheered[shift] |= sensor
-  # print("Vertically sheered bytearray:") # Print output array
-  bytearrays_to_8x8_arrays(input_bytearray, sheered)
-  return sheered
