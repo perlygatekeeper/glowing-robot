@@ -580,15 +580,15 @@ class ByteTransformer:
           print('Total 11  bits: ', parameters['11'] )
           print('----------------\n')
 
+    def invert(self):
+        self.data = ( byte_transforms[chr(self.data[_]),'inverted'] for _ in range(8))
+
     def duplicate(self, other):
      """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
         self.data = (other.data[_] for _ in range(8))
 
     def read_from(self, filehandle):
         self.data = (filehandle.read(8))
-
-    def not_a_method(self):
-        print("Not yet implemented")
 
     def rotate_bits_90_counter_clockwise(self):
         """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
@@ -631,6 +631,9 @@ class ByteTransformer:
            print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
            # print(f"{left:08b}\t{right:08b}")
 
+
+    def not_a_method(self):
+        print("Not yet implemented")
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 #  Transforms
 #   - rotate_90_CCW

@@ -4,37 +4,17 @@ import Scramble
 import sys
 import argparse
 
-data = bytearray(b'\x01\x02\x03\x04\x05\x06\x07\x08')
-
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-
-#  Transforms
-#   - rotate_90_CCW
-#   - rotate_90_CW
-#   - rotate_180
-#   - invert
-#   - flip_horizontal
-#   - flip_vertical
-#   - horizontal_sheer
-#   - vertical_sheer
-#  Utilities
-#   - initialize_from_filehandle
-#   - parameters
-#   - print_as_bit_array
-#   - print_as_bytes
-#   - compare
-#   - duplicate
-#   - random
-
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-
-transformer = ByteTransformer(data)
-
-transformer.reverse_bytes()
-print(transformer.to_hex_string())  # Output: 0807060504030201
-
-transformer.increment_bytes()
-print(transformer.to_hex_string())  # Output: 0908070605040302
+''' Preloop
+       Generate random block
+       Output random block
+       Determine Parameters from block
+     Loop
+       Read input block
+       Determine and save Parameters for next block
+       Scramble block
+       Output scrambled block
+       Set parameters from the saved pre-scrambled version of this block
+'''
 
 # Create a parser object
 parser = argparse.ArgumentParser(description="Process input filename")
@@ -45,6 +25,24 @@ parser.add_argument("output_filename", default="-", type=str, help="The path to 
 
 # Parse the arguments
 args = parser.parse_args()
+
+data = bytearray(b'\x01\x02\x03\x04\x05\x06\x07\x08')
+
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+#  Transforms
+#   rotate_90_CCW, rotate_90_CW, rotate_180
+#   flip_horizontal, flip_vertical
+#   horizontal_sheer, vertical_sheer
+#   invert
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+transformer = ByteTransformer(data)
+
+transformer.reverse_bytes()
+print(transformer.to_hex_string())  # Output: 0807060504030201
+
+transformer.increment_bytes()
+print(transformer.to_hex_string())  # Output: 0908070605040302
 
 # Access the input filename from the parsed arguments
 input_filename  = args.input_filename
@@ -97,20 +95,6 @@ if (1):
     # Process the chunk of 8 bytes
     bytearray_to_8x8_bits(chunk)  # Example usage of previous function
 
-# --------------------------------------------------------------------------------
-  '''
-  Preloop
-    Generate random block
-    Output random block
-    Determine Parameters from block
-  Loop
-    Read input block
-    Determine and save Parameters for next block
-    Scramble block
-    Output scrambled block
-    Set parameters from the saved pre-scrambled version of this block
-  '''
-# --------------------------------------------------------------------------------
 
 if (0):
   print("Clockwise Rotation:")
