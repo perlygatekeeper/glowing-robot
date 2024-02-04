@@ -33,7 +33,7 @@ original.print_comparison(transformer)
 # inversion
 print("\n-------------------------------\ninvert\n")
 
-transformer = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
+transformer = ByteTransformer.ByteTransformer(b'\x55\xAA\x55\xAA\x55\xAA\x55\xAA')
 transformer.invert()
 print("Original\tInverted:")
 original.print_comparison(transformer)
@@ -58,9 +58,17 @@ print("Original\tRotated 90 CCW:")
 original.print_comparison(transformer)
 
 print("\n-------------------------------\nFlips\n")
-original    = ByteTransformer.ByteTransformer(b'\xF0\xF0\xF0\xF0\x00\x00\x00\x00')
-transformer = ByteTransformer.ByteTransformer(b'\xF0\xF0\xF0\xF0\x00\x00\x00\x00')
-original.print_as_bit_array("Test array for Flips")
+original    = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
+
+transformer = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
+transformer.flip_vertically()
+print("Original\tFlipped Vertically:")
+original.print_comparison(transformer)
+
+transformer = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
+transformer.flip_horizontally()
+print("Original\tFlipped Horizontal:")
+original.print_comparison(transformer)
 
 print("\n-------------------------------\nSheers\n")
 original    = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')

@@ -281,10 +281,16 @@ class ByteTransformer:
         self.data = (random.randint(0, 255) for _ in range(len(self.data)))
 
     def flip_vertically(self):
-        self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
+        # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        for i in range(len(self.data)):
+            rotated.data[i] = self.data[ ( 7 - i ) ]
+        self.data = rotated.data
 
     def flip_horizontally(self):
-        self.data = self.data[::-1]
+        # self.data = self.data[::-1]
+        for i in range(len(self.data)):
+            self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
 
     def increment_bytes(self):
         for i in range(len(self.data)):
