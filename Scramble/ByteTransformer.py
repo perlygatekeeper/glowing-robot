@@ -269,15 +269,16 @@ class ByteTransformer:
       0xFF: { 'bit_string': '11111111', 'hexdecimal': '0xFF', 'reversed': 0xFF, 'inverted': 0x00, 'parity': 0, 'ones': 8, '00': 0, '01': 0, '10': 0, '11': 4 }
     }
 
-    def __init__(self, bytearray_data):
-        if not isinstance(bytearray_data, bytearray):
-            raise TypeError("Input data must be a bytearray.")
-        if len(bytearray_data) != 8:
-            raise ValueError("Input bytearray must have length 8.")
-        self.data = bytearray_data
+    def __init__(self, initalizer):
+        if isinstance(initalizer, bytearray):
+            self.data = initalizer
+        elif isinstance(initalizer, bytes):
+            self.data = bytearray(initalizer)
+        else:
+            raise TypeError("Input data must be either of class bytearray or class bytes.")
 
     def random(self):
-        self.data = (random.randint(0, 255) for _ in range(8))
+        self.data = (random.randint(0, 255) for _ in range(len(self.data)))
 
     def flip_vertically(self):
         self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
@@ -300,13 +301,6 @@ class ByteTransformer:
             # print(type(self.data[i]))
             # self.data[i] = ByteTransformer.byte_transforms[self.data[i],'inverted']
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
-
-    def duplicate(self, other):
-        for i in range(len(self.data)):
-            self.data[i] = other.data[i]
-
-    def to_hex_string(self):
-        return self.data.hex()
 
     def parameters (self):
         parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
@@ -336,15 +330,45 @@ class ByteTransformer:
             print('----------------\n')
         return parameters
 
-    def read_from(self, filehandle):
-        self.data = (filehandle.read(8))
+    def rotate_180(self):
+        """Rotates the bits in a bytearray of length 8 by 180 degrees."""
+        debug = 0
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            print(f"self before rotation {self}")
+            self.print_as_bit_array("Object before rotation:")
+        for i in range(len(self.data)):
+            destination = ( 7 - i )
+            rotated.data[destination] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
+        if (debug):
+            rotated.print_as_bit_array("Rotated 180:")
+            print(f"self after rotation {self}")
+        self.data = rotated.data
+
+    def rotate_90_CW(self):
+        """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
+        debug = 0
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array("Object before rotation:")
+        for row in range(8):    # loop over rows from top to bottom
+            set_mask = 1 << ( 7 - row )
+            for col in range(8):  # loop over cols from right to left
+                # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
+                # ie 00010000 for col = 4
+                bit = self.data[row] & (1 >> col)
+                if (bit):
+                    rotated.data[col] |= set_mask
+        if (debug):
+            self.print_as_bit_array("Rotated CW:")
+        self.data = rotated.data
 
     def rotate_90_CCW(self):
-        """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
-        debug = 1
-        rotated = bytearray(8)
+        """Rotates the bits in a bytearray of length 8 by 90 degrees counter-clockwise."""
+        debug = 0
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
-            self.print_as_bit_array("Input bytearray:")
+            self.print_as_bit_array("Object before rotation:")
         for row in range(8):    # loop over rows from top to bottom
             set_mask = 1 << ( 7 - row )
             for col in range(8):  # loop over cols from right to left
@@ -352,32 +376,43 @@ class ByteTransformer:
                 # ie 00010000 for col = 4
                 bit = self.data[row] & (1 << col)
                 if (bit):
-                    rotated[col] |= set_mask
+                    rotated.data[col] |= set_mask
         if (debug):
-            self.print_as_bit_array("Rotated CCW bytearray:")
-        return rotated
+            self.print_as_bit_array("Rotated CCW:")
+        self.data = rotated.data
+
+    def duplicate(self, other):
+        for i in range(len(self.data)):
+            self.data[i] = other.data[i]
+
+    def to_hex_string(self):
+        return self.data.hex()
+
+    def read_from(self, filehandle):
+        self.data = (filehandle.read(8))
 
     def print_as_bytes(self, label=""):
-         """ Output as an list of 8 bytes."""
-         if (label):
-             print(label)
-         for byte in self.data:
-             print(f"{byte:02x}")
+        """ Output as an list of 8 bytes."""
+        if (label):
+            print(label)
+        for byte in self.data:
+            print(f"{byte:02x}")
 
     def print_as_bit_array(self, label=""):
-         """ Output as an 8x8 grid of bits."""
-         if (label):
-             print(label)
-         for byte in self.data:
-             print(f"{byte:08b}")
+        # print(self)
+        """ Output as an 8x8 grid of bits."""
+        if (label):
+            print(label)
+        for byte in self.data:
+            print(f"{byte:08b}")
 
     def print_comparison(self, other):
-       """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
-       for row in range(8):
-           left  = self.data[row]
-           right = other.data[row]
-           print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
-           # print(f"{left:08b}\t{right:08b}")
+        """ Outputs two bytearrays of length 8 into two side-by-side 8x8 grids of bits."""
+        for i in range(len(self.data)):
+            left  = self.data[i]
+            right = other.data[i]
+            # print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
+            print(f"{left:08b}\t{right:08b}")
 
     def not_a_method(self):
         print("Not yet implemented")
