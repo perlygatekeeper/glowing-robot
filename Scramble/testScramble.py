@@ -2,34 +2,75 @@
 
 import ByteTransformer
 
-data = bytearray(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
-print("Object initialized:")
-transformer = ByteTransformer.ByteTransformer(data)
+print("Object initialized to all ones:")
+original = ByteTransformer.ByteTransformer(b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF')
+original.print_as_bit_array("Object printed as bit array:")
 
-# transformer.print_as_bytes("Object printed as bytes:")
-
-transformer.print_as_bit_array("Object printed as bit array:")
 
 print("Parameters:")
-transformer.parameters()
+original = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
+original.parameters()
 
+original    = ByteTransformer.ByteTransformer(b'\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF')
+transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
+print("Ones    \tZeroes:")
+original.print_comparison(transformer)
+
+original    = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
+
+# increments/decrements
+
+transformer = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
 transformer.increment_bytes()
-transformer.print_as_bit_array("Bytes Incremented:")
+print("Original\tBytes Incremented:")
+original.print_comparison(transformer)
 
+transformer = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
 transformer.decrement_bytes()
-transformer.print_as_bit_array("Bytes Decremented:")
+print("Original\tBytes Decremented:")
+original.print_comparison(transformer)
 
+# inversion
+print("\n-------------------------------\ninvert\n")
+
+transformer = ByteTransformer.ByteTransformer(b'\xa1\x02\x03\x04\x05\x06\x07\x08')
 transformer.invert()
-transformer.print_as_bit_array("Inverted:")
+print("Original\tInverted:")
+original.print_comparison(transformer)
 
-# transformer.rotate_90_CW()
-# transformer.print_as_bit_array("Rotated 90 CW:")
+print("\n-------------------------------\nRotations\n")
 
+original    = ByteTransformer.ByteTransformer(b'\x01\x03\x07\x0F\x1F\x3F\x7F\xFF')
+
+transformer = ByteTransformer.ByteTransformer(b'\x01\x03\x07\x0F\x1F\x3F\x7F\xFF')
+transformer.rotate_180()
+print("Original\tRotated 180:")
+original.print_comparison(transformer)
+
+transformer = ByteTransformer.ByteTransformer(b'\x01\x03\x07\x0F\x1F\x3F\x7F\xFF')
+transformer.rotate_90_CW()
+print("Original\tRotated 90 CW:")
+original.print_comparison(transformer)
+
+transformer = ByteTransformer.ByteTransformer(b'\x01\x03\x07\x0F\x1F\x3F\x7F\xFF')
 transformer.rotate_90_CCW()
-transformer.print_as_bit_array("Rotated 90 CCW:")
+print("Original\tRotated 90 CCW:")
+original.print_comparison(transformer)
 
-# transformer.rotate_180()
-# transformer.print_as_bit_array("Rotated 180:")
+print("\n-------------------------------\nFlips\n")
+original    = ByteTransformer.ByteTransformer(b'\xF0\xF0\xF0\xF0\x00\x00\x00\x00')
+transformer = ByteTransformer.ByteTransformer(b'\xF0\xF0\xF0\xF0\x00\x00\x00\x00')
+original.print_as_bit_array("Test array for Flips")
+
+print("\n-------------------------------\nSheers\n")
+original    = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
+transformer = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
+original.print_as_bit_array("Test array for Vertical Sheers")
+
+original    = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+original.print_as_bit_array("Test array for Horizontal Sheers")
+
 
 print("non-implemented method:")
 transformer.not_a_method()
@@ -39,16 +80,16 @@ transformer.not_a_method()
 # import sys
 #
 #  Transforms
-#   rotate_90_CCW, rotate_90_CW, rotate_180
-#   flip_horizontal, flip_vertical
-#   horizontal_sheer, vertical_sheer
-#   invert
+#   * increment/decrement
+#     invert
+#     rotate_90_CCW, rotate_90_CW, rotate_180
+#     flip_horizontal, flip_vertical
+#     horizontal_sheer, vertical_sheer
 #  Utilities
-#   - compare
-#   print_as_bytes, print_as_bit_array, print_comparison
-#   duplicate
-#   parameters
-#   random
-#   read_from
+#   * print_as_bytes, print_as_bit_array, print_comparison
+#   * random
+#   * parameters
+#     duplicate
+#     read_from
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
