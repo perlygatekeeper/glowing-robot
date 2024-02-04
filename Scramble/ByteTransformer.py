@@ -345,6 +345,20 @@ class ByteTransformer:
             print(f"self after rotation {self}")
         self.data = rotated.data
 
+# R
+# O
+# W         COLUMN
+#      7 6 5 4 3 2 1 0
+#      - - - - - - - -                       Rotation 90 degrees clockwise
+# 0 |  A B C D E F G H    0 0 0 a 0 0 0 A    Row 0 -> Column 0  Column 0 -> Row 7
+# 1 |  0 0 0 0 0 0 0 0    0 0 0 b 0 0 0 B    Row 1 -> Column 1  Column 0 -> Row 7
+# 2 |  0 0 0 0 0 0 0 0    0 0 0 c 0 0 0 C    Row 2 -> Column 2  Column 0 -> Row 7
+# 3 |  0 0 0 0 0 0 0 0    0 0 0 d 0 0 0 D    Row 3 -> Column 3  Column 0 -> Row 7
+# 4 |  a b c d e f g h    0 0 0 e 0 0 0 E    Row 4 -> Column 4  Column 0 -> Row 7
+# 5 |  0 0 0 0 0 0 0 0    0 0 0 f 0 0 0 F    Row 5 -> Column 5  Column 0 -> Row 7
+# 6 |  0 0 0 0 0 0 0 0    0 0 0 g 0 0 0 G    Row 6 -> Column 6  Column 0 -> Row 7
+# 7 |  0 0 0 0 0 0 0 0    0 0 0 h 0 0 0 H    Row 7 -> Column 7  Column 0 -> Row 7
+
     def rotate_90_CW(self):
         """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
         debug = 0
@@ -352,11 +366,11 @@ class ByteTransformer:
         if (debug):
             self.print_as_bit_array("Object before rotation:")
         for row in range(8):    # loop over rows from top to bottom
-            set_mask = 1 << ( 7 - row )
+            set_mask = 1 << row
             for col in range(8):  # loop over cols from right to left
                 # bit at input_bytearray[row,col] will be isolated as a single-one binary number,
                 # ie 00010000 for col = 4
-                bit = self.data[row] & (1 >> col)
+                bit = self.data[row] & (128 >> col)
                 if (bit):
                     rotated.data[col] |= set_mask
         if (debug):
