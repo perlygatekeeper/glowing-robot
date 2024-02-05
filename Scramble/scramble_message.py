@@ -5,15 +5,17 @@ import sys
 import argparse
 
 ''' Preloop
-       Generate random block
-       Output random block
-       Determine Parameters from block
+       Parse Arguments (if any)
+       Determine if Scrambling or Unscrambling 
+       Generate and output random block - OR - read random block if Unscrambling
+       Determine Parameters from random block
      Loop
        Read input block
-       Determine and save Parameters for next block
-       Scramble block
-       Output scrambled block
-       Set parameters from the saved pre-scrambled version of this block
+       Determine and save Parameters for next block if Scrambling
+       Scramble block - OR - UNscramble block ( this should use parameters from previous clear block )
+                                                but may also use parameters from the present block for the purposes of inversion
+       Determine and save Parameters for next block if Unscrambling
+       Output Scrambled or Unscrambled block
 '''
 
 # Create a parser object

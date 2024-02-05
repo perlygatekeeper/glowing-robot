@@ -308,9 +308,8 @@ class ByteTransformer:
             # self.data[i] = ByteTransformer.byte_transforms[self.data[i],'inverted']
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
 
-    def parameters (self):
+    def parameters (self,debug=0):
         parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
-        debug = 1
         for i in range(len(self.data)):
             row = ( 7 - i )
             byte = self.data[row]
@@ -333,7 +332,6 @@ class ByteTransformer:
             print('Total 01  bits: ', parameters['01'] )
             print('Total 10  bits: ', parameters['10'] )
             print('Total 11  bits: ', parameters['11'] )
-            print('----------------\n')
         return parameters
 
     def rotate_180(self):
