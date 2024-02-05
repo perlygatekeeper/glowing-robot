@@ -434,6 +434,35 @@ class ByteTransformer:
             # print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
             print(f"{left:08b}\t{right:08b}")
 
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+    def shift_horizontally(self, param):
+        # shifts the block of bits, shifting each column left param % 8
+        debug = 0
+        shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array("Object before horizontal shifting:")
+        for row in range(len(self.data)):
+            shifted.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[param]  ) >> ( 8 - param ) | \
+                                ( self.data[row] & ByteTransformer.shift_mask_right[param] ) << param
+        if (debug):
+            self.print_as_bit_array(f"Shifted horizontally by {param}:")
+        self.data = shifted.data
+
+    def shift_vertically(self, param):
+        # shifts the block of bits, shifting each row down param % 8
+        debug = 0
+        shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array("Object before vertically shifting:")
+        for row in range(len(self.data)):
+            shifted.data[ ( row + param ) % len(self.data) ] = self.data[row]
+        if (debug):
+            self.print_as_bit_array(f"Sheered vertically by {param}:")
+        self.data = shifted.data
+
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
     def sheer_horizontally(self, param):
         """sheers the block of bits, rotating each row of bits by a number of bits
         to the left.  The number of bits shifted starts at param (which must be
@@ -469,7 +498,7 @@ class ByteTransformer:
                     shift = ( param * col + row ) % len(self.data)  # if bit detected, find new col for vertically-shifted bit
                     sheered.data[shift] |= sensor
         if (debug):
-            self.print_as_bit_array(f"Sheered horizontally by {param}:")
+            self.print_as_bit_array(f"Sheered vertically by {param}:")
         self.data = sheered.data
 
     def not_a_method(self):
