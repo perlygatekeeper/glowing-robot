@@ -434,6 +434,44 @@ class ByteTransformer:
             # print(f"{left:08b}  {left:c} : {right:08b}  {right:c}")
             print(f"{left:08b}\t{right:08b}")
 
+    def sheer_horizontally(self, param):
+        """sheers the block of bits, rotating each row of bits by a number of bits
+        to the left.  The number of bits shifted starts at param (which must be
+        between 1 and 7 inclusive) and increases by param for each row, modulo 8.
+        The last row is always unchanged, see Notes.txt"""
+        debug = 0
+        sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array("Object before horizontal sheering:")
+        for row in range(len(self.data)):
+            shift = ( param * row ) % 8
+            sheered.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[shift]  ) >> ( 7 - shift ) | \
+                                ( self.data[row] & ByteTransformer.shift_mask_right[shift] ) << shift
+        if (debug):
+            self.print_as_bit_array(f"Sheered horizontally by {param}:")
+        self.data = sheered.data
+
+    def sheer_vertically(self, param):
+        """sheers the block of bits, rotating each column of bits by a number of bits
+        to the down.  The number of bits shifted starts at param (which must be
+        between 1 and 7 inclusive) and increases by param for each col, modulo 8.
+        The last row is always unchanged, see Notes.txt
+        unlike horizontal sheer, we will locate each bit seperately and place it
+        into the sheered array.  """
+        debug = 0
+        sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array("Object before vertically sheering:")
+        for col in range(8):
+            sensor = ByteTransformer.bit_sensor[col]
+            for row in range(len(self.data)):
+                if (sensor & self.data[row]): # detect bit at this row,col
+                    shift = ( param * col + row ) % len(self.data)  # if bit detected, find new col for vertically-shifted bit
+                    sheered.data[shift] |= sensor
+        if (debug):
+            self.print_as_bit_array(f"Sheered horizontally by {param}:")
+        self.data = sheered.data
+
     def not_a_method(self):
         print("Not yet implemented")
 

@@ -72,12 +72,22 @@ original.print_comparison(transformer)
 
 print("\n-------------------------------\nSheers\n")
 original    = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
-transformer = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
 original.print_as_bit_array("Test array for Vertical Sheers")
 
+for sheer in (range(1,8)):
+    transformer = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
+    transformer.sheer_vertically(sheer)
+    print(f"Original\tSheered Vertically by {sheer}:")
+    original.print_comparison(transformer)
+
 original    = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
-transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
 original.print_as_bit_array("Test array for Horizontal Sheers")
+
+for sheer in (range(1,8)):
+    transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+    transformer.sheer_horizontally(sheer)
+    print(f"Original\tSheered Horizontally by {sheer}:")
+    original.print_comparison(transformer)
 
 
 print("non-implemented method:")
