@@ -3,6 +3,7 @@
 # python for performing transformations on length 8 bytearrays
 
 import sys
+import io
 import functools
 import random
 
@@ -406,8 +407,43 @@ class ByteTransformer:
     def to_hex_string(self):
         return self.data.hex()
 
-    def read_from(self, filehandle):
-        self.data = (filehandle.read(8))
+    def read_from(self, input_source="-"):
+        """Reads 8 bytes at a time from a file or standard input.
+        Args:
+          input_source: The input source, either a filename as a string or '-' for standard input or a filehandle
+        Yields:
+          Chunks of 8 bytes as bytearrays.
+        Raises:
+          ValueError: If the input source is not a valid file or '-'.
+        """
+        debug = 0
+        if (debug):
+          print(f"read_from has started with input_source specified as {input_source}.")
+        if input_source == '-':
+          input_file = sys.stdin.buffer  # Use binary mode for standard input
+        elif isinstance(input_source, str):
+          try:
+            input_file = open(input_source, 'rb')  # Open file in binary mode
+          except FileNotFoundError:
+            raise ValueError(f"Invalid input source: File '{input_source}' not found")
+        elif isinstance(input_source, (io.TextIOBase, io.BufferedIOBase, io.RawIOBase)):
+          input_file = input_source
+        else:
+          raise ValueError(f"Invalid input source: {input_source}")
+        try:
+          while True:
+            chunk = input_file.read(8)
+            # print(f"chunk read {chunk}.")
+            if not chunk:
+              break
+            # yield 1
+            self.data = bytearray(chunk)
+            yield bytearray(chunk)
+        finally:
+          if input_source != '-':
+            input_file.close()
+        if (debug):
+          print(f"read_from has ended with input_file specified as {input_file}.")
 
     def print_as_bytes(self, label=""):
         """ Output as an list of 8 bytes."""

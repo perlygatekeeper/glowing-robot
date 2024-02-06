@@ -129,6 +129,9 @@ print("\n-------------------------------\nOther Utility methods:\n")
 print("non-implemented method:")
 transformer.not_a_method()
 
+print("read_from method:")
+transformer.read_from()
+
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 #
 # import sys
