@@ -417,6 +417,7 @@ class ByteTransformer:
           ValueError: If the input source is not a valid file or '-'.
         """
         debug = 0
+        encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"read_from has started with input_source specified as {input_source}.")
         if input_source == '-':
@@ -437,8 +438,8 @@ class ByteTransformer:
             if not chunk:
               break
             # yield 1
-            self.data = bytearray(chunk)
-            yield bytearray(chunk)
+            self.data = bytearray(chunk, encoding=encoding)
+            yield self.data
         finally:
           if input_source != '-':
             input_file.close()
