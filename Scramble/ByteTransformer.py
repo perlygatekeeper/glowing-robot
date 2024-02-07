@@ -279,7 +279,8 @@ class ByteTransformer:
             raise TypeError("Input data must be either of class bytearray or class bytes.")
 
     def random(self):
-        self.data = (random.randint(0, 255) for _ in range(len(self.data)))
+        for row in range(len(self.data)):
+            self.data[row] = random.randint(0, 255)
 
     def flip_vertically(self):
         # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
@@ -335,21 +336,6 @@ class ByteTransformer:
             print('Total 11  bits: ', parameters['11'] )
         return parameters
 
-    def rotate_180(self):
-        """Rotates the bits in a bytearray of length 8 by 180 degrees."""
-        debug = 0
-        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
-        if (debug):
-            print(f"self before rotation {self}")
-            self.print_as_bit_array("Object before rotation:")
-        for i in range(len(self.data)):
-            destination = ( 7 - i )
-            rotated.data[destination] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
-        if (debug):
-            rotated.print_as_bit_array("Rotated 180:")
-            print(f"self after rotation {self}")
-        self.data = rotated.data
-
 # R
 # O
 # W         COLUMN
@@ -400,12 +386,59 @@ class ByteTransformer:
             self.print_as_bit_array("Rotated CCW:")
         self.data = rotated.data
 
+    def rotate_180(self):
+        """Rotates the bits in a bytearray of length 8 by 180 degrees."""
+        debug = 0
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            print(f"self before rotation {self}")
+            self.print_as_bit_array("Object before rotation:")
+        for i in range(len(self.data)):
+            destination = ( 7 - i )
+            rotated.data[destination] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
+        if (debug):
+            rotated.print_as_bit_array("Rotated 180:")
+            print(f"self after rotation {self}")
+        self.data = rotated.data
+
     def duplicate(self, other):
         for i in range(len(self.data)):
             self.data[i] = other.data[i]
 
     def to_hex_string(self):
         return self.data.hex()
+
+    def output_file(self, output_source="-"):
+        debug = 0
+        encoding = "utf-8"  # Replace with the appropriate encoding
+        if (debug):
+          print(f"write_to has started with output_source specified as {output_source}.")
+        if output_source == '-':
+          output_file = sys.stdout.buffer  # Use binary mode for standard output
+        elif isinstance(output_source, str):
+          try:
+            output_file = open(output_source, 'wb')  # Open file in binary mode
+          except FileNotFoundError:
+            raise ValueError(f"Invalid output source: File '{output_source}' not found")
+        elif isinstance(output_source, (io.TextIOBase, io.BufferedIOBase, io.RawIOBase)):
+          output_file = output_source
+        else:
+          raise ValueError(f"Invalid output source: {output_source}")
+        if (debug):
+          print(f"write_to has ended with output_source specified as {input_source}.")
+        return output_file
+
+    def write_to(self, output_file):
+        debug = 0
+        encoding = "utf-8"  # Replace with the appropriate encoding
+        if (debug):
+          print(f"write_to has started with output_source specified as {output_source}.")
+        try:
+          output_file.write(self.data)
+        except IOError as e:
+          print("Error writing file:", e)
+        if (debug):
+          print(f"write_to has ended with output_source specified as {input_source}.")
 
     def read_from(self, input_source="-"):
         """Reads 8 bytes at a time from a file or standard input.
@@ -438,7 +471,10 @@ class ByteTransformer:
             if not chunk:
               break
             # yield 1
-            self.data = bytearray(chunk, encoding=encoding)
+            if isinstance(chunk, (bytearray, bytes)):
+                self.data = bytearray(chunk)  # No need for encoding
+            else:
+                self.data = bytearray(chunk, encoding=encoding)
             yield self.data
         finally:
           if input_source != '-':

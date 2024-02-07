@@ -18,13 +18,6 @@ import re
        Determine and save Parameters for next block if Unscrambling
        Output Scrambled or Unscrambled block
 
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-#  Transforms
-#   rotate_90_CCW, rotate_90_CW, rotate_180
-#   flip_horizontal, flip_vertical
-#   horizontal_sheer, vertical_sheer
-#   invert
-# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 '''
 
 # Create a parser object
@@ -63,10 +56,135 @@ if (args.debug):
   else:
     print("I have no idea what I'm supposed to be doing with the input.")
 
-exit()
 
-transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
-transformer.print_as_bit_array("Zeroes")
-for chunk in transformer.read_from(args.infile):
-    if (args.debug):
-        print(f"read from yeilded {chunk}")
+if (args.action == 'scramble'):
+    # make a block of random bytes, output it and determine the block's parameters
+    transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
+    transformer.random()
+    # transformer.print_as_bit_array("Random block:")
+    params = transformer.parameters(0)
+    output_file = transformer.output_file(args.outfile)
+    transformer.write_to(output_file)
+    for chunk in transformer.read_from(args.infile):
+        if ( len(chunk) < 8 ):
+            chunk.extend(b'\x00' * ( 8 - len(chunk) ) )  # Append null bytes (b'\x00')
+        if (args.debug):
+            print(f"read from yeilded {chunk}")
+        transformer=ByteTransformer.ByteTransformer(chunk)
+        pre_scrambled_params = transformer.parameters(0)
+        # NOW WE DECIDE HOW TO SCRAMBLE
+        # Order of transforms:
+        #    1) if present chunk has less than 4 unique bits - invert it
+        #    2) rotations based on last bit of params['00']
+        #   3a) flips     based on the       last   bit  of params['00']
+        #   3b) direction based on second to last   bit  of params['00']
+        #   4a) sheer     based on forth  to last   bit  of params['h_parity']
+        #   4b) amount    based on second to last 3 bits of params['h_parity']
+        #   5a) shift     based on forth  to last   bit  of params['v_parity']
+        #   5b) amount    based on second to last 3 bits of params['v_parity']
+        # ---- ---- ---- ---- ---- ---- ---- ---- ----
+        #  Transforms
+        #   rotate_90_CCW, rotate_90_CW, rotate_180
+        #    flip_horizontally,  flip_vertically
+        #   sheer_horizontally, shift_vertically
+        #   shift_horizontally, shift_vertically
+        #   invert
+        # ---- ---- ---- ---- ---- ---- ---- ---- ----
+        if ( pre_scrambled_params['ones'] < 4 ):
+            transformer.invert()
+
+        rotate = ( params['00'] & 0x03 )
+        if ( rotate == 1 ):
+            transformer.rotate_90_CW()
+        elif ( rotate == 2 ):
+            transformer.rotate_180()
+        elif ( rotate == 3 ):
+            transformer.rotate_90_CCW()
+
+        flip     = ( params['01'] & 0x01 )
+        vertical = ( params['01'] & 0x10 )
+        if (flip == 1):
+            if (vertical == 0):
+                transformer.flip_vertically()
+            elif (vertical == 2):
+                transformer.flip_horizontally()
+
+        sheer = ( params['h_parity'] & 0x0F )
+        if (sheer & 8):
+            transformer.sheer_horizontally( sheer & 0x07 )
+        else:
+            transformer.sheer_vertically( sheer & 0x07 )
+
+        shift = ( params['v_parity'] & 0x0F )
+        if (sheer & 8):
+            transformer.shift_horizontally( shift & 0x07 )
+        else:
+            transformer.shift_vertically( shift & 0x07 )
+
+        # ---- ---- ---- ---- ---- ---- ---- ---- ----
+        transformer.write_to(output_file)
+        params = pre_scrambled_params    # prepare for next chunk
+
+elif (args.action == 'unscramble'):
+    # read the block of random bytes and determine the block's parameters
+    transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
+    transformer.random()
+    # transformer.print_as_bit_array("Random block:")
+    params = transformer.parameters(0)
+    output_file = transformer.output_file(args.outfile)
+    transformer.write_to(output_file)
+    for chunk in transformer.read_from(args.infile):
+        if (args.debug):
+            print(f"read from yeilded {chunk}")
+        transformer=ByteTransformer.ByteTransformer(chunk)
+        pre_scrambled_params = transformer.parameters(0)
+
+        # NOW WE DECIDE HOW TO UNSCRAMBLE
+        # Order of transforms:
+        #    1) if present chunk has less than 4 unique bits - invert it
+        #   2a) shift     based on forth  to last   bit  of params['v_parity']
+        #   2b) amount    based on second to last 3 bits of params['v_parity']
+        #   3a) sheer     based on forth  to last   bit  of params['h_parity']
+        #   3b) amount    based on second to last 3 bits of params['h_parity']
+        #   4a) flips     based on the       last   bit  of params['00']
+        #   4b) direction based on second to last   bit  of params['00']
+        #    5) rotations based on last bit of params['00']
+        # ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+        if ( pre_scrambled_params['ones'] < 4 ):
+            transformer.invert()
+        # reverse order of operations
+        shift = ( params['v_parity'] & 0x0F )
+        if (sheer & 8):
+            transformer.shift_horizontally( shift & 0x07 )
+        else:
+            transformer.shift_vertically( shift & 0x07 )
+
+        sheer = ( params['h_parity'] & 0x0F )
+        if (sheer & 8):
+            transformer.sheer_horizontally( sheer & 0x07 )
+        else:
+            transformer.sheer_vertically( sheer & 0x07 )
+
+        flip     = ( params['01'] & 0x01 )
+        vertical = ( params['01'] & 0x10 )
+        if (flip == 1):
+            if (vertical == 0):
+                transformer.flip_vertically()
+            elif (vertical == 2):
+                transformer.flip_horizontally()
+
+        rotate = ( params['00'] & 0x03 )
+        if ( rotate == 1 ):
+            transformer.rotate_90_CW()
+        elif ( rotate == 2 ):
+            transformer.rotate_180()
+        elif ( rotate == 3 ):
+            transformer.rotate_90_CCW()
+
+        # ---- ---- ---- ---- ---- ---- ---- ---- ----
+        transformer.write_to(output_file)
+        params = pre_scrambled_params    # prepare for next chunk
+
+
+exit()
