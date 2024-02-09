@@ -507,7 +507,7 @@ class ByteTransformer:
         # shifts the block of bits, shifting each column left param % 8
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
-            self.print_as_bit_array("Object before horizontal shifting:")
+            self.print_as_bit_array(f"Object before horizontal shifting by {param}:")
         for row in range(len(self.data)):
             shifted.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[param]  ) >> ( 8 - param ) | \
                                 ( self.data[row] & ByteTransformer.shift_mask_right[param] ) << param
@@ -519,7 +519,7 @@ class ByteTransformer:
         # shifts the block of bits, shifting each row down param % 8
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
-            self.print_as_bit_array("Object before vertically shifting:")
+            self.print_as_bit_array(f"Object before vertically shifting by {param}:")
         for row in range(len(self.data)):
             shifted.data[ ( row + param ) % len(self.data) ] = self.data[row]
         if (debug):

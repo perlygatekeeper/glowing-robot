@@ -91,10 +91,12 @@ if (args.action == 'scramble'):
         #   shift_horizontally, shift_vertically
         #   invert
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
-        if ( pre_scrambled_params['ones'] < 4 ):
-            transformer.invert()
 
-        if (0):
+        if (1):
+          if ( pre_scrambled_params['ones'] < 4 ):
+              transformer.invert()
+
+        if (1):
           rotate = ( params['00'] & 0x03 )
           if ( rotate == 1 ):
               transformer.rotate_90_CW(),
@@ -103,7 +105,7 @@ if (args.action == 'scramble'):
           elif ( rotate == 3 ):
               transformer.rotate_90_CCW()
 
-        if (0):
+        if (1):
           flip     = ( params['01'] & 0x01 )
           vertical = ( params['01'] & 0x10 )
           if (flip == 1):
@@ -115,16 +117,17 @@ if (args.action == 'scramble'):
         if (1):
           sheer = ( params['h_parity'] & 0x0F )
           if (sheer & 8):
-              transformer.sheer_horizontally( sheer & 0x07 , 1)
+              transformer.sheer_horizontally( (sheer & 0x07), 0)
           else:
-              transformer.sheer_vertically( sheer & 0x07 , 1)
+              transformer.sheer_vertically( (sheer & 0x07), 0)
 
-        if (0):
+        if (1):
           shift = ( params['v_parity'] & 0x0F )
-          if (shift & 8):
-              transformer.shift_horizontally( shift & 0x07 , 1)
-          else:
-              transformer.shift_vertically( shift & 0x07 , 1)
+          if ( (shift & 0x07) != 0 ): # only shift if our shift amount is non-zero
+            if (shift & 8):
+                transformer.shift_horizontally( (shift & 0x07), 0)
+            else:
+                transformer.shift_vertically( (shift & 0x07), 0)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         transformer.write_to(output_file)
@@ -160,25 +163,27 @@ elif (args.action == 'unscramble'):
         #    5) rotations based on last bit of params['00']
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-        if ( pre_unscrambled_params['ones'] < 4 ):
-            transformer.invert()
+        if (1):
+          if ( pre_unscrambled_params['ones'] < 4 ):
+              transformer.invert()
 
-        if (0):
+        if (1):
           # reverse order of operations
           shift = ( params['v_parity'] & 0x0F )
-          if (shift & 8):
-              transformer.shift_horizontally( shift & 0x07 )
-          else:
-              transformer.shift_vertically( shift & 0x07 )
+          if ( (shift & 0x07) != 0 ): # only shift if our shift amount is non-zero
+            if (shift & 8):
+                transformer.shift_horizontally( 8 - ( shift & 0x07 ), 0 )
+            else:
+                transformer.shift_vertically( 8 - ( shift & 0x07 ), 0 )
   
         if (1):
           sheer = ( params['h_parity'] & 0x0F )
           if (sheer & 8):
-              transformer.sheer_horizontally( 8 - ( sheer & 0x07 ) )
+              transformer.sheer_horizontally( 8 - ( sheer & 0x07 ), 0 )
           else:
-              transformer.sheer_vertically( 8 - ( sheer & 0x07 ) )
+              transformer.sheer_vertically( 8 - ( sheer & 0x07 ), 0 )
   
-        if (0):
+        if (1):
           flip     = ( params['01'] & 0x01 )
           vertical = ( params['01'] & 0x10 )
           if (flip == 1):
@@ -187,7 +192,7 @@ elif (args.action == 'unscramble'):
               elif (vertical == 2):
                   transformer.flip_horizontally()
 
-        if (0):
+        if (1):
           rotate = ( params['00'] & 0x03 )
           if ( rotate == 1 ):
               transformer.rotate_90_CCW()
