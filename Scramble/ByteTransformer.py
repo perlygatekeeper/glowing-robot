@@ -503,7 +503,22 @@ class ByteTransformer:
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
+    def barber_pole(self, debug=0):
+        # swap adjacent even and odd columns
+        barber_poled = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (debug):
+            self.print_as_bit_array(f"Object before barber_poling:")
+        for row in range(len(self.data)):
+            barber_poled.data[row] = ( self.data[row] & 0xAA ) >> 1 | \
+                                     ( self.data[row] & 0x55 ) << 1
+        if (debug):
+            self.print_as_bit_array(f"Barber_poled:")
+        self.data = barber_poled.data
+
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
     def shift_horizontally(self, param, debug=0):
+        param %= 8
         # shifts the block of bits, shifting each column left param % 8
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
@@ -516,6 +531,7 @@ class ByteTransformer:
         self.data = shifted.data
 
     def shift_vertically(self, param, debug=0):
+        param %= 8
         # shifts the block of bits, shifting each row down param % 8
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):

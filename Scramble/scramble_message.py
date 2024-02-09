@@ -96,6 +96,9 @@ if (args.action == 'scramble'):
           if ( pre_scrambled_params['ones'] < 4 ):
               transformer.invert()
 
+        if (1): # mandatory transform of barber_poling (swapping adjacent odd and even columns)
+              transformer.barber_pole()
+
         if (1):
           rotate = ( params['00'] & 0x03 )
           if ( rotate == 1 ):
@@ -200,6 +203,9 @@ elif (args.action == 'unscramble'):
               transformer.rotate_180()
           elif ( rotate == 3 ):
               transformer.rotate_90_CW()
+
+        if (1): # mandatory transform of barber_poling (swapping adjacent odd and even columns)
+              transformer.barber_pole()
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         # this chunk should now be unscrambled
