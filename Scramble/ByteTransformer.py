@@ -282,14 +282,14 @@ class ByteTransformer:
         for row in range(len(self.data)):
             self.data[row] = random.randint(0, 255)
 
-    def flip_vertically(self):
+    def flip_vertically(self, debug=0):
         # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
         rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         for i in range(len(self.data)):
             rotated.data[i] = self.data[ ( 7 - i ) ]
         self.data = rotated.data
 
-    def flip_horizontally(self):
+    def flip_horizontally(self, debug=0):
         # self.data = self.data[::-1]
         for i in range(len(self.data)):
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
@@ -350,9 +350,8 @@ class ByteTransformer:
 # 6 |  0 0 0 0 0 0 0 0    0 0 0 g 0 0 0 G    Row 6 -> Column 6  Column 0 -> Row 7
 # 7 |  0 0 0 0 0 0 0 0    0 0 0 h 0 0 0 H    Row 7 -> Column 7  Column 0 -> Row 7
 
-    def rotate_90_CW(self):
+    def rotate_90_CW(self, debug=0):
         """Rotates the bits in a bytearray of length 8 by 90 degrees clockwise."""
-        debug = 0
         rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before rotation:")
@@ -368,9 +367,8 @@ class ByteTransformer:
             self.print_as_bit_array("Rotated CW:")
         self.data = rotated.data
 
-    def rotate_90_CCW(self):
+    def rotate_90_CCW(self, debug=0):
         """Rotates the bits in a bytearray of length 8 by 90 degrees counter-clockwise."""
-        debug = 0
         rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before rotation:")
@@ -386,9 +384,9 @@ class ByteTransformer:
             self.print_as_bit_array("Rotated CCW:")
         self.data = rotated.data
 
-    def rotate_180(self):
+    def rotate_180(self, debug = 0):
         """Rotates the bits in a bytearray of length 8 by 180 degrees."""
-        debug = 0
+        
         rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             print(f"self before rotation {self}")
@@ -408,8 +406,7 @@ class ByteTransformer:
     def to_hex_string(self):
         return self.data.hex()
 
-    def output_file(self, output_source="-"):
-        debug = 0
+    def output_file(self, output_source="-", debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"write_to has started with output_source specified as {output_source}.")
@@ -428,7 +425,7 @@ class ByteTransformer:
           print(f"write_to has ended with output_source specified as {input_source}.")
         return output_file
 
-    def write_to(self, output_file):
+    def write_to(self, output_file, debug=0):
         debug = 0
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
@@ -440,7 +437,7 @@ class ByteTransformer:
         if (debug):
           print(f"write_to has ended with output_source specified as {input_source}.")
 
-    def read_from(self, input_source="-"):
+    def read_from(self, input_source="-", debug=0):
         """Reads 8 bytes at a time from a file or standard input.
         Args:
           input_source: The input source, either a filename as a string or '-' for standard input or a filehandle
@@ -449,7 +446,6 @@ class ByteTransformer:
         Raises:
           ValueError: If the input source is not a valid file or '-'.
         """
-        debug = 0
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"read_from has started with input_source specified as {input_source}.")
@@ -507,9 +503,8 @@ class ByteTransformer:
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-    def shift_horizontally(self, param):
+    def shift_horizontally(self, param, debug=0):
         # shifts the block of bits, shifting each column left param % 8
-        debug = 0
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before horizontal shifting:")
@@ -520,9 +515,8 @@ class ByteTransformer:
             self.print_as_bit_array(f"Shifted horizontally by {param}:")
         self.data = shifted.data
 
-    def shift_vertically(self, param):
+    def shift_vertically(self, param, debug=0):
         # shifts the block of bits, shifting each row down param % 8
-        debug = 0
         shifted = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before vertically shifting:")
@@ -534,31 +528,35 @@ class ByteTransformer:
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-    def sheer_horizontally(self, param):
+    def sheer_horizontally(self, param, debug=0):
         """sheers the block of bits, rotating each row of bits by a number of bits
         to the left.  The number of bits shifted starts at param (which must be
         between 1 and 7 inclusive) and increases by param for each row, modulo 8.
         The last row is always unchanged, see Notes.txt"""
-        debug = 0
         sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before horizontal sheering:")
         for row in range(len(self.data)):
             shift = ( param * row ) % 8
-            sheered.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[shift]  ) >> ( 7 - shift ) | \
+            sheered.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[shift]  ) >> ( 8 - shift ) | \
                                 ( self.data[row] & ByteTransformer.shift_mask_right[shift] ) << shift
+            if (debug>1):
+                print(f"  row is {row} & shift is {shift}")
+                left = self.data[row] & ByteTransformer.shift_mask_left[shift]
+                print(f"  left side is {left:08b} and will be shifted right by 7 - {shift}")
+                right = self.data[row] & ByteTransformer.shift_mask_right[shift]
+                print(f"  right side is {right:08b} and will be shifted left by {shift}")
+        self.data = sheered.data
         if (debug):
             self.print_as_bit_array(f"Sheered horizontally by {param}:")
-        self.data = sheered.data
 
-    def sheer_vertically(self, param):
+    def sheer_vertically(self, param, debug=0):
         """sheers the block of bits, rotating each column of bits by a number of bits
         to the down.  The number of bits shifted starts at param (which must be
         between 1 and 7 inclusive) and increases by param for each col, modulo 8.
         The last row is always unchanged, see Notes.txt
         unlike horizontal sheer, we will locate each bit seperately and place it
         into the sheered array.  """
-        debug = 0
         sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
             self.print_as_bit_array("Object before vertically sheering:")
@@ -568,9 +566,9 @@ class ByteTransformer:
                 if (sensor & self.data[row]): # detect bit at this row,col
                     shift = ( param * col + row ) % len(self.data)  # if bit detected, find new col for vertically-shifted bit
                     sheered.data[shift] |= sensor
+        self.data = sheered.data
         if (debug):
             self.print_as_bit_array(f"Sheered vertically by {param}:")
-        self.data = sheered.data
 
     def not_a_method(self):
         print("Not yet implemented")

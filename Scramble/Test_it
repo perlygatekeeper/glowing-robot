@@ -1,0 +1,2 @@
+./scramble_message.py -d    Sample_file.txt      Sample_scrambled.txt   | tee   Scrambling_out.txt
+./scramble_message.py -d -u Sample_scrambled.txt Sample_unscrambled.txt | tee Unscrambling_out.txt

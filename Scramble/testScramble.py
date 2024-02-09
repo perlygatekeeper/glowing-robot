@@ -113,15 +113,25 @@ for sheer in (range(1,8)):
     transformer.sheer_vertically(sheer)
     print(f"Original\tSheered Vertically by {sheer}:")
     original.print_comparison(transformer)
+
+    transformer.sheer_vertically(8 - sheer)
+    print(f"Original\tSheered Vertically back from {sheer}:")
+    original.print_comparison(transformer)
     print("")
 print("\n-------------------------------\n")
 
-original = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+# original = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+original    = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
 
 for sheer in (range(1,8)):
-    transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
-    transformer.sheer_horizontally(sheer)
+    # transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+    transformer = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
+    transformer.sheer_horizontally(sheer,0)
     print(f"Original\tSheered Horizontally by {sheer}:")
+    original.print_comparison(transformer)
+
+    transformer.sheer_horizontally(8 - sheer,0)
+    print(f"Original\tSheered horizontally back from {sheer}:")
     original.print_comparison(transformer)
     print("")
 
@@ -129,8 +139,17 @@ print("\n-------------------------------\nOther Utility methods:\n")
 print("non-implemented method:")
 transformer.not_a_method()
 
+print("duplicate method:")
+original = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
+transformer = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
+print(f"Original\tOther  before duplication:")
+original.print_comparison(transformer)
+original.duplicate(transformer)
+print(f"Original\tOther  after  duplication:")
+original.print_comparison(transformer)
+
 print("read_from method:")
-transformer.read_from()
+transformer.read_from('-' ,1)
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 #
