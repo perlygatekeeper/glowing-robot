@@ -1,0 +1,22 @@
+
+  Jami,
+
+  This is my enscryption script.   It workds by reading the input 8 bytes at a time
+  then transforming the block, with many seperate transforms.
+
+  When unscrambling, these transforms are undone, in reverse order, thus restoring the
+  orginal input.
+
+  To complete the transforms, each block needs to be 8 bytes long.  The last block can
+  have anywhere between 1 and 8 bytes depending on the length of the original input.
+  The last block is, therefore, padded with Null bytes to 8 bytes.
+
+  As there is no way to know what the size of the last block was, I've decided to leave
+  the padding Null bytes in the unscrambled output.
+
+  Can you think of a way to remove these, given how the script works?
+
+  Can you decipher how my script works?  There is a Notes.txt files which explains
+  much of it?
+
+  Dad.

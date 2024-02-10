@@ -38,12 +38,13 @@ args = parser.parse_args()
 
 # Determine whether we are scrambling or unscrabling
 if (not args.action):
-    if (re.search(r"^(?:[^/]*/)?un(?:scramble)?",sys.argv[0])):
+    if (re.search(r"^(?:.*/)?un(?:scramble)?",sys.argv[0])):
       args.action = 'unscramble'
-    elif (re.search(r"^(?:[^/]*/)s(?:cramble)?",sys.argv[0])):
+    elif (re.search(r"^(?:.*/)s(?:cramble)?",sys.argv[0])):
       args.action = 'scramble'
     else:
-      raise ValueError(f"script name must begin with either 'scramble' or 'unscramble' and we're named '{sys.argv[0]}'")
+      script_name = sys.argv[0]
+      raise ValueError(f"script name must begin with either 'scramble' or 'unscramble' and we're named '{script_name}'")
 
 # Print the parsed input filename
 if (args.debug):
