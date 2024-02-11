@@ -21,7 +21,7 @@ import re
 '''
 
 # Create a parser object
-parser = argparse.ArgumentParser(description="Process input filename")
+parser = argparse.ArgumentParser(description="Process input, either scrambling or unscrambling it")
 
 # Add a required argument for the input filename
 # parser.add_argument("input_filename",  default="-", type=str, help="The path to the input file")
@@ -57,15 +57,41 @@ if (args.debug):
   else:
     print("I have no idea what I'm supposed to be doing with the input.")
 
+if args.infile == sys.stdin:
+        args.infile = args.infile.buffer  # Access the underlying binary buffer
+
+if args.outfile == sys.stdout:
+        args.outfile = args.outfile.buffer  # Access the underlying binary buffer
+
+# if ( ( not args.infile ) or ( not args.outfile ) ):
+#     print(f"You must supply both an input and output source, which both may be '-' or a filename.\n")
+#     ArgumentParser.print_help()
+#     exit(1)
+# else:
+#     print(f"We have both input and output source {args.infile} and {args.outfile}.\n")
+
 blocks = 0
 
 if (args.action == 'scramble'):
+
     # make a block of random bytes, output it and determine the block's parameters
     transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
-    transformer.random()
+    params = { 'ones': 0 }
+    while ( ( params['ones'] < 8 ) or  ( params['ones'] > 56 ) ):
+      transformer.random()
+      params = transformer.parameters(0)
+
+    # here we are scrambling and if the input source is a file, find out how many bytes
+    # we will be padding the last block.   After this we will encode this in the last
+    # four bits of the last byte of the random Key Block.
+    #
+    # ____XPPP  <- X=1 input source is a file and PPP is number of padding bytes
+    #           \- X=0 input source is a STDIN and PPP is left as random
+    # if ( type(args.outfile) == '-' ):
+
     if (args.debug):
         transformer.print_as_bit_array("Random block:")
-    params = transformer.parameters(0)
+
     output_file = transformer.output_file(args.outfile)
     transformer.write_to(output_file)
     for chunk in transformer.read_from(args.infile):

@@ -1,21 +1,56 @@
 Stephen,
 
-
-I did you Bard when I got stuck and for some debugging help but yes it was from scratch.
-
-I doubt Bard would be able to do this.
-
-I will attach the Notes.txt file but scrambled.
-
 I sent this to 6 people but only you have been able to unscramble it so far.
+
+I did use Bard when I got stuck (for some bit operations for instance) and for some
+debugging help but yes it was from scratch.  I doubt Bard would be able to do this.
+
+I will attach the Notes.txt file but scrambled.  Be aware that this caused me to clean
+up that file some but it's still basically notes for myself.  You may be able to glean
+something from my ramblings.
 
 
 As per the security of this script...
 
-1) it's on github, so no security
-
+1) it's on github, so no secrecy
 2) it's more meant to keep google from harvesting anything from my emails.
-
 3) it can be combined with OTP and/or public/private keys, as another layer of security.
 
 
+Just a notes that this script works for both text and binary files, but it pads the last
+8-btye block with 0x00's.   These are left on the file after scrambling/unscrambling cycle.
+Therefore, the original file and the scrambled/unscrambled version will differ.
+
+These "rouge" null bytes will in many cases not render the file unreadable or corrupted,
+but will cause tests like diff to flag the two versions as different.
+
+I am working one fixing this by hiding the number of padding bytes added in the part of
+one of the 8 random bytes in the Key Block prepended during scrambling and used to start
+the unscrambling process.
+
+You may not have noticed that I used argparse module in this script which handles the argument
+parsing and gives one from free stuff, like a --help argument:
+
+> python scramble_message.py --help
+usage: scramble_message.py [-h] [-d] [-s | -u] [infile] [outfile]
+
+Process input, either scrambling or unscrambling it
+
+positional arguments:
+  infile            Path to the input file
+  outfile           Path to the output file
+
+options:
+  -h, --help        show this help message and exit
+  -d, --debug       set the debug flag
+  -s, --scramble
+  -u, --unscramble
+
+
+Either infile or outfile or both can be "-", which will cause the script to use SDTIN/STDOUT.
+
+In the event that STDIN is used, the script will not know how long the file will be, so
+it will not be able to hide in the Key Block, the number of padding 0x00 bytes
+on the last block of the input stream.
+
+-Steve
