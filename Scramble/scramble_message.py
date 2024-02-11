@@ -57,6 +57,7 @@ if (args.debug):
   else:
     print("I have no idea what I'm supposed to be doing with the input.")
 
+blocks = 0
 
 if (args.action == 'scramble'):
     # make a block of random bytes, output it and determine the block's parameters
@@ -64,10 +65,11 @@ if (args.action == 'scramble'):
     transformer.random()
     if (args.debug):
         transformer.print_as_bit_array("Random block:")
-    params = transformer.parameters(1)
+    params = transformer.parameters(0)
     output_file = transformer.output_file(args.outfile)
     transformer.write_to(output_file)
     for chunk in transformer.read_from(args.infile):
+        blocks += 1
         if ( len(chunk) < 8 ):
             chunk.extend(b'\x00' * ( 8 - len(chunk) ) )  # Append null bytes (b'\x00')
         if (args.debug):
@@ -141,7 +143,7 @@ elif (args.action == 'unscramble'):
     # read the block of random bytes and determine the block's parameters
     transformer = ByteTransformer.ByteTransformer(b'\x00\x00\x00\x00\x00\x00\x00\x00')
     # transformer.print_as_bit_array("Random block:")
-    output_file = transformer.output_file(args.outfile)
+    output_file = transformer.output_file(args.outfile,0)
     first_chunk = True
     for chunk in transformer.read_from(args.infile):
         if (args.debug):
@@ -151,8 +153,9 @@ elif (args.action == 'unscramble'):
             if (args.debug):
                 transformer.print_as_bit_array("Random block:")
             first_chunk = False
-            params = transformer.parameters(1)
+            params = transformer.parameters(0)
             continue
+        blocks += 1
         pre_unscrambled_params = transformer.parameters(0) # used for inversion, doesn't matter that it's still unscrambled
 
         # NOW WE DECIDE HOW TO UNSCRAMBLE
@@ -213,6 +216,8 @@ elif (args.action == 'unscramble'):
         # write it out, and get it's parameters to use with next chunk
         transformer.write_to(output_file)
         params = transformer.parameters(0)
+
+print(f"Processed {blocks} blocks.")
 
 
 exit()

@@ -409,7 +409,7 @@ class ByteTransformer:
     def output_file(self, output_source="-", debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
-          print(f"write_to has started with output_source specified as {output_source}.")
+          print(f"output_file has started with output_source specified as {output_source}.")
         if output_source == '-':
           output_file = sys.stdout.buffer  # Use binary mode for standard output
         elif isinstance(output_source, str):
@@ -422,7 +422,7 @@ class ByteTransformer:
         else:
           raise ValueError(f"Invalid output source: {output_source}")
         if (debug):
-          print(f"write_to has ended with output_source specified as {input_source}.")
+          print(f"output_file has ended with output_source specified as {output_source}.")
         return output_file
 
     def write_to(self, output_file, debug=0):

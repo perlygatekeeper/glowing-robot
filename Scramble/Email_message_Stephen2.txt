@@ -1,0 +1,21 @@
+Stephen,
+
+
+I did you Bard when I got stuck and for some debugging help but yes it was from scratch.
+
+I doubt Bard would be able to do this.
+
+I will attach the Notes.txt file but scrambled.
+
+I sent this to 6 people but only you have been able to unscramble it so far.
+
+
+As per the security of this script...
+
+1) it's on github, so no security
+
+2) it's more meant to keep google from harvesting anything from my emails.
+
+3) it can be combined with OTP and/or public/private keys, as another layer of security.
+
+

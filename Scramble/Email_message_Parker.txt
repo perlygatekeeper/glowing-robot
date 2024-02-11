@@ -1,0 +1,23 @@
+Hi Steve,
+
+I was able to unscramble message. You mention a Notes.txt file in your message
+and code, but it wasn't included with the other attachments.
+
+I took a quick look at the code, but my brain is too tired to try and make
+sense of it at this hour.
+
+Did you write this all from scratch or leverage ChatGPT or Bard/Gemini for
+help? I've been experimenting with LLMs locally using LM Studio:
+https://lmstudio.ai/
+
+A few models even work on my CMM MacBook (M1 Pro, 16 GB) as long as I stick to
+smaller 7B parameter models. There's one called Deepseek Coder that handles
+Python pretty well:
+https://huggingface.co/TheBloke/deepseek-coder-6.7B-instruct-GGUF
+
+I finally saw Dune Part 1 today. Better than expected, very good. I look
+forward to the release of Part 2 next month.
+
+Later,
+
+Steve 

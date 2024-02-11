@@ -8,11 +8,11 @@
 
    Originally, stats from each 8-byte block was going to determine how THAT block was scrambled.
    Then I realized that each block would then always scramble to the same thing.
-   So now I think scramble will add a block of 8 random bytes to the front of each data file.
-   It will use stats and this block to scramble the first block of 8 btyes from the data stream.
-   Stats from the first block will be used to determine how the second block is scrambled and so forth.
+   So now I think scramble will add a block of 8 random bytes to the front of each data file, the "key block".
+   It will use stats from this "key block" to scramble the first block from the data stream.
+   Stats from the first data stream block will be used to determine how the second block is scrambled and so forth.
 
-   I) Perform one or more of different classes of transformations, in this order.
+   I) Perform one or more of different classes of transformations.  Operations will be in this order.
 
      0) count the one bits in the data block
         calculate the total partity of the data block
@@ -48,7 +48,7 @@
         10 - 180 rotation
         11 - 270 rotation
 
-     5) Inversion flip all the bits 0->1 and 1->0
+     5) Inversion, flip all the bits 0->1 and 1->0
         always - OR - only on even - OR - only on odd parity
 
 
@@ -57,16 +57,13 @@ These transformations and their parameters will be determined by the data in eac
      Things we will gleen from each block of 8 bytes.
 
 1    Parity of the entire block
-          
 2    - countNumber of 00's, 01's, 10's and 11's ( 0 - 32 ) preserved after even-only byte-rotations
-
 3    * horzontal parity (AKA parity of each byte)   ( 0, 1 ) preserved through horizontal rotations
-
 4    * vertical  parity (AKA parity of each column) ( 0, 1 ) preserved through vertical   rotations
-
 5    * whole parity ( 0, 1 ) preserved through all transformations
-
 6    * countNumber of 1's ( 0 - 64 ) not preserved after flipping all bits
+
+     Count of ones in binary and decial
      ------------
      1000000 - 64  <- mostly ones
      0111111 - 63  <- mostly ones
@@ -80,12 +77,10 @@ These transformations and their parameters will be determined by the data in eac
      0000001 -  1 <- mostly zeroes
      0000000 -  0 <- mostly zeroes
 
-     Useful stored transformations
-     _
-     X  =>  NOT X
+     I will store some transformations for the bytes 00 - FF to speed operations
 
      Bytes
-     Orginal     Reversed    Inverted   Parity  Ones
+     Orginal     Reversed    Inverted   Parity  Ones  (and counts for 00, 01, 10, and 11 occurances)
      76543210    01234567    76543210      P    0-8
      ________    ________    ________
      00000000    00000000    11111111      0    0
@@ -96,6 +91,12 @@ These transformations and their parameters will be determined by the data in eac
      01010101    10101010    10101010      0    4
      10101010    01010101    01010101      0    4
      11111111    11111111    00000000      0    8
+
+
+   Below from some demonstations of the classes of transforms that will be available.
+   In the examples underscores are used instead of 0's to make the 1's more visable.
+   Also whereever letters a-h and A-H are used, they are place holders for binary digits 0 or 1
+   and are used to show where a binary digits starts and ends for a given transform.
 
    ---------------------------------------------------------------------------------------------------
 
@@ -122,6 +123,25 @@ These transformations and their parameters will be determined by the data in eac
      __1____1    1____1__    1_1_____    _____1_1
      _1_____1    1_____1_    11______    ______11
      11111111    11111111    1_______    _______1
+
+   ---------------------------------------------------------------------------------------------------
+
+     Barber Pole transform (swapping even and odd columns with their adjacent counter parts)
+     (even and odd columns seperated slightly for clarity)
+
+        Original           Barber Poled
+R
+o         COLUMN
+w    7 6  5 4  3 2  1 0    7 6  5 4  3 2  1 0
+     - -  - -  - -  - -    - -  - -  - -  - -
+0 |  _ 1  _ 1  1 _  H h    1 _  1 _  _ 1  h H
+1 |  _ 1  _ 1  _ 1  G g    1 _  1 _  1 _  g G
+2 |  _ 1  _ 1  1 _  F f    1 _  1 _  _ 1  f F
+3 |  _ 1  _ 1  _ _  E e    1 _  1 _  _ _  e E
+4 |  1 _  _ 1  _ _  D d    _ 1  1 _  _ _  d D
+5 |  1 _  _ 1  _ _  C c    _ 1  1 _  _ _  c C
+6 |  1 _  _ 1  1 1  B b    _ 1  1 _  1 1  b B
+7 |  1 _  _ 1  1 1  A a    _ 1  1 _  1 1  a A
 
    ---------------------------------------------------------------------------------------------------
 
@@ -205,5 +225,3 @@ W         COLUMN        (equivalent to flipping both vertically and horizonally)
 7 |  _ _ _ _ _ _ _ _    H G F E D C B A  
 
    ===================================================================================================
-
-  II) Reversing this we recieve a stream of scrambled data and reverse each step in reverse order.
