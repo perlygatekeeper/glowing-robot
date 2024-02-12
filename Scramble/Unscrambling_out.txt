@@ -1,15 +1,118 @@
-131 10000011 1 3
-189 10111101 0 6
- 34 00100010 0 2
-150 10010110 0 4
-  1 00000001 1 1
- 85 01010101 0 4
- 45 00101101 0 4
-198 11000110 0 4
-    00110101  horizontal parity
-    10001000  vertical   parity
-Total one bits:  28
-Total 00  bits:  9
-Total 01  bits:  10
-Total 10  bits:  8
-Total 11  bits:  5
+Input source:  <_io.BufferedReader name='Sample_scrambled.txt'>
+Input filename:  Sample_scrambled.txt
+Output source:  <_io.BufferedWriter name='Sample_unscrambled.txt'>
+I will be unscrambling the input.
+read from yeilded bytearray(b'\x13\xf2i\x9d\x07F\x15\xae')
+Random block:
+00010011
+11110010
+01101001
+10011101
+00000111
+01000110
+00010101
+10101110
+read from yeilded bytearray(b'\xc7\x00G\xfftRJ\x04')
+read from yeilded bytearray(b'>\x00\xa7\x7f\x9a\xa2$K')
+read from yeilded bytearray(b'\xff\x04\r\xc4\x02\x0b\x00\xcb')
+read from yeilded bytearray(b"I\xec[\'\xd8\xca4\x10")
+read from yeilded bytearray(b'\x9a\x92\x9b\x9a\xb0\x9f\xb0\xb8')
+read from yeilded bytearray(b')3f\x80\x10\x02\xce\\')
+read from yeilded bytearray(b'\x10\x15\x18\x12\x1002;')
+read from yeilded bytearray(b'\x01d\xac\x89\x10 \xe2\x80')
+read from yeilded bytearray(b'\xdfM\x08\x08\xbf\xc2\x11\x10')
+read from yeilded bytearray(b'\x05\xc8l\xeeil\xc3i')
+read from yeilded bytearray(b'\xb1\x10\x1164\x10\xb0\x1b')
+read from yeilded bytearray(b'\x9e\xb2\x99\xb0\x9a\xb1\xb8\x96')
+read from yeilded bytearray(b'Y\x08\x8dY\rYY\xe9')
+read from yeilded bytearray(b'\x02\x04\x08\x9btJ\x993')
+read from yeilded bytearray(b'\x81\xc1\x99\xe0\x80\x90\x80\x81')
+read from yeilded bytearray(b'8\x00\x94\xf7)\x80\x13\\')
+read from yeilded bytearray(b'\x00\x00\x87\xff\xe2\x1d\xd8|')
+read from yeilded bytearray(b'=\x17:-\x92\x18\x9f\x96')
+read from yeilded bytearray(b'\x10F@\x08\x01<\x87\x8d')
+read from yeilded bytearray(b'\xc5\x9eq#\x18\xec>\xb2')
+read from yeilded bytearray(b'Y\x08\x8dY\rYY\xe9')
+read from yeilded bytearray(b'\x02\x04\x08\x9btJ\x993')
+read from yeilded bytearray(b'\x91\xc9\x81\xe0\x88\x90\xa0\x91')
+read from yeilded bytearray(b'\xcc\t\x99`\xa0\x80\x01b')
+read from yeilded bytearray(b'3L@0\x98L\xe6z')
+read from yeilded bytearray(b'\xd6rR\xcdI\xbe\xa5\xb4')
+read from yeilded bytearray(b'\xbb\xeaU\xba\xf4\xa4\x00N')
+read from yeilded bytearray(b'\x95\xbe1\xbd\xb2\x91\xbc2')
+read from yeilded bytearray(b'P\x02@L\x81\xe1\x84\x85')
+read from yeilded bytearray(b'\x97\xd3\x9c\x95\xd4\x91\xd0\x9d')
+read from yeilded bytearray(b'\x99\x1a\x14\x98\xb0\x93\xb2\x92')
+read from yeilded bytearray(b'>\x00\x06\xff5\x10\x0b#')
+read from yeilded bytearray(b'\x99\xc4\x0eq\x01\x91@#')
+read from yeilded bytearray(b'\x027\x16B\x02C\x02f')
+read from yeilded bytearray(b'Y\xb8#\xca\xe1\x91`\r')
+read from yeilded bytearray(b'd6&g\x96wt\xa7')
+read from yeilded bytearray(b'%\xc8\x85,\xf2\xec3G')
+read from yeilded bytearray(b'Ki\x00\xa5\xffk-\xad')
+read from yeilded bytearray(b'PB@\x0c\x81\xa1\x84\xc5')
+read from yeilded bytearray(b'\xd4\x97\x9e\xd1\x91\x9d\xd4\x91')
+read from yeilded bytearray(b'\x99\x1a\x14\x98\xb0\x93\xb2\x92')
+read from yeilded bytearray(b'>\x00\x06\xff5\x10\x0b#')
+read from yeilded bytearray(b'8\xc46 \x01\x91@3')
+read from yeilded bytearray(b'\x16\x18\x00D\xff\xd0\x00\x0c')
+read from yeilded bytearray(b'\xae.\xc4K\x84Dg\xef')
+read from yeilded bytearray(b'\xdd\x00\x9d\xf7e\xa8\x01\xe8')
+read from yeilded bytearray(b'\xdb%\x92kJ\xff\xf6\x00')
+read from yeilded bytearray(b'\x01\x11\x00@\xff\xa9\x00\x0e')
+read from yeilded bytearray(b'b\xfcWw\x89\xa2D\x9f')
+read from yeilded bytearray(b'\x84\x8a\x00\x86\xffM\x00\xcf')
+read from yeilded bytearray(b'\xc4\x14&\xe0H\x81 d')
+read from yeilded bytearray(b'\x10\x99\x19\x81\x102\xb21')
+read from yeilded bytearray(b'%\xff/\x00\x00\x06\x0c\x02')
+read from yeilded bytearray(b'~\x00\x86\xdfX\x07h@')
+read from yeilded bytearray(b'W\xf3i\xdcR\xb1\xd6\xaf')
+read from yeilded bytearray(b'\xd8\x1e\xa0\xe3\x9ecxw')
+read from yeilded bytearray(b'\xb1c\xff\x12\x00H\x90\xd8')
+read from yeilded bytearray(b'\x102\x10\xb0\x9a\xb1\x9c\xb6')
+read from yeilded bytearray(b'LKM\xccYMM\xd9')
+read from yeilded bytearray(b'\x8b\x92\x99\x9a\x1b\x10\x01\xb3')
+read from yeilded bytearray(b'\x90\x88\x80\x80\x81\x84\x82\x81')
+read from yeilded bytearray(b'\x10\xdf\x81\x00 \x82\x1c\x00')
+read from yeilded bytearray(b'\x0c\x8a1"\xec\x81#\x06')
+read from yeilded bytearray(b'f\xbe\xa6r,z\xa4\x8e')
+read from yeilded bytearray(b'"\xa0\xba\xf2\xfd\xe0\x00\xbb')
+read from yeilded bytearray(b'\xfb\x00{\xff\xa4a$\x96')
+read from yeilded bytearray(b'\x00A\x00E\xff\x84\x0c\x80')
+read from yeilded bytearray(b'\xd4\x97\x9e\xd1\x91\x9d\xd4\x91')
+read from yeilded bytearray(b'\x99\x1a\x14\x98\xb0\x93\xb2\x92')
+read from yeilded bytearray(b'>\x00\x06\xff5\x10\x0b#')
+read from yeilded bytearray(b'\x19\xc4\x04 \x01\x91@\x0b')
+read from yeilded bytearray(b'`\x00\x16\xffD\x00Q\x05')
+read from yeilded bytearray(b'[\xbbc\xca\xa1Ra\x0f')
+read from yeilded bytearray(b'?\xd5\x01\xe9\xd6\x8b\xa2\xd7')
+read from yeilded bytearray(b'{\xfa\xc2" 5\x99\xed')
+read from yeilded bytearray(b'\x10F@\x08\x01<\x87\x8d')
+read from yeilded bytearray(b'\xc5\x9eq#\x18\xec>\xb2')
+read from yeilded bytearray(b'Y\x08\x8dY\rYY\xe9')
+read from yeilded bytearray(b'\x02\x04\x08\x9btJ\x993')
+read from yeilded bytearray(b'\x91\xc1\x89\xa8\xc0\xf0\xc0\x81')
+read from yeilded bytearray(b'a\xa4g\x04\xcc\x8c\x04L')
+read from yeilded bytearray(b'v,^\x0ef\x86\xcc\x84')
+read from yeilded bytearray(b'\xfd\xa9\xf9\xcd\x15y\xa9\xd9')
+read from yeilded bytearray(b'\xfe\x00\xe1ooC/M')
+read from yeilded bytearray(b'\xde\x00{\xffR-IK')
+read from yeilded bytearray(b'P\x02@L\x81\xe1\x84\x85')
+read from yeilded bytearray(b'\x97\xd3\x9c\x95\xd4\x91\xd0\x9d')
+read from yeilded bytearray(b'\x99\x1a\x14\x98\xb0\x93\xb2\x92')
+read from yeilded bytearray(b'>\x00\x06\xff5\x10\x0b#')
+read from yeilded bytearray(b'\xb9\xc9f \x01\x91@\x17')
+read from yeilded bytearray(b'C\xce\x08\x99"\xc0\x80\t')
+read from yeilded bytearray(b'1\xd0\xa2#U\x03\xaa\xca')
+read from yeilded bytearray(b'J?5\xeb\xfb!\x00\xff')
+read from yeilded bytearray(b'\xab\xb4G\xb2\xa8j\x19\xd6')
+read from yeilded bytearray(b'\x0f6\xee\xd2\x1b\x1ei\xa0')
+read from yeilded bytearray(b'\x10F@\x08\x01i\x87\x8d')
+read from yeilded bytearray(b'\x11"\xfb\x15\xe6\xb8\xbeL')
+read from yeilded bytearray(b'Y\x08\x8dY\rYY\xe9')
+read from yeilded bytearray(b'\x02\x04\x08\x9btJ\x993')
+read from yeilded bytearray(b'\x81\xc9\x91\xa8\x80\xd0\xc0\x91')
+read from yeilded bytearray(b'\x82\x7f2\x00\x88(\x07\x00')
+read from yeilded bytearray(b'\x7f4\x08\xc0\xaa\xfa\x00\xe0')
+read from yeilded bytearray(b'\x9ccP\x86\xbf\x0b\x00\xff')
+read from yeilded bytearray(b'\xec0T\xe0X\x90\x08\x90')

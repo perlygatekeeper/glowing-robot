@@ -1,4 +1,5 @@
-# ./scramble_message.py -d    Sample_file.txt      Sample_scrambled.txt   | tee   Scrambling_out.txt
-# ./scramble_message.py -d -u Sample_scrambled.txt Sample_unscrambled.txt | tee Unscrambling_out.txt
-./scramble_message.py    Sample_file.txt      Sample_scrambled.txt   | tee   Scrambling_out.txt
-./scramble_message.py -u Sample_scrambled.txt Sample_unscrambled.txt | tee Unscrambling_out.txt
+./scramble_message.py -d    Sample_file.txt      Sample_scrambled.txt   >   Scrambling_out.txt
+./scramble_message.py -d -u Sample_scrambled.txt Sample_unscrambled.txt > Unscrambling_out.txt
+# ./scramble_message.py    Sample_file.txt      Sample_scrambled.txt   | tee   Scrambling_out.txt
+# ./scramble_message.py -u Sample_scrambled.txt Sample_unscrambled.txt | tee Unscrambling_out.txt
+diff Sample_file.txt Sample_unscrambled.txt

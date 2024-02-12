@@ -4,6 +4,7 @@ import ByteTransformer
 import sys
 import argparse
 import re
+import os
 
 ''' Preloop
        Parse Arguments (if any)
@@ -19,6 +20,14 @@ import re
        Output Scrambled or Unscrambled block
 
 '''
+
+def get_file_size(filename):
+    try:
+        file_size = os.path.getsize(filename)
+        return file_size
+    except OSError as e:
+        print(f"Error getting file size: {e}")
+        return None
 
 # Create a parser object
 parser = argparse.ArgumentParser(description="Process input, either scrambling or unscrambling it")
@@ -46,22 +55,23 @@ if (not args.action):
       script_name = sys.argv[0]
       raise ValueError(f"script name must begin with either 'scramble' or 'unscramble' and we're named '{script_name}'")
 
+if args.infile == sys.stdin:
+        args.infile = args.infile.buffer  # Access the underlying binary buffer
+
+if args.outfile == sys.stdout:
+        args.outfile = args.outfile.buffer  # Access the underlying binary buffer
+
 # Print the parsed input filename
 if (args.debug):
-  print("Input filename: ",  args.infile)
-  print("Output filename: ", args.outfile)
+  print("Input source: ",  args.infile)
+  print("Input filename: ",  args.infile.name)
+  print("Output source: ", args.outfile)
   if (args.action == 'scramble'):
     print("I will be scrambling the input.")
   elif (args.action == 'unscramble'):
     print("I will be unscrambling the input.")
   else:
     print("I have no idea what I'm supposed to be doing with the input.")
-
-if args.infile == sys.stdin:
-        args.infile = args.infile.buffer  # Access the underlying binary buffer
-
-if args.outfile == sys.stdout:
-        args.outfile = args.outfile.buffer  # Access the underlying binary buffer
 
 # if ( ( not args.infile ) or ( not args.outfile ) ):
 #     print(f"You must supply both an input and output source, which both may be '-' or a filename.\n")
@@ -87,7 +97,12 @@ if (args.action == 'scramble'):
     #
     # ____XPPP  <- X=1 input source is a file and PPP is number of padding bytes
     #           \- X=0 input source is a STDIN and PPP is left as random
-    # if ( type(args.outfile) == '-' ):
+    if ( args.infile.name == '<stdin>' ):
+        transformer.data[7] &= 0xF7  # mask with 11110111 (turning off 4th bit from right
+    else:
+        transformer.data[7] &= 0xF0  # mask with 11110000
+        transformer.data[7] |= ( 0x08 | (  get_file_size(args.infile.name) % 8 ) )
+    params = transformer.parameters(0)
 
     if (args.debug):
         transformer.print_as_bit_array("Random block:")
@@ -171,15 +186,24 @@ elif (args.action == 'unscramble'):
     # transformer.print_as_bit_array("Random block:")
     output_file = transformer.output_file(args.outfile,0)
     first_chunk = True
+    padding = 0
+    last_block_size = 0
     for chunk in transformer.read_from(args.infile):
         if (args.debug):
             print(f"read from yeilded {chunk}")
+        if ( padding and blocks > 0):
+            # write out the padding-sized last bit from old block
+            # this will not be done for the LAST block in the stream,
+            # thus dropping the padding
+            transformer.partial_write_to(output_file,last_block_size,8)
         transformer=ByteTransformer.ByteTransformer(chunk)
         if (first_chunk):
             if (args.debug):
                 transformer.print_as_bit_array("Random block:")
             first_chunk = False
             params = transformer.parameters(0)
+            padding = (transformer.data[7] & 0x08) >> 3
+            last_block_size = transformer.data[7] & 0x07
             continue
         blocks += 1
         pre_unscrambled_params = transformer.parameters(0) # used for inversion, doesn't matter that it's still unscrambled
@@ -240,10 +264,13 @@ elif (args.action == 'unscramble'):
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         # this chunk should now be unscrambled
         # write it out, and get it's parameters to use with next chunk
-        transformer.write_to(output_file)
+        if (padding):
+            transformer.partial_write_to(output_file,0,last_block_size)
+        else:
+            transformer.write_to(output_file)
         params = transformer.parameters(0)
 
-print(f"Processed {blocks} blocks.")
+# print(f"Processed {blocks} blocks.")
 
 
 exit()
