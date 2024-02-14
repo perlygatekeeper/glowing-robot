@@ -282,34 +282,6 @@ class ByteTransformer:
         for row in range(len(self.data)):
             self.data[row] = random.randint(0, 255)
 
-    def flip_vertically(self, debug=0):
-        # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
-        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
-        for i in range(len(self.data)):
-            rotated.data[i] = self.data[ ( 7 - i ) ]
-        self.data = rotated.data
-
-    def flip_horizontally(self, debug=0):
-        # self.data = self.data[::-1]
-        for i in range(len(self.data)):
-            self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
-
-    def increment_bytes(self):
-        for i in range(len(self.data)):
-            self.data[i] = (self.data[i] + 1) % 256  # Handle overflow
-
-    def decrement_bytes(self):
-        for i in range(len(self.data)):
-            self.data[i] = (self.data[i] - 1) % 256  # Handle underflow
-
-    def invert(self):
-        for i in range(len(self.data)):
-            # print(i)
-            # print(self.data[i])
-            # print(type(self.data[i]))
-            # self.data[i] = ByteTransformer.byte_transforms[self.data[i],'inverted']
-            self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
-
     def parameters (self,debug=0):
         parameters = { 'ones' : 0, '00' : 0, '01' : 0, '10' : 0, '11' : 0, 'h_parity' : 0, 'v_parity' : 0 }
         for i in range(len(self.data)):
@@ -335,6 +307,93 @@ class ByteTransformer:
             print('Total 10  bits: ', parameters['10'] )
             print('Total 11  bits: ', parameters['11'] )
         return parameters
+
+    def gear_rotate(self, param, debug=0):
+        print(f"gear_rotate with {param}, not yet implemented")
+        return
+        # will accumulate transformed block here, one quadrant at a time
+        gear_rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        if (param == 0): # I have to rotate at least one quadrant
+            return
+        # Top Left quadrant
+        control = ( param & \xC0 ) >> 6
+        if ( control == 1):
+            if (debug):
+                print("90 CW rotation for Top Left quadrant")
+        elif ( control == 2):
+            if (debug):
+                print("180 rotation for Top Left quadrant")
+            for row in range(4):
+                # row 0 -> 3 
+                # row 1 -> 2
+                # row 2 -> 1
+                # row 3 -> 0
+                gear_rotated.data[(3-row)] |= \
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4], 'reversed' ] << 4
+        elif ( control == 3):
+            if (debug):
+                print("90 CCW rotation for Top Left quadrant")
+        else:
+            if (debug):
+                print("no rotation for Top Left quadrant")
+
+        # Top Right quadrant
+        control = ( param & \x30 ) >> 4
+        if ( control == 1):
+            if (debug):
+                print("90 CW rotation for Top Right quadrant")
+        elif ( control == 2):
+            if (debug):
+                print("180 rotation for Top Right quadrant")
+            for row in range(4):
+                gear_rotated.data[(3-row)] |= \
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4], 'reversed' ] >> 4
+        elif ( control == 3):
+            if (debug):
+                print("90 CCW rotation for Top Right quadrant")
+        else:
+            if (debug):
+                print("no rotation for Top Right quadrant")
+
+        # Bottom Right quadrant
+        control = ( param & \x0C ) >> 2
+        if ( control == 1):
+            if (debug):
+                print("90 CW rotation for Bottom Right quadrant")
+        elif ( control == 2):
+            if (debug):
+                print("180 rotation for Bottom Right quadrant")
+            for row in range(4,8):
+                # row 4 -> 7
+                # row 5 -> 6
+                # row 6 -> 5
+                # row 7 -> 4
+                gear_rotated.data[(11-row)] |= \
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4], 'reversed' ] >> 4
+        elif ( control == 3):
+            if (debug):
+                print("90 CCW rotation for Bottom Right quadrant")
+        else:
+            if (debug):
+                print("no rotation for Bottom Right quadrant")
+
+        # Bottom Left quadrant
+        control = ( param & \x03 )
+        if ( control == 1):
+            if (debug):
+                print("90 CW rotation for Bottom Left quadrant")
+        elif ( control == 2):
+            if (debug):
+                print("180 rotation for Bottom Left quadrant")
+            for row in range(4,8):
+                gear_rotated.data[(11-row)] |= \
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4], 'reversed' ] << 4
+        elif ( control == 3):
+            if (debug):
+                print("90 CCW rotation for Bottom Left quadrant")
+        else:
+            if (debug):
+                print("no rotation for Bottom Left quadrant")
 
 # R
 # O
@@ -398,6 +457,8 @@ class ByteTransformer:
             rotated.print_as_bit_array("Rotated 180:")
             print(f"self after rotation {self}")
         self.data = rotated.data
+
+# ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
     def duplicate(self, other):
         for i in range(len(self.data)):
@@ -512,6 +573,30 @@ class ByteTransformer:
             print(f"{left:08b}\t{right:08b}")
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+    def flip_vertically(self, debug=0):
+        # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
+        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        for i in range(len(self.data)):
+            rotated.data[i] = self.data[ ( 7 - i ) ]
+        self.data = rotated.data
+
+    def flip_horizontally(self, debug=0):
+        # self.data = self.data[::-1]
+        for i in range(len(self.data)):
+            self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['reversed']
+
+    def increment_bytes(self):
+        for i in range(len(self.data)):
+            self.data[i] = (self.data[i] + 1) % 256  # Handle overflow
+
+    def decrement_bytes(self):
+        for i in range(len(self.data)):
+            self.data[i] = (self.data[i] - 1) % 256  # Handle underflow
+
+    def invert(self):
+        for i in range(len(self.data)):
+            self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
 
     def barber_pole(self, debug=0):
         # swap adjacent even and odd columns
