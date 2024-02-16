@@ -307,20 +307,18 @@ class ByteTransformer:
             print('Total 10  bits: ', parameters['10'] )
             print('Total 11  bits: ', parameters['11'] )
         return parameters
- 
+
     def gear_rotate(self, param, debug=0):
-        print(f"gear_rotate with {param}, not yet implemented")
-        return
+        if (debug):
+            print(f"gear_rotate with {param:08b}")
         # will accumulate transformed block here, one quadrant at a time
         gear_rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (param == 0): # I have to rotate at least one quadrant
             return
-
-
-
-
         # Top Left quadrant
         control = ( param & 192 ) >> 6
+        if (debug>1):
+            print(f"   Top Left  control {control:08b}")
         if ( control == 1):
             if (debug):
                 print("90 CW rotation for Top Left quadrant")
@@ -334,7 +332,7 @@ class ByteTransformer:
                 print("180 rotation for Top Left quadrant")
             for row in range(4):
                 gear_rotated.data[(3-row)] |= \
-                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4], 'reversed' ] << 4
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4]]['reversed'] << 4
         elif ( control == 3):
             if (debug):
                 print("90 CCW rotation for Top Left quadrant")
@@ -346,12 +344,12 @@ class ByteTransformer:
         else:
             if (debug):
                 print("no rotation for Top Left quadrant")
-
-
-
-
+            for row in range(4):
+                gear_rotated.data[row] |= self.data[row] & ByteTransformer.shift_mask_left[4]
         # Top Right quadrant
         control = ( param & 48 ) >> 4
+        if (debug>1):
+            print(f"   Top Right control {control:08b}")
         if ( control == 1):
             if (debug):
                 print("90 CW rotation for Top Right quadrant")
@@ -365,7 +363,7 @@ class ByteTransformer:
                 print("180 rotation for Top Right quadrant")
             for row in range(4):
                 gear_rotated.data[(3-row)] |= \
-                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4], 'reversed' ] >> 4
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4]]['reversed'] >> 4
         elif ( control == 3):
             if (debug):
                 print("90 CCW rotation for Top Right quadrant")
@@ -377,14 +375,12 @@ class ByteTransformer:
         else:
             if (debug):
                 print("no rotation for Top Right quadrant")
-
-
-
-
-
-
+            for row in range(4):
+                gear_rotated.data[row] |= self.data[row] & ByteTransformer.shift_mask_right[4]
         # Bottom Right quadrant
         control = ( param & 12 ) >> 2
+        if (debug>1):
+            print(f"Bottom Right control {control:08b}")
         if ( control == 1):
             if (debug):
                 print("90 CW rotation for Bottom Right quadrant")
@@ -402,7 +398,7 @@ class ByteTransformer:
                 # row 6 -> 5
                 # row 7 -> 4
                 gear_rotated.data[(11-row)] |= \
-                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4], 'reversed' ] >> 4
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_right[4]]['reversed'] >> 4
         elif ( control == 3):
             if (debug):
                 print("90 CCW rotation for Bottom Right quadrant")
@@ -414,28 +410,26 @@ class ByteTransformer:
         else:
             if (debug):
                 print("no rotation for Bottom Right quadrant")
-
-
-
-
-
-
+            for row in range(4,8):
+                gear_rotated.data[row] |= self.data[row] & ByteTransformer.shift_mask_right[4]
         # Bottom Left quadrant
         control = ( param & 3 )
+        if (debug>1):
+            print(f"Bottom Left  control {control:08b}")
         if ( control == 1):
             if (debug):
-                print("90 CW rotation for Bottom Left quadrant")
+                print("90 CW rotation for Bottom Left quadrant")    # <<<<<<   here
             for row in range(4,8):
                 set_mask = 1 << row     # this row's destination col, row 4 -> col 4, row 7 -> col 7
                 for col in range(4,8):  # loop over cols from left to right
                     if ( self.data[row] & ByteTransformer.bit_sensor[col] ):
-                        gear_rotated.data[ ( 7 - col ) ] |= set_mask   # choose desination row, col 4 -> row 3, col 7 -> row 0
+                        gear_rotated.data[ ( 11 - col ) ] |= set_mask   # choose desination row, col 4 -> row 7, col 7 -> row 4
         elif ( control == 2):
             if (debug):
                 print("180 rotation for Bottom Left quadrant")
             for row in range(4,8):
                 gear_rotated.data[(11-row)] |= \
-                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4], 'reversed' ] << 4
+                ByteTransformer.byte_transforms[ self.data[row] & ByteTransformer.shift_mask_left[4]]['reversed'] << 4
         elif ( control == 3):
             if (debug):
                 print("90 CCW rotation for Bottom Left quadrant")
@@ -447,6 +441,9 @@ class ByteTransformer:
         else:
             if (debug):
                 print("no rotation for Bottom Left quadrant")
+            for row in range(4,8):
+                gear_rotated.data[row] |= self.data[row] & ByteTransformer.shift_mask_left[4]
+        self.data = gear_rotated.data
 
 # R
 # O

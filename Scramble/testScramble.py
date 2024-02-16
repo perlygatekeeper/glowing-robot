@@ -105,6 +105,30 @@ for shift in (range(1,8)):
     print(f"Original\tShifted Horizontally by {shift}:")
     original.print_comparison(transformer)
 
+print("\n===============================\nGear Rotation method:")
+
+#  1 _ _ 1   _ _ _ 1    1001 0001  9 1
+#  _ 1 1 _   _ _ 1 _    0110 0010  6 2
+#  _ _ 1 _   _ 1 1 _    0010 0110  2 6
+#  _ _ _ 1   1 _ _ 1    0001 1001  1 9
+#
+#  1 _ _ 1   1 _ _ _    1001 1000  9 8
+#  _ 1 1 _   _ 1 _ _    0110 0100  6 4
+#  _ 1 _ _   _ 1 1 _    0100 0110  4 6
+#  1 _ _ _   1 _ _ 1    1000 1001  8 9
+
+original = ByteTransformer.ByteTransformer(b'\x91\x62\x26\x19\x98\x64\x46\x89')
+for rotation in (range(4)):
+    param = 0
+    r = rotation
+    for quadrant in (range(4)):
+        r = ( r + 1 ) % 4
+        param |= r << ( quadrant * 2 )
+    transformer = ByteTransformer.ByteTransformer(b'\x91\x62\x26\x19\x98\x64\x46\x89')
+    transformer.gear_rotate(param,1)
+    print(f"\nOriginal\tGear Rotated with {param:08b}:")
+    original.print_comparison(transformer)
+
 print("\n===============================\nSheering methods:\n")
 original = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
 

@@ -1,0 +1,69 @@
+Gear Rotation method:
+gear_rotate with 00111001
+no rotation for Top Left quadrant
+90 CCW rotation for Top Right quadrant
+180 rotation for Bottom Right quadrant
+90 CW rotation for Bottom Left quadrant
+
+Original	Gear Rotated with 00111001:
+1__1 ___1	1__1 1__1
+_11_ __1_	_11_ _11_
+__1_ _11_	__1_ __1_
+___1 1__1	___1 ___1
+
+1__1 1___	1__1 1__1
+_11_ _1__	_11_ _11_
+_1__ _11_	__1_ __1_
+1___ 1__1	___1 ___1
+
+gear_rotate with 01001110
+90 CW rotation for Top Left quadrant
+no rotation for Top Right quadrant
+90 CCW rotation for Bottom Right quadrant
+180 rotation for Bottom Left quadrant
+
+Original	Gear Rotated with 01001110:
+1__1 ___1	___1 ___1
+_11_ __1_	__1_ __1_
+__1_ _11_	_11_ _11_
+___1 1__1	1__1 1__1
+
+1__1 1___	___1 ___1
+_11_ _1__	__1_ __1_
+_1__ _11_	_11_ _11_
+1___ 1__1	1__1 1__1
+
+gear_rotate with 10010011
+180 rotation for Top Left quadrant
+90 CW rotation for Top Right quadrant
+no rotation for Bottom Right quadrant
+90 CCW rotation for Bottom Left quadrant
+
+Original	Gear Rotated with 10010011:
+1__1 ___1	1___ 1___
+_11_ __1_	_1__ _1__
+__1_ _11_	_11_ _11_
+___1 1__1	1__1 1__1
+
+1__1 1___	1___ 1___
+_11_ _1__	_1__ _1__
+_1__ _11_	_11_ _11_
+1___ 1__1	1__1 1__1
+
+gear_rotate with 11100100
+90 CCW rotation for Top Left quadrant
+180 rotation for Top Right quadrant
+90 CW rotation for Bottom Right quadrant
+no rotation for Bottom Left quadrant
+
+Original	Gear Rotated with 11100100:
+1__1 ___1	1__1 1__1
+_11_ __1_	_11_ _11_
+__1_ _11_	_1__ _1__
+___1 1__1	1___ 1___
+
+1__1 1___	1__1 1__1
+_11_ _1__	_11_ _11_
+_1__ _11_	_1__ _1__
+1___ 1__1	1___ 1___
+
