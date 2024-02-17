@@ -1,4 +1,11 @@
 #!/opt/local/bin/python
+#
+# Scramble the bits of text and other files
+#
+# Version:           1.4.0
+# Last_modification: 2024/02/17
+# Author:            Dr. Steven Parker
+# Copyright:         All rights reserved
 
 import ByteTransformer
 import sys
@@ -179,10 +186,10 @@ if (args.action == 'scramble'):
             else:
                 transformer.shift_vertically( (shift & 0x07), 0)
 
-        if (0):
-          gears = ( params['v_parity'] )
+        if (1):
+          gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
           if ( gears != 0 ): # only gear rotate if our shift amount is non-zero
-          transformer.gear_rotate(gears, 0)
+              transformer.gear_rotate(gears, 0)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         transformer.write_to(output_file)
@@ -234,10 +241,22 @@ elif (args.action == 'unscramble'):
           if ( pre_unscrambled_params['ones'] < 4 ):
               transformer.invert()
 
-        if (0):
-          gears = ( params['v_parity'] )
+        if (1):
+          gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
+          if ( gears &  64 ):  # Top Left quadrant
+              gears ^= 128
+          if ( gears &  16 ):  # Top Right quadrant
+              gears ^=  32
+          if ( gears &   4 ):  # Bottom Right quadrant
+              gears ^=   8
+          if ( gears &   1 ):  # Bottom Left quadrant
+              gears ^=   2
+          #  00 - 00 no ratation
+          #  01 - 11 <- changes  90 CW -> 90 CCW  01000000 00010000 00000100 00000001 ->  64, 16, 4, 1
+          #  10 - 10 180 ratation
+          #  11 - 01 <- changes  90 CCW -> 90 CW  10000000 00100000 00001000 00000010 -> 128, 32, 8, 2
           if ( gears != 0 ): # only gear rotate if our shift amount is non-zero
-          transformer.gear_rotate(gears, 0)
+              transformer.gear_rotate(gears, 0)
 
         if (1):
           # reverse order of operations
