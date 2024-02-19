@@ -44,6 +44,7 @@ parser = argparse.ArgumentParser(description="Process input, either scrambling o
 parser.add_argument('infile',  nargs='?', type=argparse.FileType('rb'), default=sys.stdin,  help="Path to the input file")
 parser.add_argument('outfile', nargs='?', type=argparse.FileType('wb'), default=sys.stdout, help="Path to the output file")
 parser.add_argument("-d", "--debug", help="set the debug flag", action="store_true")
+parser.add_argument("-64", "--base64", help="expect input or produce output that is base64 encoded", action="store_true")
 group = parser.add_mutually_exclusive_group()
 group.add_argument("-s", "--scramble",   dest='action', action="store_const", const="scramble")
 group.add_argument("-u", "--unscramble", dest='action', action="store_const", const="unscramble")
@@ -55,7 +56,7 @@ args = parser.parse_args()
 if (not args.action):
     if (re.search(r"^(?:.*/)?un(?:scramble)?",sys.argv[0])):
       args.action = 'unscramble'
-    elif (re.search(r"^(?:.*/)s(?:cramble)?",sys.argv[0])):
+    elif (re.search(r"^(?:.*/)?s(?:cramble)?",sys.argv[0])):
       args.action = 'scramble'
     else:
       script_name = sys.argv[0]
@@ -192,7 +193,8 @@ if (args.action == 'scramble'):
               transformer.gear_rotate(gears, 0)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
-        transformer.write_to(output_file)
+        
+        transformer.write_to(output_file, args.base64)
         params = pre_scrambled_params    # prepare for next chunk
 
 elif (args.action == 'unscramble'):
@@ -203,7 +205,7 @@ elif (args.action == 'unscramble'):
     first_chunk = True
     padding = 0
     last_block_size = 0
-    for chunk in transformer.read_from(args.infile):
+    for chunk in transformer.read_from(args.infile, args.base64):
         if (args.debug):
             print(f"read from yeilded {chunk}")
         if ( padding and blocks > 0):

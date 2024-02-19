@@ -6,6 +6,7 @@ import sys
 import io
 import functools
 import random
+import base64
 
 class ByteTransformer:
     shift_mask_left  = [ 0b00000000, 0b10000000, 0b11000000, 0b11100000, 0b11110000, 0b11111000, 0b11111100, 0b11111110 ]
@@ -547,18 +548,21 @@ class ByteTransformer:
         if (debug):
           print(f"partial_write_to has ended with output_source specified as {input_source}.")
 
-    def write_to(self, output_file, debug=0):
+    def write_to(self, output_file="-", base64=0, debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"write_to has started with output_source specified as {output_source}.")
         try:
-          output_file.write(self.data)
+          if (base64):
+            output_file.write( base64.b64encode(self.data) )
+          else:
+            output_file.write(self.data)
         except IOError as e:
           print("Error writing file:", e)
         if (debug):
           print(f"write_to has ended with output_source specified as {input_source}.")
 
-    def read_from(self, input_source="-", debug=0):
+    def read_from(self, input_source="-", base64=0, debug=0):
         """Reads 8 bytes at a time from a file or standard input.
         Args:
           input_source: The input source, either a filename as a string or '-' for standard input or a filehandle
@@ -583,16 +587,25 @@ class ByteTransformer:
           raise ValueError(f"Invalid input source: {input_source}")
         try:
           while True:
-            chunk = input_file.read(8)
-            # print(f"chunk read {chunk}.")
-            if not chunk:
-              break
-            # yield 1
-            if isinstance(chunk, (bytearray, bytes)):
-                self.data = bytearray(chunk)  # No need for encoding
+            if (base64):
+              chunk = input_file.read(32)
+              decoded_data = base64.b64decode(chunk)
+              if not chunk:
+                break
+              for i in range(0, 24, 8):
+                yield bytearray(decoded_data[i:i+8])
             else:
-                self.data = bytearray(chunk, encoding=encoding)
-            yield self.data
+              chunk = input_file.read(8)
+              # print(f"chunk read {chunk}.")
+              if not chunk:
+                break
+              # yield 1
+              if isinstance(chunk, (bytearray, bytes)):
+                  self.data = bytearray(chunk)  # No need for encoding
+              else:
+                  self.data = bytearray(chunk, encoding=encoding)
+              yield self.data
+
         finally:
           if input_source != '-':
             input_file.close()
