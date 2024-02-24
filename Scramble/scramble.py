@@ -115,7 +115,7 @@ if (args.action == 'scramble'):
         transformer.print_as_bit_array("Random block:")
 
     output_file = transformer.output_file(args.outfile)
-    transformer.write_to(output_file)
+    transformer.write_to(output_file,args.base64)
     for chunk in transformer.read_from(args.infile):
         blocks += 1
         if ( len(chunk) < 8 ):

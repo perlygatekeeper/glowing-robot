@@ -3,14 +3,14 @@ Input filename:  Sample_file.txt
 Output source:  <_io.BufferedWriter name='Sample_scrambled.txt'>
 I will be scrambling the input.
 Random block:
-11001000
-10110000
+10000111
+10011000
+10010000
 11111000
-10110101
-10100101
-00011101
-11100010
-00111110
+00001100
+11110100
+11011101
+11011110
 read from yeilded bytearray(b'total 18')
 read from yeilded bytearray(b'4\ndrwxr-')
 read from yeilded bytearray(b'xr-x  11')

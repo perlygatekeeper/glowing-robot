@@ -548,13 +548,16 @@ class ByteTransformer:
         if (debug):
           print(f"partial_write_to has ended with output_source specified as {input_source}.")
 
-    def write_to(self, output_file="-", base64=0, debug=0):
+    def write_to(self, output_file="-", encode_base64=0, buffer, debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"write_to has started with output_source specified as {output_source}.")
         try:
-          if (base64):
-            output_file.write( base64.b64encode(self.data) )
+          if (encode_base64):
+            if ( len(buffer) <= 1 ):
+              buffer.append(self.data)
+            else:
+              output_file.write( base64.b64encode(self.data) )
           else:
             output_file.write(self.data)
         except IOError as e:
@@ -562,7 +565,7 @@ class ByteTransformer:
         if (debug):
           print(f"write_to has ended with output_source specified as {input_source}.")
 
-    def read_from(self, input_source="-", base64=0, debug=0):
+    def read_from(self, input_source="-", decode_base64=0, debug=0):
         """Reads 8 bytes at a time from a file or standard input.
         Args:
           input_source: The input source, either a filename as a string or '-' for standard input or a filehandle
@@ -587,7 +590,7 @@ class ByteTransformer:
           raise ValueError(f"Invalid input source: {input_source}")
         try:
           while True:
-            if (base64):
+            if (decode_base64):
               chunk = input_file.read(32)
               decoded_data = base64.b64decode(chunk)
               if not chunk:
