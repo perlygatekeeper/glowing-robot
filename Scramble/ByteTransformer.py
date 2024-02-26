@@ -664,6 +664,12 @@ class ByteTransformer:
         for i in range(len(self.data)):
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
 
+    def whirlpool(self, param, debug=0):
+        print(f"Whirlpool transform not yet implemented.")
+
+    def checkerboard(self, param, debug=0):
+        print(f"Checkerboard transform not yet implemented.")
+
     def barber_pole(self, debug=0):
         # swap adjacent even and odd columns
         barber_poled = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
