@@ -316,26 +316,41 @@ Rotations should be between 1 and N-1.
 
    ---------------------------------------------------------------------------------------------------
 
-Salt analisys
+Salt Analisys:
 
 Whirlpool:
       31 x 23 x 15 x 23 =
    245985 combined transforms
 
+   need 4 numbers, 31, 23, 15, 23  So 5 bits each
+
 Checkerboard:
-      x 368 =
- 90522480
 
- -OR-
+   need 16 numbers, 23  So 5 bits each
 
-      x 368 =
- 94458240
+Salt Explanation:
 
-      256  8 bits
-    65536 16 bits
- 16777216 24 bits
- 67108864 28 bits
-134217728 29 bits
+  first 5 bytes encode for  pre-checkerboard whirlpool
+  and                      post-checkerboard whirlpool
+  last 10 bytes encode for checkerboard
+
+  1   a  f  k  p    u  0  5  A
+  2   b  g  l  q    v  1  6  B
+  3   c  h  m  r    w  2  7  C
+  4   d  i  n  s    x  3  8  D
+  5   e  j  o  t    y  4  9  E 
+
+  6   a  f  k  p  u  0  5  A
+  7   b  g  l  q  v  1  6  B
+  8   c  h  m  r  w  2  7  C
+  9   d  i  n  s  x  3  8  D
+ 10   e  j  o  t  y  4  9  E 
+
+ 11   a  f  k  p  u  0  5  A
+ 12   b  g  l  q  v  1  6  B
+ 13   c  h  m  r  w  2  7  C
+ 14   d  i  n  s  x  3  8  D
+ 15   e  j  o  t  y  4  9  E 
 
    ---------------------------------------------------------------------------------------------------
 
