@@ -1,6 +1,5 @@
 import random
 
-
 def unpack_salt(salt, debug=1):
     parameters = bytearray(24)
     # Unpack 15-byte Salt or Anti_Salt 

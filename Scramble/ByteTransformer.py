@@ -665,9 +665,63 @@ class ByteTransformer:
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
 
     def whirlpool(self, param, debug=0):
-        print(f"Whirlpool transform not yet implemented.")
+        whirlpooled = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        whirlpool = {
+        'square_1': [
+        [ 0, bit_sensor[0] ], [ 0, bit_sensor[1] ], [ 0, bit_sensor[2] ], [ 0, bit_sensor[3] ],
+        [ 0, bit_sensor[4] ], [ 0, bit_sensor[5] ], [ 0, bit_sensor[6] ], [ 0, bit_sensor[7] ],
+        [ 1, bit_sensor[7] ], [ 2, bit_sensor[7] ], [ 3, bit_sensor[7] ], [ 4, bit_sensor[7] ],
+        [ 5, bit_sensor[7] ], [ 6, bit_sensor[7] ], [ 7, bit_sensor[7] ], [ 7, bit_sensor[6] ],
+        [ 7, bit_sensor[5] ], [ 7, bit_sensor[4] ], [ 7, bit_sensor[3] ], [ 7, bit_sensor[2] ],
+        [ 7, bit_sensor[1] ], [ 7, bit_sensor[0] ], [ 6, bit_sensor[0] ], [ 5, bit_sensor[0] ],
+        [ 4, bit_sensor[0] ], [ 3, bit_sensor[0] ], [ 2, bit_sensor[0] ], [ 1, bit_sensor[0] ] ],
+        'square_2': [
+        [ 1, bit_sensor[1] ], [ 1, bit_sensor[2] ], [ 1, bit_sensor[3] ], [ 1, bit_sensor[4] ],
+        [ 1, bit_sensor[5] ], [ 1, bit_sensor[6] ], [ 2, bit_sensor[6] ], [ 3, bit_sensor[6] ],
+        [ 4, bit_sensor[6] ], [ 5, bit_sensor[6] ], [ 6, bit_sensor[6] ], [ 6, bit_sensor[5] ],
+        [ 6, bit_sensor[4] ], [ 6, bit_sensor[3] ], [ 6, bit_sensor[2] ], [ 6, bit_sensor[1] ],
+        [ 5, bit_sensor[1] ], [ 4, bit_sensor[1] ], [ 3, bit_sensor[1] ], [ 2, bit_sensor[1] ] ],
+        'square_3': [
+        [ 2, bit_sensor[2] ], [ 2, bit_sensor[3] ], [ 2, bit_sensor[4] ], [ 2, bit_sensor[5] ],
+        [ 3, bit_sensor[5] ], [ 4, bit_sensor[5] ], [ 5, bit_sensor[5] ], [ 5, bit_sensor[4] ],
+        [ 5, bit_sensor[3] ], [ 5, bit_sensor[2] ], [ 4, bit_sensor[2] ], [ 3, bit_sensor[2] ] ]
+        'square_4': [
+        [ 3, bit_sensor[3] ], [ 3, bit_sensor[4] ], [ 4, bit_sensor[4] ], [ 4, bit_sensor[3] ] ]
+        }
+        for square in whirlpool:
+            squrare_len = len( whirlpool[sqaure] )
+            for step in whirlpool[sqaure]:
+                new_step = ( step + param.STUFF ) % square_len
+                if ( self.data[step[0]] & step[1] ):
+                    whirlpooled.data[new_step[0]] |= new_step[1]
+        self.data = rotated.data
 
     def checkerboard(self, param, debug=0):
+        permutations_2x2 = [
+        { 'disturbed': 2, 'name': 'Swap Top    ',  'reverse':  0, 'permutation': [ [ [  0,  1 ], [  0, -1 ] ], [ [  0,  0 ], [  0,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap Bottom ',  'reverse':  1, 'permutation': [ [ [  0,  0 ], [  0,  0 ] ], [ [  0,  1 ], [  0, -1] ] ] },
+        { 'disturbed': 2, 'name': 'Swap Right  ',  'reverse':  2, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap \\      ', 'reverse':  3, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
+        { 'disturbed': 2, 'name': 'Swap Left   ',  'reverse':  4, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap /      ',  'reverse':  5, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
+        { 'disturbed': 4, 'name': 'Flip Vert   ',  'reverse':  6, 'permutation': [ [ [  1,  0 ], [  1,  0 ] ], [ [ -1,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 4, 'name': 'Flip Hori   ',  'reverse':  7, 'permutation': [ [ [  0,  1 ], [  0, -1 ] ], [ [  0,  1 ], [  0, -1] ] ] },
+        { 'disturbed': 4, 'name': 'X           ',  'reverse':  8, 'permutation': [ [ [  1,  1 ], [  1, -1 ] ], [ [ -1,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 3, 'name': 'TL -  CW    ',  'reverse': 10, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [ -1,  1 ], [  0, -1] ] ] },
+        { 'disturbed': 3, 'name': 'TL - CCW    ',  'reverse':  9, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [  0,  1 ], [ -1,  0] ] ] },
+        { 'disturbed': 3, 'name': 'TR -  CW    ',  'reverse': 12, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [ -1,  0 ], [  0, -1] ] ] },
+        { 'disturbed': 3, 'name': 'TR - CCW    ',  'reverse': 11, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 3, 'name': 'BR -  CW    ',  'reverse': 14, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
+        { 'disturbed': 3, 'name': 'BR - CCW    ',  'reverse': 13, 'permutation': [ [ [  1,  0 ], [  0, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
+        { 'disturbed': 3, 'name': 'BL -  CW    ',  'reverse': 16, 'permutation': [ [ [  0,  1 ], [  1,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
+        { 'disturbed': 3, 'name': 'BL - CCW    ',  'reverse': 15, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 4, 'name': ' CW         ',  'reverse': 18, 'permutation': [ [ [  0,  1 ], [  1,  0 ] ], [ [ -1,  0 ], [  0, -1] ] ] },
+        { 'disturbed': 4, 'name': 'CCW         ',  'reverse': 17, 'permutation': [ [ [  1,  0 ], [  0, -1 ] ], [ [  0,  1 ], [ -1,  0] ] ] },
+        { 'disturbed': 4, 'name': 'Tv vT  B/ \\B', 'reverse': 20, 'permutation': [ [ [  1,  0 ], [  1,  0 ] ], [ [ -1,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 4, 'name': 'T\\ /T  B| |B', 'reverse': 19, 'permutation': [ [ [  1,  1 ], [  1, -1 ] ], [ [ -1,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 4, 'name': 'L- L-  R/ R\\', 'reverse': 22, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 4, 'name': 'L/ L\\  R- R-', 'reverse': 21, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [ -1,  1 ], [  0, -1] ] ] }
+        ]
         print(f"Checkerboard transform not yet implemented.")
 
     def barber_pole(self, debug=0):
@@ -778,4 +832,132 @@ class ByteTransformer:
 #   + parameters
 #   + random
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+
+def unpack_salt(salt, debug=0):
+    parameters = bytearray(24)
+    # Unpack 15-byte Salt or Anti_Salt 
+    # into 24 numbers 5 bits each, ready for use as parameters for transforms
+    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
+    if (debug):
+      print("Bytes passed in:")
+    for batch in range(3):
+        for batch_row in range(5):
+            bytes_row = batch * 5 + batch_row
+            if (debug):
+                print(f"{salt[bytes_row]:08b}")
+            for bit in range(8):
+                row = batch * 8 + bit
+                if (salt[bytes_row] & bit_sensor[bit]):
+                   parameters[row] |= 1 << batch_row
+        if (debug):
+            print("")
+    if (debug):
+        line = 0
+        separator = "\nSalt returned:"
+        for byte in parameters:
+            if (not line):
+                print(separator)
+                separator = ""
+            print(f"{byte:05b}")
+            line = (line + 1) % 8
+    return parameters
+
+def pack_salt(parameters, debug=0):
+    salt = bytearray(15)
+    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte salt
+    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
+    if (debug):
+        line = 0
+        separator = "Salt-based transform parameters passed in:"
+        for byte in parameters:
+            if (not line):
+                print(separator)
+                separator = ""
+            print(f"{byte:05b}")
+            line = (line + 1) % 8
+    for number in range(24):
+        packed_bit = number % 8
+        batch = int(number/8)
+        for unpacked_bit in range(5):
+            packed_byte = batch * 5 + unpacked_bit
+            set_bit = 1 << packed_bit
+            if ( parameters[number] & bit_sensor[unpacked_bit] ):
+                salt[packed_byte] |= set_bit
+    if (debug):
+        print("Salt derived from the given parameters:")
+        for bytes_row in range(15):
+            print(f"{salt[bytes_row]:08b}")
+    return salt
+
+def pack_anti_salt(parameters, debug=0):
+    anti_parameters = bytearray(24)
+    anti_salt = bytearray(15)
+    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
+    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
+    if (debug):
+        line = 0
+        separator = "Salt-based parameters passed in:"
+        for byte in parameters:
+            if (not line):
+                print(separator)
+                separator = ""
+            print(f"{byte:05b}")
+            line = (line + 1) % 8
+    # 4 5 6 7 0 1 2 3  - 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+    # Checkerboard
+    # Anti-X: X                    if  X <= 8
+    #         X + 1 + 2((x%2)-1)   if  X >= 9
+    # Whirlpool
+    # 0  26 - X
+    # 1  18 - X
+    # 2  10 - X
+    # 3  Anti - Checkerboard
+    i = 0
+    for number in ( 4, 5, 6, 7, 0, 1, 2, 3, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
+        if ( number <= 7 and ( number % 4 ) != 3 ):
+            if ( ( number % 4 ) == 0 ):
+                anti_parameters[i] = 26 - parameters[number]
+            if ( ( number % 4 ) == 1 ):
+                anti_parameters[i] = 18 - parameters[number]
+            if ( ( number % 4 ) == 2 ):
+                anti_parameters[i] = 10 - parameters[number]
+        else:
+            if ( parameters[number] <= 8 ):
+                anti_parameters[i] = parameters[number]
+            else:
+                X = parameters[number]
+                anti_parameters[i] = X + 1 + 2 * ( ( X % 2 ) -1 )
+        i += 1
+    for number in range(24):
+        packed_bit = number % 8
+        batch = int(number/8)
+        for unpacked_bit in range(5):
+            packed_byte = batch * 5 + unpacked_bit
+            set_bit = 1 << packed_bit
+            if ( anti_parameters[number] & bit_sensor[unpacked_bit] ):
+                anti_salt[packed_byte] |= set_bit
+    if (debug):
+        print("Anti-Salt derived from the given parameters:")
+        for bytes_row in range(15):
+            print(f"{anti_salt[bytes_row]:08b}")
+    return anti_salt
+
+def random_parameters(debug=1):
+    parameters = bytearray(24)
+    for number in ( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
+        if ( number <= 7 and ( number % 4 ) != 3 ):
+            if ( ( number % 4 ) == 0 ):
+                parameters[number] = random.randint(0, 26)  # Generates a random integer between 0 (inclusive) and 23 (inclusive)
+            if ( ( number % 4 ) == 1 ):
+                parameters[number] = random.randint(0, 18)
+            if ( ( number % 4 ) == 2 ):
+                parameters[number] = random.randint(0, 10)
+        else:
+            parameters[number] = random.randint(0, 23)
+    return parameters
+
+# parameters = random_parameters()
+# pack_salt(parameters, 1)
+# pack_anti_salt(parameters, 1)
 

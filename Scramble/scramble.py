@@ -43,6 +43,7 @@ parser = argparse.ArgumentParser(description="Process input, either scrambling o
 # parser.add_argument("output_filename", default="-", type=str, help="The path to the output file")
 parser.add_argument('infile',  nargs='?', type=argparse.FileType('rb'), default=sys.stdin,  help="Path to the input file")
 parser.add_argument('outfile', nargs='?', type=argparse.FileType('wb'), default=sys.stdout, help="Path to the output file")
+parser.add_argument('salt',    nargs='?', type=string, help="Salt, a 15-byte string")
 parser.add_argument("-d", "--debug", help="set the debug flag", action="store_true")
 parser.add_argument("-64", "--base64", help="expect input or produce output that is base64 encoded", action="store_true")
 group = parser.add_mutually_exclusive_group()
@@ -67,6 +68,9 @@ if args.infile == sys.stdin:
 
 if args.outfile == sys.stdout:
         args.outfile = args.outfile.buffer  # Access the underlying binary buffer
+
+if ( args.salt ):
+    parameters = transformer.unpack_salt(args.salt)
 
 # Print the parsed input filename
 if (args.debug):
@@ -192,6 +196,11 @@ if (args.action == 'scramble'):
           if ( gears != 0 ): # only gear rotate if our shift amount is non-zero
               transformer.gear_rotate(gears, 0)
 
+        if ( 0 & args.salt):
+            transformer.whirlpool(paramerters[0:4])
+            transformer.checkerboard(paramerters[-16:])
+            transformer.whirlpool(paramerters[4:8])
+
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
         transformer.write_to(output_file, args.base64)
@@ -296,6 +305,11 @@ elif (args.action == 'unscramble'):
 
         if (1): # mandatory transform of barber_poling (swapping adjacent odd and even columns)
               transformer.barber_pole()
+
+        if ( 0 & args.salt):
+            transformer.whirlpool(paramerters[0:4])
+            transformer.checkerboard(paramerters[-16:])
+            transformer.whirlpool(paramerters[4:8])
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         # this chunk should now be unscrambled
