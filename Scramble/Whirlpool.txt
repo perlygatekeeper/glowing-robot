@@ -1,0 +1,111 @@
+#     7 6 5 4 3 2 1 0    7 6 5 4 3 2 1 0    7 6 5 4 3 2 1 0    7 6 5 4 3 2 1 0
+#  0  A B C D E F G H    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _
+#  1  2 _ _ _ _ _ _ I    _ A B C D E F _    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _
+#  2  1 _ _ _ _ _ _ J    _ T _ _ _ _ G _    _ _ A B C D _ _    _ _ _ _ _ _ _ _
+#  3  0 _ _ _ _ _ _ K    _ S _ _ _ _ H _    _ _ L _ _ E _ _    _ _ _ A B _ _ _
+#  4  Z _ _ _ _ _ _ L    _ R _ _ _ _ I _    _ _ K _ _ F _ _    _ _ _ D C _ _ _
+#  5  Y _ _ _ _ _ _ M    _ Q _ _ _ _ J _    _ _ J I H G _ _    _ _ _ _ _ _ _ _
+#  6  X _ _ _ _ _ _ N    _ P O N M L K _    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _
+#  7  V U T S R Q P O    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _    _ _ _ _ _ _ _ _
+#     28 bit locations   20 bit locations   12 bit locations   4 bit locations
+
+
+bit_sensor       = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
+whirlpool = {
+#     7 6 5 4 3 2 1 0
+#  0  A B C D E F G H
+#  1  2 _ _ _ _ _ _ I
+#  2  1 _ _ _ _ _ _ J
+#  3  0 _ _ _ _ _ _ K
+#  4  Z _ _ _ _ _ _ L
+#  5  Y _ _ _ _ _ _ M
+#  6  X _ _ _ _ _ _ N
+#  7  V U T S R Q P O
+#    28 bit locations
+  'square_1': [
+    [ 0, bit_sensor[0] ],
+    [ 0, bit_sensor[1] ],
+    [ 0, bit_sensor[2] ],
+    [ 0, bit_sensor[3] ],
+    [ 0, bit_sensor[4] ],
+    [ 0, bit_sensor[5] ],
+    [ 0, bit_sensor[6] ],
+    [ 0, bit_sensor[7] ],
+    [ 1, bit_sensor[7] ],
+    [ 2, bit_sensor[7] ],
+    [ 3, bit_sensor[7] ],
+    [ 4, bit_sensor[7] ],
+    [ 5, bit_sensor[7] ],
+    [ 6, bit_sensor[7] ],
+    [ 7, bit_sensor[7] ],
+    [ 7, bit_sensor[6] ],
+    [ 7, bit_sensor[5] ],
+    [ 7, bit_sensor[4] ],
+    [ 7, bit_sensor[3] ],
+    [ 7, bit_sensor[2] ],
+    [ 7, bit_sensor[1] ],
+    [ 7, bit_sensor[0] ],
+    [ 6, bit_sensor[0] ],
+    [ 5, bit_sensor[0] ],
+    [ 4, bit_sensor[0] ],
+    [ 3, bit_sensor[0] ],
+    [ 2, bit_sensor[0] ],
+    [ 1, bit_sensor[0] ]
+  ],
+#      7 6 5 4 3 2 1 0
+#  0   _ _ _ _ _ _ _ _
+#  1   _ A B C D E F _
+#  2   _ T _ _ _ _ G _
+#  3   _ S _ _ _ _ H _
+#  4   _ R _ _ _ _ I _
+#  5   _ Q _ _ _ _ J _
+#  6   _ P O N M L K _
+#  7   _ _ _ _ _ _ _ _
+#      20 bit location
+  'square_2': [
+    [ 1, bit_sensor[1] ],
+    [ 1, bit_sensor[2] ],
+    [ 1, bit_sensor[3] ],
+    [ 1, bit_sensor[4] ],
+    [ 1, bit_sensor[5] ],
+    [ 1, bit_sensor[6] ],
+    [ 2, bit_sensor[6] ],
+    [ 3, bit_sensor[6] ],
+    [ 4, bit_sensor[6] ],
+    [ 5, bit_sensor[6] ],
+    [ 6, bit_sensor[6] ],
+    [ 6, bit_sensor[5] ],
+    [ 6, bit_sensor[4] ],
+    [ 6, bit_sensor[3] ],
+    [ 6, bit_sensor[2] ],
+    [ 6, bit_sensor[1] ],
+    [ 5, bit_sensor[1] ],
+    [ 4, bit_sensor[1] ],
+    [ 3, bit_sensor[1] ],
+    [ 2, bit_sensor[1] ]
+  ],
+  'square_3': [
+#      7 6 5 4 3 2 1 0
+#  0   _ _ _ _ _ _ _ _
+#  1   _ _ _ _ _ _ _ _
+#  2   _ _ A B C D _ _
+#  3   _ _ L _ _ E _ _
+#  4   _ _ K _ _ F _ _
+#  5   _ _ J I H G _ _
+#  6   _ _ _ _ _ _ _ _
+#  7   _ _ _ _ _ _ _ _
+#     12 bit locations
+
+    [ 2, bit_sensor[2] ],
+    [ 2, bit_sensor[3] ],
+    [ 2, bit_sensor[4] ],
+    [ 2, bit_sensor[5] ],
+    [ 3, bit_sensor[5] ],
+    [ 4, bit_sensor[5] ],
+    [ 5, bit_sensor[5] ],
+    [ 5, bit_sensor[4] ],
+    [ 5, bit_sensor[3] ],
+    [ 5, bit_sensor[2] ],
+    [ 4, bit_sensor[2] ],
+    [ 3, bit_sensor[2] ]
+  ],
