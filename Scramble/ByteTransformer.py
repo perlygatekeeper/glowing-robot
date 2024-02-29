@@ -699,6 +699,7 @@ class ByteTransformer:
         self.data = whirlpooled.data
 
     def checkerboard(self, param, debug=0):
+        checkerboarded = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         permutations_2x2 = [
         { 'disturbed': 2, 'name': 'Swap Top    ',  'reverse':  0, 'permutation': [ [ [  0,  1 ], [  0, -1 ] ], [ [  0,  0 ], [  0,  0] ] ] },
         { 'disturbed': 2, 'name': 'Swap Bottom ',  'reverse':  1, 'permutation': [ [ [  0,  0 ], [  0,  0 ] ], [ [  0,  1 ], [  0, -1] ] ] },
@@ -724,7 +725,22 @@ class ByteTransformer:
         { 'disturbed': 4, 'name': 'L- L-  R/ R\\', 'reverse': 22, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
         { 'disturbed': 4, 'name': 'L/ L\\  R- R-', 'reverse': 21, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [ -1,  1 ], [  0, -1] ] ] }
         ]
-        print(f"Checkerboard transform not yet implemented.")
+        # loop through the 16 squares
+        for row_offset in range(0,7,2):
+            for col_offset in range(0,7,2):
+                # loop over the 4 cells of the squares
+                p = param[ ( 4 * row_offset ) + col_offset ]
+                for r in range(1):
+                    for c in range(1):
+                        # does the cell have a 1?
+                        # if so: find the moves for that cell and set the destination cell
+                        if ( self.data[row_offset] & ByteTransformer.bit_sensor[ col_offset + c ] ):
+                            destination_row = row_offset + r + permutations_2x2[p][permutation][r][c][0]
+                            destination_col = col_offset + c + permutations_2x2[p][permutation][r][c][1]
+                            checkerboarded.data[destination_row] |= ByteTransformer.bit_sensor[ destination_col ]
+        self.data = checkerboarded.data
+
+
 
     def barber_pole(self, debug=0):
         # swap adjacent even and odd columns
