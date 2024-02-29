@@ -1,6 +1,6 @@
 import random
 
-def unpack_salt(salt, debug=1):
+def parameters_from_salt(salt, debug=0):
     parameters = bytearray(24)
     # Unpack 15-byte Salt or Anti_Salt 
     # into 24 numbers 5 bits each, ready for use as parameters for transforms
@@ -20,27 +20,27 @@ def unpack_salt(salt, debug=1):
             print("")
     if (debug):
         line = 0
-        separator = "\nSalt returned:"
+        separator = "\nParameters returned:"
         for byte in parameters:
             if (not line):
                 print(separator)
                 separator = ""
-            print(f"{byte:05b}")
+            print(f"{byte:05b} {byte:3d}")
             line = (line + 1) % 8
     return parameters
 
-def pack_salt(parameters, debug=1):
+def salt_from_parameters(parameters, debug=0):
     salt = bytearray(15)
     # Pack 24 5-bit numbers (parameters for transforms) into 15-byte salt
     bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
     if (debug):
         line = 0
-        separator = "Salt-based transform parameters passed in:"
+        separator = "Parameters (for Salt) passed in:"
         for byte in parameters:
             if (not line):
                 print(separator)
                 separator = ""
-            print(f"{byte:05b}")
+            print(f"{byte:05b} {byte:3d}")
             line = (line + 1) % 8
     for number in range(24):
         packed_bit = number % 8
@@ -53,22 +53,22 @@ def pack_salt(parameters, debug=1):
     if (debug):
         print("Salt derived from the given parameters:")
         for bytes_row in range(15):
-            print(f"{salt[bytes_row]:08b}")
+            print(f"{salt[bytes_row]:08b} {salt[bytes_row]:3d} {salt[bytes_row]:c} ")
     return salt
 
-def pack_anti_salt(parameters, debug=1):
+def anti_salt_from_parameters(parameters, debug=1):
     anti_parameters = bytearray(24)
     anti_salt = bytearray(15)
     # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
     bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
     if (debug):
         line = 0
-        separator = "Salt-based parameters passed in:"
+        separator = "Parameters (for Anti-Salt) passed in:"
         for byte in parameters:
             if (not line):
                 print(separator)
                 separator = ""
-            print(f"{byte:05b}")
+            print(f"{byte:05b} {byte:3d}")
             line = (line + 1) % 8
     # 4 5 6 7 0 1 2 3  - 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
     # Checkerboard
@@ -106,10 +106,10 @@ def pack_anti_salt(parameters, debug=1):
     if (debug):
         print("Anti-Salt derived from the given parameters:")
         for bytes_row in range(15):
-            print(f"{anti_salt[bytes_row]:08b}")
+            print(f"{anti_salt[bytes_row]:08b} {anti_salt[bytes_row]:3d} {anti_salt[bytes_row]:c} ")
     return anti_salt
 
-def random_parameters(debug=1):
+def random_parameters(debug=0):
     parameters = bytearray(24)
     for number in ( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
         if ( number <= 7 and ( number % 4 ) != 3 ):
@@ -123,9 +123,9 @@ def random_parameters(debug=1):
             parameters[number] = random.randint(0, 23)
     return parameters
 
-parameters = random_parameters()
-pack_salt(parameters, 1)
-pack_anti_salt(parameters, 1)
+parameters = random_parameters(1)
+salt_from_parameters(parameters, 1)
+anti_salt_from_parameters(parameters, 1)
 
 # unpack_salt( bytearray('Steven_ Parker:', 'utf-8' ) )
 
