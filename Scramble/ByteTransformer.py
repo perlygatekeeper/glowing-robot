@@ -2,6 +2,7 @@
 # Can you help me begin development of an object-oriented module in
 # python for performing transformations on length 8 bytearrays
 
+
 import sys
 import io
 import functools
@@ -703,44 +704,50 @@ class ByteTransformer:
         permutations_2x2 = [
         { 'disturbed': 2, 'name': 'Swap Top    ',  'reverse':  0, 'permutation': [ [ [  0,  1 ], [  0, -1 ] ], [ [  0,  0 ], [  0,  0] ] ] },
         { 'disturbed': 2, 'name': 'Swap Bottom ',  'reverse':  1, 'permutation': [ [ [  0,  0 ], [  0,  0 ] ], [ [  0,  1 ], [  0, -1] ] ] },
-        { 'disturbed': 2, 'name': 'Swap Right  ',  'reverse':  2, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
-        { 'disturbed': 2, 'name': 'Swap \\      ', 'reverse':  3, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
-        { 'disturbed': 2, 'name': 'Swap Left   ',  'reverse':  4, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
-        { 'disturbed': 2, 'name': 'Swap /      ',  'reverse':  5, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap Left   ',  'reverse':  2, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap /      ',  'reverse':  3, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
+        { 'disturbed': 2, 'name': 'Swap Right  ',  'reverse':  4, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
+        { 'disturbed': 2, 'name': 'Swap \\      ', 'reverse':  5, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
         { 'disturbed': 4, 'name': 'Flip Vert   ',  'reverse':  6, 'permutation': [ [ [  1,  0 ], [  1,  0 ] ], [ [ -1,  0 ], [ -1,  0] ] ] },
         { 'disturbed': 4, 'name': 'Flip Hori   ',  'reverse':  7, 'permutation': [ [ [  0,  1 ], [  0, -1 ] ], [ [  0,  1 ], [  0, -1] ] ] },
         { 'disturbed': 4, 'name': 'X           ',  'reverse':  8, 'permutation': [ [ [  1,  1 ], [  1, -1 ] ], [ [ -1,  1 ], [ -1, -1] ] ] },
-        { 'disturbed': 3, 'name': 'TL -  CW    ',  'reverse': 10, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [ -1,  1 ], [  0, -1] ] ] },
-        { 'disturbed': 3, 'name': 'TL - CCW    ',  'reverse':  9, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [  0,  1 ], [ -1,  0] ] ] },
-        { 'disturbed': 3, 'name': 'TR -  CW    ',  'reverse': 12, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [ -1,  0 ], [  0, -1] ] ] },
-        { 'disturbed': 3, 'name': 'TR - CCW    ',  'reverse': 11, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
-        { 'disturbed': 3, 'name': 'BR -  CW    ',  'reverse': 14, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
-        { 'disturbed': 3, 'name': 'BR - CCW    ',  'reverse': 13, 'permutation': [ [ [  1,  0 ], [  0, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
-        { 'disturbed': 3, 'name': 'BL -  CW    ',  'reverse': 16, 'permutation': [ [ [  0,  1 ], [  1,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
-        { 'disturbed': 3, 'name': 'BL - CCW    ',  'reverse': 15, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
+        { 'disturbed': 3, 'name': 'TR -  CW    ',  'reverse': 10, 'permutation': [ [ [  0,  0 ], [  1,  0 ] ], [ [ -1,  1 ], [  0, -1] ] ] },
+        { 'disturbed': 3, 'name': 'TR - CCW    ',  'reverse':  9, 'permutation': [ [ [  0,  0 ], [  1, -1 ] ], [ [  0,  1 ], [ -1,  0] ] ] },
+        { 'disturbed': 3, 'name': 'TL -  CW    ',  'reverse': 12, 'permutation': [ [ [  1,  1 ], [  0,  0 ] ], [ [ -1,  0 ], [  0, -1] ] ] },
+        { 'disturbed': 3, 'name': 'TL - CCW    ',  'reverse': 11, 'permutation': [ [ [  1,  0 ], [  0,  0 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 3, 'name': 'BL -  CW    ',  'reverse': 14, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [ -1,  0 ], [  0,  0] ] ] },
+        { 'disturbed': 3, 'name': 'BL - CCW    ',  'reverse': 13, 'permutation': [ [ [  1,  0 ], [  0, -1 ] ], [ [ -1,  1 ], [  0,  0] ] ] },
+        { 'disturbed': 3, 'name': 'BR -  CW    ',  'reverse': 16, 'permutation': [ [ [  0,  1 ], [  1,  0 ] ], [ [  0,  0 ], [ -1, -1] ] ] },
+        { 'disturbed': 3, 'name': 'BR - CCW    ',  'reverse': 15, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [  0,  0 ], [ -1,  0] ] ] },
         { 'disturbed': 4, 'name': ' CW         ',  'reverse': 18, 'permutation': [ [ [  0,  1 ], [  1,  0 ] ], [ [ -1,  0 ], [  0, -1] ] ] },
         { 'disturbed': 4, 'name': 'CCW         ',  'reverse': 17, 'permutation': [ [ [  1,  0 ], [  0, -1 ] ], [ [  0,  1 ], [ -1,  0] ] ] },
         { 'disturbed': 4, 'name': 'Tv vT  B/ \\B', 'reverse': 20, 'permutation': [ [ [  1,  0 ], [  1,  0 ] ], [ [ -1,  1 ], [ -1, -1] ] ] },
         { 'disturbed': 4, 'name': 'T\\ /T  B| |B', 'reverse': 19, 'permutation': [ [ [  1,  1 ], [  1, -1 ] ], [ [ -1,  0 ], [ -1,  0] ] ] },
-        { 'disturbed': 4, 'name': 'L- L-  R/ R\\', 'reverse': 22, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
-        { 'disturbed': 4, 'name': 'L/ L\\  R- R-', 'reverse': 21, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [ -1,  1 ], [  0, -1] ] ] }
+        { 'disturbed': 4, 'name': 'L/ L\\  R- R-', 'reverse': 22, 'permutation': [ [ [  0,  1 ], [  1, -1 ] ], [ [  0,  1 ], [ -1, -1] ] ] },
+        { 'disturbed': 4, 'name': 'L- L-  R/ R\\', 'reverse': 21, 'permutation': [ [ [  1,  1 ], [  0, -1 ] ], [ [ -1,  1 ], [  0, -1] ] ] }
         ]
         # loop through the 16 squares
+        if (debug):
+            print(f"{permutations_2x2[param[0]]['name']}")
         for row_offset in range(0,7,2):
             for col_offset in range(0,7,2):
                 # loop over the 4 cells of the squares
-                p = param[ ( 4 * row_offset ) + col_offset ]
-                for r in range(1):
-                    for c in range(1):
+                p = param[ int( ( 4 * row_offset/2 ) + col_offset/2 ) ]
+                for r in range(2):
+                    for c in range(2):
                         # does the cell have a 1?
                         # if so: find the moves for that cell and set the destination cell
-                        if ( self.data[row_offset] & ByteTransformer.bit_sensor[ col_offset + c ] ):
-                            destination_row = row_offset + r + permutations_2x2[p][permutation][r][c][0]
-                            destination_col = col_offset + c + permutations_2x2[p][permutation][r][c][1]
+                        if ( self.data[ row_offset + r ] & ByteTransformer.bit_sensor[ col_offset + c ] ):
+                            destination_row = row_offset + r + permutations_2x2[p]['permutation'][r][c][0]
+                            destination_col = col_offset + c + permutations_2x2[p]['permutation'][r][c][1]
                             checkerboarded.data[destination_row] |= ByteTransformer.bit_sensor[ destination_col ]
+                            if (debug>1):
+                                print(f"row_offset: {row_offset} col_offset: {col_offset} r: {r} c: {c} ", end="")
+                                print(f"bit found: settting new bit at {destination_row} {destination_col}")
+#                       else:
+#                           if (debug):
+#                               print(f"bit not found.")
         self.data = checkerboarded.data
-
-
 
     def barber_pole(self, debug=0):
         # swap adjacent even and odd columns
