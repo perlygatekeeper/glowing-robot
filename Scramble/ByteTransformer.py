@@ -548,7 +548,7 @@ class ByteTransformer:
         if (debug):
           print(f"partial_write_to has ended with output_source specified as {input_source}.")
 
-    def write_to(self, output_file="-", encode_base64=0, buffer, debug=0):
+    def write_to(self, output_file="-", encode_base64=0, buffer=[], debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"write_to has started with output_source specified as {output_source}.")
@@ -668,33 +668,35 @@ class ByteTransformer:
         whirlpooled = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         whirlpool = {
         'square_1': [
-        [ 0, bit_sensor[0] ], [ 0, bit_sensor[1] ], [ 0, bit_sensor[2] ], [ 0, bit_sensor[3] ],
-        [ 0, bit_sensor[4] ], [ 0, bit_sensor[5] ], [ 0, bit_sensor[6] ], [ 0, bit_sensor[7] ],
-        [ 1, bit_sensor[7] ], [ 2, bit_sensor[7] ], [ 3, bit_sensor[7] ], [ 4, bit_sensor[7] ],
-        [ 5, bit_sensor[7] ], [ 6, bit_sensor[7] ], [ 7, bit_sensor[7] ], [ 7, bit_sensor[6] ],
-        [ 7, bit_sensor[5] ], [ 7, bit_sensor[4] ], [ 7, bit_sensor[3] ], [ 7, bit_sensor[2] ],
-        [ 7, bit_sensor[1] ], [ 7, bit_sensor[0] ], [ 6, bit_sensor[0] ], [ 5, bit_sensor[0] ],
-        [ 4, bit_sensor[0] ], [ 3, bit_sensor[0] ], [ 2, bit_sensor[0] ], [ 1, bit_sensor[0] ] ],
+        [ 0, ByteTransformer.bit_sensor[0] ], [ 0, ByteTransformer.bit_sensor[1] ], [ 0, ByteTransformer.bit_sensor[2] ], [ 0, ByteTransformer.bit_sensor[3] ],
+        [ 0, ByteTransformer.bit_sensor[4] ], [ 0, ByteTransformer.bit_sensor[5] ], [ 0, ByteTransformer.bit_sensor[6] ], [ 0, ByteTransformer.bit_sensor[7] ],
+        [ 1, ByteTransformer.bit_sensor[7] ], [ 2, ByteTransformer.bit_sensor[7] ], [ 3, ByteTransformer.bit_sensor[7] ], [ 4, ByteTransformer.bit_sensor[7] ],
+        [ 5, ByteTransformer.bit_sensor[7] ], [ 6, ByteTransformer.bit_sensor[7] ], [ 7, ByteTransformer.bit_sensor[7] ], [ 7, ByteTransformer.bit_sensor[6] ],
+        [ 7, ByteTransformer.bit_sensor[5] ], [ 7, ByteTransformer.bit_sensor[4] ], [ 7, ByteTransformer.bit_sensor[3] ], [ 7, ByteTransformer.bit_sensor[2] ],
+        [ 7, ByteTransformer.bit_sensor[1] ], [ 7, ByteTransformer.bit_sensor[0] ], [ 6, ByteTransformer.bit_sensor[0] ], [ 5, ByteTransformer.bit_sensor[0] ],
+        [ 4, ByteTransformer.bit_sensor[0] ], [ 3, ByteTransformer.bit_sensor[0] ], [ 2, ByteTransformer.bit_sensor[0] ], [ 1, ByteTransformer.bit_sensor[0] ] ],
         'square_2': [
-        [ 1, bit_sensor[1] ], [ 1, bit_sensor[2] ], [ 1, bit_sensor[3] ], [ 1, bit_sensor[4] ],
-        [ 1, bit_sensor[5] ], [ 1, bit_sensor[6] ], [ 2, bit_sensor[6] ], [ 3, bit_sensor[6] ],
-        [ 4, bit_sensor[6] ], [ 5, bit_sensor[6] ], [ 6, bit_sensor[6] ], [ 6, bit_sensor[5] ],
-        [ 6, bit_sensor[4] ], [ 6, bit_sensor[3] ], [ 6, bit_sensor[2] ], [ 6, bit_sensor[1] ],
-        [ 5, bit_sensor[1] ], [ 4, bit_sensor[1] ], [ 3, bit_sensor[1] ], [ 2, bit_sensor[1] ] ],
+        [ 1, ByteTransformer.bit_sensor[1] ], [ 1, ByteTransformer.bit_sensor[2] ], [ 1, ByteTransformer.bit_sensor[3] ], [ 1, ByteTransformer.bit_sensor[4] ],
+        [ 1, ByteTransformer.bit_sensor[5] ], [ 1, ByteTransformer.bit_sensor[6] ], [ 2, ByteTransformer.bit_sensor[6] ], [ 3, ByteTransformer.bit_sensor[6] ],
+        [ 4, ByteTransformer.bit_sensor[6] ], [ 5, ByteTransformer.bit_sensor[6] ], [ 6, ByteTransformer.bit_sensor[6] ], [ 6, ByteTransformer.bit_sensor[5] ],
+        [ 6, ByteTransformer.bit_sensor[4] ], [ 6, ByteTransformer.bit_sensor[3] ], [ 6, ByteTransformer.bit_sensor[2] ], [ 6, ByteTransformer.bit_sensor[1] ],
+        [ 5, ByteTransformer.bit_sensor[1] ], [ 4, ByteTransformer.bit_sensor[1] ], [ 3, ByteTransformer.bit_sensor[1] ], [ 2, ByteTransformer.bit_sensor[1] ] ],
         'square_3': [
-        [ 2, bit_sensor[2] ], [ 2, bit_sensor[3] ], [ 2, bit_sensor[4] ], [ 2, bit_sensor[5] ],
-        [ 3, bit_sensor[5] ], [ 4, bit_sensor[5] ], [ 5, bit_sensor[5] ], [ 5, bit_sensor[4] ],
-        [ 5, bit_sensor[3] ], [ 5, bit_sensor[2] ], [ 4, bit_sensor[2] ], [ 3, bit_sensor[2] ] ]
+        [ 2, ByteTransformer.bit_sensor[2] ], [ 2, ByteTransformer.bit_sensor[3] ], [ 2, ByteTransformer.bit_sensor[4] ], [ 2, ByteTransformer.bit_sensor[5] ],
+        [ 3, ByteTransformer.bit_sensor[5] ], [ 4, ByteTransformer.bit_sensor[5] ], [ 5, ByteTransformer.bit_sensor[5] ], [ 5, ByteTransformer.bit_sensor[4] ],
+        [ 5, ByteTransformer.bit_sensor[3] ], [ 5, ByteTransformer.bit_sensor[2] ], [ 4, ByteTransformer.bit_sensor[2] ], [ 3, ByteTransformer.bit_sensor[2] ] ],
         'square_4': [
-        [ 3, bit_sensor[3] ], [ 3, bit_sensor[4] ], [ 4, bit_sensor[4] ], [ 4, bit_sensor[3] ] ]
+        [ 3, ByteTransformer.bit_sensor[3] ], [ 3, ByteTransformer.bit_sensor[4] ], [ 4, ByteTransformer.bit_sensor[4] ], [ 4, ByteTransformer.bit_sensor[3] ] ]
         }
+        i = 0
         for square in whirlpool:
-            squrare_len = len( whirlpool[sqaure] )
-            for step in whirlpool[sqaure]:
-                new_step = ( step + param.STUFF ) % square_len
-                if ( self.data[step[0]] & step[1] ):
-                    whirlpooled.data[new_step[0]] |= new_step[1]
-        self.data = rotated.data
+            square_len = len( whirlpool[square] )
+            for step in range(square_len):
+                new_step = ( step + param[i] ) % square_len
+                if ( self.data[whirlpool[square][step][0]] & whirlpool[square][step][1] ):
+                    whirlpooled.data[whirlpool[square][new_step][0]] |= whirlpool[square][new_step][1]
+            i += 1
+        self.data = whirlpooled.data
 
     def checkerboard(self, param, debug=0):
         permutations_2x2 = [
