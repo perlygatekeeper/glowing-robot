@@ -43,7 +43,7 @@ parser = argparse.ArgumentParser(description="Process input, either scrambling o
 # parser.add_argument("output_filename", default="-", type=str, help="The path to the output file")
 parser.add_argument('infile',  nargs='?', type=argparse.FileType('rb'), default=sys.stdin,  help="Path to the input file")
 parser.add_argument('outfile', nargs='?', type=argparse.FileType('wb'), default=sys.stdout, help="Path to the output file")
-parser.add_argument('salt',    nargs='?', type=string, help="Salt, a 15-byte string")
+parser.add_argument("-s", "--salt",    nargs='?', help="Salt, a 20-byte base64-encoded string")
 parser.add_argument("-d", "--debug", help="set the debug flag", action="store_true")
 parser.add_argument("-64", "--base64", help="expect input or produce output that is base64 encoded", action="store_true")
 group = parser.add_mutually_exclusive_group()
