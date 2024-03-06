@@ -935,22 +935,19 @@ def salt_from_parameters(parameters, debug=0):
             print(f"{salt[bytes_row]:08b} {salt[bytes_row]:3d} {salt[bytes_row]:c} ")
     return base64.encodebytes(salt)
 
-def anti_salt_from_parameters(parameters, debug=1):
+def anti_parameters(parameters, debug=0):
     anti_parameters = bytearray(24)
-    anti_salt = bytearray(15)
-    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
-    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
     # 28 bit locations   20 bit locations   12 bit locations    4 bit locations
     # params     0-26             0-18             0-10              0-2
     # rotation   1-27             1-19             1-11              1-3
     # anti-rot   28 - rot         20 - rot         12 - rot          4 - rot
     # anti-param 26 - param       18 - param       10 - param        2 - param
-
-    # param   rot   anti-rot              anti-param
-    #   0      1      27  ( 28 - rot )    26 (26 - param)
-    #  13     14      14  ( 28 - rot )    13 (26 - param)
-    #  26     27       1  ( 28 - rot )     0 (26 - param)
-
+    # ------------------------------------------------------------------------
+    # Param  Rot  Anti-Rot          Anti-Param
+    #   0     1   27  ( 28 - rot )  26 (26 - param)
+    #  13    14   14  ( 28 - rot )  13 (26 - param)
+    #  26    27    1  ( 28 - rot )   0 (26 - param)
+    # ------------------------------------------------------------------------
     # 4 5 6 7 0 1 2 3  - 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
     # Whirlpool
     # 0  26 - X
@@ -995,6 +992,13 @@ def anti_salt_from_parameters(parameters, debug=1):
                 separator = ""
             print(f"{parameters[i]:05b} {parameters[i]:3d} <-> {anti_parameters[i]:05b} {anti_parameters[i]:3d}")
             line = (line + 1) % 8
+    return anti_paramters
+
+def anti_salt_from_parameters(parameters, debug=0):
+    anti_parameters = ByteTransformer.anti_parameters(parameters,debug)
+    anti_salt = bytearray(15)
+    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
+    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
     for number in range(24):
         packed_bit = number % 8
         batch = int(number/8)

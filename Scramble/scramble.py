@@ -197,6 +197,7 @@ if (args.action == 'scramble'):
               transformer.gear_rotate(gears, 0)
 
         if ( 0 & args.salt):
+            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
             transformer.whirlpool(paramerters[0:4])
             transformer.checkerboard(paramerters[-16:])
             transformer.whirlpool(paramerters[4:8])
@@ -252,6 +253,13 @@ elif (args.action == 'unscramble'):
           if ( pre_unscrambled_params['ones'] < 4 ):
               transformer.invert()
 
+        if ( 0 & args.salt):
+            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
+            anti_parameters = ByteTransformer.anti_parameters( parameters, 0 )
+            transformer.whirlpool(anti_paramerters[0:4])
+            transformer.checkerboard(anti_paramerters[-16:])
+            transformer.whirlpool(anti_paramerters[4:8])
+
         if (1):
           gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
           if ( gears &  64 ):  # Top Left quadrant
@@ -305,11 +313,6 @@ elif (args.action == 'unscramble'):
 
         if (1): # mandatory transform of barber_poling (swapping adjacent odd and even columns)
               transformer.barber_pole()
-
-        if ( 0 & args.salt):
-            transformer.whirlpool(paramerters[0:4])
-            transformer.checkerboard(paramerters[-16:])
-            transformer.whirlpool(paramerters[4:8])
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         # this chunk should now be unscrambled
