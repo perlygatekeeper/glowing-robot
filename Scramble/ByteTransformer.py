@@ -2,12 +2,12 @@
 # Can you help me begin development of an object-oriented module in
 # python for performing transformations on length 8 bytearrays
 
-
 import sys
 import io
 import functools
 import random
 import base64
+import re
 
 class ByteTransformer:
     shift_mask_left  = [ 0b00000000, 0b10000000, 0b11000000, 0b11100000, 0b11110000, 0b11111000, 0b11111100, 0b11111110 ]
@@ -666,6 +666,7 @@ class ByteTransformer:
             self.data[i] = ByteTransformer.byte_transforms[self.data[i]]['inverted']
 
     def whirlpool(self, param, debug=0):
+        # 28 bit locations 20 bit locations 12 bit locations  4 bit locations
         whirlpooled = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         whirlpool = {
         'square_1': [
@@ -693,7 +694,7 @@ class ByteTransformer:
         for square in whirlpool:
             square_len = len( whirlpool[square] )
             for step in range(square_len):
-                new_step = ( step + param[i] ) % square_len
+                new_step = ( step + param[i] + 1 ) % square_len
                 if ( self.data[whirlpool[square][step][0]] & whirlpool[square][step][1] ):
                     whirlpooled.data[whirlpool[square][new_step][0]] |= whirlpool[square][new_step][1]
             i += 1
@@ -863,19 +864,19 @@ class ByteTransformer:
 #   + random_parameters
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-
 def parameters_from_salt(salt, debug=0):
     parameters = bytearray(24)
     # Unpack 15-byte Salt or Anti_Salt 
     # into 24 numbers 5 bits each, ready for use as parameters for transforms
     bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
     if (debug):
-      print("Bytes passed in:")
+      print("Bytes passed in to parameters_from_salt:")
     for batch in range(3):
         for batch_row in range(5):
             bytes_row = batch * 5 + batch_row
             if (debug):
-                print(f"{salt[bytes_row]:08b}")
+                binary = re.sub('0', '_', f"{salt[bytes_row]:08b}")
+                print(f"{binary} {salt[bytes_row]:c}")
             for bit in range(8):
                 row = batch * 8 + bit
                 if (salt[bytes_row] & bit_sensor[bit]):
@@ -884,13 +885,27 @@ def parameters_from_salt(salt, debug=0):
             print("")
     if (debug):
         line = 0
-        separator = "\nParameters returned:"
+        separator = "\nParameters returned from parameters_from_salt:"
         for byte in parameters:
             if (not line):
                 print(separator)
                 separator = ""
             print(f"{byte:05b} {byte:3d}")
             line = (line + 1) % 8
+    # parameter validation:
+    for number in range(24):
+        if ( number <= 7 ):
+            if   ( ( number % 4 ) == 0 and ( parameters[number] > 26 ) ):
+                parameters[number] %= 27
+            elif ( ( number % 4 ) == 1 and ( parameters[number] > 18 ) ):
+                parameters[number] %= 19
+            elif ( ( number % 4 ) == 2 and ( parameters[number] > 10 ) ):
+                parameters[number] %= 11
+            elif ( ( number % 4 ) == 3 and ( parameters[number] >  2 ) ):
+                parameters[number] %= 3
+        else:
+            if ( parameters[number] > 22 ):
+                parameters[number] %= 23
     return parameters
 
 def salt_from_parameters(parameters, debug=0):
@@ -918,47 +933,68 @@ def salt_from_parameters(parameters, debug=0):
         print("Salt derived from the given parameters:")
         for bytes_row in range(15):
             print(f"{salt[bytes_row]:08b} {salt[bytes_row]:3d} {salt[bytes_row]:c} ")
-    return salt
+    return base64.encodebytes(salt)
 
-def anti_salt_from_parameters(parameters, debug=0):
+def anti_salt_from_parameters(parameters, debug=1):
     anti_parameters = bytearray(24)
     anti_salt = bytearray(15)
     # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
     bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
-    if (debug):
-        line = 0
-        separator = "Parameters (for Anti-Salt) passed in:"
-        for byte in parameters:
-            if (not line):
-                print(separator)
-                separator = ""
-            print(f"{byte:05b} {byte:3d}")
-            line = (line + 1) % 8
+    # 28 bit locations   20 bit locations   12 bit locations    4 bit locations
+    # params     0-26             0-18             0-10              0-2
+    # rotation   1-27             1-19             1-11              1-3
+    # anti-rot   28 - rot         20 - rot         12 - rot          4 - rot
+    # anti-param 26 - param       18 - param       10 - param        2 - param
+
+    # param   rot   anti-rot              anti-param
+    #   0      1      27  ( 28 - rot )    26 (26 - param)
+    #  13     14      14  ( 28 - rot )    13 (26 - param)
+    #  26     27       1  ( 28 - rot )     0 (26 - param)
+
     # 4 5 6 7 0 1 2 3  - 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-    # Checkerboard
-    # Anti-X: X                    if  X <= 8
-    #         X + 1 + 2((x%2)-1)   if  X >= 9
     # Whirlpool
     # 0  26 - X
     # 1  18 - X
     # 2  10 - X
-    # 3  Anti - Checkerboard
+    # 3   2 - X
+    # Checkerboard
+    # Anti-X: X                    if  X <= 8
+    #         X + 1 + 2((x%2)-1)   if  X >= 9
     i = 0
     for number in ( 4, 5, 6, 7, 0, 1, 2, 3, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
-        if ( number <= 7 and ( number % 4 ) != 3 ):
+        if ( number <= 7 ):
             if ( ( number % 4 ) == 0 ):
-                anti_parameters[i] = 26 - parameters[number]
-            if ( ( number % 4 ) == 1 ):
-                anti_parameters[i] = 18 - parameters[number]
-            if ( ( number % 4 ) == 2 ):
-                anti_parameters[i] = 10 - parameters[number]
+                anti_parameters[i] = ( 26 - parameters[number] )
+                if (debug>2):
+                    print(f"0 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+            elif ( ( number % 4 ) == 1 ):
+                anti_parameters[i] = ( 18 - parameters[number] )
+                if (debug>2):
+                    print(f"1 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+            elif ( ( number % 4 ) == 2 ):
+                anti_parameters[i] = ( 10 - parameters[number] )
+                if (debug>2):
+                    print(f"2 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+            elif ( ( number % 4 ) == 3 ):
+                anti_parameters[i] = (  2 - parameters[number] )
+                if (debug>2):
+                    print(f"3 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
         else:
             if ( parameters[number] <= 8 ):
                 anti_parameters[i] = parameters[number]
             else:
                 X = parameters[number]
-                anti_parameters[i] = X + 1 + 2 * ( ( X % 2 ) -1 )
+                anti_parameters[i] = X + 1 + 2 * ( ( X % 2 ) - 1 )
         i += 1
+    if (debug):
+        line = 0
+        separator = "Parameters passed into anti_salt_from_paramaters (and Anti-Parameters derived):"
+        for i in range(24):
+            if (not line):
+                print(separator)
+                separator = ""
+            print(f"{parameters[i]:05b} {parameters[i]:3d} <-> {anti_parameters[i]:05b} {anti_parameters[i]:3d}")
+            line = (line + 1) % 8
     for number in range(24):
         packed_bit = number % 8
         batch = int(number/8)
@@ -971,19 +1007,29 @@ def anti_salt_from_parameters(parameters, debug=0):
         print("Anti-Salt derived from the given parameters:")
         for bytes_row in range(15):
             print(f"{anti_salt[bytes_row]:08b} {anti_salt[bytes_row]:3d} {anti_salt[bytes_row]:c} ")
-    return anti_salt
+    return base64.encodebytes(anti_salt)
 
 def random_parameters(debug=0):
     parameters = bytearray(24)
     for number in ( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
-        if ( number <= 7 and ( number % 4 ) != 3 ):
+        if ( number <= 7 ):
             if ( ( number % 4 ) == 0 ):
                 parameters[number] = random.randint(0, 26)  # Generates a random integer between 0 (inclusive) and 23 (inclusive)
-            if ( ( number % 4 ) == 1 ):
+            elif ( ( number % 4 ) == 1 ):
                 parameters[number] = random.randint(0, 18)
-            if ( ( number % 4 ) == 2 ):
+            elif ( ( number % 4 ) == 2 ):
                 parameters[number] = random.randint(0, 10)
+            elif ( ( number % 4 ) == 3 ):
+                parameters[number] = random.randint(0, 2)
         else:
-            parameters[number] = random.randint(0, 23)
+            parameters[number] = random.randint(0, 22)
+        line = 0
+        separator = "Random Parameters generated:"
+    for byte in parameters:
+        if (not line):
+            print(separator)
+            separator = ""
+        print(f"{byte:05b} {byte:3d}")
+        line = (line + 1) % 8
     return parameters
 
