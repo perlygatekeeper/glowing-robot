@@ -2,14 +2,14 @@ Input source:  <_io.BufferedReader name='Sample_scrambled.txt'>
 Input filename:  Sample_scrambled.txt
 Output source:  <_io.BufferedWriter name='Sample_unscrambled.txt'>
 I will be unscrambling the input.
-read from yeilded bytearray(b'\x87\x98\x90\xf8\x0c\xf4\xdd\xde')
+read from yeilded bytearray(b'I\x8d\xdd\x9c\x91\xad"I')
 Random block:
-10000111
-10011000
-10010000
-11111000
-00001100
-11110100
+01001001
+10001101
 11011101
-11011110
+10011100
+10010001
+10101101
+00100010
+01001001
 read from yeilded bytearray(b'')

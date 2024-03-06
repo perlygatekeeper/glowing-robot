@@ -43,7 +43,7 @@ parser = argparse.ArgumentParser(description="Process input, either scrambling o
 # parser.add_argument("output_filename", default="-", type=str, help="The path to the output file")
 parser.add_argument('infile',  nargs='?', type=argparse.FileType('rb'), default=sys.stdin,  help="Path to the input file")
 parser.add_argument('outfile', nargs='?', type=argparse.FileType('wb'), default=sys.stdout, help="Path to the output file")
-parser.add_argument("-s", "--salt",    nargs='?', help="Salt, a 20-byte base64-encoded string")
+parser.add_argument("--salt",  nargs='?', help="Salt, a 20-byte base64-encoded string")
 parser.add_argument("-d", "--debug", help="set the debug flag", action="store_true")
 parser.add_argument("-64", "--base64", help="expect input or produce output that is base64 encoded", action="store_true")
 group = parser.add_mutually_exclusive_group()
@@ -196,7 +196,7 @@ if (args.action == 'scramble'):
           if ( gears != 0 ): # only gear rotate if our shift amount is non-zero
               transformer.gear_rotate(gears, 0)
 
-        if ( 0 & args.salt):
+        if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
             transformer.whirlpool(paramerters[0:4])
             transformer.checkerboard(paramerters[-16:])
@@ -253,7 +253,7 @@ elif (args.action == 'unscramble'):
           if ( pre_unscrambled_params['ones'] < 4 ):
               transformer.invert()
 
-        if ( 0 & args.salt):
+        if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
             anti_parameters = ByteTransformer.anti_parameters( parameters, 0 )
             transformer.whirlpool(anti_paramerters[0:4])
