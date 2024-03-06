@@ -1,0 +1,15 @@
+Input source:  <_io.BufferedReader name='Sample_scrambled_64.txt'>
+Input filename:  Sample_scrambled_64.txt
+Output source:  <_io.BufferedWriter name='Sample_unscrambled_64.txt'>
+I will be unscrambling the input.
+read from yeilded bytearray(b'I\x8d\xdd\x9c\x91\xad"I')
+Random block:
+01001001
+10001101
+11011101
+10011100
+10010001
+10101101
+00100010
+01001001
+read from yeilded bytearray(b'')

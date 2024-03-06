@@ -1,16 +1,16 @@
 Input source:  <_io.BufferedReader name='Sample_file.txt'>
 Input filename:  Sample_file.txt
-Output source:  <_io.BufferedWriter name='Sample_scrambled.txt'>
+Output source:  <_io.BufferedWriter name='Sample_scrambled_64.txt'>
 I will be scrambling the input.
 Random block:
-00010111
-10111001
-11001000
-10011000
-10110110
-11110000
-01100110
-11001110
+01010001
+01100011
+01001100
+01000001
+11000011
+10011001
+10011100
+10011110
 read from yeilded bytearray(b'total 18')
 read from yeilded bytearray(b'4\ndrwxr-')
 read from yeilded bytearray(b'xr-x  11')

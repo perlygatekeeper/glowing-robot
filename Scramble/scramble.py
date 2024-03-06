@@ -140,6 +140,7 @@ if (args.action == 'scramble'):
         #   6a) shift     based on forth  to last   bit  of params['v_parity']
         #   6b) amount    based on second to last 3 bits of params['v_parity']
         #    7) gear_rotation always done with ???
+        #    8) if Salt, use its parameters to preform whirlpool, checkerboard, whirlpool
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         #  Transforms
@@ -238,15 +239,16 @@ elif (args.action == 'unscramble'):
         # NOW WE DECIDE HOW TO UNSCRAMBLE
         # Order of transforms:
         #    1) if present chunk has less than 4 unique bits - invert it
-        #    2) gear_rotation always done with ???
-        #   3a) shift     based on forth  to last   bit  of params['v_parity']
-        #   3b) amount    based on second to last 3 bits of params['v_parity']
-        #   4a) sheer     based on forth  to last   bit  of params['h_parity']
-        #   4b) amount    based on second to last 3 bits of params['h_parity']
-        #   5a) flips     based on the       last   bit  of params['00']
-        #   5b) direction based on second to last   bit  of params['00']
-        #    6) rotations based on last bit of params['00']
-        #    7) barber_pole always done
+        #    2) if Salt, use its parameters to preform whirlpool, checkerboard, whirlpool
+        #    3) gear_rotation always done with ???
+        #   4a) shift     based on forth  to last   bit  of params['v_parity']
+        #   4b) amount    based on second to last 3 bits of params['v_parity']
+        #   5a) sheer     based on forth  to last   bit  of params['h_parity']
+        #   5b) amount    based on second to last 3 bits of params['h_parity']
+        #   6a) flips     based on the       last   bit  of params['00']
+        #   6b) direction based on second to last   bit  of params['00']
+        #    7) rotations based on last bit of params['00']
+        #    8) barber_pole always done
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
 
         if (1):
