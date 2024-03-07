@@ -119,8 +119,9 @@ if (args.action == 'scramble'):
         transformer.print_as_bit_array("Random block:")
 
     output_file = transformer.output_file(args.outfile)
-    transformer.write_to(output_file,args.base64)
-    for chunk in transformer.read_from(args.infile):
+    buffer = []
+    transformer.write_to(output_file, args.base64, buffer, 1)
+    for chunk in transformer.read_from(args.infile, 0, 0):
         blocks += 1
         if ( len(chunk) < 8 ):
             chunk.extend(b'\x00' * ( 8 - len(chunk) ) )  # Append null bytes (b'\x00')
@@ -205,7 +206,7 @@ if (args.action == 'scramble'):
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
-        transformer.write_to(output_file, args.base64)
+        transformer.write_to(output_file, args.base64, buffer, 1)
         params = pre_scrambled_params    # prepare for next chunk
 
 elif (args.action == 'unscramble'):
@@ -216,7 +217,7 @@ elif (args.action == 'unscramble'):
     first_chunk = True
     padding = 0
     last_block_size = 0
-    for chunk in transformer.read_from(args.infile, args.base64):
+    for chunk in transformer.read_from(args.infile, args.base64, 1):
         if (args.debug):
             print(f"read from yeilded {chunk}")
         if ( padding and blocks > 0):
@@ -325,7 +326,8 @@ elif (args.action == 'unscramble'):
             transformer.write_to(output_file)
         params = transformer.parameters(0)
 
-# print(f"Processed {blocks} blocks.")
+if (args.debug):
+    print(f"Processed {blocks} blocks.")
 
 
 exit()

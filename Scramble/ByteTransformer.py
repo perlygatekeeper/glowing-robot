@@ -541,30 +541,40 @@ class ByteTransformer:
     def partial_write_to(self, output_file, start=0, stop=8, debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
-          print(f"partial_write_to has started with output_source specified as {output_source}.")
+          print(f"partial_write_to has started with output_source specified as {output_file}.")
         try:
           output_file.write(self.data[start:stop])
         except IOError as e:
           print("Error writing file:", e)
         if (debug):
-          print(f"partial_write_to has ended with output_source specified as {input_source}.")
+          print(f"partial_write_to has ended with output_source specified as {output_file}.")
 
     def write_to(self, output_file="-", encode_base64=0, buffer=[], debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
-        if (debug):
-          print(f"write_to has started with output_source specified as {output_source}.")
+        if (debug>1):
+          print(f"write_to has started with output_source specified as {output_file}.")
         try:
           if (encode_base64):
             if ( len(buffer) <= 1 ):
+              if (debug):
+                print(f"write_to base64 encoding, buffer is {len(buffer)} long...appending.")
               buffer.append(self.data)
             else:
-              output_file.write( base64.b64encode(self.data) )
+              if (debug):
+                print(f"write_to base64 encoding, buffer is {len(buffer)} long...flushing.")
+                print( base64.b64encode(buffer[0] + buffer[1] + self.data ) )
+              output_file.write( base64.b64encode(buffer[0] + buffer[1] + self.data ) )
+              buffer.clear()
+              if (debug):
+                print(f"WRITE_TO after flushing, buffer is {len(buffer)} long.")
           else:
+            if (debug):
+              print(f"write_to writing 8-bytes to {output_file}.")
             output_file.write(self.data)
         except IOError as e:
           print("Error writing file:", e)
-        if (debug):
-          print(f"write_to has ended with output_source specified as {input_source}.")
+        if (debug>1):
+          print(f"write_to has ended with output_source specified as {output_file}.")
 
     def read_from(self, input_source="-", decode_base64=0, debug=0):
         """Reads 8 bytes at a time from a file or standard input.
@@ -578,6 +588,7 @@ class ByteTransformer:
         encoding = "utf-8"  # Replace with the appropriate encoding
         if (debug):
           print(f"read_from has started with input_source specified as {input_source}.")
+          print(f"read_from will read in 4 blocks and return 3 with base64 decoding.")
         if input_source == '-':
           input_file = sys.stdin.buffer  # Use binary mode for standard input
         elif isinstance(input_source, str):
