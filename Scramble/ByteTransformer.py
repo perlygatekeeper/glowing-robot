@@ -1003,10 +1003,10 @@ def anti_parameters(parameters, debug=0):
                 separator = ""
             print(f"{parameters[i]:05b} {parameters[i]:3d} <-> {anti_parameters[i]:05b} {anti_parameters[i]:3d}")
             line = (line + 1) % 8
-    return anti_paramters
+    return anti_parameters
 
 def anti_salt_from_parameters(parameters, debug=0):
-    anti_parameters = ByteTransformer.anti_parameters(parameters,debug)
+    anti_params = anti_parameters(parameters,debug)
     anti_salt = bytearray(15)
     # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
     bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
@@ -1016,7 +1016,7 @@ def anti_salt_from_parameters(parameters, debug=0):
         for unpacked_bit in range(5):
             packed_byte = batch * 5 + unpacked_bit
             set_bit = 1 << packed_bit
-            if ( anti_parameters[number] & bit_sensor[unpacked_bit] ):
+            if ( anti_params[number] & bit_sensor[unpacked_bit] ):
                 anti_salt[packed_byte] |= set_bit
     if (debug):
         print("Anti-Salt derived from the given parameters:")

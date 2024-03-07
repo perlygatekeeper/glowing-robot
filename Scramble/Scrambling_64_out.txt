@@ -3,20 +3,20 @@ Input filename:  Sample_file.txt
 Output source:  <_io.BufferedWriter name='Sample_scrambled_64.txt'>
 I will be scrambling the input.
 Random block:
-00101100
-01110001
-01110011
-00101101
-11000110
-01100111
-01111010
+10100111
+00011101
+01000110
+10001010
+11110000
+00010011
+01000100
 00111110
 write_to base64 encoding, buffer is 0 long...appending.
 read from yeilded bytearray(b'total 18')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'4\ndrwxr-')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'LHFzLcZnej5GqPA30Um0IkmN3ZyRrSJJ'
+b'px1GivATRD4wKUMa9i7wkmoyNAj3OE03'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'xr-x  11')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -24,7 +24,7 @@ read from yeilded bytearray(b' perlyga')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'tekeeper')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'PwQN9DILAAsneqxN2Mo0EPoCC/qxkL+w'
+b'ATMBjWy5CaJpQWrJBH83DOWNoybsC05a'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'  staff ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -32,7 +32,7 @@ read from yeilded bytearray(b' -   352')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b' Feb  5 ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'SeMmEKw8BoAUERoQwcPAgckgZgOAZCAw'
+b'QoBcOOhmQUnwoAHBNAAwcUREVgJBJFVA'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'22:21 ./')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -40,7 +40,7 @@ read from yeilded bytearray(b'\ndrwxr-x')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'r-x  32 ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'3EgMD7/CERCu7cgBa2LEbfGQAYZNAFDy'
+b'ZEwrkUz4UhSeU0yDT8OwNRaFC1ICEGuS'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'perlygat')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -48,7 +48,7 @@ read from yeilded bytearray(b'ekeeper ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b' staff  ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'kLmUt/oBaPapGA2pf6CoDw0BApR2QZo8'
+b'XuTLRjq4rIWkQ6xUTKittoAighPomLtB'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'-  1024 ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -56,7 +56,7 @@ read from yeilded bytearray(b'Oct  7 2')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'3:15 ../')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'/qCAQhAQkBExDJj4M4wQScODg4Fzkbuk'
+b'jwVDIUAJQiApEzEMPogLNK7ogCKIie9b'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'\n-rw-r--')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -64,7 +64,7 @@ read from yeilded bytearray(b'r--   1 ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'perlygat')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'CwXee9YPAfQAJiCIERzHDTVewWMX5jyw'
+b'SfwynnepoUGQGnAogA6IOCnVl9cByhce'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'ekeeper ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -72,7 +72,7 @@ read from yeilded bytearray(b' staff  ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'-  2097 ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'qRgNqX+gqA8NAQKUdkGaPP6ggBSYUJAR'
+b'pEOsVEyorbaAIoIT6Ji7Qc4BSyFgGVIg'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'Feb  4 2')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -80,7 +80,7 @@ read from yeilded bytearray(b'3:14 Asc')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'ii_analy')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'xgCYbqCAAWIAYJOcW+bMkOhJ95jaVNcs'
+b'bQwgBx4RQIC4gP6AMNo4UtwLOCLx7vpH'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'sis.txt\n')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -88,7 +88,7 @@ read from yeilded bytearray(b'-rwxr-xr')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'-x   1 p')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'tWq13YTEkM71fgHd9LkC4oAEsQEaEngY'
+b'7cNxETJ0m45l8WV7qlhpjhxSiqAQjAYC'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'erlygate')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -96,7 +96,7 @@ read from yeilded bytearray(b'keeper  ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'staff  -')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'lN2Tm/gJoPr7BAKRkNOS0jELC/lMDYDK'
+b'zvYrSzpILMfk8QOg4glbwIHjORwmACnP'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b' 54132 F')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -104,7 +104,7 @@ read from yeilded bytearray(b'eb  5 12')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b':25 Byte')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'lRZUySFBgCMEhi5kAKiPAlm4I8rhkWAN'
+b'hXAhQxkgGbijGIQNhDYAyHMmYWBIBO12'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'Transfor')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -112,7 +112,7 @@ read from yeilded bytearray(b'mer.py*\n')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'-rw-r--r')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'TvaWAlbn5JcFmEVsouzTxw1YwRyP+82d'
+b'urRW0VDr9OjziDRNi7CTpviqrvlh0pE2'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'--   1 p')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -120,7 +120,7 @@ read from yeilded bytearray(b'erlygate')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'keeper  ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'gAThAToSWBj0lw7xkb2UkfsEApGQ05LS'
+b'HFKKoAmMAgLn8RdtJCpKeeTxA6DiCVvA'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'staff  -')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -128,7 +128,7 @@ read from yeilded bytearray(b'  9143 F')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'eb  4 23')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'MQsL+UwNgMqhtkRAIUGAowaIADQ4OBk5'
+b'geM5HCYAKc+HsUBCCSARuAIKji8oGQIk'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b':37 Note')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -136,7 +136,7 @@ read from yeilded bytearray(b's.txt\ndr')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'wxr-xr-x')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'KzdLWAQ0d5+1HZi9qpC4BWuVQrtjZudi'
+b'EZt2cOUDh+vsUallPJCPJZJdNMbrg33R'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'  10 per')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -144,7 +144,7 @@ read from yeilded bytearray(b'lygateke')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'eper  st')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'TAAQAP+pAA7irPdnmSVTGRAFGRSduR0d'
+b'YCIMGViI4JBff14EkT1CdmA6jzg0GoIz'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'aff  -  ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -152,7 +152,7 @@ read from yeilded bytearray(b' 320 Feb')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'  4 17:4')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'dESGMEKAKGGoCQlwyNTEgC72LgYEAwYA'
+b'KBGBByLgZGD1gRgkZAIwBwI1QNHEdwBI'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'0 Prelim')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -160,7 +160,7 @@ read from yeilded bytearray(b'inary_Wo')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'rk/\n-rw-')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'yZ0dmFQEZEqn82m8UrHWr3xQh7G+c3iH'
+b'FhIwUHYqbYe2o2Rnpd+rq1jhjfVo6N7i'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'r--r--  ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -168,7 +168,7 @@ read from yeilded bytearray(b' 1 perly')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'gatekeep')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'seNvogBIkNgQNBCw9FkD+kZES8+ZDf0Z'
+b'hodDDAdkG0tAukN+ugg4gNF+ugkFW05y'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'er  staf')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -176,7 +176,7 @@ read from yeilded bytearray(b'f  -    ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b' 0 Feb  ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'9QkE7RsQAbMQEBCUgIKEiWAvATAAghxA'
+b'BckrJwC4SbXgggHAMBIIICARwIQiAkIP'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'5 22:21 ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -184,7 +184,7 @@ read from yeilded bytearray(b'Sample_f')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'ile.txt\n')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'JAjFQwyhg8Zit69wwCV7LTT1EHTZAXj5'
+b'qe0MEYMggIZbO9RGpCXma1Ozy0cyWCYx'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'drwxr-xr')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -192,7 +192,7 @@ read from yeilded bytearray(b'-x   4 p')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'erlygate')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'u7C7nxThRJYlACEAHwQc8NSXltqRvZSR'
+b'PuVnUHQfmcIAgZoTAo4DEu+0N2kwKkp5'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'keeper  ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -200,7 +200,7 @@ read from yeilded bytearray(b'staff  -')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'   128 F')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'+wQCkZDTktIxCwv5TA2AyoEWQEEhQQAr'
+b'5PEDoOIJW8CB4zkcJgApzwVyAEIJABG4'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'eb  5 12')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -208,7 +208,7 @@ read from yeilded bytearray(b':25 __py')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'cache__/')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'gZOTwQNQCUBbu2PKoVJhDznYCu/2m0KX'
+b'D0iAYBKAGVtTDmHgSQXd/3PlI/zM2Knk'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'\n-rw-r--')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -216,7 +216,7 @@ read from yeilded bytearray(b'r--   1 ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'perlygat')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'eP/ALHyawE4AJiCIERzHDTVewWMX5jyw'
+b'uhNp/EtY4I2QGnAogA6IOCnVl9cByhce'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'ekeeper ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -224,7 +224,7 @@ read from yeilded bytearray(b' staff  ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'-  4678 ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'qRgNqX+gqA8NAQKUdkGaPP4ggBMQMPAx'
+b'pEOsVEyorbaAIoIT6Ji7QZxFRyNgCUYg'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'Jan 31 2')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -232,7 +232,7 @@ read from yeilded bytearray(b'0:53 fun')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'ctions_n')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'YK5kBTycBAwHVzNW5F8TAP/QeV+/UOiH'
+b'IlNYOAk+wAxBPBD5uFUzS9fFqXF93dWy'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'ot_used\n')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -240,7 +240,7 @@ read from yeilded bytearray(b'-rwxr-xr')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'-x   1 p')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'U9nZGS9DL22/PbCXJylEp4AEsQEaEngY'
+b'Cmqp0r/D1Tcc9UVbeJeJtRxSiqAQjAYC'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'erlygate')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -248,7 +248,7 @@ read from yeilded bytearray(b'keeper  ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'staff  -')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'lN2Tm/gJoPr7BAKRkNOS0jELC/lMDYDK'
+b'zvYrSzpILMfk8QOg4glbwIHjORwmACnP'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'  3675 F')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -256,7 +256,7 @@ read from yeilded bytearray(b'eb  5 22')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b':20 scra')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'g7RkwyFBAKejPgiJYSgQATHQoiOFI5o6'
+b'B/RAQgklmbAEUWRIDAErPMpnh9aARAPQ'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'mble_mes')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -264,7 +264,7 @@ read from yeilded bytearray(b'sage.py*')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'\n-rwxr-x')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'h53mbf0JQfm6S7aosoVhXg827tKHQsM1'
+b'X/oqXws9IXV8KzMEWu2MzdkcQtPlpZl4'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'r-x   1 ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -272,7 +272,7 @@ read from yeilded bytearray(b'perlygat')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'ekeeper ')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'ACYgiBEZZw0UKPYddph+bKkYDal/oKgP'
+b'EDpgKIAOjDg4QuE7u76mRKRDrFRMqK22'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b' staff  ')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -280,7 +280,7 @@ read from yeilded bytearray(b'-  5603 ')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'Feb  5 0')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'DQEClHZBmjz+IIBFkDCwERQuZGSDJAQE'
+b'gCKCE+iYu0HNQUchQBlGIEEQVQUBtoAc'
 WRITE_TO after flushing, buffer is 0 long.
 read from yeilded bytearray(b'1:02 tes')
 write_to base64 encoding, buffer is 0 long...appending.
@@ -288,6 +288,6 @@ read from yeilded bytearray(b'tScrambl')
 write_to base64 encoding, buffer is 1 long...appending.
 read from yeilded bytearray(b'e.py*\n\x00\x00')
 write_to base64 encoding, buffer is 2 long...flushing.
-b'z8SYEHMA81CWYFyDnY2ZnXCgynjQAYBR'
+b'nhgCAf7JZxDk7tsZFWmKMMshYwQnCGBg'
 WRITE_TO after flushing, buffer is 0 long.
 Processed 104 blocks.

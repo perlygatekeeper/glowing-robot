@@ -12,6 +12,7 @@ import sys
 import argparse
 import re
 import os
+import base64
 
 ''' Preloop
        Parse Arguments (if any)
@@ -70,7 +71,7 @@ if args.outfile == sys.stdout:
         args.outfile = args.outfile.buffer  # Access the underlying binary buffer
 
 if ( args.salt ):
-    parameters = transformer.unpack_salt(args.salt)
+    parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt) )
 
 # Print the parsed input filename
 if (args.debug):
@@ -200,9 +201,9 @@ if (args.action == 'scramble'):
 
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
-            transformer.whirlpool(paramerters[0:4])
-            transformer.checkerboard(paramerters[-16:])
-            transformer.whirlpool(paramerters[4:8])
+            transformer.whirlpool(parameters[0:4])
+            transformer.checkerboard(parameters[-16:])
+            transformer.whirlpool(parameters[4:8])
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
@@ -259,9 +260,9 @@ elif (args.action == 'unscramble'):
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
             anti_parameters = ByteTransformer.anti_parameters( parameters, 0 )
-            transformer.whirlpool(anti_paramerters[0:4])
-            transformer.checkerboard(anti_paramerters[-16:])
-            transformer.whirlpool(anti_paramerters[4:8])
+            transformer.whirlpool(anti_parameters[0:4])
+            transformer.checkerboard(anti_parameters[-16:])
+            transformer.whirlpool(anti_parameters[4:8])
 
         if (1):
           gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
