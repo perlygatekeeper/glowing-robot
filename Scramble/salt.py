@@ -40,15 +40,15 @@ args = parser.parse_args()
 
 if (args.salt):
     print(f"Processing   Salt:      {args.salt}")
-    params = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
+    params = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug )
     anti_salt = ByteTransformer.anti_salt_from_parameters( params, 0 ).decode("utf-8")
     print(f"Coresponding Anti-Salt: {anti_salt}")
 elif (args.random):
-    params = ByteTransformer.random_parameters(debug=1)
+    params = ByteTransformer.random_parameters(args.debug)
     print("Salt from parameters:      ", end="")
-    print(ByteTransformer.salt_from_parameters( params, 0 ).decode("utf-8"))
+    print(ByteTransformer.salt_from_parameters( params, args.debug ).decode("utf-8"))
     print("Anti-Salt from parameters: ", end="")
-    print(ByteTransformer.anti_salt_from_parameters( params, 0 ).decode("utf-8"))
+    print(ByteTransformer.anti_salt_from_parameters( params, args.debug ).decode("utf-8"))
 
 
 

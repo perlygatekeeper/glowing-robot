@@ -201,13 +201,13 @@ if (args.action == 'scramble'):
 
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
-            transformer.whirlpool(parameters[0:4])
-            transformer.checkerboard(parameters[-16:])
-            transformer.whirlpool(parameters[4:8])
+            transformer.whirlpool(parameters[0:4], 1)
+            transformer.checkerboard(parameters[-16:], 1)
+            transformer.whirlpool(parameters[4:8], 1)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
-        transformer.write_to(output_file, args.base64, buffer, 1)
+        transformer.write_to(output_file, args.base64, buffer, 0)
         params = pre_scrambled_params    # prepare for next chunk
 
 elif (args.action == 'unscramble'):
@@ -259,10 +259,9 @@ elif (args.action == 'unscramble'):
 
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
-            anti_parameters = ByteTransformer.anti_parameters( parameters, 0 )
-            transformer.whirlpool(anti_parameters[0:4])
-            transformer.checkerboard(anti_parameters[-16:])
-            transformer.whirlpool(anti_parameters[4:8])
+            transformer.whirlpool(parameters[0:4], 1)
+            transformer.checkerboard(parameters[-16:], 1)
+            transformer.whirlpool(parameters[4:8], 1)
 
         if (1):
           gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
@@ -322,7 +321,7 @@ elif (args.action == 'unscramble'):
         # this chunk should now be unscrambled
         # write it out, and get it's parameters to use with next chunk
         if (padding):
-            transformer.partial_write_to(output_file,0,last_block_size)
+            transformer.partial_write_to(output_file, 0, last_block_size)
         else:
             transformer.write_to(output_file)
         params = transformer.parameters(0)

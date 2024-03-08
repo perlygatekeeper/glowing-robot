@@ -654,10 +654,10 @@ class ByteTransformer:
 
     def flip_vertically(self, debug=0):
         # self.data = ( byte_transforms[self.data[_],'reversed'] for _ in range(8))
-        rotated = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        flipped = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         for i in range(len(self.data)):
-            rotated.data[i] = self.data[ ( 7 - i ) ]
-        self.data = rotated.data
+            flipped.data[i] = self.data[ ( 7 - i ) ]
+        self.data = flipped.data
 
     def flip_horizontally(self, debug=0):
         # self.data = self.data[::-1]
@@ -703,6 +703,8 @@ class ByteTransformer:
         }
         i = 0
         for square in whirlpool:
+            if (debug):
+                print(f"square {square}: will be rotated {1+param[i]:2d} units CCW.")
             square_len = len( whirlpool[square] )
             for step in range(square_len):
                 new_step = ( step + param[i] + 1 ) % square_len
@@ -917,6 +919,15 @@ def parameters_from_salt(salt, debug=0):
         else:
             if ( parameters[number] > 22 ):
                 parameters[number] %= 23
+    if (debug):
+        line = 0
+        separator = "\nRecified Parameters returned from parameters_from_salt:"
+        for byte in parameters:
+            if (not line):
+                print(separator)
+                separator = ""
+            print(f"{byte:05b} {byte:3d}")
+            line = (line + 1) % 8
     return parameters
 
 def salt_from_parameters(parameters, debug=0):
@@ -968,25 +979,27 @@ def anti_parameters(parameters, debug=0):
     # Checkerboard
     # Anti-X: X                    if  X <= 8
     #         X + 1 + 2((x%2)-1)   if  X >= 9
+    if (debug):
+        print(f"\nanti_parameters: 0-7 whilrpool, 8-23 checkerboard:")
     i = 0
-    for number in ( 4, 5, 6, 7, 0, 1, 2, 3, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
+    for number in range(23):
         if ( number <= 7 ):
             if ( ( number % 4 ) == 0 ):
                 anti_parameters[i] = ( 26 - parameters[number] )
-                if (debug>2):
-                    print(f"0 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+                if (debug):
+                    print(f"0 -> number:{number} parameters[number]:{parameters[number]:2d} <=> i:{i} anti_parameters[i]:{anti_parameters[i]:2d} (26)")
             elif ( ( number % 4 ) == 1 ):
                 anti_parameters[i] = ( 18 - parameters[number] )
-                if (debug>2):
-                    print(f"1 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+                if (debug):
+                    print(f"1 -> number:{number} parameters[number]:{parameters[number]:2d} <=> i:{i} anti_parameters[i]:{anti_parameters[i]:2d} (18)")
             elif ( ( number % 4 ) == 2 ):
                 anti_parameters[i] = ( 10 - parameters[number] )
-                if (debug>2):
-                    print(f"2 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+                if (debug):
+                    print(f"2 -> number:{number} parameters[number]:{parameters[number]:2d} <=> i:{i} anti_parameters[i]:{anti_parameters[i]:2d} (10)")
             elif ( ( number % 4 ) == 3 ):
                 anti_parameters[i] = (  2 - parameters[number] )
-                if (debug>2):
-                    print(f"3 -> number:{number} parameters[number]:{parameters[number]} <=> i:{i} anti_parameters[i]:{anti_parameters[i]}")
+                if (debug):
+                    print(f"3 -> number:{number} parameters[number]:{parameters[number]:2d} <=> i:{i} anti_parameters[i]:{anti_parameters[i]:2d} (2)")
         else:
             if ( parameters[number] <= 8 ):
                 anti_parameters[i] = parameters[number]
@@ -994,7 +1007,7 @@ def anti_parameters(parameters, debug=0):
                 X = parameters[number]
                 anti_parameters[i] = X + 1 + 2 * ( ( X % 2 ) - 1 )
         i += 1
-    if (debug):
+    if (debug>1):
         line = 0
         separator = "Parameters passed into anti_salt_from_paramaters (and Anti-Parameters derived):"
         for i in range(24):
@@ -1019,7 +1032,7 @@ def anti_salt_from_parameters(parameters, debug=0):
             if ( anti_params[number] & bit_sensor[unpacked_bit] ):
                 anti_salt[packed_byte] |= set_bit
     if (debug):
-        print("Anti-Salt derived from the given parameters:")
+        print("\nAnti-Salt derived from the given parameters:")
         for bytes_row in range(15):
             print(f"{anti_salt[bytes_row]:08b} {anti_salt[bytes_row]:3d} {anti_salt[bytes_row]:c} ")
     return base64.encodebytes(anti_salt)

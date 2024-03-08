@@ -4,119 +4,1055 @@ Output source:  <_io.BufferedWriter name='Sample_unscrambled_64.txt'>
 I will be unscrambling the input.
 read_from has started with input_source specified as <_io.BufferedReader name='Sample_scrambled_64.txt'>.
 read_from will read in 4 blocks and return 3 with base64 decoding.
-read from yeilded bytearray(b'\xa7\x1dF\x8a\xf0\x13D>')
+read from yeilded bytearray(b'\x1am\x90\xd5\xc9\x18\xdd>')
 Random block:
-10100111
-00011101
-01000110
-10001010
-11110000
-00010011
-01000100
+00011010
+01101101
+10010000
+11010101
+11001001
+00011000
+11011101
 00111110
-read from yeilded bytearray(b'0)C\x1a\xf6.\xf0\x92')
+read from yeilded bytearray(b'\x8fl\x81@\xc4\x83;g')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'j24\x08\xf78M7')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x013\x01\x8dl\xb9\t\xa2')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'iAj\xc9\x04\x7f7\x0c')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe5\x8d\xa3&\xec\x0bNZ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'B\x80\\8\xe8fAI')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xf0\xa0\x01\xc14\x000q')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'DDV\x02A$U@')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'dL+\x91L\xf8R\x14')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x9eSL\x83O\xc3\xb05')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x16\x85\x0bR\x02\x10k\x92')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'^\xe4\xcbF:\xb8\xac\x85')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa4C\xacTL\xa8\xad\xb6')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x80"\x82\x13\xe8\x98\xbbA')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x8f\x05C!@\tB ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b')\x131\x0c>\x88\x0b4')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xae\xe8\x80"\x88\x89\xef[')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'I\xfc2\x9ew\xa9\xa1A')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x90\x1ap(\x80\x0e\x888')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b')\xd5\x97\xd7\x01\xca\x17\x1e')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa4C\xacTL\xa8\xad\xb6')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x80"\x82\x13\xe8\x98\xbbA')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xce\x01K!`\x19R ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'm\x0c \x07\x1e\x11@\x80')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xb8\x80\xfe\x800\xda8R')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xdc\x0b8"\xf1\xee\xfaG')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xed\xc3q\x112t\x9b\x8e')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'e\xf1e{\xaaXi\x8e')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x1cR\x8a\xa0\x10\x8c\x06\x02')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xce\xf6+K:H,\xc7')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe4\xf1\x03\xa0\xe2\t[\xc0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x81\xe39\x1c&\x00)\xcf')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x85p!C\x19 \x19\xb8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa3\x18\x84\r\x846\x00\xc8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b's&a`H\x04\xedv')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xba\xb4V\xd1P\xeb\xf4\xe8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xf3\x884M\x8b\xb0\x93\xa6')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xf8\xaa\xae\xf9a\xd2\x916')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x1cR\x8a\xa0\t\x8c\x02\x02')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe7\xf1\x17m$*Jy')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe4\xf1\x03\xa0\xe2\t[\xc0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x81\xe39\x1c&\x00)\xcf')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x87\xb1@B\t \x11\xb8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x02\n\x8e/(\x19\x02$')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x11\x9bvp\xe5\x03\x87\xeb')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xecQ\xa9e<\x90\x8f%')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x92]4\xc6\xeb\x83}\xd1')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'`"\x0c\x19X\x88\xe0\x90')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'_\x7f^\x04\x91=Bv')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'`:\x8f84\x1a\x823')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'(\x11\x81\x07"\xe0d`')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xf5\x81\x18$d\x020\x07')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x025@\xd1\xc4w\x00H')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x16\x120Pv*m\x87')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xb6\xa3dg\xa5\xdf\xab\xab')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'X\xe1\x8d\xf5h\xe8\xde\xe2')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x86\x87C\x0c\x07d\x1bK')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'@\xbaC~\xba\x088\x80')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xd1~\xba\t\x05[Nr')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b"\x05\xc9+\'\x00\xb8I\xb5")
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe0\x82\x01\xc00\x12\x08 ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b' \x11\xc0\x84"\x02B\x0f')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa9\xed\x0c\x11\x83 \x80\x86')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'[;\xd4F\xa4%\xe6k')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'S\xb3\xcbG2X&1')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'>\xe5gPt\x1f\x99\xc2')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x00\x81\x9a\x13\x02\x8e\x03\x12')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xef\xb47i0*Jy')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe4\xf1\x03\xa0\xe2\t[\xc0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x81\xe39\x1c&\x00)\xcf')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x05r\x00B\t\x00\x11\xb8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x0fH\x80`\x12\x80\x19[')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'S\x0ea\xe0I\x05\xdd\xff')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b's\xe5#\xfc\xcc\xd8\xa9\xe4')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xba\x13i\xfcKX\xe0\x8d')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x90\x1ap(\x80\x0e\x888')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b')\xd5\x97\xd7\x01\xca\x17\x1e')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa4C\xacTL\xa8\xad\xb6')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x80"\x82\x13\xe8\x98\xbbA')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x9cEG#`\tF ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'"SX8\t>\xc0\x0c')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'A<\x10\xf9\xb8U3K')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xd7\xc5\xa9q}\xdd\xd5\xb2')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\nj\xa9\xd2\xbf\xc3\xd57')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x1c\xf5E[x\x97\x89\xb5')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x1cR\x8a\xa0\x10\x8c\x06\x02')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xce\xf6+K:H,\xc7')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe4\xf1\x03\xa0\xe2\t[\xc0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x81\xe39\x1c&\x00)\xcf')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x07\xf4@B\t%\x99\xb0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x04QdH\x0c\x01+<')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xcag\x87\xd6\x80D\x03\xd0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'_\xfa*_\x0b=!u')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'|+3\x04Z\xed\x8c\xcd')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xd9\x1cB\xd3\xe5\xa5\x99x')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x10:`(\x80\x0e\x8c8')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'8B\xe1;\xbb\xbe\xa6D')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xa4C\xacTL\xa8\xad\xb6')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x80"\x82\x13\xe8\x98\xbbA')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xcdAG!@\x19F ')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'A\x10U\x05\x01\xb6\x80\x1c')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\x9e\x18\x02\x01\xfe\xc9g\x10')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b'\xe4\xee\xdb\x19\x15i\x8a0')
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read from yeilded bytearray(b"\xcb!c\x04\'\x08``")
+square square_1: will be rotated  1 units CCW.
+square square_2: will be rotated 10 units CCW.
+square square_3: will be rotated  6 units CCW.
+square square_4: will be rotated  3 units CCW.
+Swap Left   
+square square_1: will be rotated  5 units CCW.
+square square_2: will be rotated  7 units CCW.
+square square_3: will be rotated 11 units CCW.
+square square_4: will be rotated  1 units CCW.
 read_from has ended with input_file specified as <_io.BufferedReader name='Sample_scrambled_64.txt'>.
 Processed 104 blocks.
