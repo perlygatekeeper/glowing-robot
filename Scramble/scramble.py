@@ -121,7 +121,7 @@ if (args.action == 'scramble'):
 
     output_file = transformer.output_file(args.outfile)
     buffer = []
-    transformer.write_to(output_file, args.base64, buffer, 1)
+    transformer.write_to(output_file, args.base64, buffer, args.debug)
     for chunk in transformer.read_from(args.infile, 0, 0):
         blocks += 1
         if ( len(chunk) < 8 ):
@@ -200,10 +200,10 @@ if (args.action == 'scramble'):
               transformer.gear_rotate(gears, 0)
 
         if ( args.salt):
-            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
-            transformer.whirlpool(parameters[0:4], 1)
-            transformer.checkerboard(parameters[-16:], 1)
-            transformer.whirlpool(parameters[4:8], 1)
+            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug)
+            transformer.whirlpool(parameters[0:4], args.debug)
+            transformer.checkerboard(parameters[-16:], args.debug)
+            transformer.whirlpool(parameters[4:8], args.debug)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
@@ -258,10 +258,10 @@ elif (args.action == 'unscramble'):
               transformer.invert()
 
         if ( args.salt):
-            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), 0 )
-            transformer.whirlpool(parameters[0:4], 1)
-            transformer.checkerboard(parameters[-16:], 1)
-            transformer.whirlpool(parameters[4:8], 1)
+            parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug )
+            transformer.whirlpool(parameters[0:4], args.debug)
+            transformer.checkerboard(parameters[-16:], args.debug)
+            transformer.whirlpool(parameters[4:8], args.debug)
 
         if (1):
           gears = ( params['v_parity'] ^ ( ~ params['h_parity'] ) )
