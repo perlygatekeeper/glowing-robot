@@ -155,7 +155,9 @@ if (args.action == 'scramble'):
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
 
         if (1):
-          if ( pre_scrambled_params['ones'] < 4 ):
+          if ( ( pre_scrambled_params['ones'] < 4 ) or ( pre_scrambled_params['ones'] > 60 ) ):
+              if (args.debug):
+                  print(f"This chunk had only {pre_scrambled_params['ones']} so it will be inverted.")
               transformer.invert()
 
         if (1): # mandatory transform of barber_poling (swapping adjacent odd and even columns)
@@ -254,7 +256,9 @@ elif (args.action == 'unscramble'):
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
 
         if (1):
-          if ( pre_unscrambled_params['ones'] < 4 ):
+          if ( ( pre_unscrambled_params['ones'] < 4 ) or ( pre_unscrambled_params['ones'] > 60 ) ):
+              if (args.debug):
+                  print(f"This chunk had only {pre_unscrambled_params['ones']} so it will be inverted.")
               transformer.invert()
 
         if ( args.salt):
