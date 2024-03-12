@@ -554,7 +554,7 @@ class ByteTransformer:
         if (debug>1):
           print(f"write_to has started with output_source specified as {output_file}.")
         try:
-          if (encode_base64):
+          if (encode_base64 == 1):
             if ( len(buffer) <= 1 ):
               if (debug):
                 print(f"write_to base64 encoding, buffer is {len(buffer)} long...appending.")
@@ -567,6 +567,15 @@ class ByteTransformer:
               buffer.clear()
               if (debug):
                 print(f"WRITE_TO after flushing, buffer is {len(buffer)} long.")
+          elif (encode_base64 > 1):
+              if (debug):
+                print(f"write_to base64 encoding, buffer is {len(buffer)} long... forced flush.")
+                print( base64.b64encode(buffer[0] + buffer[1]) )
+              if ( len(buffer) == 1):
+                output_file.write( base64.b64encode(buffer[0]) )
+              elif ( len(buffer) == 2):
+                output_file.write( base64.b64encode(buffer[0] + buffer[1]) )
+              buffer.clear()
           else:
             if (debug):
               print(f"write_to writing 8-bytes to {output_file}.")
@@ -604,10 +613,12 @@ class ByteTransformer:
           while True:
             if (decode_base64):
               chunk = input_file.read(32)
+              if (debug):
+                print(f"read_from base64 reading length {len(chunk)}.")
               decoded_data = base64.b64decode(chunk)
               if not chunk:
                 break
-              for i in range(0, 24, 8):
+              for i in range(0, len(decoded_data), 8):
                 yield bytearray(decoded_data[i:i+8])
             else:
               chunk = input_file.read(8)

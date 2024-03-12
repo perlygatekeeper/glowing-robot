@@ -113,7 +113,7 @@ if (args.action == 'scramble'):
         transformer.data[7] &= 0xF7  # mask with 11110111 (turning off 4th bit from right
     else:
         transformer.data[7] &= 0xF0  # mask with 11110000
-        transformer.data[7] |= ( 0x08 | (  get_file_size(args.infile.name) % 8 ) )
+        transformer.data[7] |= ( 0x08 | ( get_file_size(args.infile.name) % 8 ) )
     params = transformer.parameters(0)
 
     if (args.debug):
@@ -125,6 +125,8 @@ if (args.action == 'scramble'):
     for chunk in transformer.read_from(args.infile, 0, 0):
         blocks += 1
         if ( len(chunk) < 8 ):
+            if (args.debug):
+                print(f"chunk was {len(chunk)} long so padding with 8 - {len(chunk)}")
             chunk.extend(b'\x00' * ( 8 - len(chunk) ) )  # Append null bytes (b'\x00')
         if (args.debug):
             print(f"read from yeilded {chunk}")
@@ -209,8 +211,11 @@ if (args.action == 'scramble'):
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
         
-        transformer.write_to(output_file, args.base64, buffer, 0)
+        transformer.write_to(output_file, args.base64, buffer, args.debug )
         params = pre_scrambled_params    # prepare for next chunk
+    if (args.base64):
+        # if args.base64 is passed as 2, then write_to will flush the buffer, even if it's now full
+        transformer.write_to(output_file, args.base64 + 1, buffer, args.debug )
 
 elif (args.action == 'unscramble'):
     # read the block of random bytes and determine the block's parameters
@@ -221,8 +226,6 @@ elif (args.action == 'unscramble'):
     padding = 0
     last_block_size = 0
     for chunk in transformer.read_from(args.infile, args.base64, 1):
-        if (args.debug):
-            print(f"read from yeilded {chunk}")
         if ( padding and blocks > 0):
             # write out the padding-sized last bit from old block
             # this will not be done for the LAST block in the stream,
@@ -236,7 +239,14 @@ elif (args.action == 'unscramble'):
             params = transformer.parameters(0)
             padding = (transformer.data[7] & 0x08) >> 3
             last_block_size = transformer.data[7] & 0x07
+            if (args.debug):
+                if (padding):
+                    print(f"Padding WAS added to the last chunk of the scrambled file, last block size SHOULD be {last_block_size}.")
+                else:
+                    print(f"No padding was added to the last chunk of the scrambled file.")
             continue
+        if (args.debug):
+            print(f"read from {blocks:4d} yeilded: {chunk}")
         blocks += 1
         pre_unscrambled_params = transformer.parameters(0) # used for inversion, doesn't matter that it's still unscrambled
 
