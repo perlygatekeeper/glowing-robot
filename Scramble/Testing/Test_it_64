@@ -1,0 +1,3 @@
+./scramble.py -d -64    Sample_file.txt         Sample_scrambled_64.txt   >   Scrambling_64_out.txt
+./scramble.py -d -64 -u Sample_scrambled_64.txt Sample_unscrambled_64.txt > Unscrambling_64_out.txt
+diff Sample_file.txt Sample_unscrambled_64.txt

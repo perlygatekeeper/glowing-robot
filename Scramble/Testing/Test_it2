@@ -1,0 +1,3 @@
+./scramble.py -d    Sample_file.txt      Sample_scrambled.txt   >   Scrambling_out.txt
+./scramble.py -d -u Sample_scrambled.txt Sample_unscrambled.txt > Unscrambling_out.txt
+diff Sample_file.txt Sample_unscrambled.txt
