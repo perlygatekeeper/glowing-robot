@@ -206,7 +206,7 @@ if (args.action == 'scramble'):
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug)
             transformer.whirlpool(parameters[0:4], args.debug)
-            transformer.checkerboard(parameters[-16:], args.debug)
+            # transformer.checkerboard(parameters[-16:], args.debug)
             transformer.whirlpool(parameters[4:8], args.debug)
 
         # ---- ---- ---- ---- ---- ---- ---- ---- ----
@@ -274,7 +274,7 @@ elif (args.action == 'unscramble'):
         if ( args.salt):
             parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug )
             transformer.whirlpool(parameters[0:4], args.debug)
-            transformer.checkerboard(parameters[-16:], args.debug)
+            # transformer.checkerboard(parameters[-16:], args.debug)
             transformer.whirlpool(parameters[4:8], args.debug)
 
         if (1):

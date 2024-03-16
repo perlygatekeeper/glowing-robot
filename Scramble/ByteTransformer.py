@@ -570,11 +570,14 @@ class ByteTransformer:
           elif (encode_base64 > 1):
               if (debug):
                 print(f"write_to base64 encoding, buffer is {len(buffer)} long... forced flush.")
-                print( base64.b64encode(buffer[0] + buffer[1]) )
               if ( len(buffer) == 1):
-                output_file.write( base64.b64encode(buffer[0]) )
+                output_file.write( base64.b64encode( buffer[0] ) )
+                if (debug):
+                  print( base64.b64encode( buffer[0] ) )
               elif ( len(buffer) == 2):
-                output_file.write( base64.b64encode(buffer[0] + buffer[1]) )
+                output_file.write( base64.b64encode( buffer[0] + buffer[1] ) )
+                if (debug):
+                  print( base64.b64encode( buffer[0] + buffer[1] ) )
               buffer.clear()
           else:
             if (debug):
@@ -968,6 +971,25 @@ def salt_from_parameters(parameters, debug=0):
             print(f"{salt[bytes_row]:08b} {salt[bytes_row]:3d} {salt[bytes_row]:c} ")
     return base64.encodebytes(salt)
 
+def anti_salt_from_parameters(parameters, debug=0):
+    anti_params = anti_parameters(parameters,debug)
+    anti_salt = bytearray(15)
+    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
+    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
+    for number in range(24):
+        packed_bit = number % 8
+        batch = int(number/8)
+        for unpacked_bit in range(5):
+            packed_byte = batch * 5 + unpacked_bit
+            set_bit = 1 << packed_bit
+            if ( anti_params[number] & bit_sensor[unpacked_bit] ):
+                anti_salt[packed_byte] |= set_bit
+    if (debug):
+        print("\nAnti-Salt derived from the given parameters:")
+        for bytes_row in range(15):
+            print(f"{anti_salt[bytes_row]:08b} {anti_salt[bytes_row]:3d} {anti_salt[bytes_row]:c} ")
+    return base64.encodebytes(anti_salt)
+
 def anti_parameters(parameters, debug=0):
     anti_parameters = bytearray(24)
     # 28 bit locations   20 bit locations   12 bit locations    4 bit locations
@@ -993,7 +1015,7 @@ def anti_parameters(parameters, debug=0):
     if (debug):
         print(f"\nanti_parameters: 0-7 whilrpool, 8-23 checkerboard:")
     i = 0
-    for number in range(23):
+    for number in range(24):
         if ( number <= 7 ):
             if ( ( number % 4 ) == 0 ):
                 anti_parameters[i] = ( 26 - parameters[number] )
@@ -1028,25 +1050,6 @@ def anti_parameters(parameters, debug=0):
             print(f"{parameters[i]:05b} {parameters[i]:3d} <-> {anti_parameters[i]:05b} {anti_parameters[i]:3d}")
             line = (line + 1) % 8
     return anti_parameters
-
-def anti_salt_from_parameters(parameters, debug=0):
-    anti_params = anti_parameters(parameters,debug)
-    anti_salt = bytearray(15)
-    # Pack 24 5-bit numbers (parameters for transforms) into 15-byte anti_salt
-    bit_sensor = [ 0b00000001, 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000 ]
-    for number in range(24):
-        packed_bit = number % 8
-        batch = int(number/8)
-        for unpacked_bit in range(5):
-            packed_byte = batch * 5 + unpacked_bit
-            set_bit = 1 << packed_bit
-            if ( anti_params[number] & bit_sensor[unpacked_bit] ):
-                anti_salt[packed_byte] |= set_bit
-    if (debug):
-        print("\nAnti-Salt derived from the given parameters:")
-        for bytes_row in range(15):
-            print(f"{anti_salt[bytes_row]:08b} {anti_salt[bytes_row]:3d} {anti_salt[bytes_row]:c} ")
-    return base64.encodebytes(anti_salt)
 
 def random_parameters(debug=0):
     parameters = bytearray(24)
