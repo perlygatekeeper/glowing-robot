@@ -111,9 +111,18 @@ if (args.action == 'scramble'):
     #           \- X=0 input source is a STDIN and PPP is left as random
     if ( args.infile.name == '<stdin>' ):
         transformer.data[7] &= 0xF7  # mask with 11110111 (turning off 4th bit from right
+        if (args.debug):
+            print(f"scramble reading from STDIN")
     else:
         transformer.data[7] &= 0xF0  # mask with 11110000
-        transformer.data[7] |= ( 0x08 | ( get_file_size(args.infile.name) % 8 ) )
+        last_block_size = get_file_size(args.infile.name) % 8
+        if (last_block_size):
+            transformer.data[7] |= ( 0x08 | ( get_file_size(args.infile.name) % 8 ) )
+            if (args.debug):
+                print(f"scramble reading from {args.infile.name} with last block {last_block_size}")
+        else:
+            if (args.debug):
+                print(f"scramble reading from {args.infile.name} with last block 8")
     params = transformer.parameters(0)
 
     if (args.debug):
@@ -335,9 +344,11 @@ elif (args.action == 'unscramble'):
         # this chunk should now be unscrambled
         # write it out, and get it's parameters to use with next chunk
         if (padding):
-            transformer.partial_write_to(output_file, 0, last_block_size)
+            transformer.partial_write_to(output_file, 0, last_block_size, args.debug )
         else:
-            transformer.write_to(output_file)
+            # transformer.write_to(output_file, args.debug)
+            buffer = []
+            transformer.write_to(output_file, 0, buffer, args.debug )
         params = transformer.parameters(0)
 
 if (args.debug):

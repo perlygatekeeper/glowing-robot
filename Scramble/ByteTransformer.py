@@ -546,8 +546,6 @@ class ByteTransformer:
           output_file.write(self.data[start:stop])
         except IOError as e:
           print("Error writing file:", e)
-        if (debug):
-          print(f"partial_write_to has ended with output_source specified as {output_file}.")
 
     def write_to(self, output_file="-", encode_base64=0, buffer=[], debug=0):
         encoding = "utf-8"  # Replace with the appropriate encoding
