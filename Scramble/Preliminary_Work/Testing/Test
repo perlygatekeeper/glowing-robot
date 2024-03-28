@@ -1,39 +1,46 @@
 ls -l "$1"
 echo "---------------------------\nScrambling"
-python ../scramble.py -d -s                                          "$1" scrambled     >   Scrambling_out.txt
+python ../../scramble.py -d -s                                          "$1" scrambled     >   Scrambling_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u                                 scrambled reconstituted > Unscrambling_out.txt
+python ../../scramble.py -d -u                                 scrambled reconstituted > Unscrambling_out.txt
 diff "$1" reconstituted
 
 echo "---------------------------\nScrambling 64"
-python ../scramble.py -d -s -64                                  "$1" scrambled     >   Scrambling_64_out.txt
+python ../../scramble.py -d -s -64                                  "$1" scrambled     >   Scrambling_64_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u -64                             scrambled reconstituted > Unscrambling_64_out.txt
+python ../../scramble.py -d -u -64                             scrambled reconstituted > Unscrambling_64_out.txt
 diff "$1" reconstituted
 
 echo "---------------------------\nScrambling with salt"
-python ../scramble.py -d -s     --salt Steven+Donald+Parker      "$1" scrambled     >   Scrambling_salt_out.txt
+python ../../scramble.py -d -s     --salt Steven+Donald+Parker      "$1" scrambled     >   Scrambling_salt_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u     --salt Bmg0QgB0caSAUAw1aEYo scrambled reconstituted > Unscrambling_salt_out.txt
+python ../../scramble.py -d -u     --salt Bmg0QgB0caSAUAw1aEYo scrambled reconstituted > Unscrambling_salt_out.txt
 diff "$1" reconstituted
 
 echo "---------------------------\nScrambing with 64 & salt"
-python ../scramble.py -d -s -64 --salt Steven+Donald+Parker      "$1" scrambled     >   Scrambling_64_salt_out.txt
+python ../../scramble.py -d -s -64 --salt Steven+Donald+Parker      "$1" scrambled     >   Scrambling_64_salt_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u -64 --salt Bmg0QgB0caSAUAw1aEYo scrambled reconstituted > Unscrambling_64_salt_out.txt
+python ../../scramble.py -d -u -64 --salt Bmg0QgB0caSAUAw1aEYo scrambled reconstituted > Unscrambling_64_salt_out.txt
 diff "$1" reconstituted
 
 # Processing   Salt:      JamisonMichaelParker
 # Coresponding Anti-Salt: JfsDRBC24eAoADw1SEYo
 
 echo "---------------------------\nScrambling with different salt"
-python ../scramble.py -d -s     --salt JamisonMichaelParker      "$1" scrambled     >   Scrambling_salt2_out.txt
+python ../../scramble.py -d -s     --salt JamisonMichaelParker      "$1" scrambled     >   Scrambling_salt2_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u     --salt JfsDRBC24eAoALw1yEao scrambled reconstituted > Unscrambling_salt2_out.txt
+python ../../scramble.py -d -u     --salt JfsDRBC24eAoALw1yEao scrambled reconstituted > Unscrambling_salt2_out.txt
 diff "$1" reconstituted
 
 echo "---------------------------\nScrambling with 64 & different salt"
-python ../scramble.py -d -s -64 --salt JamisonMichaelParker      "$1" scrambled     >   Scrambling_64_salt2_out.txt
+python ../../scramble.py -d -s -64 --salt JamisonMichaelParker      "$1" scrambled     >   Scrambling_64_salt2_out.txt
 echo "Unscrambling"
-python ../scramble.py -d -u -64 --salt JfsDRBC24eAoALw1yEao scrambled reconstituted > Unscrambling_64_salt2_out.txt
+python ../../scramble.py -d -u -64 --salt JfsDRBC24eAoALw1yEao scrambled reconstituted > Unscrambling_64_salt2_out.txt
 diff "$1" reconstituted
+
+echo "---------------------------\nScrambling with 64 & yet another different salt"
+python ../../scramble.py -d -s -64 --salt 01234567890123456789 "$1" scrambled          >   Scrambling_64_salt3_out.txt
+echo "Unscrambling"
+python ../../scramble.py -d -u -64 --salt EX0gRwBEDGo1SsGHU6oA scrambled reconstituted > Unscrambling_64_salt3_out.txt
+diff "$1" reconstituted
+

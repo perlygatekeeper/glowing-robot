@@ -37,3 +37,9 @@ python ../scramble.py -d -s -64 --salt JamisonMichaelParker      "$1" scrambled 
 echo "Unscrambling"
 python ../scramble.py -d -u -64 --salt JfsDRBC24eAoALw1yEao scrambled reconstituted > Unscrambling_64_salt2_out.txt
 diff "$1" reconstituted
+
+echo "---------------------------\nScrambling with 64 & yet another different salt"
+python ../scramble.py -d -s -64 --salt 01234567890123456789 "$1" scrambled          >   Scrambling_64_salt3_out.txt
+echo "Unscrambling"
+python ../scramble.py -d -u -64 --salt EX0gRwBEDGo1SsGHU6oA scrambled reconstituted > Unscrambling_64_salt3_out.txt
+diff "$1" reconstituted
