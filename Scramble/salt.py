@@ -30,9 +30,9 @@ import re
 parser = argparse.ArgumentParser(description="Manipulated parameters & salt/anti-salt's used with the scramble script")
 parser.add_argument("-d", "--debug",     help="set the debug flag", action="store_true")
 group = parser.add_mutually_exclusive_group()
-parser.add_argument("--salt", nargs='?',       help="Salt, 20-byte base64-encoded string")
-parser.add_argument("--parameters", nargs='?', help="24 numbers, limits: 27,19,11,3,27,19,11,3 + 16 23's")
-parser.add_argument('-r', "--random",          help="Generate 24 random parameters, which may be encoded into a salt/anti-salt pair", action="store_true")
+group.add_argument("--salt", nargs='?',       help="Salt, 20-byte base64-encoded string")
+group.add_argument("--parameters", nargs='?', help="24 numbers, limits: 27,19,11,3,27,19,11,3 + 16 23's")
+group.add_argument('-r', "--random",          help="Generate 24 random parameters, which may be encoded into a salt/anti-salt pair", action="store_true")
 args = parser.parse_args()
 # 28 bit locations   20 bit locations   12 bit locations     4 bit locations
 # pre-checkterboard Whirlpool     27 19 11 3
@@ -70,7 +70,7 @@ if (args.salt and is_valid_len20_base64_string(args.salt)):
     print(f"Processing   Salt:      {args.salt}")
     params = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug )
     anti_salt = ByteTransformer.anti_salt_from_parameters( params, 0 ).decode("utf-8")
-    print(f"Coresponding Anti-Salt: {anti_salt}")
+    print(f"Corresponding Anti-Salt: {anti_salt}")
 elif (args.random):
     params = ByteTransformer.random_parameters(args.debug)
     print("Salt from parameters:      ", end="")

@@ -70,7 +70,34 @@ if args.infile == sys.stdin:
 if args.outfile == sys.stdout:
         args.outfile = args.outfile.buffer  # Access the underlying binary buffer
 
-if ( args.salt ):
+def is_valid_len20_base64_string(input_string):
+  try:
+    # Check if the string is of length 20
+    if len(input_string) > 20:
+      print(f"input string is not a string of length 20, it was too long ... {len(input_string)}")
+      return False
+    if len(input_string) < 20:
+      print(f"input string is not a string of length 20, it was too short ... {len(input_string)}")
+      return False
+    # Try decoding the base64 string with strict validation
+    base64.b64decode(input_string, validate=True)
+    return True
+  except (TypeError, base64.binascii.Error) as err:
+    # Return False if there's an error during decoding
+    print(f"input string is not valid base64-encoded string >>>{err}<<<")
+    #           Only base64 data is allowed
+    if (err.__str__() == "Only base64 data is allowed"):
+      offending_characters = re.sub('[A-Za-z0-9/+]',' ',input_string)
+      print(f"offending chacters are shown here >>{offending_characters}<<<")
+    elif (err.__str__() == "Excess data after padding"):
+      print(f"padding character for base64 encoding is the equals sign (=) which must appear at the end of the encoded string and must not exceed 4")
+      # elif (err.__str__() == "Excess data after padding"):
+      # print(f"padding character for base64 encoding is the equals sign (=) which must appear at the end of the encoded string and must not exceed 4")
+    else:
+      print(f"no additional information")
+    return False
+
+if (args.salt and is_valid_len20_base64_string(args.salt)):
     parameters = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt) )
 
 # Print the parsed input filename
