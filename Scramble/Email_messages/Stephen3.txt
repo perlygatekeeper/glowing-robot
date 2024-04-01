@@ -1,0 +1,36 @@
+Hey!   So hopefully my instructions were clear enough.   If you are reading
+this then they must have been.   Alternatively you are really good at debugging.
+
+I added verification to the input of the salt so it should check for a length of 20
+and valid basde64 encoding.   I hope the salt/anti-salt concept wasn't confusing.
+
+
+Now at least the 24 5-bit numbers that the salt is used to make have limits.
+While a 5-bit number encodes for an integer between 0 and 31, none of my transforms
+needed that many options.   So each of these numbers have a
+" modulo NUMBER_OF_TRANSFORM_OPTIONS " applied.
+
+So a simple rotation would have 3 options 90, 180 and 270 (and the trivial 360 rotation, which I exclude)
+So I use:
+0 -> 90
+1 -> 180
+2 -> 270
+So the salt could give 30, but it would be used as 30 % 3 = 0 or a 90 degree rotation.
+The operation that would return the block of bits to its original position would be 270.
+So the parameter for a 270 rotation would be 2 (or any number from 0-31 who returns 2 under
+modulo 3).
+
+I explain this because this means that the space of all possible salts condenses to a smaller
+group of unique sets of parameters.  A reduction of 756295 times, but still yeilding:
+6.13 x 10^21 or 6,130,000,000,000,000,000,000 possible salt-generated transformations.
+
+But reduction means that a random salt will generate an anti-salt which lives in this
+smaller set.   If one then uses the salt.py to find its anti-salt it likely not be the
+orginal salt.  But any salt that starts in the reduced space, salt.py will return an
+anti-salt in the same space.
+
+Cool, huhn!?
+
+Call me if you have any questions about this!
+
+

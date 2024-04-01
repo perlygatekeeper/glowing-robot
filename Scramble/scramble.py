@@ -261,7 +261,7 @@ elif (args.action == 'unscramble'):
     first_chunk = True
     padding = 0
     last_block_size = 0
-    for chunk in transformer.read_from(args.infile, args.base64, 1):
+    for chunk in transformer.read_from(args.infile, args.base64, args.debug):
         if ( padding and blocks > 0):
             # write out the padding-sized last bit from old block
             # this will not be done for the LAST block in the stream,
