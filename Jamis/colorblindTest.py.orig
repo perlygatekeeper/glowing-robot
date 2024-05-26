@@ -1,0 +1,70 @@
+import random
+
+def Creator(num_Stats):
+
+    nodes = []
+    for node in range(10):
+        nodes.append([])
+        nodes[node].append(0)
+        nodes[node].append([round(random.uniform(-1,1), 2), round(random.uniform(-1,1), 2), round(random.uniform(-1,1), 2)])
+
+    stat_nodes = []
+    for node in range(int(num_Stats)):
+        stat_nodes.append([])
+        stat_nodes[node].append(0)
+        connections = []
+        for connection in range(len(nodes)):
+            connections.append(round(random.uniform(-1,1), 2))
+        stat_nodes[node].append(connections)
+
+    casting_spells = True
+
+    while casting_spells:
+        rgb_Inputs = new_color()
+        print(rgb_Inputs)
+
+        for node in nodes:
+            node = calc_nodes(rgb_Inputs, node)
+
+        for stat in stat_nodes:
+            stat = calc_nodes(nodes, stat)
+
+        for stat in stat_nodes:
+            print(round(stat[0], 2))
+        
+        if input("Y/N") == "n":
+            casting_spells = False
+
+def StupidCheck(check):
+    if check.isdigit():
+        if int(check) <= 0:
+            return 0
+        elif int(check) >= 255:
+            return 255
+        else:
+            return int(check)
+    else:
+        return -1
+
+
+def calc_nodes (inputs, node):
+    node[0] = 0
+    for index in range(len(inputs)):
+        node[0] += node[1][index] * inputs[index][0]
+    return node
+
+def new_color():
+    rbg_values = []
+    for index in range(3):
+        color = -1
+        while color == -1:
+                color = input("Color Value (0-255):")
+                color = StupidCheck(color)
+        rbg_values.append([round(color/255, 2)])
+    return rbg_values
+
+
+
+number_O_stats = input("Number of Stats:")
+
+Creator(number_O_stats)
