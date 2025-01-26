@@ -1,0 +1,1 @@
+wds | lower | grep '....' | grep 'X' | grep -v '[abcde fghij klmno pqrst uvwxy z]' | less

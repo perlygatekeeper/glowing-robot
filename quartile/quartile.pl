@@ -131,7 +131,8 @@ exit 0;
 
 
 __END__
-mas ter min ded def in iti ve rs res ou bad ful au trou pe ton us ct omo
+ado le sce nt sm art wa tch in equ it ies meri to cra cy cata pul ti ng
+# mas ter min ded def in iti ve rs res ou bad ful au trou pe ton us ct omo
 # st and sti lls lea de rbo ard rej uv en ate algo ri th mic mul ti med ia
 # scr uf fie st ste am bo ats per so nal ity stra to sph ere fle dgl in gs
 # do ve tai led pen ta thl ons mas och ist ic tra nslu ce nt flu ct uat ed

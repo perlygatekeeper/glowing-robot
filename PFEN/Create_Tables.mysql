@@ -1,0 +1,20 @@
+
+use PFEN;
+drop table if exists PrimeFactors;
+drop table if exists Primes;
+drop table if exists Numbers;
+
+create table Primes  ( prime_id  BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, sequence INT UNSIGNED,   prime BIGINT(255) UNSIGNED ); 
+create table Numbers ( number_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, number BIGINT UNSIGNED );
+create table PrimeFactors (
+    primefactor_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    prime_id BIGINT UNSIGNED,
+    number_id BIGINT UNSIGNED,
+    exponent INT UNSIGNED,
+    FOREIGN KEY (prime_id) REFERENCES Primes(prime_id),
+    FOREIGN KEY (number_id) REFERENCES Numbers(number_id)
+);
+
+describe Numbers;
+describe Primes;
+describe PrimeFactors;

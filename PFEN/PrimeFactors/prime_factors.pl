@@ -7,7 +7,7 @@ my $usage = "usage:\n$name";
 use strict;
 use warnings;
 use DBI;
-use DBD::SQLite;
+use DBD::MYSQL;
 
 my $prime_factor_file = $name;
 
@@ -23,30 +23,38 @@ my ( $number, $factorization, $prime_sequence, $prime ) ;
 
 # while (my $line = <PRIME_FACTORS>) {
 while (my $line = <$z>) {
+    next if ($line !~ /=/);
+    print $line;
     chomp $line;
-    if ( $line =~ /^(\d+)\s*=\s*([^(*]+)/ ) {
-    	$number = $1;
-    	$factorization = $2;
-    	$factorization =~ s/^\s*|\s*$//g;
-    	print "line for number $number: ";
-    	parse_factorization($factorization);
-    }
-    if ( $line =~ /\((?:prime )?(\d+)\)/ ) {
+    my ($number, $RHS);
+    ( $number, $RHS ) = ( $line =~ /(^\d+)=(.*)/ );
+    if ( $line =~ /\((\d+)\)/ ) { # prime
         $prime = $1;
-        print " is the $prime-th prime.\n";
+        print " $number is the $prime-th prime.\n";
     }
-    if ( $line =~ /(?:\*\* prime sequence\s*=\s*|;)(\d+)/ ) {
-        $prime_sequence = $1;
-        print " is the $prime-th prime sequence.\n";
+    if ( $RHS =~ /;(\d+)/ ) {
+    	my $prime_factor_sequence = $1;
+    	print " $number is a prime factor sequence: $prime_factor_sequence\n";
+    	$RHS =~ s/;\d+//;
+    }
+    if ( $RHS =~ /^[0-9x^]+$/ ) { # prime sequence product
+    	parse_factorization($RHS);
     }
 }
-close(PRIME_FACTORS);
+# close(PRIME_FACTORS);
 
 sub parse_factorization {
     my $factorization_string = shift;
-    my $factors = [ split( /[ x]+/, $factorization_string ) ];
-    print join(', ', @$factors) . "\n";
-    return $factors;
+    my @factors = split( /x/, $factorization_string );
+    my $factor_exponents = {};
+    my $exponent;
+    foreach my $prime_factor (@factors) {
+      my ($factor, $exponent) = ( $prime_factor =~ /(\d+)\^?(\d*)/ );
+      $exponent = 1 if (not $exponent);
+      $factor_exponents->{$factor}=$exponent;
+    }
+    print " " . join(', ', @factors) . "\n";
+    return $factor_exponents;
 }
 
 exit 0;
