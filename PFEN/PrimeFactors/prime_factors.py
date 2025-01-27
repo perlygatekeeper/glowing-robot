@@ -21,11 +21,11 @@ for key, value in db_config.items():
 
 def select_primes_from_db(cursor, limit):
     # Select and store  primes and their prime_ids  into prime_ids dictionary
-    query = "SELECT prime, prime_id FROM Primes WHERE prime < {limit}"
-    cursor.execute(query)
+    query = "SELECT prime, prime_id FROM Primes WHERE prime < %s"
+    cursor.execute(query, ( limit, ) )
     prime_ids = cursor.fetchall()
     print(f"Primes below {limit}:")
-    for prime, prime_id in results:
+    for prime, prime_id in prime_ids:
         print(f"ID: {prime_id}, Prime: {prime}")
         break
     return prime_ids
@@ -39,9 +39,9 @@ def insert_prime_to_db(cursor, prime, prime_sequence):
     print(f"Inserted prime {prime} as the {prime_sequence}-th prime into the database with ID {prime_id}.")
     return prime_id
 
-def insert_number_to_db(number):
+def insert_number_to_db(cursor, number):
     # Insert number into the Numbers table
-    query = "INSERT INTO Numbers (number_value) VALUES (%s)"
+    query = "INSERT INTO Numbers (number) VALUES (%s)"
     cursor.execute(query, (number,))
     conn.commit()
     # Retrieve the last inserted ID
@@ -65,7 +65,7 @@ try:
     cursor = conn.cursor()
     limit = 50000
     # PRELOAD FIRST PRIMES BELOW 50000
-    prime_ids = select_primes_from_db(conn, cursor, limit):
+    prime_ids = select_primes_from_db(cursor, limit)
     # OPEN PRIME FACTORS COMPRESSED FILE
     try:
         with gzip.open(prime_factor_file, 'rt') as z:
@@ -81,15 +81,15 @@ try:
                     number, RHS = match.groups()
                     number = int(number)
                     # Insert the number into the Numbers table
-                    number_id = insert_number_to_db(conn, cursor, number)
+                    number_id = insert_number_to_db(cursor, number)
                     # Check if the number is a prime
                     prime_match = re.search(r'\((\d+)\)', line)
                     if prime_match:
                         prime = number
                         prime_sequence = int(prime_match.group(1))
-                        print(f" {number} is the {prime_index}-th prime.")
+                        print(f" {number} is the {prime_sequence}-th prime.")
                         # Ensure that this number is in the preloaded primes
-                        if prime_ids.get(prime) is not None:  # Check if 'b' exists
+                        if prime in prime_ids:
                             print("{prime} is a prime its id is:", prime_ids[prime])
                         else:
                             print("{prime} NOT found in list of primes")
@@ -112,11 +112,9 @@ try:
                                 factor_exponents[factor] = exponent
                             print(" ", ", ".join(factors))
                             return factor_exponents
-    
                         factors = parse_factorization(RHS)
-    
                         # Insert prime factors into the database
-                        # insert_prime_factors_to_db(number_id, factors)
+                        insert_prime_factors_to_db(number_id, factors)
     
     except FileNotFoundError:
         print(f"Cannot read from '{prime_factor_file}': File not found.")
