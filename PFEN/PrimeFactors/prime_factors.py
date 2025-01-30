@@ -21,14 +21,16 @@ for key, value in db_config.items():
 
 def select_primes_from_db(cursor, limit):
     # Select and store  primes and their prime_ids  into prime_ids dictionary
+    prime_lookup = dict()
     query = "SELECT prime, prime_id FROM Primes WHERE prime < %s"
     cursor.execute(query, ( limit, ) )
     prime_ids = cursor.fetchall()
     print(f"Primes below {limit}:")
     for prime, prime_id in prime_ids:
-        print(f"ID: {prime_id}, Prime: {prime}")
-        break
-    return prime_ids
+        if prime_id <= 10:
+            print(f"ID: {prime_id}, Prime: {prime}")
+        prime_lookup[prime] = prime_id
+    return prime_lookup
 
 def insert_prime_to_db(cursor, prime, prime_sequence):
     # Insert prime into the Primes table
@@ -43,18 +45,16 @@ def insert_number_to_db(cursor, number):
     # Insert number into the Numbers table
     query = "INSERT INTO Numbers (number) VALUES (%s)"
     cursor.execute(query, (number,))
-    conn.commit()
     # Retrieve the last inserted ID
     number_id = cursor.lastrowid
     print(f"Inserted number {number} into the database with ID {number_id}.")
     return number_id
 
-def insert_prime_factors_to_db(number, factors):
+def insert_prime_factors_to_db(cursor, number_id, factors):
     # Insert into PrimeFactors table
     query = "INSERT INTO PrimeFactors (number_id, prime_id, exponent) VALUES (%s, %s, %s)"
-    for prime, exponent in factors.items():
-        cursor.execute(query, (number, prime, exponent))
-    conn.commit()
+    for prime_id, exponent in factors:
+        cursor.execute(query, (number_id, prime_id, exponent))
     print(f"Inserted prime factors for number {number} into the database.")
 
 
@@ -64,7 +64,9 @@ try:
     print("Connected to MySQL database")
     cursor = conn.cursor()
     limit = 50000
-    # PRELOAD FIRST PRIMES BELOW 50000
+    # PRELOAD FIRST PRIMES BELOW 50000 into prime_ids, a list of tuples
+    # should be moved into a dictionary for quick lookup of prime_ids
+    # with the prime
     prime_ids = select_primes_from_db(cursor, limit)
     # OPEN PRIME FACTORS COMPRESSED FILE
     try:
@@ -93,8 +95,10 @@ try:
                             print("{prime} is a prime its id is:", prime_ids[prime])
                         else:
                             print("{prime} NOT found in list of primes")
+                            continue
                         # Insert the prime into the database
-                        # prime_id = insert_prime_to_db(prime, prime_sequence)
+                        # prime_id = insert_prime_to_db(cursor, prime, prime_sequence)
+                        insert_prime_factors_to_db(cursor, number_id, [ ( prime_ids[prime], 1), ] )
                     # Check for prime factor sequence
                     if ';' in RHS:
                         prime_factor_sequence = int(RHS.split(';')[-1])
@@ -102,19 +106,19 @@ try:
                         RHS = RHS.split(';')[0]
                     # Parse factorization if it's a product of primes
                     if re.match(r'^[0-9x^]+$', RHS):
+                        factor_exponents = []
                         def parse_factorization(factorization_string):
                             factors = factorization_string.split('x')
-                            factor_exponents = {}
                             for prime_factor in factors:
                                 factor, _, exponent = prime_factor.partition('^')
                                 factor = int(factor)
                                 exponent = int(exponent) if exponent else 1
-                                factor_exponents[factor] = exponent
+                                factor_exponents.append( (factor, exponent) )
                             print(" ", ", ".join(factors))
                             return factor_exponents
                         factors = parse_factorization(RHS)
                         # Insert prime factors into the database
-                        insert_prime_factors_to_db(number_id, factors)
+                        insert_prime_factors_to_db(cursor, number_id, factors)
     
     except FileNotFoundError:
         print(f"Cannot read from '{prime_factor_file}': File not found.")
