@@ -4,7 +4,8 @@ import mysql.connector
 import os
 
 # Define the file name
-prime_factor_file = __file__.replace('.py', '.txt.gz')
+prime_factor_file = os.path.join("Data", __file__.replace('.py', '.txt.gz'))
+
 
 # Database connection setup
 db_config = {
