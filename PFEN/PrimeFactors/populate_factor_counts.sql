@@ -1,6 +1,21 @@
-SELECT n.number, GROUP_CONCAT(CONCAT(p.prime, '^', pf.exponent) SEPARATOR ' x ') AS factorization
-FROM Numbers n
-JOIN PrimeFactors pf ON n.number_id = pf.number_id
-JOIN Primes p ON pf.prime_id = p.prime_id
-GROUP BY n.number_value
-ORDER BY n.number_value;
+ALTER TABLE Numbers 
+ADD COLUMN total_factor INT UNSIGNED NOT NULL DEFAULT 0,
+ADD COLUMN unique_factors INT UNSIGNED NOT NULL DEFAULT 0;
+
+UPDATE Numbers n
+SET n.total_factors = (
+    SELECT COALESCE(SUM(pf.exponent), 0)
+    FROM PrimeFactors pf
+    WHERE pf.number_id = n.number_id
+);
+
+
+UPDATE Numbers n
+SET n.unique_factors = (
+    SELECT COALESCE(COUNT(pf.prime_id), 0)
+    FROM PrimeFactors pf
+    WHERE pf.number_id = n.number_id
+);
+
+
+
