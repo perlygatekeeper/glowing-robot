@@ -14,6 +14,7 @@ class DatabaseConnection:
     def query(self, sql, params=None, commit=False):
         conn = self.connect()
         cursor = conn.cursor(dictionary=True)
+        # print(sql,"\n")
         cursor.execute(sql, params or ())
         if commit:
             conn.commit()
@@ -64,9 +65,6 @@ class PrimeDB(DatabaseConnection):
             prime_lookup[row['prime']] = row['prime_id']
         return prime_lookup
 
-    limit = 99999;
-    prime_ids = select_primes_from_db(limit)
-
     def get_prime_by_sequence(self, sequence):
         sql = "SELECT * FROM primes WHERE sequence = %s"
         result = self.query(sql, (sequence,))
@@ -80,6 +78,10 @@ class PrimeDB(DatabaseConnection):
         self.query(sql, (sequence, prime, prime_gap), commit=True)
 
 class PrimeFactorDB(DatabaseConnection):
+    def __init__(self, prime_db):
+        super().__init__()
+        self.prime_ids = prime_db.prime_ids # Store prime_id lookup
+
     def get_primefactors(self, number_id):
         sql = """
           SELECT n.number_id, n.number, pf.prime_id, p.prime, pf.exponent FROM Numbers n
@@ -99,96 +101,76 @@ class PrimeFactorDB(DatabaseConnection):
         for prime_id, exponent in factors:
             self.query(sql, (number_id, prime_id, exponent), commit=True)
 
-    def find_number_by_primefactors(self, prime_factors, ):
-        primeid_factors = []
-        for pf in prime_factors:
-            primeid_factors.append( ( prime_ids[pf[0]], pf[1]) )
-        # Build the GivenFactors table dynamically
+    def find_number_by_primefactors(self, prime_factors):
+        # Convert prime numbers to their corresponding prime_id using self.prime_ids
+        primeid_factors = [(self.prime_ids[pf[0]], pf[1]) for pf in prime_factors]
+        # Build the GivenFactors dynamically using SELECT ... UNION ALL
         given_factors_sql = " UNION ALL ".join(
-            f"SELECT {pf[0]} AS prime_id, {pf[1]} AS exponent" for pf in primeid_factors
+            "SELECT %s AS prime_id, %s AS exponent" for _ in primeid_factors
         )
+        values = [val for pair in primeid_factors for val in pair]  # Flatten values
         sql = f"""
-        WITH GivenFactors AS ({given_factors_sql}),
-        MatchingNumbers AS (
+        SELECT mn.number_id
+        FROM (
             SELECT pf.number_id
             FROM PrimeFactors pf
-            JOIN GivenFactors gf ON pf.prime_id = gf.prime_id AND pf.exponent = gf.exponent
+            JOIN (
+                {given_factors_sql}
+            ) AS GivenFactors ON pf.prime_id = GivenFactors.prime_id AND pf.exponent = GivenFactors.exponent
             GROUP BY pf.number_id
-            HAVING COUNT(*) = (SELECT COUNT(*) FROM GivenFactors)
-        )
-        SELECT mn.number_id
-        FROM MatchingNumbers mn
+            HAVING COUNT(*) = (SELECT COUNT(*) FROM ( {given_factors_sql} ) AS GF)
+        ) AS mn
         WHERE NOT EXISTS (
             SELECT 1 FROM PrimeFactors pf
             WHERE pf.number_id = mn.number_id
-            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM GivenFactors)
+            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM ( {given_factors_sql} ) AS GF2)
         );
         """
-        result = self.query(sql)
+        result = self.query(sql, values * 3)  # Triple values to replace all occurrences
         return result or None
 
-    def find_number_by_primefactor_ids(self, primeid_factors, ):
-        # Build the GivenFactors table dynamically
+    def find_number_by_primefactor_ids(self, prime_factors):
+        # Convert prime numbers to their corresponding prime_id using self.prime_ids
+        primeid_factors = [(pf[0], pf[1]) for pf in prime_factors]
+        # Build the GivenFactors dynamically using SELECT ... UNION ALL
         given_factors_sql = " UNION ALL ".join(
-            f"SELECT {pf[0]} AS prime_id, {pf[1]} AS exponent" for pf in primeid_factors
+            "SELECT %s AS prime_id, %s AS exponent" for _ in primeid_factors
         )
+        values = [val for pair in primeid_factors for val in pair]  # Flatten values
         sql = f"""
-        WITH GivenFactors AS ({given_factors_sql}),
-        MatchingNumbers AS (
+        SELECT mn.number_id
+        FROM (
             SELECT pf.number_id
             FROM PrimeFactors pf
-            JOIN GivenFactors gf ON pf.prime_id = gf.prime_id AND pf.exponent = gf.exponent
+            JOIN (
+                {given_factors_sql}
+            ) AS GivenFactors ON pf.prime_id = GivenFactors.prime_id AND pf.exponent = GivenFactors.exponent
             GROUP BY pf.number_id
-            HAVING COUNT(*) = (SELECT COUNT(*) FROM GivenFactors)
-        )
-        SELECT mn.number_id
-        FROM MatchingNumbers mn
+            HAVING COUNT(*) = (SELECT COUNT(*) FROM ( {given_factors_sql} ) AS GF)
+        ) AS mn
         WHERE NOT EXISTS (
             SELECT 1 FROM PrimeFactors pf
             WHERE pf.number_id = mn.number_id
-            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM GivenFactors)
+            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM ( {given_factors_sql} ) AS GF2)
         );
         """
-        result = self.query(sql)
+        result = self.query(sql, values * 3)  # Triple values to replace all occurrences
         return result or None
 
 
 
-
-
-
-
-
-
-
-
-
-
         """
-SELECT n.number, GROUP_CONCAT(CONCAT(p.prime, '^', pf.exponent) SEPARATOR ' x ') AS factorization
-FROM Numbers n
-JOIN PrimeFactors pf ON n.number_id = pf.number_id
-JOIN Primes p ON pf.prime_id = p.prime_id
-GROUP BY n.number
-ORDER BY n.number;
-
         ADD MODULE FOR CONVERTING PRIME FACTORS INTO A STRING
     def primefactors(self, number_id, ):
-
         ADD MODULE TO ADD TWO PRIME FACTORS
     def primefactors(self, number_id, ):
-
         ADD MODULE TO SUBTRACT TWO PRIME FACTORS
     def primefactors(self, number_id, ):
-
         ADD MODULE FIND INTERSECTION OF TWO PRIME FACTORS
     def primefactors(self, number_id, ):
-
         ADD MODULE FIND UNION OF TWO PRIME FACTORS
     def primefactors(self, number_id, ):
-
         pfen_asjson   = for storage into database
-
         gcd           = Greatest Common Divisor (Intersection)
         lcm           = Lowest Common Multiple (Union)
         mult          = Multiplication (Vector Addition)
@@ -198,12 +180,9 @@ ORDER BY n.number;
         is_root       = are all numbers in vector multiple of power of the root, sqrt => are all exponents even
         is_prime      = single point vector
         are_coprime   = ( number, number)
-
         prime_factors = list each prime and exponent
         prime_factoral = a vector of all ones, followed by all zeros
-
         """
-
 
 # Function to easily get database instances
 def get_number_db():
@@ -212,7 +191,5 @@ def get_number_db():
 def get_prime_db():
     return PrimeDB()
 
-def get_primefactor_db():
-    return PrimeFactorDB()
-
-prime_factors = [(2, 3), (5, 1)]  # Example input list
+def get_primefactor_db(primeDB):
+    return PrimeFactorDB(primeDB)
