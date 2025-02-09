@@ -51,6 +51,22 @@ class NumberDB(DatabaseConnection):
         self.query(sql, (number, total_factors, unique_factors), commit=True)
 
 class PrimeDB(DatabaseConnection):
+    def __init__(self):
+        super().__init__()
+        self.prime_ids = self.select_primes_from_db(99999)  # Initialize once
+
+    def select_primes_from_db(self, limit):
+        # Select and store  primes and their prime_ids  into prime_ids dictionary
+        prime_lookup = dict()
+        sql = "SELECT prime, prime_id FROM Primes WHERE prime < %s"
+        primes_query_result = self.query(sql, (limit,))
+        for row in primes_query_result:
+            prime_lookup[row['prime']] = row['prime_id']
+        return prime_lookup
+
+    limit = 99999;
+    prime_ids = select_primes_from_db(limit)
+
     def get_prime_by_sequence(self, sequence):
         sql = "SELECT * FROM primes WHERE sequence = %s"
         result = self.query(sql, (sequence,))
@@ -75,13 +91,77 @@ class PrimeFactorDB(DatabaseConnection):
         """ RETURN ALL FACTORS INSTEAD OF THIS ..."""
         return result if result else None
     
-    def insert_primefactors(self, number_id, ):
+    def insert_primefactors(self, number_id, factors):
         sql = """
-        INSERT INTO primefactors (number_id, prime_id, exponent)
-        VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE prime = VALUES(prime), prime_gap = VALUES(prime_gap)
+          INSERT INTO PrimeFactors (number_id, prime_id, exponent)
+          VALUES (%s, %s, %s)
         """
-        """ LOOP OVER FACTORS """
-        self.query(sql, (number_id, prime_id, exponent), commit=True)
+        for prime_id, exponent in factors:
+            self.query(sql, (number_id, prime_id, exponent), commit=True)
+
+    def find_number_by_primefactors(self, prime_factors, ):
+        primeid_factors = []
+        for pf in prime_factors:
+            primeid_factors.append( ( prime_ids[pf[0]], pf[1]) )
+        # Build the GivenFactors table dynamically
+        given_factors_sql = " UNION ALL ".join(
+            f"SELECT {pf[0]} AS prime_id, {pf[1]} AS exponent" for pf in primeid_factors
+        )
+        sql = f"""
+        WITH GivenFactors AS ({given_factors_sql}),
+        MatchingNumbers AS (
+            SELECT pf.number_id
+            FROM PrimeFactors pf
+            JOIN GivenFactors gf ON pf.prime_id = gf.prime_id AND pf.exponent = gf.exponent
+            GROUP BY pf.number_id
+            HAVING COUNT(*) = (SELECT COUNT(*) FROM GivenFactors)
+        )
+        SELECT mn.number_id
+        FROM MatchingNumbers mn
+        WHERE NOT EXISTS (
+            SELECT 1 FROM PrimeFactors pf
+            WHERE pf.number_id = mn.number_id
+            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM GivenFactors)
+        );
+        """
+        result = self.query(sql)
+        return result or None
+
+    def find_number_by_primefactor_ids(self, primeid_factors, ):
+        # Build the GivenFactors table dynamically
+        given_factors_sql = " UNION ALL ".join(
+            f"SELECT {pf[0]} AS prime_id, {pf[1]} AS exponent" for pf in primeid_factors
+        )
+        sql = f"""
+        WITH GivenFactors AS ({given_factors_sql}),
+        MatchingNumbers AS (
+            SELECT pf.number_id
+            FROM PrimeFactors pf
+            JOIN GivenFactors gf ON pf.prime_id = gf.prime_id AND pf.exponent = gf.exponent
+            GROUP BY pf.number_id
+            HAVING COUNT(*) = (SELECT COUNT(*) FROM GivenFactors)
+        )
+        SELECT mn.number_id
+        FROM MatchingNumbers mn
+        WHERE NOT EXISTS (
+            SELECT 1 FROM PrimeFactors pf
+            WHERE pf.number_id = mn.number_id
+            AND (pf.prime_id, pf.exponent) NOT IN (SELECT prime_id, exponent FROM GivenFactors)
+        );
+        """
+        result = self.query(sql)
+        return result or None
+
+
+
+
+
+
+
+
+
+
+
 
 
         """
@@ -135,3 +215,4 @@ def get_prime_db():
 def get_primefactor_db():
     return PrimeFactorDB()
 
+prime_factors = [(2, 3), (5, 1)]  # Example input list
