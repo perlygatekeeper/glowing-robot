@@ -131,7 +131,9 @@ exit 0;
 
 
 __END__
-ls qu tes mae tri bu mas tro ms era ded at pic kle ba ll pre fer enti al
+sim ulta neo us per pet ua te mon ume nt al im agi nat ive br ow bea ten
+# pin cu shi on wa tch wo rds co llo qui al hap pen sta nce geop oli ti cs
+# ls qu tes mae tri bu mas tro ms era ded at pic kle ba ll pre fer enti al
 # ado le sce nt sm art wa tch in equ it ies meri to cra cy cata pul ti ng
 # mas ter min ded def in iti ve rs res ou bad ful au trou pe ton us ct omo
 # st and sti lls lea de rbo ard rej uv en ate algo ri th mic mul ti med ia

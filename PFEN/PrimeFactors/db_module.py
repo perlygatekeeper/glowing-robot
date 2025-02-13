@@ -54,7 +54,7 @@ class NumberDB(DatabaseConnection):
 class PrimeDB(DatabaseConnection):
     def __init__(self):
         super().__init__()
-        self.prime_ids = self.select_primes_from_db(99999)  # Initialize once
+        self.prime_ids = self.select_primes_from_db(199999)  # Initialize once
 
     def select_primes_from_db(self, limit):
         # Select and store  primes and their prime_ids  into prime_ids dictionary
@@ -98,7 +98,12 @@ class PrimeFactorDB(DatabaseConnection):
           INSERT INTO PrimeFactors (number_id, prime_id, exponent)
           VALUES (%s, %s, %s)
         """
-        for prime_id, exponent in factors:
+        print("factors is a ", type(factors))
+        print("factors: ", factors)
+        if not isinstance(factors, dict):
+            print(f"Unexpected return type from factorize_number: {type(factors)} -> {factors}")
+            exit()
+        for prime_id, exponent in factors.items():
             self.query(sql, (number_id, prime_id, exponent), commit=True)
 
     def find_number_by_primefactors(self, prime_factors):
@@ -157,32 +162,97 @@ class PrimeFactorDB(DatabaseConnection):
         result = self.query(sql, values * 3)  # Triple values to replace all occurrences
         return result or None
 
+    def union_prime_factors(self, factors1, factors2):
+        """
+        Returns the union of two prime factor dictionaries.
+        The union keeps the highest exponent when a prime is in both.
+        :param factors1: Dictionary of prime factors for number 1 {prime_id: exponent}
+        :param factors2: Dictionary of prime factors for number 2 {prime_id: exponent}
+        :return: Dictionary representing the union of both sets of prime factors.
+        """
+        union_factors = factors1.copy()  # Start with factors1
+        for prime, exponent in factors2.items():
+            if prime in union_factors:
+                union_factors[prime] = max(union_factors[prime], exponent)  # Keep max exponent
+            else:
+                union_factors[prime] = exponent  # Add new prime
+        return union_factors
+
+    def intersect_prime_factors(self, factors1, factors2):
+        """
+        Returns the intersection (GCD) of two prime factor dictionaries.
+        Keeps only primes that appear in both, with the minimum exponent.
+        :param factors1: Dictionary of prime factors for number 1 {prime_id: exponent}
+        :param factors2: Dictionary of prime factors for number 2 {prime_id: exponent}
+        :return: Dictionary representing the intersection of both sets of prime factors.
+        """
+        return {prime: min(factors1[prime], factors2[prime]) for prime in factors1 if prime in factors2}
 
 
+    def multiply_prime_factors(self, factors1, factors2):
         """
-        ADD MODULE FOR CONVERTING PRIME FACTORS INTO A STRING
-    def primefactors(self, number_id, ):
-        ADD MODULE TO ADD TWO PRIME FACTORS
-    def primefactors(self, number_id, ):
-        ADD MODULE TO SUBTRACT TWO PRIME FACTORS
-    def primefactors(self, number_id, ):
-        ADD MODULE FIND INTERSECTION OF TWO PRIME FACTORS
-    def primefactors(self, number_id, ):
-        ADD MODULE FIND UNION OF TWO PRIME FACTORS
-    def primefactors(self, number_id, ):
-        pfen_asjson   = for storage into database
-        gcd           = Greatest Common Divisor (Intersection)
-        lcm           = Lowest Common Multiple (Union)
-        mult          = Multiplication (Vector Addition)
-        div           = Multiplication (Vector Subtraction)
-        exp           = Exponentation (Vector Multiplication)
-        root          = Exponentation (Vector Division)
-        is_root       = are all numbers in vector multiple of power of the root, sqrt => are all exponents even
-        is_prime      = single point vector
-        are_coprime   = ( number, number)
-        prime_factors = list each prime and exponent
-        prime_factoral = a vector of all ones, followed by all zeros
+        Returns the product (multiplication) of two prime factor dictionaries.
+        Keeps all primes, summing their exponents when they appear in both.
+        :param factors1: Dictionary of prime factors for number 1 {prime_id: exponent}
+        :param factors2: Dictionary of prime factors for number 2 {prime_id: exponent}
+        :return: Dictionary representing the product of both sets of prime factors.
         """
+        product_factors = factors1.copy()  # Start with factors1
+        for prime, exponent in factors2.items():
+            if prime in product_factors:
+                product_factors[prime] += exponent  # Sum exponents
+            else:
+                product_factors[prime] = exponent  # Add new prime
+        return product_factors
+
+class LogBaseDB(DatabaseConnection):
+    def __init__(self, base):
+        super().__init__()
+        self.base = base
+        self.table_name = f'log{base}'
+    
+    def insert_log_value(self, number_id, log_value):
+        sql = f"""
+        INSERT INTO {self.table_name} (number_id, log{self.base}_value)
+        VALUES (%s, %s)
+        """
+        self.query(sql, (number_id, log_value), commit=True)
+    
+    def get_log_value(self, number_id):
+        sql = f"SELECT log_value FROM {self.table_name} WHERE number_id = %s"
+        result = self.query(sql, (number_id,))
+        return result[0]['log_value'] if result else None
+
+class InvPrimeorialDB(DatabaseConnection):
+    def __init__(self, prime_db):
+        super().__init__()
+        self.prime_ids = prime_db.prime_ids # Store prime_id lookup
+    
+    def insert_inv_primeorial_value(self, number_id, inv_value):
+        sql = f"""
+        INSERT INTO inv_primeorial (number_id, inv_primorial_value)
+        VALUES (%s, %s)
+        """
+        self.query(sql, (number_id, inv_value), commit=True)
+    
+    def get_inv_primeoria__value(self, number_id):
+        sql = f"SELECT inv_primeorial_value FROM inv_primeorial WHERE number_id = %s"
+        result = self.query(sql, (number_id,))
+        return result[0]['inv_primeorial_value'] if result else None
+
+class InvFactorialDB(DatabaseConnection):
+    
+    def insert_inv_factorial_value(self, number_id, inv_value):
+        sql = f"""
+        INSERT INTO inv_factorial (number_id, inv_factorial_value)
+        VALUES (%s, %s)
+        """
+        self.query(sql, (number_id, inv_value), commit=True)
+    
+    def get_inv_factoria__value(self, number_id):
+        sql = f"SELECT inv_factorial_value FROM inv_factorial WHERE number_id = %s"
+        result = self.query(sql, (number_id,))
+        return result[0]['inv_factorial_value'] if result else None
 
 # Function to easily get database instances
 def get_number_db():
@@ -193,3 +263,12 @@ def get_prime_db():
 
 def get_primefactor_db(primeDB):
     return PrimeFactorDB(primeDB)
+
+def get_log_db(base):
+        return LogBaseDB(base)
+
+def get_inv_primeorial_db(primeDB):
+        return InvPrimeorialDB(primeDB)
+
+def get_inv_factorial_db():
+        return InvFactorialDB()

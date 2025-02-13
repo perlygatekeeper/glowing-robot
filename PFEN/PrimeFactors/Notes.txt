@@ -1,0 +1,20 @@
+        Interactions with the database return the data keyed to the column names.
+
+        ADD MODULE FOR CONVERTING PRIME FACTORS INTO A STRING
+        ADD MODULE TO ADD TWO PRIME FACTORS
+        ADD MODULE TO SUBTRACT TWO PRIME FACTORS
+        ADD MODULE FIND INTERSECTION OF TWO PRIME FACTORS
+        ADD MODULE FIND UNION OF TWO PRIME FACTORS
+
+        pfen_asjson   = for storage into database
+        gcd           = Greatest Common Divisor (Intersection)
+        lcm           = Lowest Common Multiple (Union)
+        mult          = Multiplication (Vector Addition)
+        div           = Multiplication (Vector Subtraction)
+        exp           = Exponentation (Vector Multiplication)
+        root          = Exponentation (Vector Division)
+        is_root       = are all numbers in vector multiple of power of the root, sqrt => are all exponents even
+        is_prime      = single point vector
+        are_coprime   = ( number, number)
+        prime_factors = list each prime and exponent
+        prime_factoral = a vector of all ones, followed by all zeros
