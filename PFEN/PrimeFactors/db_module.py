@@ -12,15 +12,21 @@ class DatabaseConnection:
         return self.conn
     
     def query(self, sql, params=None, commit=False):
-        conn = self.connect()
-        cursor = conn.cursor(dictionary=True)
-        # print(sql,"\n")
-        cursor.execute(sql, params or ())
-        if commit:
-            conn.commit()
-        result = cursor.fetchall()
-        cursor.close()
-        return result
+        try:
+            conn = self.connect()
+            cursor = conn.cursor(dictionary=True)
+            # print(sql,"\n")
+            cursor.execute(sql, params or ())
+            if commit:
+                conn.commit()
+            result = cursor.fetchall()
+            cursor.close()
+            return result
+        except mysql.connector.Error as err:
+            print(f"SQL Error: {err}")
+            print(f"Query: {sql}")
+            print(f"Params: {params}")
+            return None
     
     def close(self):
         if self.conn and self.conn.is_connected():
@@ -54,7 +60,7 @@ class NumberDB(DatabaseConnection):
 class PrimeDB(DatabaseConnection):
     def __init__(self):
         super().__init__()
-        self.prime_ids = self.select_primes_from_db(199999)  # Initialize once
+        self.prime_ids = self.select_primes_from_db(10000000)  # Initialize once
 
     def select_primes_from_db(self, limit):
         # Select and store  primes and their prime_ids  into prime_ids dictionary
@@ -94,16 +100,19 @@ class PrimeFactorDB(DatabaseConnection):
         return result if result else None
     
     def insert_primefactors(self, number_id, factors):
+        # print(f"attempting to insert factors ( {number_id} )")
         sql = """
           INSERT INTO PrimeFactors (number_id, prime_id, exponent)
           VALUES (%s, %s, %s)
         """
-        print("factors is a ", type(factors))
-        print("factors: ", factors)
+        # print("factors is a ", type(factors))
+        # print("factors: ", factors)
         if not isinstance(factors, dict):
             print(f"Unexpected return type from factorize_number: {type(factors)} -> {factors}")
             exit()
         for prime_id, exponent in factors.items():
+            # print(f"Expected return type from factorize_number: {type(factors)} -> {factors}")
+            # print(f"inserting ( {number_id}, {prime_id}, {exponent} )")
             self.query(sql, (number_id, prime_id, exponent), commit=True)
 
     def find_number_by_primefactors(self, prime_factors):
@@ -219,7 +228,7 @@ class LogBaseDB(DatabaseConnection):
         self.query(sql, (number_id, log_value), commit=True)
     
     def get_log_value(self, number_id):
-        sql = f"SELECT log_value FROM {self.table_name} WHERE number_id = %s"
+        sql = f"SELECT log{self.base}_value FROM {self.table_name} WHERE number_id = %s"
         result = self.query(sql, (number_id,))
         return result[0]['log_value'] if result else None
 
@@ -232,10 +241,11 @@ class InvPrimeorialDB(DatabaseConnection):
         sql = f"""
         INSERT INTO inv_primeorial (number_id, inv_primorial_value)
         VALUES (%s, %s)
+        ON DUPLICATE KEY UPDATE inv_primeorial_value = VALUES(inv_primeorial_value)
         """
         self.query(sql, (number_id, inv_value), commit=True)
     
-    def get_inv_primeoria__value(self, number_id):
+    def get_inv_primeoria_value(self, number_id):
         sql = f"SELECT inv_primeorial_value FROM inv_primeorial WHERE number_id = %s"
         result = self.query(sql, (number_id,))
         return result[0]['inv_primeorial_value'] if result else None
@@ -246,10 +256,11 @@ class InvFactorialDB(DatabaseConnection):
         sql = f"""
         INSERT INTO inv_factorial (number_id, inv_factorial_value)
         VALUES (%s, %s)
+        ON DUPLICATE KEY UPDATE inv_primeorial_value = VALUES(inv_primeorial_value)
         """
         self.query(sql, (number_id, inv_value), commit=True)
     
-    def get_inv_factoria__value(self, number_id):
+    def get_inv_factoria_value(self, number_id):
         sql = f"SELECT inv_factorial_value FROM inv_factorial WHERE number_id = %s"
         result = self.query(sql, (number_id,))
         return result[0]['inv_factorial_value'] if result else None

@@ -3,6 +3,11 @@ import re
 import mysql.connector
 import os
 
+# THIS SCRIPT will read from the compressed file prime_factors.txt.gz and
+# parse each line, populating the prime_factors table and updating the 
+# total_factors and unique_factors fields of the numbers table for the first
+# 99,999 integers.
+
 # Define the file name
 prime_factor_file = os.path.join("Data", __file__.replace('.py', '.txt.gz'))
 
@@ -84,7 +89,8 @@ try:
                     number, RHS = match.groups()
                     number = int(number)
                     # Insert the number into the Numbers table
-                    number_id = insert_number_to_db(cursor, number)
+                    # number_id = insert_number_to_db(cursor, number)   <--- turn on if new tables
+                    number_id = number
                     # Check if the number is a prime
                     prime_match = re.search(r'\((\d+)\)', line)
                     if prime_match:
@@ -98,7 +104,7 @@ try:
                             print("{prime} NOT found in list of primes")
                             continue
                         # Insert the prime into the database
-                        # prime_id = insert_prime_to_db(cursor, prime, prime_sequence)
+                        # prime_id = insert_prime_to_db(cursor, prime, prime_sequence)   <--- turn on if new tables
                         insert_prime_factors_to_db(cursor, prime_ids, number_id, [ ( prime, 1), ] )
                     # Check for prime factor sequence
                     if ';' in RHS:
