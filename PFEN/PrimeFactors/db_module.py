@@ -60,7 +60,7 @@ class NumberDB(DatabaseConnection):
 class PrimeDB(DatabaseConnection):
     def __init__(self):
         super().__init__()
-        self.prime_ids = self.select_primes_from_db(10000000)  # Initialize once
+        self.prime_ids = self.select_primes_from_db(2500)  # Initialize once
 
     def select_primes_from_db(self, limit):
         # Select and store  primes and their prime_ids  into prime_ids dictionary

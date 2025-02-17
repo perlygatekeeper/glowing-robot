@@ -12,4 +12,3 @@ def prime_factorization(n):
            factors.append(n)
     return factors
 
-

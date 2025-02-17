@@ -1,5 +1,9 @@
 from db_module import get_number_db, get_prime_db, get_primefactor_db
 
+# THIS SCRIPT will populate the primefactors table for all the primes in the 
+# given rane - AND - update the numbers table to reflect the
+# total_factors = 1 and unique_factors = 1 for the primes
+
 def populate_prime_numbers(start, end):
     prime_db = get_prime_db()
     number_db = get_number_db()
@@ -23,5 +27,5 @@ def populate_prime_numbers(start, end):
     print(f"Inserted {len(primes)} prime numbers into the database.")
 
 # Example usage: Populate primes between 100 and 2000
-populate_prime_numbers(10000, 10000000)
+populate_prime_numbers(100000, 10000000)
 

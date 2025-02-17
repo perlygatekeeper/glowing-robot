@@ -27,14 +27,16 @@ def factorize_number(n, prime_lookup):
 
 def process_numbers(start, end):
     for num in range(start, end + 1):
-        # Check if the number is already in the database
-        number_entry = number_db.get_number(num)
+        # print(f"processing {num}")
 
         # Check if number is prime
-        if num in primefactor_db.prime_ids:
-            continue
+        # if num in primefactor_db.prime_ids:
+        #   continue
 
-        if number_entry['total_factors'] != 0:
+        # Check if the number is already in the database
+        number_entry = number_db.get_number(num)
+        if number_entry['total_factors'] > 0:
+            # print(f"{num} already done as {number_entry['total_factors']} is not 0.")
             continue  # Skip if the number is already processed
 
         else:
@@ -51,5 +53,6 @@ def process_numbers(start, end):
             if factors:  # If the number has prime factors, insert them
                 number_id = number_db.insert_number(num, total_factors, unique_factors)
                 primefactor_db.insert_primefactors(num, factors)
+            # print(f"inserted {num} into prime factors table and updated numbers table with total_factors: {total_factors} AND unique_factors: {unique_factors} .")
  
-process_numbers(10000, 20000)
+process_numbers(2500001, 5000000)
