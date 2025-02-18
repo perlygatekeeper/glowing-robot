@@ -3,25 +3,13 @@ prime_db = get_prime_db()
 primefactor_db = get_primefactor_db(prime_db)
 number_db = get_number_db()
 
-def modify_prime_factor_without_checking(number, prime_id_to_modify, prime_to_modify):
-    base_number = number / prime_to_modify
-    base_prime_factors = primefactor_db.get_primefactors(base_number)
-    factors_dict = {factor['prime_id']: factor['exponent'] for factor in base_prime_factors}
-
-    if prime_id_to_modify in factors_dict:
-        factors_dict[prime_id_to_modify] += 1  # Increment exponent for prime_id_to_modify, eg. 2
-    else:
-        factors_dict[prime_id_to_modify] = 1  # Add prime_id_to_modify^1 if not present
-
-    # Recalculate total_factors and unique_factors
-    total_factors  = sum(factors_dict.values())  # Sum of all exponents
-    unique_factors = len(factors_dict)  # Number of distinct prime factors
-
-    primefactor_db.insert_primefactors(number, factors_dict)
-    number_db.insert_number(number, total_factors, unique_factors)
-
-    print(f"Inserted prime factors for {number}: Added or incremented factor of {prime_to_modify} from {base_number}.")
-    print(f"Updated numbers table: total_factors={total_factors}, unique_factors={unique_factors}.")
+def modify_prime_factor_without_checking(Numbers_to_add):
+    for num in Numbers_to_add:
+        primefactor_db.insert_primefactors(num, Numbers_to_add[num]['primefactors'])
+        number_db.insert_number(num, Numbers_to_add[num]['total_factors'], Numbers_to_add[num]['unique_factors'])
+    if num % 200 == 0:
+       print(f"Inserted prime factors for {number}: Added or incremented factor of {prime_to_modify} from {base_number}.")
+       print(f"Updated numbers table: total_factors={total_factors}, unique_factors={unique_factors}.")
 
 
 # Get prime_id_to_modify
@@ -34,10 +22,9 @@ sql = f"""
 SELECT n.number, n.total_factors, n.unique_factors, pf.prime_id, pf.exponent
 FROM Numbers n
 JOIN PrimeFactors pf ON n.number_id = pf.number_id
-WHERE n.number BETWEEN 12 AND 15
+WHERE n.number BETWEEN 2500001 AND 5000000
 ORDER BY n.number;
 """
-# WHERE n.number BETWEEN 2500001 AND 10000000
 prime_factors = number_db.query(sql);
 BaseNumbers = {}
 for row in prime_factors:
@@ -68,6 +55,7 @@ for num, num_details in BaseNumbers.items():
       EvenNumbers[even_num]['primefactors'][prime_id_to_modify] = 1
 # pprint(EvenNumbers)
 # exit()
+modify_prime_factor_without_checking(EvenNumbers)
 
 
 """

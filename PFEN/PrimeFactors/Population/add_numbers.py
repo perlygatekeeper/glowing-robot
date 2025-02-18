@@ -26,7 +26,7 @@ def factorize_number(n, prime_lookup):
     return factors
 
 def process_numbers(start, end):
-    for num in range(start, end + 1):
+    for num in range( start, end + 1, 2 ):
         # print(f"processing {num}")
 
         # Check if number is prime
@@ -55,4 +55,4 @@ def process_numbers(start, end):
                 primefactor_db.insert_primefactors(num, factors)
             # print(f"inserted {num} into prime factors table and updated numbers table with total_factors: {total_factors} AND unique_factors: {unique_factors} .")
  
-process_numbers(2500001, 5000000)
+process_numbers(6000001, 10000000 )
