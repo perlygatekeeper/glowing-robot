@@ -1,3 +1,4 @@
+import math
 import mysql.connector
 import os
 
@@ -58,9 +59,9 @@ class NumberDB(DatabaseConnection):
         self.query(sql, (number, total_factors, unique_factors), commit=True)
 
 class PrimeDB(DatabaseConnection):
-    def __init__(self):
+    def __init__(self, limit=10000000):
         super().__init__()
-        self.prime_ids = self.select_primes_from_db(10000000)  # Initialize once
+        self.prime_ids = self.select_primes_from_db(limit)  # Initialize once
 
     def select_primes_from_db(self, limit):
         # Select and store  primes and their prime_ids  into prime_ids dictionary
@@ -87,6 +88,31 @@ class PrimeFactorDB(DatabaseConnection):
     def __init__(self, prime_db):
         super().__init__()
         self.prime_ids = prime_db.prime_ids # Store prime_id lookup
+
+    def factorize_number(self, n):
+        """ Factorizes a number into its prime factors using the primes in self.prime_ids.
+            Returns a dictionary {prime_id: exponent}.
+        """
+        factors = {}
+        original_n = n
+        root_n = math.isqrt(n) + 1
+        for prime in sorted(self.prime_ids.keys()):  # Iterate over known primes
+            if prime > root_n:  # Stop if prime is greater than sqrt(n)
+                break
+            exponent = 0
+            while n % prime == 0:
+                n //= prime
+                exponent += 1
+            if exponent > 0:
+                factors[prime] = exponent  # Store prime_id, exponent
+        if n > 1:  # Check remaining factor
+            if n in self.prime_ids:
+                factors[n] = 1  # Store prime_id
+                print(f"Remaining prime factor: {n}")
+            else:
+                print(f"Warning: {n} is prime but missing from self.prime_ids!")
+                factors[n] = 1  # Store prime_id
+        return factors
 
     def get_primefactors(self, number_id):
         sql = """
@@ -269,8 +295,8 @@ class InvFactorialDB(DatabaseConnection):
 def get_number_db():
     return NumberDB()
 
-def get_prime_db():
-    return PrimeDB()
+def get_prime_db(limit=10000000):
+    return PrimeDB(limit)
 
 def get_primefactor_db(primeDB):
     return PrimeFactorDB(primeDB)

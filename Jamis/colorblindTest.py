@@ -96,5 +96,5 @@ def layer_update(layer, prior_layer):
     return layer
 
 
-def output_display(output_layer):
-    for output_node in output_layer:
+# def output_display(output_layer):
+    # for output_node in output_layer:
