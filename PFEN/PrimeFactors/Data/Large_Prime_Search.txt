@@ -1,0 +1,54 @@
+fermat_primality_test starting on wheel residue 143 -> 1483.
+fermat_primality_test took 404.788333 seconds for 1483.
+fermat_primality_test starting on wheel residue 149 -> 1489.
+fermat_primality_test took 404.080218 seconds for 1489.
+fermat_primality_test starting on wheel residue 151 -> 1491.
+fermat_primality_test took 405.145860 seconds for 1491.
+fermat_primality_test starting on wheel residue 157 -> 1497.
+fermat_primality_test took 403.524994 seconds for 1497.
+fermat_primality_test starting on wheel residue 163 -> 1503.
+fermat_primality_test took 403.277068 seconds for 1503.
+fermat_primality_test starting on wheel residue 167 -> 1507.
+fermat_primality_test took 404.051317 seconds for 1507.
+fermat_primality_test starting on wheel residue 169 -> 1509.
+fermat_primality_test took 404.854811 seconds for 1509.
+fermat_primality_test starting on wheel residue 173 -> 1513.
+fermat_primality_test took 404.963301 seconds for 1513.
+fermat_primality_test starting on wheel residue 179 -> 1519.
+fermat_primality_test took 404.193812 seconds for 1519.
+fermat_primality_test starting on wheel residue 181 -> 1521.
+fermat_primality_test took 404.692413 seconds for 1521.
+fermat_primality_test starting on wheel residue 187 -> 1527.
+fermat_primality_test took 404.352604 seconds for 1527.
+fermat_primality_test starting on wheel residue 191 -> 1531.
+fermat_primality_test took 403.762806 seconds for 1531.
+fermat_primality_test starting on wheel residue 193 -> 1533.
+fermat_primality_test took 403.654877 seconds for 1533.
+fermat_primality_test starting on wheel residue 197 -> 1537.
+fermat_primality_test took 403.715218 seconds for 1537.
+fermat_primality_test starting on wheel residue 199 -> 1539.
+fermat_primality_test took 402.137477 seconds for 1539.
+fermat_primality_test starting on wheel residue 209 -> 1549.
+fermat_primality_test took 404.422632 seconds for 1549.
+n starting with n % 10000 at 1550.
+fermat_primality_test starting on wheel residue 1 -> 1551.
+fermat_primality_test took 406.099587 seconds for 1551.
+fermat_primality_test starting on wheel residue 11 -> 1561.
+fermat_primality_test took 403.805761 seconds for 1561.
+fermat_primality_test starting on wheel residue 13 -> 1563.
+fermat_primality_test took 407.004962 seconds for 1563.
+fermat_primality_test starting on wheel residue 17 -> 1567.
+fermat_primality_test took 395.883918 seconds for 1567.
+fermat_primality_test starting on wheel residue 19 -> 1569.
+fermat_primality_test took 390.422156 seconds for 1569.
+fermat_primality_test starting on wheel residue 23 -> 1573.
+fermat_primality_test took 389.248486 seconds for 1573.
+fermat_primality_test starting on wheel residue 29 -> 1579.
+fermat_primality_test took 388.768013 seconds for 1579.
+fermat_primality_test starting on wheel residue 31 -> 1581.
+fermat_primality_test took 400.845650 seconds for 1581.
+fermat_primality_test starting on wheel residue 37 -> 1587.
+fermat_primality_test took 394.117262 seconds for 1587.
+fermat_primality_test starting on wheel residue 41 -> 1591.
+fermat_primality_test took 6997.515810 seconds for 1591.
+fermat_primality_test starting on wheel residue 43 -> 1593.

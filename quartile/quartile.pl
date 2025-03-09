@@ -131,8 +131,11 @@ exit 0;
 
 
 __END__
-oim ly ies ical ios cur tif ne aut bea it mu
-# rev el ati on whe at gra ss
+ded lly es cut tan ive wn se do ca rec con graeuph gl ori sca mp eri ng
+# mic dom od rit yna eco st ga es ttl ar ck cha ab aer ly tic zing shu ate
+# nic es sp ial go ogr ig or film otl emb gla diat tita ht al ly ies ar aph
+# al bers ze ori ps em imm fra te bar ho rni uni fi cat ion pre sump tu ous
+# oim ly ies ical ios cur tif ne aut bea it mu rev el ati on whe at gra ss
 # sim ulta neo us per pet ua te mon ume nt al im agi nat ive br ow bea ten
 # pin cu shi on wa tch wo rds co llo qui al hap pen sta nce geop oli ti cs
 # ls qu tes mae tri bu mas tro ms era ded at pic kle ba ll pre fer enti al
