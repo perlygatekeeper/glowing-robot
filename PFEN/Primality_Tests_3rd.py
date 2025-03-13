@@ -1,7 +1,7 @@
 import random
 import time
 import sys
-sys.set_int_max_str_digits(10**6)  # Increase the limit to 1 million digits
+# sys.set_int_max_str_digits(10**6)  # Increase the limit to 1 million digits
 
 def time_primality_test(test_function, n, k=5):
     """ Wrapper function to time primality test functions. """
@@ -70,7 +70,8 @@ def aks_primality_test(n):
         return False
     return True  # Normally would involve polynomial calculations
 
-exp = 2**14
+# exp = 2**14
+exp = 12
 n_base = 10**exp
 n = ( (n_base // 210) + 5 ) * 210  # Align n to a multiple of 210
 print(n)
@@ -121,8 +122,8 @@ while not found and n <= 10**exp + 210 * 1000:
     print(f"n starting with n % 10000 at {n % 10000}.")
     for r in wheel_residues:
         candidate = n + r
-        if ( (candidate - n_base) < 7000):
-            continue
+#        if ( (candidate - n_base) < 7000):
+#            continue
         print(f"fermat_primality_test starting on wheel residue {r} -> {candidate % 10000}.")
         skip = False
         for prime in some_primes:
@@ -132,7 +133,7 @@ while not found and n <= 10**exp + 210 * 1000:
                 break
         if skip:
             continue
-        if time_primality_test(fermat_primality_test, candidate, k=5):
+        if time_primality_test(miller_rabin_primality_test, candidate, k=5):
             found = True
             n = candidate
             break

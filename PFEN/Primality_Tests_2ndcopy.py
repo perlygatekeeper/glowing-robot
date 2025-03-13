@@ -72,8 +72,8 @@ def aks_primality_test(n):
 
 exp = 2**14
 n_base = 10**exp
-n = ( (n_base // 210) + 5 ) * 210  # Align n to a multiple of 210
-print(n)
+n = ( (n_base // 210) + 140 ) * 210  # Align n to a multiple of 210
+# print(f"Rough starting candidate {n}")
 
 # The 48 Possible prime residues mod 210
 wheel_residues = [  1,  11,  13,  17,  19,  23 , 29,  31,  37,  41,  43,  47,
@@ -118,17 +118,18 @@ for prime in some_primes:
 
 found = False
 while not found and n <= 10**exp + 210 * 1000:
-    print(f"n starting with n % 10000 at {n % 10000}.")
+    print(f"n starting with n % 10000 at {n % 100000}.")
     for r in wheel_residues:
         candidate = n + r
-        if ( (candidate - n_base) < 7000):
+        if ( (candidate - n_base) < 30000):
+            print(f" ---> {candidate % 100000} is below 30000 skipping ahead.")
             continue
-        print(f"fermat_primality_test starting on wheel residue {r} -> {candidate % 10000}.")
+        print(f" > fermat_primality_test starting on wheel residue {r} -> {candidate % 100000}.")
         skip = False
         for prime in some_primes:
             if ( ( n_residues[prime] + r ) % prime == 0 ):
                 skip = True
-                print(f"candidate is skipped due to candidate % {prime} == 0")
+                print(f" > candidate is skipped due to candidate % {prime} == 0")
                 break
         if skip:
             continue
