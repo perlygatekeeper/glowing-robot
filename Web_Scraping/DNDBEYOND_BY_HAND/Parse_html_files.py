@@ -1,4 +1,5 @@
 import csv
+import re
 from bs4 import BeautifulSoup
 
 # Sample HTML (replace with your actual HTML file if needed)
@@ -24,17 +25,50 @@ html_content = """
 soup = BeautifulSoup(html_content, "html.parser")
 
 # Step 1: Extract basic information
-name = soup.find("h4").text.strip()
-size_type_alignment = soup.find("p").text.strip()
+stat_block = soup.select("div.stat-block")[0]
+print(type(stat_block))
+monster_name = stat_block.find("h4").text.strip()
+print(f"Monster Name: {monster_name}")
+size_type_alignment = stat_block.find("p").text.strip()
+[ monster_size, monster_type, monster_alignment ] = re.split(r'[,\s]+', size_type_alignment)
+print(f"Monster Size: {monster_size}")
+print(f"Monster Type: {monster_type}")
+print(f"Monster Alignment: {monster_alignment}")
+exit
+
 
 # Step 2: Extract AC, Initiative, HP, Speed
-ac_initiative = soup.find("p", string=lambda s: "AC" in s).text.strip().split(" ")
-ac = ac_initiative[1]
-initiative = ac_initiative[3]
+# ac_initiative = soup.find("p", string=lambda s: "AC" in s).text.strip().split(" ")
+# Use CSS selector to find <p> tags containing <strong> with "AC"
+# <p data-content-chunk-id="d513a1a0-cec5-440e-99d8-d8cfeff68ebd"><strong>AC</strong> 16 <strong>Initiative</strong> +3 (13)</p>
+p_strong_tags = soup.select("p strong")
+for tag in p_strong_tags:
+    parent_p = tag.find_parent("p")
+    if tag.string and "AC" in tag.string:
+        if parent_p:
+            # ac_initiative = parent_p.get_text(strip=True).split(" ")
+            ac_initiative = parent_p.decode_contents()
+            ac_initiative = re.replace(ac_initiative.replace(r'\</?strong\>','')
+            print(f"Found AC Initiative: {ac_initiative}")
+        else:
+            print("<strong> tag with 'AC' is not inside a <p> tag.") 
+    if tag.string and "HP" in tag.string:
+        if parent_p:
+            hp = parent_p.get_text(strip=True).split(" ")
+            print(f"Found HP: {hp}")
+        else:
+            print("<strong> tag with 'HP' is not inside a <p> tag.") 
+    if tag.string and "Speed" in tag.string:
+        if parent_p:
+            speed = parent_p.get_text(strip=True).split(" ")
+            print(f"Found Speed: {speed}")
+        else:
+            print("<strong> tag with 'Speed' is not inside a <p> tag.") 
 
-hp_speed = soup.find_all("p")[2:4]
-hp = hp_speed[0].text.strip().replace("HP ", "")
-speed = hp_speed[1].text.strip().replace("Speed ", "")
+# ac = ac_initiative[1]
+# initiative = ac_initiative[3]
+# hp = hp_speed[0].text.strip().replace("HP ", "")
+# speed = hp_speed[1].text.strip().replace("Speed ", "")
 
 # Step 3: Extract ability scores and saves
 abilities_saves = {}
