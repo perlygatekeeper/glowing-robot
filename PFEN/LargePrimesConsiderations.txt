@@ -19,25 +19,16 @@
  🔍 What If You Need Bigger Integers?
  Store as a DECIMAL Type
 
- sql
- Copy
- Edit
  DECIMAL(65,0)  -- Supports up to 65 digits
  ✅ Can store numbers larger than BIGINT, but slower than integers.
 
  Store as a VARCHAR (For Arbitrary Precision)
 
- sql
- Copy
- Edit
  VARCHAR(100)  -- Store as a string
  ✅ Allows unlimited size but requires conversion for math operations.
 
  Use BIGINT UNSIGNED If You Don't Need Negatives
 
- sql
- Copy
- Edit
  BIGINT UNSIGNED
  ✅ Doubles the positive range (up to 18,446,744,073,709,551,615).
 
@@ -55,9 +46,6 @@
 
  ✅ Best MySQL Data Type for 70-Digit Primes
  1️⃣ Use DECIMAL(70,0) (Exact Precision)
- sql
- Copy
- Edit
  CREATE TABLE primes (
      prime_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
          prime DECIMAL(70,0) UNIQUE NOT NULL,
@@ -68,9 +56,6 @@
  ❌ Slower than integers for calculations.
 
  2️⃣ Use VARCHAR(70) (String Storage)
- sql
- Copy
- Edit
  CREATE TABLE primes (
      prime_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
          prime VARCHAR(70) UNIQUE NOT NULL,
@@ -81,25 +66,16 @@
  ❌ Requires conversion for numerical operations.
 
  🔢 Storing & Retrieving Large Primes
- sql
- Copy
- Edit
  INSERT INTO primes (prime, sequence) VALUES 
  ('9999999999999999999999999999999999999999999999999999999999999999999999', 1);
  ✅ Works for numbers up to 70 digits.
 
- sql
- Copy
- Edit
  SELECT * FROM primes WHERE prime > '1000000000000000000000000000000000000000000000000000000000000000000000';
  ✅ String comparisons work correctly, but need indexing for speed.
 
  🚀 Alternative: Store as Binary for Speed
  If you want efficient storage, consider storing the prime as binary (BLOB):
 
- sql
- Copy
- Edit
  CREATE TABLE primes (
      prime_id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
          prime VARBINARY(32) UNIQUE NOT NULL, -- Stores a 256-bit number
@@ -127,9 +103,6 @@
  🔢 1. Convert VARCHAR to Numeric (DECIMAL)
  If primes are stored as VARCHAR(70), you can convert them into a numeric type for comparisons:
 
- sql
- Copy
- Edit
  SELECT * FROM primes 
  WHERE CAST(prime AS DECIMAL(70,0)) > 1000000000000000000000000000000000000;
  ✅ Allows numeric comparisons on VARCHAR data.
@@ -137,27 +110,18 @@
  🧑‍💻 2. Convert BLOB or VARBINARY to a String
  If primes are stored as binary (VARBINARY or BLOB), use CAST() to convert them back to a readable format:
 
- sql
- Copy
- Edit
  SELECT CAST(prime AS CHAR) FROM primes;
  ✅ Useful for displaying the stored binary number as text.
 
  🔄 3. Convert DECIMAL to VARCHAR (String)
  If you need to convert a DECIMAL(70,0) back to a string:
 
- sql
- Copy
- Edit
  SELECT CAST(prime AS CHAR(70)) FROM primes;
  ✅ Allows storing and displaying large primes as text.
 
  🛠 4. Convert HEX to Integer (If Using VARBINARY)
  If you store primes in hexadecimal format, you can retrieve them as integers:
 
- sql
- Copy
- Edit
  SELECT CONV(HEX(prime), 16, 10) AS prime_number FROM primes;
  ✅ Retrieves stored binary values as decimal numbers.
 

@@ -1,0 +1,29 @@
+have: '(?^:a),(?^:e),(?^:i),(?^:o)'
+aoife
+kioea
+
+have: '(?^:a),(?^:e),(?^:i),(?^:u)'
+adieu
+aequi
+heiau
+
+have: '(?^:a),(?^:e),(?^:o),(?^:u)'
+aueto
+ouabe
+
+have: '(?^:a),(?^:i),(?^:o),(?^:u)'
+audio
+auloi
+ouija
+oukia
+
+have: '(?^:e),(?^:i),(?^:o),(?^:u)'
+louie
+ourie
+
+
+audio
+adieu
+louie
+aoife
+

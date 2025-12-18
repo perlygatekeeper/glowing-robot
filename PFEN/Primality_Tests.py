@@ -70,7 +70,8 @@ def aks_primality_test(n):
         return False
     return True  # Normally would involve polynomial calculations
 
-exp = 2**14
+exp = 2**15
+exp = 170000
 n_base = 10**exp
 n = ( (n_base // 210) + 5 ) * 210  # Align n to a multiple of 210
 print(n)

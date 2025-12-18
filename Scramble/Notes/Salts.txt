@@ -13,6 +13,24 @@ ToBeorNotToBe               (13 characters) - Hamlet, William Shakespeare
 Ihaveadream                 (11 characters) - Martin Luther King, Jr.
 Carpediem                   ( 9 characters) - Latin for "Seize the day"
 
+"Born to run, baby"             Borntorunbaby           14 ❌
+
 01234567890123456789    EX0gRwBEDGo1SsGHU6oA
 abcdefghijklmnopqrst    UfFUIRKaMSklmsWXBr4A
 ABCDEFGHIJKLMNOPQRST    wC9DBiA0k4KLMEQYwgSC
+/+
+
+
+Phrase  Cleaned (Base64-valid only)     Count
+"The answer is out there"       Theanswerisoutthere     20 ✅
+"Nothing else matters"          Nothingelsematters      20 ✅
+"Knowledge is power"            Knowledgeispower        20 ✅
+"Just beat it, beat it"         Justbeatitbeatit        20 ✅
+"Power to the people"           Powertothepeople        20 ✅
+"All you need is love"          Allyouneedislove        20 ✅
+"To infinity and beyond"        Toinfinityandbeyond     20 ✅
+"Never gonna give you up"       Nevergonnagiveyouup     20 ✅
+"Don’t stop believing"          Dont+stop+believing     20 ✅
+"May the force be with you"     Maytheforcebewithyou    20 ✅
+"Honesty is the best policy"    Honestythebestpolicy    20 ✅
+"Elementary my dear Watson"     ElementarydearWatson    20 ✅
