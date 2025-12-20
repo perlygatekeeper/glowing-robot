@@ -1,0 +1,7 @@
+base_url: "https://www.pinterest.com/"
+login:
+  url: "https://www.pinterest.com/login/"
+  username_field: ""
+  password_field: ""
+  success_url: "/"
+

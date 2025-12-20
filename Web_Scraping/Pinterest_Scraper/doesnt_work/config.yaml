@@ -1,0 +1,16 @@
+base_url: "https://www.pinterest.com/"
+
+login:
+  enabled: true
+  login_url: "/login"
+  username_env: SCRAPER_USERNAME
+  password_env: SCRAPER_PASSWORD
+  success_url: "/"
+  success_indicator: "Logout"
+
+scraping:
+  start_path: "/perlygatekeeper"
+  next_page_selector: "a[aria-label='Next']"
+  polite_delay: 1.5
+
+checkpoint_file: checkpoint.json

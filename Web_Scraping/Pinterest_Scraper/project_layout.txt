@@ -1,0 +1,12 @@
+Thu Dec 18 16:34:01 EST 2025
+
+chatgpt helps me make a prototype WebScraper, this is the pinterest version of it:
+
+Pinterest_Scraper/
+├── config_pinterest.yaml
+├── pinterest_scraper.py
+├── project_layout.txt
+├── scraper_base.py
+├── settings.py
+└── storage.py
+
