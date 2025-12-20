@@ -2,5 +2,6 @@ Pokemon CMH/*JSON
 .DS_Store
 Graycode-*.svg
 Graycode-*.png
+PFEN/10_digit_probable_primes.txt
 PFEN/*probable_primes.txt
 __pycache__
