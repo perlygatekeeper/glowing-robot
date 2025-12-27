@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#f8f6f0"/>
+
+  <!-- Outer double circle -->
+  <g id="outer-rings">
+    <circle cx="500" cy="500" r="480" fill="none" stroke="#000" stroke-width="3"/>
+    <circle cx="500" cy="500" r="460" fill="none" stroke="#000" stroke-width="2"/>
+  </g>
+
+  <!-- 40 letter/number spaces in outer ring (represented as small circles) -->
+  <g id="outer-ring-spokes">
+    <!-- Top section of outer ring -->
+    <g fill="none" stroke="#000" stroke-width="2.0">
+      <path d="
+      M 500.00  40.00 L 500.00  20.00 M 571.96  45.66 L 575.09  25.91
+      M 642.15  62.51 L 648.33  43.49 M 708.84  90.14 L 717.92  72.32
+      M 770.38 127.85 L 782.14 111.67 M 825.27 174.73 L 839.41 160.59
+      M 872.15 229.62 L 888.33 217.86 M 909.86 291.16 L 927.68 282.08
+      M 937.49 357.85 L 956.51 351.67 M 954.34 428.04 L 974.09 424.91
+      M 960.00 500.00 L 980.00 500.00 M 954.34 571.96 L 974.09 575.09
+      M 937.49 642.15 L 956.51 648.33 M 909.86 708.84 L 927.68 717.92
+      M 872.15 770.38 L 888.33 782.14 M 825.27 825.27 L 839.41 839.41
+      M 770.38 872.15 L 782.14 888.33 M 708.84 909.86 L 717.92 927.68
+      M 642.15 937.49 L 648.33 956.51 M 571.96 954.34 L 575.09 974.09
+      M 500.00 960.00 L 500.00 980.00 M 428.04 954.34 L 424.91 974.09
+      M 357.85 937.49 L 351.67 956.51 M 291.16 909.86 L 282.08 927.68
+      M 229.62 872.15 L 217.86 888.33 M 174.73 825.27 L 160.59 839.41
+      M 127.85 770.38 L 111.67 782.14 M  90.14 708.84 L  72.32 717.92
+      M  62.51 642.15 L  43.49 648.33 M  45.66 571.96 L  25.91 575.09
+      M  40.00 500.00 L  20.00 500.00 M  45.66 428.04 L  25.91 424.91
+      M  62.51 357.85 L  43.49 351.67 M  90.14 291.16 L  72.32 282.08
+      M 127.85 229.62 L 111.67 217.86 M 174.73 174.73 L 160.59 160.59
+      M 229.62 127.85 L 217.86 111.67 M 291.16  90.14 L 282.08 72.32
+      M 357.85  62.51 L 351.67  43.49 M 428.04  45.66 L 424.91 25.91 Z">
+    </g>
+  </g>
+
+  <!-- Outer Septagon -->
+  <path d="
+  M 500.00  60.00         L 844.01 225.66  
+  L 928.97 597.91         L 690.91 896.43  
+  L 309.09 896.43         L  71.03 597.91  
+  L 155.99 225.66         Z
+      "
+        fill="none" stroke="#000" stroke-width="3"/>
+  <!-- Inner Septagon -->
+  <path d="
+  M 500.00  40.00         L 859.64 213.19 
+  L 948.47 602.36         L 699.59 914.45 
+  L 300.41 914.45         L  51.53 602.36 
+  L 140.36 213.19         Z
+      "
+        fill="none" stroke="#000" stroke-width="3"/>
+
+  <!-- Outer Septagram star -->
+  <path d="
+  M 500.00  60.00  L 928.97 597.91  
+  L 309.09 896.43  L 155.99 225.66  
+  L 844.01 225.66  L 690.91 896.43  
+  L  71.03 597.91  Z
+  "
+        fill="none" stroke="#000" stroke-width="2.5"/>
+  <!-- Inner Septagram star -->
+  <path d="
+  M 500.00 106.00 L 884.12 587.67 
+  L 329.05 854.98 L 191.96 254.35 
+  L 808.04 254.35 L 670.95 854.98 
+  L 115.88 587.67 Z
+  "
+        fill="none" stroke="#000" stroke-width="2.5"/>
+
+  <!-- Outer Septagon -->
+  <path d="
+  M 619.32 252.23         L 768.11 438.81  
+  L 715.00 671.46         L 500.00 775.00  
+  L 285.00 671.46         L 231.89 438.81  
+  L 380.68 252.23         Z
+      "
+        fill="none" stroke="#000" stroke-width="3"/>
+  <!-- Inner Septagon -->
+  <path d="
+  M 610.64 270.25         L 748.61 443.26 
+  L 699.37 658.99         L 500.00 755.00 
+  L 300.63 658.99         L 251.39 443.26 
+  L 389.36 270.25         Z
+      "
+        fill="none" stroke="#000" stroke-width="3"/>
+  <!-- Seven large circles at heptagon points (for divine names) -->
+
+  <!-- Inner structure - pentagon -->
+
+  <!-- Pentagon's inner divisions -->
+
+  <!-- Five circles at pentagon points -->
+
+  <!-- Central circle -->
+
+  <!-- Inner cross in center circle -->
+
+  <!-- Central text AGLA -->
+
+  <!-- Labels in the seven circles (sample divine name letters) -->
+
+  <!-- Pentagon vertex labels -->
+</svg>
