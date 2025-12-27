@@ -76,7 +76,7 @@ def generate_polygram_points(center_x, center_y, radius, num_points):
         points.append((x, y))
     return points
 
-def line_intersection_point_angle(x1, y1, x2, y2, x3, y3, angle_degrees):
+def line_intersection_point_angle(x1, y1, x2, y2, x3, y3, angle_rad):
     """
     Find intersection of two lines:
     - Line 1: passes through points (x1, y1) and (x2, y2)
@@ -96,7 +96,7 @@ def line_intersection_point_angle(x1, y1, x2, y2, x3, y3, angle_degrees):
     dy1 = y2 - y1
     
     # Line 2 direction from angle
-    angle_rad = math.radians(angle_degrees)
+    # angle_rad = math.radians(angle_degrees)
     dx2 = math.cos(angle_rad)
     dy2 = math.sin(angle_rad)
     
@@ -121,7 +121,7 @@ def line_intersection_point_angle(x1, y1, x2, y2, x3, y3, angle_degrees):
     
     return (x, y)
 
-def position_text_on_circle(text, center_x, center_y, inner_radius, outer_radius, angle_rad, font_family="serif", font_weight="normal", font_size=24):
+def position_text_on_circles(text, center_x, center_y, inner_radius, outer_radius, angle_rad, font_family="serif", font_weight="normal", font_size=24):
     """
     Generate SVG text element positioned on a circle with rotation.
     Args:
@@ -168,6 +168,32 @@ def position_text_on_circle(text, center_x, center_y, inner_radius, outer_radius
                    f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" ' \
                    f'fill="#000">{inner_text}</text>'
     
+    return svg_text
+
+def position_text_on_circle(text, center_x, center_y, radius, angle_rad, font_family="serif", font_weight="normal", font_size=24):
+    """
+    Generate SVG text element positioned on a circle with rotation.
+    Args:
+        text: The text to display
+        center_x: X coordinate of circle center
+        center_y: Y coordinate of circle center
+        radius: Distance from center to text
+        angle_rad: Angle in radians (0 = right, increases clockwise)
+        font_family: CSS font family
+        font_size: Font size in pixels
+    Returns:
+        SVG text element as a string
+    """
+    # Calculate positions
+    x = center_x + radius * math.cos(angle_rad)
+    y = center_y + radius * math.sin(angle_rad)
+    # Text rotation should be perpendicular to radius (tangent to circle)
+    text_rotation = 90 + (angle_rad * 180 / math.pi)
+    svg_text = f'<text x="{inner_x:6.2f}" y="{inner_y:6.2f}" ' \
+        f'font-family="{font_family}" font-size="{font_size}" font-weight="{font_weight}" ' \
+        f'text-anchor="middle" dominant-baseline="text-bottom" ' \
+        f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" ' \
+        f'fill="#000">{text}</text>'
     return svg_text
 
 # -------------------------------------------------------------------------------------------
@@ -221,9 +247,9 @@ print(f'</g>')
 # Print the outer heptagon
 print(f'<g id="outer heptagon">')
 print('<path d="')
-outer = generate_polygon_points(500, 500, radius3, 7)
+outer_points = generate_polygon_points(500, 500, radius3, 7)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(outer_points):
     print(f"  {L} {x:6.2f} {y:6.2f}  ")
     L = "L"
 print('Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
@@ -234,7 +260,7 @@ print(f'<g id="inner heptagon">')
 print('  <path d="')
 inner_points = generate_polygon_points(500, 500, radius4, 7)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(inner_points):
     print(f"    {L} {x:6.2f} {y:6.2f} ")
     L = "L"
 print("Z")
@@ -242,11 +268,19 @@ print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
 
 # Print the inter-heptagon spokes
-print(f'<g id="outer heptagon">')
+print(f'<g id="inter-heptagon spokes">')
 print('  <path d="')
-for i in range(7):
-    for j in range(7):
-        line_intersection_point_angle(x1, y1, x2, y2, x3, y3, angle_degrees)
+for i in range(7):       # heptagon edge
+    k = ( i + 1 ) % 7
+    angle_edge = i * 2 * math.pi / 7 - (math.pi / 2) # shifted -90 degrees
+    # print(f"<!-- i:{i} ({outer_points[i][0]}, {outer_points[i][1]}) k:{k} ({outer_points[k][0]},  {outer_points[k][1]}) -->")
+    for j in range(7):   # sub-section of heptagon edge
+        angle = angle_edge + j * 2 * math.pi / 49
+        angle_degrees = angle * 180 / math.pi
+        # print(f"<!-- angle_degrees:{angle_degrees} -->")
+        inner = line_intersection_point_angle(inner_points[i][0], inner_points[i][1], inner_points[k][0],  inner_points[k][1], 500, 500, angle)
+        outer = line_intersection_point_angle(outer_points[i][0], outer_points[i][1], outer_points[k][0],  outer_points[k][1], 500, 500, angle)
+        print(f"  M {inner[0]:6.2f} {inner[1]:6.2f} L {outer[0]:6.2f} {outer[1]:6.2f} ")
 print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
@@ -337,12 +371,30 @@ text = (
 print(f'<g id="inner pentagram">')
 for i in range(0,40):
     angle_degrees = ( 2 * math.pi / 40 ) * ( i + 0.5 )
-    print(position_text_on_circle(text[i], 500, 500, 462, 471, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", 11))
+    print(position_text_on_circles(text[i], 500, 500, 462, 471, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", 11))
 print(f'</g>')
 
-print(f'<g id="first cross">')
+print(f'<g id="inner-most text">')
+font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
+font_size = 11
+text = ( 'Z', 'M', 'S', 'N', 'C' )
+for i in range(0,7):
+    angle_degrees = i * 2 * math.pi / 7 - math.pi / 2
+    print(position_text_on_circle(text[i], 500, 500, radius10 - 20, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", font_size))
+
+font_size = 13
+print(f'<text x="500.0" y="475.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>')
+print(f'<text x="525.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>')
+print(f'<text x="500.0" y="525.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">EL</text>')
+print(f'<text x="475.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>')
 font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
-print(f'<text x="500.0" y="500.0" font-family="{font_families}" font-size="36" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>')
+print(f'<text x="500.0" y="500.0" font-family="{font_families}" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>')
+# Z with tail: &#x2C8C;
+# O with dot above: &#x116AB;
+# O with dot below: &#x116B7;
+# g superscript: &#x1D4D6;
+# G with Plus-sign above: &#x1AC8;
+# U+0325 ◌̥ COMBINING RING BELOW
 print(f'</g>')
 
 print(f'</svg>')

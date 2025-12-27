@@ -49,7 +49,7 @@
   M 424.91 25.91 L 428.35 47.64
   Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
-<g id="inner heptagon">
+<g id="outer heptagon">
 <path d="
   M 500.00  42.00  
   L 858.08 214.44  
@@ -60,7 +60,7 @@
   L 141.92 214.44  
 Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
-<g id="outer heptagon">
+<g id="inner heptagon">
   <path d="
     M 500.00  66.40 
     L 839.00 229.65 
@@ -69,6 +69,60 @@ Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
     L 311.87 890.66 
     L  77.27 596.49 
     L 161.00 229.65 
+Z
+" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
+</g>
+<g id="inter-heptagon spokes">
+  <path d="
+  M 500.00  66.40 L 500.00  42.00 
+  M 552.64  91.75 L 555.60  68.78 
+  M 600.95 115.02 L 606.64  93.35 
+  M 646.90 137.14 L 655.17 116.73 
+  M 692.10 158.91 L 702.91 139.72 
+  M 738.05 181.04 L 751.44 163.09 
+  M 786.37 204.30 L 802.48 187.67 
+  M 839.00 229.65 L 858.08 214.44 
+  M 852.00 286.61 L 871.81 274.61 
+  M 863.94 338.90 L 884.42 329.83 
+  M 875.29 388.62 L 896.40 382.35 
+  M 886.45 437.52 L 908.19 434.01 
+  M 897.80 487.24 L 920.18 486.53 
+  M 909.73 539.53 L 932.78 541.75 
+  M 922.73 596.49 L 946.52 601.91 
+  M 886.30 642.16 L 908.04 650.16 
+  M 852.87 684.09 L 872.72 694.45 
+  M 821.07 723.96 L 839.14 736.57 
+  M 789.79 763.18 L 806.10 777.99 
+  M 758.00 803.06 L 772.51 820.11 
+  M 724.56 844.98 L 737.20 864.40 
+  M 688.13 890.66 L 698.72 912.64 
+  M 629.71 890.66 L 637.01 912.64 
+  M 576.08 890.66 L 580.36 912.64 
+  M 525.08 890.66 L 526.49 912.64 
+  M 474.92 890.66 L 473.51 912.64 
+  M 423.92 890.66 L 419.64 912.64 
+  M 370.29 890.66 L 362.99 912.64 
+  M 311.87 890.66 L 301.28 912.64 
+  M 275.44 844.98 L 262.80 864.40 
+  M 242.00 803.06 L 227.49 820.11 
+  M 210.21 763.18 L 193.90 777.99 
+  M 178.93 723.96 L 160.86 736.57 
+  M 147.13 684.09 L 127.28 694.45 
+  M 113.70 642.16 L  91.96 650.16 
+  M  77.27 596.49 L  53.48 601.91 
+  M  90.27 539.53 L  67.22 541.75 
+  M 102.20 487.24 L  79.82 486.53 
+  M 113.55 437.52 L  91.81 434.01 
+  M 124.71 388.62 L 103.60 382.35 
+  M 136.06 338.90 L 115.58 329.83 
+  M 148.00 286.61 L 128.19 274.61 
+  M 161.00 229.65 L 141.92 214.44 
+  M 213.63 204.30 L 197.52 187.67 
+  M 261.95 181.04 L 248.56 163.09 
+  M 307.90 158.91 L 297.09 139.72 
+  M 353.10 137.14 L 344.83 116.73 
+  M 399.05 115.02 L 393.36  93.35 
+  M 447.36  91.75 L 444.40  68.78 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
@@ -141,48 +195,3 @@ Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter" />
 </g>
 <g id="inner pentagram">
-<text x="960.58" y="536.25" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(94.5, 960.58, 536.25)" fill="#000">a</text><text x="969.55" y="536.95" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(94.5, 969.55, 536.95)" fill="#000">6</text>
-<text x="953.61" y="608.90" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(103.5, 953.61, 608.90)" fill="#000">h</text>
-<text x="926.83" y="676.80" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(112.5, 926.83, 676.80)" fill="#000">a</text><text x="935.15" y="680.24" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(112.5, 935.15, 680.24)" fill="#000">18</text>
-<text x="893.92" y="741.39" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(121.5, 893.92, 741.39)" fill="#000">e</text><text x="901.59" y="746.10" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(121.5, 901.59, 746.10)" fill="#000">26</text>
-<text x="851.31" y="800.04" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(130.5, 851.31, 800.04)" fill="#000">30</text><text x="858.15" y="805.89" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(130.5, 858.15, 805.89)" fill="#000">e</text>
-<text x="802.97" y="854.73" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(139.5, 802.97, 854.73)" fill="#000">n</text>
-<text x="741.39" y="893.92" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(148.5, 741.39, 893.92)" fill="#000">e</text><text x="746.10" y="901.59" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(148.5, 746.10, 901.59)" fill="#000">l</text>
-<text x="676.80" y="926.83" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(157.5, 676.80, 926.83)" fill="#000">G</text><text x="680.24" y="935.15" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(157.5, 680.24, 935.15)" fill="#000">7</text>
-<text x="607.85" y="949.23" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(166.5, 607.85, 949.23)" fill="#000">i</text><text x="609.95" y="957.99" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(166.5, 609.95, 957.99)" fill="#000">13</text>
-<text x="536.25" y="960.58" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(175.5, 536.25, 960.58)" fill="#000">12</text><text x="536.95" y="969.55" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(175.5, 536.95, 969.55)" fill="#000">H</text>
-<text x="463.75" y="960.58" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(184.5, 463.75, 960.58)" fill="#000">og</text><text x="463.05" y="969.55" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(184.5, 463.05, 969.55)" fill="#000">y</text>
-<text x="392.15" y="949.23" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(193.5, 392.15, 949.23)" fill="#000">15</text><text x="390.05" y="957.99" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(193.5, 390.05, 957.99)" fill="#000">t</text>
-<text x="323.20" y="926.83" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(202.5, 323.20, 926.83)" fill="#000">11</text><text x="319.76" y="935.15" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(202.5, 319.76, 935.15)" fill="#000">a</text>
-<text x="258.61" y="893.92" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(211.5, 258.61, 893.92)" fill="#000">8</text><text x="253.90" y="901.59" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(211.5, 253.90, 901.59)" fill="#000">a</text>
-<text x="199.96" y="851.31" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(220.5, 199.96, 851.31)" fill="#000">21</text><text x="194.11" y="858.15" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(220.5, 194.11, 858.15)" fill="#000">e</text>
-<text x="148.69" y="800.04" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(229.5, 148.69, 800.04)" fill="#000">b</text><text x="141.85" y="805.89" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(229.5, 141.85, 805.89)" fill="#000">10</text>
-<text x="106.08" y="741.39" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(238.5, 106.08, 741.39)" fill="#000">A</text><text x=" 98.41" y="746.10" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(238.5,  98.41, 746.10)" fill="#000">11</text>
-<text x=" 73.17" y="676.80" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(247.5,  73.17, 676.80)" fill="#000">J</text><text x=" 64.85" y="680.24" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(247.5,  64.85, 680.24)" fill="#000">15</text>
-<text x=" 50.77" y="607.85" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(256.5,  50.77, 607.85)" fill="#000">a</text><text x=" 42.01" y="609.95" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(256.5,  42.01, 609.95)" fill="#000">8</text>
-<text x=" 39.42" y="536.25" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(265.5,  39.42, 536.25)" fill="#000">16</text><text x=" 30.45" y="536.95" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(265.5,  30.45, 536.95)" fill="#000">*</text>
-<text x=" 34.94" y="463.40" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(274.5,  34.94, 463.40)" fill="#000">n</text>
-<text x=" 50.77" y="392.15" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(283.5,  50.77, 392.15)" fill="#000">A</text><text x=" 42.01" y="390.05" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(283.5,  42.01, 390.05)" fill="#000">6</text>
-<text x=" 73.17" y="323.20" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(292.5,  73.17, 323.20)" fill="#000">10</text><text x=" 64.85" y="319.76" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(292.5,  64.85, 319.76)" fill="#000">a</text>
-<text x="106.08" y="258.61" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(301.5, 106.08, 258.61)" fill="#000">G</text><text x=" 98.41" y="253.90" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(301.5,  98.41, 253.90)" fill="#000">5</text>
-<text x="148.69" y="199.96" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(310.5, 148.69, 199.96)" fill="#000">14</text><text x="141.85" y="194.11" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(310.5, 141.85, 194.11)" fill="#000">h</text>
-<text x="199.96" y="148.69" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(319.5, 199.96, 148.69)" fill="#000">17</text><text x="194.11" y="141.85" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(319.5, 194.11, 141.85)" fill="#000">a</text>
-<text x="256.25" y="102.24" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(328.5, 256.25, 102.24)" fill="#000">s</text>
-<text x="323.20" y=" 73.17" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(337.5, 323.20,  73.17)" fill="#000">5</text><text x="319.76" y=" 64.85" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(337.5, 319.76,  64.85)" fill="#000">a</text>
-<text x="392.15" y=" 50.77" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(346.5, 392.15,  50.77)" fill="#000">24</text><text x="390.05" y=" 42.01" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(346.5, 390.05,  42.01)" fill="#000">a</text>
-<text x="463.75" y=" 39.42" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(355.5, 463.75,  39.42)" fill="#000">w</text><text x="463.05" y=" 30.45" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(355.5, 463.05,  30.45)" fill="#000">6</text>
-<text x="536.25" y=" 39.42" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(364.5, 536.25,  39.42)" fill="#000">t</text><text x="536.95" y=" 30.45" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(364.5, 536.95,  30.45)" fill="#000">4</text>
-<text x="607.85" y=" 50.77" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(373.49999999999994, 607.85,  50.77)" fill="#000">G</text><text x="609.95" y=" 42.01" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(373.49999999999994, 609.95,  42.01)" fill="#000">9</text>
-<text x="676.80" y=" 73.17" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(382.50000000000006, 676.80,  73.17)" fill="#000">n</text><text x="680.24" y=" 64.85" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(382.50000000000006, 680.24,  64.85)" fill="#000">7</text>
-<text x="741.39" y="106.08" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(391.5, 741.39, 106.08)" fill="#000">9</text><text x="746.10" y=" 98.41" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(391.5, 746.10,  98.41)" fill="#000">t</text>
-<text x="800.04" y="148.69" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(400.5, 800.04, 148.69)" fill="#000">h</text><text x="805.89" y="141.85" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(400.5, 805.89, 141.85)" fill="#000">22</text>
-<text x="854.73" y="197.03" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="15" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(409.5, 854.73, 197.03)" fill="#000">n</text>
-<text x="893.92" y="258.61" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(418.5, 893.92, 258.61)" fill="#000">m</text><text x="901.59" y="253.90" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(418.5, 901.59, 253.90)" fill="#000">6</text>
-<text x="926.83" y="323.20" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(427.49999999999994, 926.83, 323.20)" fill="#000">a</text><text x="935.15" y="319.76" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(427.49999999999994, 935.15, 319.76)" fill="#000">22</text>
-<text x="949.23" y="392.15" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(436.50000000000006, 949.23, 392.15)" fill="#000">a</text><text x="957.99" y="390.05" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(436.50000000000006, 957.99, 390.05)" fill="#000">20</text>
-<text x="960.58" y="463.75" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(445.49999999999994, 960.58, 463.75)" fill="#000">n</text><text x="969.55" y="463.05" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(445.49999999999994, 969.55, 463.05)" fill="#000">14</text>
-</g>
-<g id="first cross">
-<text x="500.0" y="500.0" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="36" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>
-</g>
-</svg>
