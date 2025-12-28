@@ -393,6 +393,13 @@ for i in range(0,7):
     y = 500 + radius * math.sin(location_angle)
     transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
     print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
+    if ( i == 6 ):
+        radius = radius4 - ring_seperation / 10
+        location_angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 + 0.43 ) - math.pi/2
+        x = 500 + radius * math.cos(location_angle)
+        y = 500 + radius * math.sin(location_angle)
+        transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+        print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="26" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
 print(f'</g>')
 
 print(f'<g id="inner-most text">')
