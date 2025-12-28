@@ -189,7 +189,7 @@ def position_text_on_circle(text, center_x, center_y, radius, angle_rad, font_fa
     y = center_y + radius * math.sin(angle_rad)
     # Text rotation should be perpendicular to radius (tangent to circle)
     text_rotation = 90 + (angle_rad * 180 / math.pi)
-    svg_text = f'<text x="{inner_x:6.2f}" y="{inner_y:6.2f}" ' \
+    svg_text = f'<text x="{x:6.2f}" y="{y:6.2f}" ' \
         f'font-family="{font_family}" font-size="{font_size}" font-weight="{font_weight}" ' \
         f'text-anchor="middle" dominant-baseline="text-bottom" ' \
         f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" ' \
@@ -370,16 +370,37 @@ text = (
              )
 print(f'<g id="inner pentagram">')
 for i in range(0,40):
-    angle_degrees = ( 2 * math.pi / 40 ) * ( i + 0.5 )
-    print(position_text_on_circles(text[i], 500, 500, 462, 471, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", 11))
+    angle = ( 2 * math.pi / 40 ) * ( i + 0.5 )
+    print(position_text_on_circles(text[i], 500, 500, 462, 471, angle, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", 11))
+print(f'</g>')
+
+print(f'<g id="Maltese Stars around heptagon">')
+font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
+angle_offset = 0.33
+radius = ( 2 * radius3 +  3 * radius4 ) / 5
+for i in range(0,7):
+    base_line_angle = ( 2 * math.pi / 7 ) * ( i + 0.5 )
+    text_rotation = base_line_angle * 180 / math.pi
+
+    location_angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 + angle_offset ) - math.pi/2
+    x = 500 + radius * math.cos(location_angle)
+    y = 500 + radius * math.sin(location_angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
+
+    location_angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 - angle_offset ) - math.pi/2
+    x = 500 + radius * math.cos(location_angle)
+    y = 500 + radius * math.sin(location_angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
 print(f'</g>')
 
 print(f'<g id="inner-most text">')
 font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
 font_size = 11
 text = ( 'Z', 'M', 'S', 'N', 'C' )
-for i in range(0,7):
-    angle_degrees = i * 2 * math.pi / 7 - math.pi / 2
+for i in range(0,5):
+    angle_degrees = i * 2 * math.pi / 5 - math.pi / 2
     print(position_text_on_circle(text[i], 500, 500, radius10 - 20, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", font_size))
 
 font_size = 13
