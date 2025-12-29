@@ -220,14 +220,20 @@ radius2 = radius1 - ring_seperation   # inner circle
 # cos( 2π/5 ) = cos(72 ∘) ≈ 0.309016988
 # 3.23607 =2φ (φ≈1.61803)
 
-radius3  = radius2                             # outer heptagon
-radius4  = radius3 - ring_seperation * 1.109   # inner heptagon
-radius5  = radius4                             # outer {7/2} heptagram
-radius6  = radius5 - ring_seperation * 1.603   # inner {7/2} heptagram
-radius7  = radius6 - ring_seperation * 7.200   # inner2 heptagon
-radius8  = radius7 - ring_seperation * 1.109   # inner3 heptagon
-radius9  = radius8 - ring_seperation * 1.060   # outer pentagon
-radius10 = radius9 - ring_seperation * 3.236   # inner pentagon
+radius3  = radius2                              # outer heptagon
+radius4  = radius3  - ring_seperation * 1.109   # inner heptagon
+radius5  = radius4                              # outer {7/2} heptagram
+radius6  = radius5  - ring_seperation * 1.603   # inner {7/2} heptagram
+radius7  = radius6  - ring_seperation * 6.700   # inner2 heptagon
+radius8  = radius7  - ring_seperation * 1.109   # inner3 heptagon
+radius9  = radius8  - ring_seperation * 1.060   # outer pentagon
+radius10 = radius9  - ring_seperation * 3.236   # inner pentagon
+radius11 = radius6  - ring_seperation * 1.5     # inner hentagram points
+radius12 = radius11 - ring_seperation * 1.0     # inside outer hentagon
+radius13 = radius11 - ring_seperation * 3.9     # outside outer hentagram edge
+radius14 = radius13 - ring_seperation * 1.0     # outside inner hentagram edge
+radius15 = radius14 - ring_seperation * 1.0     # outside outer hentagon  edge
+radius16 = radius15 - ring_seperation * 1.0     # outside inner hentagon  edge
 
 # Generate 2 circles, N with spokes from inner to outer circle
 # print the circles 
@@ -374,11 +380,26 @@ for i in range(0,40):
     print(position_text_on_circles(text[i], 500, 500, 462, 471, angle, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", 11))
 print(f'</g>')
 
+text2 = ( ( 'El',      'T',       'S',       'E'       ),
+          ( 'Me',      'Heeaa',   'Ab',      'An'      ),
+          ( 'Ese',     'Th',      'Ath',     'Ave'     ),
+          ( 'Tana',    'Beigia',  'Tzad',    'Liba'    ),
+          ( 'Akele',   'Tlr',     'Ekiei',   'Rocle'   ),
+          ( 'Ardobn',  'Stimcul', 'Madini',  'Hagonel' ),
+          ( 'Stimcul', 'Dmal',    'Esemeli', 'Tlemese' ),
+        )
+text3 = ( 'ZllRHia', 'aZCaacb', 'paupnhr', 'hdmhlai', 'kkaaeee', 'iieelll', 'eellMG.' )
+# text4 = ( 'SAAI21&#x116B7;EMEa&#x116B7;', 'BTZKASE30&#x116B7;', 'HEIDENE', 'DEIMO30&#x116B7;A', 'I26&#x116AB;MEGQBE', 'ILAOT21&#x116B7;VN', 'IHRLAA21&#x116B7;' )
+# text4 = ( "SAAI EMEa\u0323", 'BTZKASE ', 'HEIDENE', 'DEIMO A', 'I MEGQBE', 'ILAOT VN', 'IHRLAA ' )
+text4 = ( "SAAI_\u0325EMEa\u0325", 'BTZKASE ', 'HEIDENE', 'DEIMO A', 'I MEGQBE', 'ILAOT VN', 'IHRLAA ' )
+
 print(f'<g id="Maltese Stars around heptagon">')
-font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
 angle_offset = 0.33
 radius = ( 2 * radius3 +  3 * radius4 ) / 5
+radius20 = radius   - ring_seperation * 2.0
+radius21 = radius20 - ring_seperation * 1.0
 for i in range(0,7):
+    font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
     base_line_angle = ( 2 * math.pi / 7 ) * ( i + 0.5 )
     text_rotation = base_line_angle * 180 / math.pi
 
@@ -393,13 +414,59 @@ for i in range(0,7):
     y = 500 + radius * math.sin(location_angle)
     transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
     print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
+
+    font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
+    angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 ) - math.pi/2
+    x = 500 + radius20 * math.cos(angle)
+    y = 500 + radius20 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" letter-spacing="46"'
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text3[i]}</text>')
+
+    font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
+    angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 ) - math.pi/2
+    x = 500 + radius21 * math.cos(angle)
+    y = 500 + radius21 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" letter-spacing="8"'
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text4[i]}</text>')
+
     if ( i == 6 ):
         radius = radius4 - ring_seperation / 10
-        location_angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 + 0.43 ) - math.pi/2
+        location_angle  = ( 2 * math.pi / 7 ) * ( i + 0.5 + 0.436 ) - math.pi/2
         x = 500 + radius * math.cos(location_angle)
         y = 500 + radius * math.sin(location_angle)
         transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
         print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="26" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text>')
+
+    text_rotation = i * 360 / 7
+    font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
+
+    angle  = ( 2 * math.pi / 7 ) * i  - math.pi/2
+    x = 500 + radius11 * math.cos(angle)
+    y = 500 + radius11 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>&#x2720;</text >')
+
+    angle  = ( 2 * math.pi / 7 ) * i - math.pi/2
+    x = 500 + radius13 * math.cos(angle)
+    y = 500 + radius13 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text2[i][0]}</text>')
+
+    x = 500 + radius14 * math.cos(angle)
+    y = 500 + radius14 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text2[i][1]}</text>')
+
+    x = 500 + radius15 * math.cos(angle)
+    y = 500 + radius15 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text2[i][2]}</text>')
+
+    x = 500 + radius16 * math.cos(angle)
+    y = 500 + radius16 * math.sin(angle)
+    transform = f'transform="rotate({text_rotation}, {x:6.2f}, {y:6.2f})" '
+    print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" {transform}>{text2[i][3]}</text>')
+
 print(f'</g>')
 
 print(f'<g id="inner-most text">')
@@ -407,22 +474,39 @@ font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
 font_size = 11
 text = ( 'Z', 'M', 'S', 'N', 'C' )
 for i in range(0,5):
-    angle_degrees = i * 2 * math.pi / 5 - math.pi / 2
-    print(position_text_on_circle(text[i], 500, 500, radius10 - 20, angle_degrees, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", font_size))
+    angle = i * 2 * math.pi / 5 - math.pi / 2
+    print(position_text_on_circle(text[i], 500, 500, radius10 - ring_seperation, angle, "'Brush Script MT', 'Lucida Handwriting', cursive", "bold", font_size))
+print(f'</g>')
+
+text5 = ( 'ADIMIEL', 'EMELIEL', 'OGAHEL', 'ORABIEL' , 'EDEKIEL' )
+font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
+angle_offset = 1
+print(f'<g id="text on circular paths">')
+print(f"  <defs>")
+print(f'    <circle id="textCircle" cx="500" cy="500" r="{radius10-ring_seperation}" fill="none"/>')
+print(f"  </defs>")
+for i in range(0,5):
+    startOffset = angle_offset + i * 20
+    print(f'  <text font-size="11" fill="black" font-family="{font_families}" letter-spacing="2">')
+    print(f'    <textPath href="#textCircle" startOffset="{startOffset}%">{text5[i]}</textPath>')
+    print(f'  </text>')
+print(f'</g>')
+
 
 font_size = 13
 print(f'<text x="500.0" y="475.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>')
 print(f'<text x="525.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>')
-print(f'<text x="500.0" y="525.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">EL</text>')
+print(f'<text x="500.0" y="525.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" letter-spaceing="-12" fill="#000">eL</text>')
 print(f'<text x="475.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>')
 font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
 print(f'<text x="500.0" y="500.0" font-family="{font_families}" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>')
 # Z with tail: &#x2C8C;
 # O with dot above: &#x116AB;
 # O with dot below: &#x116B7;
-# g superscript: &#x1D4D6;
-# G with Plus-sign above: &#x1AC8;
+# U+02DA ˚ COMBINING RING ABOVE
 # U+0325 ◌̥ COMBINING RING BELOW
+# G with Plus-sign above: &#x1AC8;
+# g superscript: &#x1D4D6;
 print(f'</g>')
 
 print(f'</svg>')

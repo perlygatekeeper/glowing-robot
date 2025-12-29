@@ -152,45 +152,45 @@ Z
 </g>
 <g id="inner2 heptagon">
   <path d="
-    M 604.10 283.83 
-    L 733.92 446.61 
-    L 687.59 649.60 
-    L 500.00 739.94 
-    L 312.41 649.60 
-    L 266.08 446.61 
-    L 395.90 283.83 
+    M 608.88 273.91 
+    L 744.64 444.16 
+    L 696.19 656.46 
+    L 500.00 750.94 
+    L 303.81 656.46 
+    L 255.36 444.16 
+    L 391.12 273.91 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
 <g id="inner3 heptagon">
   <path d="
-    M 593.52 305.81 
-    L 710.13 452.04 
-    L 668.51 634.39 
-    L 500.00 715.54 
-    L 331.49 634.39 
-    L 289.87 452.04 
-    L 406.48 305.81 
+    M 598.29 295.90 
+    L 720.86 449.59 
+    L 677.11 641.24 
+    L 500.00 726.54 
+    L 322.89 641.24 
+    L 279.14 449.59 
+    L 401.71 295.90 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
 <g id="outer pentagram">
   <path d="
-    M 500.00 307.78 
-    L 615.61 659.12 
-    L 304.45 436.46 
-    L 695.55 436.46 
-    L 384.39 659.12 
+    M 500.00 296.78 
+    L 622.07 668.02 
+    L 293.98 433.06 
+    L 706.02 433.06 
+    L 377.93 668.02 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
 <g id="inner pentagram">
   <path d="
-    M 500.00 378.97 
-    L 573.76 601.53 
-    L 372.15 458.46 
-    L 627.85 458.46 
-    L 426.24 601.53 
+    M 500.00 367.97 
+    L 580.23 610.42 
+    L 361.69 455.06 
+    L 638.31 455.06 
+    L 419.77 610.42 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter" />
 </g>
@@ -239,29 +239,99 @@ Z
 <g id="Maltese Stars around heptagon">
 <text x="800.5884349368342" y="174.09242652607077" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(25.714285714285715, 800.59, 174.09)" >&#x2720;</text>
 <text x="567.3909775768869" y="61.790449891069215" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(25.714285714285715, 567.39,  61.79)" >&#x2720;</text>
+<text x="673.276330714475" y="140.18799175184841" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(25.714285714285715, 673.28, 140.19)" letter-spacing="46">ZllRHia</text>
+<text x="663.7308884538887" y="160.00930684570164" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(25.714285714285715, 663.73, 160.01)" letter-spacing="8">SAAI_̥EMEḁ</text>
+<text x="500.0" y="134.66400000000004" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(0.0, 500.00, 134.66)" >&#x2720;</text >
+<text x="500.0" y="220.46400000000006" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(0.0, 500.00, 220.46)" >El</text>
+<text x="500.0" y="242.46400000000006" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(0.0, 500.00, 242.46)" >T</text>
+<text x="500.0" y="264.46400000000006" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(0.0, 500.00, 264.46)" >S</text>
+<text x="500.0" y="286.46400000000006" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(0.0, 500.00, 286.46)" >E</text>
 <text x="942.218625056474" y="531.8094532898893" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(77.14285714285715, 942.22, 531.81)" >&#x2720;</text>
 <text x="884.6236094497933" y="279.46920233388516" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(77.14285714285715, 884.62, 279.47)" >&#x2720;</text>
+<text x="889.3483809224276" y="411.1337727900856" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(77.14285714285715, 889.35, 411.13)" letter-spacing="46">aZCaacb</text>
+<text x="867.8999668544276" y="416.0292333371244" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(77.14285714285715, 867.90, 416.03)" letter-spacing="8">BTZKASE </text>
+<text x="785.6311864789401" y="272.21672974813777" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(51.42857142857143, 785.63, 272.22)" >&#x2720;</text >
+<text x="718.5500452831832" y="325.7121547476171" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(51.42857142857143, 718.55, 325.71)" >Me</text>
+<text x="701.3497526688865" y="339.42893038850923" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(51.42857142857143, 701.35, 339.43)" >Heeaa</text>
+<text x="684.1494600545898" y="353.14570602940137" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(51.42857142857143, 684.15, 353.15)" >Ab</text>
+<text x="666.9491674402932" y="366.8624816702935" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(51.42857142857143, 666.95, 366.86)" >An</text>
 <text x="750.849170892571" y="865.5733129318246" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(128.57142857142856, 750.85, 865.57)" >&#x2720;</text>
 <text x="912.2268185151981" y="663.2121434277419" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(128.57142857142856, 912.23, 663.21)" >&#x2720;</text>
+<text x="812.2331590362114" y="748.997635458066" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(128.57142857142856, 812.23, 749.00)" letter-spacing="46">paupnhr</text>
+<text x="795.0328664219146" y="735.2808598171739" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(128.57142857142856, 795.03, 735.28)" letter-spacing="8">HEIDENE</text>
+<text x="856.1762637248587" y="581.2949079278641" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.85714285714286, 856.18, 581.29)" >&#x2720;</text >
+<text x="772.5274488596582" y="562.2026117944123" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.85714285714286, 772.53, 562.20)" >Ese</text>
+<text x="751.079034791658" y="557.3071512473733" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.85714285714286, 751.08, 557.31)" >Th</text>
+<text x="729.630620723658" y="552.4116907003345" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.85714285714286, 729.63, 552.41)" >Ath</text>
+<text x="708.1822066556579" y="547.5162301532955" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.85714285714286, 708.18, 547.52)" >Ave</text>
 <text x="370.5851746559993" y="924.053011599519" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(180.0, 370.59, 924.05)" >&#x2720;</text>
 <text x="629.4148253440007" y="924.053011599519" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(180.0, 629.41, 924.05)" >&#x2720;</text>
+<text x="500.0" y="899.3612" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(180.0, 500.00, 899.36)" letter-spacing="46">hdmhlai</text>
+<text x="500.0" y="877.3612" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(180.0, 500.00, 877.36)" letter-spacing="8">DEIMO A</text>
+<text x="658.5133497142522" y="829.1563623239981" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.28571428571428, 658.51, 829.16)" >&#x2720;</text >
+<text x="621.2861248979657" y="751.8532334579706" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.28571428571428, 621.29, 751.85)" >Tana</text>
+<text x="611.7406826373795" y="732.0319183641174" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.28571428571428, 611.74, 732.03)" >Beigia</text>
+<text x="602.1952403767932" y="712.2106032702642" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.28571428571428, 602.20, 712.21)" >Tzad</text>
+<text x="592.6497981162069" y="692.3892881764109" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.28571428571428, 592.65, 692.39)" >Liba</text>
 <text x="87.7731814848018" y="663.2121434277419" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(231.42857142857142,  87.77, 663.21)" >&#x2720;</text>
 <text x="249.1508291074291" y="865.5733129318246" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(231.42857142857142, 249.15, 865.57)" >&#x2720;</text>
+<text x="187.7668409637887" y="748.997635458066" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(231.42857142857142, 187.77, 749.00)" letter-spacing="46">kkaaeee</text>
+<text x="204.96713357808534" y="735.2808598171739" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(231.42857142857142, 204.97, 735.28)" letter-spacing="8">I MEGQBE</text>
+<text x="341.4866502857478" y="829.1563623239981" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.71428571428572, 341.49, 829.16)" >&#x2720;</text >
+<text x="378.7138751020343" y="751.8532334579706" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.71428571428572, 378.71, 751.85)" >Akele</text>
+<text x="388.2593173626206" y="732.0319183641174" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.71428571428572, 388.26, 732.03)" >Tlr</text>
+<text x="397.80475962320685" y="712.2106032702642" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.71428571428572, 397.80, 712.21)" >Ekiei</text>
+<text x="407.35020188379315" y="692.3892881764109" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.71428571428572, 407.35, 692.39)" >Rocle</text>
 <text x="115.37639055020674" y="279.4692023338851" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.85714285714283, 115.38, 279.47)" >&#x2720;</text>
 <text x="57.781374943525975" y="531.8094532898895" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.85714285714283,  57.78, 531.81)" >&#x2720;</text>
+<text x="110.65161907757232" y="411.1337727900856" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.85714285714283, 110.65, 411.13)" letter-spacing="46">iieelll</text>
+<text x="132.1000331455724" y="416.0292333371245" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.85714285714283, 132.10, 416.03)" letter-spacing="8">ILAOT VN</text>
+<text x="143.82373627514136" y="581.2949079278641" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.14285714285717, 143.82, 581.29)" >&#x2720;</text >
+<text x="227.4725511403418" y="562.2026117944123" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.14285714285717, 227.47, 562.20)" >Ardobn</text>
+<text x="248.92096520834193" y="557.3071512473734" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.14285714285717, 248.92, 557.31)" >Stimcul</text>
+<text x="270.36937927634204" y="552.4116907003345" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.14285714285717, 270.37, 552.41)" >Madini</text>
+<text x="291.81779334434214" y="547.5162301532955" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.14285714285717, 291.82, 547.52)" >Hagonel</text>
 <text x="432.60902242311323" y="61.79044989106916" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 432.61,  61.79)" >&#x2720;</text>
 <text x="199.41156506316565" y="174.09242652607094" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="24" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 199.41, 174.09)" >&#x2720;</text>
-<text x="472.91204429401483" y="69.44927330258679" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="26" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 472.91,  69.45)" >&#x2720;</text>
+<text x="326.723669285525" y="140.18799175184847" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 326.72, 140.19)" letter-spacing="46">eellMG.</text>
+<text x="336.2691115461113" y="160.0093068457017" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 336.27, 160.01)" letter-spacing="8">IHRLAA </text>
+<text x="475.2311944923593" y="69.30963340501256" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="26" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(334.2857142857143, 475.23,  69.31)" >&#x2720;</text>
+<text x="214.36881352105985" y="272.2167297481378" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.57142857142856, 214.37, 272.22)" >&#x2720;</text >
+<text x="281.4499547168168" y="325.71215474761715" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.57142857142856, 281.45, 325.71)" >Stimcul</text>
+<text x="298.6502473311135" y="339.4289303885093" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.57142857142856, 298.65, 339.43)" >Dmal</text>
+<text x="315.85053994541016" y="353.1457060294014" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.57142857142856, 315.85, 353.15)" >Esemeli</text>
+<text x="333.0508325597068" y="366.8624816702935" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="22" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.57142857142856, 333.05, 366.86)" >Tlemese</text>
 </g>
 <g id="inner-most text">
-<text x="500.00" y="398.97" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(0.0, 500.00, 398.97)" fill="#000">Z</text>
-<text x="596.08" y="468.78" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(72.0, 596.08, 468.78)" fill="#000">M</text>
-<text x="559.38" y="581.73" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(144.0, 559.38, 581.73)" fill="#000">S</text>
-<text x="440.62" y="581.73" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(216.0, 440.62, 581.73)" fill="#000">N</text>
-<text x="403.92" y="468.78" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(288.0, 403.92, 468.78)" fill="#000">C</text>
+<text x="500.00" y="389.97" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(0.0, 500.00, 389.97)" fill="#000">Z</text>
+<text x="604.64" y="466.00" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(72.0, 604.64, 466.00)" fill="#000">M</text>
+<text x="564.67" y="589.01" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(144.0, 564.67, 589.01)" fill="#000">S</text>
+<text x="435.33" y="589.01" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(216.0, 435.33, 589.01)" fill="#000">N</text>
+<text x="395.36" y="466.00" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(288.0, 395.36, 466.00)" fill="#000">C</text>
+</g>
+<g id="text on circular paths">
+  <defs>
+    <circle id="textCircle" cx="500" cy="500" r="110.02599999999995" fill="none"/>
+  </defs>
+  <text font-size="11" fill="black" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" letter-spacing="2">
+    <textPath href="#textCircle" startOffset="1%">ADIMIEL</textPath>
+  </text>
+  <text font-size="11" fill="black" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" letter-spacing="2">
+    <textPath href="#textCircle" startOffset="21%">EMELIEL</textPath>
+  </text>
+  <text font-size="11" fill="black" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" letter-spacing="2">
+    <textPath href="#textCircle" startOffset="41%">OGAHEL</textPath>
+  </text>
+  <text font-size="11" fill="black" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" letter-spacing="2">
+    <textPath href="#textCircle" startOffset="61%">ORABIEL</textPath>
+  </text>
+  <text font-size="11" fill="black" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" letter-spacing="2">
+    <textPath href="#textCircle" startOffset="81%">EDEKIEL</textPath>
+  </text>
+</g>
 <text x="500.0" y="475.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>
 <text x="525.0" y="500.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>
-<text x="500.0" y="525.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">EL</text>
+<text x="500.0" y="525.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" letter-spaceing="-12" fill="#000">eL</text>
 <text x="475.0" y="500.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>
 <text x="500.0" y="500.0" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>
 </g>
