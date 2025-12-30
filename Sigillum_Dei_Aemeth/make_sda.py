@@ -196,6 +196,44 @@ def position_text_on_circle(text, center_x, center_y, radius, angle_rad, font_fa
         f'fill="#000">{text}</text>'
     return svg_text
 
+def line_intersection(p1, p2, p3, p4):
+    """
+    Find intersection point of two lines.
+    
+    Line 1: passes through points p1 and p2
+    Line 2: passes through points p3 and p4
+    
+    Args:
+        p1: (x, y) tuple for first point on line 1
+        p2: (x, y) tuple for second point on line 1
+        p3: (x, y) tuple for first point on line 2
+        p4: (x, y) tuple for second point on line 2
+    
+    Returns:
+        (x, y) tuple of intersection point, or None if lines are parallel
+    """
+    # Unpack the tuples
+    x1, y1 = p1
+    x2, y2 = p2
+    x3, y3 = p3
+    x4, y4 = p4
+    
+    # Calculate denominators for the parametric equations
+    denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
+    
+    # Check if lines are parallel (denominator is zero)
+    if abs(denom) < 1e-10:
+        return None
+    
+    # Calculate intersection point using parametric line equations
+    t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom
+    
+    # Calculate the intersection coordinates
+    x = x1 + t * (x2 - x1)
+    y = y1 + t * (y2 - y1)
+    
+    return (x, y)
+
 # -------------------------------------------------------------------------------------------
 
 print(f'<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">')
@@ -235,6 +273,8 @@ radius14 = radius13 - ring_seperation * 1.0     # outside inner hentagram edge
 radius15 = radius14 - ring_seperation * 1.0     # outside outer hentagon  edge
 radius16 = radius15 - ring_seperation * 1.0     # outside inner hentagon  edge
 
+#   ----    CIRCLES W/ SPOKES
+
 # Generate 2 circles, N with spokes from inner to outer circle
 # print the circles 
 print(f'<g id="circles">')
@@ -249,6 +289,8 @@ for i, (x1, y1, x2, y2) in enumerate(points):
     print(f"  M {x1:.2f} {y1:.2f} L {x2:.2f} {y2:.2f}")
 print(f'  Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
+
+#   ----    OUTER HEPTAGONS W/ SPOKES
 
 # Print the outer heptagon
 print(f'<g id="outer heptagon">')
@@ -291,14 +333,55 @@ print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
 
+#   ----    CELTIC-KNOTTED HEPTAGRAMS
+
+# First generate verticies of outer and inner heptagrams
+outer_points = generate_polygram_points(500, 500, radius5, 7)
+inner_points = generate_polygram_points(500, 500, radius6, 7)
+outer_skips = list()
+inner_skips = list()
+
+# Find stop and stop points along the clockward edge of each heptagram
+for crossing_first_index in range(0,7):
+    crossing_second_index = ( crossing_first_index + 1 ) % 7
+    crossed_first_index   = ( crossing_first_index + 4 ) % 7
+    crossed_second_index  = ( crossing_first_index + 5 ) % 7
+    outer_skips.append( ( line_intersection(
+                              outer_points[crossing_first_index], outer_points[crossing_second_index],
+                              inner_points[crossed_first_index],  inner_points[crossed_second_index]
+                           ),
+                          line_intersection(
+                              outer_points[crossing_first_index], outer_points[crossing_second_index],
+                              outer_points[crossed_first_index],  outer_points[crossed_second_index]
+                           )
+                         )
+    )
+    inner_skips.append( ( line_intersection(
+                              inner_points[crossing_first_index], inner_points[crossing_second_index],
+                              inner_points[crossed_first_index],  inner_points[crossed_second_index]
+                           ),
+                          line_intersection(
+                              inner_points[crossing_first_index], inner_points[crossing_second_index],
+                              outer_points[crossed_first_index],  outer_points[crossed_second_index]
+                           )
+                         )
+    )
+
+
 # Print the outer heptagram
 print(f'<g id="outer heptagram">')
 print('  <path d="')
-points = generate_polygram_points(500, 500, radius5, 7)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(outer_points):
     print(f"    {L} {x:6.2f} {y:6.2f} ")
+    # next Line-to the stop, then Move-to the next start point ready for the next vertex
+    ( (stop_x, stop_y), (start_x, start_y) ) = outer_skips[i];
+    print(f"    L {stop_x:6.2f} {stop_y:6.2f} ")
+    print(f"    M {start_x:6.2f} {start_y:6.2f} ")
     L = "L"
+    if (i == 6):
+        (x, y) = outer_points[0]
+        print(f"    L {x:6.2f} {y:6.2f} ")
 print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
@@ -306,15 +389,22 @@ print(f'</g>')
 # Print the inner heptagram
 print(f'<g id="inner heptagram">')
 print('  <path d="')
-points = generate_polygram_points(500, 500, radius6, 7)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(inner_points):
     print(f"    {L} {x:6.2f} {y:6.2f} ")
+    # next Line-to the stop, then Move-to the next start point ready for the next vertex
+    ( (stop_x, stop_y), (start_x, start_y) ) = inner_skips[i];
+    print(f"    L {stop_x:6.2f} {stop_y:6.2f} ")
+    print(f"    M {start_x:6.2f} {start_y:6.2f} ")
     L = "L"
+    if (i == 6):
+        (x, y) = inner_points[0]
+        print(f"    L {x:6.2f} {y:6.2f} ")
 print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
 
+#   ----    INNER HEPTAGONS
 # Print the inner2 heptagon
 print(f'<g id="inner2 heptagon">')
 print('  <path d="')
