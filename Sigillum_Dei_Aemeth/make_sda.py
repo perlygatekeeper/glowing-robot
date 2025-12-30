@@ -579,3 +579,4 @@ print(f'  <text font-family="{font_families}" font-size="{font_size}" font-weigh
 print(f'</g>')
 
 print(f'</svg>')
+
