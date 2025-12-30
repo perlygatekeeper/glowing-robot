@@ -207,22 +207,44 @@ Z
 <g id="outer pentagram">
   <path d="
     M 500.00 296.78 
+    L 568.39 504.77 
+    M 575.54 526.50 
     L 622.07 668.02 
+    L 443.12 539.86 
+    M 424.46 526.50 
     L 293.98 433.06 
+    L 521.54 433.06 
+    M 544.81 433.06 
     L 706.02 433.06 
+    L 519.07 566.94 
+    M 500.00 580.60 
     L 377.93 668.02 
+    L 447.95 455.06 
+    M 455.19 433.06 
+    L 500.00 296.78 
 Z
 " fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
 <g id="inner pentagram">
   <path d="
     M 500.00 367.97 
+    L 549.67 518.08 
+    M 556.88 539.86 
     L 580.23 610.42 
+    L 450.33 518.08 
+    M 431.61 504.77 
     L 361.69 455.06 
+    L 528.82 455.06 
+    M 552.05 455.06 
     L 638.31 455.06 
+    L 500.00 553.39 
+    M 480.93 566.94 
     L 419.77 610.42 
+    L 471.18 455.06 
+    M 478.46 433.06 
+    L 500.00 367.97 
 Z
-" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter" />
+" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />
 </g>
 <g id="inner pentagram">
 <text x="960.58" y="536.25" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(94.5, 960.58, 536.25)" fill="#000">a</text><text x="969.55" y="536.95" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="11" font-weight="bold" text-anchor="middle" dominant-baseline="text-bottom" transform="rotate(94.5, 969.55, 536.95)" fill="#000">6</text>

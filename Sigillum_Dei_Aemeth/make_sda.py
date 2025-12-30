@@ -405,6 +405,7 @@ print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
 
 #   ----    INNER HEPTAGONS
+
 # Print the inner2 heptagon
 print(f'<g id="inner2 heptagon">')
 print('  <path d="')
@@ -429,14 +430,54 @@ print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
 
+#   ----    PENTAGONS
+
+# First generate verticies of outer and inner heptagrams
+outer_points = generate_polygram_points(500, 500, radius9, 5)
+inner_points = generate_polygram_points(500, 500, radius10, 5)
+outer_skips = list()
+inner_skips = list()
+
+# Find stop and stop points along the clockward edge of each pentagram
+for crossing_first_index in range(0,5):
+    crossing_second_index = ( crossing_first_index + 1 ) % 5
+    crossed_first_index   = ( crossing_first_index + 3 ) % 5
+    crossed_second_index  = ( crossing_first_index + 4 ) % 5
+    outer_skips.append( ( line_intersection(
+                              outer_points[crossing_first_index], outer_points[crossing_second_index],
+                              inner_points[crossed_first_index],  inner_points[crossed_second_index]
+                           ),
+                          line_intersection(
+                              outer_points[crossing_first_index], outer_points[crossing_second_index],
+                              outer_points[crossed_first_index],  outer_points[crossed_second_index]
+                           )
+                         )
+    )
+    inner_skips.append( ( line_intersection(
+                              inner_points[crossing_first_index], inner_points[crossing_second_index],
+                              inner_points[crossed_first_index],  inner_points[crossed_second_index]
+                           ),
+                          line_intersection(
+                              inner_points[crossing_first_index], inner_points[crossing_second_index],
+                              outer_points[crossed_first_index],  outer_points[crossed_second_index]
+                           )
+                         )
+    )
+
 # Print the outer pentagram
 print(f'<g id="outer pentagram">')
 print('  <path d="')
-points = generate_polygram_points(500, 500, radius9, 5)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(outer_points):
     print(f"    {L} {x:6.2f} {y:6.2f} ")
+    # next Line-to the stop, then Move-to the next start point ready for the next vertex
+    ( (stop_x, stop_y), (start_x, start_y) ) = outer_skips[i];
+    print(f"    L {stop_x:6.2f} {stop_y:6.2f} ")
+    print(f"    M {start_x:6.2f} {start_y:6.2f} ")
     L = "L"
+    if (i == 4):
+        (x, y) = outer_points[0]
+        print(f"    L {x:6.2f} {y:6.2f} ")
 print("Z")
 print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
@@ -444,14 +485,22 @@ print(f'</g>')
 # Print the inner pentagram
 print(f'<g id="inner pentagram">')
 print('  <path d="')
-points = generate_polygram_points(500, 500, radius10, 5)
 L = "M"
-for i, (x, y) in enumerate(points):
+for i, (x, y) in enumerate(inner_points):
     print(f"    {L} {x:6.2f} {y:6.2f} ")
+    # next Line-to the stop, then Move-to the next start point ready for the next vertex
+    ( (stop_x, stop_y), (start_x, start_y) ) = inner_skips[i];
+    print(f"    L {stop_x:6.2f} {stop_y:6.2f} ")
+    print(f"    M {start_x:6.2f} {start_y:6.2f} ")
     L = "L"
+    if (i == 4):
+        (x, y) = inner_points[0]
+        print(f"    L {x:6.2f} {y:6.2f} ")
 print("Z")
-print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="miter" />')
+print('" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="bevel" />')
 print(f'</g>')
+
+#   ----   CIRCLE PATH TEXTS
 
 # Print the outer-ring text
 text = (
