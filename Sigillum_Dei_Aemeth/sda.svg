@@ -388,12 +388,21 @@ Z
 <text x="577.7617601602888" y="666.7606328147435" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.286, 577.76, 666.76)">A</text>
 <text x="422.23823983971135" y="666.7606328147436" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.714, 422.24, 666.76)">T</text>
 <text x="316.70017555111883" y="516.0366566655691" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.143, 316.70, 516.04)">H</text>
-<text x="359.0478224661081" y="381.7270798176768" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.571, 359.05, 381.73)">I</text>
+<text x="355.0060213363632" y="386.71828854007885" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.571, 355.01, 386.72)">I</text>
+<g id="odd_text_combo8" transform="translate(360.31144299073844,369.7383132280628) rotate(308.57142857142856)">
+  <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">21</text>
+  <text x="0" y="4" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">—</text>
+  <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">8̥</text>
+</g>
 </g>
 <g id="Special Complex Symbols">
   <g transform="translate(320.39, 114.82) rotate(  4.276)">
-    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(-25.714)">G&#x1AC8;
-    <tspan font-size="12" dx="4" dy="0">5</tspan>
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(-25.714)">
+    G
+      <tspan font-size="12" dx="4" dy="0">5</tspan>
+    </text>
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(-25.714)">
+      <tspan font-size="12" dx="-16" dy="-15.5" font-weight="300">+</tspan>
     </text>
   </g>
   <g transform="translate(679.61, 114.82) rotate(  5.149)">
@@ -413,6 +422,41 @@ Z
     </text>
     <circle cx="3.8" cy="-13.0" r="2.0" fill="none" stroke="#000" stroke-width="1.0" opacity="1.0"/>
   </g>
+  <g transform="translate(839.42, 755.77)">
+    <text font-family="serif" font-size="24" font-weight="300" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(128.571)">
+    T
+      <tspan font-size="12" dx="-2" dy="0" transform="scale(1/1.8,1.0)">9</tspan>
+    </text>
+    <ellipse cx="10.7" cy="1.8" rx="5" ry="3.5" transform="rotate(128.571 10.7 1.8)" fill="none" stroke="#000" stroke-width="0.7"/>
+  </g>
+  <g transform="translate(500.00, 925.00)">
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(180.000)" letter-spacing="-2">
+    XE
+      <tspan font-size="12" dx="4" dy="0" transform="scale(1/1.8,1.0)" letter-spacing="0">21</tspan>
+    </text>
+  </g>
+  <g transform="translate(151.86, 743.77)">
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(231.429)">
+    L
+      <tspan font-size="12" dx="4" dy="0" transform="scale(1/1.8,1.0)">30</tspan>
+    </text>
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(231.429)">
+      <tspan font-size="24" dx="-42" dy="-8" font-weight="300">+</tspan>
+    </text>
+    <circle cx="4.7" cy="32.7" r="2.0" fill="none" stroke="#000" stroke-width="1.0" opacity="1.0"/>
+  </g>
+  <g transform="translate( 85.89, 404.40)">
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(282.857)" letter-spacing="-2">
+    A
+      <tspan font-size="12" dx="12" dy="0" transform="scale(1/1.8,1.0)" letter-spacing="0">24</tspan>
+    </text>
+    <text font-family="serif" font-size="24" font-weight="300" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.857)">
+      <tspan font-size="20" dx="-10.0" dy="-7.95">_</tspan>
+    </text>
+    <text font-family="serif" font-size="24" font-weight="300" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(282.857)">
+      <tspan font-size="20" dx="0.7" dy="-5.4">✝</tspan>
+    </text>
+  </g>
 </g>
 <g id="inner-most text">
 <text x="500.0" y="475.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>
@@ -422,92 +466,34 @@ Z
 <text x="475.0" y="500.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>
 <text x="500.0" y="500.0" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>
 </g>
-<g id="odd_text_combos" transform="translate(454.71524020013015,881.986294669466) rotate(180)">
+<g id="odd_text_combo1" transform="translate(454.71524020013015,881.986294669466) rotate(180)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">30</text>
   <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">°</text>
 </g>
-<g id="odd_text_combos" transform="translate(238.00093329067903,782.5946629164903) rotate(231.42857142857144)">
+<g id="odd_text_combo2" transform="translate(238.00093329067903,782.5946629164903) rotate(231.42857142857144)">
   <text x="0.0" y="0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">°</text>
   <text x="-1.3" y="4" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">26</text>
 </g>
-<g id="odd_text_combos" transform="translate(889.0454431277593,496.4984964707443) rotate(74.57142857142857)">
+<g id="odd_text_combo3" transform="translate(889.0454431277593,496.4984964707443) rotate(74.57142857142857)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">30</text>
   <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">°</text>
 </g>
-<g id="odd_text_combos" transform="translate(133.92140226133682,382.8676289698957) rotate(-77.14285714285714)">
+<g id="odd_text_combo4" transform="translate(133.92140226133682,382.8676289698957) rotate(-77.14285714285714)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">21</text>
   <text x="0" y="4" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">—</text>
   <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">8̥</text>
 </g>
-<g id="odd_text_combos" transform="translate(400.3316154417486,124.43906051748604) rotate(-25.714285714285715)">
+<g id="odd_text_combo5" transform="translate(400.3316154417486,124.43906051748604) rotate(-25.714285714285715)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">21</text>
   <text x="0" y="4" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">—</text>
   <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">8̥</text>
 </g>
-<g id="odd_text_combos" transform="translate(663.9227133553393,155.66628263897348) rotate(25.714285714285715)">
+<g id="odd_text_combo6" transform="translate(663.9227133553393,155.66628263897348) rotate(25.714285714285715)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">21</text>
   <text x="0" y="4" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">—</text>
   <text x="-1.3" y="9" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="10" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">8̥</text>
 </g>
-<g id="odd_text_combos" transform="translate(730.762787367375,205.85593184311932) rotate(25.714285714285715)">
+<g id="odd_text_combo7" transform="translate(730.762787367375,205.85593184311932) rotate(25.714285714285715)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="12" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">°</text>
-</g>
-<g id="polar overlay">
-  <circle cx="500" cy="500" r="25" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="50" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="75" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="100" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="125" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="150" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="175" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="200" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="225" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="250" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="275" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="300" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="325" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="350" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="375" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="400" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="425" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="450" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="475" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="500" cy="500" r="500" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="586.8240888334652" y2="7.596123493896016" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="671.0100716628344" y2="30.153689607045862" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="750.0" y2="66.9872981077807" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="821.3938048432697" y2="116.97777844051097" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="883.022221559489" y2="178.6061951567304" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="933.0127018922194" y2="250.00000000000003" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="969.8463103929541" y2="328.9899283371657" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="992.403876506104" y2="413.17591116653483" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="1000.0" y2="500.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="992.403876506104" y2="586.8240888334651" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="969.8463103929541" y2="671.0100716628343" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="933.0127018922194" y2="750.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="883.022221559489" y2="821.3938048432697" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="821.3938048432697" y2="883.022221559489" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="750.0" y2="933.0127018922193" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="671.0100716628344" y2="969.8463103929541" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="586.8240888334652" y2="992.403876506104" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="500.00000000000006" y2="1000.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="413.17591116653483" y2="992.403876506104" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="328.9899283371657" y2="969.8463103929541" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="250.00000000000009" y2="933.0127018922194" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="178.60619515673034" y2="883.022221559489" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="116.97777844051103" y2="821.3938048432697" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="66.98729810778065" y2="750.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="30.153689607045862" y2="671.0100716628344" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="7.596123493896016" y2="586.8240888334651" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="0.0" y2="500.00000000000006" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="7.596123493896016" y2="413.1759111665348" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="30.153689607045806" y2="328.9899283371657" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="66.9872981077807" y2="249.99999999999994" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="116.97777844051097" y2="178.6061951567304" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="178.60619515673028" y2="116.97777844051103" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="249.99999999999977" y2="66.98729810778082" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="328.98992833716574" y2="30.153689607045806" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="413.17591116653483" y2="7.596123493896016" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="500" y1="500" x2="499.9999999999999" y2="0.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
 </g>
 </svg>
