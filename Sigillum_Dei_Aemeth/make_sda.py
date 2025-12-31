@@ -234,6 +234,25 @@ def line_intersection(p1, p2, p3, p4):
     
     return (x, y)
 
+def polar_graph_overlay(circles=20, spokes=36):
+    center_x = 500
+    center_y = 500
+    color    = "#0066cc"
+    width    = "0.5"
+    opacity  = "0.3"
+    print(f'<g id="polar overlay">')
+    for i in range(1, circles + 1):
+        radius = i * 25
+        print(f'  <circle cx="{center_x}" cy="{center_y}" r="{radius}" fill="none" stroke="{color}" stroke-width="{width}" opacity="{opacity}"/>')
+    for i in range(1, spokes + 1):
+        angle = ( i * 360 / spokes ) - 90
+        angle_rad = math.radians(angle)
+        x_end = center_x + 500 * math.cos(angle_rad)
+        y_end = center_y + 500 * math.sin(angle_rad)
+        print(f'  <line x1="{center_x}" y1="{center_y}" x2="{x_end}" y2="{y_end}" stroke="{color}" stroke-width="{width}" opacity="{opacity}"/>')
+    print(f'</g>')
+
+
 # -------------------------------------------------------------------------------------------
 
 print(f'<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">')
@@ -631,14 +650,134 @@ for i in range(0,5):
     print(f'  </text>')
 print(f'</g>')
 
+# NEAR PENTAGRAM POINT CHARACTERS
+
+text = ( "Z", "A", "B", "A", "T", "H", "I" )
+font_size = 20
+radius = 184
+print(f'<g id="Near pentagram characers">')
+
+angle = 26.3 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 0 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[0]}</text>')
+
+angle = 31.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 1 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[1]}</text>')
+
+angle =  0.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 2 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[2]}</text>')
+
+angle =  6.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 3 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[3]}</text>')
+
+angle = 11.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 4 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[4]}</text>')
+
+angle = 17.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 5 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[5]}</text>')
+
+angle = 22.0 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 6 * 360 / 7
+transform = f'rotate({text_rotation:7.3f}, {x:6.2f}, {y:6.2f})'
+print(f'<text x="{x}" y="{y}" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="{transform}">{text[6]}</text>')
+
+print(f'</g>')
+ 
+font_size = 24
+font_families="serif"
+radius = 425
+
+color = "#000"
+print(f'<g id="Special Complex Symbols">')
+angle = 24.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = -0.5 * 360 / 7
+transform = f'translate({x:6.2f}, {y:6.2f}) rotate({angle:7.3f})'
+text_transform = f'rotate({text_rotation:7.3f})'
+print(f'  <g transform="{transform}">')
+print(f'    <text font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="{color}" transform="{text_transform}">G&#x1AC8;')
+print(f'    <tspan font-size="{font_size-12}" dx="4" dy="0">5</tspan>')
+print(f'    </text>')
+print(f'  </g>')
+
+font_size = 14
+angle = 29.5 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 0.5 * 360 / 7
+transform = f'translate({x:6.2f}, {y:6.2f}) rotate({angle:7.3f})'
+text_transform = f'rotate({text_rotation:7.3f})'
+print(f'  <g transform="{transform}">')
+print(f'    <text font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="{color}" transform="{text_transform}" letter-spacing="-4">')
+print(f'    OG')
+print(f'    <tspan font-size="12" dx="-8" dy="-11.8">+</tspan>')
+print(f'    </text>')
+print(f'   <ellipse cx="2.5" cy="-4.5" rx="11" ry="9" transform="rotate({text_rotation:7.3f} 0.0 0.0)" fill="none" stroke="{color}" stroke-width="0.7"/>')
+print(f'  </g>')
+
+font_size = 24
+angle = 34.6 / 36  * 2 * math.pi
+x = 500 + radius * math.cos(angle)
+y = 500 + radius * math.sin(angle)
+text_rotation = 1.5 * 360 / 7
+#transform = f'translate({x:6.2f}, {y:6.2f}) rotate({angle:7.3f})'
+transform = f'translate({x:6.2f}, {y:6.2f})'
+text_transform = f'rotate({text_rotation:7.3f}) scale(1.8,1.0)'
+print(f'  <g transform="{transform}">')
+print(f'    <text font-family="{font_families}" font-size="{font_size}" font-weight="300" text-anchor="middle" dominant-baseline="text-bottom" fill="{color}" transform="{text_transform}">')
+print(f'    H')
+print(f'      <tspan font-size="{font_size-12}" dx="-6" dy="0" transform="scale(1/1.8,1.0)">14</tspan>')
+print(f'    </text>')
+text_transform = f'rotate({text_rotation:7.3f})'
+print(f'    <text font-family="{font_families}" font-size="{font_size}" font-weight="300" text-anchor="middle" dominant-baseline="middle" fill="{color}" transform="{text_transform}">')
+print(f'      <tspan font-size="20" dx="-24" dy="-14">\u271D</tspan>')
+print(f'    </text>')
+print(f'    <circle cx="3.8" cy="-13.0" r="2.0" fill="none" stroke="#000" stroke-width="1.0" opacity="1.0"/>')
+print(f'  </g>')
+
+color = "#0c0"
+
+print(f'</g>')
+
 font_size = 13
 print(f'<g id="inner-most text">')
 print(f'<text x="500.0" y="475.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>')
 print(f'<text x="525.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>')
-print(f'<text x="500.0" y="525.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" letter-spaceing="-12" fill="#000">eL</text>')
+print(f'<text x="498.0" y="523.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">e</text>')
+print(f'<text x="500.0" y="525.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">L</text>')
 print(f'<text x="475.0" y="500.0" font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>')
 font_families = "'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'"
 print(f'<text x="500.0" y="500.0" font-family="{font_families}" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>')
+print(f'</g>')
+
+#  NUMBERS OVER CIRCLES AND SUCH MULTI-CHARACTER SYMBOLS
+
 # Z with tail: &#x2C8C;
 # O with dot above: &#x116AB;
 # O with dot below: &#x116B7;
@@ -646,8 +785,6 @@ print(f'<text x="500.0" y="500.0" font-family="{font_families}" font-size="40" f
 # U+0325 ◌̥ COMBINING RING BELOW
 # G with Plus-sign above: &#x1AC8;
 # g superscript: &#x1D4D6;
-print(f'</g>')
-
 font_families = "'Brush Script MT', 'Lucida Handwriting', cursive"
 font_size = 10 
 
@@ -716,6 +853,8 @@ text_rotation = 360/14
 print(f'<g id="odd_text_combos" transform="translate({x},{y}) rotate({text_rotation})">')
 print(f'  <text font-family="{font_families}" font-size="{font_size}" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">\u00B0</text>')
 print(f'</g>')
+
+polar_graph_overlay()
 
 print(f'</svg>')
 

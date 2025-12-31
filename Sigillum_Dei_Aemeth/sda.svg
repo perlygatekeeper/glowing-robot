@@ -381,11 +381,45 @@ Z
     <textPath href="#textCircle" startOffset="81%">EDEKIEL</textPath>
   </text>
 </g>
+<g id="Near pentagram characers">
+<text x="477.5760408134529" y="317.37150809799675" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(  0.000, 477.58, 317.37)">Z</text>
+<text x="630.1076477383247" y="369.8923522616752" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate( 51.429, 630.11, 369.89)">A</text>
+<text x="683.2998244488812" y="516.0366566655691" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(102.857, 683.30, 516.04)">B</text>
+<text x="577.7617601602888" y="666.7606328147435" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(154.286, 577.76, 666.76)">A</text>
+<text x="422.23823983971135" y="666.7606328147436" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(205.714, 422.24, 666.76)">T</text>
+<text x="316.70017555111883" y="516.0366566655691" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(257.143, 316.70, 516.04)">H</text>
+<text x="359.0478224661081" y="381.7270798176768" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="20" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate(308.571, 359.05, 381.73)">I</text>
+</g>
+<g id="Special Complex Symbols">
+  <g transform="translate(320.39, 114.82) rotate(  4.276)">
+    <text font-family="serif" font-size="24" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate(-25.714)">G&#x1AC8;
+    <tspan font-size="12" dx="4" dy="0">5</tspan>
+    </text>
+  </g>
+  <g transform="translate(679.61, 114.82) rotate(  5.149)">
+    <text font-family="serif" font-size="14" font-weight="normal" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate( 25.714)" letter-spacing="-4">
+    OG
+    <tspan font-size="12" dx="-8" dy="-11.8">+</tspan>
+    </text>
+   <ellipse cx="2.5" cy="-4.5" rx="11" ry="9" transform="rotate( 25.714 0.0 0.0)" fill="none" stroke="#000" stroke-width="0.7"/>
+  </g>
+  <g transform="translate(912.38, 397.18)">
+    <text font-family="serif" font-size="24" font-weight="300" text-anchor="middle" dominant-baseline="text-bottom" fill="#000" transform="rotate( 77.143) scale(1.8,1.0)">
+    H
+      <tspan font-size="12" dx="-6" dy="0" transform="scale(1/1.8,1.0)">14</tspan>
+    </text>
+    <text font-family="serif" font-size="24" font-weight="300" text-anchor="middle" dominant-baseline="middle" fill="#000" transform="rotate( 77.143)">
+      <tspan font-size="20" dx="-24" dy="-14">✝</tspan>
+    </text>
+    <circle cx="3.8" cy="-13.0" r="2.0" fill="none" stroke="#000" stroke-width="1.0" opacity="1.0"/>
+  </g>
+</g>
 <g id="inner-most text">
-<text x="500.0" y="475.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>
-<text x="525.0" y="500.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>
-<text x="500.0" y="525.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" letter-spaceing="-12" fill="#000">eL</text>
-<text x="475.0" y="500.0" font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>
+<text x="500.0" y="475.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">VA</text>
+<text x="525.0" y="500.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">NA</text>
+<text x="498.0" y="523.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">e</text>
+<text x="500.0" y="525.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">L</text>
+<text x="475.0" y="500.0" font-family="serif" font-size="13" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">LE</text>
 <text x="500.0" y="500.0" font-family="'DejaVu Sans', 'DejaVu Serif', 'FreeSerif', 'Noto Sans Symbols', 'Noto Serif'" font-size="40" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">&#x2720;</text>
 </g>
 <g id="odd_text_combos" transform="translate(454.71524020013015,881.986294669466) rotate(180)">
@@ -417,5 +451,63 @@ Z
 </g>
 <g id="odd_text_combos" transform="translate(730.762787367375,205.85593184311932) rotate(25.714285714285715)">
   <text font-family="'Brush Script MT', 'Lucida Handwriting', cursive" font-size="12" font-weight="normal" text-anchor="middle" dominant-baseline="middle" fill="#000">°</text>
+</g>
+<g id="polar overlay">
+  <circle cx="500" cy="500" r="25" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="50" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="75" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="100" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="125" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="150" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="175" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="200" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="225" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="250" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="275" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="300" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="325" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="350" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="375" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="400" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="425" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="450" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="475" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="500" cy="500" r="500" fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="586.8240888334652" y2="7.596123493896016" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="671.0100716628344" y2="30.153689607045862" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="750.0" y2="66.9872981077807" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="821.3938048432697" y2="116.97777844051097" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="883.022221559489" y2="178.6061951567304" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="933.0127018922194" y2="250.00000000000003" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="969.8463103929541" y2="328.9899283371657" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="992.403876506104" y2="413.17591116653483" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="1000.0" y2="500.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="992.403876506104" y2="586.8240888334651" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="969.8463103929541" y2="671.0100716628343" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="933.0127018922194" y2="750.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="883.022221559489" y2="821.3938048432697" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="821.3938048432697" y2="883.022221559489" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="750.0" y2="933.0127018922193" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="671.0100716628344" y2="969.8463103929541" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="586.8240888334652" y2="992.403876506104" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="500.00000000000006" y2="1000.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="413.17591116653483" y2="992.403876506104" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="328.9899283371657" y2="969.8463103929541" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="250.00000000000009" y2="933.0127018922194" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="178.60619515673034" y2="883.022221559489" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="116.97777844051103" y2="821.3938048432697" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="66.98729810778065" y2="750.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="30.153689607045862" y2="671.0100716628344" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="7.596123493896016" y2="586.8240888334651" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="0.0" y2="500.00000000000006" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="7.596123493896016" y2="413.1759111665348" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="30.153689607045806" y2="328.9899283371657" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="66.9872981077807" y2="249.99999999999994" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="116.97777844051097" y2="178.6061951567304" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="178.60619515673028" y2="116.97777844051103" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="249.99999999999977" y2="66.98729810778082" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="328.98992833716574" y2="30.153689607045806" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="413.17591116653483" y2="7.596123493896016" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="500" y1="500" x2="499.9999999999999" y2="0.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
 </g>
 </svg>
