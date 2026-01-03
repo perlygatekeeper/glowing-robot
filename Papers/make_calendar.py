@@ -30,3 +30,11 @@ year_2026.save('2026_year.svg')
 # A3 poster size
 poster = YearlyCalendarPaper(size='a4', year=2027, landscape=True)
 poster.save('2027_poster.svg')
+
+# Track 10 habits in January
+habits_jan = HabitTrackerPaper(year=2026, month=1, num_habits=10)
+habits_jan.save('january_habits.svg')
+
+# Track 20 habits
+habits_feb = HabitTrackerPaper(year=2026, month=2, num_habits=20)
+habits_feb.save('february_habits.svg')
