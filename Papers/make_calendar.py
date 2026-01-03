@@ -22,3 +22,11 @@ for month in range(1, 13):
 # Large format
 poster = CalendarPaper(width=1000, height=1200, year=2026, month=12)
 poster.save('december_poster.svg')
+
+# Yearly overview
+year_2026 = YearlyCalendarPaper(size='letter', year=2026, landscape=True)
+year_2026.save('2026_year.svg')
+
+# A3 poster size
+poster = YearlyCalendarPaper(size='a4', year=2027, landscape=True)
+poster.save('2027_poster.svg')

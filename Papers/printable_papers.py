@@ -96,6 +96,352 @@ class WritingPaper(PaperTemplate):
         return svg
 
 
+class WeeklyPlannerPaper(PaperTemplate):
+    """Generate weekly planner with time slots"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 year=None, week=None, margin=36,
+                 start_hour=7, end_hour=22, hour_interval=1,
+                 start_monday=True):
+        """
+        Args:
+            year: Year for planner (default: current year)
+            week: ISO week number 1-53 (default: current week)
+            margin: Margin around edges
+            start_hour: First hour to show (0-23)
+            end_hour: Last hour to show (0-23)
+            hour_interval: Hours between time slots (0.5, 1, 2, etc.)
+            start_monday: Start week on Monday (False = Sunday)
+        """
+        super().__init__(size, width, height)
+        now = datetime.now()
+        self.year = year if year else now.year
+        self.week = week if week else now.isocalendar()[1]
+        self.margin = margin
+        self.start_hour = start_hour
+        self.end_hour = end_hour
+        self.hour_interval = hour_interval
+        self.start_monday = start_monday
+    
+    def generate(self):
+        """Generate weekly planner SVG"""
+        svg = self.svg_header()
+        
+        # Get dates for the week
+        dates = self._get_week_dates()
+        
+        # Calculate dimensions
+        content_width = self.width - 2 * self.margin
+        content_height = self.height - 2 * self.margin
+        
+        title_height = 50
+        grid_top = self.margin + title_height
+        grid_height = content_height - title_height
+        
+        time_col_width = 60
+        day_col_width = (content_width - time_col_width) / 7
+        
+        # Calculate number of time slots
+        num_slots = int((self.end_hour - self.start_hour) / self.hour_interval)
+        slot_height = grid_height / num_slots
+        
+        # Draw title
+        first_date = dates[0]
+        last_date = dates[-1]
+        title = f"Week {self.week}, {self.year}: {first_date.strftime('%b %d')} - {last_date.strftime('%b %d')}"
+        svg += f'  <text x="{self.width / 2}" y="{self.margin + 30}" '
+        svg += f'font-family="sans-serif" font-size="20" font-weight="bold" '
+        svg += f'text-anchor="middle">{title}</text>\n'
+        
+        # Draw grid border
+        svg += f'  <rect x="{self.margin}" y="{grid_top}" '
+        svg += f'width="{content_width}" height="{grid_height}" '
+        svg += f'fill="none" stroke="#000000" stroke-width="2"/>\n'
+        
+        # Draw day headers
+        day_names = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] if self.start_monday else \
+                   ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+        
+        for i, (day_name, date) in enumerate(zip(day_names, dates)):
+            x = self.margin + time_col_width + (i + 0.5) * day_col_width
+            
+            # Day name
+            svg += f'  <text x="{x}" y="{grid_top - 15}" '
+            svg += f'font-family="sans-serif" font-size="12" font-weight="bold" '
+            svg += f'text-anchor="middle">{day_name}</text>\n'
+            
+            # Date
+            svg += f'  <text x="{x}" y="{grid_top - 2}" '
+            svg += f'font-family="sans-serif" font-size="10" '
+            svg += f'text-anchor="middle" fill="#666666">{date.strftime("%m/%d")}</text>\n'
+        
+        # Draw vertical lines (days)
+        for i in range(8):
+            x = self.margin + time_col_width + i * day_col_width
+            svg += f'  <line x1="{x}" y1="{grid_top}" x2="{x}" y2="{grid_top + grid_height}" '
+            svg += f'stroke="#000000" stroke-width="1"/>\n'
+        
+        # Draw time column separator
+        svg += f'  <line x1="{self.margin + time_col_width}" y1="{grid_top}" '
+        svg += f'x2="{self.margin + time_col_width}" y2="{grid_top + grid_height}" '
+        svg += f'stroke="#000000" stroke-width="2"/>\n'
+        
+        # Draw horizontal lines (time slots) and time labels
+        for i in range(num_slots + 1):
+            y = grid_top + i * slot_height
+            hour = self.start_hour + i * self.hour_interval
+            
+            # Heavier line every hour
+            weight = "1.5" if hour % 1 == 0 else "0.5"
+            opacity = "1" if hour % 1 == 0 else "0.3"
+            
+            svg += f'  <line x1="{self.margin + time_col_width}" y1="{y}" '
+            svg += f'x2="{self.margin + content_width}" y2="{y}" '
+            svg += f'stroke="#666666" stroke-width="{weight}" opacity="{opacity}"/>\n'
+            
+            # Time label
+            if hour < self.end_hour:
+                hour_int = int(hour)
+                minute = int((hour - hour_int) * 60)
+                time_str = f"{hour_int:02d}:{minute:02d}"
+                
+                svg += f'  <text x="{self.margin + time_col_width - 5}" y="{y + 15}" '
+                svg += f'font-family="sans-serif" font-size="10" '
+                svg += f'text-anchor="end" fill="#666666">{time_str}</text>\n'
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _get_week_dates(self):
+        """Get list of dates for the specified week"""
+        # Get first day of the week
+        jan1 = datetime(self.year, 1, 1)
+        week_start = jan1 + calendar.timedelta(days=(self.week - 1) * 7)
+        
+        # Adjust to Monday if needed
+        days_since_monday = week_start.weekday()
+        week_start = week_start - calendar.timedelta(days=days_since_monday)
+        
+        # Generate 7 dates
+        if self.start_monday:
+            return [week_start + calendar.timedelta(days=i) for i in range(7)]
+        else:
+            # Start on Sunday
+            sunday_start = week_start - calendar.timedelta(days=1)
+            return [sunday_start + calendar.timedelta(days=i) for i in range(7)]
+
+
+class YearlyCalendarPaper(PaperTemplate):
+    """Generate year-at-a-glance calendar"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 year=None, margin=36, start_monday=False,
+                 landscape=True):
+        """
+        Args:
+            year: Year for calendar (default: current year)
+            margin: Margin around edges
+            start_monday: Start week on Monday (False = Sunday)
+            landscape: Use landscape orientation (recommended)
+        """
+        super().__init__(size, width, height)
+        self.year = year if year else datetime.now().year
+        self.margin = margin
+        self.start_monday = start_monday
+        
+        # Swap dimensions for landscape
+        if landscape and self.width < self.height:
+            self.width, self.height = self.height, self.width
+    
+    def generate(self):
+        """Generate yearly calendar SVG"""
+        svg = self.svg_header()
+        
+        # Calculate dimensions
+        content_width = self.width - 2 * self.margin
+        content_height = self.height - 2 * self.margin
+        
+        title_height = 60
+        grid_top = self.margin + title_height
+        available_height = content_height - title_height
+        
+        # 3 rows x 4 columns
+        month_width = content_width / 4
+        month_height = available_height / 3
+        
+        # Draw title
+        svg += f'  <text x="{self.width / 2}" y="{self.margin + 40}" '
+        svg += f'font-family="serif" font-size="48" font-weight="bold" '
+        svg += f'text-anchor="middle">{self.year}</text>\n'
+        
+        # Draw each month
+        for month_num in range(1, 13):
+            row = (month_num - 1) // 4
+            col = (month_num - 1) % 4
+            
+            month_x = self.margin + col * month_width
+            month_y = grid_top + row * month_height
+            
+            svg += self._draw_mini_month(month_num, month_x, month_y, 
+                                        month_width, month_height)
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _draw_mini_month(self, month_num, x, y, width, height):
+        """Draw a small monthly calendar"""
+        svg = ''
+        
+        month_name = calendar.month_name[month_num]
+        cal = calendar.monthcalendar(self.year, month_num)
+        
+        # Month title
+        title_height = 25
+        svg += f'  <text x="{x + width / 2}" y="{y + 18}" '
+        svg += f'font-family="sans-serif" font-size="14" font-weight="bold" '
+        svg += f'text-anchor="middle">{month_name}</text>\n'
+        
+        # Grid dimensions
+        grid_y = y + title_height
+        grid_height = height - title_height - 5
+        
+        cell_width = (width - 10) / 7
+        num_weeks = len(cal)
+        cell_height = grid_height / (num_weeks + 1)  # +1 for header
+        
+        # Day names
+        day_names = ['M', 'T', 'W', 'T', 'F', 'S', 'S'] if self.start_monday else \
+                   ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+        
+        for i, day_name in enumerate(day_names):
+            dx = x + 5 + (i + 0.5) * cell_width
+            dy = grid_y + cell_height * 0.6
+            svg += f'  <text x="{dx}" y="{dy}" font-family="sans-serif" '
+            svg += f'font-size="7" text-anchor="middle" fill="#666666">{day_name}</text>\n'
+        
+        # Dates
+        for week_num, week in enumerate(cal):
+            for day_num, day in enumerate(week):
+                if day != 0:
+                    dx = x + 5 + (day_num + 0.5) * cell_width
+                    dy = grid_y + (week_num + 1.6) * cell_height
+                    
+                    # Check if today
+                    is_today = (day == datetime.now().day and 
+                               month_num == datetime.now().month and 
+                               self.year == datetime.now().year)
+                    
+                    if is_today:
+                        svg += f'  <circle cx="{dx}" cy="{dy - 2}" r="7" '
+                        svg += f'fill="#ffcc00" stroke="none"/>\n'
+                    
+                    weight = "bold" if is_today else "normal"
+                    svg += f'  <text x="{dx}" y="{dy}" font-family="sans-serif" '
+                    svg += f'font-size="8" font-weight="{weight}" text-anchor="middle">{day}</text>\n'
+        
+        # Border
+        svg += f'  <rect x="{x + 2}" y="{y + 2}" width="{width - 4}" height="{height - 4}" '
+        svg += f'fill="none" stroke="#cccccc" stroke-width="1"/>\n'
+        
+        return svg
+
+
+class HabitTrackerPaper(PaperTemplate):
+    """Generate habit tracker grid"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 year=None, month=None, margin=36,
+                 num_habits=15):
+        """
+        Args:
+            year: Year for tracker (default: current year)
+            month: Month number 1-12 (default: current month)
+            margin: Margin around edges
+            num_habits: Number of habit rows to include
+        """
+        super().__init__(size, width, height)
+        self.year = year if year else datetime.now().year
+        self.month = month if month else datetime.now().month
+        self.margin = margin
+        self.num_habits = num_habits
+    
+    def generate(self):
+        """Generate habit tracker SVG"""
+        svg = self.svg_header()
+        
+        month_name = calendar.month_name[self.month]
+        days_in_month = calendar.monthrange(self.year, self.month)[1]
+        
+        # Calculate dimensions
+        content_width = self.width - 2 * self.margin
+        content_height = self.height - 2 * self.margin
+        
+        title_height = 50
+        grid_top = self.margin + title_height + 10
+        grid_height = content_height - title_height - 10
+        
+        habit_col_width = 150
+        day_col_width = (content_width - habit_col_width) / days_in_month
+        row_height = grid_height / (self.num_habits + 1)  # +1 for header
+        
+        # Draw title
+        svg += f'  <text x="{self.width / 2}" y="{self.margin + 35}" '
+        svg += f'font-family="sans-serif" font-size="28" font-weight="bold" '
+        svg += f'text-anchor="middle">{month_name} {self.year} - Habit Tracker</text>\n'
+        
+        # Draw grid border
+        svg += f'  <rect x="{self.margin}" y="{grid_top}" '
+        svg += f'width="{content_width}" height="{grid_height}" '
+        svg += f'fill="none" stroke="#000000" stroke-width="2"/>\n'
+        
+        # Draw habit column separator
+        svg += f'  <line x1="{self.margin + habit_col_width}" y1="{grid_top}" '
+        svg += f'x2="{self.margin + habit_col_width}" y2="{grid_top + grid_height}" '
+        svg += f'stroke="#000000" stroke-width="2"/>\n'
+        
+        # Draw header row separator
+        svg += f'  <line x1="{self.margin}" y1="{grid_top + row_height}" '
+        svg += f'x2="{self.margin + content_width}" y2="{grid_top + row_height}" '
+        svg += f'stroke="#000000" stroke-width="2"/>\n'
+        
+        # Draw day numbers in header
+        for day in range(1, days_in_month + 1):
+            x = self.margin + habit_col_width + (day - 0.5) * day_col_width
+            y = grid_top + row_height * 0.6
+            
+            font_size = "10" if day_col_width > 15 else "8"
+            svg += f'  <text x="{x}" y="{y}" font-family="sans-serif" '
+            svg += f'font-size="{font_size}" text-anchor="middle">{day}</text>\n'
+        
+        # Draw vertical lines for days
+        for day in range(days_in_month + 1):
+            x = self.margin + habit_col_width + day * day_col_width
+            weight = "0.5"
+            svg += f'  <line x1="{x}" y1="{grid_top + row_height}" '
+            svg += f'x2="{x}" y2="{grid_top + grid_height}" '
+            svg += f'stroke="#cccccc" stroke-width="{weight}"/>\n'
+        
+        # Draw horizontal lines for habits
+        for i in range(self.num_habits + 1):
+            y = grid_top + (i + 1) * row_height
+            svg += f'  <line x1="{self.margin}" y1="{y}" '
+            svg += f'x2="{self.margin + content_width}" y2="{y}" '
+            svg += f'stroke="#cccccc" stroke-width="0.5"/>\n'
+        
+        # Habit label column header
+        svg += f'  <text x="{self.margin + 5}" y="{grid_top + row_height * 0.6}" '
+        svg += f'font-family="sans-serif" font-size="12" font-weight="bold">Habit</text>\n'
+        
+        # Placeholder habit labels
+        for i in range(self.num_habits):
+            y = grid_top + (i + 1.6) * row_height
+            svg += f'  <text x="{self.margin + 5}" y="{y}" '
+            svg += f'font-family="sans-serif" font-size="10" fill="#999999">Habit {i + 1}</text>\n'
+        
+        svg += self.svg_footer()
+        return svg
+
+
 class CalendarPaper(PaperTemplate):
     """Generate monthly calendar pages"""
     
@@ -1108,7 +1454,21 @@ if __name__ == "__main__":
     cal = CalendarPaper(size='letter', year=2026, month=1)
     print("15. CalendarPaper - monthly calendar")
     
+    # Generate weekly planner
+    weekly = WeeklyPlannerPaper(size='letter', start_hour=8, end_hour=18)
+    print("16. WeeklyPlannerPaper - week with time slots")
+    
+    # Generate yearly calendar
+    yearly = YearlyCalendarPaper(size='letter', year=2026, landscape=True)
+    print("17. YearlyCalendarPaper - year at a glance")
+    
+    # Generate habit tracker
+    habits = HabitTrackerPaper(size='letter', year=2026, month=1, num_habits=15)
+    print("18. HabitTrackerPaper - monthly habit tracking grid")
+    
     print("\nTo save any template, use: template.save('filename.svg')")
-    print("\nExample:")
-    print("  calendar = CalendarPaper(year=2026, month=3, show_week_numbers=True)")
-    print("  calendar.save('march_2026.svg')")
+    print("\nCalendar examples:")
+    print("  monthly = CalendarPaper(year=2026, month=6)")
+    print("  monthly.save('june_2026.svg')")
+    print("  weekly = WeeklyPlannerPaper(year=2026, week=15, start_hour=9, end_hour=17)")
+    print("  weekly.save('week_15.svg')")
