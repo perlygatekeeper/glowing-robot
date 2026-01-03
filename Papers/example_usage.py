@@ -20,4 +20,22 @@ polar.save('polar.svg')
 
 # Semi-log for exponential data
 semilog = LogarithmicPaper(x_log=False, y_log=True, cycles=4)
-semilog.save('semilog.svg')
+
+# Hex paper
+semilog = HexPaper(size='letter', hex_size=18, margin=0)
+semilog.save('hex.svg')
+
+# Perspective 1pt paper
+perspective_1pt = PerspectivePaper(size='letter', perspective_type='1-point')
+perspective_1pt.save('perspective_1pt.svg')
+print("PerspectivePaper (1-point) - single vanishing point")
+
+# Perspective 2pt paper
+perspective_2pt = PerspectivePaper(size='letter', perspective_type='2-point')
+perspective_2pt.save('perspective_2pt.svg')
+print("PerspectivePaper (2-point) - two vanishing points")
+
+# Perspective 3pt paper
+perspective_3pt = PerspectivePaper(size='letter', perspective_type='3-point', horizon_ratio=0.4)
+perspective_3pt.save('perspective_3pt.svg')
+print("PerspectivePaper (3-point) - three vanishing points")
