@@ -1,0 +1,39 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <line x1="0" y1="72" x2="612" y2="72" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="92.25" x2="612" y2="92.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="112.5" x2="612" y2="112.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="132.75" x2="612" y2="132.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="153.0" x2="612" y2="153.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="173.25" x2="612" y2="173.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="193.5" x2="612" y2="193.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="213.75" x2="612" y2="213.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="234.0" x2="612" y2="234.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="254.25" x2="612" y2="254.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="274.5" x2="612" y2="274.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="294.75" x2="612" y2="294.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="315.0" x2="612" y2="315.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="335.25" x2="612" y2="335.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="355.5" x2="612" y2="355.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="375.75" x2="612" y2="375.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="396.0" x2="612" y2="396.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="416.25" x2="612" y2="416.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="436.5" x2="612" y2="436.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="456.75" x2="612" y2="456.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="477.0" x2="612" y2="477.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="497.25" x2="612" y2="497.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="517.5" x2="612" y2="517.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="537.75" x2="612" y2="537.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="558.0" x2="612" y2="558.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="578.25" x2="612" y2="578.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="598.5" x2="612" y2="598.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="618.75" x2="612" y2="618.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="639.0" x2="612" y2="639.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="659.25" x2="612" y2="659.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="679.5" x2="612" y2="679.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="699.75" x2="612" y2="699.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="720.0" x2="612" y2="720.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="72" y1="72" x2="72" y2="720" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
+</svg>

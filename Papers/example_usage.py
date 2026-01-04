@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from printable_papers import *
+from paper_templates import *
 
 # Calligraphy practice for fountain pen
 calligraphy = CalligraphyPaper(x_height=48)

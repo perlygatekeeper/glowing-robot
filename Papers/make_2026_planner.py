@@ -1,4 +1,4 @@
-from printable_papers import *
+from paper_templates import *
 
 # Monthly calendars for entire year
 for month in range(1, 13):

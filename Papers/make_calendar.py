@@ -1,4 +1,4 @@
-from printable_papers import *
+from paper_templates import *
 
 # Current month calendar
 current = CalendarPaper(size='letter')
