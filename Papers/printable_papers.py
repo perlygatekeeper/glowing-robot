@@ -5,7 +5,7 @@ Generate SVG files for various types of ruled/lined paper
 
 import math
 import calendar
-from datetime import datetime
+from datetime import datetime, timedelta
 
 class PaperTemplate:
     """Base class for paper templates"""
@@ -56,8 +56,8 @@ class WritingPaper(PaperTemplate):
     """Generate lined writing paper"""
     
     def __init__(self, size='letter', width=None, height=None, 
-                 line_spacing=24, margin_left=72, margin_right=72,
-                 margin_top=72, margin_bottom=72):
+                 line_spacing=24, margin_left=0, margin_right=0,
+                 margin_top=72, margin_bottom=0):
         """
         Args:
             line_spacing: Space between lines in points (default 24 = 1/3 inch)
@@ -216,19 +216,19 @@ class WeeklyPlannerPaper(PaperTemplate):
         """Get list of dates for the specified week"""
         # Get first day of the week
         jan1 = datetime(self.year, 1, 1)
-        week_start = jan1 + calendar.timedelta(days=(self.week - 1) * 7)
+        week_start = jan1 + timedelta(days=(self.week - 1) * 7)
         
         # Adjust to Monday if needed
         days_since_monday = week_start.weekday()
-        week_start = week_start - calendar.timedelta(days=days_since_monday)
+        week_start = week_start - timedelta(days=days_since_monday)
         
         # Generate 7 dates
         if self.start_monday:
-            return [week_start + calendar.timedelta(days=i) for i in range(7)]
+            return [week_start + timedelta(days=i) for i in range(7)]
         else:
             # Start on Sunday
-            sunday_start = week_start - calendar.timedelta(days=1)
-            return [sunday_start + calendar.timedelta(days=i) for i in range(7)]
+            sunday_start = week_start - timedelta(days=1)
+            return [sunday_start + timedelta(days=i) for i in range(7)]
 
 
 class YearlyCalendarPaper(PaperTemplate):
@@ -1472,3 +1472,4 @@ if __name__ == "__main__":
     print("  monthly.save('june_2026.svg')")
     print("  weekly = WeeklyPlannerPaper(year=2026, week=15, start_hour=9, end_hour=17)")
     print("  weekly.save('week_15.svg')")
+

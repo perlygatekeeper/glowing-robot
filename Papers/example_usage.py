@@ -39,3 +39,9 @@ print("PerspectivePaper (2-point) - two vanishing points")
 perspective_3pt = PerspectivePaper(size='letter', perspective_type='3-point', horizon_ratio=0.4)
 perspective_3pt.save('perspective_3pt.svg')
 print("PerspectivePaper (3-point) - three vanishing points")
+
+# Generate writing paper
+writing = WritingPaper(size='letter', line_spacing=24)
+print(writing.generate()[:500] + "...")
+writing.save("writing_paper.svg")
+
