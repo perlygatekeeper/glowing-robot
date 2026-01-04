@@ -29,5 +29,8 @@
   <line x1="0" y1="666.0" x2="612" y2="666.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="690.75" x2="612" y2="690.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="715.5" x2="612" y2="715.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="72" y1="72" x2="72" y2="720" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="740.25" x2="612" y2="740.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="765.0" x2="612" y2="765.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="789.75" x2="612" y2="789.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="72" y1="0" x2="72" y2="792" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
 </svg>

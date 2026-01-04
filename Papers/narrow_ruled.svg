@@ -39,5 +39,9 @@
   <line x1="0" y1="684.0" x2="612" y2="684.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="702.0" x2="612" y2="702.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="720.0" x2="612" y2="720.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="72" y1="72" x2="72" y2="720" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="738.0" x2="612" y2="738.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="756.0" x2="612" y2="756.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="774.0" x2="612" y2="774.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="792.0" x2="612" y2="792.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="72" y1="0" x2="72" y2="792" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
 </svg>

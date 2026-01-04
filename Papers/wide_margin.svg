@@ -35,5 +35,8 @@
   <line x1="0" y1="679.5" x2="612" y2="679.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="699.75" x2="612" y2="699.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
   <line x1="0" y1="720.0" x2="612" y2="720.0" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
-  <line x1="108" y1="72" x2="108" y2="720" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="740.25" x2="612" y2="740.25" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="760.5" x2="612" y2="760.5" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="780.75" x2="612" y2="780.75" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>
+  <line x1="108" y1="0" x2="108" y2="792" stroke="#cc0000" stroke-width="1" opacity="0.5"/>
 </svg>
