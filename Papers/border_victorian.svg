@@ -1,0 +1,12 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <rect x="40" y="40" width="532" height="712" fill="none" stroke="#000000" stroke-width="2"/>
+  <rect x="48" y="48" width="516" height="696" fill="none" stroke="#000000" stroke-width="0.5"/>
+  <path d="M 40 90 Q 40 60 50 55 T 90 40" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 45 85 Q 45 55 85 45" fill="none" stroke="#000000" stroke-width="0.75"/>
+  <path d="M 522 40 Q 552 40 557 50 T 572 90" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 90 752 Q 60 752 55 742 T 40 702" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d="M 572 702 Q 572 732 562 737 T 522 752" fill="none" stroke="#000000" stroke-width="1.5"/>
+</svg>

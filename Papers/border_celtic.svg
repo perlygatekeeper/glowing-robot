@@ -1,0 +1,15 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <rect x="40" y="40" width="532" height="712" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 40 80 Q 40 40 80 40" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 48 80 Q 48 48 80 48" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 572 40 Q 572 40 532 40" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 564 48 Q 564 48 532 48" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 572 40 L 572 80" stroke="#000000" stroke-width="2"/>
+  <path d="M 40 712 Q 40 752 80 752" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 48 712 Q 48 744 80 744" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 532 752 Q 572 752 572 712" fill="none" stroke="#000000" stroke-width="2"/>
+  <path d="M 532 744 Q 564 744 564 712" fill="none" stroke="#000000" stroke-width="2"/>
+</svg>
