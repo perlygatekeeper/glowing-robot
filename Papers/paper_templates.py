@@ -149,6 +149,8 @@ class OrnamentalBorder(PaperTemplate):
         'academic',         # Formal certificate style
         'victorian',        # Ornate scrollwork
         'corners-only',     # Decorative corners, simple sides
+        'folded-corner',    # Page with folded corner effect
+        'looped-corner',    # Page with looped corner effect
     ]
     
     def __init__(self, size='letter', width=None, height=None,
@@ -195,6 +197,10 @@ class OrnamentalBorder(PaperTemplate):
             svg += self._draw_victorian_border()
         elif self.style == 'corners-only':
             svg += self._draw_corners_only_border()
+        elif self.style == 'folded-corner':
+            svg += self._draw_folded_corner()
+        elif self.style == 'looped-corner':
+            svg += self._draw_looped_corner()
         
         svg += self.svg_footer()
         return svg
@@ -548,6 +554,51 @@ class OrnamentalBorder(PaperTemplate):
         svg += f'stroke="#000000" stroke-width="{self.thickness * 2}"/>\n'
         svg += f'  <line x1="{x + w - bracket_size}" y1="{y + h}" x2="{x + w}" y2="{y + h}" '
         svg += f'stroke="#000000" stroke-width="{self.thickness * 2}"/>\n'
+        
+        return svg
+    
+    def _draw_folded_corner(self):
+        """Page with folded corner effect (dog-ear)"""
+        svg = ''
+        
+        # Main page border
+        x = self.margin
+        y = self.margin
+        w = self.width - 2 * self.margin
+        h = self.height - 2 * self.margin
+        
+        # Fold size
+        fold_size = 60
+        
+        # Draw page outline with folded corner cut out
+        # Start at top-left, go clockwise but cut out top-right corner
+        svg += f'  <path d="M {x} {y} '
+        svg += f'L {x + w - fold_size} {y} '  # Top edge to fold start
+        svg += f'L {x + w} {y + fold_size} '  # Diagonal fold line
+        svg += f'L {x + w} {y + h} '  # Right edge
+        svg += f'L {x} {y + h} '  # Bottom edge
+        svg += f'Z" '  # Close path
+        svg += f'fill="none" stroke="#000000" stroke-width="{self.thickness}"/>\n'
+        
+        # Draw the folded corner triangle
+        # This creates the "underside" of the fold
+        svg += f'  <path d="M {x + w - fold_size} {y} '
+        svg += f'L {x + w} {y + fold_size} '
+        svg += f'L {x + w - fold_size} {y + fold_size} '
+        svg += f'Z" '
+        svg += f'fill="#e0e0e0" stroke="#000000" stroke-width="{self.thickness * 0.5}"/>\n'
+        
+        # Add shadow/shading line on the fold
+        svg += f'  <line x1="{x + w - fold_size}" y1="{y + fold_size}" '
+        svg += f'x2="{x + w}" y2="{y + fold_size}" '
+        svg += f'stroke="#999999" stroke-width="{self.thickness * 0.5}" '
+        svg += f'stroke-dasharray="2,2" opacity="0.5"/>\n'
+        
+        # Optional: Add small fold crease lines for more realism
+        crease_offset = fold_size * 0.3
+        svg += f'  <line x1="{x + w - fold_size + crease_offset}" y1="{y}" '
+        svg += f'x2="{x + w - crease_offset}" y2="{y + fold_size - crease_offset}" '
+        svg += f'stroke="#cccccc" stroke-width="0.5" opacity="0.5"/>\n'
         
         return svg
 
@@ -1926,12 +1977,16 @@ if __name__ == "__main__":
     simple_border = OrnamentalBorder(size='letter', style='simple')
     print("19. OrnamentalBorder - decorative borders")
     print("    Styles: simple, double-line, art-deco, celtic, floral,")
-    print("            academic, victorian, corners-only")
+    print("            academic, victorian, corners-only, folded-corner, looped-corner")
     
     print("\nTo save any template, use: template.save('filename.svg')")
     print("\nBorder examples:")
     print("  border = OrnamentalBorder(style='art-deco', border_width='thick')")
     print("  border.save('art_deco_border.svg')")
+    print("  folded = OrnamentalBorder(style='folded-corner')")
+    print("  folded.save('folded_corner.svg')")
+    print("  looped = OrnamentalBorder(style='looped-corner')")
+    print("  looped.save('looped_corner.svg')")
     print("\nCalendar examples:")
     print("  monthly = CalendarPaper(year=2026, month=6)")
     print("  monthly.save('june_2026.svg')")
