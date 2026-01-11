@@ -67,6 +67,379 @@ class MathPaper(PaperTemplate):
         return svg
 
 
+class TrianglePaper(PaperTemplate):
+    """Generate equilateral triangle grid paper"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 triangle_size=30, margin=36):
+        """
+        Args:
+            triangle_size: Side length of triangles in points
+            margin: Margin around edges
+        """
+        super().__init__(size, width, height)
+        self.triangle_size = triangle_size
+        self.margin = margin
+    
+    def generate(self):
+        """Generate triangle grid paper SVG"""
+        svg = self.svg_header()
+        
+        # Triangle dimensions
+        height = self.triangle_size * math.sqrt(3) / 2
+        
+        start_x = self.margin
+        start_y = self.margin
+        
+        row = 0
+        y = start_y
+        while y < self.height - self.margin:
+            x = start_x
+            if row % 2 == 1:
+                x += self.triangle_size / 2
+            
+            while x < self.width - self.margin:
+                # Draw upward-pointing triangle
+                x1 = x
+                y1 = y + height
+                x2 = x + self.triangle_size / 2
+                y2 = y
+                x3 = x + self.triangle_size
+                y3 = y + height
+                
+                svg += f'  <polygon points="{x1},{y1} {x2},{y2} {x3},{y3}" '
+                svg += f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+                
+                # Draw downward-pointing triangle (if not at edge)
+                if row % 2 == 0 and x + self.triangle_size * 1.5 < self.width - self.margin:
+                    x1 = x + self.triangle_size / 2
+                    y1 = y
+                    x2 = x + self.triangle_size
+                    y2 = y + height
+                    x3 = x + self.triangle_size * 1.5
+                    y3 = y
+                    
+                    svg += f'  <polygon points="{x1},{y1} {x2},{y2} {x3},{y3}" '
+                    svg += f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+                
+                x += self.triangle_size
+            
+            y += height
+            row += 1
+        
+        svg += self.svg_footer()
+        return svg
+
+
+class OctagonSquarePaper(PaperTemplate):
+    """Generate octagon-square tessellation (classic tile pattern)"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 octagon_size=30, margin=36):
+        """
+        Args:
+            octagon_size: Distance from octagon center to edge center
+            margin: Margin around edges
+              ___________
+             .        .  |
+            .          . | a / sqrt(2)
+           .            .|
+           |          .  |
+           |        .    |  a
+           |      .______|
+           |         r   |
+           .            .
+            .          .
+             .________.
+           |            |
+           |            |
+           |____________|
+               S = 2r
+
+           a = side length
+           R = circumradius
+           r = center to edge
+           S = Span, edge to edge = 2r    <- what we call in-code as octagon_size
+
+           S = a / sqrt(2) + a + a / sqrt(2)
+             = ( 1 + sqrt(2) ) a              =~ 2.414 a
+           r = ( 1 + sqrt(2) ) / 2            ≈~ 1.207 a
+           R = ( sqrt( 4 + 2 * sqrt(2)) ) / 2 ≈~ 1.307 a
+           R/r = (sqrt( 4 + 2 * sqrt(2) ) / ( 1 + sqrt(2)) =~ 1.08239922  
+
+           a = S / ( 1 + sqrt(2))
+        """
+        super().__init__(size, width, height)
+        self.octagon_size = octagon_size
+        self.margin = margin
+    
+    def generate(self):
+        """Generate octagon-square tessellation SVG"""
+        svg = self.svg_header()
+        
+        # Calculate spacing
+        # For regular octagon with unit circumradius, side length = 2*sin(π/8)*r
+        root_2 = math.sqrt(2)
+        side_length = 2 * self.octagon_size / ( 1 + root_2 )
+        square_size = side_length
+        
+        # Spacing between octagon centers
+        spacing = 2 * self.octagon_size + square_size
+        
+        start_x = self.margin + self.octagon_size
+        start_y = self.margin + self.octagon_size
+        
+        y = start_y
+        while y < self.height - self.margin:
+            x = start_x
+            while x < self.width - self.margin:
+                # Draw octagon
+                svg += self._draw_octagon(x, y, self.octagon_size * 1.0823922)
+                
+                # Draw squares between octagons (if not at edges)
+                # Right square
+                if x + spacing < self.width - self.margin:
+                    square_x = x + self.octagon_size + side_length / 2
+                    square_y = y
+                    svg += self._draw_square(square_x, square_y, square_size)
+                
+                # Bottom square
+                if y + spacing < self.height - self.margin:
+                    square_x = x
+                    square_y = y + self.octagon_size + side_length / 2
+                    svg += self._draw_square(square_x, square_y, square_size)
+                
+                x += spacing
+            y += spacing
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _draw_octagon(self, cx, cy, radius):
+        """Draw a regular octagon"""
+        points = []
+        for i in range(8):
+            angle = math.radians(i * 45 - 22.5)  # Start at top-right
+            px = cx + radius * math.cos(angle)
+            py = cy + radius * math.sin(angle)
+            points.append(f"{px},{py}")
+        
+        return f'  <polygon points="{" ".join(points)}" ' \
+               f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+               # f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n' \
+               # f'<path d="M {cx} {cy} L {cx+radius} {cy} Z" stroke="#dd0000" stroke-width="0.5" opacity="0.2" />\n' \
+               # f'<path d="M {cx} {cy} L {cx+radius*math.cos(math.radians(22.5))} {cy+radius*math.sin(math.radians(22.5))} Z" stroke="#00dd00" stroke-width="0.5" opacity="0.2" />\n'
+         
+    
+    def _draw_square(self, cx, cy, size):
+        """Draw a square centered at cx, cy"""
+        half = size / 2
+        # Rotate 45 degrees for diamond orientation
+        angle = math.radians(45)
+        points = []
+        # points.append(f"{cx},{cy}")
+        for i in range(4):
+            a = angle + i * math.pi / 2
+            px = cx + half * math.sqrt(2) * math.cos(a)
+            py = cy + half * math.sqrt(2) * math.sin(a)
+            points.append(f"{px},{py}")
+        
+        return f'  <polygon points="{" ".join(points)}" ' \
+               f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+
+
+class CairoPentagonalPaper(PaperTemplate):
+    """Generate Cairo pentagonal tessellation"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 pentagon_size=30, margin=36):
+        """
+        Args:
+            pentagon_size: Base size of pentagons in points
+            margin: Margin around edges
+        """
+        super().__init__(size, width, height)
+        self.pentagon_size = pentagon_size
+        self.margin = margin
+    
+    def generate(self):
+        """Generate Cairo pentagonal tessellation SVG"""
+        svg = self.svg_header()
+        
+        # Cairo pentagonal tiling uses irregular pentagons
+        # Simplified pattern for printable paper
+        h = self.pentagon_size
+        w = h * 0.866  # sqrt(3)/2 for proper tiling
+        
+        start_x = self.margin
+        start_y = self.margin
+        
+        row = 0
+        y = start_y
+        while y < self.height - self.margin + h:
+            x = start_x
+            if row % 2 == 1:
+                x -= w / 2
+            
+            while x < self.width - self.margin + w:
+                # Draw Cairo pentagon (simplified)
+                # This creates the distinctive "dual hexagonal" pattern
+                svg += self._draw_cairo_pentagon(x, y, w, h, row % 2 == 0)
+                
+                x += w
+            
+            y += h * 0.75
+            row += 1
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _draw_cairo_pentagon(self, x, y, w, h, pointing_up):
+        """Draw a Cairo pentagon"""
+        if pointing_up:
+            # Pentagon pointing up
+            points = [
+                (x + w/2, y),           # Top
+                (x + w, y + h/3),       # Upper right
+                (x + w, y + 2*h/3),     # Lower right
+                (x, y + 2*h/3),         # Lower left
+                (x, y + h/3),           # Upper left
+            ]
+        else:
+            # Pentagon pointing down
+            points = [
+                (x, y + h/3),           # Upper left
+                (x + w, y + h/3),       # Upper right
+                (x + w, y + 2*h/3),     # Lower right
+                (x + w/2, y + h),       # Bottom
+                (x, y + 2*h/3),         # Lower left
+            ]
+        
+        point_str = " ".join([f"{px},{py}" for px, py in points])
+        return f'  <polygon points="{point_str}" ' \
+               f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+
+
+class CubePaper(PaperTemplate):
+    """Generate tumbling blocks/cube optical illusion pattern"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 cube_size=40, margin=36, show_shading=True):
+        """
+        Args:
+            cube_size: Size of cube edges in points
+            margin: Margin around edges
+            show_shading: If True, shade faces to enhance 3D effect
+        """
+        super().__init__(size, width, height)
+        self.cube_size = cube_size
+        self.margin = margin
+        self.show_shading = show_shading
+    
+    def generate(self):
+        """Generate cube illusion paper SVG"""
+        svg = self.svg_header()
+        
+        # Isometric cube dimensions
+        # Width of cube in 2D
+        cube_width = self.cube_size * math.sqrt(3)
+        cube_height = self.cube_size * 1.5
+        
+        start_x = self.margin
+        start_y = self.margin
+        
+        row = 0
+        y = start_y
+        while y < self.height - self.margin:
+            x = start_x
+            # Offset every other row
+            if row % 2 == 1:
+                x += cube_width / 2
+            
+            while x < self.width - self.margin:
+                # Draw isometric cube
+                svg += self._draw_isometric_cube(x, y)
+                
+                x += cube_width
+            
+            y += cube_height
+            row += 1
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _draw_isometric_cube(self, x, y):
+        """Draw an isometric cube creating the optical illusion"""
+        svg = ''
+        s = self.cube_size
+        
+        # Calculate the six vertices of the visible cube faces
+        # Center point
+        cx = x + s * math.sqrt(3) / 2
+        cy = y + s * 0.75
+        
+        # Top vertex
+        top_x = cx
+        top_y = cy - s
+        
+        # Left vertex
+        left_x = cx - s * math.sqrt(3) / 2
+        left_y = cy - s / 2
+        
+        # Right vertex
+        right_x = cx + s * math.sqrt(3) / 2
+        right_y = cy - s / 2
+        
+        # Bottom vertex
+        bottom_x = cx
+        bottom_y = cy + s
+        
+        # Front left vertex
+        front_left_x = cx - s * math.sqrt(3) / 2
+        front_left_y = cy + s / 2
+        
+        # Front right vertex
+        front_right_x = cx + s * math.sqrt(3) / 2
+        front_right_y = cy + s / 2
+        
+        if self.show_shading:
+            # Top face (lightest)
+            top_face = f"{top_x},{top_y} {right_x},{right_y} {cx},{cy} {left_x},{left_y}"
+            svg += f'  <polygon points="{top_face}" '
+            svg += f'fill="#e0e0e0" stroke="#000000" stroke-width="0.5"/>\n'
+            
+            # Left face (medium)
+            left_face = f"{left_x},{left_y} {cx},{cy} {front_left_x},{front_left_y} {front_left_x},{front_left_y - s}"
+            svg += f'  <polygon points="{left_face}" '
+            svg += f'fill="#b0b0b0" stroke="#000000" stroke-width="0.5"/>\n'
+            
+            # Right face (darkest)
+            right_face = f"{right_x},{right_y} {front_right_x},{front_right_y - s} {front_right_x},{front_right_y} {cx},{cy}"
+            svg += f'  <polygon points="{right_face}" '
+            svg += f'fill="#808080" stroke="#000000" stroke-width="0.5"/>\n'
+        else:
+            # Just draw the outline (Y-shape)
+            svg += f'  <line x1="{top_x}" y1="{top_y}" x2="{left_x}" y2="{left_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+            
+            svg += f'  <line x1="{top_x}" y1="{top_y}" x2="{right_x}" y2="{right_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+            
+            svg += f'  <line x1="{left_x}" y1="{left_y}" x2="{front_left_x}" y2="{front_left_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+            
+            svg += f'  <line x1="{right_x}" y1="{right_y}" x2="{front_right_x}" y2="{front_right_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+            
+            svg += f'  <line x1="{front_left_x}" y1="{front_left_y}" x2="{bottom_x}" y2="{bottom_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+            
+            svg += f'  <line x1="{front_right_x}" y1="{front_right_y}" x2="{bottom_x}" y2="{bottom_y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
+        
+        return svg
+
+
 class EngineeringPaper(PaperTemplate):
     """Generate engineering paper with major and minor grid lines"""
     

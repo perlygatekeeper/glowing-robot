@@ -1,0 +1,30 @@
+https://en.wikipedia.org/wiki/Octagon
+https://calcresource.com/geom-octagon.html#:~:text=The%20regular%20octagon%20is%20composed,with%20that%20of%20the%20circumcircle.
+
+
+        ___________
+       /        \  |
+      /          \ | a / sqrt(2)
+     /            \| 
+     |           /|
+     |        R/  |  a
+     |       /____|
+     |         r  |
+     \            / 
+      \          / 
+       \________/ 
+     |            |
+     |            |
+     |____________|
+           S = 2r     
+
+
+           a = side length
+           R = circumradius
+           r = center to edge
+           S = Span, edge to edge = 2r
+
+           S = a / sqrt(2) + a + a / sqrt(2) = ( 1 + sqrt(2) ) a =~ 2.414 a
+           r = ( 1 + sqrt(2) ) / 2            ≈~ 1.207 a
+           R = ( sqrt( 4 + 2 * sqrt(2)) ) / 2 ≈~ 1.307 a
+

@@ -1,8 +1,7 @@
 """
-Specialty paper templates (music, calligraphy, science, perspective)
+Music paper templates (staff paper, tablature, etc.)
 """
 
-import math
 from .base import PaperTemplate
 
 
@@ -50,248 +49,134 @@ class MusicPaper(PaperTemplate):
         return svg
 
 
-class CalligraphyPaper(PaperTemplate):
-    """Generate calligraphy practice paper with guide lines"""
+class TablaturePaper(PaperTemplate):
+    """Generate guitar/bass tablature paper"""
     
     def __init__(self, size='letter', width=None, height=None,
-                 x_height=36, margin_left=72, margin_right=72,
+                 strings=6, sections=8, margin_left=72, margin_right=36,
                  margin_top=72, margin_bottom=72):
         """
         Args:
-            x_height: Height of lowercase letters in points (default 36 = 0.5 inch)
+            strings: Number of strings (6 for guitar, 4 for bass)
+            sections: Number of tab sections on the page
             margin_left/right/top/bottom: Margins in points
         """
         super().__init__(size, width, height)
-        self.x_height = x_height
+        self.strings = strings
+        self.sections = sections
         self.margin_left = margin_left
         self.margin_right = margin_right
         self.margin_top = margin_top
         self.margin_bottom = margin_bottom
     
     def generate(self):
-        """Generate calligraphy practice paper SVG"""
+        """Generate tablature paper SVG"""
         svg = self.svg_header()
         
         start_x = self.margin_left
         end_x = self.width - self.margin_right
-        start_y = self.margin_top
-        end_y = self.height - self.margin_bottom
+        usable_height = self.height - self.margin_top - self.margin_bottom
         
-        # Calculate line spacing
-        ascender = self.x_height * 0.75
-        descender = self.x_height * 0.75
-        gap = self.x_height * 0.5
-        line_set_height = ascender + self.x_height + descender + gap
+        # Calculate spacing
+        string_spacing = 12  # Space between strings
+        section_height = (self.strings - 1) * string_spacing
+        total_section_spacing = (usable_height - (self.sections * section_height)) / (self.sections + 1)
         
-        y = start_y
-        while y + ascender + self.x_height + descender <= end_y:
-            # Ascender line (light)
-            svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.2"/>\n'
+        # Draw each tablature section
+        for section_num in range(self.sections):
+            section_y = self.margin_top + total_section_spacing + (section_num * (section_height + total_section_spacing))
             
-            # Cap line (medium)
-            cap_y = y + ascender * 0.3
-            svg += f'  <line x1="{start_x}" y1="{cap_y}" x2="{end_x}" y2="{cap_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+            # Draw lines for each string
+            for string_num in range(self.strings):
+                y = section_y + (string_num * string_spacing)
+                svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
+                svg += f'stroke="#000000" stroke-width="1"/>\n'
             
-            # Waist line (heavy - top of x-height)
-            waist_y = y + ascender
-            svg += f'  <line x1="{start_x}" y1="{waist_y}" x2="{end_x}" y2="{waist_y}" '
-            svg += f'stroke="#000000" stroke-width="1" opacity="0.5"/>\n'
+            # Draw vertical bar at start
+            svg += f'  <line x1="{start_x}" y1="{section_y}" '
+            svg += f'x2="{start_x}" y2="{section_y + section_height}" '
+            svg += f'stroke="#000000" stroke-width="2"/>\n'
             
-            # Base line (heavy - bottom of x-height)
-            base_y = waist_y + self.x_height
-            svg += f'  <line x1="{start_x}" y1="{base_y}" x2="{end_x}" y2="{base_y}" '
-            svg += f'stroke="#000000" stroke-width="1.5" opacity="0.7"/>\n'
-            
-            # Descender line (light)
-            descender_y = base_y + descender
-            svg += f'  <line x1="{start_x}" y1="{descender_y}" x2="{end_x}" y2="{descender_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.2"/>\n'
-            
-            # Optional: 55-degree slant lines for italic practice
-            slant_spacing = 36
-            x = start_x
-            while x <= end_x:
-                x1 = x
-                y1 = waist_y
-                x2 = x + (self.x_height / math.tan(math.radians(55)))
-                y2 = base_y
-                svg += f'  <line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" '
-                svg += f'stroke="#cc0000" stroke-width="0.3" opacity="0.15"/>\n'
-                x += slant_spacing
-            
-            y += line_set_height
+            # Optional: Add TAB label
+            label_y = section_y + section_height / 2
+            svg += f'  <text x="{start_x - 30}" y="{label_y}" '
+            svg += f'font-family="sans-serif" font-size="10" '
+            svg += f'text-anchor="end" dominant-baseline="middle">TAB</text>\n'
         
         svg += self.svg_footer()
         return svg
 
 
-class SciencePaper(PaperTemplate):
-    """Generate lab notebook paper (lines with left column for notes)"""
+class ChordChartPaper(PaperTemplate):
+    """Generate blank guitar chord diagram paper"""
     
     def __init__(self, size='letter', width=None, height=None,
-                 line_spacing=24, margin=72, column_width=144):
+                 charts_per_row=4, rows=6, margin=72):
         """
         Args:
-            line_spacing: Space between lines in points
+            charts_per_row: Number of chord diagrams across
+            rows: Number of rows of chord diagrams
             margin: Margin around edges
-            column_width: Width of left column for labels/notes
         """
         super().__init__(size, width, height)
-        self.line_spacing = line_spacing
+        self.charts_per_row = charts_per_row
+        self.rows = rows
         self.margin = margin
-        self.column_width = column_width
     
     def generate(self):
-        """Generate lab notebook paper SVG"""
+        """Generate chord chart paper SVG"""
         svg = self.svg_header()
         
-        start_y = self.margin
-        end_y = self.height - self.margin
-        start_x = self.margin
-        end_x = self.width - self.margin
-        column_x = start_x + self.column_width
+        content_width = self.width - 2 * self.margin
+        content_height = self.height - 2 * self.margin
         
-        # Draw horizontal lines
-        y = start_y
-        while y <= end_y:
-            svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-            y += self.line_spacing
+        chart_width = content_width / self.charts_per_row
+        chart_height = content_height / self.rows
         
-        # Draw column separator (heavier line)
-        svg += f'  <line x1="{column_x}" y1="{start_y}" '
-        svg += f'x2="{column_x}" y2="{end_y}" '
-        svg += f'stroke="#cc0000" stroke-width="1.5" opacity="0.5"/>\n'
+        # Chord diagram dimensions
+        diagram_width = min(chart_width * 0.6, 60)
+        diagram_height = diagram_width * 1.2
+        strings = 6
+        frets = 4
         
-        # Draw border
-        svg += f'  <rect x="{start_x}" y="{start_y}" '
-        svg += f'width="{end_x - start_x}" height="{end_y - start_y}" '
-        svg += f'fill="none" stroke="#000000" stroke-width="2" opacity="0.3"/>\n'
-        
-        svg += self.svg_footer()
-        return svg
-
-
-class PerspectivePaper(PaperTemplate):
-    """Generate perspective grid paper for technical drawing"""
-    
-    def __init__(self, size='letter', width=None, height=None,
-                 perspective_type='1-point', margin=36, 
-                 horizon_ratio=0.5, grid_spacing=36):
-        """
-        Args:
-            perspective_type: '1-point', '2-point', or '3-point'
-            margin: Margin around edges
-            horizon_ratio: Position of horizon line (0.0 = top, 1.0 = bottom, 0.5 = middle)
-            grid_spacing: Spacing of grid lines in points
-        """
-        super().__init__(size, width, height)
-        self.perspective_type = perspective_type
-        self.margin = margin
-        self.horizon_ratio = horizon_ratio
-        self.grid_spacing = grid_spacing
-    
-    def generate(self):
-        """Generate perspective grid paper SVG"""
-        svg = self.svg_header()
-        
-        # Calculate horizon line position
-        horizon_y = self.margin + (self.height - 2 * self.margin) * self.horizon_ratio
-        
-        if self.perspective_type == '1-point':
-            svg += self._generate_one_point(horizon_y)
-        elif self.perspective_type == '2-point':
-            svg += self._generate_two_point(horizon_y)
-        elif self.perspective_type == '3-point':
-            svg += self._generate_three_point(horizon_y)
+        # Draw each chord chart
+        for row in range(self.rows):
+            for col in range(self.charts_per_row):
+                # Calculate position
+                x = self.margin + col * chart_width + (chart_width - diagram_width) / 2
+                y = self.margin + row * chart_height + (chart_height - diagram_height) / 2
+                
+                # Draw the chord diagram
+                svg += self._draw_chord_diagram(x, y, diagram_width, diagram_height, strings, frets)
         
         svg += self.svg_footer()
         return svg
     
-    def _generate_one_point(self, horizon_y):
-        """Generate 1-point perspective grid"""
+    def _draw_chord_diagram(self, x, y, width, height, strings, frets):
+        """Draw a single blank chord diagram"""
         svg = ''
         
-        vp_x = self.width / 2
-        vp_y = horizon_y
+        string_spacing = width / (strings - 1)
+        fret_spacing = height / frets
         
-        # Draw horizon line
-        svg += f'  <line x1="{self.margin}" y1="{horizon_y}" '
-        svg += f'x2="{self.width - self.margin}" y2="{horizon_y}" '
-        svg += f'stroke="#cc0000" stroke-width="1.5" opacity="0.7"/>\n'
+        # Draw strings (vertical lines)
+        for i in range(strings):
+            string_x = x + i * string_spacing
+            svg += f'  <line x1="{string_x}" y1="{y}" x2="{string_x}" y2="{y + height}" '
+            svg += f'stroke="#000000" stroke-width="1"/>\n'
         
-        # Draw vanishing point
-        svg += f'  <circle cx="{vp_x}" cy="{vp_y}" r="4" fill="#cc0000" opacity="0.7"/>\n'
+        # Draw frets (horizontal lines)
+        for i in range(frets + 1):
+            fret_y = y + i * fret_spacing
+            weight = "3" if i == 0 else "1"  # Nut is thicker
+            svg += f'  <line x1="{x}" y1="{fret_y}" x2="{x + width}" y2="{fret_y}" '
+            svg += f'stroke="#000000" stroke-width="{weight}"/>\n'
         
-        # Vertical and horizontal grid lines
-        x = self.margin
-        while x <= self.width - self.margin:
-            svg += f'  <line x1="{x}" y1="{self.margin}" x2="{x}" y2="{self.height - self.margin}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-            x += self.grid_spacing
-        
-        y = self.margin
-        while y <= self.height - self.margin:
-            if abs(y - horizon_y) > 5:
-                svg += f'  <line x1="{self.margin}" y1="{y}" x2="{self.width - self.margin}" y2="{y}" '
-                svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-            y += self.grid_spacing
-        
-        # Radial lines to vanishing point
-        corners = [
-            (self.margin, self.margin),
-            (self.width - self.margin, self.margin),
-            (self.margin, self.height - self.margin),
-            (self.width - self.margin, self.height - self.margin)
-        ]
-        
-        num_divisions = 8
-        for i in range(num_divisions + 1):
-            t = i / num_divisions
-            corners.append((self.margin + t * (self.width - 2 * self.margin), self.margin))
-            corners.append((self.margin + t * (self.width - 2 * self.margin), self.height - self.margin))
-            y_pos = self.margin + t * (self.height - 2 * self.margin)
-            if abs(y_pos - horizon_y) > 20:
-                corners.append((self.margin, y_pos))
-                corners.append((self.width - self.margin, y_pos))
-        
-        for corner_x, corner_y in corners:
-            svg += f'  <line x1="{vp_x}" y1="{vp_y}" x2="{corner_x}" y2="{corner_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.2"/>\n'
+        # Draw string names below
+        string_names = ['E', 'A', 'D', 'G', 'B', 'e']
+        for i, name in enumerate(string_names):
+            string_x = x + i * string_spacing
+            svg += f'  <text x="{string_x}" y="{y + height + 15}" '
+            svg += f'font-family="sans-serif" font-size="10" text-anchor="middle">{name}</text>\n'
         
         return svg
-    
-    def _generate_two_point(self, horizon_y):
-        """Generate 2-point perspective grid"""
-        # Implementation similar to 1-point but with two vanishing points
-        svg = ''
-        
-        vp1_x = self.margin + (self.width - 2 * self.margin) * 0.15
-        vp2_x = self.margin + (self.width - 2 * self.margin) * 0.85
-        vp_y = horizon_y
-        
-        # Draw horizon line
-        svg += f'  <line x1="{self.margin}" y1="{horizon_y}" '
-        svg += f'x2="{self.width - self.margin}" y2="{horizon_y}" '
-        svg += f'stroke="#cc0000" stroke-width="1.5" opacity="0.7"/>\n'
-        
-        # Draw vanishing points
-        svg += f'  <circle cx="{vp1_x}" cy="{vp_y}" r="4" fill="#cc0000" opacity="0.7"/>\n'
-        svg += f'  <circle cx="{vp2_x}" cy="{vp_y}" r="4" fill="#cc0000" opacity="0.7"/>\n'
-        
-        # Vertical lines
-        x = self.margin
-        while x <= self.width - self.margin:
-            svg += f'  <line x1="{x}" y1="{self.margin}" x2="{x}" y2="{self.height - self.margin}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-            x += self.grid_spacing
-        
-        # Simplified radial lines (in real implementation, add more detail)
-        return svg
-    
-    def _generate_three_point(self, horizon_y):
-        """Generate 3-point perspective grid"""
-        # Simplified implementation
-        return self._generate_two_point(horizon_y)

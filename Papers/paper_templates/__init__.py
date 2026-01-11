@@ -34,6 +34,10 @@ from .grids import (
     IsometricPaper,
     PolarPaper,
     LogarithmicPaper,
+    TrianglePaper,
+    OctagonSquarePaper,
+    CairoPentagonalPaper,
+    CubePaper,
 )
 
 # Music
@@ -74,6 +78,10 @@ __all__ = [
     'IsometricPaper',
     'PolarPaper',
     'LogarithmicPaper',
+    'TrianglePaper',
+    'OctagonSquarePaper',
+    'CairoPentagonalPaper',
+    'CubePaper',
     
     # Music
     'MusicPaper',
