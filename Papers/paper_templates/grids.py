@@ -324,7 +324,7 @@ class CubePaper(PaperTemplate):
     """Generate tumbling blocks/cube optical illusion pattern"""
     
     def __init__(self, size='letter', width=None, height=None,
-                 cube_size=40, margin=36, show_shading=True):
+                 cube_size=30, margin=36, show_shading=True):
         """
         Args:
             cube_size: Size of cube edges in points
@@ -335,6 +335,10 @@ class CubePaper(PaperTemplate):
         self.cube_size = cube_size
         self.margin = margin
         self.show_shading = show_shading
+        self.colors = {}
+        self.colors["top"]   = f"#ffffff"
+        self.colors["left"]  = f"#dddddd"
+        self.colors["right"] = f"#bbbbbb"
     
     def generate(self):
         """Generate cube illusion paper SVG"""
@@ -345,12 +349,12 @@ class CubePaper(PaperTemplate):
         cube_width = self.cube_size * math.sqrt(3)
         cube_height = self.cube_size * 1.5
         
-        start_x = self.margin
+        start_x = self.margin + cube_width / 2
         start_y = self.margin
         
         row = 0
         y = start_y
-        while y < self.height - self.margin:
+        while y < self.height - self.margin - cube_height:
             x = start_x
             # Offset every other row
             if row % 2 == 1:
@@ -369,75 +373,56 @@ class CubePaper(PaperTemplate):
         return svg
     
     def _draw_isometric_cube(self, x, y):
-        """Draw an isometric cube creating the optical illusion"""
-        svg = ''
+        """
+        Draw a single isometric cube as SVG polygons.
+    
+        (x, y) is the top point of the cube.
+        Returns an SVG string.
+        """
+    
         s = self.cube_size
-        
-        # Calculate the six vertices of the visible cube faces
-        # Center point
-        cx = x + s * math.sqrt(3) / 2
-        cy = y + s * 0.75
-        
-        # Top vertex
-        top_x = cx
-        top_y = cy - s
-        
-        # Left vertex
-        left_x = cx - s * math.sqrt(3) / 2
-        left_y = cy - s / 2
-        
-        # Right vertex
-        right_x = cx + s * math.sqrt(3) / 2
-        right_y = cy - s / 2
-        
-        # Bottom vertex
-        bottom_x = cx
-        bottom_y = cy + s
-        
-        # Front left vertex
-        front_left_x = cx - s * math.sqrt(3) / 2
-        front_left_y = cy + s / 2
-        
-        # Front right vertex
-        front_right_x = cx + s * math.sqrt(3) / 2
-        front_right_y = cy + s / 2
-        
-        if self.show_shading:
-            # Top face (lightest)
-            top_face = f"{top_x},{top_y} {right_x},{right_y} {cx},{cy} {left_x},{left_y}"
-            svg += f'  <polygon points="{top_face}" '
-            svg += f'fill="#e0e0e0" stroke="#000000" stroke-width="0.5"/>\n'
-            
-            # Left face (medium)
-            left_face = f"{left_x},{left_y} {cx},{cy} {front_left_x},{front_left_y} {front_left_x},{front_left_y - s}"
-            svg += f'  <polygon points="{left_face}" '
-            svg += f'fill="#b0b0b0" stroke="#000000" stroke-width="0.5"/>\n'
-            
-            # Right face (darkest)
-            right_face = f"{right_x},{right_y} {front_right_x},{front_right_y - s} {front_right_x},{front_right_y} {cx},{cy}"
-            svg += f'  <polygon points="{right_face}" '
-            svg += f'fill="#808080" stroke="#000000" stroke-width="0.5"/>\n'
+        dx = s * math.sqrt(3) / 2
+        dy = s / 2
+    
+        # Top face
+        top = [
+            (x, y),
+            (x + dx, y + dy),
+            (x, y + 2 * dy),
+            (x - dx, y + dy),
+        ]
+    
+        # Left face
+        left = [
+            (x - dx, y + dy),
+            (x, y + 2 * dy),
+            (x, y + 2 * dy + s),
+            (x - dx, y + dy + s),
+        ]
+    
+        # Right face
+        right = [
+            (x + dx, y + dy),
+            (x, y + 2 * dy),
+            (x, y + 2 * dy + s),
+            (x + dx, y + dy + s),
+        ]
+    
+        def poly(points, fill):
+            pts = " ".join(f"{px},{py}" for px, py in points)
+            return f'<polygon points="{pts}" fill="{fill}" stroke="black" />'
+    
+        svg = []
+        if (self.show_shading):
+            svg.append(poly(top,   self.colors["top"]))
+            svg.append(poly(left,  self.colors["left"]))
+            svg.append(poly(right, self.colors["right"]))
         else:
-            # Just draw the outline (Y-shape)
-            svg += f'  <line x1="{top_x}" y1="{top_y}" x2="{left_x}" y2="{left_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-            
-            svg += f'  <line x1="{top_x}" y1="{top_y}" x2="{right_x}" y2="{right_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-            
-            svg += f'  <line x1="{left_x}" y1="{left_y}" x2="{front_left_x}" y2="{front_left_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-            
-            svg += f'  <line x1="{right_x}" y1="{right_y}" x2="{front_right_x}" y2="{front_right_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-            
-            svg += f'  <line x1="{front_left_x}" y1="{front_left_y}" x2="{bottom_x}" y2="{bottom_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-            
-            svg += f'  <line x1="{front_right_x}" y1="{front_right_y}" x2="{bottom_x}" y2="{bottom_y}" '
-            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.5"/>\n'
-        
-        return svg
+            svg.append(poly(top,   "#ffffff"))
+            svg.append(poly(left,  "#ffffff"))
+            svg.append(poly(right, "#ffffff"))
+    
+        return "\n".join(svg)
 
 
 class EngineeringPaper(PaperTemplate):
