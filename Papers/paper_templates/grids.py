@@ -226,9 +226,6 @@ class OctagonSquarePaper(PaperTemplate):
         
         return f'  <polygon points="{" ".join(points)}" ' \
                f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-               # f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n' \
-               # f'<path d="M {cx} {cy} L {cx+radius} {cy} Z" stroke="#dd0000" stroke-width="0.5" opacity="0.2" />\n' \
-               # f'<path d="M {cx} {cy} L {cx+radius*math.cos(math.radians(22.5))} {cy+radius*math.sin(math.radians(22.5))} Z" stroke="#00dd00" stroke-width="0.5" opacity="0.2" />\n'
          
     
     def _draw_square(self, cx, cy, size):
@@ -260,7 +257,10 @@ class CairoPentagonalPaper(PaperTemplate):
         """
         super().__init__(size, width, height)
         self.pentagon_size = pentagon_size
-        self.margin = margin
+        self.margin        = margin
+        self.stroke        = f"#0066cc"
+        self.stroke_width  = f"0.3"
+        self.fill          = f"none"
     
     def generate(self):
         """Generate Cairo pentagonal tessellation SVG"""
@@ -269,55 +269,90 @@ class CairoPentagonalPaper(PaperTemplate):
         # Cairo pentagonal tiling uses irregular pentagons
         # Simplified pattern for printable paper
         h = self.pentagon_size
-        w = h * 0.866  # sqrt(3)/2 for proper tiling
+        w = h 
         
-        start_x = self.margin
-        start_y = self.margin
+        start_x = self.margin + h        + 260
+        start_y = self.margin + 1.5 * h  + 260
         
-        row = 0
         y = start_y
         while y < self.height - self.margin + h:
             x = start_x
-            if row % 2 == 1:
-                x -= w / 2
-            
             while x < self.width - self.margin + w:
+                svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
                 # Draw Cairo pentagon (simplified)
                 # This creates the distinctive "dual hexagonal" pattern
-                svg += self._draw_cairo_pentagon(x, y, w, h, row % 2 == 0)
-                
-                x += w
-            
-            y += h * 0.75
-            row += 1
+                self.stroke = f"#dd0000"
+                svg += self._draw_cairo_pentagon(x, y+w/2, h, 'up')
+                self.stroke = f"#00dd00"
+                svg += self._draw_cairo_pentagon(x, y-w/2, h, 'down')
+                self.stroke = f"#0000dd"
+                svg += self._draw_cairo_pentagon(x-h, y, h, 'left')
+                self.stroke = f"#dd00dd"
+                svg += self._draw_cairo_pentagon(x+h, y, h, 'right')
+                x += w 
+            y += h * 0.75 
         
         svg += self.svg_footer()
         return svg
-    
-    def _draw_cairo_pentagon(self, x, y, w, h, pointing_up):
-        """Draw a Cairo pentagon"""
-        if pointing_up:
-            # Pentagon pointing up
+
+    def _draw_cairo_pentagon(self, x, y, height, direction):
+        """
+        Draw a Cairo tiling pentagon with collinear edges.
+
+        (x, y)        : apex vertex of the tile cell, directly opposite of base, the sqrt(3) - 1 length side
+        width, height : dimensions of the tile cell, width = 3/2 * height
+        direction     : ['up', 'down', 'left', 'right']: direction which the pentagon "points"
+        Returns SVG polygon string.
+        """
+
+        w1 = 3 / 4 * height   # half width at widest point
+        w2 = 1 / 2 * height   # half width at base
+        h1 = 1 / 4 * height   # height from top to widest point line
+        h2 = height           # height from top to base
+
+        if (direction == 'down'):
+            # Standard orientation, pointing up, with sqrt(3) - 1 length side as base at bottom
             points = [
-                (x + w/2, y),           # Top
-                (x + w, y + h/3),       # Upper right
-                (x + w, y + 2*h/3),     # Lower right
-                (x, y + 2*h/3),         # Lower left
-                (x, y + h/3),           # Upper left
-            ]
-        else:
-            # Pentagon pointing down
+                (x, y),            # apex vertex
+                (x + w1, y - h1),  # mid-right 
+                (x + w2, y - h2),  # base-right
+                (x - w2, y - h2),  # base-left (collinear)
+                (x - w1, y - h1),  # mid-left  (collinear)
+            ]          
+        elif (direction == 'up'):
+            # Mirrored verically
             points = [
-                (x, y + h/3),           # Upper left
-                (x + w, y + h/3),       # Upper right
-                (x + w, y + 2*h/3),     # Lower right
-                (x + w/2, y + h),       # Bottom
-                (x, y + 2*h/3),         # Lower left
+                (x, y),            # apex vertex
+                (x - w1, y + h1),  # mid-left 
+                (x - w2, y + h2),  # base-left
+                (x + w2, y + h2),  # base-right (collinear)
+                (x + w1, y + h1),  # mid-right  (collinear)
             ]
-        
-        point_str = " ".join([f"{px},{py}" for px, py in points])
-        return f'  <polygon points="{point_str}" ' \
-               f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+        elif (direction == 'left'):
+            # Mirrored verically
+            points = [
+                (x, y),            # apex vertex
+                (x + h1, y + w1),  # mid-left 
+                (x + h2, y + w2),  # base-left
+                (x + h2, y - w2),  # base-right (collinear)
+                (x + h1, y - w1),  # mid-right  (collinear)
+            ]
+        elif (direction == 'right'):
+            # Mirrored verically
+            points = [
+                (x, y),            # apex vertex
+                (x - h1, y - w1),  # mid-left 
+                (x - h2, y - w2),  # base-left
+                (x - h2, y + w2),  # base-right (collinear)
+                (x - h1, y + w1),  # mid-right  (collinear)
+            ]
+
+        pts = " ".join(f"{px},{py}" for px, py in points)
+
+        return (
+            f'<polygon points="{pts}" '
+            f'fill="{self.fill}" stroke-width="{self.stroke_width}"  stroke="{self.stroke}" />\n'
+        )
 
 
 class CubePaper(PaperTemplate):

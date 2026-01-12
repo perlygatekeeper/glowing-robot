@@ -1,0 +1,15 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+<circle cx="324" cy="338.0" r="1.0" />
+<polygon points="324,352.0 303.0,359.0 310.0,380.0 338.0,380.0 345.0,359.0" fill="none" stroke-width="0.3"  stroke="#dd0000" />
+<polygon points="324,324.0 345.0,317.0 338.0,296.0 310.0,296.0 303.0,317.0" fill="none" stroke-width="0.3"  stroke="#00dd00" />
+<polygon points="296,338.0 303.0,359.0 324,352.0 324,324.0 303.0,317.0" fill="none" stroke-width="0.3"  stroke="#0000dd" />
+<polygon points="352,338.0 345.0,317.0 324,324.0 324,352.0 345.0,359.0" fill="none" stroke-width="0.3"  stroke="#dd00dd" />
+
+
+<polygon points="100.0,180.0 160.0,160.0 140.0,100.0 60.0,100.0 40.0,160.0" fill="#efef00" stroke-width="0.1"  stroke="#ff00ff" />
+<path d="M 40.0 100.0 L 160.0 100.0 Z"  stroke-width="0.1"  stroke="#000000" />
+<path d="M 20.0 160.0 L 180.0 160.0 Z"  stroke-width="0.1"  stroke="#000000" />
+</svg>
