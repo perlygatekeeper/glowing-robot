@@ -284,7 +284,7 @@ class CairoPentagonalPaper(PaperTemplate):
                 y = self.margin
             while y < self.height - self.margin - h:
 #               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
-                self.stroke = f"#dd0000"
+#               self.stroke = f"#dd0000"
                 svg += self._draw_cairo_pentagon(x, y, h, 'up')
                 y += 3 * h
             col = col + 1
@@ -300,7 +300,7 @@ class CairoPentagonalPaper(PaperTemplate):
                 y = self.margin + 2.0 * h
             while y < self.height - self.margin - h:
 #               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
-                self.stroke = f"#00dd00"
+#               self.stroke = f"#00dd00"
                 svg += self._draw_cairo_pentagon(x, y, h, 'down')
                 y += 3 * w
             col = col + 1
@@ -316,7 +316,7 @@ class CairoPentagonalPaper(PaperTemplate):
                 x = self.margin + 1.0 * w
             while x < self.width - self.margin - w:
 #               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
-                self.stroke = f"#0000dd"
+#               self.stroke = f"#0000dd"
                 svg += self._draw_cairo_pentagon(x, y, h, 'left')
                 x += 3 * w
             row = row + 1
@@ -332,7 +332,7 @@ class CairoPentagonalPaper(PaperTemplate):
                 x = start_x + 2.5 * w
             while x < self.width - self.margin - w:
 #               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
-                self.stroke = f"#dd00dd"
+#               self.stroke = f"#dd00dd"
                 svg += self._draw_cairo_pentagon(x, y, h, 'right')
                 x += 3 * w
             row = row + 1
