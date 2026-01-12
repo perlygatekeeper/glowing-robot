@@ -270,28 +270,74 @@ class CairoPentagonalPaper(PaperTemplate):
         # Simplified pattern for printable paper
         h = self.pentagon_size
         w = h 
-        
-        start_x = self.margin + h        + 260
-        start_y = self.margin + 1.5 * h  + 260
-        
-        y = start_y
-        while y < self.height - self.margin + h:
-            x = start_x
-            while x < self.width - self.margin + w:
-                svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
-                # Draw Cairo pentagon (simplified)
-                # This creates the distinctive "dual hexagonal" pattern
+
+        # Draw Cairo pentagon (simplified)
+        # This creates the distinctive "dual hexagonal" pattern
+
+        start_x = self.margin + 0.5 * w
+        x = start_x
+        col = 1
+        while x < self.width - self.margin - w / 2:
+            if ( col % 2 == 0 ):
+                y = self.margin + 1.5 * w
+            else: 
+                y = self.margin
+            while y < self.height - self.margin - h:
+#               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
                 self.stroke = f"#dd0000"
-                svg += self._draw_cairo_pentagon(x, y+w/2, h, 'up')
+                svg += self._draw_cairo_pentagon(x, y, h, 'up')
+                y += 3 * h
+            col = col + 1
+            x += 1.5 * w
+
+        start_x = self.margin + 0.5 * w
+        x = start_x
+        col = 1
+        while x < self.width - self.margin - w / 2:
+            if ( col % 2 == 0 ):
+                y = self.margin + 3.5 * w
+            else: 
+                y = self.margin + 2.0 * h
+            while y < self.height - self.margin - h:
+#               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
                 self.stroke = f"#00dd00"
-                svg += self._draw_cairo_pentagon(x, y-w/2, h, 'down')
+                svg += self._draw_cairo_pentagon(x, y, h, 'down')
+                y += 3 * w
+            col = col + 1
+            x += 1.5 * h
+
+        start_y = self.margin + h
+        y = start_y
+        row = 1
+        while y < self.height - self.margin - h / 2:
+            if ( row % 2 == 0 ):
+                x = self.margin + 2.5 * w
+            else: 
+                x = self.margin + 1.0 * w
+            while x < self.width - self.margin - w:
+#               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
                 self.stroke = f"#0000dd"
-                svg += self._draw_cairo_pentagon(x-h, y, h, 'left')
+                svg += self._draw_cairo_pentagon(x, y, h, 'left')
+                x += 3 * w
+            row = row + 1
+            y += 1.5 * h
+
+        start_y = self.margin + h
+        y = start_y
+        row = 1
+        while y < self.height - self.margin - h / 2:
+            if ( row % 2 == 0 ):
+                x = start_x + 1.0 * w
+            else: 
+                x = start_x + 2.5 * w
+            while x < self.width - self.margin - w:
+#               svg += f'<circle cx="{x}" cy="{y}" r="1.0" />\n'
                 self.stroke = f"#dd00dd"
-                svg += self._draw_cairo_pentagon(x+h, y, h, 'right')
-                x += w 
-            y += h * 0.75 
-        
+                svg += self._draw_cairo_pentagon(x, y, h, 'right')
+                x += 3 * w
+            row = row + 1
+            y += 1.5 * h
+
         svg += self.svg_footer()
         return svg
 
