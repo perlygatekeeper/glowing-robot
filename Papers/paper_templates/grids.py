@@ -71,7 +71,7 @@ class TrianglePaper(PaperTemplate):
     """Generate equilateral triangle grid paper"""
     
     def __init__(self, size='letter', width=None, height=None,
-                 triangle_size=30, margin=36):
+                 triangle_size=29, margin=30):
         """
         Args:
             triangle_size: Side length of triangles in points
@@ -84,43 +84,50 @@ class TrianglePaper(PaperTemplate):
     def generate(self):
         """Generate triangle grid paper SVG"""
         svg = self.svg_header()
-        
+#       svg += f'  <rect x="{self.margin}" y="{self.margin}" width="{self.width - 2 * self.margin}" height="{self.height - 2 * self.margin}" fill="none" stroke="#ff00ff" stroke-width="0.2"/>'
+
         # Triangle dimensions
         height = self.triangle_size * math.sqrt(3) / 2
         
-        start_x = self.margin
+        # x, and y will be set at the center point of the base of each triangle
+        start_x = self.margin + self.triangle_size / 2
         start_y = self.margin
         
-        row = 0
+        row = 1
         y = start_y
-        while y < self.height - self.margin:
+        while y <= self.height - self.margin:
             x = start_x
-            if row % 2 == 1:
+            if row % 2 == 0:
                 x += self.triangle_size / 2
             
-            while x < self.width - self.margin:
+            while x + self.triangle_size / 2 <= self.width - self.margin:
                 # Draw upward-pointing triangle
-                x1 = x
-                y1 = y + height
-                x2 = x + self.triangle_size / 2
-                y2 = y
-                x3 = x + self.triangle_size
-                y3 = y + height
-                
-                svg += f'  <polygon points="{x1},{y1} {x2},{y2} {x3},{y3}" '
-                svg += f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
-                
-                # Draw downward-pointing triangle (if not at edge)
-                if row % 2 == 0 and x + self.triangle_size * 1.5 < self.width - self.margin:
-                    x1 = x + self.triangle_size / 2
+                if ( ( y - height ) + 0.000001 >= self.margin ):
+                    x1 = x - self.triangle_size / 2
                     y1 = y
-                    x2 = x + self.triangle_size
-                    y2 = y + height
-                    x3 = x + self.triangle_size * 1.5
-                    y3 = y
+                    x2 = x + self.triangle_size / 2
+                    y2 = y
+                    x3 = x
+                    y3 = y - height
                     
                     svg += f'  <polygon points="{x1},{y1} {x2},{y2} {x3},{y3}" '
                     svg += f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+#                   svg += f'  <circle cx="{x}" cy="{y}" r="0.7" '
+#                   svg += f'fill="none" stroke="#00ff00" stroke-width="0.1" opacity="1.0"/>\n'
+                
+                # Draw downward-pointing triangle (if not at edge)
+                if ( ( y + height ) <= ( self.height - self.margin ) ):
+                    x1 = x - self.triangle_size / 2
+                    y1 = y
+                    x2 = x + self.triangle_size / 2
+                    y2 = y
+                    x3 = x
+                    y3 = y + height
+                    
+                    svg += f'  <polygon points="{x1},{y1} {x2},{y2} {x3},{y3}" '
+                    svg += f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+#                   svg += f'  <circle cx="{x}" cy="{y}" r="0.5" '
+#                   svg += f'fill="none" stroke="#ff0000" stroke-width="0.1" opacity="1.0"/>\n'
                 
                 x += self.triangle_size
             
@@ -130,6 +137,61 @@ class TrianglePaper(PaperTemplate):
         svg += self.svg_footer()
         return svg
 
+
+class OctagonDiamondPaper(PaperTemplate):
+    """Generate octagon-diamond tessellation (classic tile pattern)"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 octagon_size=30, margin=36):
+        """
+        Args:
+            octagon_size: Distance from octagon center to edge center
+            margin: Margin around edges
+
+        OctagonSquarePaper rotated 45 degrees
+        """
+        super().__init__(size, width, height)
+        self.octagon_size = octagon_size
+        self.margin = margin
+    
+    def generate(self):
+        """Generate octagon-square tessellation SVG"""
+        svg = self.svg_header()
+        
+        # Calculate spacing
+        # For regular octagon with unit circumradius, side length = 2*sin(π/8)*r
+        root_2 = math.sqrt(2)
+        side_length = 2 * self.octagon_size / ( 1 + root_2 )
+        
+        # Spacing between octagon centers
+        spacing = 2 * self.octagon_size
+        
+        start_x = self.margin + self.octagon_size
+        start_y = self.margin + self.octagon_size
+        
+        y = start_y
+        while y < self.height - self.margin:
+            x = start_x
+            while x < self.width - self.margin:
+                # Draw octagon
+                svg += self._draw_octagon(x, y, self.octagon_size * 1.0823922)
+                x += spacing
+            y += spacing
+        
+        svg += self.svg_footer()
+        return svg
+    
+    def _draw_octagon(self, cx, cy, radius):
+        """Draw a regular octagon"""
+        points = []
+        for i in range(8):
+            angle = math.radians(i * 45 - 22.5)  # Start at top-right
+            px = cx + radius * math.cos(angle)
+            py = cy + radius * math.sin(angle)
+            points.append(f"{px},{py}")
+        
+        return f'  <polygon points="{" ".join(points)}" ' \
+               f'fill="none" stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
 
 class OctagonSquarePaper(PaperTemplate):
     """Generate octagon-square tessellation (classic tile pattern)"""
@@ -155,18 +217,18 @@ class OctagonSquarePaper(PaperTemplate):
            |            |
            |____________|
                S = 2r
-
+ 
            a = side length
            R = circumradius
            r = center to edge
            S = Span, edge to edge = 2r    <- what we call in-code as octagon_size
-
+ 
            S = a / sqrt(2) + a + a / sqrt(2)
              = ( 1 + sqrt(2) ) a              =~ 2.414 a
            r = ( 1 + sqrt(2) ) / 2            ≈~ 1.207 a
            R = ( sqrt( 4 + 2 * sqrt(2)) ) / 2 ≈~ 1.307 a
            R/r = (sqrt( 4 + 2 * sqrt(2) ) / ( 1 + sqrt(2)) =~ 1.08239922  
-
+ 
            a = S / ( 1 + sqrt(2))
         """
         super().__init__(size, width, height)
@@ -570,6 +632,50 @@ class EngineeringPaper(PaperTemplate):
         svg += self.svg_footer()
         return svg
 
+
+class DotTrianglePaper(PaperTemplate):
+    """Generate dot grid with triangles"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 dot_spacing=18, margin=36, dot_size=1):
+        """
+        Args:
+            dot_spacing: Space between dots in points (default 18 = 1/4 inch)
+            margin: Margin around edges
+            dot_size: Radius of dots in points
+        """
+        super().__init__(size, width, height)
+        self.dot_spacing = dot_spacing
+        self.margin = margin
+        self.dot_size = dot_size
+    
+    def generate(self):
+        """Generate dot grid paper SVG"""
+        svg = self.svg_header()
+        
+        start_x = self.margin
+        start_y = self.margin
+        end_x = self.width - self.margin
+        end_y = self.height - self.margin
+
+        height = self.dot_spacing * math.sqrt(3) / 2
+        
+        # Draw dots
+        row = 1
+        y = start_y
+        while y <= end_y:
+            x = start_x
+            if (row % 2 == 0):
+                x += 0.5 * self.dot_spacing
+            while x <= end_x:
+                svg += f'  <circle cx="{x}" cy="{y}" r="{self.dot_size}" '
+                svg += f'fill="#003399" opacity="0.6"/>\n'
+                x += self.dot_spacing
+            y += height
+            row += 1
+        
+        svg += self.svg_footer()
+        return svg
 
 class DotGridPaper(PaperTemplate):
     """Generate dot grid paper (popular for bullet journals)"""
