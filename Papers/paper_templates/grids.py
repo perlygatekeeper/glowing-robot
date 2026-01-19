@@ -657,7 +657,7 @@ class DotTrianglePaper(PaperTemplate):
         start_y = self.margin
         end_x = self.width - self.margin
         end_y = self.height - self.margin
-
+ 
         height = self.dot_spacing * math.sqrt(3) / 2
         
         # Draw dots
@@ -715,6 +715,91 @@ class DotGridPaper(PaperTemplate):
         svg += self.svg_footer()
         return svg
 
+
+class DotHexagonPaper(PaperTemplate):
+    """Generate hexagonal dot grid paper"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 dot_spacing=18, margin=36, dot_size=1):
+        """
+        Args:
+            hex_size: Distance from center to vertex in points
+            margin: Margin around edges
+            dot_size: Radius of dots in points
+        """
+        super().__init__(size, width, height)
+        self.dot_spacing = dot_spacing
+        self.margin = margin
+        self.dot_size = dot_size
+    
+    def generate(self):
+        """Generate dot grid paper SVG"""
+        svg = self.svg_header()
+        
+        start_x = self.margin
+        start_y = self.margin
+        end_x = self.width - self.margin
+        end_y = self.height - self.margin
+ 
+        height = self.dot_spacing * math.sqrt(3) / 2
+        
+        # Draw dots
+        row = 1
+        y = start_y
+        while y <= end_y:
+            x = start_x
+            if (row % 2 == 0):
+                x += 0.5 * self.dot_spacing
+            col = 1
+            while x <= end_x:
+                if ( col % 3 != 0 ):
+                  svg += f'  <circle cx="{x}" cy="{y}" r="{self.dot_size}" '
+                  svg += f'fill="#003399" opacity="0.6"/>\n'
+                x += self.dot_spacing
+                col += 1 + ( row % 2 ) 
+            y += height
+            row += 1
+        
+        svg += self.svg_footer()
+        return svg
+
+#   def generate(self):
+#       """Generate hexagonal grid paper SVG"""
+#       svg = self.svg_header()
+#       
+#       # Hexagon dimensions
+#       width_spacing = self.hex_size * math.sqrt(3)
+#       height_spacing = self.hex_size * 1.5
+#       
+#       start_x = self.margin
+#       start_y = self.margin
+#       
+#       row = 0
+#       y = start_y
+#       while y < self.height - self.margin:
+#           x = start_x
+#           if row % 2 == 1:
+#               x += width_spacing / 2
+#           
+#           while x < self.width - self.margin:
+#               # Draw hexagon points
+#               points = []
+#               for i in range(6):
+#                   angle = math.radians(60 * i - 30)
+#                   px = x + self.hex_size * math.cos(angle)
+#                   py = y + self.hex_size * math.sin(angle)
+#                   points.append(f"{px},{py}")
+#               
+#               svg += f'  <polygon points="{" ".join(points)}" '
+#               svg += f'fill="#003399" opacity="0.6"/>\n'
+#               
+#               x += width_spacing
+#           
+#           y += height_spacing
+#           row += 1
+#       
+#       svg += self.svg_footer()
+#       return svg
 
 class HexPaper(PaperTemplate):
     """Generate hexagonal grid paper"""
