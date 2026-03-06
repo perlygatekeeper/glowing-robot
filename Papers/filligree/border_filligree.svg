@@ -1,0 +1,11 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <g fill="none" stroke="#000000" stroke-width="0.1"/>
+    <path d="M 80 80  c 50 -40  -30 -40  5 0 "/>
+    <path d="M 85 80  c 30  40  -50  40  5 0 "/>
+    <path d="M 90 80  c 50 -40  -30 -40  5 0 "/>
+    <path d="M 95 80  c 30  40  -50  40  5 0 "/>
+  </g>
+</svg>
