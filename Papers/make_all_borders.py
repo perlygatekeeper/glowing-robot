@@ -2,8 +2,17 @@
 
 from paper_templates import OrnamentalBorder
 
-styles = ['simple', 'double-line', 'art-deco', 'celtic', 
-          'floral', 'academic', 'victorian', 'corners-only']
+styles = ['simple',
+          'double-line',
+          'art-deco',
+          'celtic', 
+          'floral',
+          'academic',
+          'filligree',
+          'victorian',
+          'corners-only',
+          'looped_corner',
+          'folded_corner']
 
 for style in styles:
     border = OrnamentalBorder(size='letter', style=style, 

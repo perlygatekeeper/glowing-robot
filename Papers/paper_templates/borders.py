@@ -16,6 +16,7 @@ class OrnamentalBorder(PaperTemplate):
         'floral',           # Botanical/floral decorations
         'academic',         # Formal certificate style
         'victorian',        # Ornate scrollwork
+        'filligree',        # Filligree
         'corners-only',     # Decorative corners, simple sides
         'folded-corner',    # Page with folded corner effect
         'looped-corner',    # Page with looped corner effect
@@ -61,6 +62,8 @@ class OrnamentalBorder(PaperTemplate):
             svg += self._draw_floral_border()
         elif self.style == 'academic':
             svg += self._draw_academic_border()
+        elif self.style == 'filligree':
+            svg += self._draw_filligree_border()
         elif self.style == 'victorian':
             svg += self._draw_victorian_border()
         elif self.style == 'corners-only':
@@ -284,6 +287,40 @@ class OrnamentalBorder(PaperTemplate):
         
         return svg
     
+    def _draw_filligree_border(self):
+        """Ornate Filligree scrollwork border"""
+        svg = ''
+        
+        x = self.margin
+        y = self.margin
+        w = self.width  - 2 * self.margin
+        h = self.height - 2 * self.margin
+        step  = 2
+        slant = 0
+        perpendiculer_1 = -1 * self.margin # should be based on width and/or height
+        perpendiculer_2 =  1 * self.margin
+        roundness_1     =   8.502 # should be based perp
+        roundness_2     =  -8.502
+        start_x = self.margin * 2
+        start_y = self.margin * 2
+        x = start_x
+        y = start_y
+
+        # starting point, turn 1, turn 2, turn 3
+        svg += f'<g fill="none" stroke="#000000" stroke-width="{self.thickness/40}">\n'
+        count = 0
+        while (x <= w) and (count<1000):
+            count += 1
+            svg += f'  <path d="M {x:5.0f} {y:5.0f}  c {roundness_1+slant:5.0f} {perpendiculer_1:5.0f}  {roundness_2+slant:5.0f} {perpendiculer_1:5.0f} {step:4.0f} 0.0"/>\n'
+            x += step
+            svg += f'  <path d="M {x:5.0f} {y:5.0f}  c {roundness_1-slant:5.0f} {perpendiculer_2:5.0f}  {roundness_2-slant:5.0f} {perpendiculer_2:5.0f} {step:4.0f} 0.0"/>\n'
+            x += step
+        svg += f'</g>\n'
+
+
+
+        return svg
+
     def _draw_victorian_border(self):
         """Ornate Victorian scrollwork border"""
         svg = ''

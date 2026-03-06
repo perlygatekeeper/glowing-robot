@@ -7,10 +7,10 @@ class PaperTemplate:
     
     # Standard paper sizes in points (1 inch = 72 points)
     SIZES = {
-        'letter': (612, 792),      # 8.5 x 11 inches
-        'a4': (595, 842),          # 210 x 297 mm
-        'legal': (612, 1008),      # 8.5 x 14 inches
-        'a5': (420, 595),          # 148 x 210 mm
+        'letter': (612,  792),  # 8.5 x 11 inches
+        'a4':     (595,  842),  # 210 x 297 mm
+        'legal':  (612, 1008),  # 8.5 x 14 inches
+        'a5':     (420,  595),  # 148 x 210 mm
     }
     
     def __init__(self, size='letter', width=None, height=None):
