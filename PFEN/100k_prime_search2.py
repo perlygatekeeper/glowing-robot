@@ -6,8 +6,11 @@ import inspect
 
 sys.set_int_max_str_digits(10**6)  # Required to print/convert 100,000-digit integers
 
-VERBOSE = True  # Set to True for detailed per-candidate output
-# Confirm gmpy2 is actually being used — add this sanity check at startup:
+VERBOSE    = True   # Set to True for detailed per-candidate output
+USE_LUCAS  = False  # Set to True to run full Baillie-PSW (MR + Lucas-Selfridge)
+                    # Set to False for Miller-Rabin k=5 only (faster, still extremely reliable)
+
+# Confirm gmpy2 is actually being used — sanity check at startup:
 print(f"gmpy2 version: {gmpy2.version()}")
 n_test = gmpy2.mpz(123)
 print(f"Type check: {type(n_test)}")  # Should show <class 'mpz'>
@@ -181,14 +184,14 @@ def lucas_selfridge_test(n):
     return False  # Composite
 
 
-def baillie_psw_primality_test(n):
+def is_probable_prime(n):
     """
-    Full Baillie-PSW primality test:
-      1. Strong Miller-Rabin with k=3 random bases  (fast composite filter)
-      2. Strong Lucas-Selfridge test                (no known BPSW pseudoprimes)
+    Primality test dispatcher controlled by USE_LUCAS flag.
 
-    Trial division by TRIAL_PRIMES is handled upstream in the sieve loop,
-    so we skip it here to avoid redundant work.
+    USE_LUCAS=False : Miller-Rabin k=5 only
+                      Fast; no known pseudoprimes at 100K-digit scale.
+    USE_LUCAS=True  : Full Baillie-PSW — MR k=3 + Lucas-Selfridge
+                      Slower; no known counterexamples to BPSW at any scale.
     """
     if n < 2:
         return False
@@ -197,10 +200,12 @@ def baillie_psw_primality_test(n):
     if n % 2 == 0 or n % 3 == 0 or n % 5 == 0:
         return False
 
-    # Multiple MR rounds filter composites cheaply before the expensive Lucas test
+    if not USE_LUCAS:
+        return miller_rabin_primality_test(n, k=5)
+
+    # Full Baillie-PSW: MR first to cheaply eliminate most composites
     if not miller_rabin_primality_test(n, k=3):
         return False
-
     return lucas_selfridge_test(n)
 
 
@@ -350,7 +355,7 @@ TRIAL_PRIMES = [
 # ---------------------------------------------------------------------------
 NUM_DIGITS   = 100_000
 OUTPUT_FILE  = "100K_digit_probable_primes.txt"
-REPORT_EVERY = 70   # Print progress every N wheel cycles
+REPORT_EVERY = 70
 run_start_time = time.time()
 
 lower_num  = 10 ** (NUM_DIGITS - 2)
@@ -358,26 +363,25 @@ upper_num  = 10 ** (NUM_DIGITS - 1) - 1
 last_digit = random.choice([1, 3, 7, 9])
 n          = random.randint(lower_num, upper_num)
 n          = n * 10 + last_digit
-n          = (n // 210) * 210   # Align to a multiple of 210 for wheel traversal
+n          = (n // 210) * 210
 
-# Precompute n % p and 210 % p for each sieve prime.
-# This lets us update residues with tiny integer arithmetic each step
-# instead of dividing the full 100,000-digit n every iteration.
-n_residues   = {p: int(n   % p) for p in TRIAL_PRIMES}
-residues_210 = {p: int(210 % p) for p in TRIAL_PRIMES}
-sieve_hit_counts = {p: 0 for p in TRIAL_PRIMES}
+n_residues       = {p: int(n   % p) for p in TRIAL_PRIMES}
+residues_210     = {p: int(210 % p) for p in TRIAL_PRIMES}
+sieve_hit_counts = {p: 0           for p in TRIAL_PRIMES}
 
-print(f"Target: {NUM_DIGITS}-digit probable prime")
-print(f"Sieve:  {len(TRIAL_PRIMES)} trial primes (11..9973)")
-print(f"Wheel:  mod 210, {len(WHEEL_RESIDUES)} residues per cycle")
-print(f"Test:   Baillie-PSW (Miller-Rabin k=3 + Lucas-Selfridge, all gmpy2)")
-print(f"Start:  n ending ...{int(n) % 10**12}")
-print(f"Verbose: {'ON' if VERBOSE else 'OFF'}  (flip VERBOSE at top of file for detail)")
+test_label = "Baillie-PSW (MR k=3 + Lucas-Selfridge)" if USE_LUCAS else "Miller-Rabin k=5"
+print(f"Target:  {NUM_DIGITS}-digit probable prime")
+print(f"Sieve:   {len(TRIAL_PRIMES)} trial primes (11..9973)")
+print(f"Wheel:   mod 210, {len(WHEEL_RESIDUES)} residues per cycle")
+print(f"Test:    {test_label}")
+print(f"Start:   n ending ...{int(n) % 10**12}")
+print(f"Verbose: {'ON' if VERBOSE else 'OFF'}")
 print()
 
-wheel_steps  = 0
+wheel_steps       = 0
+wheels_completed  = 0
 candidates_tested = 0
-bpsw_time_total   = 0.0
+test_time_total   = 0.0
 found = False
 
 with open(OUTPUT_FILE, "w") as f:
@@ -385,32 +389,35 @@ with open(OUTPUT_FILE, "w") as f:
         wheel_steps += 1
 
         for r in WHEEL_RESIDUES:
-            # Fast sieve: integer-only arithmetic, no big-int involved
             sieved_out = False
             for p in TRIAL_PRIMES:
                 if (n_residues[p] + r) % p == 0:
                     sieve_hit_counts[p] += 1
                     sieved_out = True
+                    sieve = p
                     break
             if sieved_out:
                 if VERBOSE:
-                    print(f"  r={r}: sieved")
+                    print(f"  r={r}: sieved by {p}")
                 continue
 
             candidate = n + r
             candidates_tested += 1
 
             if VERBOSE:
-                print(f"  r={r}: running Baillie-PSW on ...{int(candidate) % 10**8}")
+                print(f"  r={r}: running {test_label} on ...{int(candidate) % 10**8}")
 
-            result, elapsed = time_primality_test(baillie_psw_primality_test, candidate)
-            bpsw_time_total += elapsed
+            result, elapsed = time_primality_test(is_probable_prime, candidate)
+            test_time_total += elapsed
 
             if result:
-                print(f"\n*** Baillie-PSW probable prime found!")
-                print(f"    Wheel step : {wheel_steps},  residue : {r}")
+                elapsed_total = time.time() - run_start_time
+                print(f"\n*** Probable prime found!")
+                print(f"    Test             : {test_label}")
+                print(f"    Wheel step       : {wheel_steps},  residue: {r}")
                 print(f"    Candidates tested: {candidates_tested}")
-                print(f"    Total BPSW time  : {bpsw_time_total:.2f}s")
+                print(f"    Total test time  : {test_time_total:.2f}s")
+                print(f"    Wall time        : {elapsed_total:.1f}s")
                 print(f"    Last 20 digits   : ...{int(candidate) % 10**20}")
                 f.write(f"{candidate}\n")
                 top_sieves = sorted(sieve_hit_counts.items(), key=lambda x: x[1], reverse=True)[:20]
@@ -421,16 +428,16 @@ with open(OUTPUT_FILE, "w") as f:
                 break
 
         if not found:
-            # Advance n by one wheel cycle; update residues with small-int arithmetic
             n += 210
             for p in TRIAL_PRIMES:
                 n_residues[p] = (n_residues[p] + residues_210[p]) % p
 
             if wheel_steps % REPORT_EVERY == 0:
-                avg = bpsw_time_total / candidates_tested if candidates_tested else 0
+                elapsed_total = time.time() - run_start_time
+                avg = test_time_total / candidates_tested if candidates_tested else 0
                 print(
                     f"[step {wheel_steps:>6}]  candidates tested: {candidates_tested:>5}"
-                    f"  |  avg BPSW: {avg:.3f}s  |  total BPSW: {bpsw_time_total:.1f}s"
+                    f"  |  avg test: {avg:.3f}s  |  total test: {test_time_total:.1f}s"
                     f"  |  wall time: {elapsed_total:.1f}s"
                 )
 
