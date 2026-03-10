@@ -1,0 +1,102 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <text x="306.0" y="71" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">June 2026 - Habit Tracker</text>
+  <rect x="36" y="96" width="540" height="660" fill="none" stroke="#000000" stroke-width="2"/>
+  <line x1="186" y1="96" x2="186" y2="756" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="137.25" x2="576" y2="137.25" stroke="#000000" stroke-width="2"/>
+  <text x="192.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">1</text>
+  <text x="205.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">2</text>
+  <text x="218.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">3</text>
+  <text x="231.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">4</text>
+  <text x="244.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">5</text>
+  <text x="257.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">6</text>
+  <text x="270.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">7</text>
+  <text x="283.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">8</text>
+  <text x="296.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">9</text>
+  <text x="309.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">10</text>
+  <text x="322.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">11</text>
+  <text x="335.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">12</text>
+  <text x="348.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">13</text>
+  <text x="361.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">14</text>
+  <text x="374.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">15</text>
+  <text x="387.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">16</text>
+  <text x="400.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">17</text>
+  <text x="413.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">18</text>
+  <text x="426.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">19</text>
+  <text x="439.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">20</text>
+  <text x="452.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">21</text>
+  <text x="465.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">22</text>
+  <text x="478.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">23</text>
+  <text x="491.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">24</text>
+  <text x="504.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">25</text>
+  <text x="517.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">26</text>
+  <text x="530.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">27</text>
+  <text x="543.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">28</text>
+  <text x="556.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">29</text>
+  <text x="569.5" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">30</text>
+  <line x1="186.0" y1="137.25" x2="186.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="199.0" y1="137.25" x2="199.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="212.0" y1="137.25" x2="212.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="225.0" y1="137.25" x2="225.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="238.0" y1="137.25" x2="238.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="251.0" y1="137.25" x2="251.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="264.0" y1="137.25" x2="264.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="277.0" y1="137.25" x2="277.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="290.0" y1="137.25" x2="290.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="303.0" y1="137.25" x2="303.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="316.0" y1="137.25" x2="316.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="329.0" y1="137.25" x2="329.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="342.0" y1="137.25" x2="342.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="355.0" y1="137.25" x2="355.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="368.0" y1="137.25" x2="368.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="381.0" y1="137.25" x2="381.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="394.0" y1="137.25" x2="394.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="407.0" y1="137.25" x2="407.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="420.0" y1="137.25" x2="420.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="433.0" y1="137.25" x2="433.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="446.0" y1="137.25" x2="446.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="459.0" y1="137.25" x2="459.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="472.0" y1="137.25" x2="472.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="485.0" y1="137.25" x2="485.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="498.0" y1="137.25" x2="498.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="511.0" y1="137.25" x2="511.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="524.0" y1="137.25" x2="524.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="537.0" y1="137.25" x2="537.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="550.0" y1="137.25" x2="550.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="563.0" y1="137.25" x2="563.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="576.0" y1="137.25" x2="576.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="137.25" x2="576" y2="137.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="178.5" x2="576" y2="178.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="219.75" x2="576" y2="219.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="261.0" x2="576" y2="261.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="302.25" x2="576" y2="302.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="343.5" x2="576" y2="343.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="384.75" x2="576" y2="384.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="426.0" x2="576" y2="426.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="467.25" x2="576" y2="467.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="508.5" x2="576" y2="508.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="549.75" x2="576" y2="549.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="591.0" x2="576" y2="591.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="632.25" x2="576" y2="632.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="673.5" x2="576" y2="673.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="714.75" x2="576" y2="714.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="756.0" x2="576" y2="756.0" stroke="#cccccc" stroke-width="0.5"/>
+  <text x="41" y="120.75" font-family="sans-serif" font-size="12" font-weight="bold">Habit</text>
+  <text x="41" y="162.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 1</text>
+  <text x="41" y="203.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 2</text>
+  <text x="41" y="244.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 3</text>
+  <text x="41" y="285.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 4</text>
+  <text x="41" y="327.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 5</text>
+  <text x="41" y="368.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 6</text>
+  <text x="41" y="409.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 7</text>
+  <text x="41" y="450.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 8</text>
+  <text x="41" y="492.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 9</text>
+  <text x="41" y="533.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 10</text>
+  <text x="41" y="574.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 11</text>
+  <text x="41" y="615.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 12</text>
+  <text x="41" y="657.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 13</text>
+  <text x="41" y="698.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 14</text>
+  <text x="41" y="739.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 15</text>
+</svg>

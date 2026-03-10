@@ -1,0 +1,31 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="#F8F8F8"/>
+  <rect x="30" y="30" width="552" height="732" fill="none" stroke="#000000" stroke-width="1.5"/>
+  <path d = "
+  M  40 742  L  40  50  L  60  50  L  60  60  L  50  60  L  50  40
+             L 562  40  L 562  60  L 552  60  L 552  50  L 572  50
+             L 572 742  L 552 742  L 552 732  L 562 732  L 562 752
+             L  50 752  L  50 732  L  60 732  L  60 742  L  40 742 Z"
+             fill="none" stroke="#000" stroke-width="0.8"/>
+  <path d = "
+  M  50  70  L  70  70  L  70  50 
+  L 542  50  L 542  70  L 562  70
+  L 562 722  L 542 722  L 542 742 
+  L  70 742  L  70 722  L  50 722 
+  L  50  70  Z "
+  fill="none" stroke="#000" stroke-width="0.8"/>
+</svg>
+
+<!--
+X
+612 - 40 = 572
+612 - 50 = 562
+612 - 60 = 552
+
+Y
+792 - 40 = 752
+792 - 50 = 742
+792 - 60 = 732
+-->

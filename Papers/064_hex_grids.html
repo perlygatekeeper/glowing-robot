@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hex Grids and Cube Coordinates</title>
+<meta name="description" content="Hex Grids and Cube Coordinates" />
+<link href="/styles/style.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Lora:400italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes='246x246' href="/images/qr.png" />
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"url": "https://backdrifting.net",
+	"logo": "/images/qr.png"
+}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<a rel="me" href="https://kolektiva.social/@illegaldaydream"></a>
+<div id="container">
+	<div id="stage">
+		<div id="header">
+			<object data="/images/backdrifting_header.svg" alt="Backdrifting" type="image/svg+xml"></object>
+			<div class="header_wrapper">
+				<a href="/">Home</a> - <a href="/archive">Archive</a> - <a href="/about">About</a> - <a href="/publications">Publications</a> - <a href="/contact">Contact</a>
+			</div>
+		</div>
+		<a href="/rss"><img src="/share/rss.png" width=32px title="RSS" id="rss"></img></a>
+		<div id="stage-data">
+			<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+	"@type": "WebPage",
+	"@id": "https://google.com/article"
+  },
+  "headline": "Hex Grids and Cube Coordinates",
+  "datePublished": "2023-02-10 00:00:00 +0000",
+  "author": {
+	"@type": "Person",
+	"name": "Milo Trujillo",
+	"url": "https://backdrifting.net"
+  }
+}
+</script>
+<link href="/styles/markdown.css" rel="stylesheet" type="text/css">
+<div class="markdown">
+<div id="blogpost">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@illegaldaydream" />
+<meta name="twitter:title" content="Hex Grids and Cube Coordinates" />
+<meta name="twitter:image" content="https://backdrifting.net/images/qr.png" />
+<h2 id="hex-grids-and-cube-coordinates">Hex Grids and Cube Coordinates</h2>
+
+<p><strong>Posted 2/10/2023</strong></p>
+
+<p>I recently needed to make a graph with a hex lattice shape, like this:</p>
+
+<p><img src="/postImages/hex_matplotlib_plain.png" alt="Hex grid tiles" width="60%" /></p>
+
+<p>I needed to find distances and paths between different hexagonal tiles, which proved challenging in a cartesian coordinate system. I tried a few solutions, and it was a fun process, so let’s examine each option.</p>
+
+<h3 id="row-and-column-offset-coordinates">Row and Column (Offset) Coordinates</h3>
+
+<p>The most “obvious” way to index hexagonal tiles is to label each according to their row and column, like:</p>
+
+<p><img src="/postImages/hex_matplotlib_offset.png" alt="Hex grid tiles with row and column labels" width="60%" /></p>
+
+<p>This feels familiar if we’re used to a rectangular grid and cartesian coordinate system. It also allows us to use integer coordinates. However, it has a few severe disadvantages:</p>
+
+<ol>
+  <li>
+    <p>Moving in the y-axis implies moving in the x-axis. For example, moving from (0,0) to (0,1) sounds like we’re only moving vertically, but additionally shifts us to the right!</p>
+  </li>
+  <li>
+    <p>Coordinates are not mirrored. Northwest of (0,0) is (-1,1), so we might expect that Southeast of (0,0) would be flipped across the vertical and horizontal, yielding (1,-1). But this is not the case! Southeast of (0,0) is (0,-1) instead, because by dropping two rows we’ve implicitly moved twice to the right already (see point one)</p>
+  </li>
+</ol>
+
+<p>These issues make navigation challenging, because the offsets of neighboring tiles depend on the row. Southeast of (0,0) is (0,-1), but Southeast of (0,1) is (1,0), so the same relative direction sometimes requires changing the column, and sometimes does not.</p>
+
+<h3 id="cartesian-coordinates">Cartesian Coordinates</h3>
+
+<p>Rather than using row and column coordinates we could re-index each tile by its “true” cartesian coordinates:</p>
+
+<p><img src="/postImages/hex_matplotlib_cartesian.png" alt="Hex grid tiles with cartesian coordinates" width="60%" /></p>
+
+<p>This makes the unintuitive aspects of offset coordinates intuitive:</p>
+
+<ol>
+  <li>
+    <p>It is now obvious that moving from (0,0) to (0.5,1) implies both a vertical and horizontal change</p>
+  </li>
+  <li>
+    <p>Coordinates now mirror nicely: Northwest of (0,0) is (-0.5,1), and Southeast of (0,0) is (0.5,-1).</p>
+  </li>
+  <li>
+    <p>Following from point 1, it’s now clear why the distance between (0,0) and (3,0) isn’t equal to the distance between (0,0) and (0.5,3).</p>
+  </li>
+</ol>
+
+<p>But while cartesian coordinates are more “intuitive” than offset coordinates, they have a range of downsides:</p>
+
+<ol>
+  <li>
+    <p>We no longer have integer coordinates. We could compensate by doubling all the coordinates, but then (0,0) is adjacent to (2,0), and keeping a distance of one between adjacent tiles would be ideal.</p>
+  </li>
+  <li>
+    <p>While euclidean-distances are easy to calculate in cartesian space, it’s still difficult to calculate tile-distances using these indices. For example, if we want to find all tiles within two “steps” of (0,0) we need to use a maximum range of about 2.237, or the distance to (1,2).</p>
+  </li>
+</ol>
+
+<h3 id="cube-coordinates">Cube Coordinates</h3>
+
+<p>Fortunately there is a third indexing scheme, with integer coordinates, coordinate mirroring, and easy distance calculations in terms of steps! It just requires thinking in three dimensions!</p>
+
+<p>In a cartesian coordinate system we use two axes, since we can move up/down, and left/right. However, on a hexagonal grid, we have <em>three</em> degrees of freedom: we can move West/East, Northwest/Southeast, and Northeast/Southwest. We can define the coordinate of each tile in terms of the distance along each of these three directions, like so:</p>
+
+<p><img src="/postImages/hex_matplotlib_cube.png" alt="Hex grid tiles with cube coordinates" width="60%" /></p>
+
+<h4 id="why-arent-the-cube-coordinates-simpler">Why aren’t the cube coordinates simpler?</h4>
+
+<p>These “cube coordinates” have one special constraint: the sum of the coordinates is always zero. This allows us to maintain a canonical coordinate for each tile.</p>
+
+<p>To understand why this is necessary, imagine a system where the three coordinates (typically referred to as (q,r,s) to distinguish between systems when we are converting to or from an (x,y) system) correspond directly with the three axes: q refers to distance West/East, r to Northwest/Southeast, and s to Northeast/Southwest. Here’s a visualization of such a scheme:</p>
+
+<p><img src="/postImages/hex_matplotlib_bad.png" alt="Hex grid tiles with broken cube coordinates" width="60%" /></p>
+
+<p>We could take several paths, such as (0,1,1) or (1,2,0) or (-1,0,2), and all get to the same tile! That would be a mess for comparing coordinates, and would make distance calculations almost impossible. With the addition of this “sum to zero” constraint, all paths to the tile yield the same coordinate of (-1,2,-1).</p>
+
+<h4 id="what-about-distances-and-coordinate-conversion">What about distances and coordinate conversion?</h4>
+
+<p>Distances in cube coordinates are also easy to calculate - just half the “Manhattan distance” between the two points:</p>
+
+<div class="language-python highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">distance</span>(q1, r1, s1, q2, r2, s2):
+        <span style="color:#080;font-weight:bold">return</span> (<span style="color:#369;font-weight:bold">abs</span>(q1-q2) + <span style="color:#369;font-weight:bold">abs</span>(r1-r2) + <span style="color:#369;font-weight:bold">abs</span>(s1-s2)) / <span style="color:#00D">2</span>
+</pre></div>
+</div>
+</div>
+
+<p>We can add coordinates, multiply coordinates, calculate distances, and everything is simple so long as we remain in cube coordinates.</p>
+
+<p>However, we will unavoidably sometimes need to convert from cube to cartesian coordinates. For example, while I built the above hex grids using cube coordinates, I plotted them in matplotlib, which wants cartesian coordinates to place each hex. Converting to cartesian coordinates will also allow us to find the distance between hex tiles “as the crow flies,” rather than in path-length, which may be desirable. So how do we convert back to xy coordinates?</p>
+
+<p>First, we can disregard the <code>s</code> coordinate. Since all coordinates sum to zero, <code>s = -1 * (q + r)</code>, so it represents redundant information, and we can describe the positions of each tile solely using the first two coordinates.</p>
+
+<p><img src="/postImages/hex_matplotlib_distance.png" alt="Hex grid tiles with distance arrows" width="40%" /></p>
+
+<p>We can also tell through the example above that changing the <code>q</code> coordinate contributes only to changing the x-axis, while changing the <code>r</code> coordinate shifts both the x- and y-axes. Let’s set aside the <code>q</code> coordinate for the moment and focus on how much <code>r</code> contributes to each cartesian dimension.</p>
+
+<p>Let’s visualize the arrow from (0,0,0) to (0,1,-1) as the hypotenuse of a triangle:</p>
+
+<object data="/postImages/hex_triangle.svg" alt="Right triangle connecting (0,0,0) to (0,1,-1)" type="image/svg+xml"></object>
+
+<p>We want to break down the vector of length <code>r=1</code> into <code>x</code> and <code>y</code> components. You may recognize this as a 30-60-90 triangle, or you could use some geometric identities: the internal angles of a hexagon are 120-degrees, and this triangle will bisect one, so theta must be 60-degrees. Regardless of how you get there, we land at our triangle identities:</p>
+
+<object data="/postImages/hex_triangle2.svg" alt="Edge length identities for a 30-60-90 triangle" type="image/svg+xml"></object>
+
+<p>From here we can easily solve for the <code>x</code> and <code>y</code> components of <code>r</code>, using <code>2a = r</code>:</p>
+
+<object data="/postImages/hex_triangle_math1.svg" alt="Derivation of x and y components of r" type="image/svg+xml"></object>
+
+<p>We know that (0,1,-1) is halfway between (0,0,0) and (1,0,-1) on the x-axis, so <code>q</code> must contribute twice as much to the x-axis as <code>r</code> does. Therefore, we can solve for the full cartesian coordinates of a hex using the cube coordinates as follows:</p>
+
+<object data="/postImages/hex_triangle_math2.svg" alt="Translation from cube to cartesian coordinates" type="image/svg+xml"></object>
+
+<p>This works great! But it leaves the hexagons with a radius of <code>sqrt(3) / 3</code>, which may be inconvenient for some applications. For example, if you were physically manufacturing these hexagons, like making tiles for a board-game, they’d be much easier to cut to size if they had a radius of one. Therefore, you will often see the conversion math from cube to cartesian coordinates written with a constant multiple of <code>sqrt(3)</code>, like:</p>
+
+<object data="/postImages/hex_triangle_math3.svg" alt="Translation from cube to cartesian coordinates, multiplied by sqrt(3)" type="image/svg+xml"></object>
+
+<p>Since this is a constant multiple, it just re-scales the graph, so all the distance measurements and convenient properties of the system remain the same, but hexagons now have an integer radius.</p>
+
+<h3 id="this-is-the-most-interesting-thing-in-the-world-where-do-i-learn-more">This is the most interesting thing in the world, where do I learn more?</h3>
+
+<p>If you are also excited by these coordinate systems, and want to read more about the logic behind cube coordinates, path-finding, line-drawing, wrapping around the borders of a map, and so on, then I highly recommend the <a href="https://www.redblobgames.com/grids/hexagons/">Red Blob Games Hexagon article</a>, which goes into much more detail.</p>
+</div><ul class="share-buttons">
+  <li><a href="/post/064_hex_grids" target="_blank" title="Permalink">Permalink</a></li>
+</ul>
+</div>
+
+		</div>
+	</div>
+	<div id="footer"><footer>&#169; 2025 Milo Trujillo<br>This site available through <a href="https://torproject.org/">Tor</a> at: <a href="http://bkdrftngi6lyto7ha6uws44vgcdaqpjortunur2fnxf7mwyswciv4gyd.onion/">bkdrftngi6lyto7ha6uws44vgcdaqpjortunur2fnxf7mwyswciv4gyd.onion</a></footer></div>
+</div>
+</body>
+</html>

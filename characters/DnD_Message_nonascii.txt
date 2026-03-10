@@ -1,0 +1,28 @@
+
+
+   This is a message about the treasure and the monster protecting it.
+
+   ᨓᨇᨈᨒ ᨈᨒ ᨀ ᨌᨄᨒᨒᨀᨆᨄ ᨀᨁᨎᨔᨓ ᨓᨇᨄ ᨓᨑᨄᨀᨒᨔᨑᨄ ᨀᨍᨃ ᨓᨇᨄ ᨌᨎᨍᨒᨓᨄᨑ ᨏᨑᨎᨓᨄᨂᨓᨈᨍᨆ ᨈᨓ.
+   ᬓᬇᬈᬒ ᬈᬒ ᬀ ᬌᬄᬒᬒᬀᬆᬄ ᬀᬁᬎᬔᬓ ᬓᬇᬄ ᬓᬑᬄᬀᬒᬔᬑᬄ ᬀᬍᬃ ᬓᬇᬄ ᬌᬎᬍᬒᬓᬄᬑ ᬏᬑᬎᬓᬄᬂᬓᬈᬍᬆ ᬈᬓ.
+   ᯓᯇᯈᯒ ᯈᯒ ᯀ ᯌᯄᯒᯒᯀᯆᯄ ᯀᯁᯎᯔᯓ ᯓᯇᯄ ᯓᯑᯄᯀᯒᯔᯑᯄ ᯀᯍᯃ ᯓᯇᯄ ᯌᯎᯍᯒᯓᯄᯑ ᯏᯑᯎᯓᯄᯂᯓᯈᯍᯆ ᯈᯓ.
+   ᮓᮇᮈᮒ ᮈᮒ ᮀ ᮌᮄᮒᮒᮀᮆᮄ ᮀᮁᮎᮔᮓ ᮓᮇᮄ ᮓᮑᮄᮀᮒᮔᮑᮄ ᮀᮍᮃ ᮓᮇᮄ ᮌᮎᮍᮒᮓᮄᮑ ᮏᮑᮎᮓᮄᮂᮓᮈᮍᮆ ᮈᮓ.
+   ⰓⰇⰈⰒ ⰈⰒ Ⰰ ⰌⰄⰒⰒⰀⰆⰄ ⰀⰁⰎⰔⰓ ⰓⰇⰄ ⰓⰑⰄⰀⰒⰔⰑⰄ ⰀⰍⰃ ⰓⰇⰄ ⰌⰎⰍⰒⰓⰄⰑ ⰏⰑⰎⰓⰄⰂⰓⰈⰍⰆ ⰈⰓ.
+   ⶓⶇⶈⶒ ⶈⶒ ⶀ ⶌⶄⶒⶒⶀⶆⶄ ⶀⶁⶎⶔⶓ ⶓⶇⶄ ⶓⶑⶄⶀⶒⶔⶑⶄ ⶀⶍⶃ ⶓⶇⶄ ⶌⶎⶍⶒⶓⶄⶑ ⶏⶑⶎⶓⶄⶂⶓⶈⶍⶆ ⶈⶓ.
+   ꚳꚧꚨꚲ ꚨꚲ ꚠ ꚬꚤꚲꚲꚠꚦꚤ ꚠꚡꚮꚴꚳ ꚳꚧꚤ ꚳꚱꚤꚠꚲꚴꚱꚤ ꚠꚭꚣ ꚳꚧꚤ ꚬꚮꚭꚲꚳꚤꚱ ꚯꚱꚮꚳꚤꚢꚳꚨꚭꚦ ꚨꚳ.
+   ꡓꡇꡈꡒ ꡈꡒ ꡀ ꡌꡄꡒꡒꡀꡆꡄ ꡀꡁꡎꡔꡓ ꡓꡇꡄ ꡓꡑꡄꡀꡒꡔꡑꡄ ꡀꡍꡃ ꡓꡇꡄ ꡌꡎꡍꡒꡓꡄꡑ ꡏꡑꡎꡓꡄꡂꡓꡈꡍꡆ ꡈꡓ.
+
+
+perl -CS -pe 's/([A-Za-z])/chr(0x1A00 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0x1B00 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0x1BC0 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0x1B80 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0x2C00 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0x2D80 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0xA6A0 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+perl -CS -pe 's/([A-Za-z])/chr(0xA840 + ord(lc($1)) - 0x61)/ge;' DnD_Message.txt >> DnD_Message_nonascii.txt
+
+
+
+   ᅴ  ᅨ  ᅩ  ᅳ   ᅩ  ᅳ   ᅡ   ᅭ  ᅥ  ᅳ  ᅳ  ᅡ  ᅧ  ᅥ   ᅡ  ᅢ  ᅯ  ᅵ  ᅴ   ᅴ  ᅨ  ᅥ   ᅴ  ᅲ  ᅥ  ᅡ  ᅳ  ᅵ  ᅲ  ᅥ   ᅡ  ᅮ  ᅤ   ᅴ  ᅨ  ᅥ   ᅭ  ᅯ  ᅮ  ᅳ  ᅴ  ᅥ  ᅲ   ᅰ  ᅲ  ᅯ  ᅴ  ᅥ  ᅣ  ᅴ  ᅩ  ᅮ  ᅧ   ᅩ  ᅴ  .
+
+

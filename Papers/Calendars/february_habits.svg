@@ -1,0 +1,108 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <text x="306.0" y="71" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">February 2026 - Habit Tracker</text>
+  <rect x="36" y="96" width="540" height="660" fill="none" stroke="#000000" stroke-width="2"/>
+  <line x1="186" y1="96" x2="186" y2="756" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="127.42857142857143" x2="576" y2="127.42857142857143" stroke="#000000" stroke-width="2"/>
+  <text x="192.96428571428572" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">1</text>
+  <text x="206.89285714285714" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">2</text>
+  <text x="220.82142857142856" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">3</text>
+  <text x="234.75" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">4</text>
+  <text x="248.67857142857144" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">5</text>
+  <text x="262.6071428571429" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">6</text>
+  <text x="276.5357142857143" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">7</text>
+  <text x="290.4642857142857" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">8</text>
+  <text x="304.3928571428571" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">9</text>
+  <text x="318.32142857142856" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">10</text>
+  <text x="332.25" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">11</text>
+  <text x="346.17857142857144" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">12</text>
+  <text x="360.1071428571429" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">13</text>
+  <text x="374.0357142857143" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">14</text>
+  <text x="387.9642857142857" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">15</text>
+  <text x="401.8928571428571" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">16</text>
+  <text x="415.82142857142856" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">17</text>
+  <text x="429.75" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">18</text>
+  <text x="443.67857142857144" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">19</text>
+  <text x="457.6071428571429" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">20</text>
+  <text x="471.5357142857143" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">21</text>
+  <text x="485.4642857142857" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">22</text>
+  <text x="499.39285714285717" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">23</text>
+  <text x="513.3214285714286" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">24</text>
+  <text x="527.25" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">25</text>
+  <text x="541.1785714285714" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">26</text>
+  <text x="555.1071428571429" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">27</text>
+  <text x="569.0357142857142" y="114.85714285714286" font-family="sans-serif" font-size="8" text-anchor="middle">28</text>
+  <line x1="186.0" y1="127.42857142857143" x2="186.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="199.92857142857142" y1="127.42857142857143" x2="199.92857142857142" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="213.85714285714286" y1="127.42857142857143" x2="213.85714285714286" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="227.78571428571428" y1="127.42857142857143" x2="227.78571428571428" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="241.71428571428572" y1="127.42857142857143" x2="241.71428571428572" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="255.64285714285714" y1="127.42857142857143" x2="255.64285714285714" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="269.57142857142856" y1="127.42857142857143" x2="269.57142857142856" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="283.5" y1="127.42857142857143" x2="283.5" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="297.42857142857144" y1="127.42857142857143" x2="297.42857142857144" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="311.3571428571429" y1="127.42857142857143" x2="311.3571428571429" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="325.2857142857143" y1="127.42857142857143" x2="325.2857142857143" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="339.2142857142857" y1="127.42857142857143" x2="339.2142857142857" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="353.1428571428571" y1="127.42857142857143" x2="353.1428571428571" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="367.07142857142856" y1="127.42857142857143" x2="367.07142857142856" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="381.0" y1="127.42857142857143" x2="381.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="394.92857142857144" y1="127.42857142857143" x2="394.92857142857144" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="408.8571428571429" y1="127.42857142857143" x2="408.8571428571429" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="422.7857142857143" y1="127.42857142857143" x2="422.7857142857143" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="436.7142857142857" y1="127.42857142857143" x2="436.7142857142857" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="450.64285714285717" y1="127.42857142857143" x2="450.64285714285717" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="464.57142857142856" y1="127.42857142857143" x2="464.57142857142856" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="478.5" y1="127.42857142857143" x2="478.5" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="492.42857142857144" y1="127.42857142857143" x2="492.42857142857144" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="506.3571428571429" y1="127.42857142857143" x2="506.3571428571429" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="520.2857142857142" y1="127.42857142857143" x2="520.2857142857142" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="534.2142857142858" y1="127.42857142857143" x2="534.2142857142858" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="548.1428571428571" y1="127.42857142857143" x2="548.1428571428571" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="562.0714285714286" y1="127.42857142857143" x2="562.0714285714286" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="576.0" y1="127.42857142857143" x2="576.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="127.42857142857143" x2="576" y2="127.42857142857143" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="158.85714285714286" x2="576" y2="158.85714285714286" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="190.28571428571428" x2="576" y2="190.28571428571428" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="221.71428571428572" x2="576" y2="221.71428571428572" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="253.14285714285714" x2="576" y2="253.14285714285714" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="284.57142857142856" x2="576" y2="284.57142857142856" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="316.0" x2="576" y2="316.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="347.42857142857144" x2="576" y2="347.42857142857144" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="378.85714285714283" x2="576" y2="378.85714285714283" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="410.2857142857143" x2="576" y2="410.2857142857143" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="441.7142857142857" x2="576" y2="441.7142857142857" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="473.1428571428571" x2="576" y2="473.1428571428571" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="504.57142857142856" x2="576" y2="504.57142857142856" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="536.0" x2="576" y2="536.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="567.4285714285713" x2="576" y2="567.4285714285713" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="598.8571428571429" x2="576" y2="598.8571428571429" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="630.2857142857142" x2="576" y2="630.2857142857142" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="661.7142857142857" x2="576" y2="661.7142857142857" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="693.1428571428571" x2="576" y2="693.1428571428571" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="724.5714285714286" x2="576" y2="724.5714285714286" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="756.0" x2="576" y2="756.0" stroke="#cccccc" stroke-width="0.5"/>
+  <text x="41" y="114.85714285714286" font-family="sans-serif" font-size="12" font-weight="bold">Habit</text>
+  <text x="41" y="146.28571428571428" font-family="sans-serif" font-size="10" fill="#999999">Habit 1</text>
+  <text x="41" y="177.71428571428572" font-family="sans-serif" font-size="10" fill="#999999">Habit 2</text>
+  <text x="41" y="209.14285714285714" font-family="sans-serif" font-size="10" fill="#999999">Habit 3</text>
+  <text x="41" y="240.57142857142856" font-family="sans-serif" font-size="10" fill="#999999">Habit 4</text>
+  <text x="41" y="272.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 5</text>
+  <text x="41" y="303.42857142857144" font-family="sans-serif" font-size="10" fill="#999999">Habit 6</text>
+  <text x="41" y="334.85714285714283" font-family="sans-serif" font-size="10" fill="#999999">Habit 7</text>
+  <text x="41" y="366.2857142857143" font-family="sans-serif" font-size="10" fill="#999999">Habit 8</text>
+  <text x="41" y="397.71428571428567" font-family="sans-serif" font-size="10" fill="#999999">Habit 9</text>
+  <text x="41" y="429.1428571428571" font-family="sans-serif" font-size="10" fill="#999999">Habit 10</text>
+  <text x="41" y="460.57142857142856" font-family="sans-serif" font-size="10" fill="#999999">Habit 11</text>
+  <text x="41" y="491.99999999999994" font-family="sans-serif" font-size="10" fill="#999999">Habit 12</text>
+  <text x="41" y="523.4285714285713" font-family="sans-serif" font-size="10" fill="#999999">Habit 13</text>
+  <text x="41" y="554.8571428571429" font-family="sans-serif" font-size="10" fill="#999999">Habit 14</text>
+  <text x="41" y="586.2857142857142" font-family="sans-serif" font-size="10" fill="#999999">Habit 15</text>
+  <text x="41" y="617.7142857142858" font-family="sans-serif" font-size="10" fill="#999999">Habit 16</text>
+  <text x="41" y="649.1428571428571" font-family="sans-serif" font-size="10" fill="#999999">Habit 17</text>
+  <text x="41" y="680.5714285714286" font-family="sans-serif" font-size="10" fill="#999999">Habit 18</text>
+  <text x="41" y="712.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 19</text>
+  <text x="41" y="743.4285714285714" font-family="sans-serif" font-size="10" fill="#999999">Habit 20</text>
+</svg>

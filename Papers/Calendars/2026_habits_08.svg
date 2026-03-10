@@ -1,0 +1,104 @@
+<svg width="612" height="792" 
+     viewBox="0 0 612 792" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="612" height="792" fill="white"/>
+  <text x="306.0" y="71" font-family="sans-serif" font-size="28" font-weight="bold" text-anchor="middle">August 2026 - Habit Tracker</text>
+  <rect x="36" y="96" width="540" height="660" fill="none" stroke="#000000" stroke-width="2"/>
+  <line x1="186" y1="96" x2="186" y2="756" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="137.25" x2="576" y2="137.25" stroke="#000000" stroke-width="2"/>
+  <text x="192.29032258064515" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">1</text>
+  <text x="204.8709677419355" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">2</text>
+  <text x="217.4516129032258" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">3</text>
+  <text x="230.03225806451613" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">4</text>
+  <text x="242.61290322580646" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">5</text>
+  <text x="255.19354838709677" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">6</text>
+  <text x="267.7741935483871" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">7</text>
+  <text x="280.35483870967744" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">8</text>
+  <text x="292.93548387096774" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">9</text>
+  <text x="305.51612903225805" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">10</text>
+  <text x="318.0967741935484" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">11</text>
+  <text x="330.67741935483866" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">12</text>
+  <text x="343.258064516129" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">13</text>
+  <text x="355.8387096774194" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">14</text>
+  <text x="368.41935483870964" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">15</text>
+  <text x="381.0" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">16</text>
+  <text x="393.5806451612903" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">17</text>
+  <text x="406.1612903225806" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">18</text>
+  <text x="418.741935483871" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">19</text>
+  <text x="431.3225806451613" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">20</text>
+  <text x="443.9032258064516" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">21</text>
+  <text x="456.48387096774195" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">22</text>
+  <text x="469.06451612903226" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">23</text>
+  <text x="481.64516129032256" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">24</text>
+  <text x="494.22580645161287" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">25</text>
+  <text x="506.80645161290323" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">26</text>
+  <text x="519.3870967741935" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">27</text>
+  <text x="531.9677419354839" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">28</text>
+  <text x="544.5483870967741" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">29</text>
+  <text x="557.1290322580645" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">30</text>
+  <text x="569.7096774193549" y="120.75" font-family="sans-serif" font-size="8" text-anchor="middle">31</text>
+  <line x1="186.0" y1="137.25" x2="186.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="198.58064516129033" y1="137.25" x2="198.58064516129033" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="211.16129032258064" y1="137.25" x2="211.16129032258064" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="223.74193548387098" y1="137.25" x2="223.74193548387098" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="236.32258064516128" y1="137.25" x2="236.32258064516128" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="248.90322580645162" y1="137.25" x2="248.90322580645162" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="261.48387096774195" y1="137.25" x2="261.48387096774195" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="274.06451612903226" y1="137.25" x2="274.06451612903226" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="286.64516129032256" y1="137.25" x2="286.64516129032256" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="299.2258064516129" y1="137.25" x2="299.2258064516129" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="311.80645161290323" y1="137.25" x2="311.80645161290323" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="324.38709677419354" y1="137.25" x2="324.38709677419354" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="336.9677419354839" y1="137.25" x2="336.9677419354839" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="349.54838709677415" y1="137.25" x2="349.54838709677415" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="362.1290322580645" y1="137.25" x2="362.1290322580645" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="374.7096774193548" y1="137.25" x2="374.7096774193548" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="387.2903225806451" y1="137.25" x2="387.2903225806451" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="399.8709677419355" y1="137.25" x2="399.8709677419355" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="412.4516129032258" y1="137.25" x2="412.4516129032258" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="425.0322580645161" y1="137.25" x2="425.0322580645161" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="437.61290322580646" y1="137.25" x2="437.61290322580646" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="450.19354838709677" y1="137.25" x2="450.19354838709677" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="462.7741935483871" y1="137.25" x2="462.7741935483871" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="475.3548387096774" y1="137.25" x2="475.3548387096774" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="487.93548387096774" y1="137.25" x2="487.93548387096774" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="500.51612903225805" y1="137.25" x2="500.51612903225805" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="513.0967741935483" y1="137.25" x2="513.0967741935483" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="525.6774193548388" y1="137.25" x2="525.6774193548388" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="538.258064516129" y1="137.25" x2="538.258064516129" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="550.8387096774193" y1="137.25" x2="550.8387096774193" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="563.4193548387096" y1="137.25" x2="563.4193548387096" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="576.0" y1="137.25" x2="576.0" y2="756" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="137.25" x2="576" y2="137.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="178.5" x2="576" y2="178.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="219.75" x2="576" y2="219.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="261.0" x2="576" y2="261.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="302.25" x2="576" y2="302.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="343.5" x2="576" y2="343.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="384.75" x2="576" y2="384.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="426.0" x2="576" y2="426.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="467.25" x2="576" y2="467.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="508.5" x2="576" y2="508.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="549.75" x2="576" y2="549.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="591.0" x2="576" y2="591.0" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="632.25" x2="576" y2="632.25" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="673.5" x2="576" y2="673.5" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="714.75" x2="576" y2="714.75" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="36" y1="756.0" x2="576" y2="756.0" stroke="#cccccc" stroke-width="0.5"/>
+  <text x="41" y="120.75" font-family="sans-serif" font-size="12" font-weight="bold">Habit</text>
+  <text x="41" y="162.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 1</text>
+  <text x="41" y="203.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 2</text>
+  <text x="41" y="244.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 3</text>
+  <text x="41" y="285.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 4</text>
+  <text x="41" y="327.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 5</text>
+  <text x="41" y="368.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 6</text>
+  <text x="41" y="409.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 7</text>
+  <text x="41" y="450.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 8</text>
+  <text x="41" y="492.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 9</text>
+  <text x="41" y="533.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 10</text>
+  <text x="41" y="574.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 11</text>
+  <text x="41" y="615.75" font-family="sans-serif" font-size="10" fill="#999999">Habit 12</text>
+  <text x="41" y="657.0" font-family="sans-serif" font-size="10" fill="#999999">Habit 13</text>
+  <text x="41" y="698.25" font-family="sans-serif" font-size="10" fill="#999999">Habit 14</text>
+  <text x="41" y="739.5" font-family="sans-serif" font-size="10" fill="#999999">Habit 15</text>
+</svg>

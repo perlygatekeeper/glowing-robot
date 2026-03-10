@@ -1,0 +1,271 @@
+"""
+Printable Paper Templates Library
+Generate SVG files for various types of ruled/lined paper
+"""
+
+import math
+
+class PaperTemplate:
+    """Base class for paper templates"""
+    
+    # Standard paper sizes in points (1 inch = 72 points)
+    SIZES = {
+        'letter': (612, 792),      # 8.5 x 11 inches
+        'a4': (595, 842),          # 210 x 297 mm
+        'legal': (612, 1008),      # 8.5 x 14 inches
+        'a5': (420, 595),          # 148 x 210 mm
+    }
+    
+    def __init__(self, size='letter', width=None, height=None):
+        """
+        Initialize paper template
+        
+        Args:
+            size: Standard size name ('letter', 'a4', 'legal', 'a5')
+            width: Custom width in points (overrides size)
+            height: Custom height in points (overrides size)
+        """
+        if width and height:
+            self.width = width
+            self.height = height
+        else:
+            self.width, self.height = self.SIZES.get(size, self.SIZES['letter'])
+    
+    def svg_header(self):
+        """Generate SVG header"""
+        return f'''<svg width="{self.width}" height="{self.height}" 
+     viewBox="0 0 {self.width} {self.height}" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="{self.width}" height="{self.height}" fill="white"/>
+'''
+    
+    def svg_footer(self):
+        """Generate SVG footer"""
+        return '</svg>'
+    
+    def save(self, filename):
+        """Save template to SVG file"""
+        with open(filename, 'w') as f:
+            f.write(self.generate())
+        print(f"Saved: {filename}")
+
+
+class WritingPaper(PaperTemplate):
+    """Generate lined writing paper"""
+    
+    def __init__(self, size='letter', width=None, height=None, 
+                 line_spacing=24, margin_left=72, margin_right=72,
+                 margin_top=72, margin_bottom=72):
+        """
+        Args:
+            line_spacing: Space between lines in points (default 24 = 1/3 inch)
+            margin_left/right/top/bottom: Margins in points (default 72 = 1 inch)
+        """
+        super().__init__(size, width, height)
+        self.line_spacing = line_spacing
+        self.margin_left = margin_left
+        self.margin_right = margin_right
+        self.margin_top = margin_top
+        self.margin_bottom = margin_bottom
+    
+    def generate(self):
+        """Generate lined paper SVG"""
+        svg = self.svg_header()
+        
+        # Calculate usable area
+        start_y = self.margin_top
+        end_y = self.height - self.margin_bottom
+        start_x = self.margin_left
+        end_x = self.width - self.margin_right
+        
+        # Draw horizontal lines
+        y = start_y
+        while y <= end_y:
+            svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+            y += self.line_spacing
+        
+        # Draw left margin line (red)
+        svg += f'  <line x1="{self.margin_left}" y1="{self.margin_top}" '
+        svg += f'x2="{self.margin_left}" y2="{end_y}" '
+        svg += f'stroke="#cc0000" stroke-width="1" opacity="0.5"/>\n'
+        
+        svg += self.svg_footer()
+        return svg
+
+
+class MathPaper(PaperTemplate):
+    """Generate graph/grid paper for math"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 grid_size=18, margin=36, heavy_every=5):
+        """
+        Args:
+            grid_size: Size of grid squares in points (default 18 = 1/4 inch)
+            margin: Margin around edges in points
+            heavy_every: Draw heavy line every N squares (0 = no heavy lines)
+        """
+        super().__init__(size, width, height)
+        self.grid_size = grid_size
+        self.margin = margin
+        self.heavy_every = heavy_every
+    
+    def generate(self):
+        """Generate grid paper SVG"""
+        svg = self.svg_header()
+        
+        start_x = self.margin
+        start_y = self.margin
+        end_x = self.width - self.margin
+        end_y = self.height - self.margin
+        
+        # Vertical lines
+        x = start_x
+        count = 0
+        while x <= end_x:
+            if self.heavy_every > 0 and count % self.heavy_every == 0:
+                weight = "1.5"
+                opacity = "0.6"
+            else:
+                weight = "0.5"
+                opacity = "0.3"
+            
+            svg += f'  <line x1="{x}" y1="{start_y}" x2="{x}" y2="{end_y}" '
+            svg += f'stroke="#0066cc" stroke-width="{weight}" opacity="{opacity}"/>\n'
+            x += self.grid_size
+            count += 1
+        
+        # Horizontal lines
+        y = start_y
+        count = 0
+        while y <= end_y:
+            if self.heavy_every > 0 and count % self.heavy_every == 0:
+                weight = "1.5"
+                opacity = "0.6"
+            else:
+                weight = "0.5"
+                opacity = "0.3"
+            
+            svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
+            svg += f'stroke="#0066cc" stroke-width="{weight}" opacity="{opacity}"/>\n'
+            y += self.grid_size
+            count += 1
+        
+        svg += self.svg_footer()
+        return svg
+
+
+class SciencePaper(PaperTemplate):
+    """Generate lab notebook paper (lines with left column for notes)"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 line_spacing=24, margin=72, column_width=144):
+        """
+        Args:
+            line_spacing: Space between lines in points
+            margin: Margin around edges
+            column_width: Width of left column for labels/notes
+        """
+        super().__init__(size, width, height)
+        self.line_spacing = line_spacing
+        self.margin = margin
+        self.column_width = column_width
+    
+    def generate(self):
+        """Generate lab notebook paper SVG"""
+        svg = self.svg_header()
+        
+        start_y = self.margin
+        end_y = self.height - self.margin
+        start_x = self.margin
+        end_x = self.width - self.margin
+        column_x = start_x + self.column_width
+        
+        # Draw horizontal lines
+        y = start_y
+        while y <= end_y:
+            svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
+            svg += f'stroke="#0066cc" stroke-width="0.5" opacity="0.3"/>\n'
+            y += self.line_spacing
+        
+        # Draw column separator (heavier line)
+        svg += f'  <line x1="{column_x}" y1="{start_y}" '
+        svg += f'x2="{column_x}" y2="{end_y}" '
+        svg += f'stroke="#cc0000" stroke-width="1.5" opacity="0.5"/>\n'
+        
+        # Draw border
+        svg += f'  <rect x="{start_x}" y="{start_y}" '
+        svg += f'width="{end_x - start_x}" height="{end_y - start_y}" '
+        svg += f'fill="none" stroke="#000000" stroke-width="2" opacity="0.3"/>\n'
+        
+        svg += self.svg_footer()
+        return svg
+
+
+class MusicPaper(PaperTemplate):
+    """Generate music staff paper"""
+    
+    def __init__(self, size='letter', width=None, height=None,
+                 staves=10, margin_left=72, margin_right=36,
+                 margin_top=72, margin_bottom=72):
+        """
+        Args:
+            staves: Number of 5-line staves to draw
+            margin_left/right/top/bottom: Margins in points
+        """
+        super().__init__(size, width, height)
+        self.staves = staves
+        self.margin_left = margin_left
+        self.margin_right = margin_right
+        self.margin_top = margin_top
+        self.margin_bottom = margin_bottom
+    
+    def generate(self):
+        """Generate music staff paper SVG"""
+        svg = self.svg_header()
+        
+        start_x = self.margin_left
+        end_x = self.width - self.margin_right
+        usable_height = self.height - self.margin_top - self.margin_bottom
+        
+        # Calculate spacing
+        staff_height = 8 * 4  # 4 spaces of 8 points each between 5 lines
+        staff_spacing = (usable_height - (self.staves * staff_height)) / (self.staves + 1)
+        
+        # Draw each staff
+        for staff_num in range(self.staves):
+            staff_y = self.margin_top + staff_spacing + (staff_num * (staff_height + staff_spacing))
+            
+            # Draw 5 lines for this staff
+            for line_num in range(5):
+                y = staff_y + (line_num * 8)
+                svg += f'  <line x1="{start_x}" y1="{y}" x2="{end_x}" y2="{y}" '
+                svg += f'stroke="#000000" stroke-width="1"/>\n'
+        
+        svg += self.svg_footer()
+        return svg
+
+
+# Example usage
+if __name__ == "__main__":
+    # Generate writing paper
+    writing = WritingPaper(size='letter', line_spacing=24)
+    print(writing.generate()[:500] + "...")
+    
+    # Generate math grid paper
+    math_paper = MathPaper(size='letter', grid_size=18, heavy_every=5)
+    print("\n" + math_paper.generate()[:500] + "...")
+    
+    # Generate science lab paper
+    science = SciencePaper(size='letter')
+    print("\n" + science.generate()[:500] + "...")
+    
+    # Generate music staff paper
+    music = MusicPaper(size='letter', staves=12)
+    print("\n" + music.generate()[:500] + "...")
+    
+    # Save examples
+    writing.save('writing_paper.svg')
+    math_paper.save('math_paper.svg')
+    science.save('science_paper.svg')
+    music.save('music_paper.svg')

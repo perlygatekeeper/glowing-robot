@@ -67,7 +67,7 @@ def is_valid_len20_base64_string(input_string):
     return False
 
 if (args.salt and is_valid_len20_base64_string(args.salt)):
-    print(f"Processing   Salt:      {args.salt}")
+    print(f"Processing   Salt:       {args.salt}")
     params = ByteTransformer.parameters_from_salt( base64.b64decode(args.salt), args.debug )
     anti_salt = ByteTransformer.anti_salt_from_parameters( params, 0 ).decode("utf-8")
     print(f"Corresponding Anti-Salt: {anti_salt}")

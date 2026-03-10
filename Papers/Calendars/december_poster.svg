@@ -1,0 +1,60 @@
+<svg width="1000" height="1200" 
+     viewBox="0 0 1000 1200" 
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1200" fill="white"/>
+  <text x="500.0" y="76" font-family="serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#000000">December 2026</text>
+  <rect x="36" y="116" width="928" height="1048" fill="none" stroke="#000000" stroke-width="2"/>
+  <line x1="36.0" y1="116" x2="36.0" y2="1164" stroke="#000000" stroke-width="2"/>
+  <line x1="168.57142857142858" y1="116" x2="168.57142857142858" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="301.14285714285717" y1="116" x2="301.14285714285717" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="433.7142857142858" y1="116" x2="433.7142857142858" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="566.2857142857143" y1="116" x2="566.2857142857143" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="698.8571428571429" y1="116" x2="698.8571428571429" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="831.4285714285716" y1="116" x2="831.4285714285716" y2="1164" stroke="#000000" stroke-width="1"/>
+  <line x1="964.0000000000001" y1="116" x2="964.0000000000001" y2="1164" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="116.0" x2="964" y2="116.0" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="290.66666666666663" x2="964" y2="290.66666666666663" stroke="#000000" stroke-width="2"/>
+  <line x1="36" y1="465.3333333333333" x2="964" y2="465.3333333333333" stroke="#000000" stroke-width="1"/>
+  <line x1="36" y1="640.0" x2="964" y2="640.0" stroke="#000000" stroke-width="1"/>
+  <line x1="36" y1="814.6666666666666" x2="964" y2="814.6666666666666" stroke="#000000" stroke-width="1"/>
+  <line x1="36" y1="989.3333333333333" x2="964" y2="989.3333333333333" stroke="#000000" stroke-width="1"/>
+  <line x1="36" y1="1164.0" x2="964" y2="1164.0" stroke="#000000" stroke-width="2"/>
+  <text x="102.28571428571429" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Sun</text>
+  <text x="234.8571428571429" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Mon</text>
+  <text x="367.42857142857144" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Tue</text>
+  <text x="500.00000000000006" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Wed</text>
+  <text x="632.5714285714287" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Thu</text>
+  <text x="765.1428571428572" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Fri</text>
+  <text x="897.7142857142858" y="220.8" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">Sat</text>
+  <text x="176.57142857142858" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">1</text>
+  <text x="309.14285714285717" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">2</text>
+  <text x="441.7142857142858" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">3</text>
+  <text x="574.2857142857143" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">4</text>
+  <text x="706.8571428571429" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">5</text>
+  <text x="839.4285714285716" y="310.66666666666663" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">6</text>
+  <text x="44.0" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">7</text>
+  <text x="176.57142857142858" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">8</text>
+  <text x="309.14285714285717" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">9</text>
+  <text x="441.7142857142858" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">10</text>
+  <text x="574.2857142857143" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">11</text>
+  <text x="706.8571428571429" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">12</text>
+  <text x="839.4285714285716" y="485.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">13</text>
+  <text x="44.0" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">14</text>
+  <text x="176.57142857142858" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">15</text>
+  <text x="309.14285714285717" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">16</text>
+  <text x="441.7142857142858" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">17</text>
+  <text x="574.2857142857143" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">18</text>
+  <text x="706.8571428571429" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">19</text>
+  <text x="839.4285714285716" y="660.0" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">20</text>
+  <text x="44.0" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">21</text>
+  <text x="176.57142857142858" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">22</text>
+  <text x="309.14285714285717" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">23</text>
+  <text x="441.7142857142858" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">24</text>
+  <text x="574.2857142857143" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">25</text>
+  <text x="706.8571428571429" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">26</text>
+  <text x="839.4285714285716" y="834.6666666666666" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">27</text>
+  <text x="44.0" y="1009.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#cc0000">28</text>
+  <text x="176.57142857142858" y="1009.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">29</text>
+  <text x="309.14285714285717" y="1009.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">30</text>
+  <text x="441.7142857142858" y="1009.3333333333333" font-family="sans-serif" font-size="16" font-weight="normal" fill="#000000">31</text>
+</svg>

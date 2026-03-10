@@ -1,0 +1,13 @@
+The Spirograph is based on the equations for hypotrochoids and epitrochoids:
+
+x= (R − r) cos(θ) + d cos( θ (R−r)/r )
+y= (R − r) sin(θ) − d sin( θ (R−r)/r )
+
+Where:
+
+R = Radius of the fixed outer circle
+r = Radius of the rolling inner circle
+d = Distance of the drawing point from the center of the rolling circle
+θ = Angle of rotation
+
+

@@ -1,0 +1,12 @@
+<svg height="800" width="450" xmlns="http://www.w3.org/2000/svg">
+
+  <g stroke="darkblue" stroke-width="0.2" fill="none">
+    <path id="up1"   d="M 100 350  c 50 -300  -30 -300  5 0"/>
+    <path id="down1" d="M 105 350  c 50  300  -30  300  5 0"/>
+    <path id="up2"   d="M 110 350  c 50 -300  -30 -300  5 0"/>
+    <path id="down2" d="M 115 350  c 50  300  -30  300  5 0"/>
+    <path id="up3"   d="M 120 350  c 50 -300  -30 -300  5 0"/>
+    <path id="down3" d="M 125 350  c 50  300  -30  300  5 0"/>
+  </g>
+
+</svg>

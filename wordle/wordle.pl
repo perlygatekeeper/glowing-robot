@@ -7455,6 +7455,7 @@ seege
 seely
 seenu
 seepy
+segue
 segol
 sehyo
 seine

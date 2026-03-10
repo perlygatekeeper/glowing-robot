@@ -1,0 +1,10 @@
+<svg height="800" width="450" xmlns="http://www.w3.org/2000/svg">
+
+  <g file="none" stroke="#000000" stroke-width="0.1">
+    <path d="M 100 350  c 50 -300  -30 -300  5 0"/>
+    <path d="M 105 350  c 50  300  -30  300  5 0"/>
+    <path d="M 110 350  c 50 -300  -30 -300  5 0"/>
+    <path d="M 115 350  c 50  300  -30  300  5 0"/>
+  </g>
+</svg>
+

@@ -1,0 +1,120 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="#f8f6f0"/>
+  
+  <!-- Outer double circle -->
+  <circle cx="500" cy="500" r="480" fill="none" stroke="#000" stroke-width="3"/>
+  <circle cx="500" cy="500" r="460" fill="none" stroke="#000" stroke-width="2"/>
+  
+  <!-- 40 letter/number spaces in outer ring (represented as small circles) -->
+  <g id="outer-ring">
+    <!-- Top section of outer ring -->
+    <g fill="none" stroke="#000" stroke-width="1.5">
+      <circle cx="500" cy="25" r="15"/>
+      <circle cx="580" cy="30" r="15"/>
+      <circle cx="655" cy="50" r="15"/>
+      <circle cx="725" cy="85" r="15"/>
+      <circle cx="785" cy="135" r="15"/>
+      <circle cx="835" cy="195" r="15"/>
+      <circle cx="875" cy="265" r="15"/>
+      <circle cx="900" cy="340" r="15"/>
+      <circle cx="915" cy="420" r="15"/>
+      <circle cx="920" cy="500" r="15"/>
+      <circle cx="915" cy="580" r="15"/>
+      <circle cx="900" cy="660" r="15"/>
+      <circle cx="875" cy="735" r="15"/>
+      <circle cx="835" cy="805" r="15"/>
+      <circle cx="785" cy="865" r="15"/>
+      <circle cx="725" cy="915" r="15"/>
+      <circle cx="655" cy="950" r="15"/>
+      <circle cx="580" cy="970" r="15"/>
+      <circle cx="500" cy="975" r="15"/>
+      <circle cx="420" cy="970" r="15"/>
+      <circle cx="345" cy="950" r="15"/>
+      <circle cx="275" cy="915" r="15"/>
+      <circle cx="215" cy="865" r="15"/>
+      <circle cx="165" cy="805" r="15"/>
+      <circle cx="125" cy="735" r="15"/>
+      <circle cx="100" cy="660" r="15"/>
+      <circle cx="85" cy="580" r="15"/>
+      <circle cx="80" cy="500" r="15"/>
+      <circle cx="85" cy="420" r="15"/>
+      <circle cx="100" cy="340" r="15"/>
+      <circle cx="125" cy="265" r="15"/>
+      <circle cx="165" cy="195" r="15"/>
+      <circle cx="215" cy="135" r="15"/>
+      <circle cx="275" cy="85" r="15"/>
+      <circle cx="345" cy="50" r="15"/>
+      <circle cx="420" cy="30" r="15"/>
+    </g>
+  </g>
+  
+  <!-- Heptagon with heptagram (7-pointed structure) -->
+  <path d="M 500 100 L 776 255 L 836 550 L 662 785 L 338 785 L 164 550 L 224 255 Z" 
+        fill="none" stroke="#000" stroke-width="3"/>
+  
+  <!-- Heptagram star -->
+  <path d="M 500 100 L 338 785 L 836 550 L 164 550 L 662 785 L 224 255 L 776 255 Z" 
+        fill="none" stroke="#000" stroke-width="2.5"/>
+  
+  <!-- Seven large circles at heptagon points (for divine names) -->
+  <g fill="none" stroke="#000" stroke-width="2">
+    <circle cx="500" cy="100" r="55"/>
+    <circle cx="776" cy="255" r="55"/>
+    <circle cx="836" cy="550" r="55"/>
+    <circle cx="662" cy="785" r="55"/>
+    <circle cx="338" cy="785" r="55"/>
+    <circle cx="164" cy="550" r="55"/>
+    <circle cx="224" cy="255" r="55"/>
+  </g>
+  
+  <!-- Inner structure - pentagon -->
+  <path d="M 500 280 L 650 380 L 590 560 L 410 560 L 350 380 Z" 
+        fill="none" stroke="#000" stroke-width="3"/>
+  
+  <!-- Pentagon's inner divisions -->
+  <line x1="500" y1="280" x2="500" y2="500" stroke="#000" stroke-width="2"/>
+  <line x1="650" y1="380" x2="500" y2="500" stroke="#000" stroke-width="2"/>
+  <line x1="590" y1="560" x2="500" y2="500" stroke="#000" stroke-width="2"/>
+  <line x1="410" y1="560" x2="500" y2="500" stroke="#000" stroke-width="2"/>
+  <line x1="350" y1="380" x2="500" y2="500" stroke="#000" stroke-width="2"/>
+  
+  <!-- Five circles at pentagon points -->
+  <g fill="none" stroke="#000" stroke-width="2">
+    <circle cx="500" cy="280" r="40"/>
+    <circle cx="650" cy="380" r="40"/>
+    <circle cx="590" cy="560" r="40"/>
+    <circle cx="410" cy="560" r="40"/>
+    <circle cx="350" cy="380" r="40"/>
+  </g>
+  
+  <!-- Central circle -->
+  <circle cx="500" cy="500" r="75" fill="none" stroke="#000" stroke-width="3"/>
+  
+  <!-- Inner cross in center circle -->
+  <line x1="500" y1="430" x2="500" y2="570" stroke="#000" stroke-width="2.5"/>
+  <line x1="430" y1="500" x2="570" y2="500" stroke="#000" stroke-width="2.5"/>
+  
+  <!-- Central text AGLA -->
+  <text x="500" y="510" font-family="serif" font-size="32" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#000">AGLA</text>
+  
+  <!-- Labels in the seven circles (sample divine name letters) -->
+  <g font-family="serif" font-size="28" text-anchor="middle" dominant-baseline="middle" fill="#000">
+    <text x="500" y="105">S</text>
+    <text x="776" y="260">L</text>
+    <text x="836" y="555">A</text>
+    <text x="662" y="790">E</text>
+    <text x="338" y="790">M</text>
+    <text x="164" y="555">E</text>
+    <text x="224" y="260">T</text>
+  </g>
+  
+  <!-- Pentagon vertex labels -->
+  <g font-family="serif" font-size="24" text-anchor="middle" dominant-baseline="middle" fill="#000">
+    <text x="500" y="285">E</text>
+    <text x="650" y="385">L</text>
+    <text x="590" y="565">I</text>
+    <text x="410" y="565">I</text>
+    <text x="350" y="385">M</text>
+  </g>
+</svg>
