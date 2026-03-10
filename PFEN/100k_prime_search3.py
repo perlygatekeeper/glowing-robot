@@ -452,7 +452,7 @@ with open(OUTPUT_FILE, "w") as f:
                 print(
                     f"---------------------------------------------------------------------------"
                     f" [step {wheel_steps:>6}] covering {wheel_steps*210:>7} integers"
-                    f"  | candidates seived: {candidates_seived:>6}"
+                    f"  | candidates sieved: {candidates_sieved:>6}"
                     f"  | candidates tested: {candidates_tested:>6}"
                     f"  |  avg test: {avg:.3f}s  |  total test: {test_time_total:.1f}s"
                     f"  |  wall time: {elapsed_total:.1f}s"
