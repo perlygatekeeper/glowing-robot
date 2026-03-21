@@ -3,7 +3,11 @@ Pokemon CMH/*JSON
 Graycode-*.svg
 Graycode-*.png
 PFEN/Data
+<<<<<<< HEAD
 PFEN/100K_probable_prime_[0-9][0-9][0-9][0-9].txt
 PFEN/100K_probable_prime_[0-9][0-9][0-9][0-9][0-9].txt
 PFEN/*.json
+=======
+>>>>>>> 5ac891e (A lot of work on primes again)
 __pycache__
+rpn-oo-*.tgz

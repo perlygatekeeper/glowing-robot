@@ -1,0 +1,179 @@
+*** Probable prime found!
+    Test             : Miller-Rabin k=5
+    Wheel step       : 74,  residue: 71
+    Candidates tested: 940
+    Total test time  : 680715.12s
+    Wall time        : 680715.5s
+    Last 20 digits   : ...19161858037745910001
+Top 20 sieve primes:
+     11:      319 hits
+     13:      245 hits
+     17:      171 hits
+     19:      144 hits
+     23:      113 hits
+     29:       86 hits
+     31:       81 hits
+     37:       62 hits
+     41:       57 hits
+     43:       51 hits
+     47:       49 hits
+     53:       42 hits
+     61:       41 hits
+     59:       34 hits
+     73:       31 hits
+     79:       28 hits
+     67:       27 hits
+     71:       26 hits
+     83:       22 hits
+     89:       21 hits
+Search complete.
+[1]  + Terminated                    python3 ./100k_prime_search2.py
+
+python3 verify_large_prime_gmpy2_verbose.py  100K_digit_probable_primes.txt
+Reading number from file...
+Digits: 100000
+Converting to GMP integer...
+Conversion complete
+
+===== Miller–Rabin =====
+
+Preparing Miller–Rabin
+n-1 = d * 2^4
+
+[MR 1/25] base last digits: 727761
+  passed loop step 2
+[MR 2/25] base last digits: 250451
+  passed loop step 1
+[MR 3/25] base last digits: 329478
+  passed loop step 3
+[MR 4/25] base last digits: 469871
+  passed initial check
+[MR 5/25] base last digits: 980338
+  passed loop step 3
+[MR 6/25] base last digits: 619343
+  passed loop step 2
+[MR 7/25] base last digits: 459810
+  passed loop step 3
+[MR 8/25] base last digits: 712206
+  passed loop step 3
+[MR 9/25] base last digits: 920236
+  passed loop step 3
+[MR 10/25] base last digits: 472405
+  passed initial check
+[MR 11/25] base last digits: 149684
+  passed loop step 1
+[MR 12/25] base last digits: 695045
+  passed loop step 2
+[MR 13/25] base last digits: 198065
+  passed loop step 2
+[MR 14/25] base last digits: 990538
+  passed loop step 3
+[MR 15/25] base last digits: 921003
+  passed loop step 3
+[MR 16/25] base last digits: 887559
+  passed loop step 2
+[MR 17/25] base last digits: 710896
+  passed loop step 2
+[MR 18/25] base last digits: 514485
+  passed loop step 2
+[MR 19/25] base last digits: 674033
+  passed loop step 3
+[MR 20/25] base last digits: 434778
+  passed loop step 1
+[MR 21/25] base last digits: 150056
+  passed loop step 2
+[MR 22/25] base last digits: 433008
+  passed loop step 3
+[MR 23/25] base last digits: 114866
+  passed loop step 2
+[MR 24/25] base last digits: 818564
+  passed initial check
+[MR 25/25] base last digits: 569490
+  passed loop step 1
+
+Miller–Rabin finished
+Time: 12866.027188062668 seconds
+
+Passed Miller–Rabin
+
+===== Baillie–PSW Lucas Test =====
+
+Starting Lucas test (Baillie–PSW)
+Lucas parameter D = -3
+n+1 decomposition computed
+  Lucas progress: 5000/332190 bits
+  Lucas progress: 10000/332190 bits
+  Lucas progress: 15000/332190 bits
+  Lucas progress: 20000/332190 bits
+  Lucas progress: 25000/332190 bits
+  Lucas progress: 30000/332190 bits
+  Lucas progress: 35000/332190 bits
+  Lucas progress: 40000/332190 bits
+  Lucas progress: 45000/332190 bits
+  Lucas progress: 50000/332190 bits
+  Lucas progress: 55000/332190 bits
+  Lucas progress: 60000/332190 bits
+  Lucas progress: 65000/332190 bits
+  Lucas progress: 70000/332190 bits
+  Lucas progress: 75000/332190 bits
+  Lucas progress: 80000/332190 bits
+  Lucas progress: 85000/332190 bits
+  Lucas progress: 90000/332190 bits
+  Lucas progress: 95000/332190 bits
+  Lucas progress: 100000/332190 bits
+  Lucas progress: 105000/332190 bits
+  Lucas progress: 110000/332190 bits
+  Lucas progress: 115000/332190 bits
+  Lucas progress: 120000/332190 bits
+  Lucas progress: 125000/332190 bits
+  Lucas progress: 130000/332190 bits
+  Lucas progress: 135000/332190 bits
+  Lucas progress: 140000/332190 bits
+  Lucas progress: 145000/332190 bits
+  Lucas progress: 150000/332190 bits
+  Lucas progress: 155000/332190 bits
+  Lucas progress: 160000/332190 bits
+  Lucas progress: 165000/332190 bits
+  Lucas progress: 170000/332190 bits
+  Lucas progress: 175000/332190 bits
+  Lucas progress: 180000/332190 bits
+  Lucas progress: 185000/332190 bits
+  Lucas progress: 190000/332190 bits
+  Lucas progress: 195000/332190 bits
+  Lucas progress: 200000/332190 bits
+  Lucas progress: 205000/332190 bits
+  Lucas progress: 210000/332190 bits
+  Lucas progress: 215000/332190 bits
+  Lucas progress: 220000/332190 bits
+  Lucas progress: 225000/332190 bits
+  Lucas progress: 230000/332190 bits
+  Lucas progress: 235000/332190 bits
+  Lucas progress: 240000/332190 bits
+  Lucas progress: 245000/332190 bits
+  Lucas progress: 250000/332190 bits
+  Lucas progress: 255000/332190 bits
+  Lucas progress: 260000/332190 bits
+  Lucas progress: 265000/332190 bits
+  Lucas progress: 270000/332190 bits
+  Lucas progress: 275000/332190 bits
+  Lucas progress: 280000/332190 bits
+  Lucas progress: 285000/332190 bits
+  Lucas progress: 290000/332190 bits
+  Lucas progress: 295000/332190 bits
+  Lucas progress: 300000/332190 bits
+  Lucas progress: 305000/332190 bits
+  Lucas progress: 310000/332190 bits
+  Lucas progress: 315000/332190 bits
+  Lucas progress: 320000/332190 bits
+  Lucas progress: 325000/332190 bits
+  Lucas progress: 330000/332190 bits
+Lucas test finished
+Time: 1137.5945761203766 seconds
+
+
+FINAL RESULT: composite
+
+Timing summary
+  Miller–Rabin: 12866.030888080597
+  Lucas: 1137.595890045166
+  Total: 14003.626778125763
