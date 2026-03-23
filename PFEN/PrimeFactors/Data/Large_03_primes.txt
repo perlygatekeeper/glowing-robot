@@ -1,3 +1,6 @@
+10 ^ (2 ^ 14) +
+30001 - 43947
+
  > fermat_primality_test starting on wheel residue 101 -> 30001.
  > candidate is skipped due to candidate % 13 == 0
  > fermat_primality_test starting on wheel residue 103 -> 30003.

@@ -1,3 +1,6 @@
+10 ^ (2 ^ 14) +
+7009 - 30127
+
 fermat_primality_test starting on wheel residue 209 -> 7009.
 fermat_primality_test took 213.566683 seconds for 7009.
 n starting with n % 10000 at 7010.

@@ -1,3 +1,6 @@
+10 ^ (2 ^ 14) +
+1483 - 5177
+
 fermat_primality_test took 404.788333 seconds for 1483.
 fermat_primality_test starting on wheel residue 149 -> 1489.
 fermat_primality_test starting on wheel residue 143 -> 1483.

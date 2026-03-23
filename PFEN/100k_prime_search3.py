@@ -450,12 +450,12 @@ with open(OUTPUT_FILE, "w") as f:
                 elapsed_total = time.time() - run_start_time
                 avg = test_time_total / candidates_tested if candidates_tested else 0
                 print(
-                    f"---------------------------------------------------------------------------"
+                    f"---------------------------------------------------------------------------\n"
                     f" [step {wheel_steps:>6}] covering {wheel_steps*210:>7} integers"
-                    f"  | candidates sieved: {candidates_sieved:>6}"
-                    f"  | candidates tested: {candidates_tested:>6}"
+                    f"  | candidates sieved: {candidates_sieved:>6}; per wheel: {candidates_sieved/wheel_steps:>6}"
+                    f"  | candidates tested: {candidates_tested:>6}; per wheel: {candidates_tested/wheel_steps:>6}\n"
                     f"  |  avg test: {avg:.3f}s  |  total test: {test_time_total:.1f}s"
-                    f"  |  wall time: {elapsed_total:.1f}s"
+                    f"  |  wall time: {elapsed_total:.1f}s\n"
                 )
 
 print("Search complete." if found else "Search ended without a find.")
