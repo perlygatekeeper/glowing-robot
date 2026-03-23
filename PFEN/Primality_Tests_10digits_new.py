@@ -1,5 +1,6 @@
 import random
 import time
+import math
 import sys
 import gmpy2
 import inspect
@@ -244,11 +245,12 @@ REPORT_EVERY = 210*100
 run_start_time = time.time()
 
 exp = 10 
-n_base = 10**(exp-1)
+n_base = 2 * 10**(exp-1)
+stop   = 3 * 10**(exp-1)
 n = ( (n_base // 210) ) * 210  # Align n to a multiple of 210
-stop = 10**exp
+
 # stop = n_base + 5000   # this is for testing
-TRIAL_PRIMES = build_trial_primes( int(10**(exp/2)) + 1 )
+TRIAL_PRIMES = build_trial_primes( int(math.sqrt(stop)) + 1 )
 # TRIAL_PRIMES = build_trial_primes(999_999)
 
 print("start:{} -> end:{stop}")
@@ -257,7 +259,7 @@ START_RESIDUE       = 1
 candidates_tested   = 0
 candidates_sieved   = 0
 candidates_rejected = 0
-primes_found        = 0
+primes_found        = 2
 time_total          = 0.0
 
 n_residues   = {} # initalized the residues dictionary
@@ -274,7 +276,7 @@ print(f"Test:    {test_label}")
 print(f"Verbose: {'ON' if VERBOSE else 'OFF'}")
 print()
 
-with open("10_digit_probable_primes.txt", "w") as f:
+with open("Data/10_digit_probable_primes_2.txt", "w") as f:
     while n <= stop:
         print(f"n: {n} found {primes_found} primes so far.")
         for r in WHEEL_RESIDUES:
