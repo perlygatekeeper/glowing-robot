@@ -1,0 +1,11 @@
+./Strengthen_Prime_Confidence_verbose.py Data/100K_digit_probable_prime.txt | tee -a Data/100K_digit_probable_prime_test.txt
+============================================================
+Reading number from file: 'Data/100K_digit_probable_prime.txt' ...
+  Read complete: 100000 digits
+  First 20 digits : 37045320553353123486...
+  Last  20 digits : ...19161858037745910001
+============================================================
+
+[Test 1]  Miller-Rabin  (25 rounds)
+----------------------------------------
+  Miller-Rabin parameters: n-1 = d * 2^s,  s=4,  d has 332188 bits

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import random
 import time
 import math
@@ -240,7 +242,7 @@ def build_trial_primes(limit):
 
 # ---------------------------------------------------------------------------
 NUM_DIGITS   = 10
-OUTPUT_FILE  = f"10_digit_primes_{os.getpid()}.txt"
+OUTPUT_FILE  = f"Data/10_digit_probable_primes_2.txt"
 REPORT_EVERY = 210*100
 run_start_time = time.time()
 

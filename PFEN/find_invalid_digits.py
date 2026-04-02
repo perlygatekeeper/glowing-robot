@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 import string
 
-with open("Prove_Prime_25K.txt") as f:
+with open("Data/25K_digit_probable_prime.txt") as f:
     s = f.read()
 
 bad = [(i, c, ord(c)) for i, c in enumerate(s) if c not in string.digits]
