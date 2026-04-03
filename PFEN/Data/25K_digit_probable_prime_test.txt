@@ -1,0 +1,152 @@
+python3 Strengthen_Prime_Confidence.py Data/25K_digit_probable_prime.txt | tee Data/25K_digit_probable_prime_test.txt
+
+Reading number...
+Digits: 25000
+
+Running Miller-Rabin (25 rounds)...
+Result: Probable Prime
+MR time: 72927.36960482597 seconds
+
+Running Baillie-PSW test...
+Result: Composite
+BPSW time: 11374.328372001648 seconds
+
+Total time: 84301.69797682762 seconds
+
+
+-----------------------------------------------------
+final_test_25k.py
+True
+Reading number from file...
+Digits: 25000
+Converting to GMP integer...
+Conversion complete
+
+===== Miller–Rabin =====
+
+Preparing Miller–Rabin
+n-1 = d * 2^1
+
+[MR 1/25] base last digits: 848117
+  passed initial check
+[MR 2/25] base last digits: 231979
+  passed initial check
+[MR 3/25] base last digits: 762920
+  passed initial check
+[MR 4/25] base last digits: 843873
+  passed initial check
+[MR 5/25] base last digits: 799939
+  passed initial check
+[MR 6/25] base last digits: 723030
+  passed initial check
+[MR 7/25] base last digits: 615779
+  passed initial check
+[MR 8/25] base last digits: 567301
+  passed initial check
+[MR 9/25] base last digits: 335067
+  passed initial check
+[MR 10/25] base last digits: 855388
+  passed initial check
+[MR 11/25] base last digits: 381267
+  passed initial check
+[MR 12/25] base last digits: 347352
+  passed initial check
+[MR 13/25] base last digits: 178431
+  passed initial check
+[MR 14/25] base last digits: 464482
+  passed initial check
+[MR 15/25] base last digits: 833745
+  passed initial check
+[MR 16/25] base last digits: 14233
+  passed initial check
+[MR 17/25] base last digits: 530327
+  passed initial check
+[MR 18/25] base last digits: 458868
+  passed initial check
+[MR 19/25] base last digits: 820325
+  passed initial check
+[MR 20/25] base last digits: 929114
+  passed initial check
+[MR 21/25] base last digits: 616133
+  passed initial check
+[MR 22/25] base last digits: 321807
+  passed initial check
+[MR 23/25] base last digits: 729203
+  passed initial check
+[MR 24/25] base last digits: 493177
+  passed initial check
+[MR 25/25] base last digits: 324501
+  passed initial check
+
+Miller–Rabin finished
+Time: 696.4038121700287 seconds
+
+Passed Miller–Rabin
+
+===== Baillie–PSW Lucas Test =====
+
+Starting Lucas test (Baillie–PSW)
+Lucas parameter D = -3
+n+1 decomposition computed
+  Lucas progress: 5000/83040 bits
+  Lucas progress: 10000/83040 bits
+  Lucas progress: 15000/83040 bits
+  Lucas progress: 20000/83040 bits
+  Lucas progress: 25000/83040 bits
+  Lucas progress: 30000/83040 bits
+  Lucas progress: 35000/83040 bits
+  Lucas progress: 40000/83040 bits
+  Lucas progress: 45000/83040 bits
+  Lucas progress: 50000/83040 bits
+  Lucas progress: 55000/83040 bits
+  Lucas progress: 60000/83040 bits
+  Lucas progress: 65000/83040 bits
+  Lucas progress: 70000/83040 bits
+  Lucas progress: 75000/83040 bits
+  Lucas progress: 80000/83040 bits
+Lucas test finished
+Time: 75.9980320930481 seconds
+
+
+FINAL RESULT: composite  < WRONG!   Fix math and algorithm in Lucas test!
+
+Timing summary
+  Miller–Rabin: 696.4038589000702
+  Lucas: 75.99806714057922
+  Total: 772.4019260406494
+-----------------------------------------------------
+============================================================
+Reading number from file: './Strengthen_Prime_Confidence_verbose.py' ...
+============================================================
+Reading number from file: 'Data/25K_digit_probable_prime.txt' ...
+  Read complete: 25000 digits
+  First 20 digits : 83463657534426844032...
+  Last  20 digits : ...44864542498009279871
+============================================================
+
+[Test 1]  Miller-Rabin  (25 rounds)
+----------------------------------------
+  Miller-Rabin parameters: n-1 = d * 2^s,  s=1,  d has 83047 bits
+  Miller-Rabin: passed all 25 rounds — probable prime
+  Verdict : Probable Prime
+  Time    : 101256.461 s
+
+[Test 2]  Baillie-PSW  (MR x1 + Lucas-Selfridge)
+----------------------------------------
+  BPSW step 1: single Miller-Rabin round ...
+  Miller-Rabin parameters: n-1 = d * 2^s,  s=1,  d has 83047 bits
+  Miller-Rabin: passed all 1 rounds — probable prime
+  BPSW step 2: strong Lucas-Selfridge test ...
+  Lucas: Selfridge parameters  D=13,  P=1,  Q=-3  (found in 5 step(s))
+  Lucas: n+1 = d * 2^s,  s=7,  d has 83041 bits
+  Lucas: running binary ladder over 83041 bits of d ...
+  Lucas: ladder complete — checking strong Lucas conditions ...
+  Lucas: V_{d*2^6} ≡ 0 (mod n)  → probable prime  [condition c, r=6]
+  Verdict : Probable Prime
+  Time    : 9265.192 s
+
+============================================================
+  Miller-Rabin (25 rounds) : Probable Prime
+  Baillie-PSW              : Probable Prime
+  Total wall time          : 110521.653 s
+============================================================
