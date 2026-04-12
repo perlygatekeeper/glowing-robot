@@ -1,0 +1,22 @@
+{
+  "AI (Easy)": {
+    "wins": 0,
+    "losses": 6,
+    "draws": 0
+  },
+  "Perly": {
+    "wins": 7,
+    "losses": 16,
+    "draws": 0
+  },
+  "AI (Medium)": {
+    "wins": 14,
+    "losses": 1,
+    "draws": 0
+  },
+  "AI (Hard)": {
+    "wins": 2,
+    "losses": 0,
+    "draws": 0
+  }
+}
