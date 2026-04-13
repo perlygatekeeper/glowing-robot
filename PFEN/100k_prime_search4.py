@@ -1,3 +1,4 @@
+#!/usr/bin/env -S python3.13 -u
 import random
 import time
 import sys
@@ -511,7 +512,7 @@ with open(OUTPUT_FILE, file_mode) as f:
             _current_state.n_residues = n_residues
 
             # Periodic checkpoint save
-            if wheel_steps % args.checkpoint_every == 0:
+            if wheel_steps < 2 or wheel_steps % args.checkpoint_every == 0:
                 save_checkpoint(_current_state, _checkpoint_file)
 
             if True or (wheel_steps % REPORT_EVERY == 0):

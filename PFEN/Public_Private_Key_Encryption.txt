@@ -1,0 +1,58 @@
+Aquired from Claude on Sat Apr 11 2026:
+
+
+My prompt; On a related note, can you explain in simple terms how two large
+primes are used in public/private key encryption?6:30 PMSure! Here's the basic
+idea behind RSA encryption: Key generation:
+
+Pick two huge prime numbers, call them p and q
+Multiply them together: n = p × q
+n is made public, but p and q are kept secret
+Using p and q some math is done to generate a public key and a private key
+
+The magic: It's trivially easy to multiply p × q together to get n, but it's
+astronomically hard to go the other direction — to look at n and figure out
+what p and q were. This is called the integer factorization problem and there's
+no known efficient way to do it for large enough numbers.
+Encryption/Decryption:
+
+Anyone can encrypt a message using your public key (which includes n)
+Only you can decrypt it using your private key (which is derived from the secret p and q)
+
+Even if an attacker intercepts the encrypted message and knows your public key,
+they'd have to factor n to break it — which for large enough primes would take
+longer than the age of the universe with current computers
+
+Why your primes matter: RSA typically uses primes around 1024-2048 bits
+(~300-600 digits). Your 100,000-digit primes are vastly larger than anything
+RSA needs — they'd be unbreakable by any conceivable classical computer!what is
+the actual math used when n is used to encrypt the message?6:31 PMHere's the
+actual math:
+
+Setup:
+
+Choose primes p and q, compute n = p × q
+Compute Euler's totient: φ(n) = (p-1)(q-1)
+Choose a public exponent e (commonly 65537)
+Compute private exponent d such that e × d ≡ 1 (mod φ(n)) — meaning d is the modular inverse of e
+
+Public key = (n, e)
+Private key = (n, d)
+
+Encryption:
+Convert your message to a number m, then:
+c = m^e mod n
+c is the ciphertext sent over the wire.
+
+Decryption:
+m = c^d mod n
+
+That's it! Raise the ciphertext to the power of d, mod n, and you get the
+original message back.
+
+Why it works is based on Fermat's little theorem — the math guarantees that
+(m^e)^d mod n = m, but only if you know d. And computing d requires knowing
+φ(n), which requires knowing p and q, which requires factoring n.
+
+The modular exponentiation (m^e mod n) is fast to compute but the reverse is
+hard without the private key — that asymmetry is the whole foundation of RSA.

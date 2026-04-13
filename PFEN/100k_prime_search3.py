@@ -280,9 +280,9 @@ found = False
 
 with open(OUTPUT_FILE, "w") as f:
 
+    f.write(f"root candidate:\n{n}\n")
     while not found:
         wheel_steps += 1
-        f.write(f"root candidate:\n{n}\n")
 
 #       for r in WHEEL_RESIDUES if wheel_steps > 85 else WHEEL_RESIDUES[WHEEL_RESIDUES.index(START_RESIDUE):]:
         for r in WHEEL_RESIDUES:
@@ -328,6 +328,7 @@ with open(OUTPUT_FILE, "w") as f:
 
         if not found:
             n += 210
+            f.write(f"advancing to next wheel: {wheel_steps}\n")
             for p in TRIAL_PRIMES:
                 n_residues[p] = (n_residues[p] + residues_210[p]) % p
 
