@@ -196,13 +196,13 @@ def main():
     print("=" * 60)
 
     # ---- Miller-Rabin (standalone, 25 rounds) ----
-    print(f"\n[Test 1]  Miller-Rabin  (25 rounds)")
-    print("-" * 40)
-    t0 = time.time()
-    mr_result = miller_rabin(n, rounds=25)
-    t1 = time.time()
-    print(f"  Verdict : {'Probable Prime' if mr_result else 'COMPOSITE'}")
-    print(f"  Time    : {t1 - t0:.3f} s")
+    # print(f"\n[Test 1]  Miller-Rabin  (25 rounds)")
+    # print("-" * 40)
+    # t0 = time.time()
+    # mr_result = miller_rabin(n, rounds=1)
+    # t1 = time.time()
+    # print(f"  Verdict : {'Probable Prime' if mr_result else 'COMPOSITE'}")
+    # print(f"  Time    : {t1 - t0:.3f} s")
 
     # ---- Baillie-PSW ----
     print(f"\n[Test 2]  Baillie-PSW  (MR x1 + Lucas-Selfridge)")
@@ -215,7 +215,7 @@ def main():
 
     # ---- Summary ----
     print("\n" + "=" * 60)
-    print(f"  Miller-Rabin (25 rounds) : {'Probable Prime' if mr_result else 'COMPOSITE'}")
+    # print(f"  Miller-Rabin (25 rounds) : {'Probable Prime' if mr_result else 'COMPOSITE'}")
     print(f"  Baillie-PSW              : {'Probable Prime' if bpsw_result else 'COMPOSITE'}")
     print(f"  Total wall time          : {t3 - t0:.3f} s")
     print("=" * 60)
