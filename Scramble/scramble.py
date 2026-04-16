@@ -1,4 +1,4 @@
-#!/opt/local/bin/python
+#!/opt/local/bin/python3.14
 #
 # Scramble the bits of text and other files
 #

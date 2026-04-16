@@ -1,0 +1,9 @@
+
+DROP DATABASE IF EXISTS PFEN;
+create database PFEN;
+
+CREATE USER 'PFEN_Read'@'localhost'   IDENTIFIED BY '$READ_PASSWORD';
+CREATE USER 'PFEN_Modify'@'localhost' IDENTIFIED BY '$MODIFY_PASSWORD';
+GRANT SELECT                 ON PFEN.* TO 'PFEN_Read'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON PFEN.* TO 'PFEN_Modify'@'localhost';
+FLUSH PRIVILEGES;

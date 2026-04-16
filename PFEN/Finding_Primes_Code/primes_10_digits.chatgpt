@@ -1,0 +1,132 @@
+import random
+import time
+import sys
+# from tqdm import tqdm  # Progress bar
+
+sys.set_int_max_str_digits(10**6)  # Increase max digits for big integers
+
+def time_primality_test(test_function, n, k=5):
+    start_time = time.time()
+    result = test_function(n, k) if 'k' in test_function.__code__.co_varnames else test_function(n)
+    elapsed_time = time.time() - start_time
+    print(f"{test_function.__name__} took {elapsed_time:.6f} seconds for {n}.")
+    return result
+
+def miller_rabin_primality_test(n, k=5):
+    if n < 2:
+        return False
+    if n in (2, 3):
+        return True
+    if n % 2 == 0:
+         return False
+
+    r, d = 0, n - 1
+    while d % 2 == 0:
+        r += 1
+        d //= 2
+
+    for _ in range(k):
+        a = random.randint(2, n - 2)
+        x = pow(a, d, n)
+        if x == 1 or x == n - 1:
+            continue
+        for _ in range(r - 1):
+            x = pow(x, 2, n)
+            if x == n - 1:
+                break
+        else:
+            return False
+    return True
+
+def read_last_line(filepath):
+    print(f"attempting to open {filepath}")
+    with open(filepath, 'rb') as f:
+        f.seek(0, 2)  # Move to end
+        if f.tell() == 0:
+            return None
+        f.seek(-2, 2)
+
+        while f.tell() > 0:
+            byte = f.read(1)
+            if byte == b'\n':
+                break
+            f.seek(-2, 1)
+        last_line = f.readline().decode().strip()
+        return last_line
+
+# --- Configuration ---
+primes_file = "10_digit_probable_primes.txt"
+last_line = read_last_line(primes_file)
+print(f"Last line of {primes_file} is {last_line}")
+
+exp = 10
+n_base = 10**exp
+
+if not last_line:
+    n = (n_base // 210) * 210
+else:
+    n = int(last_line)
+print(f"Starting from n = {n}")
+
+# The 48 possible prime residues mod 210
+wheel_residues = [1, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47,
+                  53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103,
+                  107, 109, 113, 121, 127, 131, 137, 139, 143, 149,
+                  151, 157, 163, 167, 169, 173, 179, 181, 187, 191,
+                  193, 197, 199, 209]
+
+# Small primes to quickly filter obvious composites
+some_primes = [11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,
+               61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113,
+               127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179,
+               181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241]
+
+# Precompute residues
+n_residues = {}
+residues_210 = {}
+for prime in some_primes:
+    n_residues[prime] = n % prime
+    residues_210[prime] = 210 % prime
+
+stop = 10**exp + (210 * 10000000)
+
+# --- Main Processing ---
+with open(primes_file + "-testing", "a") as f:
+    total_steps = (stop - n) // 210
+    print(f"Total steps to perform: {total_steps}")
+
+#   with tqdm(total=total_steps, desc="Generating primes") as pbar:
+    start_time = time.time()
+
+    counter = 0
+    while n <= stop:
+        for r in wheel_residues:
+            candidate = n + r
+            skip = False
+            for prime in some_primes:
+                if (n_residues[prime] + r) % prime == 0:
+                    skip = True
+                    break
+            if skip:
+                continue
+
+            if time_primality_test(miller_rabin_primality_test, candidate, k=5):
+                f.write(f"{candidate}\n")
+                print(f" ** miller_rabin probable prime found {candidate}")
+
+        n += 210
+        # pbar.update(1)
+
+        # Update residues
+        for prime in some_primes:
+            n_residues[prime] = (n_residues[prime] + residues_210[prime]) % prime
+
+        # Flush file every 100 steps
+        if counter % 100 == 0:
+            f.flush()
+
+        counter = counter + 1
+        end_time = time.time()
+
+    elapsed_time = end_time - start_time
+    print(f"\nCompleted prime generation in {elapsed_time:.2f} seconds.")

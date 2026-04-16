@@ -1,0 +1,56 @@
+Aquired from Claude on Sat Apr 11 2026:
+
+My Prompt: What is Lattice Based Encryption
+
+Great question! Here's the intuitive explanation:
+
+**What is a lattice?**
+
+A lattice is a grid of points in space that extends infinitely in all
+directions. In 2D it looks like graph paper — regular repeating points. But in
+cryptography we use lattices in hundreds or thousands of dimensions, which
+makes them mind-bendingly complex.
+
+**The hard problem:**
+
+Lattice cryptography is based on a problem called **Learning With Errors
+(LWE)** or the **Shortest Vector Problem (SVP)**:
+
+- Given a point in space, find the nearest lattice point
+- In 2D this is trivially easy
+- In 1000+ dimensions it becomes astronomically hard — even for quantum computers
+
+A simple analogy: imagine you're given a scrambled equation like:
+```
+13x + 7y + 3z + (tiny random noise) ≈ 42
+```
+
+With enough of these noisy equations, recovering x, y, z is extremely hard.
+That "noise" is the secret that makes it secure.
+
+**How it's used for encryption:**
+
+- Your public key is essentially a "noisy" lattice problem
+- Encryption adds more noise
+- Your private key knows the structure of the lattice and can cut through the noise to decrypt
+- An attacker sees only the noise and can't find the underlying structure
+
+**Why quantum computers can't crack it:**
+
+Shor's algorithm specifically exploits the mathematical structure of factoring
+and discrete logarithms. Lattice problems have a completely different structure
+that Shor's algorithm doesn't apply to, and no efficient quantum algorithm for
+lattice problems is known.
+
+**Real world usage:**
+
+NIST's new post-quantum standards include:
+- **CRYSTALS-Kyber** for key exchange
+- **CRYSTALS-Dilithium** for digital signatures
+
+Both are lattice-based and are already being rolled out in things like Chrome
+and Cloudflare's infrastructure.
+
+It's a fascinating area — the hard part is not the encryption itself but
+proving that the underlying lattice problem remains hard. That's still an
+active area of mathematical research!
