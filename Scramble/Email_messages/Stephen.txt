@@ -2,21 +2,25 @@
   Stephen,
 
   This is my enscryption script.   It works by reading the input 8 bytes at a time
-  then transforming the block, with many seperate transforms.
+  then transforming the block of 8x8 bits, with many seperate transforms.
 
   When unscrambling, these transforms are undone, in reverse order, thus restoring the
   orginal input.
 
   To complete the transforms, each block needs to be 8 bytes long.  The last block can
   have anywhere between 1 and 8 bytes depending on the length of the original input.
-  The last block is, therefore, padded with Null bytes to 8 bytes.
+  The last block is, therefore, padded with Null bytes to 8 bytes. The null bytes are
+  removed during unscrambling.
 
-  As there is no way to know what the size of the last block was, I've decided to leave
-  the padding Null bytes in the unscrambled output.
+  Since this script is meant to be used on arbitary binary files (including text files)
+  there is no way to encode the fact that the scrambled file is scrambled and therefore
+  you need to specify the '-u' flag when unscrambling.  The '-s' flag is allowed, but
+  since it is the default action, it need not be supplied.
 
-  Can you think of a way to remove these, given how the script works?
+  There are two optional flags:
+  --salt           supply an 20-character base64 string to use as a salt for addtional scramble ops
+  --64 or --base64 use base64 encoding for input (unscramble) or output (scramble) which can
+                   be used in the text part of any email.
+                   This option was requested by a friend Stephen Fabian.
 
-  Can you decipher how my script works?  There is a Notes.txt files which explains
-  much of it?
-
-  Steve.
+  Steve

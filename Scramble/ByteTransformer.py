@@ -1,4 +1,3 @@
-#!/opt/local/bin/python
 # Can you help me begin development of an object-oriented module in
 # python for performing transformations on length 8 bytearrays
 
