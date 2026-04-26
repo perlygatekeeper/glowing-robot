@@ -518,10 +518,10 @@ useful  = {
 def block_rotation (block, param):
     print('not yet implemented')
 
-def horizontal_sheer (block, param):
+def horizontal_shear (block, param):
     print('not yet implemented')
 
-def vertical_sheer (block, param):
+def vertical_shear (block, param):
     print('not yet implemented')
 
 def block_inversion (block, param):

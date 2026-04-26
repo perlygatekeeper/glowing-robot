@@ -73,30 +73,30 @@ def invert_bits (input_bytearray):
   bytearray_to_8x8_bits(inverted)
   return inverted
 
-def horizontal_sheer (input_bytearray, param):
-  """sheers the block of bits, rotating each row of bits by a number of bits
+def horizontal_shear (input_bytearray, param):
+  """shears the block of bits, rotating each row of bits by a number of bits
      to the left.  The number of bits shifted starts at param (which must be
      between 1 and 7 inclusive) and increases by param for each row, modulo 8.
      The last row is always unchanged, see Notes.txt"""
-  sheered = bytearray(8)
+  sheared = bytearray(8)
   print("Input bytearray:")
   bytearray_to_8x8_bits(input_bytearray)
   for row in range(7):    # loop over rows from top to bottom
     shift = (param*row)%8
-    sheered[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
-  sheered[7] = input_bytearray[7]
-  print("Horizontally sheered bytearray:")  # Print output array
-  bytearray_to_8x8_bits(sheered)
-  return sheered
+    sheared[row] = ( input_bytearray[row] & shift_mask_left[shift]  ) >> ( 7 - shift ) | ( input_bytearray[row] & shift_mask_right[shift] ) << shift
+  sheared[7] = input_bytearray[7]
+  print("Horizontally sheared bytearray:")  # Print output array
+  bytearray_to_8x8_bits(sheared)
+  return sheared
 
-def vertical_sheer (input_bytearray, param):
-  """sheers the block of bits, rotating each column of bits by a number of bits
+def vertical_shear (input_bytearray, param):
+  """shears the block of bits, rotating each column of bits by a number of bits
      to the down.  The number of bits shifted starts at param (which must be
      between 1 and 7 inclusive) and increases by param for each col, modulo 8.
      The last row is always unchanged, see Notes.txt
-     unlike horizontal sheer, we will locate each bit seperately and place it
-     into the sheered array.  """
-  sheered = bytearray(8)
+     unlike horizontal shear, we will locate each bit seperately and place it
+     into the sheared array.  """
+  sheared = bytearray(8)
 # print("Input bytearray:")
 # bytearray_to_8x8_bits(input_bytearray)
   for col in range(8):      # loop over cols from right to left
@@ -104,7 +104,7 @@ def vertical_sheer (input_bytearray, param):
     for row in range(8):    # loop over rows from top to bottom
       if (sensor & input_bytearray[row]): # detect bit at this row,col
         shift = (param*col+row)%8        # if bit detected, find new row for vertically-shifted bit
-        sheered[shift] |= sensor
-  # print("Vertically sheered bytearray:") # Print output array
-  bytearrays_to_8x8_arrays(input_bytearray, sheered)
-  return sheered
+        sheared[shift] |= sensor
+  # print("Vertically sheared bytearray:") # Print output array
+  bytearrays_to_8x8_arrays(input_bytearray, sheared)
+  return sheared

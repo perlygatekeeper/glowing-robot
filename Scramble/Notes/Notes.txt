@@ -21,7 +21,7 @@
      
      1) load the next block
 
-     2) horizontal sheer by n (byte-rotations to the left)
+     2) horizontal shear by n (byte-rotations to the left)
         first   byte rotates left by     <- unchanged
         second  byte rotates left by 1*n
         third   byte rotates left by 2*n
@@ -31,7 +31,7 @@
         seventh byte rotates left by 6*n
         last    byte rotates left by 7*n
 
-     3) vertical sheer by n ( column-rotations down )
+     3) vertical shear by n ( column-rotations down )
         LSB   column shifts down by     <- unchanged
           2's column shifts down by 1*n
           4's column shifts down by 2*n
@@ -145,7 +145,7 @@ w    7 6  5 4  3 2  1 0    7 6  5 4  3 2  1 0
 
    ---------------------------------------------------------------------------------------------------
 
-     Horizontal Byte Sheering Left (each sucsesive row shifts bits N*row%8 times)
+     Horizontal Byte shearing Left (each sucsesive row shifts bits N*row%8 times)
 
         Original            N = 1              N = 2             N = 7          
 R
@@ -162,7 +162,7 @@ w    7 6 5 4 3 2 1 0
 7 |  _ _ _ _ _ _ _ a    a _ _ _ _ _ _ _    _ b _ _ _ _ _ _    _ _ _ _ _ _ a _
 
 
-     Vertical Byte Sheering Down (each sucsesive column shifts bits N * row % 8 times)
+     Vertical Byte shearing Down (each sucsesive column shifts bits N * row % 8 times)
 
         Original            N = 1              N = 2             N = 7          
 R

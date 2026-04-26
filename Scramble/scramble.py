@@ -175,7 +175,7 @@ if (args.action == 'scramble'):
         #    3) rotations based on last bit of params['00']
         #   4a) flips     based on the       last   bit  of params['00']
         #   4b) direction based on second to last   bit  of params['00']
-        #   5a) sheer     based on forth  to last   bit  of params['h_parity']
+        #   5a) shear     based on forth  to last   bit  of params['h_parity']
         #   5b) amount    based on second to last 3 bits of params['h_parity']
         #   6a) shift     based on forth  to last   bit  of params['v_parity']
         #   6b) amount    based on second to last 3 bits of params['v_parity']
@@ -186,7 +186,7 @@ if (args.action == 'scramble'):
         #  Transforms
         #   rotate_90_CCW, rotate_90_CW, rotate_180
         #    flip_horizontally,  flip_vertically
-        #   sheer_horizontally, sheer_vertically
+        #   shear_horizontally, shear_vertically
         #   shift_horizontally, shift_vertically
         #   invert
         #   barber_pole, gear_rotate
@@ -220,11 +220,11 @@ if (args.action == 'scramble'):
                   transformer.flip_horizontally()
 
         if (1):
-          sheer = ( params['h_parity'] & 0x0F )
-          if (sheer & 8):
-              transformer.sheer_horizontally( (sheer & 0x07), 0)
+          shear = ( params['h_parity'] & 0x0F )
+          if (shear & 8):
+              transformer.shear_horizontally( (shear & 0x07), 0)
           else:
-              transformer.sheer_vertically( (sheer & 0x07), 0)
+              transformer.shear_vertically( (shear & 0x07), 0)
 
         if (1):
           shift = ( params['v_parity'] & 0x0F )
@@ -293,7 +293,7 @@ elif (args.action == 'unscramble'):
         #    3) gear_rotation always done with ???
         #   4a) shift     based on forth  to last   bit  of params['v_parity']
         #   4b) amount    based on second to last 3 bits of params['v_parity']
-        #   5a) sheer     based on forth  to last   bit  of params['h_parity']
+        #   5a) shear     based on forth  to last   bit  of params['h_parity']
         #   5b) amount    based on second to last 3 bits of params['h_parity']
         #   6a) flips     based on the       last   bit  of params['00']
         #   6b) direction based on second to last   bit  of params['00']
@@ -340,11 +340,11 @@ elif (args.action == 'unscramble'):
                 transformer.shift_vertically( 8 - ( shift & 0x07 ), 0 )
   
         if (1):
-          sheer = ( params['h_parity'] & 0x0F )
-          if (sheer & 8):
-              transformer.sheer_horizontally( 8 - ( sheer & 0x07 ), 0 )
+          shear = ( params['h_parity'] & 0x0F )
+          if (shear & 8):
+              transformer.shear_horizontally( 8 - ( shear & 0x07 ), 0 )
           else:
-              transformer.sheer_vertically( 8 - ( sheer & 0x07 ), 0 )
+              transformer.shear_vertically( 8 - ( shear & 0x07 ), 0 )
   
         if (1):
           flip     = ( params['01'] & 0x01 )
