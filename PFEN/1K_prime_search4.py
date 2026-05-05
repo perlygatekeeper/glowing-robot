@@ -28,7 +28,7 @@ print(f"Type check: {type(n_test)}")  # Should show <class 'mpz'>
 # ---------------------------------------------------------------------------
 # NEW: Checkpoint Management
 # ---------------------------------------------------------------------------
-DEFAULT_CHECKPOINT = f"prime_search_checkpoint_16k_{os.getpid()}.json"
+DEFAULT_CHECKPOINT = f"prime_search_checkpoint_1k_{os.getpid()}.json"
 _checkpoint_file = DEFAULT_CHECKPOINT  # Global for signal handler access
 _current_state = None  # Global reference for signal handler
 
@@ -137,7 +137,7 @@ signal.signal(signal.SIGINT, signal_handler)
 # Command line argument parsing
 # ---------------------------------------------------------------------------
 parser = argparse.ArgumentParser(
-    description="Find 16K-digit probable primes with restart capability",
+    description="Find 1K-digit probable primes with restart capability",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
 parser.add_argument("--checkpoint", type=str, default=DEFAULT_CHECKPOINT,
@@ -233,7 +233,7 @@ def lucas_selfridge_test(n):
     This is the second half of the Baillie-PSW test.
 
     All big-integer arithmetic is done via gmpy2.mpz so GMP handles
-    Karatsuba/FFT multiplication — critical for 16,000-digit numbers.
+    Karatsuba/FFT multiplication — critical for 1,000-digit numbers.
 
     Algorithm:
       1. Find D via Selfridge's sequence 5,-7,9,-11,... until Jacobi(D,n)=-1
@@ -373,7 +373,7 @@ TRIAL_PRIMES = build_trial_primes(999_999)
 # ---------------------------------------------------------------------------
 # Initialize or restore search state
 # ---------------------------------------------------------------------------
-NUM_DIGITS   = 16_000
+NUM_DIGITS   = 1_000
 REPORT_EVERY = 70
 run_start_time = time.time()
 
@@ -382,7 +382,7 @@ if args.output:
     OUTPUT_FILE = args.output
 else:
     # Auto-generate only if starting fresh
-    OUTPUT_FILE = f"16K_probable_prime_{os.getpid()}.txt"
+    OUTPUT_FILE = f"1K_probable_prime_{os.getpid()}.txt"
 
 # Try to load checkpoint unless --no-resume is set
 state = None
@@ -449,7 +449,7 @@ file_mode = "a" if (state and not args.no_resume) else "w"
 with open(OUTPUT_FILE, file_mode) as f:
     while not found:
         wheel_steps += 1
-        f.write(f"root candidate:\n{n}\n")
+        # f.write(f"root candidate:\n{n}\n")
 
         for r in WHEEL_RESIDUES:
             sieved_out = False
@@ -469,7 +469,7 @@ with open(OUTPUT_FILE, file_mode) as f:
             candidates_tested += 1
 
             if VERBOSE:
-                print(f"  r={r}: running {test_label} on ...{int(candidate) % 10**8}")
+                print(f"  r={r}: running {test_label} on ... {str(candidate)[:20]} ...  {str(candidate)[-20:]} ")
 
             result, elapsed = time_primality_test(is_probable_prime, candidate)
             test_time_total += elapsed
@@ -483,7 +483,7 @@ with open(OUTPUT_FILE, file_mode) as f:
                 print(f"    Candidates sieved: {candidates_sieved}")
                 print(f"    Total test time  : {test_time_total:.2f}s")
                 print(f"    Wall time        : {elapsed_total:.1f}s")
-                print(f"    Candidate        : {str(n)[-20:]} ...  {str(n)[-20:]} ")
+                print(f"    Candidate        : {str(n)[:20]} ...  {str(n)[-20:]} ")
                 f.write(f"{candidate}\n")
                 f.flush()  # Ensure prime is written immediately
                 top_sieves = sorted(sieve_hit_counts.items(), key=lambda x: x[1], reverse=True)[:30]
@@ -492,10 +492,10 @@ with open(OUTPUT_FILE, file_mode) as f:
                     print(f"  {p:>5}: {count:>8} hits")
                 
                 # Save final checkpoint
-                _current_state.found = True
-                save_checkpoint(_current_state, _checkpoint_file)
-                found = True
-                break
+                # _current_state.found = True
+                # save_checkpoint(_current_state, _checkpoint_file)
+                # found = True
+                # break
 
         if not found:
             # Update n and residues for next wheel cycle
