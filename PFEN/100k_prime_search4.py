@@ -14,7 +14,7 @@ import argparse  # NEW: for command-line argument parsing
 #
 # further modified to allow restart of script by reading the output file from an earlier run.
 
-sys.set_int_max_str_digits(10**6)  # Required to print/convert 100,000-digit integers
+sys.set_int_max_str_digits(10**6)  # Required to print/convert integers with up to 1,000,000 digits
 
 VERBOSE    = True   # Set to True for detailed per-candidate output
 USE_LUCAS  = False  # Set to True to run full Baillie-PSW (MR + Lucas-Selfridge)
@@ -28,7 +28,8 @@ print(f"Type check: {type(n_test)}")  # Should show <class 'mpz'>
 # ---------------------------------------------------------------------------
 # NEW: Checkpoint Management
 # ---------------------------------------------------------------------------
-DEFAULT_CHECKPOINT = "prime_search_checkpoint_100k_{os.getpid()}.json"
+describer = "100K"
+DEFAULT_CHECKPOINT = "prime_search_checkpoint_{describer}_{os.getpid()}.json"
 _checkpoint_file = DEFAULT_CHECKPOINT  # Global for signal handler access
 _current_state = None  # Global reference for signal handler
 
@@ -98,7 +99,7 @@ def load_checkpoint(checkpoint_path, trial_primes):
         print(f"  Wheel steps:       {wheel_steps:,}")
         print(f"  Candidates tested: {candidates_tested:,}")
         print(f"  Candidates sieved: {candidates_sieved:,}")
-        print(f"  Last n:            {str(n)[20:]} ... {str(n)[-20:]}")
+        print(f"  Candidate        : {str(n)[:20]} ... {str(n)[-20:]}")
         print(f"  Output file:       {output_file}")
         print()
         
@@ -137,7 +138,7 @@ signal.signal(signal.SIGINT, signal_handler)
 # Command line argument parsing
 # ---------------------------------------------------------------------------
 parser = argparse.ArgumentParser(
-    description="Find 100K-digit probable primes with restart capability",
+    description=f"Find {describer}-digit probable primes with restart capability",
     formatter_class=argparse.ArgumentDefaultsHelpFormatter
 )
 parser.add_argument("--checkpoint", type=str, default=DEFAULT_CHECKPOINT,
@@ -146,7 +147,7 @@ parser.add_argument("--output", type=str, default=None,
                    help="Output file for found primes (overrides auto-generated name)")
 parser.add_argument("--no-resume", action="store_true",
                    help="Ignore existing checkpoint and start fresh")
-parser.add_argument("--checkpoint-every", type=int, default=100,
+parser.add_argument("--checkpoint-every", type=int, default=25,
                    help="Save checkpoint every N wheel steps")
 args = parser.parse_args()
 
@@ -233,7 +234,7 @@ def lucas_selfridge_test(n):
     This is the second half of the Baillie-PSW test.
 
     All big-integer arithmetic is done via gmpy2.mpz so GMP handles
-    Karatsuba/FFT multiplication — critical for 100,000-digit numbers.
+    Karatsuba/FFT multiplication — critical for integers of 10,000 or more digits
 
     Algorithm:
       1. Find D via Selfridge's sequence 5,-7,9,-11,... until Jacobi(D,n)=-1
@@ -327,7 +328,7 @@ def is_probable_prime(n):
     Primality test dispatcher controlled by USE_LUCAS flag.
 
     USE_LUCAS=False : Miller-Rabin k=5 only
-                      Fast; no known pseudoprimes at 100K-digit scale.
+                      Fast; no known pseudoprimes at 100k or fewer digit scale.
     USE_LUCAS=True  : Full Baillie-PSW — MR k=3 + Lucas-Selfridge
                       Slower; no known counterexamples to BPSW at any scale.
     """
@@ -382,7 +383,7 @@ if args.output:
     OUTPUT_FILE = args.output
 else:
     # Auto-generate only if starting fresh
-    OUTPUT_FILE = f"100K_probable_prime_{os.getpid()}.txt"
+    OUTPUT_FILE = f"{describer}_probable_prime_{os.getpid()}.txt"
 
 # Try to load checkpoint unless --no-resume is set
 state = None
@@ -483,7 +484,9 @@ with open(OUTPUT_FILE, file_mode) as f:
                 print(f"    Candidates sieved: {candidates_sieved}")
                 print(f"    Total test time  : {test_time_total:.2f}s")
                 print(f"    Wall time        : {elapsed_total:.1f}s")
-                print(f"    Candidate        : {str(n)[-20:]} ...  {str(n)[-20:]} ")
+                print(f"    Candidate        : {str(candidate)[:20]} ... {str(candidate)[-20:]}")
+                print(f"    OUTPUT to        : {OUTPUT_FILE}")
+
                 f.write(f"{candidate}\n")
                 f.flush()  # Ensure prime is written immediately
                 top_sieves = sorted(sieve_hit_counts.items(), key=lambda x: x[1], reverse=True)[:30]
