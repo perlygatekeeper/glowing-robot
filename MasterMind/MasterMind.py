@@ -1,3 +1,4 @@
+#!/usr/bin/env python3 
 import random
 import re
 from os import system, name 
@@ -105,6 +106,7 @@ while (1):
             print("Here are your past guesses:")
             for event in guess_history:
                 print("%s: (%d,%d)" % (event["guess"], event["correct"], event["in_place"]))
+            print("\n")
             break
           else:
             print("\n You got %d digits correct and %d digits in the right position." % (results["correct"], results["in_place"]))
