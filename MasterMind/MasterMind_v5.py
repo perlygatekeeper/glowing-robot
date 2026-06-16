@@ -56,7 +56,7 @@ if no_duplicates and puzzle_size > digit_range:
         "- not enough unique digits to fill the puzzle"
     )
 
-SEP_LINE = "=" * (63 + digit_range)
+SEP_LINE = "=" * (56 + digit_range)
 
 # ---------------------------------------------------------------------------
 # readline setup
@@ -86,8 +86,8 @@ def clear():
 def describe_settings() -> str:
     dup_str = "no duplicates" if no_duplicates else "duplicates allowed"
     return (
-        f"Puzzle: {puzzle_size} digits | "
-        f"Pool: {SYMBOLS} ({digit_range} symbols) | {dup_str}"
+        f"Puzzle: {puzzle_size} digits  |  "
+        f"Pool: {SYMBOLS} ({digit_range} symbols)  |  {dup_str}"
     )
 
 
@@ -95,10 +95,10 @@ def draw_screen(extra_msg: str = ""):
     """Redraw the full game screen."""
     clear()
     print(SEP_LINE)
-    print(" M A S T E R M I N D")
+    print("  M A S T E R M I N D")
     print(SEP_LINE)
-    print(f" {describe_settings()}")
-    print(f" up/down: history | Ctrl-L: redraw | end with ?: cheat | q: quit")
+    print(f"  {describe_settings()}")
+    print(f"  up/down: history | Ctrl-L: redraw | end with ?: cheat | q: quit")
     print(SEP_LINE)
     print(f"\nPast guesses ({len(guess_history)}):")
     print_history(guess_history)
@@ -146,7 +146,7 @@ def process_guess(puzzle: tuple, raw: str) -> dict:
 
 def format_guess(event: dict) -> str:
     g = " ".join(event["guess"])
-    return f"{g}: ({event['correct']} correct, {event['in_place']:2} in place)"
+    return f"{g}: ({event['correct']} correct, {event['in_place']} in place)"
 
 
 def print_history(history: list):
@@ -209,7 +209,15 @@ draw_screen()
 
 while True:
     guesses += 1
-    prompt = f"\n  Guess #{guesses} - enter {puzzle_size} symbol(s) from [{SYMBOLS}], or q: "
+    # The prompt must be a single, purely printable line with no embedded
+    # newlines or escape sequences.  Readline measures its visible length to
+    # track cursor position during history navigation; a stray \n throws that
+    # count off by one, causing the first character of recalled lines to
+    # bleed left into the prompt area.  Print the blank line separately and
+    # pad the guess number to a fixed width (4 digits = up to 9999 guesses)
+    # so the prompt length never changes between turns.
+    print()
+    prompt = f"  Guess #{guesses:<4d}- enter {puzzle_size} symbol(s) from [{SYMBOLS}], or q: "
     try:
         user_input = game_input(prompt).strip()
     except (EOFError, KeyboardInterrupt):
