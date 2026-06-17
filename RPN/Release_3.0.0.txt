@@ -1,0 +1,21 @@
+RPN 3.0.0
+
+Major refactor from legacy procedural implementation to a
+fully object-oriented architecture.
+
+New module structure:
+    RPN.pm
+    RPN::Stack
+    RPN::Commands
+
+Features retained:
+    Arithmetic
+    Trigonometry
+    Aliases
+    Abbreviations
+    Interactive REPL
+
+New:
+    Automated test suite
+    Command registry
+    Easier extensibility

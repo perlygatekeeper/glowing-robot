@@ -1,0 +1,19 @@
+3.0.0  Initial OO release
+
+3.1.0  Help system completed
+       Constants completed
+       History completed
+
+3.2.0  Stack persistence
+       Named constants persistence
+
+3.3.0  Flow control
+       execute
+       if
+       ifelse
+
+3.4.0  Statistics package
+
+3.5.0  Matrix package
+
+4.0.0  Typed stack objects

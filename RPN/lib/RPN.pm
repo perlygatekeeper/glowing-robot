@@ -12,11 +12,12 @@ sub new {
     my ($class) = @_;
 
     my $self = {
-        version  => '3.0',
-        debug    => 0,
-        stack    => RPN::Stack->new(),
-        commands => undef,
-        term     => Term::ReadLine->new('Reverse Polish Notation Calculator'),
+        version    => '3.0',
+        debug      => 0,
+        angle_mode => 'radians',
+        stack      => RPN::Stack->new(),
+        commands   => undef,
+        term       => Term::ReadLine->new('Reverse Polish Notation Calculator'),
     };
 
     bless $self, $class;
@@ -58,28 +59,6 @@ sub prompt {
     return "Input [$top] ";
 }
 
-sub isanumber {
-    my ($self, $query) = @_;
-    # 0xff    - hexadecimal
-    # 0b1010  - binary
-    # 0123    - octal
-    # 1.23e5  - exponetial/scientific notation
-
-    if        ($query =~ /^\s*[-+]?0b[01]+\b/) {
-        return 'bin';
-    } elsif   ($query =~ /^\s*[-+]?0[0-7]+\b/) {
-        return 'oct';
-    } elsif   ($query =~ /^\s*[-+]?0[xX][0-9a-fA-F]+\b/) {
-        return 'hex';
-    } elsif   ($query =~ /^\s*[-+]?[0-9]*\.[0-9]*[eE][-+]?[0-9]+\b/) {
-        return 'exp';
-    } elsif   ($query =~ /^\s*[-+]?[0-9]+\.?[0-9]*\b/) {
-        return 'dec';
-    }
-
-    return;
-}
-
 sub process_input {
     my ($self, $input) = @_;
 
@@ -88,27 +67,154 @@ sub process_input {
 
     return unless length $input;
 
-    # check if the input is, in fact, a number
-    my $type = $self->isanumber($input);
+    #
+    # Quoted string input.
+    # Accepts:
+    #   "hello
+    #   "hello"
+    #   'hello
+    #   'hello'
+    #
 
-    if ($type) {
-        if      ($type eq 'hex') {
-            $self->stack->push(hex($input));
-        } elsif ($type eq 'oct') {
-            $self->stack->push(oct($input));
-        } elsif ($type eq 'bin') {
-            $self->stack->push(oct($input));   # Perl understands 0b...
-        } else {
-            $self->stack->push($input);
-        }
+    if ($input =~ /^(['"])(.*)$/) {
+        my $quote = $1;
+        my $value = $2;
+
+        $value =~ s/\Q$quote\E$//
+            if length($value);
+
+        $self->stack->push($value);
         return;
     }
+
+    #
+    # Numeric list input.
+    # Accepts:
+    #   12 14 18 20 16
+    #   12,14,18,20,16
+    #   12, 14, 18, 20, 16
+    #   12;14;18
+    #
+
+    if ($self->is_number_list($input)) {
+        my @tokens = grep { length } split /[\s,;]+/, $input;
+
+        foreach my $token (@tokens) {
+            $self->push_number($token);
+        }
+
+        return;
+    }
+
+    #
+    # Single number input.
+    #
+
+    if ($self->isanumber($input)) {
+        $self->push_number($input);
+        return;
+    }
+
+    #
+    # Command input.
+    #
 
     unless ($self->commands->execute($self, $input)) {
         warn "Unknown input: $input\n";
     }
 
     return;
+}
+
+sub version {
+    my ($self) = @_;
+    return $self->{version};
+}
+
+sub history {
+    my ($self) = @_;
+
+    return $self->{term}->GetHistory();
+}
+
+sub nearly_zero {
+    my ($self, $value) = @_;
+
+    return abs($value) < 1e-12;
+}
+
+sub is_number_list {
+    my ($self, $input) = @_;
+
+    my @tokens = grep { length } split /[\s,;]+/, $input;
+
+    return unless @tokens > 1;
+
+    foreach my $token (@tokens) {
+        return unless $self->isanumber($token);
+    }
+
+    return 1;
+}
+
+sub push_number {
+    my ($self, $token) = @_;
+
+    my $type = $self->isanumber($token)
+        or return;
+
+    if ($type eq 'hex' || $type eq 'oct' || $type eq 'bin') {
+        $self->stack->push(oct($token));
+    }
+    else {
+        $self->stack->push($token);
+    }
+
+    return 1;
+}
+
+sub isanumber {
+    my ($self, $query) = @_;
+
+    return 'bin'
+        if $query =~ /^\s*[-+]?0b[01]+\b/i;
+
+    return 'hex'
+        if $query =~ /^\s*[-+]?0x[0-9a-f]+\b/i;
+
+    return 'oct'
+        if $query =~ /^\s*[-+]?0[0-7]+\b/;
+
+    return 'dec'
+        if $query =~ /^\s*[-+]?(?:
+                    (?:\d+(?:\.\d*)?) |
+                    (?:\.\d+)
+                  )
+                  (?:[eE][-+]?\d+)?
+                  \s*$/x;
+
+    return;
+}
+
+sub angle_mode {
+    my ($self, $mode) = @_;
+
+    if (defined $mode) {
+        die "unknown angle mode '$mode'\n"
+            unless $mode eq 'radians' || $mode eq 'degrees';
+
+        $self->{angle_mode} = $mode;
+    }
+
+    return $self->{angle_mode};
+}
+
+sub angle_to_radians {
+    my ($self, $value) = @_;
+
+    return $value if $self->angle_mode eq 'radians';
+
+    return $value * atan2(1, 1) / 45;
 }
 
 1;

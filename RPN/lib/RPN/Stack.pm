@@ -33,6 +33,17 @@ sub require_depth {
 
 }
 
+sub depth {
+    my ($self) = @_;
+    return scalar @{ $self->current_stack };
+}
+
+sub depth_of {
+    my ($self, $name) = @_;
+    return unless exists $self->{stacks}{$name};
+    return scalar @{ $self->{stacks}{$name} };
+}
+
 sub push {
     my ($self, @values) = @_;
     unshift @{ $self->current_stack }, @values;
@@ -51,7 +62,7 @@ sub pop2 {
           $self->pop,
       );
     } else {
-      return undef;
+      return;
     }
 }
 
@@ -64,11 +75,6 @@ sub peek_at {
     my ($self, $index) = @_;
     $index ||= 0;
     return $self->current_stack->[$index];
-}
-
-sub depth {
-    my ($self) = @_;
-    return scalar @{ $self->current_stack };
 }
 
 sub clear {
@@ -91,6 +97,11 @@ sub stack_names {
 sub get_stack {
     my ($self, $name) = @_;
     return $self->{stacks}{$name};
+}
+
+sub values {
+    my ($self) = @_;
+    return @{ $self->current_stack };
 }
 
 1;
