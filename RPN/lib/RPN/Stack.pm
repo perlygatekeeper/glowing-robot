@@ -22,6 +22,17 @@ sub current_stack {
     return $self->{stacks}{ $self->{current_name} };
 }
 
+sub require_depth {
+    my ($self, $needed) = @_;
+    if ($needed and $self->depth < $needed ) {
+      warn "stack underflow: need $needed values\n";
+      return 0;
+    } else {
+      return $needed;
+    }
+
+}
+
 sub push {
     my ($self, @values) = @_;
     unshift @{ $self->current_stack }, @values;
@@ -34,15 +45,25 @@ sub pop {
 
 sub pop2 {
     my ($self) = @_;
-    return (
-        $self->pop,
-        $self->pop,
-    );
+    if ($self->require_depth(2)) {
+      return (
+          $self->pop,
+          $self->pop,
+      );
+    } else {
+      return undef;
+    }
 }
 
 sub peek {
     my ($self) = @_;
     return $self->current_stack->[0];
+}
+
+sub peek_at {
+    my ($self, $index) = @_;
+    $index ||= 0;
+    return $self->current_stack->[$index];
 }
 
 sub depth {

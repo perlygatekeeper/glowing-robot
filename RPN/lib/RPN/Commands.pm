@@ -2,6 +2,7 @@ package RPN::Commands;
 
 use strict;
 use warnings;
+use Text::Abbrev qw(abbrev);
 
 sub new {
 my ($class, $calc) = @_;
@@ -47,8 +48,7 @@ $self->register(
         help => 'pops two numbers and pushes their sum',
         code => sub {
             my ($calc) = @_;
-            my $a = $calc->stack->pop;
-            my $b = $calc->stack->pop;
+            my ( $a, $b ) = $calc->stack->pop2;
             $calc->stack->push($b + $a);
         },
     }
@@ -61,8 +61,7 @@ $self->register(
         help    => 'pops two numbers and pushes their difference',
         code    => sub {
             my ($calc) = @_;
-            my $a = $calc->stack->pop;
-            my $b = $calc->stack->pop;
+            my ( $a, $b ) = $calc->stack->pop2;
             $calc->stack->push($b - $a);
         },
     }
@@ -75,8 +74,7 @@ $self->register(
         help    => 'pops two numbers and pushes their product',
         code    => sub {
             my ($calc) = @_;
-            my $a = $calc->stack->pop;
-            my $b = $calc->stack->pop;
+            my ( $a, $b ) = $calc->stack->pop2;
             $calc->stack->push($b * $a);
         },
     }
@@ -87,12 +85,15 @@ $self->register(
         aliases => ['/'],
         type    => 'numeric',
         help    => 'pops two numbers and pushes their quotient',
-        code    => sub {
+        code => sub {
             my ($calc) = @_;
-            my $a = $calc->stack->pop;
-            my $b = $calc->stack->pop;
-            die "divide by zero\n"
-                if $a == 0;
+            return unless $calc->stack->require_depth(2);
+            my $divisor = $calc->stack->peek_at(0);
+            if ($divisor == 0) {
+               warn "divide by zero\n";
+               return;
+            }
+            my ($a, $b) = $calc->stack->pop2;
             $calc->stack->push($b / $a);
         },
     }
@@ -185,23 +186,31 @@ $self->register(
     }
 );
 
+# keep this rebuild_abbrevs as last line of _initialize()
+$self->_rebuild_abbrevs();
 }
 
 sub register {
-  my ($self, $name, $definition) = @_;
+    my ($self, $name, $definition) = @_;
+    $self->{commands}{$name} = $definition;
+    return;
+}
 
-  $self->{commands}{$name} = $definition;
+sub _rebuild_abbrevs {
+    my ($self) = @_;
+    my %abbrevs;
+    abbrev(\%abbrevs, sort keys %{ $self->{commands} });
+    foreach my $name (keys %{ $self->{commands} }) {
+        $abbrevs{$name} = $name;
 
-  $self->{abbrevs}{$name} = $name;
-
-  if (my $aliases = $definition->{aliases}) {
-      foreach my $alias (@$aliases) {
-          $self->{abbrevs}{$alias} = $name;
-      }
-  }
-
-  return;
-
+        if (my $aliases = $self->{commands}{$name}{aliases}) {
+            foreach my $alias (@$aliases) {
+                $abbrevs{$alias} = $name;
+            }
+        }
+    }
+    $self->{abbrevs} = \%abbrevs;
+    return;
 }
 
 sub command {

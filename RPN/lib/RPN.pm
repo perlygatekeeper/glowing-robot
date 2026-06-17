@@ -65,20 +65,16 @@ sub isanumber {
     # 0123    - octal
     # 1.23e5  - exponetial/scientific notation
 
-    if      ($query =~ /^\s*[-+]?0b[01]+\b/) {
+    if        ($query =~ /^\s*[-+]?0b[01]+\b/) {
         return 'bin';
-    }
-    elsif   ($query =~ /^\s*[-+]?0[0-7]+\b/) {
+    } elsif   ($query =~ /^\s*[-+]?0[0-7]+\b/) {
         return 'oct';
-    }
-    elsif   ($query =~ /^\s*[-+]?0[xX][0-9a-fA-F]+\b/) {
+    } elsif   ($query =~ /^\s*[-+]?0[xX][0-9a-fA-F]+\b/) {
         return 'hex';
-    }
-    elsif   ($query =~ /^\s*[-+]?[0-9]+\.?[0-9]*\b/) {
-        return 'dec';
-    }
-    elsif   ($query =~ /^\s*[-+]?[0-9]*\.[0-9]*[eE][-+]?[0-9]+\b/) {
+    } elsif   ($query =~ /^\s*[-+]?[0-9]*\.[0-9]*[eE][-+]?[0-9]+\b/) {
         return 'exp';
+    } elsif   ($query =~ /^\s*[-+]?[0-9]+\.?[0-9]*\b/) {
+        return 'dec';
     }
 
     return;
@@ -96,16 +92,13 @@ sub process_input {
     my $type = $self->isanumber($input);
 
     if ($type) {
-        if ($type eq 'hex') {
+        if      ($type eq 'hex') {
             $self->stack->push(hex($input));
-        }
-        elsif ($type eq 'oct') {
+        } elsif ($type eq 'oct') {
             $self->stack->push(oct($input));
-        }
-        elsif ($type eq 'bin') {
+        } elsif ($type eq 'bin') {
             $self->stack->push(oct($input));   # Perl understands 0b...
-        }
-        else {
+        } else {
             $self->stack->push($input);
         }
         return;
