@@ -1,0 +1,12 @@
+# Mathematical Constants
+#
+# Lines beginning with # are comments.
+# Blank lines are ignored.
+#
+# name = value
+
+ln2  = 0.6931471805599453094
+ln10 = 2.3025850929940456840
+
+catalan = 0.9159655941772190151
+apery   = 1.2020569031595942854

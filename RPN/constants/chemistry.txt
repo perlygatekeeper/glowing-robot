@@ -1,0 +1,8 @@
+# Chemistry Constants
+#
+# SI Units unless otherwise noted.
+
+av = 6.02214076e23          # mol^-1
+R  = 8.31446261815324       # J/(mol*K)
+
+# Common laboratory constants can be added here.

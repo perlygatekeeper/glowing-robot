@@ -6,6 +6,7 @@ use warnings;
 
 use RPN::Stack;
 use RPN::Commands;
+use RPN::Constants;
 use Term::ReadLine;
 use Data::Dumper;
 
@@ -13,13 +14,14 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.0.0',
+        version    => '3.1.0',
         debug      => 0,
         angle_mode => 'radians',
         stack      => RPN::Stack->new(),
         commands   => undef,
         history    => [],
         term       => undef,
+        constants  => RPN::Constants->new(),
     };
 
     bless $self, $class;
@@ -28,26 +30,13 @@ sub new {
         ? undef
         : Term::ReadLine->new('Reverse Polish Notation Calculator');
 
-    $self->_initialize_constants;
     $self->load_history;
     $self->load_stacks;
+    $self->load_constants;
 
     $self->{commands} = RPN::Commands->new($self);
 
     return $self;
-}
-
-sub _initialize_constants {
-    my ($self) = @_;
-    $self->{constants} = {
-         pi => atan2(1,1) * 4,
-         e  => exp(1),
-         r2 => sqrt(2),
-         r3 => sqrt(3),
-         r5 => sqrt(5),
-         r7 => sqrt(7),
-         av => 6.02214076e23,
-     };
 }
 
 sub history_file {
@@ -137,23 +126,7 @@ sub save_history {
 sub load_stacks {
     my ($self) = @_;
 
-    my $file = $self->stacks_file;
-
-    return unless defined $file && -s $file;
-
-    my $data = do $file;
-
-    if ($@) {
-        warn "Cannot parse $file: $@\n";
-        return;
-    }
-
-    unless (defined $data) {
-        warn "Cannot read $file: $!\n" if $!;
-        return;
-    }
-
-    $self->stack->load_hash($data);
+    $self->stack->load_file($self->stacks_file);
 
     return;
 }
@@ -161,21 +134,27 @@ sub load_stacks {
 sub save_stacks {
     my ($self) = @_;
 
-    my $file = $self->stacks_file;
+    $self->stack->save_file($self->stacks_file);
 
-    open my $fh, '>', $file
-        or do {
-            warn "Cannot write $file: $!\n";
-            return;
-        };
+    return;
+}
 
-    local $Data::Dumper::Terse  = 1;
-    local $Data::Dumper::Purity = 1;
+sub load_constants {
+    my ($self) = @_;
 
-    print {$fh} Data::Dumper->Dump([ $self->stack->as_hash ]);
-    print {$fh} "\n";
+    my $file = $self->constants_file;
 
-    close $fh;
+    return unless defined $file && -s $file;
+
+    $self->constants->load_file($file);
+
+    return;
+}
+
+sub save_constants {
+    my ($self) = @_;
+
+    $self->constants->save_file($self->constants_file);
 
     return;
 }
@@ -282,6 +261,15 @@ sub process_input {
 
     if ($self->isanumber($input)) {
         $self->push_number($input);
+        return;
+    }
+
+    #
+    # Constant input.
+    #
+
+    if ($input =~ /^[A-Za-z_]\w*$/ && $self->constants->exists($input)) {
+        $self->stack->push($self->constants->get($input));
         return;
     }
 

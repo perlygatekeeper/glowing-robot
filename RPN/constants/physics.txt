@@ -1,0 +1,22 @@
+# Physics Constants
+
+
+# SI Units
+
+# Avegoto's number
+av = 6.02214076e23 # molecules/mol^-1
+
+# Speed of light
+c = 299792458 # m/s
+
+# Earth's Gravitational
+g = 9.80665 # m/s^2
+
+# Plank's
+h = 6.62607015e-34 # J*s
+
+# Ideal Gas Law
+R = 8.31446261815324 # J/(mol*K)
+
+# Imperial equivalents can be left commented:
+# g = 32.174 # ft/s^2

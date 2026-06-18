@@ -1,6 +1,10 @@
 package RPN::Stack;
 
 use v5.34;
+use strict;
+use warnings;
+
+use Data::Dumper;
 
 sub new {
     my ($class) = @_;
@@ -125,6 +129,47 @@ sub load_hash {
     $self->{stacks}{ $self->{current_name} } ||= [];
 
     return 1;
+}
+
+
+sub save_file {
+    my ($self, $file) = @_;
+
+    open my $fh, '>', $file
+        or do {
+            warn "Cannot write stack file '$file': $!\n";
+            return;
+        };
+
+    local $Data::Dumper::Terse  = 1;
+    local $Data::Dumper::Purity = 1;
+
+    print {$fh} Data::Dumper->Dump([ $self->as_hash ]);
+    print {$fh} "\n";
+
+    close $fh;
+
+    return 1;
+}
+
+sub load_file {
+    my ($self, $file) = @_;
+
+    return unless defined $file && -s $file;
+
+    my $data = do $file;
+
+    if ($@) {
+        warn "Cannot parse stack file '$file': $@\n";
+        return;
+    }
+
+    unless (defined $data) {
+        warn "Cannot read stack file '$file': $!\n" if $!;
+        return;
+    }
+
+    return $self->load_hash($data);
 }
 
 1;

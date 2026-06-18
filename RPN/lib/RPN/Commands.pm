@@ -613,8 +613,9 @@ sub _initialize {
 
                 $calc->save_history;
                 $calc->save_stacks;
+                $calc->save_constants;
 
-                print "Saved history and stacks.\n";
+                print "Saved history, stacks, and constants.\n";
             },
         }
     );
@@ -628,6 +629,7 @@ sub _initialize {
                  my ($calc) = @_;
                  $calc->save_history;
                  $calc->save_stacks;
+                 $calc->save_constants;
                  exit 0;
              },
          }
@@ -937,57 +939,124 @@ sub _initialize {
         constants => {
             aliases => ['const'],
             type    => 'constant',
-            help    => 'list available constants',
+            help    => 'list, push, or define constants',
             code    => sub {
-                my ($calc) = @_;
-    
-                printf "%-8s %s\n",
-                    "Name",
-                    "Value";
-    
-                printf "%-8s %s\n",
-                    "-" x 8,
-                    "-" x 30;
-    
-                foreach my $name (
-                    sort keys %{ $calc->constants }
-                ) {
-                    printf "%-8s %s\n",
-                        $name,
-                        $calc->constants->{$name};
+                my ($calc, $arg_str, $args) = @_;
+
+                #
+                # const
+                #   list constants
+                #
+
+                unless ($args && @$args) {
+                    printf "%-12s %-12s %s
+", "Name", "Source", "Value";
+                    printf "%-12s %-12s %s
+", "-" x 12, "-" x 12, "-" x 30;
+
+                    foreach my $name ($calc->constants->names) {
+                        my $source = $calc->constants->is_builtin($name)
+                            ? 'builtin'
+                            : 'user';
+
+                        printf "%-12s %-12s %s
+",
+                            $name,
+                            $source,
+                            $calc->constants->get($name);
+                    }
+
+                    return;
                 }
+
+                #
+                # const name
+                #   push constant
+                #
+
+                if (@$args == 1) {
+                    my $name = $args->[0];
+
+                    unless ($calc->constants->exists($name)) {
+                        warn "No constant '$name' was found.
+";
+                        return;
+                    }
+
+                    $calc->stack->push($calc->constants->get($name));
+                    return;
+                }
+
+                #
+                # const name value
+                #   define user constant
+                #
+
+                my ($name, $value) = @$args[0, 1];
+
+                $calc->constants->set($name, $value);
+
+                return;
             },
         }
     );
-    
-    foreach my $name (
-        qw(
-            pi
-            e
-            r2
-            r3
-            r5
-            r7
-            av
-        )
-    ) {
-        $self->register(
-            $name => {
-                type => 'constant',
-                help => "push constant $name onto stack",
-                code => sub {
-                    my ($calc) = @_;
-                    $calc->stack->push(
-                        $calc->constants->{$name}
-                    );
-                },
-            }
-        );
-    }
 
-    #
-    # Constants
-    #
+    $self->register(
+        delconst => {
+            type => 'constant',
+            help => 'delete a user-defined constant',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+
+                unless ($args && @$args) {
+                    warn "usage: delconst <name>
+";
+                    return;
+                }
+
+                $calc->constants->delete($args->[0]);
+
+                return;
+            },
+        }
+    );
+
+    $self->register(
+        loadconst => {
+            type => 'constant',
+            help => 'load user constants from a file',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+
+                unless ($args && @$args) {
+                    warn "usage: loadconst <file>
+";
+                    return;
+                }
+
+                $calc->constants->load_file($args->[0]);
+
+                return;
+            },
+        }
+    );
+
+    $self->register(
+        saveconst => {
+            type => 'constant',
+            help => 'save user constants',
+            code => sub {
+                my ($calc) = @_;
+
+                $calc->save_constants;
+
+                print "Saved constants.
+";
+
+                return;
+            },
+        }
+    );
 
     #
     # Whole-stack / statistics

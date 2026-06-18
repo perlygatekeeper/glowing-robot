@@ -12,6 +12,7 @@ my $dir = tempdir(CLEANUP => 1);
 
 $ENV{RPN_HISTORY} = "$dir/history";
 $ENV{RPN_STACKS}  = "$dir/stacks";
+$ENV{RPN_CONSTANTS} = "$dir/constants";
 
 my $calc = RPN->new(no_readline => 1);
 
@@ -65,12 +66,26 @@ stdout_like(
 );
 
 #
+# Constants persistence
+#
+
+$calc4->process_input('const answer 42');
+$calc4->save_constants;
+
+ok(-s $ENV{RPN_CONSTANTS}, 'constants save file was created');
+
+my $calc5 = RPN->new(no_readline => 1);
+
+$calc5->process_input('answer');
+is($calc5->stack->peek, 42, 'loaded user constant');
+
+#
 # save command
 #
 
 stdout_like(
     sub { $calc4->process_input('save') },
-    qr/Saved history and stacks\./,
+    qr/Saved history, stacks, and constants\./,
     'save command reports success'
 );
 

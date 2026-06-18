@@ -3,17 +3,18 @@ PERL := perl5.34
 TAR  := gtar
 NAME := rpn-oo
 
-SCRIPT  := rpn.pl
-MODS    := lib/RPN.pm \
-           lib/RPN/Stack.pm \
-           lib/RPN/Commands.pm
-TESTDIR := t/
-# TESTS   := t/???
+SCRIPT    := rpn.pl
+MODS      := lib/RPN.pm \
+             lib/RPN/Stack.pm \
+             lib/RPN/Commands.pm \
+             lib/RPN/Constants.pm
+TESTDIR   := t/
+CONSTANTS := constants/
 
 .PHONY: backup syntax run test clean
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR)
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)
