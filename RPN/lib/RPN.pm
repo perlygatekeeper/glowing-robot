@@ -10,7 +10,7 @@ use Term::ReadLine;
 use Data::Dumper;
 
 sub new {
-    my ($class) = @_;
+    my ($class, %args) = @_;
 
     my $self = {
         version    => '3.0.0',
@@ -19,16 +19,19 @@ sub new {
         stack      => RPN::Stack->new(),
         commands   => undef,
         history    => [],
-        term       => Term::ReadLine->new('Reverse Polish Notation Calculator'),
+        term       => undef,
     };
 
     bless $self, $class;
+
+    $self->{term} = $args{no_readline}
+        ? undef
+        : Term::ReadLine->new('Reverse Polish Notation Calculator');
 
     $self->_initialize_constants;
     $self->load_history;
     $self->load_stacks;
 
-    $self->{commands} = RPN::Commands->new($self);
     $self->{commands} = RPN::Commands->new($self);
 
     return $self;
@@ -69,6 +72,8 @@ sub add_history {
 
     push @{ $self->{history} }, $input;
 
+    return unless $self->{term};
+
     if ($self->{term}->can('addhistory')) {
         $self->{term}->addhistory($input);
     }
@@ -98,7 +103,7 @@ sub load_history {
 
     $self->{history} = [ @history ];
 
-    if (@history && $self->{term}->can('SetHistory')) {
+    if (@history && $self->{term} && $self->{term}->can('SetHistory')) {
         $self->{term}->SetHistory(@history);
     }
 
@@ -187,6 +192,9 @@ sub nearly_zero {
 
 sub run {
     my ($self) = @_;
+
+    die "Cannot run interactively without Term::ReadLine\n"
+        unless $self->{term};
 
     my $term = $self->{term};
 
@@ -299,7 +307,7 @@ sub history {
     return @{ $self->{history} }
         if $self->{history} && @{ $self->{history} };
 
-    return unless $self->{term}->can('GetHistory');
+    return unless $self->{term} && $self->{term}->can('GetHistory');
 
     return $self->{term}->GetHistory();
 }

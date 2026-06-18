@@ -12,17 +12,17 @@ my $dir = tempdir(CLEANUP => 1);
 $ENV{RPN_HISTORY} = "$dir/history";
 $ENV{RPN_STACKS}  = "$dir/stacks";
 
-my $calc = RPN->new();
+my $calc = RPN->new(no_readline => 1);
 
-eval {
-    $calc->{term}->SetHistory('2', '3', 'add', 'peek');
-    1;
-} or plan skip_all => 'Term::ReadLine backend does not support SetHistory';
+$calc->add_history('2');
+$calc->add_history('3');
+$calc->add_history('add');
+$calc->add_history('peek');
 
 stdout_like(
     sub { $calc->process_input('history') },
     qr/0:\s+2.*1:\s+3.*2:\s+add.*3:\s+peek/s,
-    'history prints readline history'
+    'history prints command history'
 );
 
 done_testing();
