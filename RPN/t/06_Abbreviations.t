@@ -15,11 +15,11 @@ my $calc = RPN->new();
 $calc->stack->clear;
 $calc->process_input('6');
 $calc->process_input('7');
-$calc->process_input('a');
+$calc->process_input('ad');
 is(
     $calc->stack->peek,
     13,
-    '6 7 a = 13'
+    '6 7 ad = 13'
 );
 
 done_testing();

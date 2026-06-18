@@ -1,25 +1,42 @@
 use strict;
 use warnings;
+
 use Test::More;
+use Test::Output;
 
 use lib 'lib';
 use RPN;
 
 my $calc = RPN->new();
 
-plan skip_all => 'Not implemented yet';
+stdout_like(
+    sub { $calc->process_input('help') },
+    qr/Command\s+Type\s+Help/s,
+    'help prints table header'
+);
 
-#
-# Command
-#
-# $calc->stack->clear;
-# $calc->process_input('2');
-# $calc->process_input('3');
-# $calc->process_input('add');
-# is(
-#     $calc->stack->peek,
-#     5,
-#     '2 3 add = 5'
-# );
+stdout_like(
+    sub { $calc->process_input('help add') },
+    qr/add\s+numeric\s+pops two numbers/s,
+    'help add prints add help'
+);
+
+stdout_like(
+    sub { $calc->process_input('help +') },
+    qr/add\s+numeric\s+pops two numbers/s,
+    'help + resolves alias to add'
+);
+
+stdout_like(
+    sub { $calc->process_input('help type numeric') },
+    qr/add\s+numeric.*multiply\s+numeric.*subtract\s+numeric/s,
+    'help type numeric lists numeric commands'
+);
+
+stderr_like(
+    sub { $calc->process_input('help nosuchcommand') },
+    qr/No command 'nosuchcommand' was found/,
+    'help unknown command warns'
+);
 
 done_testing();

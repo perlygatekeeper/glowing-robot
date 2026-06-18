@@ -1,57 +1,84 @@
 use strict;
 use warnings;
+
 use Test::More;
+use Test::Output;
 
 use lib 'lib';
 use RPN;
 
-sub close_enough {
-    my ($got, $expected, $name) = @_;
-
-    ok(
-        abs($got - $expected) < 0.000001,
-        $name
-    ) or diag("got $got expected $expected");
-}
-
 my $calc = RPN->new();
 
-$calc->process_input('0');
-$calc->process_input('sine');
-close_enough($calc->stack->peek, 0, 'sin(0 radians) = 0');
-
-$calc->stack->clear;
-$calc->process_input('0');
-$calc->process_input('cosine');
-close_enough($calc->stack->peek, 1, 'cos(0 radians) = 1');
-
-$calc->stack->clear;
-$calc->process_input('0');
-$calc->process_input('tangent');
-close_enough($calc->stack->peek, 0, 'tan(0 radians) = 0');
+#
+# Degrees mode
+#
 
 $calc->stack->clear;
 $calc->process_input('degrees');
+
 $calc->process_input('90');
 $calc->process_input('sine');
-close_enough($calc->stack->peek, 1, 'sin(90 degrees) = 1');
+
+ok(
+    abs($calc->stack->peek - 1.0) < 1e-10,
+    'sin(90 degrees) == 1'
+);
 
 $calc->stack->clear;
+
 $calc->process_input('degrees');
-$calc->process_input('180');
+$calc->process_input('0');
 $calc->process_input('cosine');
-close_enough($calc->stack->peek, -1, 'cos(180 degrees) = -1');
+
+ok(
+    abs($calc->stack->peek - 1.0) < 1e-10,
+    'cos(0 degrees) == 1'
+);
+
+#
+# Radians mode
+#
 
 $calc->stack->clear;
+
 $calc->process_input('radians');
-$calc->process_input('3.141592653589793');
+$calc->process_input('1.5707963267948966');
 $calc->process_input('sine');
-close_enough($calc->stack->peek, 0, 'sin(pi radians) = 0');
+
+ok(
+    abs($calc->stack->peek - 1.0) < 1e-10,
+    'sin(pi/2 radians) == 1'
+);
+
+#
+# Tangent valid
+#
 
 $calc->stack->clear;
+
+$calc->process_input('degrees');
+$calc->process_input('45');
+$calc->process_input('tangent');
+
+ok(
+    abs($calc->stack->peek - 1.0) < 1e-10,
+    'tan(45 degrees) == 1'
+);
+
+#
+# Tangent undefined (degrees)
+#
+
+$calc->stack->clear;
+
 $calc->process_input('degrees');
 $calc->process_input('90');
-$calc->process_input('tangent');
+
+stderr_like(
+    sub { $calc->process_input('tangent') },
+    qr/tangent undefined at 90/,
+    'tan(90 degrees) warns'
+);
 
 is(
     $calc->stack->peek,
@@ -59,14 +86,25 @@ is(
     'tan(90 degrees) leaves stack unchanged'
 );
 
-$calc->stack->clear;
-$calc->process_input('radians');
-$calc->process_input('1.5707963267948966');
-$calc->process_input('tangent');
+#
+# Tangent undefined (radians)
+#
 
-close_enough(
-    $calc->stack->peek,
-    1.5707963267948966,
+$calc->stack->clear;
+
+my $half_pi = 1.5707963267948966;
+
+$calc->process_input('radians');
+$calc->process_input($half_pi);
+
+stderr_like(
+    sub { $calc->process_input('tangent') },
+    qr/tangent undefined/,
+    'tan(pi\/2) warns'
+);
+
+ok(
+    abs($calc->stack->peek - $half_pi) < 1e-12,
     'tan(pi/2) leaves stack unchanged'
 );
 

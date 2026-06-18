@@ -37,6 +37,7 @@ sub _initialize {
         string     => 'string operations',
         trig       => 'trigonometric functions',
         utility    => 'help, display, quit',
+        statistics => 'whole-stack and statistical functions',
     };
 
     #
@@ -255,14 +256,13 @@ sub _initialize {
             help    => 'swaps the top two values on the stack',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(2);
-
                 my ($a, $b) = $calc->stack->pop2;
-                $calc->stack->push($a, $b);
+                $calc->stack->push($b, $a);
             },
         }
     );
+
 
     $self->register(
         clear => {
@@ -417,18 +417,18 @@ sub _initialize {
             help    => 'replaces the number on top of the stack with its tangent',
             code    => sub {
                 my ($calc) = @_;
-
+    
                 return unless $calc->stack->require_depth(1);
-
+    
                 my $value   = $calc->stack->peek;
                 my $radians = $calc->angle_to_radians($value);
                 my $cosine  = cos($radians);
-
-                if (abs($cosine) < 1e-12) {
+    
+                if ($calc->nearly_zero($cosine)) {
                     warn "tangent undefined at $value\n";
                     return;
                 }
-
+    
                 $calc->stack->pop;
                 $calc->stack->push(sin($radians) / $cosine);
             },
@@ -588,15 +588,50 @@ sub _initialize {
     );
 
     $self->register(
+        history => {
+            aliases => ['hist'],
+            type    => 'utility',
+            help    => 'prints command history',
+            code    => sub {
+                my ($calc) = @_;
+                my @history = $calc->history;
+                for (my $i = 0; $i < @history; $i++) {
+                    next unless defined $history[$i] && length $history[$i];
+                    printf "%3d: %s\n", $i, $history[$i];
+                }
+            },
+        }
+    );
+
+
+    $self->register(
+        save => {
+            type => 'utility',
+            help => 'saves history and stacks',
+            code => sub {
+                my ($calc) = @_;
+
+                $calc->save_history;
+                $calc->save_stacks;
+
+                print "Saved history and stacks.\n";
+            },
+        }
+    );
+
+    $self->register(
         quit => {
             aliases => [qw(exit bye ZZ)],
             type    => 'utility',
             help    => 'exits the program',
-            code    => sub {
-                exit 0;
-            },
-        }
-    );
+            code => sub {
+                 my ($calc) = @_;
+                 $calc->save_history;
+                 $calc->save_stacks;
+                 exit 0;
+             },
+         }
+     );
 
     $self->register(
         noop => {
@@ -709,6 +744,401 @@ sub _initialize {
             },
         }
     );
+
+    #
+    # Conversions
+    #
+    
+    $self->register(
+        degrees_radians => {
+            aliases => ['dtor'],
+            type    => 'conversion',
+            help    => 'convert degrees to radians',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * atan2(1, 1) / 45 });
+            },
+        }
+    );
+    
+    $self->register(
+        radians_degrees => {
+            aliases => ['rtod'],
+            type    => 'conversion',
+            help    => 'convert radians to degrees',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / atan2(1, 1) * 45 });
+            },
+        }
+    );
+    
+    $self->register(
+        fahrenheit_celsius => {
+            aliases => ['ftoc'],
+            type    => 'conversion',
+            help    => 'convert Fahrenheit to Celsius',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { ($_[0] - 32) / 1.8 });
+            },
+        }
+    );
+    
+    $self->register(
+        celsius_fahrenheit => {
+            aliases => ['ctof'],
+            type    => 'conversion',
+            help    => 'convert Celsius to Fahrenheit',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { ($_[0] * 1.8) + 32 });
+            },
+        }
+    );
+    
+    $self->register(
+        kilometer_mile => {
+            aliases => ['ktom'],
+            type    => 'conversion',
+            help    => 'convert kilometers to miles',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / 1.609 });
+            },
+        }
+    );
+    
+    $self->register(
+        mile_kilometer => {
+            aliases => ['mtok'],
+            type    => 'conversion',
+            help    => 'convert miles to kilometers',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * 1.609 });
+            },
+        }
+    );
+    
+    $self->register(
+        centimeter_inch => {
+            aliases => ['ctoi'],
+            type    => 'conversion',
+            help    => 'convert centimeters to inches',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / 2.54 });
+            },
+        }
+    );
+    
+    $self->register(
+        inch_centimeter => {
+            aliases => ['itoc'],
+            type    => 'conversion',
+            help    => 'convert inches to centimeters',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * 2.54 });
+            },
+        }
+    );
+    
+    $self->register(
+        gram_ounce => {
+            aliases => ['gtoo'],
+            type    => 'conversion',
+            help    => 'convert grams to ounces',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / 28.3495 });
+            },
+        }
+    );
+    
+    $self->register(
+        ounce_gram => {
+            aliases => ['otog'],
+            type    => 'conversion',
+            help    => 'convert ounces to grams',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * 28.3495 });
+            },
+        }
+    );
+    
+    $self->register(
+        kilogram_pound => {
+            aliases => ['ktop'],
+            type    => 'conversion',
+            help    => 'convert kilograms to pounds',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * 2.20458553791875 });
+            },
+        }
+    );
+    
+    $self->register(
+        pound_kilogram => {
+            aliases => ['ptok'],
+            type    => 'conversion',
+            help    => 'convert pounds to kilograms',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / 2.20458553791875 });
+            },
+        }
+    );
+    
+    $self->register(
+        liter_quart => {
+            aliases => ['ltoq'],
+            type    => 'conversion',
+            help    => 'convert liters to quarts',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] * 1.05669 });
+            },
+        }
+    );
+    
+    $self->register(
+        quart_liter => {
+            aliases => ['qtol'],
+            type    => 'conversion',
+            help    => 'convert quarts to liters',
+            code    => sub {
+                my ($calc) = @_;
+                $self->_conversion($calc, sub { $_[0] / 1.05669 });
+            },
+        }
+    );
+
+    $self->register(
+        help => {
+            aliases => ['?'],
+            type    => 'utility',
+            help    => 'prints help for all commands, one command, or one type',
+            code    => sub {
+                my ($calc, $arg_str, $args) = @_;
+                $self->print_help($args);
+            },
+        }
+    );
+
+    #
+    # Constants
+    #
+
+    $self->register(
+        constants => {
+            aliases => ['const'],
+            type    => 'constant',
+            help    => 'list available constants',
+            code    => sub {
+                my ($calc) = @_;
+    
+                printf "%-8s %s\n",
+                    "Name",
+                    "Value";
+    
+                printf "%-8s %s\n",
+                    "-" x 8,
+                    "-" x 30;
+    
+                foreach my $name (
+                    sort keys %{ $calc->constants }
+                ) {
+                    printf "%-8s %s\n",
+                        $name,
+                        $calc->constants->{$name};
+                }
+            },
+        }
+    );
+    
+    foreach my $name (
+        qw(
+            pi
+            e
+            r2
+            r3
+            r5
+            r7
+            av
+        )
+    ) {
+        $self->register(
+            $name => {
+                type => 'constant',
+                help => "push constant $name onto stack",
+                code => sub {
+                    my ($calc) = @_;
+                    $calc->stack->push(
+                        $calc->constants->{$name}
+                    );
+                },
+            }
+        );
+    }
+
+    #
+    # Constants
+    #
+
+    #
+    # Whole-stack / statistics
+    #
+    
+    $self->register(
+        count => {
+            type => 'statistics',
+            help => 'pushes the current stack depth onto the stack',
+            code => sub {
+                my ($calc) = @_;
+                $calc->stack->push($calc->stack->depth);
+            },
+        }
+    );
+    
+    $self->register(
+        sum => {
+            type => 'statistics',
+            help => 'replaces the entire stack with the sum of its values',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my @values = $calc->stack->values;
+                my $sum = 0;
+                foreach my $value (@values) {
+                    $sum += $value;
+                }
+                $calc->stack->clear;
+                $calc->stack->push($sum);
+            },
+        }
+    );
+    
+    $self->register(
+        average => {
+            aliases => ['avg'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with the average of its values',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my @values = $calc->stack->values;
+                my $sum = 0;
+                foreach my $value (@values) {
+                    $sum += $value;
+                }
+                $calc->stack->clear;
+                $calc->stack->push($sum / @values);
+            },
+        }
+    );
+    
+    $self->register(
+        minimum => {
+            aliases => ['min'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with the minimum value',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my @values = $calc->stack->values;
+                my $min = $values[0];
+                foreach my $value (@values) {
+                    $min = $value if $value < $min;
+                }
+                $calc->stack->clear;
+                $calc->stack->push($min);
+            },
+        }
+    );
+    
+    $self->register(
+        maximum => {
+            aliases => ['max'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with the maximum value',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my @values = $calc->stack->values;
+                my $max = $values[0];
+                foreach my $value (@values) {
+                    $max = $value if $value > $max;
+                }
+                $calc->stack->clear;
+                $calc->stack->push($max);
+            },
+        }
+    );
+
+    #
+    # Flow / programmability
+    #
+    
+    $self->register(
+        execute => {
+            aliases => ['exec'],
+            type    => 'flow',
+            help    => 'executes the string on top of the stack as an RPN command',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $input = $calc->stack->pop;
+                unless ($calc->commands->execute($calc, $input)) {
+                    warn "unknown input type '$input'\n";
+                }
+            },
+        }
+    );
+    
+    $self->register(
+        if => {
+            aliases => ['ifthen'],
+            type    => 'flow',
+            help    => 'pops boolean and command; executes command if boolean is true',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $test  = $calc->stack->pop;
+                my $input = $calc->stack->pop;
+                if ($test) {
+                    unless ($calc->commands->execute($calc, $input)) {
+                        warn "unknown input type '$input'\n";
+                    }
+                }
+            },
+        }
+    );
+    
+    $self->register(
+        ifelse => {
+            type => 'flow',
+            help => 'pops boolean and two commands; executes first command if true, second if false',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $test        = $calc->stack->pop;
+                my $true_input  = $calc->stack->pop;
+                my $false_input = $calc->stack->pop;
+                my $input = $test ? $true_input : $false_input;
+                unless ($calc->commands->execute($calc, $input)) {
+                    warn "unknown input type '$input'\n";
+                }
+            },
+        }
+    );
+
+    #
+    # END OF COMMANDS
+    #
 
     $self->_rebuild_abbrevs();
 
@@ -823,11 +1253,116 @@ sub _clean_format {
     return $format;
 }
 
+sub _conversion {
+    my ($self, $calc, $code) = @_;
+
+    return unless $calc->stack->require_depth(1);
+
+    my $value = $calc->stack->pop;
+
+    $calc->stack->push($code->($value));
+
+    return;
+}
+
+sub print_help {
+    my ($self, $args) = @_;
+
+    my $commands = $self->commands;
+
+    if ($args && @$args) {
+
+        if ($args->[0] eq 'type') {
+            my $type = $args->[1];
+
+            unless (defined $type && length $type) {
+                warn "usage: help type <type>\n";
+                return;
+            }
+
+            return $self->_print_help_by_type($type);
+        }
+
+        return $self->_print_help_for_command($args->[0]);
+    }
+
+    return $self->_print_help_all;
+}
+
+sub _print_help_all {
+    my ($self) = @_;
+
+    $self->_print_help_header;
+
+    foreach my $command (
+        sort {
+            $self->{commands}{$a}{type} cmp $self->{commands}{$b}{type}
+                ||
+            $a cmp $b
+        }
+        keys %{ $self->{commands} }
+    ) {
+        $self->_print_help_line($command);
+    }
+
+    return;
+}
+
+sub _print_help_by_type {
+    my ($self, $type) = @_;
+
+    $self->_print_help_header;
+
+    foreach my $command (
+        sort keys %{ $self->{commands} }
+    ) {
+        next unless $self->{commands}{$command}{type} eq $type;
+        $self->_print_help_line($command);
+    }
+
+    return;
+}
+
+sub _print_help_for_command {
+    my ($self, $query) = @_;
+
+    my $command = $self->{abbrevs}{$query};
+
+    unless ($command) {
+        warn "No command '$query' was found.\n";
+        return;
+    }
+
+    $self->_print_help_header;
+    $self->_print_help_line($command);
+
+    return;
+}
+
+sub _print_help_header {
+    my ($self) = @_;
+
+    printf "%-18s %-12s %s\n", "Command", "Type", "Help";
+    printf "%-18s %-12s %s\n", "-" x 18, "-" x 12, "-" x 40;
+
+    return;
+}
+
+sub _print_help_line {
+    my ($self, $command) = @_;
+
+    my $entry   = $self->{commands}{$command};
+    my $type    = $entry->{type} || '';
+    my $help    = $entry->{help} || '';
+    my $aliases = $entry->{aliases};
+
+    if ($aliases && @$aliases) {
+        $help .= " aliases: " . join(", ", @$aliases);
+    }
+
+    printf "%-18s %-12s %s\n", $command, $type, $help;
+
+    return;
+}
+
 1;
-
-
-
-
-
-
-

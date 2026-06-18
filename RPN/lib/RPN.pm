@@ -7,24 +7,182 @@ use warnings;
 use RPN::Stack;
 use RPN::Commands;
 use Term::ReadLine;
+use Data::Dumper;
 
 sub new {
     my ($class) = @_;
 
     my $self = {
-        version    => '3.0',
+        version    => '3.0.0',
         debug      => 0,
         angle_mode => 'radians',
         stack      => RPN::Stack->new(),
         commands   => undef,
+        history    => [],
         term       => Term::ReadLine->new('Reverse Polish Notation Calculator'),
     };
 
     bless $self, $class;
 
+    $self->_initialize_constants;
+    $self->load_history;
+    $self->load_stacks;
+
+    $self->{commands} = RPN::Commands->new($self);
     $self->{commands} = RPN::Commands->new($self);
 
     return $self;
+}
+
+sub _initialize_constants {
+    my ($self) = @_;
+    $self->{constants} = {
+         pi => atan2(1,1) * 4,
+         e  => exp(1),
+         r2 => sqrt(2),
+         r3 => sqrt(3),
+         r5 => sqrt(5),
+         r7 => sqrt(7),
+         av => 6.02214076e23,
+     };
+}
+
+sub history_file {
+    my ($self) = @_;
+    return $ENV{RPN_HISTORY} || "$ENV{HOME}/.rpn_history";
+}
+
+sub stacks_file {
+    my ($self) = @_;
+    return $ENV{RPN_STACKS} || "$ENV{HOME}/.rpn_stacks";
+}
+
+sub constants_file {
+    my ($self) = @_;
+    return $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants";
+}
+
+sub add_history {
+    my ($self, $input) = @_;
+
+    return unless defined $input && $input =~ /\S/;
+
+    push @{ $self->{history} }, $input;
+
+    if ($self->{term}->can('addhistory')) {
+        $self->{term}->addhistory($input);
+    }
+    elsif ($self->{term}->can('AddHistory')) {
+        $self->{term}->AddHistory($input);
+    }
+
+    return;
+}
+
+sub load_history {
+    my ($self) = @_;
+
+    my $file = $self->history_file;
+
+    return unless defined $file && -s $file;
+
+    open my $fh, '<', $file
+        or do {
+            warn "Cannot read $file: $!\n";
+            return;
+        };
+
+    my @history = grep { defined && /\S/ } map { chomp; $_ } <$fh>;
+
+    close $fh;
+
+    $self->{history} = [ @history ];
+
+    if (@history && $self->{term}->can('SetHistory')) {
+        $self->{term}->SetHistory(@history);
+    }
+
+    return;
+}
+
+sub save_history {
+    my ($self) = @_;
+
+    my $file = $self->history_file;
+
+    my @history = $self->history;
+    @history = grep { defined && /\S/ } @history;
+
+    open my $fh, '>', $file
+        or do {
+            warn "Cannot write $file: $!\n";
+            return;
+        };
+
+    foreach my $line (@history) {
+        chomp $line;
+        print {$fh} "$line\n";
+    }
+
+    close $fh;
+
+    return;
+}
+
+sub load_stacks {
+    my ($self) = @_;
+
+    my $file = $self->stacks_file;
+
+    return unless defined $file && -s $file;
+
+    my $data = do $file;
+
+    if ($@) {
+        warn "Cannot parse $file: $@\n";
+        return;
+    }
+
+    unless (defined $data) {
+        warn "Cannot read $file: $!\n" if $!;
+        return;
+    }
+
+    $self->stack->load_hash($data);
+
+    return;
+}
+
+sub save_stacks {
+    my ($self) = @_;
+
+    my $file = $self->stacks_file;
+
+    open my $fh, '>', $file
+        or do {
+            warn "Cannot write $file: $!\n";
+            return;
+        };
+
+    local $Data::Dumper::Terse  = 1;
+    local $Data::Dumper::Purity = 1;
+
+    print {$fh} Data::Dumper->Dump([ $self->stack->as_hash ]);
+    print {$fh} "\n";
+
+    close $fh;
+
+    return;
+}
+
+sub constants {
+    my ($self) = @_;
+    return $self->{constants};
+}
+
+sub nearly_zero {
+    my ($self, $value) = @_;
+    return abs($value) < 1e-12;
 }
 
 sub run {
@@ -34,8 +192,12 @@ sub run {
 
     while (defined(my $input = $term->readline($self->prompt))) {
         next unless $input =~ /\S/;
+        $self->add_history($input);
         $self->process_input($input);
     }
+
+    $self->save_history;
+    $self->save_stacks;
 
     return;
 }
@@ -134,14 +296,14 @@ sub version {
 sub history {
     my ($self) = @_;
 
+    return @{ $self->{history} }
+        if $self->{history} && @{ $self->{history} };
+
+    return unless $self->{term}->can('GetHistory');
+
     return $self->{term}->GetHistory();
 }
 
-sub nearly_zero {
-    my ($self, $value) = @_;
-
-    return abs($value) < 1e-12;
-}
 
 sub is_number_list {
     my ($self, $input) = @_;

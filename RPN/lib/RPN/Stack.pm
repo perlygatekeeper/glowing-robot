@@ -104,4 +104,27 @@ sub values {
     return @{ $self->current_stack };
 }
 
+sub as_hash {
+    my ($self) = @_;
+
+    return {
+        current_name => $self->{current_name},
+        stacks       => $self->{stacks},
+    };
+}
+
+sub load_hash {
+    my ($self, $data) = @_;
+
+    return unless ref $data eq 'HASH';
+    return unless ref $data->{stacks} eq 'HASH';
+
+    $self->{stacks}       = $data->{stacks};
+    $self->{current_name} = $data->{current_name} || 's';
+
+    $self->{stacks}{ $self->{current_name} } ||= [];
+
+    return 1;
+}
+
 1;

@@ -1,3 +1,22 @@
+2.x
+  Monolithic script
+  Procedural
+  Global state
+  One huge file
+
+versus
+
+3.x
+  OO architecture
+  RPN.pm
+  RPN::Stack
+  RPN::Commands
+  Unit tests
+  Command registry
+  Aliases
+  Abbreviations
+
+
 3.0.0  Initial OO release
 
 3.1.0  Help system completed
@@ -17,3 +36,43 @@
 3.5.0  Matrix package
 
 4.0.0  Typed stack objects
+
+
+1) Conversions
+dtor, rtod
+ftoc, ctof
+distance/weight/volume conversions
+
+2) Help system
+help
+help add
+help type numeric
+
+3) Constants
+constant
+pi, e, r2, r3, r5, r7, av
+
+4) Whole-stack / statistics
+sum
+average
+minimum
+maximum
+later: median, variance, stddev
+
+5) Flow / programmability
+execute
+if
+ifelse
+noop
+
+6) Persistence
+save/load history
+save/load stacks
+possibly save/load custom constants
+
+7) Cleanup before tagging
+add nearly_zero()
+make sure every implemented command has a test
+bump/tag version, probably v3.0.0
+
+
