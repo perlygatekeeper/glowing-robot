@@ -85,4 +85,84 @@ $calc->process_input('max');
 
 is($calc->stack->peek, 8, 'max alias works');
 
+#
+# product
+#
+
+$calc->stack->clear;
+$calc->process_input('2 3 4');
+$calc->process_input('product');
+
+is($calc->stack->peek, 24, 'product of 2 3 4 = 24');
+
+#
+# range
+#
+
+$calc->stack->clear;
+$calc->process_input('9 4 7 2 8');
+$calc->process_input('range');
+
+is($calc->stack->peek, 7, 'range = max - min = 7');
+
+#
+# median odd count
+#
+
+$calc->stack->clear;
+$calc->process_input('9 4 7 2 8');
+$calc->process_input('median');
+
+is($calc->stack->peek, 7, 'median odd count = 7');
+
+#
+# median even count
+#
+
+$calc->stack->clear;
+$calc->process_input('2 4 6 8');
+$calc->process_input('median');
+
+is($calc->stack->peek, 5, 'median even count = 5');
+
+#
+# variance
+#
+
+$calc->stack->clear;
+$calc->process_input('2 4 4 4 5 5 7 9');
+$calc->process_input('variance');
+
+is($calc->stack->peek, 4, 'population variance = 4');
+
+#
+# var alias
+#
+
+$calc->stack->clear;
+$calc->process_input('2 4 4 4 5 5 7 9');
+$calc->process_input('var');
+
+is($calc->stack->peek, 4, 'var alias works');
+
+#
+# stddev
+#
+
+$calc->stack->clear;
+$calc->process_input('2 4 4 4 5 5 7 9');
+$calc->process_input('stddev');
+
+is($calc->stack->peek, 2, 'population standard deviation = 2');
+
+#
+# stdev alias
+#
+
+$calc->stack->clear;
+$calc->process_input('2 4 4 4 5 5 7 9');
+$calc->process_input('stdev');
+
+is($calc->stack->peek, 2, 'stdev alias works');
+
 done_testing();

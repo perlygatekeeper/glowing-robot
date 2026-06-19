@@ -1327,6 +1327,134 @@ sub _initialize {
     );
 
     #
+    # Enhanced Statistics
+    #
+
+    $self->register(
+        product => {
+            type => 'statistics',
+            help => 'replaces the entire stack with the product of its values',
+            code => sub {
+                my ($calc) = @_;
+    
+                return unless $calc->stack->require_depth(1);
+    
+                my @values = $calc->stack->values;
+                my $product = 1;
+    
+                $product *= $_ for @values;
+    
+                $calc->stack->clear;
+                $calc->stack->push($product);
+            },
+        }
+    );
+    
+    $self->register(
+        range => {
+            type => 'statistics',
+            help => 'replaces the entire stack with maximum minus minimum',
+            code => sub {
+                my ($calc) = @_;
+    
+                return unless $calc->stack->require_depth(1);
+    
+                my @values = $calc->stack->values;
+                my ($min, $max) = ($values[0], $values[0]);
+    
+                foreach my $value (@values) {
+                    $min = $value if $value < $min;
+                    $max = $value if $value > $max;
+                }
+    
+                $calc->stack->clear;
+                $calc->stack->push($max - $min);
+            },
+        }
+    );
+    
+    $self->register(
+        median => {
+            type => 'statistics',
+            help => 'replaces the entire stack with the median value',
+            code => sub {
+                my ($calc) = @_;
+    
+                return unless $calc->stack->require_depth(1);
+    
+                my @values = sort { $a <=> $b } $calc->stack->values;
+                my $n = @values;
+    
+                my $median;
+    
+                if ($n % 2) {
+                    $median = $values[int($n / 2)];
+                }
+                else {
+                    $median = ($values[$n / 2 - 1] + $values[$n / 2]) / 2;
+                }
+    
+                $calc->stack->clear;
+                $calc->stack->push($median);
+            },
+        }
+    );
+    
+    $self->register(
+        variance => {
+            aliases => ['var'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with the population variance',
+            code    => sub {
+                my ($calc) = @_;
+    
+                return unless $calc->stack->require_depth(1);
+    
+                my @values = $calc->stack->values;
+                my $n = @values;
+    
+                my $sum = 0;
+                $sum += $_ for @values;
+    
+                my $mean = $sum / $n;
+    
+                my $ss = 0;
+                $ss += ($_ - $mean) ** 2 for @values;
+    
+                $calc->stack->clear;
+                $calc->stack->push($ss / $n);
+            },
+        }
+    );
+    
+    $self->register(
+        stddev => {
+            aliases => ['stdev'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with the population standard deviation',
+            code    => sub {
+                my ($calc) = @_;
+    
+                return unless $calc->stack->require_depth(1);
+    
+                my @values = $calc->stack->values;
+                my $n = @values;
+    
+                my $sum = 0;
+                $sum += $_ for @values;
+    
+                my $mean = $sum / $n;
+    
+                my $ss = 0;
+                $ss += ($_ - $mean) ** 2 for @values;
+    
+                $calc->stack->clear;
+                $calc->stack->push(sqrt($ss / $n));
+            },
+        }
+    );
+
+    #
     # END OF COMMANDS
     #
 

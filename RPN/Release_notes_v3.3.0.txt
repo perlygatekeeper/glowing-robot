@@ -1,0 +1,40 @@
+RPN Calculator
+Release Notes
+Version 3.3.0
+=============
+
+Overview
+--------
+Version 3.3.0 expands the statistics command set.
+
+New Commands
+------------
+
+product
+    Replaces the stack with the product of all values.
+
+range
+    Replaces the stack with maximum minus minimum.
+
+median
+    Replaces the stack with the median value.
+
+variance / var
+    Replaces the stack with the population variance.
+
+stddev / stdev
+    Replaces the stack with the population standard deviation.
+
+Testing
+-------
+Statistics tests have been expanded in:
+
+    t/12_Statistics.t
+
+Next Release
+------------
+Version 3.4.0
+
+Planned feature area:
+
+    Vectors
