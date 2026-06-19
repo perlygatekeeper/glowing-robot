@@ -1,0 +1,16 @@
+3.2.0
+
+File Input/Output
+
+    readnums
+    readcsv
+    writecsv
+    appendcsv
+
+New command type:
+
+    io
+
+New tests:
+
+    16_FileIO.t

@@ -97,11 +97,11 @@ Constants
 
 pi
 e
+phi
 r2
 r3
 r5
 r7
-av
 
 Statistics
 

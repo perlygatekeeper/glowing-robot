@@ -14,14 +14,15 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.1.0',
+        version    => '3.2.0',
         debug      => 0,
         angle_mode => 'radians',
-        stack      => RPN::Stack->new(),
         commands   => undef,
-        history    => [],
         term       => undef,
         constants  => RPN::Constants->new(),
+        stack      => RPN::Stack->new(),
+        history    => [],
+        io => 'file input and output',
     };
 
     bless $self, $class;

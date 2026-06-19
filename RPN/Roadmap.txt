@@ -66,9 +66,9 @@ Advanced
 
 Custom Constants
 
-[ ] Define constants
-[ ] Delete constants
-[ ] Persistent user constants
+[x] Define constants
+[x] Delete constants
+[x] Persistent user constants
 
 Examples:
 
@@ -84,10 +84,10 @@ delconst answer
 
 File Input / Output
 
-[ ] readnums
-[ ] readcsv
-[ ] writecsv
-[ ] appendcsv
+[x] readnums
+[x] readcsv
+[x] writecsv
+[x] appendcsv
 
 Examples:
 

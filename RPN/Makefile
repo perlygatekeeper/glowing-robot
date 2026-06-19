@@ -11,10 +11,12 @@ MODS      := lib/RPN.pm \
 TESTDIR   := t/
 CONSTANTS := constants/
 
+RELEASE_NOTES := $(shell ls Release_**.txt)
+
 .PHONY: backup syntax run test clean
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) Roadmap.txt
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)
@@ -33,3 +35,4 @@ clean:
 	find . -name '*~' -delete
 	find . -name '*.bak' -delete
 	find . -name '.DS_Store' -delete
+

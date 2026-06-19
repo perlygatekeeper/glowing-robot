@@ -949,10 +949,8 @@ sub _initialize {
                 #
 
                 unless ($args && @$args) {
-                    printf "%-12s %-12s %s
-", "Name", "Source", "Value";
-                    printf "%-12s %-12s %s
-", "-" x 12, "-" x 12, "-" x 30;
+                    printf "%-12s %-12s %s ", "Name", "Source", "Value";
+                    printf "%-12s %-12s %s ", "-" x 12, "-" x 12, "-" x 30;
 
                     foreach my $name ($calc->constants->names) {
                         my $source = $calc->constants->is_builtin($name)
@@ -978,8 +976,7 @@ sub _initialize {
                     my $name = $args->[0];
 
                     unless ($calc->constants->exists($name)) {
-                        warn "No constant '$name' was found.
-";
+                        warn "No constant '$name' was found. ";
                         return;
                     }
 
@@ -1009,8 +1006,7 @@ sub _initialize {
                 my ($calc, $arg_str, $args) = @_;
 
                 unless ($args && @$args) {
-                    warn "usage: delconst <name>
-";
+                    warn "usage: delconst <name> ";
                     return;
                 }
 
@@ -1029,8 +1025,7 @@ sub _initialize {
                 my ($calc, $arg_str, $args) = @_;
 
                 unless ($args && @$args) {
-                    warn "usage: loadconst <file>
-";
+                    warn "usage: loadconst <file> ";
                     return;
                 }
 
@@ -1050,8 +1045,7 @@ sub _initialize {
 
                 $calc->save_constants;
 
-                print "Saved constants.
-";
+                print "Saved constants.";
 
                 return;
             },
@@ -1201,6 +1195,133 @@ sub _initialize {
                 unless ($calc->commands->execute($calc, $input)) {
                     warn "unknown input type '$input'\n";
                 }
+            },
+        }
+    );
+
+    #
+    # File I/O
+    #
+
+    $self->register(
+        readnums => {
+            type => 'io',
+            help => 'read numeric tokens from a file and push them onto the stack',
+            code => sub {
+                my ($calc, $arg_str) = @_;
+                my $file = _clean_filename($arg_str);
+                return unless $file;
+                open my $fh, '<', $file
+                    or warn "Cannot read '$file': $!\n" and return;
+                while (my $line = <$fh>) {
+                    chomp $line;
+                    $line =~ s/#.*$//;
+                    next unless $line =~ /\S/;
+                    $calc->process_input($line);
+                }
+                close $fh;
+            },
+        }
+    );
+
+    $self->register(
+        readcsv => {
+            type => 'io',
+            help => 'read numeric values from a CSV file and push them onto the stack',
+            code => sub {
+                my ($calc, $arg_str) = @_;
+                my $file = _clean_filename($arg_str);
+                return unless $file;
+                open my $fh, '<', $file
+                    or warn "Cannot read '$file': $!\n" and return;
+                while (my $line = <$fh>) {
+                    chomp $line;
+                    foreach my $field (split /,/, $line) {
+                        $field =~ s/^\s+//;
+                        $field =~ s/\s+$//;
+                        next unless $calc->isanumber($field);
+                        $calc->push_number($field);
+                    }
+                }
+                close $fh;
+            },
+        }
+    );
+
+    $self->register(
+        readcolumn => {
+            type => 'io',
+            help => 'read one numeric column from a CSV file by column number or header name',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                unless ($args && @$args >= 2) {
+                    warn "usage: readcolumn <file> <column>\n";
+                    return;
+                }
+                my ($file, $column) = @$args[0, 1];
+                open my $fh, '<', $file
+                    or warn "Cannot read '$file': $!\n" and return;
+                my $header = <$fh>;
+                return unless defined $header;
+                chomp $header;
+                my @headers = map {
+                    s/^\s+//;
+                    s/\s+$//;
+                    $_;
+                } split /,/, $header;
+                my $index;
+                if ($column =~ /^\d+$/) {
+                    $index = $column;
+                } else {
+                    for my $i (0 .. $#headers) {
+                        if ($headers[$i] eq $column) {
+                            $index = $i;
+                            last;
+                        }
+                    }
+                }
+                unless (defined $index) {
+                    warn "No such column '$column'\n";
+                    close $fh;
+                    return;
+                }
+                while (my $line = <$fh>) {
+                    chomp $line;
+                    my @fields = split /,/, $line;
+                    next unless defined $fields[$index];
+                    my $value = $fields[$index];
+                    $value =~ s/^\s+//;
+                    $value =~ s/\s+$//;
+                    next unless $calc->isanumber($value);
+                    $calc->push_number($value);
+                }
+                close $fh;
+            },
+        }
+    );
+
+    $self->register(
+        writecsv => {
+            type => 'io',
+            help => 'write current stack to a CSV file',
+            code => sub {
+                my ($calc, $arg_str) = @_;
+                my $file = _clean_filename($arg_str);
+                return unless $file;
+                _write_stack_csv($calc, $file, 0);
+            },
+        }
+    );
+    
+    $self->register(
+        appendcsv => {
+            type => 'io',
+            help => 'append current stack to a CSV file',
+            code => sub {
+                my ($calc, $arg_str) = @_;
+                my $file = _clean_filename($arg_str);
+                return unless $file;
+                _write_stack_csv($calc, $file, 1);
             },
         }
     );
@@ -1432,6 +1553,58 @@ sub _print_help_line {
     printf "%-18s %-12s %s\n", $command, $type, $help;
 
     return;
+}
+
+sub _clean_filename {
+    my ($arg_str) = @_;
+
+    my $file = defined($arg_str) ? $arg_str : '';
+
+    $file =~ s/^\s+//;
+    $file =~ s/\s+$//;
+    $file =~ s/^(['"])(.*)\1$/$2/;
+
+    unless (length $file) {
+        warn "filename required\n";
+        return;
+    }
+
+    return $file;
+}
+
+sub _write_stack_csv {
+    my ($calc, $file, $append) = @_;
+
+    my $mode = $append ? '>>' : '>';
+
+    my $needs_header = !$append || !-s $file;
+
+    open my $fh, $mode, $file
+        or warn "Cannot write '$file': $!\n" and return;
+
+    print $fh "index,value\n" if $needs_header;
+
+    my @values = $calc->stack->values;
+
+    my $start = 0;
+
+    if ($append && -s $file) {
+        open my $read_fh, '<', $file;
+        my $lines = 0;
+        $lines++ while <$read_fh>;
+        close $read_fh;
+        $start = $lines > 0 ? $lines - 1 : 0;
+    }
+
+    for my $i (0 .. $#values) {
+        my $value = $values[$i];
+        $value =~ s/"/""/g;
+        print $fh ($start + $i) . ",\"$value\"\n";
+    }
+
+    close $fh;
+
+    return 1;
 }
 
 1;
