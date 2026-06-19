@@ -37,7 +37,7 @@ Architecture
 [x] Stack abstraction
 [x] Automated test suite
 
-Core Calculator
+Core Calculator (Completed)
 
 [x] Arithmetic
 [x] Trigonometry
@@ -45,7 +45,7 @@ Core Calculator
 [x] Display commands
 [x] Conversions
 
-Usability
+Usability (Completed)
 
 [x] Aliases
 [x] Abbreviations
@@ -54,7 +54,7 @@ Usability
 [x] Persistence
 [x] Built-in constants
 
-Advanced
+Advanced (Completed)
 
 [x] Statistics
 [x] Flow control
@@ -62,7 +62,7 @@ Advanced
     if
     ifelse
 
-## Version 3.1.0 (Planned)
+## Version 3.1.0 (Completed)
 
 Custom Constants
 
@@ -80,7 +80,7 @@ answer
 
 delconst answer
 
-## Version 3.2.0 (Planned)
+## Version 3.2.0 (Completed)
 
 File Input / Output
 
@@ -94,15 +94,17 @@ Examples:
 readnums data.txt
 writecsv results.csv
 
-## Version 3.3.0 (Planned)
+## Version 3.3.0
 
-Enhanced Statistics
+Enhanced Statistics (Completed)
 
-[ ] median
-[ ] variance
-[ ] standard deviation
-[ ] product
-[ ] range
+[x] median
+[x] variance
+[x] standard deviation
+[x] product
+[x] range
+
+## Version 3.3.5
 
 ## Version 3.4.0 (Planned)
 

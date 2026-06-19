@@ -1,0 +1,12 @@
+$calc->process_input('1 2 3 4 5');
+$calc->process_input('shuffle');
+
+is($calc->stack->depth, 5, 'shuffle preserves depth');
+
+my @values = sort { $a <=> $b } $calc->stack->values;
+
+is_deeply(
+    \@values,
+    [1,2,3,4,5],
+    'shuffle preserves values'
+);

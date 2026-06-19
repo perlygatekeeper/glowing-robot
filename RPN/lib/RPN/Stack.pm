@@ -172,4 +172,19 @@ sub load_file {
     return $self->load_hash($data);
 }
 
+sub set_values {
+    my ($self, @values) = @_;
+    @{ $self->current_stack } = @values;
+    return;
+}
+
+sub clear_all {
+    my ($self) = @_;
+
+    $self->{stacks} = { s => [] };
+    $self->{current_name} = 's';
+
+    return;
+}
+
 1;

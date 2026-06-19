@@ -16,7 +16,7 @@ RELEASE_NOTES := $(shell ls Release_**.txt)
 .PHONY: backup syntax run test clean
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) Roadmap.txt
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) Roadmap.txt Roadmap_2.txt
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)

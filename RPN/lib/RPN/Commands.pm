@@ -38,6 +38,8 @@ sub _initialize {
         trig       => 'trigonometric functions',
         utility    => 'help, display, quit',
         statistics => 'whole-stack and statistical functions',
+        random   => 'random number functions',
+        datetime => 'date and time functions',
     };
 
     #
@@ -222,14 +224,47 @@ sub _initialize {
 
     $self->register(
         pop => {
+            aliases => ['drop'],
             type => 'stack',
-            help => 'pops the top value from the stack',
+            help => 'remove one or more values from the top of the stack',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+    
+                my $count = 1;
+    
+                if ($args && @$args) {
+                    $count = $args->[0];
+    
+                    unless ($count =~ /^\d+$/ && $count > 0) {
+                        warn "pop count must be a positive integer\n";
+                        return;
+                    }
+                }
+    
+                return unless $calc->stack->require_depth($count);
+    
+                for (1 .. $count) {
+                    $calc->stack->pop;
+                }
+            },
+        }
+    );
+
+    $self->register(
+        shuffle => {
+            type => 'stack',
+            help => 'randomly shuffle the current stack',
             code => sub {
                 my ($calc) = @_;
-
-                return unless $calc->stack->require_depth(1);
-
-                $calc->stack->pop;
+    
+                my @values = $calc->stack->values;
+    
+                for (my $i = $#values; $i > 0; $i--) {
+                    my $j = int(rand($i + 1));
+                    @values[$i, $j] = @values[$j, $i];
+                }
+    
+                $calc->stack->set_values(@values);
             },
         }
     );
@@ -401,7 +436,6 @@ sub _initialize {
             help    => 'replaces the number on top of the stack with its cosine',
             code    => sub {
                 my ($calc) = @_;
-
                 $self->_unary_numeric(
                     $calc,
                     sub { cos($calc->angle_to_radians($_[0])) }
@@ -417,18 +451,14 @@ sub _initialize {
             help    => 'replaces the number on top of the stack with its tangent',
             code    => sub {
                 my ($calc) = @_;
-    
                 return unless $calc->stack->require_depth(1);
-    
                 my $value   = $calc->stack->peek;
                 my $radians = $calc->angle_to_radians($value);
                 my $cosine  = cos($radians);
-    
                 if ($calc->nearly_zero($cosine)) {
                     warn "tangent undefined at $value\n";
                     return;
                 }
-    
                 $calc->stack->pop;
                 $calc->stack->push(sin($radians) / $cosine);
             },
@@ -446,9 +476,7 @@ sub _initialize {
             help    => 'prints top value on stack without popping it',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 print $calc->stack->peek . "\n";
             },
         }
@@ -460,9 +488,7 @@ sub _initialize {
             help => 'pops and prints the top value on the stack',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 print $calc->stack->pop . "\n";
             },
         }
@@ -475,9 +501,7 @@ sub _initialize {
             help    => 'prints the entire stack without changing it',
             code    => sub {
                 my ($calc) = @_;
-
                 my @values = $calc->stack->values;
-
                 for (my $i = 0; $i < @values; $i++) {
                     printf "%3d:\t%s\n", $i, $values[$i];
                 }
@@ -491,11 +515,8 @@ sub _initialize {
             help => 'prints the top value using a printf format without popping it',
             code => sub {
                 my ($calc, $arg_str) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my $format = $self->_clean_format($arg_str);
-
                 printf "$format\n", $calc->stack->peek;
             },
         }
@@ -507,11 +528,8 @@ sub _initialize {
             help => 'pops and prints the top value using a printf format',
             code => sub {
                 my ($calc, $arg_str) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my $format = $self->_clean_format($arg_str);
-
                 printf "$format\n", $calc->stack->pop;
             },
         }
@@ -524,9 +542,7 @@ sub _initialize {
             help    => 'prints the top value as a decimal integer without popping it',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 printf "%d\n", $calc->stack->peek;
             },
         }
@@ -539,9 +555,7 @@ sub _initialize {
             help    => 'prints the top value in hexadecimal without popping it',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 printf "0x%x\n", $calc->stack->peek;
             },
         }
@@ -554,9 +568,7 @@ sub _initialize {
             help    => 'prints the top value in octal without popping it',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 printf "0%o\n", $calc->stack->peek;
             },
         }
@@ -569,14 +581,11 @@ sub _initialize {
             help    => 'prints the top value in binary without popping it',
             code    => sub {
                 my ($calc, $arg_str) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my $width = '';
                 if (defined $arg_str && $arg_str =~ /^\s*(\d+)\s*$/) {
                     $width = $1;
                 }
-
                 if (length $width) {
                     printf "%0${width}b\n", $calc->stack->peek;
                 }
@@ -610,11 +619,9 @@ sub _initialize {
             help => 'saves history and stacks',
             code => sub {
                 my ($calc) = @_;
-
                 $calc->save_history;
                 $calc->save_stacks;
                 $calc->save_constants;
-
                 print "Saved history, stacks, and constants.\n";
             },
         }
@@ -663,16 +670,12 @@ sub _initialize {
             help => 'lists commands that have aliases',
             code => sub {
                 my ($calc) = @_;
-    
                 my $commands = $self->commands;
-    
                 printf "%-18s %s\n", "Command", "Aliases";
                 printf "%-18s %s\n", "-" x 18, "-" x 30;
-    
                 foreach my $command (sort keys %$commands) {
                     my $aliases = $commands->{$command}{aliases}
                         or next;
-    
                     printf "%-18s %s\n", $command, join(", ", @$aliases);
                 }
             },
@@ -686,13 +689,10 @@ sub _initialize {
             help    => 'lists shortest usable abbreviations for commands',
             code    => sub {
                 my ($calc) = @_;
-    
                 my $commands = $self->commands;
                 my $abbrevs  = $self->abbrevs;
-    
                 printf "%-18s %s\n", "Command", "Shortest";
                 printf "%-18s %s\n", "-" x 18, "-" x 20;
-    
                 foreach my $command (sort keys %$commands) {
                     my @matches =
                         sort { length($a) <=> length($b) || $a cmp $b }
@@ -701,14 +701,11 @@ sub _initialize {
                                 && index($command, $_) == 0
                         }
                         keys %$abbrevs;
-    
                     my $short = $matches[0] || $command;
-    
                     my $display = $command;
                     if (length($short) < length($command)) {
                         substr($display, length($short), 0) = '-';
                     }
-    
                     printf "%-18s %s\n", $command, $display;
                 }
             },
@@ -750,7 +747,7 @@ sub _initialize {
     #
     # Conversions
     #
-    
+
     $self->register(
         degrees_radians => {
             aliases => ['dtor'],
@@ -762,7 +759,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         radians_degrees => {
             aliases => ['rtod'],
@@ -774,7 +771,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         fahrenheit_celsius => {
             aliases => ['ftoc'],
@@ -786,7 +783,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         celsius_fahrenheit => {
             aliases => ['ctof'],
@@ -798,7 +795,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         kilometer_mile => {
             aliases => ['ktom'],
@@ -810,7 +807,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         mile_kilometer => {
             aliases => ['mtok'],
@@ -822,7 +819,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         centimeter_inch => {
             aliases => ['ctoi'],
@@ -834,7 +831,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         inch_centimeter => {
             aliases => ['itoc'],
@@ -846,7 +843,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         gram_ounce => {
             aliases => ['gtoo'],
@@ -858,7 +855,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         ounce_gram => {
             aliases => ['otog'],
@@ -870,7 +867,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         kilogram_pound => {
             aliases => ['ktop'],
@@ -882,7 +879,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         pound_kilogram => {
             aliases => ['ptok'],
@@ -894,7 +891,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         liter_quart => {
             aliases => ['ltoq'],
@@ -906,7 +903,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         quart_liter => {
             aliases => ['qtol'],
@@ -1407,26 +1404,20 @@ sub _initialize {
             help    => 'replaces the entire stack with the population variance',
             code    => sub {
                 my ($calc) = @_;
-    
                 return unless $calc->stack->require_depth(1);
-    
                 my @values = $calc->stack->values;
                 my $n = @values;
-    
                 my $sum = 0;
                 $sum += $_ for @values;
-    
                 my $mean = $sum / $n;
-    
                 my $ss = 0;
                 $ss += ($_ - $mean) ** 2 for @values;
-    
                 $calc->stack->clear;
                 $calc->stack->push($ss / $n);
             },
         }
     );
-    
+
     $self->register(
         stddev => {
             aliases => ['stdev'],
@@ -1434,22 +1425,246 @@ sub _initialize {
             help    => 'replaces the entire stack with the population standard deviation',
             code    => sub {
                 my ($calc) = @_;
-    
                 return unless $calc->stack->require_depth(1);
-    
                 my @values = $calc->stack->values;
                 my $n = @values;
-    
                 my $sum = 0;
                 $sum += $_ for @values;
-    
                 my $mean = $sum / $n;
-    
                 my $ss = 0;
                 $ss += ($_ - $mean) ** 2 for @values;
-    
                 $calc->stack->clear;
                 $calc->stack->push(sqrt($ss / $n));
+            },
+        }
+    );
+
+    #
+    # Extra stack operations
+    #
+    
+    $self->register(
+        reverse => {
+            type => 'stack',
+            help => 'reverse the current stack',
+            code => sub {
+                my ($calc) = @_;
+                my @values = reverse $calc->stack->values;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+    
+    $self->register(
+        pick => {
+            type => 'stack',
+            help => 'copy value at depth N to the top of the stack',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pick requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                $calc->stack->push($calc->stack->peek_at($n));
+            },
+        }
+    );
+    
+    $self->register(
+        pullup => {
+            aliases => ['rollup'],
+            type    => 'stack',
+            help    => 'move value at depth N to the top of the stack',
+            code    => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pullup requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                my @values = $calc->stack->values;
+                my $value  = splice @values, $n, 1;
+                unshift @values, $value;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        pushdown => {
+            type => 'stack',
+            help => 'move the top value down to depth N',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pushdown requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                my @values = $calc->stack->values;
+                my $value  = shift @values;
+                splice @values, $n, 0, $value;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        roll => {
+            type => 'stack',
+            help => 'circularly rotate the whole stack by N positions; default is -1',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : -1;
+                unless (defined $n && $n =~ /^-?\d+$/ && $n != 0) {
+                    warn "roll requires a non-zero integer\n";
+                    return;
+                }
+                my @values = $calc->stack->values;
+                my $size   = @values;
+                return if $size < 2;
+                $n %= $size;
+                if ($n < 0) {
+                    @values = (@values[-$n .. $#values], @values[0 .. -$n - 1]);
+                }
+                elsif ($n > 0) {
+                    @values = (@values[$size - $n .. $#values], @values[0 .. $size - $n - 1]);
+                }
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        clearall => {
+            type => 'stack',
+            help => 'clear all stacks and return to the default stack',
+            code => sub {
+                my ($calc) = @_;
+                $calc->stack->clear_all;
+                print "All stacks cleared.\n";
+            },
+        }
+    );
+
+    #
+    # Random numbers
+    #
+
+    $self->register(
+        rand => {
+            type => 'random',
+            help => 'push a random floating point number in the range [0,1)',
+            code => sub {
+                my ($calc) = @_;
+                $calc->stack->push(rand());
+            },
+        }
+    );
+
+    $self->register(
+        randint => {
+            type => 'random',
+            help => 'push a random integer; randint N gives 1..N, randint A B gives A..B',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my ($low, $high);
+                if ($args && @$args == 1) {
+                    $low  = 1;
+                    $high = $args->[0];
+                }
+                elsif ($args && @$args >= 2) {
+                    ($low, $high) = @$args[0, 1];
+                }
+                else {
+                    warn "usage: randint <high> or randint <low> <high>\n";
+                    return;
+                }
+                unless ($low =~ /^-?\d+$/ && $high =~ /^-?\d+$/) {
+                    warn "randint requires integer arguments\n";
+                    return;
+                }
+                if ($high < $low) {
+                    ($low, $high) = ($high, $low);
+                }
+                my $value = $low + int(rand($high - $low + 1));
+                $calc->stack->push($value);
+            },
+        }
+    );
+
+    $self->register(
+        seed => {
+            type => 'random',
+            help => 'seed the random number generator',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $seed = $args && @$args ? $args->[0] : time;
+                srand($seed);
+                $calc->stack->push($seed);
+            },
+        }
+    );
+
+    #
+    # Date / time
+    #
+
+    $self->register(
+        now => {
+            type => 'datetime',
+            help => 'push current epoch time',
+            code => sub {
+                my ($calc) = @_;
+                $calc->stack->push(time);
+            },
+        }
+    );
+    
+    $self->register(
+        today => {
+            type => 'datetime',
+            help => 'push current date as YYYY-MM-DD',
+            code => sub {
+                my ($calc) = @_;
+                my @t = localtime;
+                $calc->stack->push(sprintf "%04d-%02d-%02d", $t[5] + 1900, $t[4] + 1, $t[3]);
+            },
+        }
+    );
+
+    $self->register(
+        time => {
+            type => 'datetime',
+            help => 'push current time as HH:MM:SS',
+            code => sub {
+                my ($calc) = @_;
+                my @t = localtime;
+                $calc->stack->push(sprintf "%02d:%02d:%02d", $t[2], $t[1], $t[0]);
+            },
+        }
+    );
+    
+    $self->register(
+        datetime => {
+            type => 'datetime',
+            help => 'push current date and time as YYYY-MM-DD HH:MM:SS',
+            code => sub {
+                my ($calc) = @_;
+                my @t = localtime;
+                $calc->stack->push(
+                    sprintf "%04d-%02d-%02d %02d:%02d:%02d",
+                        $t[5] + 1900,
+                        $t[4] + 1,
+                        $t[3],
+                        $t[2],
+                        $t[1],
+                        $t[0]
+                );
             },
         }
     );

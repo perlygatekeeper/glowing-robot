@@ -14,7 +14,7 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.3.0',
+        version    => '3.3.5',
         debug      => 0,
         angle_mode => 'radians',
         commands   => undef,
