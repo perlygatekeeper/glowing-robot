@@ -8,7 +8,6 @@ Enhanced Statistics (Completed)
 [x] product
 [x] range
 
-
 ## Version 3.3.5
 
 Quality of Life (Completed)
@@ -37,7 +36,6 @@ Quality of Life (Completed)
 [x] time
 [x] datetime
 
-
 ## Version 3.3.6
 
 Sequence and Selection (Completed)
@@ -62,7 +60,6 @@ Sequence and Selection (Completed)
 [x] descending ranges
 [x] string ranges
 [x] explicit step ranges
-
 
 ## Version 3.4.0
 
@@ -89,7 +86,6 @@ Variables (Completed)
 [x] namespace protection
 
 [x] variable tests
-
 
 ## Version 3.4.5
 
@@ -136,29 +132,31 @@ Scientific & Financial Toolkit (Completed)
 [x] t/22_Financial.t
 [x] t/23_NumberTheory.t
 
-
 ## Version 3.5.0
 
-User-Defined Functions
+User-Defined Functions (Completed)
 
-[ ] Functions.pm
+[x] Functions.pm
 
-[ ] def
-[ ] undef
+[x] def
+[x] undef
 
-[ ] functions
+[x] functions
 
-[ ] savefuncs
-[ ] loadfuncs
+[x] savefuncs
+[x] loadfuncs
 
-[ ] function persistence
+[x] function persistence
 
-[ ] bare-word function execution
+[x] bare-word function execution
 
-[ ] namespace protection
+[x] namespace protection
 
-[ ] function tests
+[x] command alias protection
 
+[x] lookup order redesign
+
+[x] t/24_Functions.t
 
 ## Version 3.6.0
 
@@ -178,7 +176,6 @@ Vector Mathematics
 
 [ ] vector tests
 
-
 ## Version 3.7.0
 
 Matrix Mathematics
@@ -195,7 +192,6 @@ Matrix Mathematics
 
 [ ] matrix tests
 
-
 ## Version 4.0.0
 
 Transformations
@@ -209,7 +205,6 @@ Transformations
 
 [ ] transformation tests
 
-
 ## Version 5.0.0
 
 Graphics (Optional)
@@ -219,21 +214,20 @@ Graphics (Optional)
 [ ] function visualization
 [ ] export graphics
 
-
 ## Future Ideas
 
-[ ] scientific constant packs expansion
+[ ] scientific constant pack expansion
 
-[ ] physics
-[ ] chemistry
-[ ] astronomy
-[ ] electrical engineering
-[ ] mechanical engineering
-
-[ ] HTTP/API import
+[ ] units and dimensional analysis
 
 [ ] JSON import/export
 
+[ ] HTTP/API import
+
 [ ] spreadsheet integration
 
-[ ] units and dimensional analysis
+[ ] programmable scripts
+
+[ ] user libraries
+
+[ ] package/import system

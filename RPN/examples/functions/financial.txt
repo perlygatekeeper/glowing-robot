@@ -1,0 +1,16 @@
+# RPN Example Functions: Financial
+#
+# These assume rates are entered as decimals.
+# Example: 5% = 0.05
+
+monthly_rate = 12 divide
+
+annual_to_monthly = 12 divide
+
+monthly_to_annual = 12 multiply
+
+double_rule_72 = 72 exchange divide
+
+ten_year_fv = 0.05 10 fv
+
+mortgage_monthly_payment = 12 multiply exch 12 divide exch pmt

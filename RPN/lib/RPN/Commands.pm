@@ -44,6 +44,8 @@ sub _initialize {
         variable      => 'named variables and storage',
         financial     => 'financial compound interest calculations',
         number_theory => 'prime, factor, gcd, lcm, divisor functions',
+        function      => 'user-defined functions',
+        io            => 'file input and output',
     };
 
     #
@@ -1837,7 +1839,7 @@ sub _initialize {
                     return;
                 }
 
-                if ($self->command($name)) {
+                if ($self->is_registered_command_name($name)) {
                     warn "Cannot store variable '$name': name already used by a command\n";
                     return;
                 }
@@ -2170,6 +2172,105 @@ sub _initialize {
         }
     );
 
+    #
+    # User-defined functions
+    #
+
+    $self->register(
+        def => {
+            type => 'function',
+            help => 'define a user function: def <name> <body>',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                unless ($args && @$args >= 2) {
+                    warn "usage: def <name> <body>\n";
+                    return;
+                }
+                my $name = shift @$args;
+                my $body = join ' ', @$args;
+                unless ($name =~ /^[A-Za-z_]\w*$/) {
+                    warn "Invalid function name '$name'\n";
+                    return;
+                }
+                if ($calc->constants->exists($name)) {
+                    warn "Cannot define function '$name': name already used by a constant\n";
+                    return;
+                }
+                if ($self->is_registered_command_name($name)) {
+                    warn "Cannot define function '$name': name already used by a command\n";
+                    return;
+                }
+                if ($calc->variables->exists($name)) {
+                    warn "Cannot define function '$name': name already used by a variable\n";
+                    return;
+                }
+                $body =~ s/^(['"])(.*)\1$/$2/;
+                $calc->functions->set($name, $body);
+            },
+        }
+    );
+
+    $self->register(
+        undef => {
+            type => 'function',
+            help => 'delete a user function',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                unless ($args && @$args) {
+                    warn "usage: undef <name>\n";
+                    return;
+                }
+                my $name = $args->[0];
+                unless ($calc->functions->exists($name)) {
+                    warn "No such function '$name'\n";
+                    return;
+                }
+                $calc->functions->delete($name);
+            },
+        }
+    );
+
+    $self->register(
+        functions => {
+            aliases => ['funcs'],
+            type    => 'function',
+            help    => 'list user-defined functions',
+            code    => sub {
+                my ($calc) = @_;
+                printf "%-18s %s\n", "Name", "Body";
+                printf "%-18s %s\n", "-" x 18, "-" x 40;
+                foreach my $name ($calc->functions->names) {
+                    printf "%-18s %s\n",
+                        $name,
+                        $calc->functions->get($name);
+                }
+            },
+        }
+    );
+
+    $self->register(
+        savefuncs => {
+            type => 'function',
+            help => 'save user-defined functions to disk',
+            code => sub {
+                my ($calc) = @_;
+                $calc->save_functions;
+                print "Saved functions.\n";
+            },
+        }
+    );
+
+    $self->register(
+        loadfuncs => {
+            type => 'function',
+            help => 'load user-defined functions from disk',
+            code => sub {
+                my ($calc) = @_;
+                $calc->load_functions;
+                print "Loaded functions.\n";
+            },
+        }
+    );
 
     #
     # END OF COMMANDS
@@ -2220,6 +2321,31 @@ sub command {
     return $self->{commands}{$real};
 }
 
+sub registered_command {
+    my ($self, $name) = @_;
+
+    return $self->{commands}{$name}
+        if exists $self->{commands}{$name};
+
+    foreach my $command_name (keys %{ $self->{commands} }) {
+        my $command = $self->{commands}{$command_name};
+
+        next unless $command->{aliases};
+
+        foreach my $alias (@{ $command->{aliases} }) {
+            return $command if $alias eq $name;
+        }
+    }
+
+    return;
+}
+
+sub is_registered_command_name {
+    my ($self, $name) = @_;
+
+    return defined $self->registered_command($name);
+}
+
 sub execute {
     my ($self, $calc, $input) = @_;
     my ($command, $args) = $input =~ /^\s*(\S+)\s*(.*)$/;
@@ -2232,6 +2358,27 @@ sub execute {
     my $code = $entry->{code}
         or return 0;
     $code->($calc, $args, \@arguments);
+    return 1;
+}
+
+sub execute_registered {
+    my ($self, $calc, $input) = @_;
+
+    my ($command, $args) = $input =~ /^\s*(\S+)\s*(.*)$/;
+    return unless defined $command;
+
+    my @arguments = length($args || '')
+        ? split /\s+/, $args
+        : ();
+
+    my $entry = $self->registered_command($command)
+        or return 0;
+
+    my $code = $entry->{code}
+        or return 0;
+
+    $code->($calc, $args, \@arguments);
+
     return 1;
 }
 

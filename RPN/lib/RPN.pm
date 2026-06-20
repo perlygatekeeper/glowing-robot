@@ -8,6 +8,7 @@ use RPN::Stack;
 use RPN::Commands;
 use RPN::Constants;
 use RPN::Variables;
+use RPN::Functions;
 use Term::ReadLine;
 use Data::Dumper;
 use Math::Prime::Util qw(is_prime);
@@ -16,16 +17,17 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.4.5',
+        version    => '3.5.0',
         debug      => 0,
         angle_mode => 'radians',
         commands   => undef,
         term       => undef,
-        constants  => RPN::Constants->new(),
-        variables  => RPN::Variables->new(),
         stack      => RPN::Stack->new(),
+        constants  => RPN::Constants->new(),
+        functions  => RPN::Functions->new(),
+        variables  => RPN::Variables->new(),
         history    => [],
-        io => 'file input and output',
+        function_call_stack => [],      
     };
 
     bless $self, $class;
@@ -37,6 +39,7 @@ sub new {
     $self->load_history;
     $self->load_stacks;
     $self->load_constants;
+    $self->load_functions;
     $self->load_variables;
 
     $self->{commands} = RPN::Commands->new($self);
@@ -62,6 +65,11 @@ sub stacks_file {
 sub constants_file {
     my ($self) = @_;
     return $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants";
+}
+
+sub functions_file {
+    my ($self) = @_;
+    return $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions";
 }
 
 sub add_history {
@@ -160,6 +168,16 @@ sub variables {
     return $self->{variables};
 }
 
+sub load_functions {
+    my ($self) = @_;
+    return $self->functions->load_file($self->functions_file);
+}
+
+sub save_functions {
+    my ($self) = @_;
+    return $self->functions->save_file($self->functions_file);
+}
+
 sub nearly_zero {
     my ($self, $value) = @_;
     return abs($value) < 1e-12;
@@ -183,8 +201,14 @@ sub run {
     $self->save_stacks;
     $self->save_constants;;
     $self->save_variables;
+    $self->save_functions;
 
     return;
+}
+
+sub functions {
+    my ($self) = @_;
+    return $self->{functions};
 }
 
 sub stack {
@@ -214,14 +238,26 @@ sub process_input {
 
     return unless length $input;
 
-    #
-    # Quoted string input.
+    # We examine the input and perform the lookup search in the following order:
+    # This ordering is IMPORTANT for maintaining a sane and working namespace
+    # of commands, aliases, user-defined functions, variables, constants and abbreviated command names
+    # 
+    # 1) Quoted string
+    # 2) Numeric list
+    # 3) Single Number
+    # 4) Command or an Alias (named exactly, names registered, ie. not abbreviated)
+    # 5) Function
+    # 6) Constant
+    # 7) Variable
+    # 8) Abbreviated Command
+    # 9) Unknown
+
+    # 1) Quoted string input.
     # Accepts:
     #   "hello
     #   "hello"
     #   'hello
     #   'hello'
-    #
 
     if ($input =~ /^(['"])(.*)$/) {
         my $quote = $1;
@@ -235,13 +271,12 @@ sub process_input {
     }
 
     #
-    # Numeric list input.
+    # 2) Numeric list input.
     # Accepts:
     #   12 14 18 20 16
     #   12,14,18,20,16
     #   12, 14, 18, 20, 16
     #   12;14;18
-    #
 
     if ($self->is_number_list($input)) {
         my @tokens = grep { length } split /[\s,;]+/, $input;
@@ -254,7 +289,7 @@ sub process_input {
     }
 
     #
-    # Single number input.
+    # 3) Single number input.
     #
 
     if ($self->isanumber($input)) {
@@ -263,7 +298,32 @@ sub process_input {
     }
 
     #
-    # Constant input.
+    # 4) Registered commands or aliases
+    #
+
+    if ($self->commands->execute_registered($self, $input)) {
+        return;
+    }
+
+    #
+    # 5) User-defined Functions
+    #
+
+    if ($input =~ /^[A-Za-z_]\w*$/ && $self->functions->exists($input)) {
+        $self->execute_function($input);
+
+        #       removed to make recursion possible
+        #       my $body = $self->functions->get($input);
+        #       foreach my $token (split /\s+/, $body) {
+        #           next unless length $token;
+        #           $self->process_input($token);
+        #       }
+        #
+        return;
+    }
+
+    #
+    # 6) Constants
     #
 
     if ($input =~ /^[A-Za-z_]\w*$/ && $self->constants->exists($input)) {
@@ -272,21 +332,23 @@ sub process_input {
     }
 
     #
-    # Variables input.
+    # 7) Variables
     #
 
     if ($input =~ /^[A-Za-z_]\w*$/ && $self->variables->exists($input)) {
         $self->stack->push($self->variables->get($input));
-        return 1;
+        return;
     }
 
     #
-    # Command input.
+    # 8) Abbreviated Commands
     #
 
-    unless ($self->commands->execute($self, $input)) {
-        warn "Unknown input: $input\n";
+    if ($self->commands->execute($self, $input)) {
+        return;
     }
+
+    warn "Unknown input: $input\n";
 
     return;
 }
@@ -360,6 +422,33 @@ sub angle_to_radians {
     my ($self, $value) = @_;
     return $value if $self->angle_mode eq 'radians';
     return $value * atan2(1, 1) / 45;
+}
+
+sub execute_function {
+    my ($self, $name) = @_;
+
+    unless ($self->functions->exists($name)) {
+        warn "No such function '$name'\n";
+        return;
+    }
+
+    if (grep { $_ eq $name } @{ $self->{function_call_stack} }) {
+        warn "Recursive function call detected: $name\n";
+        return;
+    }
+
+    push @{ $self->{function_call_stack} }, $name;
+
+    my $body = $self->functions->get($name);
+
+    foreach my $token (split /\s+/, $body) {
+        next unless length $token;
+        $self->process_input($token);
+    }
+
+    pop @{ $self->{function_call_stack} };
+
+    return 1;
 }
 
 1;

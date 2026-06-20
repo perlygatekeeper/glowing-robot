@@ -1,0 +1,10 @@
+# RPN Example Functions: Number Theory
+
+next_twin_prime_candidate = nextprime duplicate 2 add isprime
+
+is_even = 2 modulo 0 ==
+is_odd  = 2 modulo 1 ==
+
+square_then_nextprime = sq nextprime
+
+factor_count = factor count
