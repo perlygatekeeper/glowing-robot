@@ -1,12 +1,207 @@
-$calc->process_input('1 2 3 4 5');
-$calc->process_input('shuffle');
+RPN Calculator
+Roadmap
+=======
 
-is($calc->stack->depth, 5, 'shuffle preserves depth');
+## Current Release
 
-my @values = sort { $a <=> $b } $calc->stack->values;
+v3.3.0
 
-is_deeply(
-    \@values,
-    [1,2,3,4,5],
-    'shuffle preserves values'
-);
+## Completed Releases
+
+v3.0.0
+Object-Oriented Rewrite
+
+```
+Core calculator architecture
+Stack subsystem
+Commands subsystem
+Help system
+History subsystem
+Persistence subsystem
+Boolean operations
+Trigonometric functions
+Conversion functions
+Statistics functions
+Flow control functions
+```
+
+v3.1.0
+Custom Constants
+
+```
+RPN::Constants module
+Built-in mathematical constants
+User-defined constants
+Constant persistence
+Constant file loading
+Constant file saving
+Example constant packs
+```
+
+v3.2.0
+File I/O
+
+```
+readnums
+readcsv
+readcolumn
+writecsv
+appendcsv
+```
+
+v3.3.0
+Enhanced Statistics
+
+```
+product
+range
+median
+variance
+stddev
+```
+
+## Near-Term Releases
+
+v3.3.5
+Quality of Life
+
+```
+Stack Operations
+    reverse
+    pop N
+    pick N
+    pullup N
+    pushdown N
+    roll N
+    shuffle
+    clearall
+
+Random Numbers
+    rand
+    randint
+    seed
+
+Date / Time
+    now
+    today
+    time
+    datetime
+```
+
+v3.4.0
+Variables
+
+```
+store
+recall
+variables
+delvar
+
+Variable persistence
+```
+
+v3.5.0
+User Functions
+
+```
+Define user commands
+Execute user commands
+Function persistence
+Function listing
+Function deletion
+```
+
+## Medium-Term Releases
+
+v3.6.0
+Vector Mathematics
+
+```
+Vector literals
+vadd
+vsub
+vscale
+dot
+cross
+magnitude
+normalize
+```
+
+v3.7.0
+Matrix Mathematics
+
+```
+Matrix literals
+madd
+msub
+mmul
+determinant
+inverse
+transpose
+```
+
+v4.0.0
+Transformations
+
+```
+2D transformation matrices
+3D transformation matrices
+
+Translation
+Rotation
+Scaling
+
+Coordinate transforms
+```
+
+## Future Releases
+
+v4.5.0
+Advanced Mathematics
+
+```
+Complex numbers
+Polynomial operations
+Additional statistics
+Probability functions
+```
+
+v5.0.0
+Graphics
+
+```
+Optional graphics subsystem
+
+Plotting
+Function visualization
+Vector visualization
+Matrix visualization
+Transformation visualization
+```
+
+## Possible Future Features
+
+```
+choose
+sample
+permutations
+combinations
+
+HTTP/API data import
+
+JSON support
+
+Spreadsheet import/export
+
+Units and dimensional analysis
+
+Scientific constant libraries
+
+Astronomy constants
+
+Electronics constants
+
+Chemistry constants
+
+Physics constants
+```

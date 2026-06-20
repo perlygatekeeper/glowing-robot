@@ -38,8 +38,9 @@ sub _initialize {
         trig       => 'trigonometric functions',
         utility    => 'help, display, quit',
         statistics => 'whole-stack and statistical functions',
-        random   => 'random number functions',
-        datetime => 'date and time functions',
+        random     => 'random number functions',
+        datetime   => 'date and time functions',
+        sequence   => 'sequence generation and list operations',
     };
 
     #
@@ -1665,6 +1666,133 @@ sub _initialize {
                         $t[1],
                         $t[0]
                 );
+            },
+        }
+    );
+
+    $self->register(
+        sequence => {
+            aliases => ['..', 'seq'],
+            type    => 'sequence',
+            help    => 'generate a sequence from start to stop',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $stop  = $calc->stack->pop;
+                my $start = $calc->stack->pop;
+                my @range;
+                if ($calc->isanumber($start) && $calc->isanumber($stop)) {
+                    if ($start <= $stop) {
+                        for (my $x = $start; $x <= $stop; $x++) {
+                            push @range, $x;
+                        }
+                    }
+                    else {
+                        for (my $x = $start; $x >= $stop; $x--) {
+                            push @range, $x;
+                        }
+                    }
+                }
+                else {
+                    @range = ($start .. $stop);
+                }
+                foreach my $value (@range) {
+                    $calc->stack->push($value);
+                }
+            },
+        }
+    );
+
+    $self->register(
+        sequenceby => {
+            aliases => ['...', 'seqby'],
+            type    => 'sequence',
+            help    => 'generate a numeric sequence with explicit step',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $step  = $calc->stack->pop;
+                my $stop  = $calc->stack->pop;
+                my $start = $calc->stack->pop;
+                unless (
+                    $calc->isanumber($start)
+                    && $calc->isanumber($stop)
+                    && $calc->isanumber($step)
+                ) {
+                    warn "sequenceby requires numeric arguments\n";
+                    return;
+                }
+                if ($step == 0) {
+                    warn "sequenceby step may not be zero\n";
+                    return;
+                }
+                if ($step > 0) {
+                    for (my $x = $start; $x <= $stop; $x += $step) {
+                        $calc->stack->push($x);
+                    }
+                }
+                else {
+                    for (my $x = $start; $x >= $stop; $x += $step) {
+                        $calc->stack->push($x);
+                    }
+                }
+            },
+        }
+    );
+
+    $self->register(
+        choose => {
+            type => 'random',
+            help => 'copy a random stack element to the top',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my @values = $calc->stack->values;
+                my $index = int(rand(@values));
+                $calc->stack->push($values[$index]);
+            },
+        }
+    );
+
+    $self->register(
+        sort => {
+            type => 'sequence',
+            help => 'sort the stack; sort -1 reverses order',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $direction = 1;
+                if ($args && @$args) {
+                    $direction = $args->[0];
+                }
+                my @values = $calc->stack->values;
+                if (@values && $calc->isanumber($values[0])) {
+                    @values =
+                        $direction < 0
+                        ? sort { $b <=> $a } @values
+                        : sort { $a <=> $b } @values;
+                }
+                else {
+                    @values =
+                        $direction < 0
+                        ? sort { $b cmp $a } @values
+                        : sort { $a cmp $b } @values;
+                }
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        unique => {
+            type => 'sequence',
+            help => 'remove duplicate values while preserving order',
+            code => sub {
+                my ($calc) = @_;
+                my %seen;
+                my @values =
+                    grep { !$seen{$_}++ }
+                    $calc->stack->values;
+                $calc->stack->set_values(@values);
             },
         }
     );

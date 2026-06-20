@@ -1,0 +1,225 @@
+RPN Calculator
+Release Notes
+Version 3.3.6
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.3.6 adds sequence generation, random selection,
+sorting, and duplicate removal functionality.
+
+These commands are small individually, but together make
+the calculator significantly more useful for data generation,
+testing, simulations, and general interactive work.
+
+## New Commands
+
+sequence
+
+Aliases:
+
+```
+..
+seq
+```
+
+Generates a sequence from a start value to a stop value.
+
+Examples:
+
+```
+0 10 sequence
+
+10 0 sequence
+
+'a' 'z' sequence
+```
+
+Supports both numeric and string ranges.
+
+sequenceby
+
+Aliases:
+
+```
+...
+seqby
+```
+
+Generates a numeric sequence using an explicit step value.
+
+Examples:
+
+```
+0 10 2 sequenceby
+
+10 0 -2 sequenceby
+```
+
+The step value may not be zero.
+
+choose
+
+Selects a random value from the current stack and copies it
+to the top of the stack.
+
+The original value remains in place.
+
+Example:
+
+```
+1 2 3 4 5
+
+choose
+```
+
+sort
+
+Sorts the current stack.
+
+Examples:
+
+```
+sort
+
+    Ascending order
+
+sort -1
+
+    Descending order
+```
+
+Numeric values are sorted numerically.
+String values are sorted lexically.
+
+unique
+
+Removes duplicate values from the current stack while preserving
+the first occurrence of each value.
+
+## Examples
+
+Generate integers:
+
+```
+1 100 ..
+```
+
+Generate even numbers:
+
+```
+0 20 2 ...
+```
+
+Generate letters:
+
+```
+'a' 'z' ..
+```
+
+Random selection:
+
+```
+choose
+```
+
+Remove duplicates:
+
+```
+unique
+```
+
+Sort data:
+
+```
+sort
+```
+
+Reverse sort:
+
+```
+sort -1
+```
+
+## Testing
+
+Added:
+
+```
+t/20_SequenceAndSelection.t
+```
+
+Coverage includes:
+
+```
+sequence
+sequenceby
+choose
+sort
+unique
+```
+
+Including:
+
+```
+ascending ranges
+descending ranges
+string ranges
+explicit step ranges
+```
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+All functionality from previous releases remains supported.
+
+## Project Status
+
+The calculator now includes:
+
+```
+Arithmetic
+Trigonometry
+Conversions
+Constants
+Persistence
+Statistics
+Flow control
+File I/O
+Random numbers
+Date/time functions
+Sequence generation
+```
+
+and is approaching programmable-calculator territory.
+
+## Next Release
+
+Version 3.4.0
+
+Planned features:
+
+```
+Variables
+
+    store
+    recall
+    variables
+    delvar
+
+Variable persistence
+```
+
+Future planned work:
+
+```
+User-defined commands
+Vector mathematics
+Matrix mathematics
+Transformation matrices
+```
