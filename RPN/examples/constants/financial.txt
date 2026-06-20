@@ -1,0 +1,9 @@
+# RPN Financial Constants
+
+months_per_year = 12
+quarters_per_year = 4
+weeks_per_year = 52
+days_per_year = 365.25
+
+percent = 0.01
+basis_point = 0.0001

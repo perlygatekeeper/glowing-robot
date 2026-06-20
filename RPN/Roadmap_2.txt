@@ -11,7 +11,6 @@ v3.3.0
 v3.0.0
 Object-Oriented Rewrite
 
-```
 Core calculator architecture
 Stack subsystem
 Commands subsystem
@@ -23,12 +22,10 @@ Trigonometric functions
 Conversion functions
 Statistics functions
 Flow control functions
-```
 
 v3.1.0
 Custom Constants
 
-```
 RPN::Constants module
 Built-in mathematical constants
 User-defined constants
@@ -36,36 +33,30 @@ Constant persistence
 Constant file loading
 Constant file saving
 Example constant packs
-```
 
 v3.2.0
 File I/O
 
-```
 readnums
 readcsv
 readcolumn
 writecsv
 appendcsv
-```
 
 v3.3.0
 Enhanced Statistics
 
-```
 product
 range
 median
 variance
 stddev
-```
 
 ## Near-Term Releases
 
 v3.3.5
 Quality of Life
 
-```
 Stack Operations
     reverse
     pop N
@@ -86,37 +77,47 @@ Date / Time
     today
     time
     datetime
-```
+
+v3.3.6
+    Sequence and Selection
+
+    sequence
+    sequenceby
+
+    Aliases
+        ..
+        ...
+        seq
+        seqby
+
+    choose
+    sort
+    unique
 
 v3.4.0
-Variables
+    Variables
 
-```
-store
-recall
-variables
-delvar
+    store
+    recall
+    variables
+    delvar
 
-Variable persistence
-```
+    Variable persistence
 
 v3.5.0
 User Functions
 
-```
 Define user commands
 Execute user commands
 Function persistence
 Function listing
 Function deletion
-```
 
 ## Medium-Term Releases
 
 v3.6.0
 Vector Mathematics
 
-```
 Vector literals
 vadd
 vsub
@@ -125,12 +126,10 @@ dot
 cross
 magnitude
 normalize
-```
 
 v3.7.0
 Matrix Mathematics
 
-```
 Matrix literals
 madd
 msub
@@ -138,12 +137,10 @@ mmul
 determinant
 inverse
 transpose
-```
 
 v4.0.0
 Transformations
 
-```
 2D transformation matrices
 3D transformation matrices
 
@@ -152,24 +149,20 @@ Rotation
 Scaling
 
 Coordinate transforms
-```
 
 ## Future Releases
 
 v4.5.0
 Advanced Mathematics
 
-```
 Complex numbers
 Polynomial operations
 Additional statistics
 Probability functions
-```
 
 v5.0.0
 Graphics
 
-```
 Optional graphics subsystem
 
 Plotting
@@ -177,11 +170,9 @@ Function visualization
 Vector visualization
 Matrix visualization
 Transformation visualization
-```
 
 ## Possible Future Features
 
-```
 choose
 sample
 permutations
@@ -204,4 +195,3 @@ Electronics constants
 Chemistry constants
 
 Physics constants
-```

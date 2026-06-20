@@ -71,4 +71,14 @@ stdout_like(
     'abbreviations output contains add command'
 );
 
+#
+#  types
+#
+
+stdout_like(
+    sub { $calc->process_input('types') },
+    qr/Type\s+Description.*financial.*number_theory.*numeric.*stack.*/s,
+    'types lists command types'
+);
+
 done_testing();

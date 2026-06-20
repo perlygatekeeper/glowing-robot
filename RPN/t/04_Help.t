@@ -39,4 +39,10 @@ stderr_like(
     'help unknown command warns'
 );
 
+stdout_like(
+    sub { $calc->process_input('help types') },
+    qr/Type\s+Description.*numeric.*stack/s,
+    'help types lists command types'
+);
+
 done_testing();

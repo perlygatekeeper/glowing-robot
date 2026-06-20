@@ -27,21 +27,23 @@ sub _initialize {
     my ($self) = @_;
 
     $self->{types} = {
-        boolean    => 'true or false',
-        constant   => 'named constants',
-        conversion => 'unit conversions',
-        debug      => 'developer functions',
-        flow       => 'flow control',
-        numeric    => 'arithmetic functions',
-        stack      => 'stack manipulation',
-        string     => 'string operations',
-        trig       => 'trigonometric functions',
-        utility    => 'help, display, quit',
-        statistics => 'whole-stack and statistical functions',
-        random     => 'random number functions',
-        datetime   => 'date and time functions',
-        sequence   => 'sequence generation and list operations',
-        variable   => 'named variable storage',
+        boolean       => 'true or false',
+        constant      => 'named constants',
+        conversion    => 'unit conversions',
+        debug         => 'developer functions',
+        flow          => 'flow control',
+        numeric       => 'arithmetic functions',
+        stack         => 'stack manipulation',
+        string        => 'string operations',
+        trig          => 'trigonometric functions',
+        utility       => 'help, display, quit',
+        statistics    => 'whole-stack and statistical functions',
+        random        => 'random number functions',
+        datetime      => 'date and time functions',
+        sequence      => 'sequence generation and list operations',
+        variable      => 'named variables and storage',
+        financial     => 'financial compound interest calculations',
+        number_theory => 'prime, factor, gcd, lcm, divisor functions',
     };
 
     #
@@ -231,20 +233,20 @@ sub _initialize {
             help => 'remove one or more values from the top of the stack',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
-    
+
                 my $count = 1;
-    
+
                 if ($args && @$args) {
                     $count = $args->[0];
-    
+
                     unless ($count =~ /^\d+$/ && $count > 0) {
                         warn "pop count must be a positive integer\n";
                         return;
                     }
                 }
-    
+
                 return unless $calc->stack->require_depth($count);
-    
+
                 for (1 .. $count) {
                     $calc->stack->pop;
                 }
@@ -258,14 +260,14 @@ sub _initialize {
             help => 'randomly shuffle the current stack',
             code => sub {
                 my ($calc) = @_;
-    
+
                 my @values = $calc->stack->values;
-    
+
                 for (my $i = $#values; $i > 0; $i--) {
                     my $j = int(rand($i + 1));
                     @values[$i, $j] = @values[$j, $i];
                 }
-    
+
                 $calc->stack->set_values(@values);
             },
         }
@@ -337,7 +339,7 @@ sub _initialize {
         '!=',
         '<=>',
     ) {
-         
+
              $self->register(
                  $op => {
                      type => 'boolean',
@@ -665,7 +667,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         aliases => {
             type => 'utility',
@@ -683,7 +685,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         abbreviations => {
             aliases => ['abbrevs'],
@@ -919,6 +921,17 @@ sub _initialize {
     );
 
     $self->register(
+        types => {
+            type => 'utility',
+            help => 'list command types',
+            code => sub {
+                my ($calc) = @_;
+                $self->print_types;
+            },
+        }
+    );
+
+    $self->register(
         help => {
             aliases => ['?'],
             type    => 'utility',
@@ -1054,7 +1067,7 @@ sub _initialize {
     #
     # Whole-stack / statistics
     #
-    
+
     $self->register(
         count => {
             type => 'statistics',
@@ -1065,7 +1078,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         sum => {
             type => 'statistics',
@@ -1083,7 +1096,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         average => {
             aliases => ['avg'],
@@ -1102,7 +1115,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         minimum => {
             aliases => ['min'],
@@ -1121,7 +1134,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         maximum => {
             aliases => ['max'],
@@ -1144,7 +1157,7 @@ sub _initialize {
     #
     # Flow / programmability
     #
-    
+
     $self->register(
         execute => {
             aliases => ['exec'],
@@ -1160,7 +1173,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         if => {
             aliases => ['ifthen'],
@@ -1179,7 +1192,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         ifelse => {
             type => 'flow',
@@ -1311,7 +1324,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         appendcsv => {
             type => 'io',
@@ -1335,70 +1348,70 @@ sub _initialize {
             help => 'replaces the entire stack with the product of its values',
             code => sub {
                 my ($calc) = @_;
-    
+
                 return unless $calc->stack->require_depth(1);
-    
+
                 my @values = $calc->stack->values;
                 my $product = 1;
-    
+
                 $product *= $_ for @values;
-    
+
                 $calc->stack->clear;
                 $calc->stack->push($product);
             },
         }
     );
-    
+
     $self->register(
         range => {
             type => 'statistics',
             help => 'replaces the entire stack with maximum minus minimum',
             code => sub {
                 my ($calc) = @_;
-    
+
                 return unless $calc->stack->require_depth(1);
-    
+
                 my @values = $calc->stack->values;
                 my ($min, $max) = ($values[0], $values[0]);
-    
+
                 foreach my $value (@values) {
                     $min = $value if $value < $min;
                     $max = $value if $value > $max;
                 }
-    
+
                 $calc->stack->clear;
                 $calc->stack->push($max - $min);
             },
         }
     );
-    
+
     $self->register(
         median => {
             type => 'statistics',
             help => 'replaces the entire stack with the median value',
             code => sub {
                 my ($calc) = @_;
-    
+
                 return unless $calc->stack->require_depth(1);
-    
+
                 my @values = sort { $a <=> $b } $calc->stack->values;
                 my $n = @values;
-    
+
                 my $median;
-    
+
                 if ($n % 2) {
                     $median = $values[int($n / 2)];
                 }
                 else {
                     $median = ($values[$n / 2 - 1] + $values[$n / 2]) / 2;
                 }
-    
+
                 $calc->stack->clear;
                 $calc->stack->push($median);
             },
         }
     );
-    
+
     $self->register(
         variance => {
             aliases => ['var'],
@@ -1444,7 +1457,7 @@ sub _initialize {
     #
     # Extra stack operations
     #
-    
+
     $self->register(
         reverse => {
             type => 'stack',
@@ -1456,7 +1469,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         pick => {
             type => 'stack',
@@ -1473,7 +1486,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         pullup => {
             aliases => ['rollup'],
@@ -1626,7 +1639,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         today => {
             type => 'datetime',
@@ -1650,7 +1663,7 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         datetime => {
             type => 'datetime',
@@ -1801,7 +1814,7 @@ sub _initialize {
     #
     # Variables
     #
-    
+
     $self->register(
         store => {
             aliases => ['sto'],
@@ -1809,38 +1822,38 @@ sub _initialize {
             help    => 'store the top stack value in a variable',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
-    
+
                 unless ($args && @$args) {
                     warn "usage: store <name>\n";
                     return;
                 }
-    
+
                 my $name = $args->[0];
-    
+
                 return unless $calc->stack->require_depth(1);
-    
+
                 unless ($name =~ /^[A-Za-z_]\w*$/) {
                     warn "Invalid variable name '$name'\n";
                     return;
                 }
-    
+
                 if ($self->command($name)) {
                     warn "Cannot store variable '$name': name already used by a command\n";
                     return;
                 }
-    
+
                 if ($calc->constants->exists($name)) {
                     warn "Cannot store variable '$name': name already used by a constant\n";
                     return;
                 }
-    
+
                 my $value = $calc->stack->peek;
-    
+
                 $calc->variables->set($name, $value);
             },
         }
     );
-    
+
     $self->register(
         recall => {
             aliases => ['rcl'],
@@ -1848,24 +1861,24 @@ sub _initialize {
             help    => 'recall a variable and push it onto the stack',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
-    
+
                 unless ($args && @$args) {
                     warn "usage: recall <name>\n";
                     return;
                 }
-    
+
                 my $name = $args->[0];
-    
+
                 unless ($calc->variables->exists($name)) {
                     warn "No such variable '$name'\n";
                     return;
                 }
-    
+
                 $calc->stack->push($calc->variables->get($name));
             },
         }
     );
-    
+
     $self->register(
         variables => {
             aliases => ['vars'],
@@ -1873,10 +1886,10 @@ sub _initialize {
             help    => 'list stored variables',
             code    => sub {
                 my ($calc) = @_;
-    
+
                 printf "%-18s %s\n", "Name", "Value";
                 printf "%-18s %s\n", "-" x 18, "-" x 30;
-    
+
                 foreach my $name ($calc->variables->names) {
                     printf "%-18s %s\n",
                         $name,
@@ -1885,58 +1898,278 @@ sub _initialize {
             },
         }
     );
-    
+
     $self->register(
         delvar => {
             type => 'variable',
             help => 'delete a stored variable',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
-    
+
                 unless ($args && @$args) {
                     warn "usage: delvar <name>\n";
                     return;
                 }
-    
+
                 my $name = $args->[0];
-    
+
                 unless ($calc->variables->exists($name)) {
                     warn "No such variable '$name'\n";
                     return;
                 }
-    
+
                 $calc->variables->delete($name);
             },
         }
     );
-    
+
     $self->register(
         savevars => {
             type => 'variable',
             help => 'save variables to disk',
             code => sub {
                 my ($calc) = @_;
-    
+
                 $calc->save_variables;
-    
+
                 print "Saved variables.\n";
             },
         }
     );
-    
+
     $self->register(
         loadvars => {
             type => 'variable',
             help => 'load variables from disk',
             code => sub {
                 my ($calc) = @_;
-    
+
                 $calc->load_variables;
-    
+
                 print "Loaded variables.\n";
             },
         }
     );
+
+    #
+    # Financial
+    #
+
+    $self->register(
+        fv => {
+            type => 'financial',
+            help => 'future value: pv rate nper fv',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $nper = $calc->stack->pop;
+                my $rate = $calc->stack->pop;
+                my $pv   = $calc->stack->pop;
+                $calc->stack->push($pv * (1 + $rate) ** $nper);
+            },
+        }
+    );
+
+    $self->register(
+        pv => {
+            type => 'financial',
+            help => 'present value: fv rate nper pv',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $nper = $calc->stack->pop;
+                my $rate = $calc->stack->pop;
+                my $fv   = $calc->stack->pop;
+                $calc->stack->push($fv / ((1 + $rate) ** $nper));
+            },
+        }
+    );
+
+    $self->register(
+        pmt => {
+            type => 'financial',
+            help => 'loan payment: pv rate nper pmt',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $nper = $calc->stack->pop;
+                my $rate = $calc->stack->pop;
+                my $pv   = $calc->stack->pop;
+                if ($rate == 0) {
+                    $calc->stack->push($pv / $nper);
+                    return;
+                }
+                my $payment = $pv * $rate / (1 - (1 + $rate) ** (-$nper));
+                $calc->stack->push($payment);
+            },
+        }
+    );
+
+    $self->register(
+        nper => {
+            type => 'financial',
+            help => 'number of periods: pv rate pmt nper',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $pmt  = $calc->stack->pop;
+                my $rate = $calc->stack->pop;
+                my $pv   = $calc->stack->pop;
+                if ($rate == 0) {
+                    $calc->stack->push($pv / $pmt);
+                    return;
+                }
+                if ($pmt <= $pv * $rate) {
+                    warn "payment is too small to amortize loan\n";
+                    return;
+                }
+                my $nper = -log(1 - ($pv * $rate / $pmt)) / log(1 + $rate);
+                $calc->stack->push($nper);
+            },
+        }
+    );
+
+    $self->register(
+        rate => {
+            type => 'financial',
+            help => 'periodic growth rate: pv fv nper rate',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $nper = $calc->stack->pop;
+                my $fv   = $calc->stack->pop;
+                my $pv   = $calc->stack->pop;
+                if ($pv == 0 || $nper == 0) {
+                    warn "rate requires non-zero pv and nper\n";
+                    return;
+                }
+                $calc->stack->push(($fv / $pv) ** (1 / $nper) - 1);
+            },
+        }
+    );
+
+
+    #
+    # Number theory
+    #
+
+    $self->register(
+        isprime => {
+            type => 'number_theory',
+            help => 'push 1 if top value is prime, otherwise 0',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                $calc->stack->push(_nt_is_prime($n) ? 1 : 0);
+            },
+        }
+    );
+
+    $self->register(
+        nextprime => {
+            aliases => ['prime'],
+            type    => 'number_theory',
+            help    => 'replace top value with next prime greater than it',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                $calc->stack->push(_nt_next_prime($n));
+            },
+        }
+    );
+
+    $self->register(
+        prevprime => {
+            type => 'number_theory',
+            help => 'replace top value with previous prime less than it',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                my $p = _nt_prev_prime($n);
+                unless (defined $p) {
+                    warn "no previous prime exists\n";
+                    return;
+                }
+                $calc->stack->push($p);
+            },
+        }
+    );
+
+    $self->register(
+        factor => {
+            aliases => ['factors'],
+            type    => 'number_theory',
+            help    => 'replace top value with its prime factors',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                my @factors = _nt_factor($n);
+                $calc->stack->push($_) for @factors;
+            },
+        }
+    );
+
+    $self->register(
+        divisors => {
+            type => 'number_theory',
+            help => 'replace top value with its positive divisors',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                my @divisors = _nt_divisors($n);
+                $calc->stack->push($_) for @divisors;
+            },
+        }
+    );
+
+    $self->register(
+        gcd => {
+            type => 'number_theory',
+            help => 'replace top two values with their greatest common divisor',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                $calc->stack->push(_nt_gcd($a, $b));
+            },
+        }
+    );
+
+    $self->register(
+        lcm => {
+            type => 'number_theory',
+            help => 'replace top two values with their least common multiple',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                my $gcd = _nt_gcd($a, $b);
+                $calc->stack->push($gcd ? abs(int($a * $b)) / $gcd : 0);
+            },
+        }
+    );
+
+    $self->register(
+    totient => {
+        aliases => ['eulerphi'],
+            type => 'number_theory',
+            help => 'replace top value with Euler totient phi(n)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                $calc->stack->push(_nt_phi($n));
+            },
+        }
+    );
+
 
     #
     # END OF COMMANDS
@@ -2074,6 +2307,10 @@ sub print_help {
 
     if ($args && @$args) {
 
+        if ($args->[0] eq 'types') {
+             return $self->print_types;
+        }
+
         if ($args->[0] eq 'type') {
             my $type = $args->[1];
 
@@ -2105,6 +2342,21 @@ sub _print_help_all {
         keys %{ $self->{commands} }
     ) {
         $self->_print_help_line($command);
+    }
+
+    return;
+}
+
+sub print_types {
+    my ($self) = @_;
+
+    printf "%-18s %s\n", "Type", "Description";
+    printf "%-18s %s\n", "-" x 18, "-" x 40;
+
+    foreach my $type (sort keys %{ $self->{types} }) {
+        printf "%-18s %s\n",
+            $type,
+            $self->{types}{$type};
     }
 
     return;
@@ -2217,6 +2469,110 @@ sub _write_stack_csv {
     close $fh;
 
     return 1;
+}
+
+sub _nt_is_prime {
+    my ($n) = @_;
+
+    return 0 unless defined $n && $n =~ /^-?\d+$/;
+    return 0 if $n < 2;
+    return 1 if $n == 2;
+    return 0 if $n % 2 == 0;
+
+    for (my $d = 3; $d * $d <= $n; $d += 2) {
+        return 0 if $n % $d == 0;
+    }
+
+    return 1;
+}
+
+sub _nt_next_prime {
+    my ($n) = @_;
+    $n = int($n) + 1;
+    $n = 2 if $n < 2;
+    $n++ until _nt_is_prime($n);
+    return $n;
+}
+
+sub _nt_prev_prime {
+    my ($n) = @_;
+    $n = int($n) - 1;
+    return undef if $n < 2;
+    $n-- until _nt_is_prime($n) || $n < 2;
+    return $n >= 2 ? $n : undef;
+}
+
+sub _nt_gcd {
+    my ($a, $b) = @_;
+    $a = abs(int($a));
+    $b = abs(int($b));
+
+    while ($b) {
+        ($a, $b) = ($b, $a % $b);
+    }
+
+    return $a;
+}
+
+sub _nt_factor {
+    my ($n) = @_;
+
+    $n = abs(int($n));
+
+    return () if $n < 2;
+
+    my @factors;
+
+    while ($n % 2 == 0) {
+        push @factors, 2;
+        $n /= 2;
+    }
+
+    for (my $d = 3; $d * $d <= $n; $d += 2) {
+        while ($n % $d == 0) {
+            push @factors, $d;
+            $n /= $d;
+        }
+    }
+
+    push @factors, $n if $n > 1;
+
+    return @factors;
+}
+
+sub _nt_divisors {
+    my ($n) = @_;
+
+    $n = abs(int($n));
+    return () if $n < 1;
+
+    my @divisors;
+
+    for my $d (1 .. int(sqrt($n))) {
+        if ($n % $d == 0) {
+            push @divisors, $d;
+            push @divisors, $n / $d unless $d == $n / $d;
+        }
+    }
+
+    return sort { $a <=> $b } @divisors;
+}
+
+sub _nt_phi {
+    my ($n) = @_;
+
+    $n = abs(int($n));
+    return 0 if $n == 0;
+
+    my $result = $n;
+    my %seen;
+
+    for my $p (_nt_factor($n)) {
+        next if $seen{$p}++;
+        $result -= $result / $p;
+    }
+
+    return $result;
 }
 
 1;

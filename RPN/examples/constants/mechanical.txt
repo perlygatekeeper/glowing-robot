@@ -1,0 +1,13 @@
+# RPN Mechanical Engineering Constants
+
+g0 = 9.80665                          # standard gravity, m/s^2
+
+hp = 745.69987158227022               # horsepower, W
+psi = 6894.757293168                  # pascal
+atm = 101325                          # pascal
+
+lbm = 0.45359237                      # kilogram
+lbf = 4.4482216152605                 # newton
+
+ft = 0.3048                           # meter
+inch = 0.0254                         # meter

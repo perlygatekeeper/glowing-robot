@@ -1,0 +1,38 @@
+# RPN Astronomy Constants
+
+# SI units unless otherwise noted.
+# Several astronomical values are conventional or approximate.
+# Use comments to keep track of assumptions.
+
+au = 149597870700                     # astronomical unit, m, exact IAU 2012
+
+julian_day = 86400                    # seconds
+julian_year = 31557600                # seconds, 365.25 days
+
+ly = 9.4607304725808e15               # light-year, m; c * Julian year
+pc = 3.0856775814913673e16            # parsec, m
+
+G = 6.67430e-11                       # gravitational constant, m^3 kg^-1 s^-2
+
+M_sun = 1.98847e30                    # solar mass, kg
+R_sun = 6.957e8                       # nominal solar radius, m
+L_sun = 3.828e26                      # nominal solar luminosity, W
+
+M_earth = 5.9722e24                   # Earth mass, kg
+R_earth_eq = 6378137                  # Earth equatorial radius, m
+R_earth_mean = 6371008.8              # Earth mean radius, m
+
+M_moon = 7.342e22                     # Moon mass, kg
+R_moon = 1737400                      # Moon mean radius, m
+
+M_jupiter = 1.89813e27                # Jupiter mass, kg
+R_jupiter_eq = 71492000               # Jupiter equatorial radius, m
+
+earth_orbital_period = 31558149.7635456 # sidereal year, s, approximate
+moon_orbital_period = 2360591.5       # sidereal month, s, approximate
+
+# Distance convenience alternatives:
+# au_km = 149597870.7                 # km
+# ly_km = 9.4607304725808e12          # km
+# pc_km = 3.0856775814913673e13       # km
+

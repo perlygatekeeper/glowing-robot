@@ -1,0 +1,33 @@
+# RPN Chemistry Constants
+# SI units unless otherwise noted.
+
+# This file intentionally overlaps some physics constants.
+# Load only the packs you want for a given session.
+
+av = 6.02214076e23                    # Avogadro constant, mol^-1, exact
+
+R = 8.31446261815324                  # molar gas constant, J mol^-1 K^-1
+R_L_atm = 0.082057366080960           # ideal gas constant, L atm mol^-1 K^-1
+R_cal = 1.98720425864083              # ideal gas constant, cal mol^-1 K^-1
+
+k_B = 1.380649e-23                    # Boltzmann constant, J/K, exact
+
+F = 96485.3321233100184               # Faraday constant, C/mol
+
+e_charge = 1.602176634e-19            # elementary charge, C, exact
+
+amu = 1.66053906892e-27               # atomic mass constant, kg
+
+std_atm = 101325                      # standard atmosphere, Pa, exact
+bar = 100000                          # bar, Pa, exact
+torr = 133.32236842105263             # torr, Pa; 1 atm / 760
+
+water_molar_mass = 18.01528           # g/mol
+air_molar_mass = 28.9652              # g/mol, dry air approximate
+
+zero_C_in_K = 273.15                  # Celsius offset, K, exact
+
+# Common densities at/near room temperature:
+# water_density = 997                 # kg/m^3, approximate near 25 C
+# mercury_density = 13534             # kg/m^3, approximate
+

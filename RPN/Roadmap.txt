@@ -1,99 +1,3 @@
-RPN Calculator
-Roadmap
-=======
-
-## Current Version
-
-3.0.0
-
-## Project Goals
-
-The goal of the RPN project is to create a powerful, programmable,
-extensible Reverse Polish Notation calculator implemented in Perl.
-
-The project began as a large monolithic script and has been refactored
-into a fully object-oriented architecture consisting of:
-
-rpn.pl
-lib/RPN.pm
-lib/RPN/Stack.pm
-lib/RPN/Commands.pm
-
-The emphasis is on:
-
-* Maintainability
-* Extensibility
-* Testability
-* Interactive use
-* Scriptability
-* Mathematical utility
-
-## Version 3.0.0 (Completed)
-
-Architecture
-
-[x] Object-oriented rewrite
-[x] Command registry
-[x] Stack abstraction
-[x] Automated test suite
-
-Core Calculator (Completed)
-
-[x] Arithmetic
-[x] Trigonometry
-[x] Boolean operations
-[x] Display commands
-[x] Conversions
-
-Usability (Completed)
-
-[x] Aliases
-[x] Abbreviations
-[x] Help system
-[x] Command history
-[x] Persistence
-[x] Built-in constants
-
-Advanced (Completed)
-
-[x] Statistics
-[x] Flow control
-    execute
-    if
-    ifelse
-
-## Version 3.1.0 (Completed)
-
-Custom Constants
-
-[x] Define constants
-[x] Delete constants
-[x] Persistent user constants
-
-Examples:
-
-const gravity 9.80665
-const answer 42
-
-gravity
-answer
-
-delconst answer
-
-## Version 3.2.0 (Completed)
-
-File Input / Output
-
-[x] readnums
-[x] readcsv
-[x] writecsv
-[x] appendcsv
-
-Examples:
-
-readnums data.txt
-writecsv results.csv
-
 ## Version 3.3.0
 
 Enhanced Statistics (Completed)
@@ -104,70 +8,232 @@ Enhanced Statistics (Completed)
 [x] product
 [x] range
 
+
 ## Version 3.3.5
 
-## Version 3.4.0 (Planned)
+Quality of Life (Completed)
 
-Vectors
+### Stack
 
-[ ] vector literals
-[ ] vector addition
+[x] reverse
+[x] pop N
+[x] pick
+[x] pullup
+[x] pushdown
+[x] roll N
+[x] shuffle
+[x] clearall
+
+### Random
+
+[x] rand
+[x] randint
+[x] seed
+
+### Date / Time
+
+[x] now
+[x] today
+[x] time
+[x] datetime
+
+
+## Version 3.3.6
+
+Sequence and Selection (Completed)
+
+[x] sequence
+[x] sequenceby
+
+[x] sequence alias (..)
+[x] sequenceby alias (...)
+
+[x] seq alias
+[x] seqby alias
+
+[x] choose
+
+[x] sort
+[x] sort -1
+
+[x] unique
+
+[x] numeric ranges
+[x] descending ranges
+[x] string ranges
+[x] explicit step ranges
+
+
+## Version 3.4.0
+
+Variables (Completed)
+
+[x] Variables.pm
+
+[x] store
+[x] recall
+
+[x] sto alias
+[x] rcl alias
+
+[x] variables
+[x] delvar
+
+[x] savevars
+[x] loadvars
+
+[x] variable persistence
+
+[x] bare-word variable lookup
+
+[x] namespace protection
+
+[x] variable tests
+
+
+## Version 3.4.5
+
+Scientific & Financial Toolkit (Completed)
+
+### Financial Functions
+
+[x] pv
+[x] fv
+[x] pmt
+[x] nper
+[x] rate
+
+### Scientific Constant Packs
+
+[x] physics.txt
+[x] chemistry.txt
+[x] astronomy.txt
+[x] electrical.txt
+[x] mechanical.txt
+[x] financial.txt
+
+### Number Theory
+
+[x] isprime
+[x] nextprime
+[x] prevprime
+
+[x] factor
+[x] divisors
+
+[x] gcd
+[x] lcm
+
+[x] totient
+
+### Help System
+
+[x] types
+[x] help types
+
+### Tests
+
+[x] t/22_Financial.t
+[x] t/23_NumberTheory.t
+
+
+## Version 3.5.0
+
+User-Defined Functions
+
+[ ] Functions.pm
+
+[ ] def
+[ ] undef
+
+[ ] functions
+
+[ ] savefuncs
+[ ] loadfuncs
+
+[ ] function persistence
+
+[ ] bare-word function execution
+
+[ ] namespace protection
+
+[ ] function tests
+
+
+## Version 3.6.0
+
+Vector Mathematics
+
+[ ] vector creation
+
+[ ] vadd
+[ ] vsub
+[ ] vscale
+
 [ ] dot product
+[ ] cross product
+
 [ ] magnitude
-[ ] normalization
+[ ] normalize
 
-## Version 3.5.0 (Planned)
+[ ] vector tests
 
-Matrices
 
-[ ] matrix literals
+## Version 3.7.0
+
+Matrix Mathematics
+
+[ ] matrix creation
+
+[ ] madd
+[ ] msub
+[ ] mmul
+
 [ ] determinant
 [ ] transpose
 [ ] inverse
-[ ] multiplication
 
-## Version 4.0.0 (Planned)
+[ ] matrix tests
+
+
+## Version 4.0.0
 
 Transformations
 
 [ ] 2D transformations
 [ ] 3D transformations
 
-Examples:
+[ ] translation
+[ ] rotation
+[ ] scaling
 
-translate2d
-rotate2d
-scale2d
+[ ] transformation tests
 
-translate3d
-rotatex
-rotatey
-rotatez
 
-## Version 5.0.0 (Long-Term)
+## Version 5.0.0
 
-Graphics Subsystem
+Graphics (Optional)
 
-Potential features:
+[ ] graphing
+[ ] plotting
+[ ] function visualization
+[ ] export graphics
 
-[ ] SVG generation
-[ ] Plotting
-[ ] Turtle graphics
-[ ] 2D visualization
-[ ] 3D visualization
 
-This version would move beyond a traditional calculator and toward a
-general-purpose mathematical environment.
+## Future Ideas
 
-## Ideas Backlog
+[ ] scientific constant packs expansion
 
-[ ] Variables
-[ ] User-defined functions
-[ ] Loops
-[ ] Financial functions
-[ ] Complex numbers
-[ ] Units and dimensional analysis
-[ ] HTTP / API input
-[ ] JSON parsing
-[ ] CSV analysis tools
+[ ] physics
+[ ] chemistry
+[ ] astronomy
+[ ] electrical engineering
+[ ] mechanical engineering
 
+[ ] HTTP/API import
+
+[ ] JSON import/export
+
+[ ] spreadsheet integration
+
+[ ] units and dimensional analysis

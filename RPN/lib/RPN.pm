@@ -10,12 +10,13 @@ use RPN::Constants;
 use RPN::Variables;
 use Term::ReadLine;
 use Data::Dumper;
+use Math::Prime::Util qw(is_prime);
 
 sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.4.0',
+        version    => '3.4.5',
         debug      => 0,
         angle_mode => 'radians',
         commands   => undef,
