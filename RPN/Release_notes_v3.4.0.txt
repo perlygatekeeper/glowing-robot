@@ -1,0 +1,346 @@
+RPN Calculator
+Release Notes
+Version 3.4.0
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.4.0 introduces named variables and variable persistence.
+
+Variables allow values to be stored under user-defined names and later
+referenced directly within expressions. Variable names participate in
+the calculator namespace alongside commands and constants, making them
+feel like natural language extensions of the calculator.
+
+## Highlights
+
+```
+* Named variable support
+* Automatic variable persistence
+* Bare-word variable lookup
+* Variable listing and management
+* Namespace protection
+```
+
+## New Commands
+
+store
+
+Aliases:
+
+```
+sto
+```
+
+Stores the top stack value in a variable.
+
+Example:
+
+```
+42
+
+store answer
+```
+
+recall
+
+Aliases:
+
+```
+rcl
+```
+
+Pushes the value of a variable onto the stack.
+
+Example:
+
+```
+recall answer
+```
+
+variables
+
+Aliases:
+
+```
+vars
+```
+
+Displays all currently defined variables.
+
+Example:
+
+```
+variables
+```
+
+delvar
+
+Deletes a variable.
+
+Example:
+
+```
+delvar answer
+```
+
+savevars
+
+Writes all variables to disk.
+
+Example:
+
+```
+savevars
+```
+
+loadvars
+
+Loads variables from disk.
+
+Example:
+
+```
+loadvars
+```
+
+## Bare-Word Variable Lookup
+
+Variables may be referenced directly by name.
+
+Example:
+
+```
+42
+
+store answer
+
+answer
+```
+
+Result:
+
+```
+42
+```
+
+is pushed onto the stack.
+
+This behavior makes variables feel similar to built-in constants such as:
+
+```
+pi
+e
+av
+```
+
+## Namespace Protection
+
+Commands, constants, and variables share a common namespace.
+
+Variable names may not override:
+
+```
+Built-in commands
+Built-in constants
+User-defined constants
+```
+
+Examples:
+
+```
+store pi
+
+store add
+```
+
+are rejected.
+
+Existing variables may be overwritten by storing a new value using the
+same variable name.
+
+## Variable Persistence
+
+Variables are automatically loaded when the calculator starts and
+saved when the calculator exits.
+
+Default file:
+
+```
+~/.rpn_variables
+```
+
+Environment override:
+
+```
+RPN_VARIABLES
+```
+
+Example:
+
+```
+export RPN_VARIABLES=/path/to/my_variables.txt
+```
+
+## Storage Format
+
+Example:
+
+```
+answer = 42
+radius = 3.5
+name = Steve
+```
+
+Comments are supported:
+
+```
+# User variables
+answer = 42
+```
+
+## Examples
+
+Store a numeric value:
+
+```
+42
+
+store answer
+```
+
+Retrieve it:
+
+```
+answer
+```
+
+or
+
+```
+recall answer
+```
+
+Store a string:
+
+```
+'Steve'
+
+store name
+```
+
+Retrieve it:
+
+```
+name
+```
+
+Store a calculated result:
+
+```
+pi
+2
+*
+store circumference_factor
+```
+
+## Testing
+
+Added:
+
+```
+t/21_Variables.t
+```
+
+Coverage includes:
+
+```
+store
+recall
+variable overwrite
+bare-word lookup
+variable deletion
+variable persistence
+string variables
+numeric variables
+namespace protection
+```
+
+## Internal Changes
+
+New module:
+
+```
+lib/RPN/Variables.pm
+```
+
+New environment variable:
+
+```
+RPN_VARIABLES
+```
+
+Updated:
+
+```
+RPN.pm
+Commands.pm
+Makefile
+```
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+All functionality from previous releases remains supported.
+
+## Project Status
+
+The calculator now includes:
+
+```
+Arithmetic
+Trigonometry
+Conversions
+Constants
+Variables
+Persistence
+Statistics
+Flow Control
+File I/O
+Random Numbers
+Date/Time Functions
+Sequence Generation
+```
+
+The calculator has now crossed the line from a programmable calculator
+into a lightweight stack-oriented language environment.
+
+## Next Release
+
+Version 3.5.0
+
+Planned features:
+
+```
+User-Defined Functions
+
+    def
+    undef
+    functions
+    savefuncs
+    loadfuncs
+```
+
+Future planned work:
+
+```
+Vector Mathematics
+Matrix Mathematics
+Transformations
+Graphics (optional)
+```

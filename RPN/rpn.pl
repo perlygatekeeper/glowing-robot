@@ -10,7 +10,7 @@ use RPN;
 # See lib/RPN.pm, lib/RPN/Stack.pm, lib/RPN/Commands.pm for implementation.
 # usage: rpn.pl [--version]
 
-our $VERSION = '3.3.6';
+our $VERSION = '3.4.0';
 my $AUTHOR        = 'Dr. Steven Parker';
 my $LAST_MOD_DATE = 'Fri, Jun 19, 2026';
 

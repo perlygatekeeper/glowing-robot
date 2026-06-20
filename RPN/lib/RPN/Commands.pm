@@ -41,6 +41,7 @@ sub _initialize {
         random     => 'random number functions',
         datetime   => 'date and time functions',
         sequence   => 'sequence generation and list operations',
+        variable   => 'named variable storage',
     };
 
     #
@@ -1793,6 +1794,146 @@ sub _initialize {
                     grep { !$seen{$_}++ }
                     $calc->stack->values;
                 $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    #
+    # Variables
+    #
+    
+    $self->register(
+        store => {
+            aliases => ['sto'],
+            type    => 'variable',
+            help    => 'store the top stack value in a variable',
+            code    => sub {
+                my ($calc, $arg_str, $args) = @_;
+    
+                unless ($args && @$args) {
+                    warn "usage: store <name>\n";
+                    return;
+                }
+    
+                my $name = $args->[0];
+    
+                return unless $calc->stack->require_depth(1);
+    
+                unless ($name =~ /^[A-Za-z_]\w*$/) {
+                    warn "Invalid variable name '$name'\n";
+                    return;
+                }
+    
+                if ($self->command($name)) {
+                    warn "Cannot store variable '$name': name already used by a command\n";
+                    return;
+                }
+    
+                if ($calc->constants->exists($name)) {
+                    warn "Cannot store variable '$name': name already used by a constant\n";
+                    return;
+                }
+    
+                my $value = $calc->stack->peek;
+    
+                $calc->variables->set($name, $value);
+            },
+        }
+    );
+    
+    $self->register(
+        recall => {
+            aliases => ['rcl'],
+            type    => 'variable',
+            help    => 'recall a variable and push it onto the stack',
+            code    => sub {
+                my ($calc, $arg_str, $args) = @_;
+    
+                unless ($args && @$args) {
+                    warn "usage: recall <name>\n";
+                    return;
+                }
+    
+                my $name = $args->[0];
+    
+                unless ($calc->variables->exists($name)) {
+                    warn "No such variable '$name'\n";
+                    return;
+                }
+    
+                $calc->stack->push($calc->variables->get($name));
+            },
+        }
+    );
+    
+    $self->register(
+        variables => {
+            aliases => ['vars'],
+            type    => 'variable',
+            help    => 'list stored variables',
+            code    => sub {
+                my ($calc) = @_;
+    
+                printf "%-18s %s\n", "Name", "Value";
+                printf "%-18s %s\n", "-" x 18, "-" x 30;
+    
+                foreach my $name ($calc->variables->names) {
+                    printf "%-18s %s\n",
+                        $name,
+                        $calc->variables->get($name);
+                }
+            },
+        }
+    );
+    
+    $self->register(
+        delvar => {
+            type => 'variable',
+            help => 'delete a stored variable',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+    
+                unless ($args && @$args) {
+                    warn "usage: delvar <name>\n";
+                    return;
+                }
+    
+                my $name = $args->[0];
+    
+                unless ($calc->variables->exists($name)) {
+                    warn "No such variable '$name'\n";
+                    return;
+                }
+    
+                $calc->variables->delete($name);
+            },
+        }
+    );
+    
+    $self->register(
+        savevars => {
+            type => 'variable',
+            help => 'save variables to disk',
+            code => sub {
+                my ($calc) = @_;
+    
+                $calc->save_variables;
+    
+                print "Saved variables.\n";
+            },
+        }
+    );
+    
+    $self->register(
+        loadvars => {
+            type => 'variable',
+            help => 'load variables from disk',
+            code => sub {
+                my ($calc) = @_;
+    
+                $calc->load_variables;
+    
+                print "Loaded variables.\n";
             },
         }
     );

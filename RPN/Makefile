@@ -7,7 +7,8 @@ SCRIPT    := rpn.pl
 MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
              lib/RPN/Commands.pm \
-             lib/RPN/Constants.pm
+             lib/RPN/Constants.pm \
+             lib/RPN/Variables.pm
 TESTDIR   := t/
 CONSTANTS := constants/
 
