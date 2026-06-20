@@ -1,4 +1,3 @@
-
 PERL := perl5.34
 TAR  := gtar
 NAME := rpn-oo
