@@ -46,6 +46,7 @@ sub _initialize {
         number_theory => 'prime, factor, gcd, lcm, divisor functions',
         function      => 'user-defined functions',
         io            => 'file input and output',
+        vector              => 'vector mathematics',
     };
 
     #
@@ -98,14 +99,23 @@ sub _initialize {
 
                 return unless $calc->stack->require_depth(2);
 
-                my $divisor = $calc->stack->peek;
+                my ($a, $b) = $calc->stack->pop2;
 
-                if ($divisor == 0) {
+                unless (!ref($a) && $calc->isanumber($a)
+                     && !ref($b) && $calc->isanumber($b)) {
+                    $calc->stack->push($b);
+                    $calc->stack->push($a);
+                    warn "divide requires numeric operands\n";
+                    return;
+                }
+
+                if ($a == 0) {
+                    $calc->stack->push($b);
+                    $calc->stack->push($a);
                     warn "divide by zero\n";
                     return;
                 }
 
-                my ($a, $b) = $calc->stack->pop2;
                 $calc->stack->push($b / $a);
             },
         }
@@ -121,14 +131,23 @@ sub _initialize {
 
                 return unless $calc->stack->require_depth(2);
 
-                my $divisor = $calc->stack->peek;
+                my ($a, $b) = $calc->stack->pop2;
 
-                if ($divisor == 0) {
+                unless (!ref($a) && $calc->isanumber($a)
+                     && !ref($b) && $calc->isanumber($b)) {
+                    $calc->stack->push($b);
+                    $calc->stack->push($a);
+                    warn "modulo requires numeric operands\n";
+                    return;
+                }
+
+                if ($a == 0) {
+                    $calc->stack->push($b);
+                    $calc->stack->push($a);
                     warn "modulo by zero\n";
                     return;
                 }
 
-                my ($a, $b) = $calc->stack->pop2;
                 $calc->stack->push($b % $a);
             },
         }
@@ -458,14 +477,24 @@ sub _initialize {
             code    => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(1);
-                my $value   = $calc->stack->peek;
+
+                my $value = $calc->stack->pop;
+
+                unless (!ref($value) && $calc->isanumber($value)) {
+                    $calc->stack->push($value);
+                    warn "tangent requires a numeric operand\n";
+                    return;
+                }
+
                 my $radians = $calc->angle_to_radians($value);
                 my $cosine  = cos($radians);
+
                 if ($calc->nearly_zero($cosine)) {
+                    $calc->stack->push($value);
                     warn "tangent undefined at $value\n";
                     return;
                 }
-                $calc->stack->pop;
+
                 $calc->stack->push(sin($radians) / $cosine);
             },
         }
@@ -483,7 +512,7 @@ sub _initialize {
             code    => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(1);
-                print $calc->stack->peek . "\n";
+                print $calc->format_value($calc->stack->peek) . "\n";
             },
         }
     );
@@ -509,7 +538,7 @@ sub _initialize {
                 my ($calc) = @_;
                 my @values = $calc->stack->values;
                 for (my $i = 0; $i < @values; $i++) {
-                    printf "%3d:\t%s\n", $i, $values[$i];
+                    printf "%3d:\t%s\n", $i, $calc->format_value($values[$i]);
                 }
             },
         }
@@ -1955,9 +1984,21 @@ sub _initialize {
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
+
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
+
+                unless (!ref($pv) && $calc->isanumber($pv)
+                     && !ref($rate) && $calc->isanumber($rate)
+                     && !ref($nper) && $calc->isanumber($nper)) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($nper);
+                    warn "fv requires numeric operands\n";
+                    return;
+                }
+
                 $calc->stack->push($pv * (1 + $rate) ** $nper);
             },
         }
@@ -1970,9 +2011,21 @@ sub _initialize {
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
+
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $fv   = $calc->stack->pop;
+
+                unless (!ref($fv) && $calc->isanumber($fv)
+                     && !ref($rate) && $calc->isanumber($rate)
+                     && !ref($nper) && $calc->isanumber($nper)) {
+                    $calc->stack->push($fv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($nper);
+                    warn "pv requires numeric operands\n";
+                    return;
+                }
+
                 $calc->stack->push($fv / ((1 + $rate) ** $nper));
             },
         }
@@ -1985,13 +2038,34 @@ sub _initialize {
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
+
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
+
+                unless (!ref($pv) && $calc->isanumber($pv)
+                     && !ref($rate) && $calc->isanumber($rate)
+                     && !ref($nper) && $calc->isanumber($nper)) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($nper);
+                    warn "pmt requires numeric operands\n";
+                    return;
+                }
+
+                if ($nper == 0) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($nper);
+                    warn "pmt requires non-zero nper\n";
+                    return;
+                }
+
                 if ($rate == 0) {
                     $calc->stack->push($pv / $nper);
                     return;
                 }
+
                 my $payment = $pv * $rate / (1 - (1 + $rate) ** (-$nper));
                 $calc->stack->push($payment);
             },
@@ -2005,17 +2079,42 @@ sub _initialize {
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
+
                 my $pmt  = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
+
+                unless (!ref($pv) && $calc->isanumber($pv)
+                     && !ref($rate) && $calc->isanumber($rate)
+                     && !ref($pmt) && $calc->isanumber($pmt)) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($pmt);
+                    warn "nper requires numeric operands\n";
+                    return;
+                }
+
+                if ($pmt == 0) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($pmt);
+                    warn "nper requires non-zero payment\n";
+                    return;
+                }
+
                 if ($rate == 0) {
                     $calc->stack->push($pv / $pmt);
                     return;
                 }
+
                 if ($pmt <= $pv * $rate) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($rate);
+                    $calc->stack->push($pmt);
                     warn "payment is too small to amortize loan\n";
                     return;
                 }
+
                 my $nper = -log(1 - ($pv * $rate / $pmt)) / log(1 + $rate);
                 $calc->stack->push($nper);
             },
@@ -2029,13 +2128,29 @@ sub _initialize {
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
+
                 my $nper = $calc->stack->pop;
                 my $fv   = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
+
+                unless (!ref($pv) && $calc->isanumber($pv)
+                     && !ref($fv) && $calc->isanumber($fv)
+                     && !ref($nper) && $calc->isanumber($nper)) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($fv);
+                    $calc->stack->push($nper);
+                    warn "rate requires numeric operands\n";
+                    return;
+                }
+
                 if ($pv == 0 || $nper == 0) {
+                    $calc->stack->push($pv);
+                    $calc->stack->push($fv);
+                    $calc->stack->push($nper);
                     warn "rate requires non-zero pv and nper\n";
                     return;
                 }
+
                 $calc->stack->push(($fv / $pv) ** (1 / $nper) - 1);
             },
         }
@@ -2266,6 +2381,277 @@ sub _initialize {
     );
 
     #
+    # Vector mathematics
+    #
+
+    $self->register(
+        vector => {
+            type => 'vector',
+            help => 'create a vector from N stack values: N vector',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
+                unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n > 0) {
+                    $calc->stack->push($n);
+                    warn "vector requires a positive integer dimension\n";
+                    return;
+                }
+                unless ($calc->stack->require_depth($n)) {
+                    $calc->stack->push($n);
+                    return;
+                }
+                my @values;
+                for (1 .. $n) {
+                    my $value = $calc->stack->pop;
+                    unless (!ref($value) && $calc->isanumber($value)) {
+                        $calc->stack->push(reverse @values);
+                        $calc->stack->push($value);
+                        $calc->stack->push($n);
+                        warn "vector values must be numeric\n";
+                        return;
+                    }
+                    push @values, $value;
+                }
+                @values = reverse @values;
+                $calc->stack->push(RPN::Vector->new(@values));
+            },
+        }
+    );
+
+    $self->register(
+        vec2 => {
+            type => 'vector',
+            help => 'create a 2D vector from top two stack values',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $y = $calc->stack->pop;
+                my $x = $calc->stack->pop;
+                unless (!ref($x) && !ref($y) && $calc->isanumber($x) && $calc->isanumber($y)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($y);
+                    warn "vec2 requires numeric operands\n";
+                    return;
+                }
+                $calc->stack->push(RPN::Vector->new($x, $y));
+            },
+        }
+    );
+
+    $self->register(
+        vec3 => {
+            type => 'vector',
+            help => 'create a 3D vector from top three stack values',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3);
+                my $z = $calc->stack->pop;
+                my $y = $calc->stack->pop;
+                my $x = $calc->stack->pop;
+                unless (
+                    !ref($x) && !ref($y) && !ref($z)
+                    && $calc->isanumber($x)
+                    && $calc->isanumber($y)
+                    && $calc->isanumber($z)
+                ) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($y);
+                    $calc->stack->push($z);
+                    warn "vec3 requires numeric operands\n";
+                    return;
+                }
+                $calc->stack->push(RPN::Vector->new($x, $y, $z));
+            },
+        }
+    );
+
+    $self->register(
+        dim => {
+            type => 'vector',
+            help => 'replace a vector with its dimension',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $v = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($v)) {
+                    $calc->stack->push($v);
+                    warn "dim requires a vector\n";
+                    return;
+                }
+                $calc->stack->push($v->dim);
+            },
+        }
+    );
+
+    $self->register(
+        vadd => {
+            type => 'vector',
+            help => 'add two vectors of the same dimension',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "vadd requires two vectors\n";
+                    return;
+                }
+                unless ($a->same_dim($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "vadd requires vectors of the same dimension\n";
+                    return;
+                }
+                $calc->stack->push($a->add($b));
+            },
+        }
+    );
+
+    $self->register(
+        vsub => {
+            type => 'vector',
+            help => 'subtract top vector from second vector',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "vsub requires two vectors\n";
+                    return;
+                }
+                unless ($a->same_dim($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "vsub requires vectors of the same dimension\n";
+                    return;
+                }
+                $calc->stack->push($a->subtract($b));
+            },
+        }
+    );
+
+    $self->register(
+        vscale => {
+            type => 'vector',
+            help => 'scale a vector by a scalar: vector scalar vscale',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $scalar = $calc->stack->pop;
+                my $vector = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($vector) && !ref($scalar) && $calc->isanumber($scalar)) {
+                    $calc->stack->push($vector);
+                    $calc->stack->push($scalar);
+                    warn "vscale requires a vector and a numeric scalar\n";
+                    return;
+                }
+                $calc->stack->push($vector->scale($scalar));
+            },
+        }
+    );
+
+    $self->register(
+        dot => {
+            type => 'vector',
+            help => 'dot product of two vectors',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "dot requires two vectors\n";
+                    return;
+                }
+                unless ($a->same_dim($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "dot requires vectors of the same dimension\n";
+                    return;
+                }
+                $calc->stack->push($a->dot($b));
+            },
+        }
+    );
+
+    $self->register(
+        cross => {
+            type => 'vector',
+            help => 'cross product of two 3D vectors',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "cross requires two vectors\n";
+                    return;
+                }
+                unless ($a->dim == 3 && $b->dim == 3) {
+                    $calc->stack->push($a);
+                    $calc->stack->push($b);
+                    warn "cross requires two 3D vectors\n";
+                    return;
+                }
+                $calc->stack->push($a->cross($b));
+            },
+        }
+    );
+
+    $self->register(
+        magnitude => {
+            aliases => ['mag'],
+            type    => 'vector',
+            help    => 'replace a vector with its magnitude',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $v = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($v)) {
+                    $calc->stack->push($v);
+                    warn "magnitude requires a vector\n";
+                    return;
+                }
+                $calc->stack->push($v->magnitude);
+            },
+        }
+    );
+
+    $self->register(
+        normalize => {
+            aliases => ['unit'],
+            type    => 'vector',
+            help    => 'replace a vector with a unit vector in the same direction',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $v = $calc->stack->pop;
+                unless (RPN::Vector::is_vector($v)) {
+                    $calc->stack->push($v);
+                    warn "normalize requires a vector\n";
+                    return;
+                }
+                if ($v->magnitude == 0) {
+                    $calc->stack->push($v);
+                    warn "cannot normalize zero vector\n";
+                    return;
+                }
+                $calc->stack->push($v->normalize);
+            },
+        }
+    );
+
+    #
     # END OF COMMANDS
     #
 
@@ -2397,6 +2783,12 @@ sub _unary_numeric {
 
     my $a = $calc->stack->pop;
 
+    unless (!ref($a) && $calc->isanumber($a)) {
+        $calc->stack->push($a);
+        warn "numeric command requires a number\n";
+        return;
+    }
+
     $calc->stack->push($code->($a));
 
     return;
@@ -2408,6 +2800,14 @@ sub _binary_numeric {
     return unless $calc->stack->require_depth(2);
 
     my ($a, $b) = $calc->stack->pop2;
+
+    unless (!ref($a) && $calc->isanumber($a)
+         && !ref($b) && $calc->isanumber($b)) {
+        $calc->stack->push($b);
+        $calc->stack->push($a);
+        warn "numeric command requires numeric operands\n";
+        return;
+    }
 
     $calc->stack->push($code->($b, $a));
 

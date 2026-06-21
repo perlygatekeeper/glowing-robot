@@ -8,7 +8,8 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
-             lib/RPN/Variables.pm
+             lib/RPN/Variables.pm \
+             lib/RPN/Vector.pm
 TESTDIR   := t/
 CONSTANTS := constants/
 EXAMPLES  := examples/
@@ -37,7 +38,7 @@ version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
 
 gitadd:
-	git add t/*.t lib/RPN/Variables.pm Makefile lib/RPN.pm lib/RPN/*.pm rpn.pl Rel* Roadmap*
+	git add t/*.t lib/RPN/Variables.pm Makefile lib/RPN.pm lib/RPN/*.pm rpn.pl Rel* Roadmap* $(EXAMPLES)/*/*
 	git status
 
 clean:

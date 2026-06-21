@@ -9,6 +9,7 @@ use RPN::Commands;
 use RPN::Constants;
 use RPN::Variables;
 use RPN::Functions;
+use RPN::Vector;
 use Term::ReadLine;
 use Data::Dumper;
 use Math::Prime::Util qw(is_prime);
@@ -19,16 +20,16 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.5.5',
-        debug      => 0,
-        angle_mode => 'radians',
-        commands   => undef,
-        term       => undef,
-        stack      => RPN::Stack->new(),
-        constants  => RPN::Constants->new(),
-        functions  => RPN::Functions->new(),
-        variables  => RPN::Variables->new(),
-        history    => [],
+        version             => '3.6.0',
+        debug               => 0,
+        angle_mode          => 'radians',
+        commands            => undef,
+        term                => undef,
+        stack               => RPN::Stack->new(),
+        constants           => RPN::Constants->new(),
+        functions           => RPN::Functions->new(),
+        variables           => RPN::Variables->new(),
+        history             => [],
         function_call_stack => [],      
     };
 
@@ -258,6 +259,15 @@ sub save_functions {
 
 # Helper methods
 
+sub format_value {
+    my ($self, $value) = @_;
+
+    return $value->as_string
+        if ref($value) && $value->can('as_string');
+
+    return $value;
+}
+
 sub nearly_zero {
     my ($self, $value) = @_;
     return abs($value) < 1e-12;
@@ -303,7 +313,7 @@ sub prompt {
     my ($self) = @_;
 
     my $top = $self->stack->peek;
-    $top = '-EMPTY-' unless defined $top;
+    $top = defined $top ? $self->format_value($top) : '-EMPTY-';
 
     return "Input [$top] ";
 }

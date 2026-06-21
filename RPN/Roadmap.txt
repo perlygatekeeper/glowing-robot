@@ -176,19 +176,38 @@ User-Defined Functions (Completed)
 
 Vector Mathematics
 
-[ ] vector creation
+## Version 3.6.0
 
-[ ] vadd
-[ ] vsub
-[ ] vscale
+Vector Mathematics (Completed)
 
-[ ] dot product
-[ ] cross product
+[x] RPN::Vector
 
-[ ] magnitude
-[ ] normalize
+[x] vector
+[x] vec2
+[x] vec3
 
-[ ] vector tests
+[x] dim
+
+[x] vadd
+[x] vsub
+[x] vscale
+
+[x] dot
+[x] cross
+
+[x] magnitude
+[x] normalize
+
+[x] mag alias
+[x] unit alias
+
+[x] vector display support
+
+[x] stack preservation for invalid numeric operations
+
+[x] examples/functions/vectors.txt
+
+[x] t/25_Vector.t
 
 ## Version 3.7.0
 
