@@ -1,0 +1,211 @@
+RPN Calculator
+Release Notes
+Version 3.5.5
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.5.5 focuses on usability, portability, and user-defined
+content management.
+
+This release expands the loading and saving infrastructure for
+constants, variables, and functions, allowing files to be imported
+from arbitrary locations. It also introduces example function
+libraries and adds protection against recursive function execution.
+
+## New Features
+
+## Optional Filename Support
+
+The following commands now accept an optional filename:
+
+```
+loadconst [file]
+saveconst [file]
+
+loadvars [file]
+savevars [file]
+
+loadfuncs [file]
+savefuncs [file]
+```
+
+When no filename is supplied, the calculator continues to use the
+default persistence files:
+
+```
+~/.rpn_constants
+~/.rpn_variables
+~/.rpn_functions
+```
+
+Examples:
+
+```
+loadconst examples/constants/physics.txt
+
+loadfuncs examples/functions/math.txt
+
+savevars my_session_variables.txt
+
+savefuncs backup_functions.txt
+```
+
+## Example Function Libraries
+
+A new examples/functions directory has been added containing
+sample user-defined function libraries.
+
+Included examples:
+
+```
+math.txt
+financial.txt
+number_theory.txt
+```
+
+These files are not automatically loaded and serve as examples,
+templates, and starting points for users creating their own
+function libraries.
+
+Examples:
+
+```
+loadfuncs examples/functions/math.txt
+
+loadfuncs examples/functions/financial.txt
+```
+
+## Function Recursion Protection
+
+User-defined functions are now protected against recursive
+execution.
+
+Direct recursion:
+
+```
+def recurse recurse
+```
+
+Indirect recursion:
+
+```
+def a b
+def b a
+```
+
+Both forms are detected and prevented before infinite recursion
+can occur.
+
+When recursion is detected, execution is aborted and an
+informative warning is displayed.
+
+## Persistence Improvements
+
+Loading and saving logic has been consolidated and standardized.
+
+Constants, variables, functions, history, and stack persistence
+now follow a more consistent internal design, simplifying future
+maintenance and extension.
+
+## Testing
+
+Additional test coverage has been added for:
+
+```
+Explicit filename loading
+Explicit filename saving
+Function recursion protection
+Example library workflows
+```
+
+Updated test suites:
+
+```
+t/15_CustomConstants.t
+t/21_Variables.t
+t/24_Functions.t
+```
+
+## Examples
+
+Load a custom constant library:
+
+```
+loadconst examples/constants/physics.txt
+```
+
+Load a custom function library:
+
+```
+loadfuncs examples/functions/math.txt
+```
+
+Save functions to a backup file:
+
+```
+savefuncs backups/my_functions.txt
+```
+
+Restore functions from a backup:
+
+```
+loadfuncs backups/my_functions.txt
+```
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+Existing constants, variables, functions, history files, stack
+files, and user workflows continue to operate without modification.
+
+## Project Status
+
+Current major feature groups:
+
+```
+Arithmetic
+Trigonometry
+Conversions
+Statistics
+Boolean Logic
+Flow Control
+File I/O
+Persistence
+Constants
+Variables
+Functions
+Financial Functions
+Number Theory
+Random Numbers
+Date / Time
+Sequence Operations
+Scientific Constant Libraries
+```
+
+## Next Release
+
+Version 3.6.0
+
+Vector Mathematics
+
+Planned features:
+
+```
+vector creation
+
+vadd
+vsub
+vscale
+
+dot product
+cross product
+
+magnitude
+normalize
+```
