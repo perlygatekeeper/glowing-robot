@@ -1,0 +1,250 @@
+RPN Calculator
+Release Notes
+Version 3.6.1
+=============
+
+Release Date
+------------
+June 2026
+
+
+Overview
+--------
+Version 3.6.1 introduces combinatorics and probability
+functions to the calculator.
+
+These functions support factorials, permutations,
+combinations, and common binomial distribution calculations.
+
+This release fills a long-standing gap in the calculator's
+mathematical capabilities and provides a foundation for
+future probability and statistics enhancements.
+
+
+New Command Type
+----------------
+
+combinatorics
+
+The following commands have been added:
+
+    factorial
+    npr
+    ncr
+    binom
+    binompdf
+    binomcdf
+
+
+Factorials
+----------
+
+New command:
+
+    factorial
+
+Alias:
+
+    fact
+
+Examples:
+
+    5 factorial
+
+Result:
+
+    120
+
+    0 factorial
+
+Result:
+
+    1
+
+
+Permutations
+------------
+
+New command:
+
+    npr
+
+Alias:
+
+    permute
+
+Examples:
+
+    4 2 npr
+
+Result:
+
+    12
+
+Explanation:
+
+    4P2 = 4 × 3 = 12
+
+
+Combinations
+------------
+
+New command:
+
+    ncr
+
+Aliases:
+
+    binom
+    comb
+
+Examples:
+
+    4 2 ncr
+
+Result:
+
+    6
+
+Explanation:
+
+    4C2 = 6
+
+Equivalent forms:
+
+    4 2 binom
+
+    4 2 comb
+
+
+Binomial Probability
+--------------------
+
+New command:
+
+    binompdf
+
+Computes the probability of obtaining exactly k
+successes in n independent Bernoulli trials.
+
+Example:
+
+    10 3 0.5 binompdf
+
+Result:
+
+    0.1171875
+
+
+Cumulative Binomial Probability
+-------------------------------
+
+New command:
+
+    binomcdf
+
+Computes the probability of obtaining k or fewer
+successes in n independent Bernoulli trials.
+
+Example:
+
+    10 3 0.5 binomcdf
+
+Result:
+
+    0.171875
+
+
+Error Handling
+--------------
+
+All combinatorics commands validate their operands.
+
+Invalid operands:
+
+    non-numeric values
+    negative values
+    non-integer values
+    invalid probabilities
+
+are rejected without modifying stack contents.
+
+Examples:
+
+    'hello factorial
+
+    4 'two ncr
+
+    10 3 2 binompdf
+
+The stack remains unchanged after the error.
+
+
+Testing
+-------
+
+Added:
+
+    t/26_Combinatorics.t
+
+Coverage includes:
+
+    factorial
+    permutations
+    combinations
+    aliases
+    binomial PDF
+    binomial CDF
+    operand validation
+    stack preservation
+
+
+Compatibility
+-------------
+
+No compatibility-breaking changes were introduced.
+
+Existing stacks, constants, variables, functions,
+vectors, and persistence files remain fully compatible.
+
+
+Project Status
+--------------
+
+Current major feature groups:
+
+    Arithmetic
+    Trigonometry
+    Conversions
+    Statistics
+    Combinatorics
+    Probability
+    Boolean Logic
+    Flow Control
+    File I/O
+    Persistence
+    Constants
+    Variables
+    Functions
+    Financial Functions
+    Number Theory
+    Random Numbers
+    Date / Time
+    Sequence Operations
+    Vector Mathematics
+
+
+Next Release
+------------
+
+Version 3.6.2
+
+Function Introspection
+
+Planned:
+
+    showfunc
+
+    help function_name
+
+    function source display

@@ -209,6 +209,29 @@ Vector Mathematics (Completed)
 
 [x] t/25_Vector.t
 
+## Version 3.6.1
+
+Combinatorics and Probability (Completed)
+
+[x] factorial
+[x] fact alias
+
+[x] npr
+[x] permute alias
+
+[x] ncr
+[x] binom alias
+[x] comb alias
+
+[x] binompdf
+[x] binomcdf
+
+[x] operand validation
+
+[x] stack preservation on error
+
+[x] t/26_Combinatorics.t
+
 ## Version 3.7.0
 
 Matrix Mathematics
