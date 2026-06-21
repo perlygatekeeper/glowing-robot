@@ -130,4 +130,37 @@ $calc2->process_input('name');
 
 is($calc2->stack->peek, 'Steve', 'variable persisted and reloaded');
 
+#
+# loadvars/savevars with explicit filename
+#
+
+my $extra_vars_file = "$dir/extra_variables";
+
+open my $vfh, '>', $extra_vars_file
+    or die "Cannot write $extra_vars_file: $!";
+
+print {$vfh} "loaded_var = 8675309\n";
+close $vfh;
+
+stdout_like(
+    sub { $calc->process_input("loadvars $extra_vars_file") },
+    qr/Loaded variables\./,
+    'loadvars accepts explicit filename'
+);
+
+$calc->stack->clear;
+$calc->process_input('loaded_var');
+
+is($calc->stack->peek, 8675309, 'loadvars loaded explicit file');
+
+my $saved_vars_file = "$dir/saved_variables";
+
+stdout_like(
+    sub { $calc->process_input("savevars $saved_vars_file") },
+    qr/Saved variables\./,
+    'savevars accepts explicit filename'
+);
+
+ok(-s $saved_vars_file, 'savevars wrote explicit file');
+
 done_testing();

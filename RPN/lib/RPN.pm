@@ -13,11 +13,13 @@ use Term::ReadLine;
 use Data::Dumper;
 use Math::Prime::Util qw(is_prime);
 
+# Constuctor
+
 sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version    => '3.5.0',
+        version    => '3.5.5',
         debug      => 0,
         angle_mode => 'radians',
         commands   => undef,
@@ -47,10 +49,80 @@ sub new {
     return $self;
 }
 
-sub variables_file {
+sub run {
     my ($self) = @_;
-    return $ENV{RPN_VARIABLES} || "$ENV{HOME}/.rpn_variables";
+
+    die "Cannot run interactively without Term::ReadLine\n"
+        unless $self->{term};
+
+    my $term = $self->{term};
+
+    while (defined(my $input = $term->readline($self->prompt))) {
+        next unless $input =~ /\S/;
+        $self->add_history($input);
+        $self->process_input($input);
+    }
+
+    $self->save_history;
+    $self->save_stacks;
+    $self->save_constants;
+    $self->save_variables;
+    $self->save_functions;
+
+    return;
 }
+
+# Accessor commands
+
+sub history {
+    my ($self) = @_;
+    return @{ $self->{history} }
+        if $self->{history} && @{ $self->{history} };
+    return unless $self->{term} && $self->{term}->can('GetHistory');
+    return $self->{term}->GetHistory();
+}
+
+sub functions {
+    my ($self) = @_;
+    return $self->{functions};
+}
+
+sub stack {
+    my ($self) = @_;
+    return $self->{stack};
+}
+
+sub commands {
+    my ($self) = @_;
+    return $self->{commands};
+}
+
+sub constants {
+    my ($self) = @_;
+    return $self->{constants};
+}
+
+sub variables {
+    my ($self) = @_;
+    return $self->{variables};
+}
+
+sub angle_mode {
+    my ($self, $mode) = @_;
+    if (defined $mode) {
+        die "unknown angle mode '$mode'\n"
+            unless $mode eq 'radians' || $mode eq 'degrees';
+        $self->{angle_mode} = $mode;
+    }
+    return $self->{angle_mode};
+}
+
+sub version {
+    my ($self) = @_;
+    return $self->{version};
+}
+
+# Persistence filename defining methods
 
 sub history_file {
     my ($self) = @_;
@@ -62,6 +134,11 @@ sub stacks_file {
     return $ENV{RPN_STACKS} || "$ENV{HOME}/.rpn_stacks";
 }
 
+sub variables_file {
+    my ($self) = @_;
+    return $ENV{RPN_VARIABLES} || "$ENV{HOME}/.rpn_variables";
+}
+
 sub constants_file {
     my ($self) = @_;
     return $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants";
@@ -71,6 +148,8 @@ sub functions_file {
     my ($self) = @_;
     return $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions";
 }
+
+# History methods
 
 sub add_history {
     my ($self, $input) = @_;
@@ -85,6 +164,8 @@ sub add_history {
     }
     return;
 }
+
+# Persistence load/save methods
 
 sub load_history {
     my ($self) = @_;
@@ -135,91 +216,88 @@ sub save_stacks {
 }
 
 sub load_constants {
-    my ($self) = @_;
-    my $file = $self->constants_file;
+    my ($self, $file) = @_;
+    $file //= $self->constants_file;
     return unless defined $file && -s $file;
     $self->constants->load_file($file);
     return;
 }
 
 sub save_constants {
-    my ($self) = @_;
-    $self->constants->save_file($self->constants_file);
+    my ($self, $file) = @_;
+    $file //= $self->constants_file;
+    $self->constants->save_file($file);
     return;
 }
 
 sub load_variables {
-    my ($self) = @_;
-    return $self->variables->load_file($self->variables_file);
+    my ($self, $file) = @_;
+    $file //= $self->variables_file;
+    return unless defined $file && -s $file;
+    return $self->variables->load_file($file);
 }
 
 sub save_variables {
-    my ($self) = @_;
-    return $self->variables->save_file($self->variables_file);
-}
-
-sub constants {
-    my ($self) = @_;
-    return $self->{constants};
-}
-
-sub variables {
-    my ($self) = @_;
-    return $self->{variables};
+    my ($self, $file) = @_;
+    $file //= $self->variables_file;
+    return $self->variables->save_file($file);
 }
 
 sub load_functions {
-    my ($self) = @_;
-    return $self->functions->load_file($self->functions_file);
+    my ($self, $file) = @_;
+    $file //= $self->functions_file;
+    return unless defined $file && -s $file;
+    return $self->functions->load_file($file);
 }
 
 sub save_functions {
-    my ($self) = @_;
-    return $self->functions->save_file($self->functions_file);
+    my ($self, $file) = @_;
+    $file //= $self->functions_file;
+    return $self->functions->save_file($file);
 }
+
+# Helper methods
 
 sub nearly_zero {
     my ($self, $value) = @_;
     return abs($value) < 1e-12;
 }
 
-sub run {
-    my ($self) = @_;
-
-    die "Cannot run interactively without Term::ReadLine\n"
-        unless $self->{term};
-
-    my $term = $self->{term};
-
-    while (defined(my $input = $term->readline($self->prompt))) {
-        next unless $input =~ /\S/;
-        $self->add_history($input);
-        $self->process_input($input);
-    }
-
-    $self->save_history;
-    $self->save_stacks;
-    $self->save_constants;;
-    $self->save_variables;
-    $self->save_functions;
-
+sub isanumber {
+    my ($self, $query) = @_;
+    return 'bin'
+        if $query =~ /^\s*[-+]?0b[01]+\b/i;
+    return 'hex'
+        if $query =~ /^\s*[-+]?0x[0-9a-f]+\b/i;
+    return 'oct'
+        if $query =~ /^\s*[-+]?0[0-7]+\b/;
+    return 'dec'
+        if $query =~ /^\s*[-+]?(?:
+                    (?:\d+(?:\.\d*)?) |
+                    (?:\.\d+)
+                  )
+                  (?:[eE][-+]?\d+)?
+                  \s*$/x;
     return;
 }
 
-sub functions {
-    my ($self) = @_;
-    return $self->{functions};
+sub is_number_list {
+    my ($self, $input) = @_;
+    my @tokens = grep { length } split /[\s,;]+/, $input;
+    return unless @tokens > 1;
+    foreach my $token (@tokens) {
+        return unless $self->isanumber($token);
+    }
+    return 1;
 }
 
-sub stack {
-    my ($self) = @_;
-    return $self->{stack};
+sub angle_to_radians {
+    my ($self, $value) = @_;
+    return $value if $self->angle_mode eq 'radians';
+    return $value * atan2(1, 1) / 45;
 }
 
-sub commands {
-    my ($self) = @_;
-    return $self->{commands};
-}
+# Methods needed to interpret and execute inputs
 
 sub prompt {
     my ($self) = @_;
@@ -353,30 +431,6 @@ sub process_input {
     return;
 }
 
-sub version {
-    my ($self) = @_;
-    return $self->{version};
-}
-
-sub history {
-    my ($self) = @_;
-    return @{ $self->{history} }
-        if $self->{history} && @{ $self->{history} };
-    return unless $self->{term} && $self->{term}->can('GetHistory');
-    return $self->{term}->GetHistory();
-}
-
-
-sub is_number_list {
-    my ($self, $input) = @_;
-    my @tokens = grep { length } split /[\s,;]+/, $input;
-    return unless @tokens > 1;
-    foreach my $token (@tokens) {
-        return unless $self->isanumber($token);
-    }
-    return 1;
-}
-
 sub push_number {
     my ($self, $token) = @_;
     my $type = $self->isanumber($token)
@@ -388,40 +442,6 @@ sub push_number {
         $self->stack->push($token);
     }
     return 1;
-}
-
-sub isanumber {
-    my ($self, $query) = @_;
-    return 'bin'
-        if $query =~ /^\s*[-+]?0b[01]+\b/i;
-    return 'hex'
-        if $query =~ /^\s*[-+]?0x[0-9a-f]+\b/i;
-    return 'oct'
-        if $query =~ /^\s*[-+]?0[0-7]+\b/;
-    return 'dec'
-        if $query =~ /^\s*[-+]?(?:
-                    (?:\d+(?:\.\d*)?) |
-                    (?:\.\d+)
-                  )
-                  (?:[eE][-+]?\d+)?
-                  \s*$/x;
-    return;
-}
-
-sub angle_mode {
-    my ($self, $mode) = @_;
-    if (defined $mode) {
-        die "unknown angle mode '$mode'\n"
-            unless $mode eq 'radians' || $mode eq 'degrees';
-        $self->{angle_mode} = $mode;
-    }
-    return $self->{angle_mode};
-}
-
-sub angle_to_radians {
-    my ($self, $value) = @_;
-    return $value if $self->angle_mode eq 'radians';
-    return $value * atan2(1, 1) / 45;
 }
 
 sub execute_function {

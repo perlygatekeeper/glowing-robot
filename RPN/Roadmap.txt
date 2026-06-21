@@ -158,6 +158,20 @@ User-Defined Functions (Completed)
 
 [x] t/24_Functions.t
 
+## Version 3.5.5 Persistence file arguments
+
+[x] loadconst [file]
+[x] saveconst [file]
+[x] loadvars [file]
+[x] savevars [file]
+[x] loadfuncs [file]
+[x] savefuncs [file]
+
+[x] examples/constants
+[x] examples/functions
+
+[x] function recursion guard
+
 ## Version 3.6.0
 
 Vector Mathematics

@@ -109,4 +109,31 @@ stdout_like(
 
 ok(-s $ENV{RPN_CONSTANTS}, 'saveconst wrote constants file');
 
+#
+# loadconst/saveconst with explicit filename
+#
+
+my $extra_const_file = "$dir/extra_constants";
+
+open my $cfh, '>', $extra_const_file
+    or die "Cannot write $extra_const_file: $!";
+
+print {$cfh} "bonus = 12345\n";
+close $cfh;
+
+$calc->process_input("loadconst $extra_const_file");
+$calc->process_input('bonus');
+
+is($calc->stack->peek, 12345, 'loadconst accepts explicit filename');
+
+my $saved_const_file = "$dir/saved_constants";
+
+stdout_like(
+    sub { $calc->process_input("saveconst $saved_const_file") },
+    qr/Saved constants\./,
+    'saveconst accepts explicit filename'
+);
+
+ok(-s $saved_const_file, 'saveconst wrote explicit file');
+
 done_testing();

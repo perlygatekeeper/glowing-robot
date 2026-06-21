@@ -1034,17 +1034,12 @@ sub _initialize {
     $self->register(
         loadconst => {
             type => 'constant',
-            help => 'load user constants from a file',
+            help => 'load user constants from a file: loadconst [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
-
-                unless ($args && @$args) {
-                    warn "usage: loadconst <file> ";
-                    return;
-                }
-
-                $calc->constants->load_file($args->[0]);
-
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->load_constants($file);
+                print "Loaded constants.\n";
                 return;
             },
         }
@@ -1053,14 +1048,12 @@ sub _initialize {
     $self->register(
         saveconst => {
             type => 'constant',
-            help => 'save user constants',
+            help => 'save user constants: saveconst [file]',
             code => sub {
-                my ($calc) = @_;
-
-                $calc->save_constants;
-
-                print "Saved constants.";
-
+                my ($calc, $arg_str, $args) = @_;
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->save_constants($file);
+                print "Saved constants.\n";
                 return;
             },
         }
@@ -1928,12 +1921,11 @@ sub _initialize {
     $self->register(
         savevars => {
             type => 'variable',
-            help => 'save variables to disk',
+            help => 'save variables to disk: savevars [file]',
             code => sub {
-                my ($calc) = @_;
-
-                $calc->save_variables;
-
+                my ($calc, $arg_str, $args) = @_;
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->save_variables($file);
                 print "Saved variables.\n";
             },
         }
@@ -1942,12 +1934,11 @@ sub _initialize {
     $self->register(
         loadvars => {
             type => 'variable',
-            help => 'load variables from disk',
+            help => 'load variables from disk: loadvars [file]',
             code => sub {
-                my ($calc) = @_;
-
-                $calc->load_variables;
-
+                my ($calc, $arg_str, $args) = @_;
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->load_variables($file);
                 print "Loaded variables.\n";
             },
         }
@@ -2251,10 +2242,11 @@ sub _initialize {
     $self->register(
         savefuncs => {
             type => 'function',
-            help => 'save user-defined functions to disk',
+            help => 'save user-defined functions to disk: savefuncs [file]',
             code => sub {
-                my ($calc) = @_;
-                $calc->save_functions;
+                my ($calc, $arg_str, $args) = @_;
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->save_functions($file);
                 print "Saved functions.\n";
             },
         }
@@ -2263,10 +2255,11 @@ sub _initialize {
     $self->register(
         loadfuncs => {
             type => 'function',
-            help => 'load user-defined functions from disk',
+            help => 'load user-defined functions from disk: loadfuncs [file]',
             code => sub {
-                my ($calc) = @_;
-                $calc->load_functions;
+                my ($calc, $arg_str, $args) = @_;
+                my $file = $args && @$args ? $args->[0] : undef;
+                $calc->load_functions($file);
                 print "Loaded functions.\n";
             },
         }

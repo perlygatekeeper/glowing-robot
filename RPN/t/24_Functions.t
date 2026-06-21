@@ -153,4 +153,38 @@ stderr_like(
     'indirect recursion is blocked'
 );
 
+#
+# loadfuncs/savefuncs with explicit filename
+#
+
+my $extra_funcs_file = "$dir/extra_functions";
+
+open my $ffh, '>', $extra_funcs_file
+    or die "Cannot write $extra_funcs_file: $!";
+
+print {$ffh} "triple = 3 multiply\n";
+close $ffh;
+
+stdout_like(
+    sub { $calc->process_input("loadfuncs $extra_funcs_file") },
+    qr/Loaded functions\./,
+    'loadfuncs accepts explicit filename'
+);
+
+$calc->stack->clear;
+$calc->process_input('14');
+$calc->process_input('triple');
+
+is($calc->stack->peek, 42, 'loadfuncs loaded explicit file');
+
+my $saved_funcs_file = "$dir/saved_functions";
+
+stdout_like(
+    sub { $calc->process_input("savefuncs $saved_funcs_file") },
+    qr/Saved functions\./,
+    'savefuncs accepts explicit filename'
+);
+
+ok(-s $saved_funcs_file, 'savefuncs wrote explicit file');
+
 done_testing();
