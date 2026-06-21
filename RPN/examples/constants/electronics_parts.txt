@@ -1,0 +1,13 @@
+# Electronics Parts Constants
+silicon_diode_drop = 0.7
+germanium_diode_drop = 0.3
+
+led_red_drop = 2.0
+led_green_drop = 2.2
+led_blue_drop = 3.2
+led_white_drop = 3.2
+
+resistor_e6_count = 6
+resistor_e12_count = 12
+resistor_e24_count = 24
+resistor_e96_count = 96

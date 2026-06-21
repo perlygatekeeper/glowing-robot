@@ -1,0 +1,9 @@
+# Materials Constants
+density_steel = 7850
+density_aluminum = 2700
+density_copper = 8960
+density_brass = 8500
+
+youngs_modulus_steel = 200e9
+youngs_modulus_aluminum = 69e9
+youngs_modulus_copper = 110e9

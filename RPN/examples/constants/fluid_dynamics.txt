@@ -1,0 +1,9 @@
+# Fluid Dynamics Constants
+water_density = 1000
+air_density_stp = 1.225
+
+water_viscosity = 0.001002
+air_viscosity = 1.81e-5
+
+gravity_earth = 9.80665
+gravity_moon = 1.62

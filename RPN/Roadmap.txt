@@ -232,6 +232,38 @@ Combinatorics and Probability (Completed)
 
 [x] t/26_Combinatorics.t
 
+## Version 3.6.2
+
+Engineering Constant Packs (Completed)
+
+[x] thermodynamics.txt
+
+    [x] gas constant
+    [x] Stefan-Boltzmann constant
+    [x] standard conditions
+    [x] absolute zero
+
+[x] materials.txt
+
+    [x] material densities
+    [x] Young's modulus values
+
+[x] fluid_dynamics.txt
+
+    [x] fluid densities
+    [x] viscosities
+    [x] gravitational constants
+
+[x] electronics_parts.txt
+
+    [x] diode voltage drops
+    [x] LED forward voltages
+    [x] E-series resistor information
+
+[x] example library documentation
+
+[x] loadconst integration
+
 ## Version 3.7.0
 
 Matrix Mathematics
