@@ -300,29 +300,41 @@ Obscure Number Theory (Completed)
 
 ## Version 3.7.0
 
-Matrix Mathematics
+Matrix Mathematics (Completed)
 
-[ ] RPN::Matrix
+[x] RPN::Matrix
 
-[ ] matrix
-[ ] mat2
-[ ] mat3
+[x] matrix
+[x] matcols
+[x] matparse
+[x] loadmatrix
 
-[ ] madd
-[ ] msub
-[ ] mmul
+[x] rows
+[x] cols
 
-[ ] transpose
+[x] madd
+[x] msub
+[x] mmul
 
-[ ] determinant
+[x] transpose
+[x] trans alias
 
-[ ] inverse
+[x] compact matrix display
 
-[ ] examples/functions/matrices.txt
+[x] matrix creation from row vectors
+[x] matrix creation from column vectors
+[x] matrix creation from literal strings
+[x] matrix creation from files
 
-[ ] t/28_Matrix.t
+[x] examples/matrices/unit_2x2.txt
+[x] examples/matrices/unit_3x3.txt
+[x] examples/matrices/unit_4x4.txt
 
+[x] operand validation
+[x] dimension validation
+[x] stack preservation on error
 
+[x] t/28_Matrix.t
 
 
 ## Version 4.0.0

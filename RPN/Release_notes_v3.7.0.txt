@@ -1,0 +1,258 @@
+RPN Calculator
+Release Notes
+Version 3.7.0
+=============
+
+Release Date
+------------
+June 2026
+
+
+Overview
+--------
+Version 3.7.0 introduces first-class matrix mathematics.
+
+Matrices are now supported as native calculator objects alongside
+numbers, strings, and vectors. This release adds matrix creation,
+matrix display, matrix inspection, addition, subtraction,
+multiplication, transposition, and file-based matrix loading.
+
+
+New Data Type
+-------------
+
+Matrix
+
+Matrices display in compact row-based notation:
+
+    [[1,2],[3,4]]
+
+Example:
+
+    [[1,2],[3,4]]
+
+
+Matrix Input
+------------
+
+Matrices may be created in several ways.
+
+By row vectors:
+
+    1 2 vec2
+    3 4 vec2
+    2 matrix
+
+Result:
+
+    [[1,2],[3,4]]
+
+By column vectors:
+
+    1 3 vec2
+    2 4 vec2
+    2 matcols
+
+Result:
+
+    [[1,2],[3,4]]
+
+From a literal string:
+
+    '[[1,2],[3,4]]
+    matparse
+
+Result:
+
+    [[1,2],[3,4]]
+
+From a file:
+
+    loadmatrix examples/matrices/unit_3x3.txt
+
+
+Example Matrix Files
+--------------------
+
+Added:
+
+    examples/matrices/fibonacci_q_2x2.txt
+    examples/matrices/hadamard_2x2.txt
+    examples/matrices/pascal_3x3.txt
+    examples/matrices/reflection_x_2x2.txt
+    examples/matrices/rotation_90_2x2.txt
+    examples/matrices/shear_x_2x2.txt
+    examples/matrices/unit_2x2.txt
+    examples/matrices/unit_3x3.txt
+    examples/matrices/unit_4x4.txt
+
+
+New Commands
+------------
+
+    matrix
+    matcols
+    matparse
+    loadmatrix
+
+    rows
+    cols
+
+    madd
+    msub
+    mmul
+
+    transpose
+
+
+Matrix Inspection
+-----------------
+
+New commands:
+
+    rows
+    cols
+
+Examples:
+
+    [[1,2,3],[4,5,6]] rows
+
+Result:
+
+    2
+
+    [[1,2,3],[4,5,6]] cols
+
+Result:
+
+    3
+
+
+Matrix Arithmetic
+-----------------
+
+New commands:
+
+    madd
+    msub
+    mmul
+
+Examples:
+
+    [[1,2],[3,4]] [[5,6],[7,8]] madd
+
+Result:
+
+    [[6,8],[10,12]]
+
+    [[5,6],[7,8]] [[1,2],[3,4]] msub
+
+Result:
+
+    [[4,4],[4,4]]
+
+    [[1,2],[3,4]] [[5,6],[7,8]] mmul
+
+Result:
+
+    [[19,22],[43,50]]
+
+
+Transpose
+---------
+
+New command:
+
+    transpose
+
+Alias:
+
+    trans
+
+Example:
+
+    [[1,2,3],[4,5,6]] transpose
+
+Result:
+
+    [[1,4],[2,5],[3,6]]
+
+
+Error Handling
+--------------
+
+Matrix commands validate operand types and dimensions.
+
+Invalid operations preserve stack contents.
+
+Examples:
+
+    mismatched row sizes
+    non-vector rows
+    non-matrix operands
+    incompatible multiplication dimensions
+
+The stack remains unchanged after failed matrix operations.
+
+
+Testing
+-------
+
+Added:
+
+    t/28_Matrix.t
+
+Coverage includes:
+
+    matrix creation by rows
+    matrix creation by columns
+    literal parsing
+    file loading
+    row count
+    column count
+    matrix addition
+    matrix subtraction
+    matrix multiplication
+    transpose
+    display formatting
+    invalid operand handling
+    stack preservation
+
+
+Compatibility
+-------------
+
+No compatibility-breaking changes were introduced.
+
+Existing numbers, strings, vectors, constants, variables,
+functions, stacks, history, and persistence files remain compatible.
+
+
+Deferred
+--------
+
+The following matrix features are intentionally deferred to later
+versions:
+
+    determinant
+    inverse
+    matrix-vector multiplication
+    scalar matrix operations
+    identity matrix command
+    row operations
+    eigenvalues
+    LU decomposition
+
+
+Next Release
+------------
+
+Version 3.7.1
+
+Likely candidates:
+
+    determinant
+
+or:
+
+    matrix-vector multiplication

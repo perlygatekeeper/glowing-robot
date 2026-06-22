@@ -10,6 +10,7 @@ use RPN::Constants;
 use RPN::Variables;
 use RPN::Functions;
 use RPN::Vector;
+use RPN::Matrix;
 use Term::ReadLine;
 use Data::Dumper;
 use Math::Prime::Util qw(is_prime);
@@ -20,7 +21,7 @@ sub new {
     my ($class, %args) = @_;
 
     my $self = {
-        version             => '3.6.4',
+        version             => '3.7.0',
         debug               => 0,
         angle_mode          => 'radians',
         commands            => undef,
