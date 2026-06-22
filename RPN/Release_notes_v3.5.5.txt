@@ -23,7 +23,6 @@ libraries and adds protection against recursive function execution.
 
 The following commands now accept an optional filename:
 
-```
 loadconst [file]
 saveconst [file]
 
@@ -32,20 +31,16 @@ savevars [file]
 
 loadfuncs [file]
 savefuncs [file]
-```
 
 When no filename is supplied, the calculator continues to use the
 default persistence files:
 
-```
 ~/.rpn_constants
 ~/.rpn_variables
 ~/.rpn_functions
-```
 
 Examples:
 
-```
 loadconst examples/constants/physics.txt
 
 loadfuncs examples/functions/math.txt
@@ -53,7 +48,6 @@ loadfuncs examples/functions/math.txt
 savevars my_session_variables.txt
 
 savefuncs backup_functions.txt
-```
 
 ## Example Function Libraries
 
@@ -62,11 +56,9 @@ sample user-defined function libraries.
 
 Included examples:
 
-```
 math.txt
 financial.txt
 number_theory.txt
-```
 
 These files are not automatically loaded and serve as examples,
 templates, and starting points for users creating their own
@@ -74,11 +66,9 @@ function libraries.
 
 Examples:
 
-```
 loadfuncs examples/functions/math.txt
 
 loadfuncs examples/functions/financial.txt
-```
 
 ## Function Recursion Protection
 
@@ -87,16 +77,12 @@ execution.
 
 Direct recursion:
 
-```
 def recurse recurse
-```
 
 Indirect recursion:
 
-```
 def a b
 def b a
-```
 
 Both forms are detected and prevented before infinite recursion
 can occur.
@@ -116,46 +102,34 @@ maintenance and extension.
 
 Additional test coverage has been added for:
 
-```
 Explicit filename loading
 Explicit filename saving
 Function recursion protection
 Example library workflows
-```
 
 Updated test suites:
 
-```
 t/15_CustomConstants.t
 t/21_Variables.t
 t/24_Functions.t
-```
 
 ## Examples
 
 Load a custom constant library:
 
-```
 loadconst examples/constants/physics.txt
-```
 
 Load a custom function library:
 
-```
 loadfuncs examples/functions/math.txt
-```
 
 Save functions to a backup file:
 
-```
 savefuncs backups/my_functions.txt
-```
 
 Restore functions from a backup:
 
-```
 loadfuncs backups/my_functions.txt
-```
 
 ## Compatibility
 
@@ -168,7 +142,6 @@ files, and user workflows continue to operate without modification.
 
 Current major feature groups:
 
-```
 Arithmetic
 Trigonometry
 Conversions
@@ -186,7 +159,6 @@ Random Numbers
 Date / Time
 Sequence Operations
 Scientific Constant Libraries
-```
 
 ## Next Release
 
@@ -196,7 +168,6 @@ Vector Mathematics
 
 Planned features:
 
-```
 vector creation
 
 vadd
@@ -208,4 +179,3 @@ cross product
 
 magnitude
 normalize
-```

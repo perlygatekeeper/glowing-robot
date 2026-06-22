@@ -22,22 +22,18 @@ sequence
 
 Aliases:
 
-```
 ..
 seq
-```
 
 Generates a sequence from a start value to a stop value.
 
 Examples:
 
-```
 0 10 sequence
 
 10 0 sequence
 
 'a' 'z' sequence
-```
 
 Supports both numeric and string ranges.
 
@@ -45,20 +41,16 @@ sequenceby
 
 Aliases:
 
-```
 ...
 seqby
-```
 
 Generates a numeric sequence using an explicit step value.
 
 Examples:
 
-```
 0 10 2 sequenceby
 
 10 0 -2 sequenceby
-```
 
 The step value may not be zero.
 
@@ -71,11 +63,9 @@ The original value remains in place.
 
 Example:
 
-```
 1 2 3 4 5
 
 choose
-```
 
 sort
 
@@ -83,7 +73,6 @@ Sorts the current stack.
 
 Examples:
 
-```
 sort
 
     Ascending order
@@ -91,7 +80,6 @@ sort
 sort -1
 
     Descending order
-```
 
 Numeric values are sorted numerically.
 String values are sorted lexically.
@@ -105,72 +93,52 @@ the first occurrence of each value.
 
 Generate integers:
 
-```
 1 100 ..
-```
 
 Generate even numbers:
 
-```
 0 20 2 ...
-```
 
 Generate letters:
 
-```
 'a' 'z' ..
-```
 
 Random selection:
 
-```
 choose
-```
 
 Remove duplicates:
 
-```
 unique
-```
 
 Sort data:
 
-```
 sort
-```
 
 Reverse sort:
 
-```
 sort -1
-```
 
 ## Testing
 
 Added:
 
-```
 t/20_SequenceAndSelection.t
-```
 
 Coverage includes:
 
-```
 sequence
 sequenceby
 choose
 sort
 unique
-```
 
 Including:
 
-```
 ascending ranges
 descending ranges
 string ranges
 explicit step ranges
-```
 
 ## Compatibility
 
@@ -182,7 +150,6 @@ All functionality from previous releases remains supported.
 
 The calculator now includes:
 
-```
 Arithmetic
 Trigonometry
 Conversions
@@ -194,7 +161,6 @@ File I/O
 Random numbers
 Date/time functions
 Sequence generation
-```
 
 and is approaching programmable-calculator territory.
 
@@ -204,7 +170,6 @@ Version 3.4.0
 
 Planned features:
 
-```
 Variables
 
     store
@@ -213,13 +178,10 @@ Variables
     delvar
 
 Variable persistence
-```
 
 Future planned work:
 
-```
 User-defined commands
 Vector mathematics
 Matrix mathematics
 Transformation matrices
-```

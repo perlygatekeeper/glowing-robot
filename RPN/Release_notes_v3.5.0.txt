@@ -21,7 +21,6 @@ programmable RPN environment.
 
 User-Defined Functions
 
-```
 def
 undef
 
@@ -29,40 +28,31 @@ functions
 
 savefuncs
 loadfuncs
-```
 
 ## Function Definition
 
 Functions are created using:
 
-```
 def <name> <body>
-```
 
 Examples:
 
-```
 def sq duplicate multiply
 
 def cube duplicate duplicate multiply multiply
 
 def addtwo 2 add
-```
 
 ## Function Execution
 
 Functions execute simply by entering their name:
 
-```
 3
 sq
-```
 
 Result:
 
-```
 9
-```
 
 Functions may use any existing calculator command and may be
 combined with variables, constants, and user-defined constants.
@@ -73,36 +63,26 @@ Functions are automatically loaded at startup and saved at exit.
 
 Manual control is also available:
 
-```
 savefuncs
 loadfuncs
-```
 
 Functions are stored in:
 
-```
 ~/.rpn_functions
-```
 
 or the file specified by:
 
-```
 RPN_FUNCTIONS
-```
 
 ## Function Management
 
 List all functions:
 
-```
 functions
-```
 
 Delete a function:
 
-```
 undef <name>
-```
 
 ## Namespace Protection
 
@@ -110,13 +90,11 @@ The calculator now enforces a unified namespace policy.
 
 The following names are reserved:
 
-```
 Commands
 Command aliases
 Constants
 Variables
 Functions
-```
 
 Functions cannot be defined using names already occupied by
 commands, aliases, constants, or variables.
@@ -126,11 +104,9 @@ commands or aliases.
 
 Examples:
 
-```
 def add ...
 def pi ...
 store sqrt
-```
 
 All of the above are rejected.
 
@@ -138,7 +114,6 @@ All of the above are rejected.
 
 Input resolution now follows the following order:
 
-```
 1. Exact command names
 2. Exact command aliases
 3. User-defined functions
@@ -146,47 +121,36 @@ Input resolution now follows the following order:
 5. Variables
 6. Command abbreviations
 7. Unknown input
-```
 
 This prevents abbreviation collisions while preserving the
 convenience of abbreviated commands.
 
 For example:
 
-```
 pi
-```
 
 always resolves to the mathematical constant:
 
-```
 3.141592653589793
-```
 
 rather than the abbreviation for:
 
-```
 pick
-```
 
 ## Testing
 
 Added:
 
-```
 t/24_Functions.t
-```
 
 Coverage includes:
 
-```
 Function creation
 Function execution
 Function persistence
 Function deletion
 Namespace protection
 Function listing
-```
 
 ## Compatibility
 
@@ -199,7 +163,6 @@ remain compatible.
 
 Current major feature groups:
 
-```
 Arithmetic
 Trigonometry
 Conversions
@@ -218,7 +181,6 @@ Date / Time
 Financial Functions
 Number Theory
 Scientific Libraries
-```
 
 ## Next Release
 
@@ -228,7 +190,6 @@ Vector Mathematics
 
 Planned:
 
-```
 vector creation
 
 vadd
@@ -240,4 +201,3 @@ cross
 
 magnitude
 normalize
-```

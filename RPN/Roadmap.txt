@@ -280,21 +280,50 @@ Function Introspection (Completed)
 
 [x] t/24_Functions.t updates
 
+## Version 3.6.4
+
+Obscure Number Theory (Completed)
+
+[x] primorial
+
+[x] mobius
+
+[x] mertens
+
+[x] operand validation
+
+[x] stack preservation
+
+[x] t/27_NumberTheoryExtra.t
+
+
+
 ## Version 3.7.0
 
 Matrix Mathematics
 
-[ ] matrix creation
+[ ] RPN::Matrix
+
+[ ] matrix
+[ ] mat2
+[ ] mat3
 
 [ ] madd
 [ ] msub
 [ ] mmul
 
-[ ] determinant
 [ ] transpose
+
+[ ] determinant
+
 [ ] inverse
 
-[ ] matrix tests
+[ ] examples/functions/matrices.txt
+
+[ ] t/28_Matrix.t
+
+
+
 
 ## Version 4.0.0
 

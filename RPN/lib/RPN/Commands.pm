@@ -2157,7 +2157,6 @@ sub _initialize {
         }
     );
 
-
     #
     # Number theory
     #
@@ -2275,6 +2274,76 @@ sub _initialize {
                 return unless $calc->stack->require_depth(1);
                 my $n = $calc->stack->pop;
                 $calc->stack->push(_nt_phi($n));
+            },
+        }
+    );
+
+    #
+    # Number theory extended
+    #
+
+    $self->register(
+        primorial => {
+            type => 'number_theory',
+            help => 'product of all primes <= n: n primorial',
+            code => sub {
+                my ($calc) = @_;
+
+                return unless $calc->stack->require_depth(1);
+
+                my $n = $calc->stack->pop;
+
+                unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 0) {
+                    $calc->stack->push($n);
+                    warn "primorial requires a non-negative integer\n";
+                    return;
+                }
+
+                $calc->stack->push(_nt_primorial($n));
+            },
+        }
+    );
+
+    $self->register(
+        mobius => {
+            type => 'number_theory',
+            help => 'Möbius function: n mobius',
+            code => sub {
+                my ($calc) = @_;
+
+                return unless $calc->stack->require_depth(1);
+
+                my $n = $calc->stack->pop;
+
+                unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 1) {
+                    $calc->stack->push($n);
+                    warn "mobius requires a positive integer\n";
+                    return;
+                }
+
+                $calc->stack->push(_nt_mobius($n));
+            },
+        }
+    );
+
+    $self->register(
+        mertens => {
+            type => 'number_theory',
+            help => 'Mertens function: n mertens',
+            code => sub {
+                my ($calc) = @_;
+
+                return unless $calc->stack->require_depth(1);
+
+                my $n = $calc->stack->pop;
+
+                unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 1) {
+                    $calc->stack->push($n);
+                    warn "mertens requires a positive integer\n";
+                    return;
+                }
+
+                $calc->stack->push(_nt_mertens($n));
             },
         }
     );
@@ -3306,6 +3375,60 @@ sub _nt_phi {
     }
 
     return $result;
+}
+
+sub _nt_primorial {
+    my ($n) = @_;
+
+    my $result = 1;
+
+    for my $candidate (2 .. $n) {
+        $result *= $candidate
+            if _nt_is_prime($candidate);
+    }
+
+    return $result;
+}
+
+sub _nt_mobius {
+    my ($n) = @_;
+
+    return 1 if $n == 1;
+
+    my %factors;
+
+    my $d = 2;
+
+    while ($d * $d <= $n) {
+
+        while ($n % $d == 0) {
+            $factors{$d}++;
+
+            return 0 if $factors{$d} > 1;
+
+            $n /= $d;
+        }
+
+        $d++;
+    }
+
+    $factors{$n}++ if $n > 1;
+
+    my $k = scalar keys %factors;
+
+    return ($k % 2) ? -1 : 1;
+}
+
+sub _nt_mertens {
+    my ($n) = @_;
+
+    my $sum = 0;
+
+    for my $k (1 .. $n) {
+        $sum += _nt_mobius($k);
+    }
+
+    return $sum;
 }
 
 sub _comb_is_nonnegative_integer {
