@@ -1,0 +1,57 @@
+v4.0.0
+Transformations
+
+2D transformation matrices
+3D transformation matrices
+
+Translation
+Rotation
+Scaling
+
+Coordinate transforms
+
+## Future Releases
+
+v4.5.0
+Advanced Mathematics
+
+Complex numbers
+Polynomial operations
+Additional statistics
+Probability functions
+
+v5.0.0
+Graphics
+
+Optional graphics subsystem
+
+Plotting
+Function visualization
+Vector visualization
+Matrix visualization
+Transformation visualization
+
+## Possible Future Features
+
+choose
+sample
+permutations
+combinations
+
+HTTP/API data import
+
+JSON support
+
+Spreadsheet import/export
+
+Units and dimensional analysis
+
+Scientific constant libraries
+
+Astronomy constants
+
+Electronics constants
+
+Chemistry constants
+
+Physics constants

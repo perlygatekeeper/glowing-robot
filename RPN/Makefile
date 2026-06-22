@@ -6,6 +6,7 @@ SCRIPT    := rpn.pl
 MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
              lib/RPN/Commands.pm \
+             lib/RPN/Commands/Matrix.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
              lib/RPN/Variables.pm \
@@ -14,10 +15,11 @@ MODS      := lib/RPN.pm \
 TESTDIR   := t/
 CONSTANTS := constants/
 EXAMPLES  := examples/
+DOCS      := docs/
 
-RELEASE_NOTES := $(shell ls Release_**.txt)
+RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 
-.PHONY: backup syntax run test clean size
+.PHONY: backup syntax run test clean size size-modules
 
 backup:
 	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) $(EXAMPLES) Roadmap.txt Roadmap_2.txt
@@ -39,7 +41,12 @@ version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
 
 gitadd:
-	git add t/*.t lib/RPN/Variables.pm Makefile lib/RPN.pm lib/RPN/*.pm rpn.pl Rel* Roadmap* $(EXAMPLES)/*/*
+	git add Makefile \
+	$(MODS) \
+	$(TESTDIR)/*.t \
+	$(DOCS)/*.txt \
+	$(CONSTANTS)/*.txt \
+	$(EXAMPLES)/*/*
 	git status
 
 clean:
@@ -59,3 +66,19 @@ size:
 	@printf "%-28s %8s\n" "docs/release/roadmap" "$$(find . -maxdepth 1 \( -name 'Roadmap*.txt' -o -name 'Release_notes*.txt' \) -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 	@echo "-----------------------------"
 	@printf "%-28s %8s\n" "TOTAL" "$$(find rpn.pl lib t examples -type f \( -name '*.pl' -o -name '*.pm' -o -name '*.t' -o -name '*.txt' \) -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
+
+
+size-modules:
+	@echo "Module size, non-blank lines"
+	@echo "============================"
+	@total=$$(grep -hcv '^[[:space:]]*$$' rpn.pl lib/*.pm lib/RPN/*.pm | awk '{s+=$$1} END {print s}') ; \
+	printf "%-35s %8s %8s\n" "Module" "Lines" "%" ; \
+	printf "%-35s %8s %8s\n" "------" "-----" "---" ; \
+	for f in rpn.pl lib/*.pm lib/RPN/*.pm lib/RPN/Commands/*.pm; do \
+		[ -f "$$f" ] || continue ; \
+		lines=$$(grep -cv '^[[:space:]]*$$' "$$f") ; \
+		pct=$$(awk "BEGIN { printf \"%.1f\", 100 * $$lines / $$total }") ; \
+		printf "%-35s %8d %7s%%\n" "$$f" "$$lines" "$$pct" ; \
+	done | sort -k2 -n ; \
+	echo "-----------------------------------------------" ; \
+	printf "%-35s %8d\n" "TOTAL" "$$total"
