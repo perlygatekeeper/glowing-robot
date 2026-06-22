@@ -11,3 +11,4 @@ PFEN/*.json
 >>>>>>> 5ac891e (A lot of work on primes again)
 __pycache__
 rpn-oo-*.tgz
+*.cert1*
