@@ -14,16 +14,22 @@ sub new {
     return $self;
 }
 
-sub exists {
-    my ($self, $name) = @_;
-
-    return exists $self->{functions}{$name};
-}
-
 sub get {
     my ($self, $name) = @_;
 
     return $self->{functions}{$name};
+}
+
+sub names {
+    my ($self) = @_;
+
+    return sort keys %{ $self->{functions} };
+}
+
+sub exists {
+    my ($self, $name) = @_;
+
+    return exists $self->{functions}{$name};
 }
 
 sub set {
@@ -38,12 +44,6 @@ sub delete {
     my ($self, $name) = @_;
 
     return delete $self->{functions}{$name};
-}
-
-sub names {
-    my ($self) = @_;
-
-    return sort keys %{ $self->{functions} };
 }
 
 sub load_file {

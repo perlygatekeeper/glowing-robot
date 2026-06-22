@@ -2280,7 +2280,7 @@ sub _initialize {
     );
 
     #
-    # User-defined functions
+    # User-defined Functions
     #
 
     $self->register(
@@ -2379,6 +2379,34 @@ sub _initialize {
                 print "Loaded functions.\n";
             },
         }
+    );
+
+    $self->register(
+        showfunc => {
+            type => 'function',
+            help => 'show the definition of a function',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+    
+                my $name = $args->[0];
+    
+                unless (defined $name) {
+                    warn "Usage: showfunc function_name\n";
+                    return;
+                }
+    
+                unless ($calc->functions->exists($name)) {
+                    warn "Unknown function '$name'\n";
+                    return;
+                }
+    
+                print "$name = "
+                    . $calc->functions->get($name)
+                    . "\n";
+    
+                return;
+            },
+        },
     );
 
     #
@@ -2985,8 +3013,6 @@ sub _conversion {
 sub print_help {
     my ($self, $args) = @_;
 
-    my $commands = $self->commands;
-
     if ($args && @$args) {
 
         if ($args->[0] eq 'types') {
@@ -3002,6 +3028,10 @@ sub print_help {
             }
 
             return $self->_print_help_by_type($type);
+        }
+
+        if ($self->{calc}->functions->exists($args->[0])) {
+            return $self->_print_help_for_function($args->[0]);
         }
 
         return $self->_print_help_for_command($args->[0]);
@@ -3055,6 +3085,27 @@ sub _print_help_by_type {
         next unless $self->{commands}{$command}{type} eq $type;
         $self->_print_help_line($command);
     }
+
+    return;
+}
+
+sub _print_help_for_function {
+    my ($self, $name) = @_;
+
+    my $calc = $self->{calc};
+
+    unless (defined $name && length $name) {
+        warn "usage: help <function>\n";
+        return;
+    }
+
+    unless ($calc->functions->exists($name)) {
+        warn "No such function '$name'\n";
+        return;
+    }
+
+    print "User-defined function\n\n";
+    print "$name = " . $calc->functions->get($name) . "\n";
 
     return;
 }

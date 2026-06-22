@@ -264,6 +264,22 @@ Engineering Constant Packs (Completed)
 
 [x] loadconst integration
 
+## Version 3.6.3
+
+Function Introspection (Completed)
+
+[x] showfunc
+
+[x] help function_name
+
+[x] function source display
+
+[x] enhanced functions listing
+
+[x] unknown function handling
+
+[x] t/24_Functions.t updates
+
 ## Version 3.7.0
 
 Matrix Mathematics

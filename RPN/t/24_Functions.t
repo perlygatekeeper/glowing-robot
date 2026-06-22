@@ -187,4 +187,46 @@ stdout_like(
 
 ok(-s $saved_funcs_file, 'savefuncs wrote explicit file');
 
+#
+# showfunc displays function source
+#
+
+$calc->process_input('def distance "vsub magnitude"');
+
+stdout_like(
+    sub { $calc->process_input('showfunc distance') },
+    qr/^distance\s*=\s*vsub magnitude/m,
+    'showfunc displays function source'
+);
+
+#
+# showfunc requires an existing function
+#
+
+stderr_like(
+    sub { $calc->process_input('showfunc nosuchfunc') },
+    qr/No such function 'nosuchfunc'|Unknown function 'nosuchfunc'/,
+    'showfunc rejects unknown function'
+);
+
+#
+# help function_name displays user function source
+#
+
+stdout_like(
+    sub { $calc->process_input('help distance') },
+    qr/User-defined function.*distance\s*=\s*vsub magnitude/s,
+    'help function_name displays function source'
+);
+
+#
+# functions listing includes names and bodies
+#
+
+stdout_like(
+    sub { $calc->process_input('functions') },
+    qr/distance\s+vsub magnitude/s,
+    'functions listing includes function body'
+);
+
 done_testing();
