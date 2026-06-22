@@ -7,6 +7,10 @@ MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
              lib/RPN/Commands.pm \
              lib/RPN/Commands/Matrix.pm \
+             lib/RPN/Commands/Combinatorics.pm \
+             lib/RPN/Commands/Financial.pm \
+             lib/RPN/Commands/NumberTheory.pm \
+             lib/RPN/Commands/Vector.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
              lib/RPN/Variables.pm \
