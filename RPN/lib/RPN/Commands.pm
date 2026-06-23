@@ -60,7 +60,7 @@ sub _initialize {
     RPN::Commands::Vector::register_commands($self);
     RPN::Commands::Combinatorics::register_commands($self);
     RPN::Commands::NumberTheory::register_commands($self);
-    # RPN::Commands::Financial::register_commands($self);
+    RPN::Commands::Financial::register_commands($self);
 
     #
     # Arithmetic
@@ -109,11 +109,8 @@ sub _initialize {
             help    => 'pops two numbers and pushes their quotient',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(2);
-
                 my ($a, $b) = $calc->stack->pop2;
-
                 unless (!ref($a) && $calc->isanumber($a)
                      && !ref($b) && $calc->isanumber($b)) {
                     $calc->stack->push($b);
@@ -121,14 +118,12 @@ sub _initialize {
                     warn "divide requires numeric operands\n";
                     return;
                 }
-
                 if ($a == 0) {
                     $calc->stack->push($b);
                     $calc->stack->push($a);
                     warn "divide by zero\n";
                     return;
                 }
-
                 $calc->stack->push($b / $a);
             },
         }
@@ -141,11 +136,8 @@ sub _initialize {
             help    => 'pops two numbers and pushes their modulus',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(2);
-
                 my ($a, $b) = $calc->stack->pop2;
-
                 unless (!ref($a) && $calc->isanumber($a)
                      && !ref($b) && $calc->isanumber($b)) {
                     $calc->stack->push($b);
@@ -153,14 +145,12 @@ sub _initialize {
                     warn "modulo requires numeric operands\n";
                     return;
                 }
-
                 if ($a == 0) {
                     $calc->stack->push($b);
                     $calc->stack->push($a);
                     warn "modulo by zero\n";
                     return;
                 }
-
                 $calc->stack->push($b % $a);
             },
         }
@@ -207,16 +197,12 @@ sub _initialize {
             help    => 'replaces the number on top of the stack with its square root',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my $value = $calc->stack->peek;
-
                 if ($value < 0) {
                     warn "sqrt of negative number\n";
                     return;
                 }
-
                 $calc->stack->pop;
                 $calc->stack->push(sqrt($value));
             },
@@ -299,20 +285,15 @@ sub _initialize {
             help => 'remove one or more values from the top of the stack',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
-
                 my $count = 1;
-
                 if ($args && @$args) {
                     $count = $args->[0];
-
                     unless ($count =~ /^\d+$/ && $count > 0) {
                         warn "pop count must be a positive integer\n";
                         return;
                     }
                 }
-
                 return unless $calc->stack->require_depth($count);
-
                 for (1 .. $count) {
                     $calc->stack->pop;
                 }
@@ -326,14 +307,11 @@ sub _initialize {
             help => 'randomly shuffle the current stack',
             code => sub {
                 my ($calc) = @_;
-
                 my @values = $calc->stack->values;
-
                 for (my $i = $#values; $i > 0; $i--) {
                     my $j = int(rand($i + 1));
                     @values[$i, $j] = @values[$j, $i];
                 }
-
                 $calc->stack->set_values(@values);
             },
         }
@@ -346,9 +324,7 @@ sub _initialize {
             help    => 'duplicates the number on top of the stack',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 $calc->stack->push($calc->stack->peek);
             },
         }
@@ -393,6 +369,118 @@ sub _initialize {
     );
 
     #
+    # Extra stack operations
+    #
+
+    $self->register(
+        reverse => {
+            type => 'stack',
+            help => 'reverse the current stack',
+            code => sub {
+                my ($calc) = @_;
+                my @values = reverse $calc->stack->values;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        pick => {
+            type => 'stack',
+            help => 'copy value at depth N to the top of the stack',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pick requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                $calc->stack->push($calc->stack->peek_at($n));
+            },
+        }
+    );
+
+    $self->register(
+        pullup => {
+            aliases => ['rollup'],
+            type    => 'stack',
+            help    => 'move value at depth N to the top of the stack',
+            code    => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pullup requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                my @values = $calc->stack->values;
+                my $value  = splice @values, $n, 1;
+                unshift @values, $value;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        pushdown => {
+            type => 'stack',
+            help => 'move the top value down to depth N',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                unless (defined $n && $n =~ /^\d+$/) {
+                    warn "pushdown requires a non-negative integer\n";
+                    return;
+                }
+                return unless $calc->stack->require_depth($n + 1);
+                my @values = $calc->stack->values;
+                my $value  = shift @values;
+                splice @values, $n, 0, $value;
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        roll => {
+            type => 'stack',
+            help => 'circularly rotate the whole stack by N positions; default is -1',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                my $n = $args && @$args ? $args->[0] : -1;
+                unless (defined $n && $n =~ /^-?\d+$/ && $n != 0) {
+                    warn "roll requires a non-zero integer\n";
+                    return;
+                }
+                my @values = $calc->stack->values;
+                my $size   = @values;
+                return if $size < 2;
+                $n %= $size;
+                if ($n < 0) {
+                    @values = (@values[-$n .. $#values], @values[0 .. -$n - 1]);
+                }
+                elsif ($n > 0) {
+                    @values = (@values[$size - $n .. $#values], @values[0 .. $size - $n - 1]);
+                }
+                $calc->stack->set_values(@values);
+            },
+        }
+    );
+
+    $self->register(
+        clearall => {
+            type => 'stack',
+            help => 'clear all stacks and return to the default stack',
+            code => sub {
+                my ($calc) = @_;
+                $calc->stack->clear_all;
+                print "All stacks cleared.\n";
+            },
+        }
+    );
+
+    #
     # Boolean for both Numerical and String Entries
     #
 
@@ -405,7 +493,6 @@ sub _initialize {
         '!=',
         '<=>',
     ) {
-
              $self->register(
                  $op => {
                      type => 'boolean',
@@ -522,24 +609,19 @@ sub _initialize {
             code    => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(1);
-
                 my $value = $calc->stack->pop;
-
                 unless (!ref($value) && $calc->isanumber($value)) {
                     $calc->stack->push($value);
                     warn "tangent requires a numeric operand\n";
                     return;
                 }
-
                 my $radians = $calc->angle_to_radians($value);
                 my $cosine  = cos($radians);
-
                 if ($calc->nearly_zero($cosine)) {
                     $calc->stack->push($value);
                     warn "tangent undefined at $value\n";
                     return;
                 }
-
                 $calc->stack->push(sin($radians) / $cosine);
             },
         }
@@ -1189,6 +1271,7 @@ sub _initialize {
             },
         }
     );
+
     #
     # Enhanced Statistics
     #
@@ -1199,14 +1282,10 @@ sub _initialize {
             help => 'replaces the entire stack with the product of its values',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my @values = $calc->stack->values;
                 my $product = 1;
-
                 $product *= $_ for @values;
-
                 $calc->stack->clear;
                 $calc->stack->push($product);
             },
@@ -1219,17 +1298,13 @@ sub _initialize {
             help => 'replaces the entire stack with maximum minus minimum',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my @values = $calc->stack->values;
                 my ($min, $max) = ($values[0], $values[0]);
-
                 foreach my $value (@values) {
                     $min = $value if $value < $min;
                     $max = $value if $value > $max;
                 }
-
                 $calc->stack->clear;
                 $calc->stack->push($max - $min);
             },
@@ -1242,21 +1317,16 @@ sub _initialize {
             help => 'replaces the entire stack with the median value',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my @values = sort { $a <=> $b } $calc->stack->values;
                 my $n = @values;
-
                 my $median;
-
                 if ($n % 2) {
                     $median = $values[int($n / 2)];
                 }
                 else {
                     $median = ($values[$n / 2 - 1] + $values[$n / 2]) / 2;
                 }
-
                 $calc->stack->clear;
                 $calc->stack->push($median);
             },
@@ -1486,118 +1556,6 @@ sub _initialize {
                 my $file = _clean_filename($arg_str);
                 return unless $file;
                 _write_stack_csv($calc, $file, 1);
-            },
-        }
-    );
-
-    #
-    # Extra stack operations
-    #
-
-    $self->register(
-        reverse => {
-            type => 'stack',
-            help => 'reverse the current stack',
-            code => sub {
-                my ($calc) = @_;
-                my @values = reverse $calc->stack->values;
-                $calc->stack->set_values(@values);
-            },
-        }
-    );
-
-    $self->register(
-        pick => {
-            type => 'stack',
-            help => 'copy value at depth N to the top of the stack',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
-                unless (defined $n && $n =~ /^\d+$/) {
-                    warn "pick requires a non-negative integer\n";
-                    return;
-                }
-                return unless $calc->stack->require_depth($n + 1);
-                $calc->stack->push($calc->stack->peek_at($n));
-            },
-        }
-    );
-
-    $self->register(
-        pullup => {
-            aliases => ['rollup'],
-            type    => 'stack',
-            help    => 'move value at depth N to the top of the stack',
-            code    => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
-                unless (defined $n && $n =~ /^\d+$/) {
-                    warn "pullup requires a non-negative integer\n";
-                    return;
-                }
-                return unless $calc->stack->require_depth($n + 1);
-                my @values = $calc->stack->values;
-                my $value  = splice @values, $n, 1;
-                unshift @values, $value;
-                $calc->stack->set_values(@values);
-            },
-        }
-    );
-
-    $self->register(
-        pushdown => {
-            type => 'stack',
-            help => 'move the top value down to depth N',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
-                unless (defined $n && $n =~ /^\d+$/) {
-                    warn "pushdown requires a non-negative integer\n";
-                    return;
-                }
-                return unless $calc->stack->require_depth($n + 1);
-                my @values = $calc->stack->values;
-                my $value  = shift @values;
-                splice @values, $n, 0, $value;
-                $calc->stack->set_values(@values);
-            },
-        }
-    );
-
-    $self->register(
-        roll => {
-            type => 'stack',
-            help => 'circularly rotate the whole stack by N positions; default is -1',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : -1;
-                unless (defined $n && $n =~ /^-?\d+$/ && $n != 0) {
-                    warn "roll requires a non-zero integer\n";
-                    return;
-                }
-                my @values = $calc->stack->values;
-                my $size   = @values;
-                return if $size < 2;
-                $n %= $size;
-                if ($n < 0) {
-                    @values = (@values[-$n .. $#values], @values[0 .. -$n - 1]);
-                }
-                elsif ($n > 0) {
-                    @values = (@values[$size - $n .. $#values], @values[0 .. $size - $n - 1]);
-                }
-                $calc->stack->set_values(@values);
-            },
-        }
-    );
-
-    $self->register(
-        clearall => {
-            type => 'stack',
-            help => 'clear all stacks and return to the default stack',
-            code => sub {
-                my ($calc) = @_;
-                $calc->stack->clear_all;
-                print "All stacks cleared.\n";
             },
         }
     );
@@ -1985,189 +1943,6 @@ sub _initialize {
                 my $file = $args && @$args ? $args->[0] : undef;
                 $calc->load_variables($file);
                 print "Loaded variables.\n";
-            },
-        }
-    );
-
-    #
-    # Financial
-    #
-
-    $self->register(
-        fv => {
-            type => 'financial',
-            help => 'future value: pv rate nper fv',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
-
-                my $nper = $calc->stack->pop;
-                my $rate = $calc->stack->pop;
-                my $pv   = $calc->stack->pop;
-
-                unless (!ref($pv) && $calc->isanumber($pv)
-                     && !ref($rate) && $calc->isanumber($rate)
-                     && !ref($nper) && $calc->isanumber($nper)) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($nper);
-                    warn "fv requires numeric operands\n";
-                    return;
-                }
-
-                $calc->stack->push($pv * (1 + $rate) ** $nper);
-            },
-        }
-    );
-
-    $self->register(
-        pv => {
-            type => 'financial',
-            help => 'present value: fv rate nper pv',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
-
-                my $nper = $calc->stack->pop;
-                my $rate = $calc->stack->pop;
-                my $fv   = $calc->stack->pop;
-
-                unless (!ref($fv) && $calc->isanumber($fv)
-                     && !ref($rate) && $calc->isanumber($rate)
-                     && !ref($nper) && $calc->isanumber($nper)) {
-                    $calc->stack->push($fv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($nper);
-                    warn "pv requires numeric operands\n";
-                    return;
-                }
-
-                $calc->stack->push($fv / ((1 + $rate) ** $nper));
-            },
-        }
-    );
-
-    $self->register(
-        pmt => {
-            type => 'financial',
-            help => 'loan payment: pv rate nper pmt',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
-
-                my $nper = $calc->stack->pop;
-                my $rate = $calc->stack->pop;
-                my $pv   = $calc->stack->pop;
-
-                unless (!ref($pv) && $calc->isanumber($pv)
-                     && !ref($rate) && $calc->isanumber($rate)
-                     && !ref($nper) && $calc->isanumber($nper)) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($nper);
-                    warn "pmt requires numeric operands\n";
-                    return;
-                }
-
-                if ($nper == 0) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($nper);
-                    warn "pmt requires non-zero nper\n";
-                    return;
-                }
-
-                if ($rate == 0) {
-                    $calc->stack->push($pv / $nper);
-                    return;
-                }
-
-                my $payment = $pv * $rate / (1 - (1 + $rate) ** (-$nper));
-                $calc->stack->push($payment);
-            },
-        }
-    );
-
-    $self->register(
-        nper => {
-            type => 'financial',
-            help => 'number of periods: pv rate pmt nper',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
-
-                my $pmt  = $calc->stack->pop;
-                my $rate = $calc->stack->pop;
-                my $pv   = $calc->stack->pop;
-
-                unless (!ref($pv) && $calc->isanumber($pv)
-                     && !ref($rate) && $calc->isanumber($rate)
-                     && !ref($pmt) && $calc->isanumber($pmt)) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($pmt);
-                    warn "nper requires numeric operands\n";
-                    return;
-                }
-
-                if ($pmt == 0) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($pmt);
-                    warn "nper requires non-zero payment\n";
-                    return;
-                }
-
-                if ($rate == 0) {
-                    $calc->stack->push($pv / $pmt);
-                    return;
-                }
-
-                if ($pmt <= $pv * $rate) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($rate);
-                    $calc->stack->push($pmt);
-                    warn "payment is too small to amortize loan\n";
-                    return;
-                }
-
-                my $nper = -log(1 - ($pv * $rate / $pmt)) / log(1 + $rate);
-                $calc->stack->push($nper);
-            },
-        }
-    );
-
-    $self->register(
-        rate => {
-            type => 'financial',
-            help => 'periodic growth rate: pv fv nper rate',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
-
-                my $nper = $calc->stack->pop;
-                my $fv   = $calc->stack->pop;
-                my $pv   = $calc->stack->pop;
-
-                unless (!ref($pv) && $calc->isanumber($pv)
-                     && !ref($fv) && $calc->isanumber($fv)
-                     && !ref($nper) && $calc->isanumber($nper)) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($fv);
-                    $calc->stack->push($nper);
-                    warn "rate requires numeric operands\n";
-                    return;
-                }
-
-                if ($pv == 0 || $nper == 0) {
-                    $calc->stack->push($pv);
-                    $calc->stack->push($fv);
-                    $calc->stack->push($nper);
-                    warn "rate requires non-zero pv and nper\n";
-                    return;
-                }
-
-                $calc->stack->push(($fv / $pv) ** (1 / $nper) - 1);
             },
         }
     );
