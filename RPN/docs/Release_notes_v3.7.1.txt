@@ -1,0 +1,179 @@
+RPN Calculator
+Release Notes
+Version 3.7.1
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.7.1 extends the matrix mathematics functionality introduced in
+Version 3.7.0 by adding determinant support for square matrices.
+
+Determinants may now be computed for matrices of arbitrary size, including
+the example matrices supplied with the calculator.
+
+## New Commands
+
+```
+determinant
+det
+```
+
+Both commands are equivalent.
+
+## Examples
+
+2x2 Matrix:
+
+```
+[[1,2],[3,4]] det
+```
+
+Result:
+
+```
+-2
+```
+
+Identity Matrix:
+
+```
+[[1,0],[0,1]] det
+```
+
+Result:
+
+```
+1
+```
+
+Singular Matrix:
+
+```
+[[1,2],[2,4]] det
+```
+
+Result:
+
+```
+0
+```
+
+## Implementation
+
+Added:
+
+```
+RPN::Matrix::determinant()
+```
+
+The implementation currently uses recursive cofactor expansion.
+
+This approach is simple, mathematically correct, and performs well for the
+small and medium-sized matrices typically used within the calculator.
+
+## Validation
+
+Determinants are defined only for square matrices.
+
+The following conditions are validated:
+
+```
+operand must be a matrix
+matrix must be square
+```
+
+Invalid operations preserve stack contents.
+
+## Examples
+
+Non-square matrix:
+
+```
+[[1,2,3],[4,5,6]] det
+```
+
+Produces:
+
+```
+determinant requires a square matrix
+```
+
+The original matrix remains on the stack.
+
+## Testing
+
+Added:
+
+```
+t/29_Determinant.t
+```
+
+Coverage includes:
+
+```
+1x1 determinants
+2x2 determinants
+3x3 determinants
+4x4 determinants
+singular matrices
+determinant command
+det alias
+invalid operand handling
+stack preservation
+```
+
+## Internal Changes
+
+No compatibility-breaking changes were introduced.
+
+All existing matrix commands continue to function as before:
+
+```
+matrix
+matcols
+matparse
+loadmatrix
+
+rows
+cols
+
+madd
+msub
+mmul
+
+transpose
+```
+
+## Compatibility
+
+Version 3.7.1 remains fully compatible with:
+
+```
+saved stacks
+variables
+constants
+functions
+matrix files
+example matrices
+```
+
+## Next Release
+
+Version 3.7.2
+
+Planned:
+
+```
+Matrix Inverses
+```
+
+Potential commands:
+
+```
+inverse
+invm
+```

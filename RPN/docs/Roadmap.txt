@@ -336,6 +336,68 @@ Matrix Mathematics (Completed)
 
 [x] t/28_Matrix.t
 
+## Version 3.7.1
+
+Matrix Determinants (Completed)
+
+[x] determinant command
+[x] det alias
+
+[x] determinant support in RPN::Matrix
+
+[x] 1x1 determinants
+[x] 2x2 determinants
+[x] NxN determinants
+
+[x] square matrix validation
+
+[x] stack preservation on error
+
+[x] t/29_Determinant.t
+
+## Version 3.7.2
+
+Matrix Inverses
+
+[ ] inverse command
+[ ] invm alias
+
+[ ] inverse support in RPN::Matrix
+
+[ ] square matrix validation
+
+[ ] singular matrix detection
+
+[ ] stack preservation on error
+
+[ ] t/30_MatrixInverse.t
+
+## Version 3.7.3
+
+Matrix / Vector Operations
+
+[ ] matrix × vector multiplication
+[ ] vector × matrix multiplication
+
+[ ] dimensional validation
+
+[ ] stack preservation on error
+
+[ ] tests
+
+## Version 3.7.4
+
+Matrix Powers
+
+[ ] mpow command
+
+[ ] positive integer powers
+[ ] zero power (identity matrix)
+
+[ ] dimensional validation
+
+[ ] tests
+
 
 ## Version 4.0.0
 
