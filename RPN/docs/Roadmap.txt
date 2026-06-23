@@ -336,6 +336,14 @@ Matrix Mathematics (Completed)
 
 [x] t/28_Matrix.t
 
+## un-versioned Completed Refactors
+
+[x] Split matrix commands into Commands::Matrix
+[x] Split vector commands into Commands::Vector
+[x] Split combinatorics commands into Commands::Combinatorics
+[x] Split number theory commands into Commands::NumberTheory
+[x] Split financial commands into Commands::Financial
+
 ## Version 3.7.1
 
 Matrix Determinants (Completed)
@@ -355,22 +363,24 @@ Matrix Determinants (Completed)
 
 [x] t/29_Determinant.t
 
+
 ## Version 3.7.2
 
 Matrix Inverses
 
-[ ] inverse command
-[ ] invm alias
+[x] inverse command
+[x] invm alias
 
-[ ] inverse support in RPN::Matrix
+[x] inverse support in RPN::Matrix
 
-[ ] square matrix validation
+[x] square matrix validation
 
-[ ] singular matrix detection
+[x] singular matrix detection
 
-[ ] stack preservation on error
+[x] stack preservation on error
 
-[ ] t/30_MatrixInverse.t
+[x] t/30_MatrixInverse.t
+
 
 ## Version 3.7.3
 
@@ -384,6 +394,7 @@ Matrix / Vector Operations
 [ ] stack preservation on error
 
 [ ] tests
+
 
 ## Version 3.7.4
 

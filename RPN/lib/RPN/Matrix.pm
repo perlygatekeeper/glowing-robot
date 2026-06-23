@@ -196,4 +196,56 @@ sub determinant {
     return $det;
 }
 
+sub cofactor {
+    my ($self, $row, $col) = @_;
+
+    die "cofactor requires a square matrix\n"
+        unless $self->rows == $self->cols;
+
+    my $sign = (($row + $col) % 2 == 0) ? 1 : -1;
+
+    return $sign * $self->_minor($row, $col)->determinant;
+}
+
+sub cofactor_matrix {
+    my ($self) = @_;
+
+    die "cofactor matrix requires a square matrix\n"
+        unless $self->rows == $self->cols;
+
+    my @result;
+
+    for my $r (0 .. $self->rows - 1) {
+        my @row;
+        for my $c (0 .. $self->cols - 1) {
+            push @row, $self->cofactor($r, $c);
+        }
+        push @result, \@row;
+    }
+    return RPN::Matrix->new(@result);
+}
+
+sub inverse {
+    my ($self) = @_;
+    die "inverse requires a square matrix\n"
+        unless $self->rows == $self->cols;
+    my $det = $self->determinant;
+    die "inverse requires a non-singular matrix\n"
+        if $det == 0;
+    if ($self->rows == 1) {
+        return RPN::Matrix->new([ 1 / $self->get(0, 0) ]);
+    }
+    my $cofactor_matrix = $self->cofactor_matrix;
+    my $adjugate        = $cofactor_matrix->transpose;
+    my @result;
+    for my $r (0 .. $adjugate->rows - 1) {
+        my @row;
+        for my $c (0 .. $adjugate->cols - 1) {
+            push @row, $adjugate->get($r, $c) / $det;
+        }
+        push @result, \@row;
+    }
+    return RPN::Matrix->new(@result);
+}
+
 1;

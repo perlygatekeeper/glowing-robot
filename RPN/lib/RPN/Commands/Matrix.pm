@@ -410,6 +410,35 @@ sub register_commands {
         }
     );
 
+    $commands->register(
+        inverse => {
+            aliases => ['invm'],
+            type    => 'matrix',
+            help    => 'compute inverse of a square non-singular matrix',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $m = $calc->stack->pop;
+                unless (RPN::Matrix::is_matrix($m)) {
+                    $calc->stack->push($m);
+                    warn "inverse requires a matrix\n";
+                    return;
+                }
+                unless ($m->rows == $m->cols) {
+                    $calc->stack->push($m);
+                    warn "inverse requires a square matrix\n";
+                    return;
+                }
+                if ($m->determinant == 0) {
+                    $calc->stack->push($m);
+                    warn "inverse requires a non-singular matrix\n";
+                    return;
+                }
+                $calc->stack->push($m->inverse);
+            },
+        }
+    );
+
     return;
 }
 
