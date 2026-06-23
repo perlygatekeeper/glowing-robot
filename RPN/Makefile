@@ -26,7 +26,7 @@ RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 .PHONY: backup syntax run test clean size size-modules
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) $(EXAMPLES) Roadmap.txt Roadmap_2.txt
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) $(EXAMPLES) $(DOCS)
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)

@@ -16,7 +16,6 @@ scientific, and application-specific values.
 
 ## Highlights
 
-```
 * New RPN::Constants module
 * User-defined constants
 * Persistent custom constants
@@ -24,19 +23,15 @@ scientific, and application-specific values.
 * Protection of built-in constants
 * Example constant packs
 * Expanded automated test coverage
-```
 
 ## New Architecture
 
 New module:
 
-```
 lib/RPN/Constants.pm
-```
 
 Responsibilities:
 
-```
 * Built-in constants
 * User constants
 * Constant lookup
@@ -45,13 +40,11 @@ Responsibilities:
 * Loading constant files
 * Saving constant files
 * Protection of built-in values
-```
 
 ## Built-In Constants
 
 The following mathematical constants are available by default:
 
-```
 pi
 e
 phi
@@ -60,33 +53,26 @@ r2
 r3
 r5
 r7
-```
 
 Where:
 
-```
 phi = Golden Ratio
 r2  = sqrt(2)
 r3  = sqrt(3)
 r5  = sqrt(5)
 r7  = sqrt(7)
-```
 
 ## Custom Constants
 
 Users may create their own constants:
 
-```
 const gravity 9.80665
 const answer 42
-```
 
 and use them directly:
 
-```
 gravity
 answer
-```
 
 Custom constants are stored separately from built-in constants and may be
 saved and reloaded across sessions.
@@ -95,7 +81,6 @@ saved and reloaded across sessions.
 
 New commands:
 
-```
 const
     List all constants
 
@@ -113,7 +98,6 @@ loadconst <file>
 
 saveconst
     Save user constants
-```
 
 ## Built-In Constant Protection
 
@@ -121,11 +105,9 @@ Built-in constants cannot be modified or removed.
 
 Examples:
 
-```
 const pi 3
 
 delconst pi
-```
 
 will generate warnings and leave the built-in constant unchanged.
 
@@ -133,23 +115,17 @@ will generate warnings and leave the built-in constant unchanged.
 
 Constant files support:
 
-```
 * Blank lines
 * Full-line comments
 * Trailing comments
-```
 
 Example:
 
-```
 # Physics Constants
 
 c = 299792458          # m/s
-
 g = 9.80665            # m/s^2
-
 R = 8.31446261815324   # J/(mol*K)
-```
 
 This format allows constant files to serve as both data and documentation.
 
@@ -157,11 +133,9 @@ This format allows constant files to serve as both data and documentation.
 
 The project now includes example constant collections:
 
-```
 constants/mathematics.txt
 constants/physics.txt
 constants/chemistry.txt
-```
 
 These files demonstrate recommended formatting and provide useful
 starting points for customization.
@@ -173,11 +147,9 @@ framework.
 
 The calculator now supports:
 
-```
 * History persistence
 * Stack persistence
 * Constant persistence
-```
 
 using separate storage files.
 
@@ -185,7 +157,6 @@ using separate storage files.
 
 New automated test coverage includes:
 
-```
 Custom constant creation
 Constant lookup
 Constant deletion
@@ -193,7 +164,6 @@ Built-in protection
 Constant file loading
 Constant file saving
 Persistence validation
-```
 
 All tests pass successfully.
 
@@ -209,12 +179,9 @@ Version 3.2.0
 
 Planned features:
 
-```
 * readnums
 * readcsv
 * writecsv
 * appendcsv
-```
 
 The focus of 3.2.0 will be file input/output and data exchange.
-
