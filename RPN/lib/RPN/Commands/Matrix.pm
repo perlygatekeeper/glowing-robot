@@ -321,26 +321,21 @@ sub register_commands {
             help => 'subtract top matrix from second matrix',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(2);
-
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
-
                 unless (RPN::Matrix::is_matrix($a) && RPN::Matrix::is_matrix($b)) {
                     $calc->stack->push($a);
                     $calc->stack->push($b);
                     warn "msub requires two matrices\n";
                     return;
                 }
-
                 unless ($a->same_dim($b)) {
                     $calc->stack->push($a);
                     $calc->stack->push($b);
                     warn "msub requires matrices of the same dimensions\n";
                     return;
                 }
-
                 $calc->stack->push($a->subtract($b));
             },
         }
@@ -352,26 +347,21 @@ sub register_commands {
             help => 'multiply two matrices',
             code => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(2);
-
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
-
                 unless (RPN::Matrix::is_matrix($a) && RPN::Matrix::is_matrix($b)) {
                     $calc->stack->push($a);
                     $calc->stack->push($b);
                     warn "mmul requires two matrices\n";
                     return;
                 }
-
                 unless ($a->cols == $b->rows) {
                     $calc->stack->push($a);
                     $calc->stack->push($b);
                     warn "mmul requires left columns to equal right rows\n";
                     return;
                 }
-
                 $calc->stack->push($a->multiply($b));
             },
         }
@@ -384,18 +374,38 @@ sub register_commands {
             help    => 'transpose a matrix',
             code    => sub {
                 my ($calc) = @_;
-
                 return unless $calc->stack->require_depth(1);
-
                 my $m = $calc->stack->pop;
-
                 unless (RPN::Matrix::is_matrix($m)) {
                     $calc->stack->push($m);
                     warn "transpose requires a matrix\n";
                     return;
                 }
-
                 $calc->stack->push($m->transpose);
+            },
+        }
+    );
+
+    $commands->register(
+        determinant => {
+            aliases => ['det'],
+            type    => 'matrix',
+            help    => 'compute determinant of a square matrix',
+            code    => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $m = $calc->stack->pop;
+                unless (RPN::Matrix::is_matrix($m)) {
+                    $calc->stack->push($m);
+                    warn "determinant requires a matrix\n";
+                    return;
+                }
+                unless ($m->rows == $m->cols) {
+                    $calc->stack->push($m);
+                    warn "determinant requires a square matrix\n";
+                    return;
+                }
+                $calc->stack->push($m->determinant);
             },
         }
     );

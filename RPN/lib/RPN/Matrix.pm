@@ -62,7 +62,6 @@ sub get {
 
 sub as_string {
     my ($self) = @_;
-
     return '['
         . join(
             ',',
@@ -73,131 +72,128 @@ sub as_string {
 
 sub same_dim {
     my ($self, $other) = @_;
-
     return 0 unless is_matrix($other);
-
     return $self->rows == $other->rows
         && $self->cols == $other->cols;
 }
 
 sub add {
     my ($self, $other) = @_;
-
     die "matrix add requires matrices of the same dimensions\n"
         unless $self->same_dim($other);
-
     my @result;
-
     for my $r (0 .. $self->rows - 1) {
         my @row;
-
         for my $c (0 .. $self->cols - 1) {
             push @row, $self->get($r, $c) + $other->get($r, $c);
         }
-
         push @result, \@row;
     }
-
     return RPN::Matrix->new(@result);
 }
 
 sub subtract {
     my ($self, $other) = @_;
-
     die "matrix subtract requires matrices of the same dimensions\n"
         unless $self->same_dim($other);
-
     my @result;
-
     for my $r (0 .. $self->rows - 1) {
         my @row;
-
         for my $c (0 .. $self->cols - 1) {
             push @row, $self->get($r, $c) - $other->get($r, $c);
         }
-
         push @result, \@row;
     }
-
     return RPN::Matrix->new(@result);
 }
 
 sub multiply {
     my ($self, $other) = @_;
-
     die "matrix multiply requires left cols == right rows\n"
         unless is_matrix($other) && $self->cols == $other->rows;
-
     my @result;
-
     for my $r (0 .. $self->rows - 1) {
         my @row;
-
         for my $c (0 .. $other->cols - 1) {
             my $sum = 0;
-
             for my $k (0 .. $self->cols - 1) {
                 $sum += $self->get($r, $k) * $other->get($k, $c);
             }
-
             push @row, $sum;
         }
-
         push @result, \@row;
     }
-
     return RPN::Matrix->new(@result);
 }
 
 sub transpose {
     my ($self) = @_;
-
     my @result;
-
     for my $c (0 .. $self->cols - 1) {
         my @row;
-
         for my $r (0 .. $self->rows - 1) {
             push @row, $self->get($r, $c);
         }
-
         push @result, \@row;
     }
-
     return RPN::Matrix->new(@result);
 }
 
 sub parse {
     my ($class, $text) = @_;
-
     die "matrix literal required\n"
         unless defined $text;
-
     $text =~ s/^\s+//;
     $text =~ s/\s+$//;
-
     die "matrix literal must look like [[...],[...]]\n"
         unless $text =~ /^\[\s*\[.*\]\s*\]$/s;
-
     my @rows;
-
     while ($text =~ /\[([^\[\]]+)\]/g) {
         my $row_text = $1;
-
         my @values = grep { length } split /\s*,\s*/, $row_text;
-
         die "matrix row must not be empty\n"
             unless @values;
-
         foreach my $value (@values) {
             die "matrix values must be numeric\n"
                 unless $value =~ /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][-+]?\d+)?$/;
         }
-
         push @rows, \@values;
     }
-
     return $class->new(@rows);
+}
+
+sub _minor {
+    my ($self, $remove_row, $remove_col) = @_;
+    my @minor;
+    for my $r (0 .. $self->rows - 1) {
+        next if $r == $remove_row;
+        my @row;
+        for my $c (0 .. $self->cols - 1) {
+            next if $c == $remove_col;
+            push @row, $self->get($r, $c);
+        }
+        push @minor, \@row;
+    }
+    return RPN::Matrix->new(@minor);
+}
+
+sub determinant {
+    my ($self) = @_;
+    die "determinant requires a square matrix\n"
+        unless $self->rows == $self->cols;
+    return $self->get(0, 0)
+        if $self->rows == 1;
+    return $self->get(0, 0) * $self->get(1, 1)
+         - $self->get(0, 1) * $self->get(1, 0)
+        if $self->rows == 2;
+    my $det = 0;
+    for my $c (0 .. $self->cols - 1) {
+        my $sign = ($c % 2 == 0) ? 1 : -1;
+        $det += $sign
+              * $self->get(0, $c)
+              * $self->_minor(0, $c)->determinant;
+    }
+    return $det;
 }
 
 1;
