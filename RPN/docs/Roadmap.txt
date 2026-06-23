@@ -571,17 +571,10 @@ Graphics (Optional)
 ## Future Ideas
 
 [ ] scientific constant pack expansion
-
 [ ] units and dimensional analysis
-
 [ ] JSON import/export
-
 [ ] HTTP/API import
-
 [ ] spreadsheet integration
-
 [ ] programmable scripts
-
 [ ] user libraries
-
 [ ] package/import system

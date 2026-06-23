@@ -1,0 +1,220 @@
+# RPN Calculator Quick Start
+
+## Welcome
+
+This calculator uses Reverse Polish Notation (RPN).
+
+If you have never used an RPN calculator before, don't worry.
+Most users can learn the basics in about 10 minutes.
+
+The key idea is simple:
+
+Numbers go onto a stack.
+Commands operate on the top entries of the stack.
+
+---
+
+
+1. The Stack
+
+Enter a number:
+
+RPN> 3
+
+The number 3 is "pushed" unto the stack, The stack now contains:
+
+1: 3
+
+The second number is "pushed" unto the stack, pushing the first number deeper:
+
+RPN> 4
+
+The stack now contains:
+
+1: 4
+2: 3
+
+The stack is like playing cards placed face-up in a pile,
+the most recently entered value is always on top.
+
+Note: Unlike physical calculators, this tool supports multiple stacks.
+      There is a category of commands related to stacks, including
+      making new stacks, switching between them and manipulating the values
+      stored in them.  But if you never use more than the default stack,
+      you will find this tool useful.
+
+---
+
+
+2. Arithmetic
+
+Simple arithmetic is performed as the operation is entered, so a "+" entered
+onto the stack triggers the addition and the first two values on the stack are
+popped off the stack and their sum is pushed unto the stack.  The stack has to
+have 2 numbers when the "+" operation is entered.  If there are not at least 2
+numbers the RPN calculator will warn you but leave the stack alone.
+
+Let's add two numbers:
+
+RPN> 3
+RPN> 4
+RPN> +
+
+Result:
+
+1: 7
+
+These are called binary operations, as they require 2 values.
+
+Other arithmetic commands:
+
++     addition
+-     subtraction
+*     multiplication
+/     division
+
+Examples:
+
+10 5 -
+6 7 *
+20 4 /
+
+Try them.
+
+Some operations require only one entry on the stack and they are called unary commands.
+
+Amoung the unary commands are, negation, squareroot, or cube.
+
+---
+
+
+3. Building Larger Calculations
+
+Suppose you want to calculate:
+
+(3 + 4) * 5
+
+In RPN:
+
+3 4 + 5 *
+
+Step by step:
+
+3        push 3
+4        push 4
++        add them -> 7
+5        push 5
+*        multiply -> 35
+
+No parentheses are needed.
+
+This style of calculation is called
+Reverse Polish Notation (RPN).
+
+NOTE: Using this method, one never has to enter an equals sign "=". 
+      In fact there isn't an "=" amongst the commands.
+
+---
+
+
+4. Stack Operations
+
+Useful stack commands:
+
+dup      duplicate the top value
+drop     remove the top value
+swap     exchange the top two values
+clear    clear the stack
+
+Examples:
+
+5 dup *
+
+Step by step:
+
+5        push 5
+dup      pop the 5 and push it on twice
+*        multiply -> 25
+
+This computes 5 squared.
+
+---
+
+
+5. Finding Help
+
+To see a list of all available commands:
+
+help
+
+To see all command categories:
+
+help types
+
+To see commands in a category:
+
+help type matrix
+
+To get help for a specific command:
+
+help det
+
+Explore!  Don't be daunted by the number of commands or even command types.
+Learn simple arithmatic first and then learn one new command at a time.
+
+This is a feature-rich tool and contains many additional capabilities including:
+
+Variables
+Functions
+Constants
+Vectors
+Matrices
+Financial functions
+Number theory
+
+---
+
+
+6. Operatation, Leaving and Returning
+
+The calculator maintains a history of the commands entered.
+One can access them via the up and down arrow keys.  Previous commands
+can be edited before enter is pressed.
+
+Your work is automatically saved, when you exit.
+
+When you exit the calculator and return later:
+
+History of commands
+Stack contents
+Variables defined
+Functions defined
+
+can be restored automatically.
+
+You can safely leave the calculator and
+continue your work later.
+
+---
+
+7. Where To Go Next
+
+After completing this Quick Start:
+
+Variables Tutorial
+Functions Tutorial
+Constants Tutorial
+Vector Tutorial
+Matrix Tutorial
+Financial Tutorial
+Number Theory Tutorial
+
+Use:
+
+help tutorials
+
+to see available tutorials.
+
+Congratulations.
+
+You now know enough RPN to use the calculator effectively.

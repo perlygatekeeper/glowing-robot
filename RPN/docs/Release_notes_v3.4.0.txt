@@ -252,7 +252,6 @@ File I/O
 Random Numbers
 Date/Time Functions
 Sequence Generation
-```
 
 The calculator has now crossed the line from a programmable calculator
 into a lightweight stack-oriented language environment.
@@ -263,7 +262,6 @@ Version 3.5.0
 
 Planned features:
 
-```
 User-Defined Functions
 
     def
@@ -271,13 +269,10 @@ User-Defined Functions
     functions
     savefuncs
     loadfuncs
-```
 
 Future planned work:
 
-```
 Vector Mathematics
 Matrix Mathematics
 Transformations
 Graphics (optional)
-```
