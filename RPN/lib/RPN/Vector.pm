@@ -43,7 +43,7 @@ sub get {
 sub as_string {
     my ($self) = @_;
 
-    return '<' . join(',', @{ $self->{values} }) . '>';
+    return '[' . join(',', @{ $self->{values} }) . ']';
 }
 
 sub clone {

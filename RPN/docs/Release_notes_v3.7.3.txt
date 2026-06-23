@@ -1,0 +1,163 @@
+RPN Calculator
+Release Notes
+Version 3.7.3
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.7.3 extends matrix multiplication to support mixed
+matrix/vector operations.
+
+The existing mmul command can now multiply:
+
+matrix × matrix
+matrix × vector
+vector × matrix
+
+without introducing any new commands.
+
+This release also updates vector display formatting to use square
+brackets for consistency with matrix notation.
+
+## New Functionality
+
+The mmul command now supports:
+
+Matrix × Vector
+
+    [ [1,2]
+      [3,4] ]
+
+    ×
+
+    [5,6]
+
+    =
+
+    [17,39]
+
+Vector × Matrix
+
+    [5,6]
+
+    ×
+
+    [ [1,2]
+      [3,4] ]
+
+    =
+
+    [23,34]
+
+## Implementation
+
+Added to RPN::Matrix:
+
+multiply_vector()
+
+left_multiply_vector()
+
+These methods perform matrix/vector and vector/matrix multiplication
+with dimensional validation.
+
+## Dimension Validation
+
+Matrix × Vector requires:
+
+matrix columns == vector dimension
+
+Vector × Matrix requires:
+
+vector dimension == matrix rows
+
+Invalid operations produce warnings and preserve stack contents.
+
+## Updated Display Format
+
+Vectors are now displayed using square brackets.
+
+Previous format:
+
+<1,2,3>
+
+New format:
+
+[1,2,3]
+
+Matrices continue to display as:
+
+[[1,2],[3,4]]
+
+This change provides a more consistent mathematical notation throughout
+the calculator.
+
+## Examples
+
+Matrix × Vector:
+
+[[1,2],[3,4]]
+[5,6]
+mmul
+
+Result:
+
+[17,39]
+
+Vector × Matrix:
+
+[5,6]
+[[1,2],[3,4]]
+mmul
+
+Result:
+
+[23,34]
+
+Identity Matrix:
+
+[[1,0],[0,1]]
+[7,9]
+mmul
+
+Result:
+
+[7,9]
+
+## Testing
+
+Added:
+
+t/31_MatrixVector.t
+
+Coverage includes:
+
+matrix × vector multiplication
+vector × matrix multiplication
+identity matrix behavior
+dimensional validation
+invalid operands
+stack preservation
+
+## Compatibility
+
+No compatibility-breaking changes were introduced to calculator
+functionality.
+
+Vector display formatting has changed from angle brackets to square
+brackets. Existing vector operations and commands are unaffected.
+
+## Next Release
+
+Version 3.7.4
+
+Planned:
+
+Matrix Powers
+
+Potential commands:
+
+mpow

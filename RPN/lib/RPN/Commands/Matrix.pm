@@ -344,25 +344,53 @@ sub register_commands {
     $commands->register(
         mmul => {
             type => 'matrix',
-            help => 'multiply two matrices',
+            help => 'multiply matrices, matrix/vector, or vector/matrix operands',
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(2);
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
-                unless (RPN::Matrix::is_matrix($a) && RPN::Matrix::is_matrix($b)) {
-                    $calc->stack->push($a);
-                    $calc->stack->push($b);
-                    warn "mmul requires two matrices\n";
+
+                if (RPN::Matrix::is_matrix($a) && RPN::Matrix::is_matrix($b)) {
+                    unless ($a->cols == $b->rows) {
+                        $calc->stack->push($a);
+                        $calc->stack->push($b);
+                        warn "mmul requires left columns to equal right rows\n";
+                        return;
+                    }
+                    $calc->stack->push($a->multiply($b));
                     return;
                 }
-                unless ($a->cols == $b->rows) {
-                    $calc->stack->push($a);
-                    $calc->stack->push($b);
-                    warn "mmul requires left columns to equal right rows\n";
+
+                if (RPN::Matrix::is_matrix($a) && RPN::Vector::is_vector($b)) {
+                    my @v = $b->values;
+                    unless ($a->cols == @v) {
+                        $calc->stack->push($a);
+                        $calc->stack->push($b);
+                        warn "matrix columns must equal vector dimension\n";
+                        return;
+                    }
+                    $calc->stack->push($a->multiply_vector($b));
                     return;
                 }
-                $calc->stack->push($a->multiply($b));
+
+                if (RPN::Vector::is_vector($a) && RPN::Matrix::is_matrix($b)) {
+                    my @v = $a->values;
+                    unless (@v == $b->rows) {
+                        $calc->stack->push($a);
+                        $calc->stack->push($b);
+                        warn "vector dimension must equal matrix rows\n";
+                        return;
+                    }
+                    $calc->stack->push($b->left_multiply_vector($a));
+                    return;
+                }
+
+                $calc->stack->push($a);
+                $calc->stack->push($b);
+
+                warn "mmul requires matrices or matrix/vector operands\n";
+                return;
             },
         }
     );
@@ -439,7 +467,47 @@ sub register_commands {
         }
     );
 
+    $commands->register(
+        mpow => {
+            type => 'matrix',
+            help => 'raise a square matrix to a non-negative integer power: matrix n mpow',
+            code => sub {
+                my ($calc) = @_;
+
+                return unless $calc->stack->require_depth(2);
+
+                my $n = $calc->stack->pop;
+                my $m = $calc->stack->pop;
+
+                unless (RPN::Matrix::is_matrix($m)) {
+                    $calc->stack->push($m);
+                    $calc->stack->push($n);
+                    warn "mpow requires a matrix and exponent\n";
+                    return;
+                }
+
+                unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 0) {
+                    $calc->stack->push($m);
+                    $calc->stack->push($n);
+                    warn "mpow requires a non-negative integer exponent\n";
+                    return;
+                }
+
+                unless ($m->rows == $m->cols) {
+                    $calc->stack->push($m);
+                    $calc->stack->push($n);
+                    warn "mpow requires a square matrix\n";
+                    return;
+                }
+
+                $calc->stack->push($m->power($n));
+            },
+        }
+    );
+
     return;
 }
+
+
 
 1;

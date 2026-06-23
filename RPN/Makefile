@@ -22,11 +22,12 @@ EXAMPLES  := examples/
 DOCS      := docs/
 
 RELEASE_NOTES := $(shell ls docs/Release_*.txt)
+ROADMAP       := $(shell ls docs/Roadmap*.txt)
 
 .PHONY: backup syntax run test clean size size-modules
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS)  $(RELEASE_NOTES) $(EXAMPLES) $(DOCS)
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS) $(EXAMPLES)/*/*.txt $(DOCS)/*.txt
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)
@@ -66,11 +67,13 @@ size:
 	@printf "%-28s %8s\n" "rpn.pl" "$$(grep -hcv '^[[:space:]]*$$' rpn.pl 2>/dev/null || echo 0)"
 	@printf "%-28s %8s\n" "lib" "$$(find lib -type f -name '*.pm' -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 	@printf "%-28s %8s\n" "tests" "$$(find t -type f -name '*.t' -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
+	@printf "%-28s %8s\n" "docs" "$$(find docs -type f -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 	@printf "%-28s %8s\n" "examples" "$$(find examples -type f -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
-	@printf "%-28s %8s\n" "docs/release/roadmap" "$$(find . -maxdepth 1 \( -name 'Roadmap*.txt' -o -name 'Release_notes*.txt' \) -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 	@echo "-----------------------------"
 	@printf "%-28s %8s\n" "TOTAL" "$$(find rpn.pl lib t examples -type f \( -name '*.pl' -o -name '*.pm' -o -name '*.t' -o -name '*.txt' \) -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 
+#	@printf "%-28s %8s\n" "examples" "$$(find examples -type f -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
+#	@printf "%-28s %8s\n" "docs/release/roadmap" "$$(find . -maxdepth 1 \( -name 'Roadmap*.txt' -o -name 'Release_notes*.txt' \) -print0 | xargs -0 grep -hcv '^[[:space:]]*$$' | awk '{s+=$$1} END {print s+0}')"
 
 size-modules:
 	@echo "Module size, non-blank lines"

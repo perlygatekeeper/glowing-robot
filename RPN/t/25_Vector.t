@@ -97,7 +97,7 @@ is($calc->stack->peek, 3, 'dim returns vector dimension');
 
 my $v = RPN::Vector->new(5, 6, 7);
 
-is($calc->format_value($v), '<5,6,7>', 'format_value formats vector');
+is($calc->format_value($v), '[5,6,7]', 'format_value formats vector');
 
 #
 # vadd
@@ -212,7 +212,7 @@ stderr_like(
 );
 
 is($calc->stack->depth, 2, 'vadd mismatch preserves stack depth');
-is($calc->format_value($calc->stack->peek), '<1,2,3>', 'vadd mismatch preserves top');
+is($calc->format_value($calc->stack->peek), '[1,2,3]', 'vadd mismatch preserves top');
 
 #
 # bad type preserves stack
@@ -245,6 +245,6 @@ stderr_like(
 );
 
 is($calc->stack->depth, 1, 'normalize zero preserves stack depth');
-is($calc->format_value($calc->stack->peek), '<0,0>', 'normalize zero preserves vector');
+is($calc->format_value($calc->stack->peek), '[0,0]', 'normalize zero preserves vector');
 
 done_testing();

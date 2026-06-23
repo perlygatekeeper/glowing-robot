@@ -29,17 +29,17 @@ Examples:
 
 Result:
 
-<1,2>
+[1,2]
 
 1 2 3 vec3
 
 Result:
 
-<1,2,3>
+[1,2,3]
 
 Vectors display naturally throughout the calculator:
 
-<1,2,3>
+[1,2,3]
 
 ## Vector Creation
 
@@ -65,7 +65,7 @@ dim
 
 Examples:
 
-<1,2,3> dim
+[1,2,3] dim
 
 Result:
 
@@ -81,23 +81,23 @@ vscale
 
 Examples:
 
-<1,2> <3,4> vadd
+[1,2] [3,4] vadd
 
 Result:
 
-<4,6>
+[4,6]
 
-<5,7> <2,3> vsub
-
-Result:
-
-<3,4>
-
-<3,4> 2 vscale
+[5,7] [2,3] vsub
 
 Result:
 
-<6,8>
+[3,4]
+
+[3,4] 2 vscale
+
+Result:
+
+[6,8]
 
 ## Vector Products
 
@@ -108,17 +108,17 @@ cross
 
 Examples:
 
-<1,2,3> <4,5,6> dot
+[1,2,3] [4,5,6] dot
 
 Result:
 
 32
 
-<1,0,0> <0,1,0> cross
+[1,0,0] [0,1,0] cross
 
 Result:
 
-<0,0,1>
+[0,0,1]
 
 ## Vector Properties
 
@@ -134,23 +134,23 @@ unit
 
 Examples:
 
-<3,4> magnitude
+[3,4] magnitude
 
 Result:
 
 5
 
-<3,4> normalize
+[3,4] normalize
 
 Result:
 
-<0.6,0.8>
+[0.6,0.8]
 
 ## Display Improvements
 
 Vectors are displayed using angle-bracket notation:
 
-<x,y,z>
+[x,y,z]
 
 The calculator prompt, stack display, and diagnostic output
 have been updated to display vectors cleanly.
@@ -164,7 +164,7 @@ Examples:
 
 'hello sqrt
 
-<1,2> add
+[1,2] add
 
 The stack remains unchanged after the error.
 

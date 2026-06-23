@@ -201,7 +201,7 @@ Vector Mathematics (Completed)
 [x] mag alias
 [x] unit alias
 
-[x] vector display support
+[x] vector display support [0,1]
 
 [x] stack preservation for invalid numeric operations
 
@@ -384,30 +384,166 @@ Matrix Inverses
 
 ## Version 3.7.3
 
-Matrix / Vector Operations
+Matrix / Vector Operations (Completed)
 
-[ ] matrix × vector multiplication
-[ ] vector × matrix multiplication
+[x] matrix × vector multiplication
 
-[ ] dimensional validation
+[x] vector × matrix multiplication
 
-[ ] stack preservation on error
+[x] mmul enhanced to support:
+[x] matrix × matrix
+[x] matrix × vector
+[x] vector × matrix
 
-[ ] tests
+[x] dimensional validation
+
+[x] stack preservation on error
+
+[x] t/31_MatrixVector.t
+
+Additional Changes
+
+[x] Vector display changed from:
+
+```
+    <1,2,3>
+
+to:
+
+    [1,2,3]
+```
+
+[x] Documentation updated
+
+[x] Tests updated
 
 
 ## Version 3.7.4
 
-Matrix Powers
+Matrix Powers (Completed)
 
-[ ] mpow command
+[x] mpow command
 
-[ ] positive integer powers
-[ ] zero power (identity matrix)
+[x] identity matrix generation
 
-[ ] dimensional validation
+[x] matrix powers
+
+[x] power 0 returns identity matrix
+
+[x] power 1 returns original matrix
+
+[x] binary exponentiation
+
+[x] square matrix validation
+
+[x] non-negative integer exponent validation
+
+[x] stack preservation on error
+
+[x] t/32_MatrixPowers.t
+
+## Matrix Mathematics Status
+
+Completed
+
+[x] Matrix creation
+[x] Matrix loading
+[x] Matrix display
+
+[x] Matrix addition
+[x] Matrix subtraction
+[x] Matrix multiplication
+
+[x] Matrix × Vector
+[x] Vector × Matrix
+
+[x] Transpose
+
+[x] Determinant
+
+[x] Inverse
+
+[x] Matrix Powers
+
+## Version 3.8.0
+
+Function Metadata and Documentation
+
+[ ] Function descriptions
+[ ] Function categories
+[ ] Enhanced showfunc output
+[ ] Enhanced help function_name output
+[ ] Function discovery
+[ ] Function navigation
+[ ] Example documentation for built-in functions
+[ ] Tests
+
+## Version 3.8.1
+
+Constant Pack Enhancements
+
+Existing Packs
+
+[x] astronomy
+[x] chemistry
+[x] electrical
+[x] electronics_parts
+[x] financial
+[x] fluid_dynamics
+[x] materials
+[x] mechanical
+[x] physics
+[x] thermodynamics
+
+Planned
+
+[ ] constant pack discovery
+
+[ ] help constants <pack>
+
+[ ] constant descriptions
+
+[ ] constant metadata
+
+[ ] additional engineering constants
+
+[ ] additional scientific constants
 
 [ ] tests
+
+## Version 3.8.2
+
+Advanced Number Theory
+
+Potential Additions
+
+[ ] Carmichael function
+
+[ ] Liouville function
+
+[ ] Jacobi symbol
+
+[ ] Legendre symbol
+
+[ ] Integer partitions
+
+[ ] Additional prime-search helpers
+
+[ ] Tests
+
+## Completed Refactors
+
+[x] Commands::Matrix
+
+[x] Commands::Vector
+
+[x] Commands::Combinatorics
+
+[x] Commands::NumberTheory
+
+[x] Commands::Financial
+
+
 
 
 ## Version 4.0.0
