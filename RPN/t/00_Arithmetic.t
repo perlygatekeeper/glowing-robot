@@ -261,4 +261,95 @@ ok(
     'cbrt(-8) = -2'
 );
 
+#
+# sign
+#
+
+$calc->process_input('5');
+$calc->process_input('sign');
+is($calc->stack->pop, 1, 'sign(5) = 1');
+
+$calc->process_input('-5');
+$calc->process_input('sign');
+is($calc->stack->pop, -1, 'sign(-5) = -1');
+
+$calc->process_input('0');
+$calc->process_input('sign');
+is($calc->stack->pop, 0, 'sign(0) = 0');
+
+#
+# floor
+#
+
+$calc->process_input('3.7');
+$calc->process_input('floor');
+is($calc->stack->pop, 3, 'floor(3.7) = 3');
+
+$calc->process_input('-3.7');
+$calc->process_input('floor');
+is($calc->stack->pop, -4, 'floor(-3.7) = -4');
+
+#
+# ceil
+#
+
+$calc->process_input('3.2');
+$calc->process_input('ceil');
+is($calc->stack->pop, 4, 'ceil(3.2) = 4');
+
+$calc->process_input('-3.2');
+$calc->process_input('ceil');
+is($calc->stack->pop, -3, 'ceil(-3.2) = -3');
+
+#
+# round
+#
+
+$calc->process_input('3.5');
+$calc->process_input('round');
+is($calc->stack->pop, 4, 'round(3.5) = 4');
+
+$calc->process_input('3.4');
+$calc->process_input('round');
+is($calc->stack->pop, 3, 'round(3.4) = 3');
+
+$calc->process_input('-3.5');
+$calc->process_input('round');
+is($calc->stack->pop, -4, 'round(-3.5) = -4');
+
+$calc->process_input('-3.4');
+$calc->process_input('round');
+is($calc->stack->pop, -3, 'round(-3.4) = -3');
+
+#
+# trunc
+#
+
+$calc->process_input('3.7');
+$calc->process_input('trunc');
+is($calc->stack->pop, 3, 'trunc(3.7) = 3');
+
+$calc->process_input('-3.7');
+$calc->process_input('trunc');
+is($calc->stack->pop, -3, 'trunc(-3.7) = -3');
+
+#
+# frac
+#
+
+$calc->process_input('3.7');
+$calc->process_input('frac');
+ok(
+    abs($calc->stack->pop - 0.7) < 1e-10,
+    'frac(3.7) = 0.7'
+);
+
+$calc->process_input('-3.7');
+$calc->process_input('frac');
+ok(
+    abs($calc->stack->pop + 0.7) < 1e-10,
+    'frac(-3.7) = -0.7'
+);
+
 done_testing();
+

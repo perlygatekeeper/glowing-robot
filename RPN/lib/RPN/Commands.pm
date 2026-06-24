@@ -10,6 +10,7 @@ use RPN::Commands::Combinatorics;
 use RPN::Commands::NumberTheory;
 use RPN::Commands::Financial;
 use RPN::Commands::Tutorials;
+use POSIX ();
 use Text::Abbrev qw(abbrev);
 
 sub new {
@@ -400,6 +401,99 @@ sub _initialize {
                     :   $x  ** (1/3);
 
                 $calc->stack->push($result);
+            },
+        }
+    );
+
+    $self->register(
+        sign => {
+            type => 'arithmetic',
+            help => 'sign of value (-1, 0, +1)',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                my $result =
+                    $x > 0 ?  1 :
+                    $x < 0 ? -1 :
+                              0;
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
+    $self->register(
+        floor => {
+            type => 'arithmetic',
+            help => 'round down',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( POSIX::floor($x) );
+            },
+        }
+    );
+
+    $self->register(
+        ceil => {
+            type => 'arithmetic',
+            help => 'round up',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( POSIX::ceil($x) );
+            },
+        }
+    );
+
+    $self->register(
+        round => {
+            type => 'arithmetic',
+            help => 'nearest integer',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                my $result = $x >= 0
+                    ? POSIX::floor($x + 0.5)
+                    : POSIX::ceil($x - 0.5);
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
+    $self->register(
+        trunc => {
+            type => 'arithmetic',
+            help => 'truncate toward zero',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                my $result = $x >= 0
+                    ? POSIX::floor($x)
+                    : POSIX::ceil($x);
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
+    $self->register(
+        frac => {
+            type => 'arithmetic',
+            help => 'fractional portion',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                my $int = $x >= 0
+                    ? POSIX::floor($x)
+                    : POSIX::ceil($x);
+
+                $calc->stack->push($x - $int);
             },
         }
     );
