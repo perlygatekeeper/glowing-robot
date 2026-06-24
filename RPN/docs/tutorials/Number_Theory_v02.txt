@@ -1,0 +1,424 @@
+# Number Theory Tutorial
+
+Number theory is the study of whole numbers (integers) and their properties.
+
+It is one of the oldest branches of mathematics and forms the foundation of:
+
+* Cryptography
+* Computer science
+* Prime number research
+* Modular arithmetic
+* Recreational mathematics
+
+Unlike most areas of mathematics, number theory deals primarily with integers rather than real numbers.
+
+Examples:
+
+2
+17
+42
+99991
+
+---
+
+## Prime Numbers
+
+A prime number is a positive integer greater than 1 that has exactly two divisors:
+
+1
+itself
+
+Examples:
+
+2
+3
+5
+7
+11
+13
+17
+19
+
+Non-primes are called composite numbers.
+
+Examples:
+
+4 = 2 × 2
+6 = 2 × 3
+8 = 2 × 4
+9 = 3 × 3
+10 = 2 × 5
+
+---
+
+## Prime Testing
+
+Prime testing determines whether a number is prime.
+
+Command:
+
+isprime
+
+Example:
+
+17 isprime
+
+Result:
+
+1
+
+Meaning:
+
+true
+
+Example:
+
+18 isprime
+
+Result:
+
+0
+
+Meaning:
+
+false
+
+Prime testing is one of the most common number theory operations.
+
+---
+
+## Prime Factorization
+
+Every positive integer greater than 1 can be expressed as a product of prime numbers.
+
+Command:
+
+factor
+
+Example:
+
+360 factor
+
+Result:
+
+2^3 × 3^2 × 5
+
+because:
+
+360 = 2 × 2 × 2 × 3 × 3 × 5
+
+This is known as the prime factorization of 360.
+
+A remarkable fact of mathematics is that every positive integer has exactly one prime factorization.
+
+This is called the Fundamental Theorem of Arithmetic.
+
+---
+
+## Greatest Common Divisor (GCD)
+
+The GCD of two integers is the largest integer that divides both numbers.
+
+Command:
+
+gcd
+
+Example:
+
+24 36 gcd
+
+Result:
+
+12
+
+because:
+
+12 divides 24
+12 divides 36
+
+and no larger number does.
+
+GCD is useful for:
+
+* Reducing fractions
+* Simplifying ratios
+* Cryptography
+* Modular arithmetic
+
+---
+
+## Least Common Multiple (LCM)
+
+The LCM of two integers is the smallest positive integer that is a multiple of both.
+
+Command:
+
+lcm
+
+Example:
+
+12 18 lcm
+
+Result:
+
+36
+
+because:
+
+36 = 12 × 3
+36 = 18 × 2
+
+LCM is useful when combining cycles, schedules, or periodic events.
+
+---
+
+## Relationship Between GCD and LCM
+
+For positive integers:
+
+gcd(a,b) × lcm(a,b) = a × b
+
+Example:
+
+gcd(12,18) = 6
+lcm(12,18) = 36
+
+6 × 36 = 216
+12 × 18 = 216
+
+The identity holds.
+
+---
+
+## Modular Arithmetic
+
+Modular arithmetic works with remainders.
+
+Command:
+
+mod
+
+Example:
+
+17 5 mod
+
+Result:
+
+2
+
+because:
+
+17 = 3 × 5 + 2
+
+The remainder is 2.
+
+Modular arithmetic is the arithmetic of clocks.
+
+Example:
+
+23 + 5 ≡ 4 (mod 24)
+
+because:
+
+28 mod 24 = 4
+
+---
+
+## Integer Division
+
+Integer division discards the remainder.
+
+Command:
+
+idiv
+
+Example:
+
+17 5 idiv
+
+Result:
+
+3
+
+because:
+
+17 = 3 × 5 + 2
+
+The remainder is discarded.
+
+---
+
+## Even and Odd Numbers
+
+An integer is even if it is divisible by 2.
+
+Examples:
+
+2
+4
+6
+8
+10
+
+An integer is odd if it is not divisible by 2.
+
+Examples:
+
+1
+3
+5
+7
+9
+
+Commands:
+
+even
+odd
+
+Examples:
+
+42 even
+
+Result:
+
+1
+
+and:
+
+42 odd
+
+Result:
+
+0
+
+---
+
+## Perfect Numbers
+
+A perfect number equals the sum of its proper divisors.
+
+Example:
+
+6
+
+because:
+
+1 + 2 + 3 = 6
+
+Another example:
+
+28
+
+because:
+
+1 + 2 + 4 + 7 + 14 = 28
+
+Perfect numbers are rare and have fascinated mathematicians for over 2,000 years.
+
+---
+
+## Mersenne Primes
+
+A Mersenne prime has the form:
+
+2^p - 1
+
+where p is prime.
+
+Examples:
+
+3
+7
+31
+127
+8191
+
+Large Mersenne primes are often used in record-setting prime searches.
+
+---
+
+## Large Prime Searches
+
+Prime numbers become increasingly rare as numbers grow larger.
+
+Near:
+
+1,000
+
+roughly one number in seven is prime.
+
+Near:
+
+1,000,000
+
+roughly one number in fourteen is prime.
+
+Near:
+
+10^100
+
+primes are much rarer.
+
+Modern prime searches often use:
+
+* Sieving
+* Miller-Rabin tests
+* Lucas tests
+* ECPP proofs
+
+to identify and prove primality.
+
+---
+
+## Why Number Theory Matters
+
+Number theory is far more than a collection of mathematical curiosities.
+
+It powers:
+
+* RSA encryption
+* Internet security
+* Digital signatures
+* Cryptographic key generation
+* Error detection algorithms
+
+The security of much of the modern Internet relies on properties of prime numbers and factorization.
+
+---
+
+## Common Explorations
+
+Try:
+
+97 isprime
+
+360 factor
+
+24 36 gcd
+
+12 18 lcm
+
+17 5 mod
+
+17 5 idiv
+
+Observe how these operations relate to one another.
+
+Many deeper number theory concepts can be explored with nothing more than these basic tools.
+
+---
+
+## Where To Go Next
+
+After completing this tutorial consider:
+
+tutorial constants
+tutorial functions
+
+or explore:
+
+help type number_theory
+
+to see all available number theory commands.
+
+Number theory rewards curiosity. Some of the simplest questions about whole numbers remain unsolved today.

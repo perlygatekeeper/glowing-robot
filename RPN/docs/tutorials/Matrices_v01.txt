@@ -1,0 +1,9 @@
+# Matrices Tutorial
+
+Matrices represent rectangular arrays of values.
+
+Topics:
+- Multiplication
+- Determinants
+- Inverses
+- Powers

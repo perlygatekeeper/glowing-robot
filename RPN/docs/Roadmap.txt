@@ -555,19 +555,61 @@ Potential Additions
 [x] Centralize persistence save operations
 [x] Add tutorial pager support using $PAGER
 
-### Version 3.8.1 - Tutorial Expansion
+### Version 3.8.1 - Documentation & Tutorials
 
-[ ] Add Variables Tutorial
-[ ] Add Functions Tutorial
-[ ] Add Constants Tutorial
-[ ] Add Vector Tutorial
-[ ] Add Matrix Tutorial
-[ ] Add Financial Tutorial
-[ ] Add Number Theory Tutorial
-[ ] Add tutorial cross-references
-[ ] Add tutorial integration tests
+[x] Tutorial subsystem
+[x] Automatic tutorial discovery
+[x] Tutorial version selection
+[x] tutorials command
+[x] tutorial command
+[x] Quick Start guide
+[x] Quick Reference guide
+[x] Variables tutorial
+[x] Functions tutorial
+[x] Constants tutorial
+[x] Vectors tutorial
+[x] Matrices tutorial
+[x] Financial tutorial
+[x] Number Theory tutorial
+[x] Startup guidance for first-time users
+[x] Presentation tests
+[x] Tutorial tests
 
-### Version 3.8.2 - Constant Pack Enhancements
+### Version 3.8.2 - Arithmetic Completion
+
+[ ] ln        Natural logarithm
+[ ] log       Base-10 logarithm
+[ ] log2      Base-2 logarithm
+
+[ ] exp       e^x
+[ ] exp10     10^x
+
+[ ] inv       Reciprocal (1/x)
+
+[ ] sqr       Square (x^2)
+[ ] cube      Cube (x^3)
+[ ] cbrt      Cube root
+
+[ ] abs       Absolute value
+[ ] sign      Sign of value (-1, 0, +1)
+
+[ ] floor     Round down
+[ ] ceil      Round up
+[ ] round     Nearest integer
+[ ] trunc     Truncate toward zero
+[ ] frac      Fractional portion
+
+[ ] idiv      Integer division
+[ ] mod       Modulus / remainder
+
+[ ] hypot     sqrt(x^2 + y^2)
+
+[ ] Documentation
+[ ] Unit tests
+[ ] Release notes
+
+
+### Version 3.8.3 - Constant Pack Enhancements
 
 [ ] Add descriptions to constants
 [ ] Add units to constants

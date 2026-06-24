@@ -1,0 +1,398 @@
+# Variables Tutorial
+
+Variables allow values to be stored and recalled by name.
+
+A variable acts like a labeled container that remembers a value for later use.
+
+Variables are useful when:
+
+* A value will be reused repeatedly
+* A calculation spans multiple steps
+* A result should be saved for later
+* A calculation becomes difficult to read without names
+
+Examples:
+
+tax_rate
+pi_estimate
+radius
+answer
+
+---
+
+## Creating a Variable
+
+Store the top value on the stack into a variable.
+
+Command:
+
+sto
+
+Example:
+
+42
+sto answer
+
+The value:
+
+42
+
+is now stored in the variable:
+
+answer
+
+---
+
+## Recalling a Variable
+
+There are two ways to retrieve a variable.
+
+### Method 1 - Use Its Name
+
+Simply enter the variable name:
+
+answer
+
+Result:
+
+42
+
+The value is pushed onto the stack.
+
+---
+
+### Method 2 - Use rcl
+
+Command:
+
+rcl answer
+
+Result:
+
+42
+
+Both methods are equivalent.
+
+Many users prefer the shorter:
+
+answer
+
+while others prefer the explicit:
+
+rcl answer
+
+---
+
+## Variables Do Not Remove Values
+
+Recalling a variable copies its value onto the stack.
+
+Example:
+
+42
+sto answer
+
+answer
+answer
+
+Stack:
+
+1: 42
+2: 42
+
+The variable still exists and may be recalled again.
+
+---
+
+## Replacing a Variable
+
+Storing into an existing variable replaces its value.
+
+Example:
+
+42
+sto answer
+
+99
+sto answer
+
+Now:
+
+answer
+
+returns:
+
+99
+
+The previous value has been overwritten.
+
+---
+
+## Using Variables in Calculations
+
+Variables may be mixed freely with numbers.
+
+Example:
+
+10
+sto width
+
+20
+sto height
+
+width
+height
+*
+
+Result:
+
+200
+
+---
+
+## A Practical Example
+
+Suppose a circle has radius 5.
+
+Store the radius:
+
+5
+sto radius
+
+Compute the area:
+
+radius
+radius
+*
+pi
+*
+
+Result:
+
+78.539816...
+
+Because:
+
+Area = πr²
+
+Using a variable makes the calculation easier to understand.
+
+---
+
+## Variables and Persistence
+
+Variables are automatically saved when the calculator exits.
+
+When you return later:
+
+radius
+answer
+tax_rate
+
+may still be available.
+
+This allows long calculations to be resumed later.
+
+---
+
+## Viewing Variables
+
+To see all defined variables:
+
+vars
+
+Example output:
+
+Name         Value
+------------ ----------------
+answer       42
+radius       5
+tax_rate     0.07
+
+---
+
+## Removing Variables
+
+To delete a variable:
+
+unset answer
+
+or whatever delete command your calculator provides.
+
+After deletion:
+
+answer
+
+will no longer recall a value.
+
+---
+
+## Variable Naming Suggestions
+
+Good variable names:
+
+radius
+height
+velocity
+tax_rate
+monthly_payment
+
+Less useful names:
+
+x
+a
+tmp
+foo
+
+Descriptive names make calculations easier to understand when revisited later.
+
+---
+
+## Common Mistakes
+
+### Storing Before Computing
+
+Consider:
+
+3
+4
+sto answer
++
+
+The variable receives:
+
+4
+
+because only the top stack value is stored.
+
+If you wanted:
+
+7
+
+then compute first:
+
+3
+4
++
+sto answer
+
+---
+
+### Misspelled Variable Names
+
+These are different variables:
+
+answer
+Answer
+ANSWER
+
+Be consistent when naming variables.
+
+---
+
+### Forgetting That Variables Hold Values
+
+A variable stores the value it was given.
+
+Example:
+
+5
+sto radius
+
+Later:
+
+radius
+
+returns:
+
+5
+
+not the expression that originally produced the value.
+
+---
+
+## Variables vs Constants
+
+Variables:
+
+radius
+tax_rate
+answer
+
+are created and modified by the user.
+
+Constants:
+
+pi
+e
+phi
+
+are predefined values.
+
+Use variables for changing values.
+
+Use constants for fixed mathematical values.
+
+---
+
+## Variables vs Functions
+
+Variables store:
+
+values
+
+Functions store:
+
+sequences of commands
+
+Example variable:
+
+sto radius
+
+Example function:
+
+define square dup *
+
+Variables remember data.
+
+Functions remember procedures.
+
+---
+
+## Common Explorations
+
+Try:
+
+42
+sto answer
+
+answer
+
+10
+sto width
+
+20
+sto height
+
+width
+height
+*
+
+vars
+
+Observe how variables make calculations easier to organize and understand.
+
+---
+
+## Where To Go Next
+
+After completing this tutorial consider:
+
+tutorial constants
+tutorial functions
+
+Variables are often used together with constants and user-defined functions.
+
+To see all variable-related commands:
+
+help type variable
