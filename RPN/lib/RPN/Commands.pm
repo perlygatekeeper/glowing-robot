@@ -9,6 +9,7 @@ use RPN::Commands::Vector;
 use RPN::Commands::Combinatorics;
 use RPN::Commands::NumberTheory;
 use RPN::Commands::Financial;
+use RPN::Commands::Strings;
 use RPN::Commands::Tutorials;
 use POSIX ();
 use Text::Abbrev qw(abbrev);
@@ -64,10 +65,11 @@ sub _initialize {
     RPN::Commands::Combinatorics::register_commands($self);
     RPN::Commands::NumberTheory::register_commands($self);
     RPN::Commands::Financial::register_commands($self);
+    RPN::Commands::Strings::register_commands($self);
     RPN::Commands::Tutorials::register_commands($self);
 
     #
-    # Arithmetic
+    # Simple Numeric
     #
 
     $self->register(
@@ -252,7 +254,7 @@ sub _initialize {
 
     $self->register(
         ln => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'natural logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -270,7 +272,7 @@ sub _initialize {
 
     $self->register(
         log => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'base-10 logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -288,7 +290,7 @@ sub _initialize {
 
     $self->register(
         exp => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'e raised to x',
             code => sub {
                 my ($calc) = @_;
@@ -304,7 +306,7 @@ sub _initialize {
 
     $self->register(
         inv => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'reciprocal (1/x)',
             code => sub {
                 my ($calc) = @_;
@@ -324,7 +326,7 @@ sub _initialize {
 
     $self->register(
         abs => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'absolute value',
             code => sub {
                 my ($calc) = @_;
@@ -340,7 +342,7 @@ sub _initialize {
 
     $self->register(
         log2 => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'base-2 logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -354,7 +356,7 @@ sub _initialize {
 
     $self->register(
         exp10 => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => '10 raised to x',
             code => sub {
                 my ($calc) = @_;
@@ -366,7 +368,7 @@ sub _initialize {
 
     $self->register(
         sqr => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'square a value',
             code => sub {
                 my ($calc) = @_;
@@ -378,7 +380,7 @@ sub _initialize {
 
     $self->register(
         cube => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'cube a value',
             code => sub {
                 my ($calc) = @_;
@@ -390,7 +392,7 @@ sub _initialize {
 
     $self->register(
         cbrt => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'cube root',
             code => sub {
                 my ($calc) = @_;
@@ -407,7 +409,7 @@ sub _initialize {
 
     $self->register(
         sign => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'sign of value (-1, 0, +1)',
             code => sub {
                 my ($calc) = @_;
@@ -425,7 +427,7 @@ sub _initialize {
 
     $self->register(
         floor => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'round down',
             code => sub {
                 my ($calc) = @_;
@@ -437,7 +439,7 @@ sub _initialize {
 
     $self->register(
         ceil => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'round up',
             code => sub {
                 my ($calc) = @_;
@@ -449,7 +451,7 @@ sub _initialize {
 
     $self->register(
         round => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'nearest integer',
             code => sub {
                 my ($calc) = @_;
@@ -466,7 +468,7 @@ sub _initialize {
 
     $self->register(
         trunc => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'truncate toward zero',
             code => sub {
                 my ($calc) = @_;
@@ -483,7 +485,7 @@ sub _initialize {
 
     $self->register(
         frac => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'fractional portion',
             code => sub {
                 my ($calc) = @_;
@@ -500,7 +502,7 @@ sub _initialize {
 
     $self->register(
         idiv => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'integer division, truncated toward zero',
             code => sub {
                 my ($calc) = @_;
@@ -526,7 +528,7 @@ sub _initialize {
 
     $self->register(
         mod => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'modulus / remainder',
             code => sub {
                 my ($calc) = @_;
@@ -546,7 +548,7 @@ sub _initialize {
 
     $self->register(
         hypot => {
-            type => 'arithmetic',
+            type => 'numeric',
             help => 'sqrt(x^2 + y^2)',
             code => sub {
                 my ($calc) = @_;
@@ -2581,6 +2583,7 @@ sub print_help {
         if ($args->[0] eq 'types') {
              return $self->print_types;
         }
+
         if ($args->[0] eq 'type') {
             my $type = $args->[1];
             unless (defined $type && length $type) {
@@ -2589,6 +2592,7 @@ sub print_help {
             }
             return $self->_print_help_by_type($type);
         }
+
         if ($self->{calc}->functions->exists($args->[0])) {
             return $self->_print_help_for_function($args->[0]);
         }
@@ -2627,13 +2631,28 @@ sub print_types {
 
 sub _print_help_by_type {
     my ($self, $type) = @_;
+
+    my @matches = grep {
+        ($self->{commands}{$_}{type} // '') eq $type
+    } sort keys %{ $self->{commands} };
+
+    unless (@matches) {
+        print "No commands found for type '$type'.\n";
+        print "\n";
+        print "Use:\n";
+        print "\n";
+        print "    help types\n";
+        print "\n";
+        print "to see available command types.\n";
+        return;
+    }
+
     $self->_print_help_header;
-    foreach my $command (
-        sort keys %{ $self->{commands} }
-    ) {
-        next unless $self->{commands}{$command}{type} eq $type;
+
+    for my $command (@matches) {
         $self->_print_help_line($command);
     }
+
     return;
 }
 
