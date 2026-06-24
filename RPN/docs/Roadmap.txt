@@ -543,6 +543,60 @@ Potential Additions
 
 [x] Commands::Financial
 
+### Version 3.8.0 - Documentation & Discoverability
+
+[x] Add tutorial subsystem
+[x] Add tutorials command
+[x] Add tutorial command
+[x] Add quickstart command
+[x] Add versioned tutorial support
+[x] Add startup quickstart hint
+[x] Add Quick Reference guide
+[x] Centralize persistence save operations
+
+### Version 3.8.1 - Tutorial Expansion
+
+[ ] Add Variables Tutorial
+[ ] Add Functions Tutorial
+[ ] Add Constants Tutorial
+[ ] Add Vector Tutorial
+[ ] Add Matrix Tutorial
+[ ] Add Financial Tutorial
+[ ] Add Number Theory Tutorial
+[ ] Add tutorial pager support using $PAGER
+[ ] Add tutorial cross-references
+[ ] Add tutorial integration tests
+
+### Version 3.8.2 - Constant Pack Enhancements
+
+[ ] Add descriptions to constants
+[ ] Add units to constants
+[ ] Add constant categories
+[ ] Add constant search capability
+[ ] Add metadata support to constant packs
+[ ] Add enhanced constant help output
+
+### Version 3.9.0 - Geometry and Transformations
+
+[ ] Add transformation matrix examples
+[ ] Add rotation helpers
+[ ] Add reflection helpers
+[ ] Add scaling helpers
+[ ] Add shearing helpers
+[ ] Add coordinate geometry functions
+[ ] Add geometry tutorial
+
+### Version 4.0.0 - Graphics
+
+[ ] Design graphics architecture
+[ ] Define point and shape objects
+[ ] Implement SVG output
+[ ] Add line primitive
+[ ] Add rectangle primitive
+[ ] Add circle primitive
+[ ] Add polygon primitive
+[ ] Integrate transforms with graphics
+[ ] Add graphics tutorial
 
 
 

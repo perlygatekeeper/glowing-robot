@@ -40,12 +40,24 @@ sub new {
         ? undef
         : Term::ReadLine->new('Reverse Polish Notation Calculator');
 
+    $self->{files} = {
+        history   => $ENV{RPN_HISTORY}   || "$ENV{HOME}/.rpn_history",
+        stacks    => $ENV{RPN_STACKS}    || "$ENV{HOME}/.rpn_stacks",
+        variables => $ENV{RPN_VARIABLES} || "$ENV{HOME}/.rpn_variables",
+        constants => $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants",
+        functions => $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions",
+    };
+    
+    $self->{first_run} =
+           ! -e $self->{files}{history}
+        || -z $self->{files}{history};
+
     $self->load_history;
     $self->load_stacks;
-    $self->load_constants;
-    $self->load_functions;
-    $self->load_variables;
-
+    $self->load_constants( $self->file('constants') )
+        if -e $self->file('constants');
+    $self->load_variables( $self->file('variables') );
+    $self->load_functions( $self->file('functions') );
     $self->{commands} = RPN::Commands->new($self);
 
     return $self;
@@ -59,18 +71,50 @@ sub run {
 
     my $term = $self->{term};
 
-    while (defined(my $input = $term->readline($self->prompt))) {
+    if ($self->{first_run}) {
+        print "\n";
+        print "Welcome to the RPN Calculator.\n";
+        print "\n";
+        print "New here? Try:\n";
+        print "\n";
+        print "    quickstart\n";
+        print "\n";
+        print "for a 10-minute introduction.\n";
+        print "\n";
+    }
+
+    $self->{running} = 1;
+
+    while ($self->{running} && defined(my $input = $term->readline($self->prompt))) {
         next unless $input =~ /\S/;
         $self->add_history($input);
         $self->process_input($input);
     }
+    
+    $self->save_all;
 
+    return;
+}
+
+# Persistence filename recover method
+
+sub file {
+    my ($self, $name) = @_;
+
+    return $self->{files}{$name}
+        if exists $self->{files}{$name};
+
+    die "Unknown persistence file '$name'\n";
+}
+
+
+sub save_all {
+    my ($self) = @_;
     $self->save_history;
     $self->save_stacks;
-    $self->save_constants;
-    $self->save_variables;
-    $self->save_functions;
-
+    $self->save_constants( $self->file('constants') );
+    $self->save_variables( $self->file('variables') );
+    $self->save_functions( $self->file('functions') );
     return;
 }
 
@@ -124,33 +168,6 @@ sub version {
     return $self->{version};
 }
 
-# Persistence filename defining methods
-
-sub history_file {
-    my ($self) = @_;
-    return $ENV{RPN_HISTORY} || "$ENV{HOME}/.rpn_history";
-}
-
-sub stacks_file {
-    my ($self) = @_;
-    return $ENV{RPN_STACKS} || "$ENV{HOME}/.rpn_stacks";
-}
-
-sub variables_file {
-    my ($self) = @_;
-    return $ENV{RPN_VARIABLES} || "$ENV{HOME}/.rpn_variables";
-}
-
-sub constants_file {
-    my ($self) = @_;
-    return $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants";
-}
-
-sub functions_file {
-    my ($self) = @_;
-    return $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions";
-}
-
 # History methods
 
 sub add_history {
@@ -169,9 +186,10 @@ sub add_history {
 
 # Persistence load/save methods
 
+# HISTORY
 sub load_history {
     my ($self) = @_;
-    my $file = $self->history_file;
+    my $file = $self->file('history');
     return unless defined $file && -s $file;
     open my $fh, '<', $file
         or do {
@@ -189,7 +207,7 @@ sub load_history {
 
 sub save_history {
     my ($self) = @_;
-    my $file = $self->history_file;
+    my $file = $self->file('history');
     my @history = $self->history;
     @history = grep { defined && /\S/ } @history;
     open my $fh, '>', $file
@@ -205,57 +223,79 @@ sub save_history {
     return;
 }
 
+# STACKS
 sub load_stacks {
     my ($self) = @_;
-    $self->stack->load_file($self->stacks_file);
+    $self->stack->load_file( $self->file('stacks') );
     return;
 }
 
 sub save_stacks {
     my ($self) = @_;
-    $self->stack->save_file($self->stacks_file);
+    $self->stack->save_file( $self->file('stacks') );
     return;
 }
 
+# CONSTANTS
+#       if -e $self->file('history');
+#       if -e $self->file('stacks');
+#       if -e $self->file('constants');
+#       if -e $self->file('variables');
+#       if -e $self->file('functions');
 sub load_constants {
     my ($self, $file) = @_;
-    $file //= $self->constants_file;
-    return unless defined $file && -s $file;
-    $self->constants->load_file($file);
-    return;
+
+    $file = $self->file('constants')
+        unless defined $file && length $file;
+
+    return $self->{constants}->load_file($file);
 }
 
 sub save_constants {
     my ($self, $file) = @_;
-    $file //= $self->constants_file;
-    $self->constants->save_file($file);
-    return;
+
+    $file = $self->file('constants')
+        unless defined $file && length $file;
+
+    return $self->{constants}->save_file($file);
 }
 
+# VARIABLES
 sub load_variables {
     my ($self, $file) = @_;
-    $file //= $self->variables_file;
-    return unless defined $file && -s $file;
-    return $self->variables->load_file($file);
+
+    $file = $self->file('variables')
+        unless defined $file && length $file;
+
+    return $self->{variables}->load_file($file);
 }
 
 sub save_variables {
     my ($self, $file) = @_;
-    $file //= $self->variables_file;
-    return $self->variables->save_file($file);
+
+    $file = $self->file('variables')
+        unless defined $file && length $file;
+
+    return $self->{variables}->save_file($file);
+}
+
+# FUNCTIONS
+sub save_functions {
+    my ($self, $file) = @_;
+
+    $file = $self->file('functions')
+        unless defined $file && length $file;
+
+    return $self->{functions}->save_file($file);
 }
 
 sub load_functions {
     my ($self, $file) = @_;
-    $file //= $self->functions_file;
-    return unless defined $file && -s $file;
-    return $self->functions->load_file($file);
-}
 
-sub save_functions {
-    my ($self, $file) = @_;
-    $file //= $self->functions_file;
-    return $self->functions->save_file($file);
+    $file = $self->file('functions')
+        unless defined $file && length $file;
+
+    return $self->{functions}->load_file($file);
 }
 
 # Helper methods
@@ -448,8 +488,7 @@ sub push_number {
         or return;
     if ($type eq 'hex' || $type eq 'oct' || $type eq 'bin') {
         $self->stack->push(oct($token));
-    }
-    else {
+    } else {
         $self->stack->push($token);
     }
     return 1;

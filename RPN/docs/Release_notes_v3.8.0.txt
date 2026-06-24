@@ -1,0 +1,148 @@
+# Release Notes - Version 3.8.0
+
+Release Date: June 2026
+
+## Overview
+
+Version 3.8.0 introduces the first phase of user documentation and discoverability improvements.
+
+As the calculator has grown to include support for variables, functions, constants, vectors, matrices, financial calculations, combinatorics, and number theory, locating and learning features became increasingly difficult.
+
+This release introduces an integrated tutorial system and Quick Start guide directly accessible from within the calculator.
+
+---
+
+## New Features
+
+### Tutorial System
+
+Added a tutorial subsystem.
+
+New commands:
+
+tutorials
+
+Displays all available tutorials found in:
+
+docs/tutorials/
+
+Tutorials are discovered automatically from the filesystem.
+
+Adding a new tutorial requires only placing a .txt file in the tutorial directory.
+
+No code changes are required.
+
+---
+
+### Tutorial Viewer
+
+Added:
+
+tutorial <name>
+
+Displays the requested tutorial.
+
+Examples:
+
+tutorial quickstart
+tutorial variables
+tutorial matrices
+
+---
+
+### Versioned Tutorials
+
+Tutorials may now be versioned.
+
+Examples:
+
+QuickStart.txt
+QuickStart_v2.txt
+Number_Theory_v1.txt
+
+When multiple versions exist, the highest version number is selected automatically.
+
+---
+
+### Quick Start Guide
+
+Added:
+
+quickstart
+
+Displays the Quick Start guide for new users.
+
+The Quick Start introduces:
+
+The Stack
+Arithmetic
+Building Larger Calculations
+Stack Operations
+Finding Help
+Leaving and Returning
+Further Tutorials
+
+---
+
+### Startup Guidance
+
+First-time users are now presented with a brief startup message encouraging use of:
+
+quickstart
+
+This improves discoverability for users unfamiliar with RPN calculators.
+
+---
+
+## Internal Improvements
+
+### Centralized Persistence
+
+Persistence operations were consolidated into a single save path.
+
+Saving of:
+
+history
+stacks
+constants
+variables
+functions
+
+now occurs through a common mechanism.
+
+This eliminates inconsistencies between interactive shutdown and command-based exits.
+
+---
+
+## Bug Fixes
+
+Fixed an issue where exiting through:
+
+quit
+exit
+bye
+ZZ
+
+could bypass portions of the normal shutdown sequence.
+
+Under certain circumstances variables and functions were not guaranteed to be saved.
+
+---
+
+## Documentation
+
+Added:
+
+docs/tutorials/Quick_Reference_v2.txt
+
+as the first integrated tutorial document.
+
+Future releases will expand the tutorial library with dedicated guides for:
+
+Variables
+Functions
+Constants
+Vectors
+Matrices
+Financial Mathematics
+Number Theory

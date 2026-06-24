@@ -11,6 +11,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Financial.pm \
              lib/RPN/Commands/NumberTheory.pm \
              lib/RPN/Commands/Vector.pm \
+             lib/RPN/Commands/Tutorials.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
              lib/RPN/Variables.pm \

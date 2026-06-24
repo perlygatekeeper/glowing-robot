@@ -2,7 +2,7 @@
 
 ## Welcome
 
-This calculator uses Reverse Polish Notation, or RPN.
+This calculator uses "Reverse Polish Notation", or RPN.
 
 The basic idea is simple:
 

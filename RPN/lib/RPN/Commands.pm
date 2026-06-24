@@ -9,6 +9,7 @@ use RPN::Commands::Vector;
 use RPN::Commands::Combinatorics;
 use RPN::Commands::NumberTheory;
 use RPN::Commands::Financial;
+use RPN::Commands::Tutorials;
 use Text::Abbrev qw(abbrev);
 
 sub new {
@@ -54,6 +55,7 @@ sub _initialize {
         vector        => 'vector mathematics',
         matrix        => 'matrix mathematics',
         combinatorics => 'factorials, combinations, permutations, probability',
+        documentation => 'display tutorials',
     };
 
     RPN::Commands::Matrix::register_commands($self);
@@ -61,6 +63,7 @@ sub _initialize {
     RPN::Commands::Combinatorics::register_commands($self);
     RPN::Commands::NumberTheory::register_commands($self);
     RPN::Commands::Financial::register_commands($self);
+    RPN::Commands::Tutorials::register_commands($self);
 
     #
     # Arithmetic
@@ -796,10 +799,7 @@ sub _initialize {
             help    => 'exits the program',
             code => sub {
                  my ($calc) = @_;
-                 $calc->save_history;
-                 $calc->save_stacks;
-                 $calc->save_constants;
-                 exit 0;
+                 $calc->{running} = 0;
              },
          }
      );
