@@ -498,6 +498,69 @@ sub _initialize {
         }
     );
 
+    $self->register(
+        idiv => {
+            type => 'arithmetic',
+            help => 'integer division, truncated toward zero',
+            code => sub {
+                my ($calc) = @_;
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+
+                die "idiv requires two numeric values\n"
+                    unless defined $a && defined $b;
+
+                die "division by zero\n"
+                    if $b == 0;
+
+                my $q = $a / $b;
+
+                my $result = $q >= 0
+                    ? POSIX::floor($q)
+                    : POSIX::ceil($q);
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
+    $self->register(
+        mod => {
+            type => 'arithmetic',
+            help => 'modulus / remainder',
+            code => sub {
+                my ($calc) = @_;
+                my $b = $calc->stack->pop;
+                my $a = $calc->stack->pop;
+
+                die "mod requires two numeric values\n"
+                    unless defined $a && defined $b;
+
+                die "division by zero\n"
+                    if $b == 0;
+
+                $calc->stack->push($a % $b);
+            },
+        }
+    );
+
+    $self->register(
+        hypot => {
+            type => 'arithmetic',
+            help => 'sqrt(x^2 + y^2)',
+            code => sub {
+                my ($calc) = @_;
+                my $y = $calc->stack->pop;
+                my $x = $calc->stack->pop;
+
+                die "hypot requires two numeric values\n"
+                    unless defined $x && defined $y;
+
+                $calc->stack->push( sqrt($x * $x + $y * $y) );
+            },
+        }
+    );
+
     #
     # Stack
     #

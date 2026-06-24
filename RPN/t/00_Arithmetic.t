@@ -351,5 +351,60 @@ ok(
     'frac(-3.7) = -0.7'
 );
 
+#
+# idiv
+#
+
+$calc->process_input('17');
+$calc->process_input('5');
+$calc->process_input('idiv');
+is($calc->stack->pop, 3, '17 5 idiv = 3');
+
+$calc->process_input('-17');
+$calc->process_input('5');
+$calc->process_input('idiv');
+is($calc->stack->pop, -3, '-17 5 idiv = -3');
+
+$calc->process_input('17');
+$calc->process_input('-5');
+$calc->process_input('idiv');
+is($calc->stack->pop, -3, '17 -5 idiv = -3');
+
+$calc->process_input('-17');
+$calc->process_input('-5');
+$calc->process_input('idiv');
+is($calc->stack->pop, 3, '-17 -5 idiv = 3');
+
+#
+# mod
+#
+
+$calc->process_input('17');
+$calc->process_input('5');
+$calc->process_input('mod');
+is($calc->stack->pop, 2, '17 5 mod = 2');
+
+#
+# hypot
+#
+
+$calc->process_input('3');
+$calc->process_input('4');
+$calc->process_input('hypot');
+
+ok(
+    abs($calc->stack->pop - 5) < 1e-10,
+    '3 4 hypot = 5'
+);
+
+$calc->process_input('5');
+$calc->process_input('12');
+$calc->process_input('hypot');
+
+ok(
+    abs($calc->stack->pop - 13) < 1e-10,
+    '5 12 hypot = 13'
+);
+
 done_testing();
 
