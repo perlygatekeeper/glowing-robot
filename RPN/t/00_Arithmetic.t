@@ -100,4 +100,91 @@ $calc->process_input('10');
 $calc->process_input('exponentiate');
 is($calc->stack->peek, 1024, '2 10 exponentiate = 1024');
 
+#
+# ln
+#
+
+$calc->process_input('1');
+$calc->process_input('ln');
+
+ok(
+    abs($calc->stack->pop) < 1e-10,
+    'ln(1) = 0'
+);
+
+#
+# exp
+#
+
+$calc->process_input('0');
+$calc->process_input('exp');
+
+ok(
+    abs($calc->stack->pop - 1) < 1e-10,
+    'exp(0) = 1'
+);
+
+#
+# exp(ln(x))
+#
+
+$calc->process_input('5');
+$calc->process_input('ln');
+$calc->process_input('exp');
+
+ok(
+    abs($calc->stack->pop - 5) < 1e-10,
+    'exp(ln(5)) = 5'
+);
+
+#
+# log
+#
+
+$calc->process_input('1000');
+$calc->process_input('log');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'log10(1000) = 3'
+);
+
+#
+# inv
+#
+
+$calc->process_input('4');
+$calc->process_input('inv');
+
+ok(
+    abs($calc->stack->pop - 0.25) < 1e-10,
+    'inv(4) = 0.25'
+);
+
+#
+# abs positive
+#
+
+$calc->process_input('5');
+$calc->process_input('abs');
+
+is(
+    $calc->stack->pop,
+    5,
+    'abs(5) = 5'
+);
+
+#
+# abs negative
+#
+
+$calc->process_input('-5');
+$calc->process_input('abs');
+
+is(
+    $calc->stack->pop,
+    5,
+    'abs(-5) = 5'
+);
+
 done_testing();

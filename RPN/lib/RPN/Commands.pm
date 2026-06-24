@@ -246,6 +246,94 @@ sub _initialize {
     );
 
     #
+    # Natural logarithm
+    #
+
+    $self->register(
+        ln => {
+            type => 'arithmetic',
+            help => 'natural logarithm',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                die "ln requires a positive value\n"
+                    unless defined $x && $x > 0;
+                $calc->stack->push( log($x) );
+            },
+        }
+    );
+
+    #
+    # Base-10 logarithm
+    #
+
+    $self->register(
+        log => {
+            type => 'arithmetic',
+            help => 'base-10 logarithm',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                die "log requires a positive value\n"
+                    unless defined $x && $x > 0;
+                $calc->stack->push( log($x) / log(10) );
+            },
+        }
+    );
+
+    #
+    # Exponential
+    #
+
+    $self->register(
+        exp => {
+            type => 'arithmetic',
+            help => 'e raised to x',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( exp($x) );
+            },
+        }
+    );
+
+    #
+    # Reciprocal
+    #
+
+    $self->register(
+        inv => {
+            type => 'arithmetic',
+            help => 'reciprocal (1/x)',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                die "division by zero\n"
+                    if !defined($x) || $x == 0;
+
+                $calc->stack->push( 1 / $x );
+            },
+        }
+    );
+
+    #
+    # Absolute value
+    #
+
+    $self->register(
+        abs => {
+            type => 'arithmetic',
+            help => 'absolute value',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( CORE::abs($x) );
+            },
+        }
+    );
+
+    #
     # Stack
     #
 
