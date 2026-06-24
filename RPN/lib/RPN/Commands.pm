@@ -1087,15 +1087,15 @@ sub _initialize {
                 #
 
                 unless ($args && @$args) {
-                    printf "%-12s %-12s %s ", "Name", "Source", "Value";
-                    printf "%-12s %-12s %s ", "-" x 12, "-" x 12, "-" x 30;
+                    printf "%-12s %-12s %s\n", "Name", "Source", "Value";
+                    printf "%-12s %-12s %s\n", "-" x 12, "-" x 12, "-" x 30;
 
                     foreach my $name ($calc->constants->names) {
                         my $source = $calc->constants->is_builtin($name)
                             ? 'builtin'
                             : 'user';
 
-                        printf "%-12s %-12s %s",
+                        printf "%-12s %-12s %s\n",
                             $name,
                             $source,
                             $calc->constants->get($name);
@@ -1952,9 +1952,10 @@ sub _initialize {
     #
 
     $self->register(
-        def => {
+        define => {
+            aliases => ['def'],
             type => 'function',
-            help => 'define a user function: def <name> <body>',
+            help => 'define a user function: define <name> <body>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
                 unless ($args && @$args >= 2) {
@@ -2012,9 +2013,30 @@ sub _initialize {
             help    => 'list user-defined functions',
             code    => sub {
                 my ($calc) = @_;
+                my @names = $calc->functions->names;
+                unless (@names) {
+                    print "No user functions are currently defined.\n";
+                    print "\n";
+                    print "Define one with:\n";
+                    print "\n";
+                    print "    define double 2 *\n";
+                    print "\n";
+                    print "Then use\n";
+                    print "\n";
+                    print "    double\n";
+                    print "\n";
+                    print "to use it.\n";
+                    print "\n";
+                    print "See:\n";
+                    print "\n";
+                    print "    tutorial functions\n";
+                    print "\n";
+                    print "for more information.\n";
+                    return;
+                }
                 printf "%-18s %s\n", "Name", "Body";
                 printf "%-18s %s\n", "-" x 18, "-" x 40;
-                foreach my $name ($calc->functions->names) {
+                foreach my $name (@names) {
                     printf "%-18s %s\n",
                         $name,
                         $calc->functions->get($name);

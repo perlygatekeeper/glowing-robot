@@ -553,6 +553,7 @@ Potential Additions
 [x] Add startup quickstart hint
 [x] Add Quick Reference guide
 [x] Centralize persistence save operations
+[x] Add tutorial pager support using $PAGER
 
 ### Version 3.8.1 - Tutorial Expansion
 
@@ -563,7 +564,6 @@ Potential Additions
 [ ] Add Matrix Tutorial
 [ ] Add Financial Tutorial
 [ ] Add Number Theory Tutorial
-[ ] Add tutorial pager support using $PAGER
 [ ] Add tutorial cross-references
 [ ] Add tutorial integration tests
 

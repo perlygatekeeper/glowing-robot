@@ -18,3 +18,7 @@ percentof = 100 divide multiply
 
 circle_area = duplicate multiply pi multiply
 circumference = 2 pi multiply multiply
+
+exp = e x ^
+
+inverse = 1 x divide

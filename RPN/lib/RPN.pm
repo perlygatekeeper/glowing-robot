@@ -87,7 +87,7 @@ sub run {
 
     while ($self->{running} && defined(my $input = $term->readline($self->prompt))) {
         next unless $input =~ /\S/;
-        $self->add_history($input);
+        push @{ $self->{history} }, $input;
         $self->process_input($input);
     }
     
