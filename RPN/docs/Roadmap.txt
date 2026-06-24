@@ -575,41 +575,63 @@ Potential Additions
 [x] Presentation tests
 [x] Tutorial tests
 
-### Version 3.8.2 - Arithmetic Completion
+### Version 3.8.2 - Numeric Completion
 
-[ ] ln        Natural logarithm
-[ ] log       Base-10 logarithm
-[ ] log2      Base-2 logarithm
+[x] ln        Natural logarithm
+[x] log       Base-10 logarithm
+[x] log2      Base-2 logarithm
 
-[ ] exp       e^x
-[ ] exp10     10^x
+[x] exp       e^x
+[x] exp10     10^x
 
-[ ] inv       Reciprocal (1/x)
+[x] inv       Reciprocal (1/x)
 
-[ ] sqr       Square (x^2)
-[ ] cube      Cube (x^3)
-[ ] cbrt      Cube root
+[x] sqr       Square (x^2)
+[x] cube      Cube (x^3)
+[x] cbrt      Cube root
 
-[ ] abs       Absolute value
-[ ] sign      Sign of value (-1, 0, +1)
+[x] abs       Absolute value
+[x] sign      Sign of value (-1, 0, +1)
 
-[ ] floor     Round down
-[ ] ceil      Round up
-[ ] round     Nearest integer
-[ ] trunc     Truncate toward zero
-[ ] frac      Fractional portion
+[x] floor     Round down
+[x] ceil      Round up
+[x] round     Nearest integer
+[x] trunc     Truncate toward zero
+[x] frac      Fractional portion
 
-[ ] idiv      Integer division
-[ ] mod       Modulus / remainder
+[x] idiv      Integer division
+[x] mod       Modulus / remainder
 
-[ ] hypot     sqrt(x^2 + y^2)
+[x] hypot     sqrt(x^2 + y^2)
 
+[x] Numeric command module
+[x] String command module
+[x] Stacks tutorial
+[x] Additional unit tests
+
+[x] Documentation
+[x] Unit tests
+[x] Release notes
+
+
+### Version 3.8.3 - Stack Management
+
+[ ] copystack      Copy one stack to another
+[ ] dupstack       Duplicate an existing stack
+[ ] renamestack    Rename a stack
+[ ] movestack      Move / rename stack
+[ ] mergestacks    Merge two stacks
+[ ] clearstack     Clear a named stack
+[ ] stackinfo      Stack statistics
+[ ] stackexists    Test whether a stack exists
+[ ] stacksize      Number of elements in a stack
+
+[ ] Improved stack tutorial
 [ ] Documentation
 [ ] Unit tests
 [ ] Release notes
 
-
-### Version 3.8.3 - Constant Pack Enhancements
+### Version 3.8.4 - Constant Pack Enhancements
 
 [ ] Add descriptions to constants
 [ ] Add units to constants

@@ -12,6 +12,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/NumberTheory.pm \
              lib/RPN/Commands/Vector.pm \
              lib/RPN/Commands/Tutorials.pm \
+             lib/RPN/Commands/Numeric.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
              lib/RPN/Variables.pm \
@@ -21,6 +22,7 @@ TESTDIR   := t/
 CONSTANTS := constants/
 EXAMPLES  := examples/
 DOCS      := docs/
+TUTORIALS := docs/tutorials/
 
 RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 ROADMAP       := $(shell ls docs/Roadmap*.txt)
@@ -28,7 +30,12 @@ ROADMAP       := $(shell ls docs/Roadmap*.txt)
 .PHONY: backup syntax run test clean size size-modules
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) $(TESTDIR) $(CONSTANTS) $(EXAMPLES)/*/*.txt $(DOCS)/*.txt
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
+		$(TESTDIR) \
+		$(CONSTANTS) \
+		$(EXAMPLES)/*/*.txt \
+		$(DOCS)/*.txt \
+		$(TUTORIALS)/*_v[0-9][0-9].txt
 
 syntax:
 	$(PERL) -Ilib -c $(SCRIPT)
