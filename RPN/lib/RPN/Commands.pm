@@ -334,6 +334,77 @@ sub _initialize {
     );
 
     #
+    # Powers and Roots
+    #
+
+    $self->register(
+        log2 => {
+            type => 'arithmetic',
+            help => 'base-2 logarithm',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                die "log2 requires a positive value\n"
+                    unless defined $x && $x > 0;
+                $calc->stack->push( log($x) / log(2) );
+            },
+        }
+    );
+
+    $self->register(
+        exp10 => {
+            type => 'arithmetic',
+            help => '10 raised to x',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( 10 ** $x );
+            },
+        }
+    );
+
+    $self->register(
+        sqr => {
+            type => 'arithmetic',
+            help => 'square a value',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( $x * $x );
+            },
+        }
+    );
+
+    $self->register(
+        cube => {
+            type => 'arithmetic',
+            help => 'cube a value',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+                $calc->stack->push( $x * $x * $x );
+            },
+        }
+    );
+
+    $self->register(
+        cbrt => {
+            type => 'arithmetic',
+            help => 'cube root',
+            code => sub {
+                my ($calc) = @_;
+                my $x = $calc->stack->pop;
+
+                my $result = $x < 0
+                    ? -((- $x) ** (1/3))
+                    :   $x  ** (1/3);
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
+    #
     # Stack
     #
 

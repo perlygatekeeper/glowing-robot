@@ -1,0 +1,10 @@
+# Stacks Tutorial
+
+The Stack is the core of a RPN calculator, it temporarily stores numbers
+until a operation is entered.
+
+This tool, though, takes the concept of a stack and carries it to the next
+level, it supports multiple stacks, each with it's own name.
+
+This becomes extremely useful for:
+

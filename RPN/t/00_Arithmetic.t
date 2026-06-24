@@ -187,4 +187,78 @@ is(
     'abs(-5) = 5'
 );
 
+#
+# log2
+#
+
+$calc->process_input('8');
+$calc->process_input('log2');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'log2(8) = 3'
+);
+
+#
+# exp10
+#
+
+$calc->process_input('3');
+$calc->process_input('exp10');
+
+ok(
+    abs($calc->stack->pop - 1000) < 1e-10,
+    'exp10(3) = 1000'
+);
+
+#
+# sqr
+#
+
+$calc->process_input('5');
+$calc->process_input('sqr');
+
+is(
+    $calc->stack->pop,
+    25,
+    'sqr(5) = 25'
+);
+
+#
+# cube
+#
+
+$calc->process_input('3');
+$calc->process_input('cube');
+
+is(
+    $calc->stack->pop,
+    27,
+    'cube(3) = 27'
+);
+
+#
+# cbrt positive
+#
+
+$calc->process_input('27');
+$calc->process_input('cbrt');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'cbrt(27) = 3'
+);
+
+#
+# cbrt negative
+#
+
+$calc->process_input('-8');
+$calc->process_input('cbrt');
+
+ok(
+    abs($calc->stack->pop + 2) < 1e-10,
+    'cbrt(-8) = -2'
+);
+
 done_testing();
