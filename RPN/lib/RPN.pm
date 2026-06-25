@@ -13,7 +13,6 @@ use RPN::Vector;
 use RPN::Matrix;
 use Term::ReadLine;
 use Data::Dumper;
-use Math::Prime::Util qw(is_prime);
 
 # Constuctor
 
@@ -47,7 +46,7 @@ sub new {
         constants => $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants",
         functions => $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions",
     };
-    
+
     $self->{first_run} =
            ! -e $self->{files}{history}
         || -z $self->{files}{history};
@@ -90,7 +89,7 @@ sub run {
         push @{ $self->{history} }, $input;
         $self->process_input($input);
     }
-    
+
     $self->save_all;
 
     return;

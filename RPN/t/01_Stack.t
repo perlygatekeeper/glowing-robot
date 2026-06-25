@@ -6,6 +6,16 @@ use Test::Output;
 use lib 'lib';
 use RPN;
 
+use File::Temp qw(tempdir);
+
+my $dir = tempdir(CLEANUP => 1);
+
+$ENV{RPN_HISTORY}   = "$dir/history";
+$ENV{RPN_STACKS}    = "$dir/stacks";
+$ENV{RPN_CONSTANTS} = "$dir/constants";
+$ENV{RPN_VARIABLES} = "$dir/variables";
+$ENV{RPN_FUNCTIONS} = "$dir/functions";
+
 my $calc = RPN->new();
 
 #
@@ -69,7 +79,7 @@ is($calc->stack->depth, 0, 'clear empties stack');
 
 stdout_like(
     sub { $calc->process_input('stack') },
-    qr/Stack 's' is in use and has 0 elements\./,
+    qr/Stack 'default' is in use and has 0 elements\./,
     'stack reports current stack'
 );
 
@@ -89,7 +99,7 @@ $calc->process_input('99');
 is($calc->stack->peek, 99, 'work stack can receive values');
 
 $calc->process_input('stack s');
-is($calc->stack->current_name, 's', 'switched back to s');
+is($calc->stack->current_name, 'default', 'switched back to default');
 is($calc->stack->depth, 0, 's stack still empty');
 
 $calc->process_input('stack work');

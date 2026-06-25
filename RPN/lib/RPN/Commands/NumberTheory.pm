@@ -4,6 +4,9 @@ use v5.34;
 use strict;
 use warnings;
 
+# use Math::Prime::Util qw(is_prime);
+
+
 sub register_commands {
     my ($commands) = @_;
     #

@@ -124,6 +124,15 @@ Common stack-management ideas include:
     save stack contents
     restore stack contents
 
+    stack
+        Report the current stack.
+
+    stack <name>
+        Switch to (or create) a named stack.
+
+    stack list
+        List all named stacks and their depths.
+
 ---
 
 ## Common Mistakes
