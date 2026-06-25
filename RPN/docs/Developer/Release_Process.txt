@@ -1,0 +1,130 @@
+# Release Process
+
+## Purpose
+
+This document describes the steps required to produce a release of the RPN Calculator.
+
+Every released version should be reproducible, documented, and backed by a passing test suite.
+
+---
+
+# Before Starting
+
+Review:
+
+* Roadmap.txt
+* open issues
+* tutorials
+* documentation
+
+Determine which features belong in the release.
+
+Avoid allowing new work to delay an otherwise complete release.
+
+---
+
+# Development
+
+As features are completed:
+
+* implement
+* test
+* document
+* commit regularly
+
+Each completed feature should include:
+
+* help text
+* tutorial updates (when appropriate)
+* automated tests
+
+---
+
+# Pre-Release Checklist
+
+Run:
+
+make syntax
+
+Then:
+
+prove -Ilib t
+
+Finally:
+
+make test
+
+All tests must pass before a release is created.
+
+---
+
+# Documentation
+
+Before releasing:
+
+* update tutorials
+* update Roadmap.txt
+* write Release_Notes_vX.Y.Z.txt
+* review developer documentation
+
+Documentation is part of the release.
+
+---
+
+# Git
+
+Create a final commit.
+
+Use a descriptive commit message, for example:
+
+Release v3.8.3
+
+Create a matching tag.
+
+Example:
+
+rpn-v3.8.3
+
+The tag should identify the exact commit that produced the release.
+
+---
+
+# Backup
+
+After tagging:
+
+* create a project backup
+* archive the release notes
+* verify the backup
+
+The backup should include:
+
+* source
+* documentation
+* tests
+
+---
+
+# After Release
+
+Update Roadmap.txt.
+
+Begin planning the next version.
+
+Avoid making additional changes to the released commit.
+
+Future development should begin from the tagged release.
+
+---
+
+# Philosophy
+
+Release often.
+
+Release only from a clean tree.
+
+Never release with failing tests.
+
+Never release undocumented features.
+
+Every release should leave the project in a state that Future Steve will be happy to rediscover.

@@ -24,6 +24,7 @@ CONSTANTS := constants/
 EXAMPLES  := examples/
 DOCS      := docs/
 TUTORIALS := docs/tutorials/
+DEVELOPER := docs/Developer/
 
 RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 ROADMAP       := $(shell ls docs/Roadmap*.txt)
@@ -36,6 +37,7 @@ backup:
 		$(CONSTANTS) \
 		$(EXAMPLES)/*/*.txt \
 		$(DOCS)/*.txt \
+		$(DEVELOPERS)/*.txt \
 		$(TUTORIALS)/*_v[0-9][0-9].txt
 
 syntax:
@@ -55,10 +57,12 @@ version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
 
 gitadd:
-	git add Makefile \
+	git add Makefile $(SCRIPT) \
 	$(MODS) \
 	$(TESTDIR)/*.t \
 	$(DOCS)/*.txt \
+	$(DEVELOPER)/*.txt \
+	$(TUTORIALS)/*.txt \
 	$(CONSTANTS)/*.txt \
 	$(EXAMPLES)/*/*
 	git status

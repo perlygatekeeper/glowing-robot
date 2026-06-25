@@ -613,25 +613,75 @@ Potential Additions
 [x] Unit tests
 [x] Release notes
 
+## Version 3.8.3 - Advanced Stack Management
 
-### Version 3.8.3 - Stack Management
+Status: COMPLETE
 
-[ ] copystack      Copy one stack to another
-[ ] dupstack       Duplicate an existing stack
-[ ] renamestack    Rename a stack
-[ ] movestack      Move / rename stack
-[ ] mergestacks    Merge two stacks
-[ ] clearstack     Clear a named stack
-[ ] stackinfo      Stack statistics
-[ ] stackexists    Test whether a stack exists
-[ ] stacksize      Number of elements in a stack
+### Stack Management
 
-[ ] Improved stack tutorial
-[ ] Documentation
-[ ] Unit tests
-[ ] Release notes
+[x] Repartition stack commands into lib/RPN/Commands/Stack.pm
+[x] Move stack-related commands from Commands.pm
+[x] Add stackinfo
+[x] Add stackexists
+[x] Add stacksize
+[x] Add copystack
+[x] Add dupstack
+[x] Add renamestack
+[x] Add movestack alias
+[x] Add clearstack
+[x] Add deletestack
+[x] Add dropstack alias
+[x] Add rmstack alias
+[x] Add mergestacks
+[x] Add pour
+[x] Improve stack tutorial
+[x] Rewrite stack management tests
+[x] Establish Developers Guides and Processes Documentation
+[x] Update release documentation
 
-### Version 3.8.4 - Constant Pack Enhancements
+---
+
+## Version 3.8.4 - Mathematical Expansion
+
+### Numeric Functions
+
+[ ] Hyperbolic functions
+
+sinh
+cosh
+tanh
+
+asinh
+acosh
+atanh
+
+[ ] Gamma function
+[ ] Factorial approximation
+[ ] Error function
+[ ] Complementary error function
+[ ] Additional numeric constants
+
+### Numeric Utilities
+
+[ ] Clamp
+[ ] Lerp (linear interpolation)
+[ ] Degrees ↔ radians convenience commands
+[ ] Better complex-number planning
+
+### Statistics
+
+[ ] Median Absolute Deviation
+[ ] Geometric Mean
+[ ] Harmonic Mean
+[ ] Weighted Mean
+
+### Documentation
+
+[ ] Hyperbolic functions tutorial
+[ ] Numeric cookbook examples
+
+
+### Version 3.8.5 - Constant Pack Enhancements
 
 [ ] Add descriptions to constants
 [ ] Add units to constants
@@ -639,6 +689,7 @@ Potential Additions
 [ ] Add constant search capability
 [ ] Add metadata support to constant packs
 [ ] Add enhanced constant help output
+
 
 ### Version 3.9.0 - Geometry and Transformations
 

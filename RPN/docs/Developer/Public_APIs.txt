@@ -1,0 +1,139 @@
+# Public APIs
+
+## Purpose
+
+This document records the public interface of the major objects in the RPN Calculator.
+
+These methods form the supported interface used by other modules and by the automated tests.
+
+Internal implementation details may change without affecting these APIs.
+
+---
+
+# RPN
+
+Selected public methods:
+
+new()
+
+run()
+
+process_input()
+
+prompt()
+
+save_all()
+
+---
+
+# RPN::Stack
+
+Stack operations:
+
+push()
+pop()
+pop2()
+peek()
+clear()
+
+Information:
+
+depth()
+depth_of()
+current_name()
+stack_names()
+stack_exists()
+stack_size()
+
+Stack selection:
+
+switch()
+
+Named stack management:
+
+copy_stack()
+dup_stack()
+rename_stack()
+clear_named_stack()
+delete_stack()
+merge_stacks()
+pour_stack()
+
+Persistence:
+
+save_file()
+load_file()
+
+---
+
+# RPN::Variables
+
+store()
+
+recall()
+
+exists()
+
+delete()
+
+save_file()
+
+load_file()
+
+---
+
+# RPN::Constants
+
+lookup()
+
+define()
+
+delete()
+
+exists()
+
+save_file()
+
+load_file()
+
+---
+
+# RPN::Functions
+
+define()
+
+execute()
+
+exists()
+
+delete()
+
+save_file()
+
+load_file()
+
+---
+
+# RPN::Vector
+
+Public vector operations should remain independent of calculator state.
+
+---
+
+# RPN::Matrix
+
+Public matrix operations should remain independent of calculator state.
+
+---
+
+# API Stability
+
+Public methods should evolve slowly.
+
+Whenever practical:
+
+* extend existing methods rather than replacing them
+* preserve backwards compatibility
+* update documentation when interfaces change
+
+The automated test suite assumes these interfaces remain stable.

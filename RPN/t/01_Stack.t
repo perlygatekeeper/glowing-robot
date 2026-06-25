@@ -98,9 +98,9 @@ is($calc->stack->current_name, 'work', 'current stack is work');
 $calc->process_input('99');
 is($calc->stack->peek, 99, 'work stack can receive values');
 
-$calc->process_input('stack s');
+$calc->process_input('stack default');
 is($calc->stack->current_name, 'default', 'switched back to default');
-is($calc->stack->depth, 0, 's stack still empty');
+is($calc->stack->depth, 0, 'default stack still empty');
 
 $calc->process_input('stack work');
 is($calc->stack->peek, 99, 'work stack preserved its value');
@@ -111,7 +111,7 @@ is($calc->stack->peek, 99, 'work stack preserved its value');
 
 stdout_like(
     sub { $calc->process_input('stack *') },
-    qr/Stack\s+Depth.*s\s+0.*work\s+1/s,
+    qr/Stack\s+Depth.*default\s+0.*work\s+1/s,
     'stack * lists stack names and depths'
 );
 

@@ -1,0 +1,358 @@
+# Stacks Tutorial
+
+The stack is the heart of an RPN (Reverse Polish Notation) calculator.
+
+Unlike conventional calculators, an RPN calculator does not use parentheses or operator precedence. Instead, values are placed on a stack, and each operation removes the values it needs from the top of that stack, computes a result, and places the result back on the stack.
+
+After a little practice, many people find RPN to be a faster and more natural way to work.
+
+---
+
+## Your First Calculation
+
+Suppose you want to compute:
+
+3 + 4
+
+Enter:
+
+3
+4
++
+
+The calculator performs the following steps:
+
+1. Push 3 onto the stack.
+2. Push 4 onto the stack.
+3. Remove the top two values.
+4. Add them together.
+5. Push the result.
+
+The result is:
+
+7
+
+Notice that the two original values have been replaced by their sum.
+
+---
+
+## Understanding the Stack
+
+Think of the stack as a spring-loaded dispenser or a stack of trays.
+
+Every new value is placed on the **top**.
+
+Most commands remove one or more values from the top, perform an operation, and place the result back on the top.
+
+For example:
+
+3
+4
+5
+
+produces a stack that looks like:
+
+Top
+    5
+    4
+    3
+Bottom
+
+The most recently entered value is always on top.
+
+---
+
+## Thinking in RPN
+
+Suppose you want to compute:
+
+(3 + 4) × 5
+
+Rather than thinking about parentheses, think about the sequence of operations.
+
+First compute:
+
+3 + 4
+
+Then multiply the result by 5.
+
+Enter:
+
+3
+4
++
+5
+*
+
+Result:
+
+35
+
+This is the essence of RPN: perform each operation as soon as all of its operands are available.
+
+---
+
+## Basic Stack Commands
+
+Several commands manipulate the stack itself.
+
+dup
+    Duplicate the top value.
+
+drop
+    Remove the top value.
+
+swap
+    Exchange the top two values.
+
+clear
+    Remove every value from the current stack.
+
+Example:
+
+5
+dup
+*
+
+The stack evolves like this:
+
+5
+
+5
+5
+
+25
+
+This computes 5² without typing the number twice.
+
+---
+
+## Why Stack Commands Matter
+
+Stack commands let you rearrange values without retyping them.
+
+Example:
+
+10
+3
+swap
+-
+
+Without the swap command:
+
+10 3 -
+
+computes:
+
+10 - 3
+
+With swap:
+
+10 3 swap -
+
+computes:
+
+3 - 10
+
+Many RPN users quickly become fluent with commands such as `dup`, `swap`, and `drop`.
+
+---
+
+## Multiple Named Stacks
+
+Your calculator supports multiple named stacks.
+
+Each named stack is an independent work area.
+
+For example:
+
+default
+primes
+financial
+scratch
+
+You can switch between them at any time.
+
+Example:
+
+stack primes
+
+Work with large prime numbers.
+
+Later:
+
+stack financial
+
+Perform financial calculations.
+
+Then return:
+
+stack primes
+
+Your previous work is still waiting exactly as you left it.
+
+Named stacks are automatically saved when the calculator exits and restored the next time it starts.
+
+---
+
+## Stack Management
+
+The stack command has three common uses.
+
+Report the current stack:
+
+stack
+
+Switch to another stack (creating it if necessary):
+
+stack <name>
+
+Examples:
+
+stack default
+stack primes
+stack scratch
+
+List every stack:
+
+stack list
+
+For more advanced operations, the calculator also provides commands such as:
+
+stackinfo
+stackexists
+stacksize
+
+copystack
+dupstack
+mergestacks
+pour
+
+renamestack
+clearstack
+deletestack
+
+Type:
+
+help type stack
+
+to see every stack-related command available in your version.
+
+---
+
+## The "pour" Command
+
+One unique stack-management command is `pour`.
+
+Imagine two test tubes.
+
+When you pour one into the other, the contents are transferred while reversing their order.
+
+For example:
+
+Stack **P**:
+
+Top
+    P - top
+    P - middle
+    P - bottom
+
+Stack **Q**:
+
+Top
+    Q - top
+    Q - middle
+    Q - bottom
+
+After:
+
+pour P Q
+
+Stack **P** is empty.
+
+Stack **Q** becomes:
+
+Top
+    P - bottom
+    P - middle
+    P - top
+    Q - top
+    Q - middle
+    Q - bottom
+
+This behavior often proves useful when reorganizing work between stacks.
+
+---
+
+## Common Mistakes
+
+### Not Enough Values
+
+If you enter:
+
+3
++
+
+the calculator reports an error because `+` requires two operands.
+
+The stack is left unchanged.
+
+---
+
+### Operand Order Matters
+
+Addition and multiplication are commutative.
+
+Subtraction and division are not.
+
+For example:
+
+10 2 -
+
+computes:
+
+10 - 2
+
+while
+
+2 10 -
+
+computes:
+
+2 - 10
+
+If a calculation seems incorrect, the first thing to check is the order of the values on the stack.
+
+---
+
+## Practice Exercises
+
+Try these without referring back to this tutorial.
+
+1. Compute:
+
+   (12 + 8) × 5
+
+2. Duplicate the result and square it.
+
+3. Create a stack named:
+
+   practice
+
+4. Switch back to the default stack.
+
+5. List every stack.
+
+If you can complete these exercises comfortably, you've mastered the fundamentals of stack operation.
+
+---
+
+## Where To Go Next
+
+Once you're comfortable with stacks, continue with:
+
+tutorial variables
+tutorial functions
+tutorial vectors
+
+Everything else in the calculator builds upon the concepts you've learned here.

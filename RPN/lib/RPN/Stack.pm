@@ -9,7 +9,7 @@ use Data::Dumper;
 sub new {
     my ($class) = @_;
     my $self = bless {
-        stacks       => { s => [] },
+        stacks       => { 'default' => [] },
         current_name => 'default',
     }, $class;
 
@@ -313,7 +313,7 @@ sub merge_stacks {
         return;
     }
 
-    CORE::push @{ $self->{stacks}{$dst} }, @{ $self->{stacks}{$src} };
+    CORE::unshift @{ $self->{stacks}{$dst} }, @{ $self->{stacks}{$src} };
 
     return 1;
 }

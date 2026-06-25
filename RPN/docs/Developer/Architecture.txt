@@ -1,0 +1,173 @@
+# RPN Calculator Architecture
+
+## Purpose
+
+This document describes the high-level architecture of the RPN Calculator.
+
+It is intended for future developers (including Future Steve and future ChatGPT conversations) who need to understand the overall design before making changes.
+
+---
+
+## Project Philosophy
+
+This project began as a simple Reverse Polish Notation calculator but has evolved into a modular, extensible application.
+
+The primary goals are:
+
+* Readable code.
+* Consistent behavior.
+* Extensive automated testing.
+* Excellent built-in documentation.
+* Long-term maintainability.
+
+When choosing between a clever solution and a clear one, clarity is preferred.
+
+---
+
+## Directory Structure
+
+rpn.pl
+lib/
+    RPN.pm
+    RPN/
+        Stack.pm
+        Variables.pm
+        Constants.pm
+        Functions.pm
+        Vector.pm
+        Matrix.pm
+
+        Commands.pm
+        Commands/
+            Numeric.pm
+            String.pm
+            Stack.pm
+            Vector.pm
+            Matrix.pm
+            Financial.pm
+            NumberTheory.pm
+            Combinatorics.pm
+            Tutorials.pm
+
+docs/
+tutorials/
+t/
+
+---
+
+## Module Responsibilities
+
+### rpn.pl
+
+Program entry point.
+
+Responsible only for:
+
+* creating the calculator
+* invoking the REPL
+
+No calculator logic should live here.
+
+---
+
+### RPN.pm
+
+The calculator object.
+
+Coordinates:
+
+* command dispatch
+* persistence
+* history
+* prompt generation
+* startup/shutdown
+* loading command modules
+
+This module coordinates the application but should not become a repository for individual commands.
+
+---
+
+### Domain Objects
+
+Examples:
+
+RPN::Stack
+RPN::Vector
+RPN::Matrix
+RPN::Variables
+RPN::Constants
+RPN::Functions
+
+Each domain object owns:
+
+* its internal representation
+* all operations on that representation
+
+Other modules should not manipulate those internals directly.
+
+---
+
+### Command Modules
+
+Command modules register user-visible commands.
+
+Example:
+
+RPN::Commands::Numeric
+RPN::Commands::Stack
+RPN::Commands::String
+
+Their responsibilities are:
+
+* parsing arguments
+* validating user input
+* invoking public methods on domain objects
+* producing user-facing messages
+
+They should not implement the underlying algorithms when those algorithms naturally belong in a domain object.
+
+---
+
+## Public Interface Rule
+
+Domain objects expose behavior through methods.
+
+Other modules should use those methods.
+
+Avoid code such as:
+
+$self->{stack}{stacks}{foo}
+
+Prefer:
+
+$self->stack->switch("foo");
+$self->stack->copy_stack(...);
+
+This keeps implementation details private and makes future refactoring possible.
+
+---
+
+## Documentation Philosophy
+
+Every user-visible feature should eventually have:
+
+* a help entry
+* tutorial coverage (when appropriate)
+* automated tests
+
+Documentation is considered part of the implementation.
+
+---
+
+## Design Principles
+
+The project favors:
+
+* explicit code
+* readable code
+* discoverable commands
+* backward compatibility where practical
+* small, focused modules
+* extensive tests
+
+The architecture is expected to evolve over time, but these principles should remain stable.

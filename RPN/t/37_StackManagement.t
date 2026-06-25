@@ -24,23 +24,46 @@ sub make_stack {
 
     $calc->stack->switch($name);
     $calc->stack->clear;
-    $calc->stack->push(@values);
+
+    for my $value (@values) {
+        $calc->stack->push($value);
+    }
+
     $calc->stack->switch('default');
 
     return;
 }
 
-sub stack_values {
-    my ($name) = @_;
-    return [ @{ $calc->stack->get_stack($name) } ];
-}
+sub expect_stack_pop_order {
+    my ($name, @expected) = @_;
 
-make_stack('A', 1, 2, 3);
-make_stack('B', 8, 9);
+    $calc->stack->switch($name);
+
+    for my $expected (@expected) {
+        is(
+            $calc->stack->pop,
+            $expected,
+            "$name pop gives $expected"
+        );
+    }
+
+    is(
+        $calc->stack->depth,
+        0,
+        "$name is empty after expected pops"
+    );
+
+    $calc->stack->switch('default');
+
+    return;
+}
 
 #
 # stackexists
 #
+
+make_stack('A', 'A - bottom', 'A - middle', 'A - top');
+make_stack('B', 'B - bottom', 'B - top');
 
 $calc->stack->push('A');
 $calc->process_input('stackexists');
@@ -64,12 +87,14 @@ is($calc->stack->pop, 3, 'stacksize A is 3');
 
 $calc->process_input('copystack A C');
 
-is($calc->stack->depth_of('C'), 3, 'copystack created destination');
+is($calc->stack->depth_of('A'), 3, 'copystack leaves source unchanged');
+is($calc->stack->depth_of('C'), 3, 'copystack creates destination');
 
-is_deeply(
-    stack_values('C'),
-    stack_values('A'),
-    'copystack preserves order'
+expect_stack_pop_order(
+    'C',
+    'A - top',
+    'A - middle',
+    'A - bottom',
 );
 
 #
@@ -78,13 +103,13 @@ is_deeply(
 
 $calc->process_input('renamestack C D');
 
-ok(!$calc->stack->stack_exists('C'), 'renamestack removed old name');
-ok( $calc->stack->stack_exists('D'), 'renamestack created new name');
+ok(!$calc->stack->stack_exists('C'), 'renamestack removes old name');
+ok( $calc->stack->stack_exists('D'), 'renamestack creates new name');
 
 $calc->process_input('movestack D E');
 
-ok(!$calc->stack->stack_exists('D'), 'movestack removed old name');
-ok( $calc->stack->stack_exists('E'), 'movestack created new name');
+ok(!$calc->stack->stack_exists('D'), 'movestack removes old name');
+ok( $calc->stack->stack_exists('E'), 'movestack creates new name');
 
 #
 # clearstack
@@ -95,51 +120,10 @@ $calc->process_input('clearstack E');
 is($calc->stack->depth_of('E'), 0, 'clearstack empties stack');
 
 #
-# mergestacks
-#
-
-$calc->process_input('mergestacks A B');
-
-is($calc->stack->depth_of('A'), 3, 'mergestacks leaves source unchanged');
-is($calc->stack->depth_of('B'), 5, 'mergestacks appends to destination');
-
-#
-# pour
-#
-
-make_stack('P', 1, 2, 3);
-make_stack('Q', 8, 9);
-
-$calc->process_input('pour P Q');
-
-is($calc->stack->depth_of('P'), 0, 'pour empties source');
-is($calc->stack->depth_of('Q'), 5, 'pour adds all source values to destination');
-
-$calc->stack->switch('Q');
-
-is($calc->stack->pop, 1, 'pour result top is original bottom of source');
-is($calc->stack->pop, 2, 'pour result next is middle of source');
-is($calc->stack->pop, 3, 'pour result next is original top of source');
-is($calc->stack->pop, 9, 'pour then reveals original destination top');
-is($calc->stack->pop, 8, 'pour then reveals original destination bottom');
-
-$calc->stack->switch('default');
-
-#
-# stackinfo
-#
-
-stdout_like(
-    sub { $calc->process_input('stackinfo') },
-    qr/^Stack\s+Depth\s+Current/m,
-    'stackinfo prints header'
-);
-
-#
 # deletestack / dropstack alias
 #
 
-make_stack('DELETE_ME', 1, 2, 3);
+make_stack('DELETE_ME', 'delete bottom', 'delete top');
 
 ok(
     $calc->stack->stack_exists('DELETE_ME'),
@@ -153,7 +137,7 @@ ok(
     'deletestack removes named stack'
 );
 
-make_stack('DROP_ME', 4, 5, 6);
+make_stack('DROP_ME', 'drop bottom', 'drop top');
 
 $calc->process_input('dropstack DROP_ME');
 
@@ -173,7 +157,7 @@ ok(
     'deletestack refuses to delete default stack'
 );
 
-make_stack('CURRENT_TEST', 7, 8, 9);
+make_stack('CURRENT_TEST', 'current bottom', 'current top');
 $calc->stack->switch('CURRENT_TEST');
 
 $calc->process_input('deletestack CURRENT_TEST');
@@ -184,5 +168,58 @@ ok(
 );
 
 $calc->stack->switch('default');
+
+#
+# mergestacks
+#
+
+make_stack('M_SRC', 'M_SRC - bottom', 'M_SRC - middle', 'M_SRC - top');
+make_stack('M_DST', 'M_DST - bottom', 'M_DST - top');
+
+$calc->process_input('mergestacks M_SRC M_DST');
+
+is($calc->stack->depth_of('M_SRC'), 3, 'mergestacks leaves source unchanged');
+is($calc->stack->depth_of('M_DST'), 5, 'mergestacks appends to destination');
+
+expect_stack_pop_order(
+    'M_DST',
+    'M_SRC - top',
+    'M_SRC - middle',
+    'M_SRC - bottom',
+    'M_DST - top',
+    'M_DST - bottom',
+);
+
+#
+# pour
+#
+
+make_stack('P', 'P - bottom', 'P - middle', 'P - top');
+make_stack('Q', 'Q - bottom', 'Q - middle', 'Q - top');
+
+$calc->process_input('pour P Q');
+
+is($calc->stack->depth_of('P'), 0, 'pour empties source');
+is($calc->stack->depth_of('Q'), 6, 'pour adds all source values to destination');
+
+expect_stack_pop_order(
+    'Q',
+    'P - bottom',
+    'P - middle',
+    'P - top',
+    'Q - top',
+    'Q - middle',
+    'Q - bottom',
+);
+
+#
+# stackinfo
+#
+
+stdout_like(
+    sub { $calc->process_input('stackinfo') },
+    qr/^Stack\s+Depth\s+Current/m,
+    'stackinfo prints header'
+);
 
 done_testing();

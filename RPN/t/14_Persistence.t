@@ -43,7 +43,7 @@ my $calc3 = RPN->new(no_readline => 1);
 $calc3->process_input('stack work');
 is($calc3->stack->peek, 99, 'loaded named stack top');
 
-$calc3->process_input('stack s');
+$calc3->process_input('stack default');
 is($calc3->stack->peek, 3, 'loaded default stack top');
 
 #
