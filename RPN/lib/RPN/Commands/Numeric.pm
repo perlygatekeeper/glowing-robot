@@ -464,6 +464,118 @@ sub register_commands {
         }
     );
 
+
+    #
+    # Special functions
+    #
+
+    $commands->register(
+        erf => {
+            type => 'numeric',
+            help => 'error function: erf(x)',
+            code => sub {
+                my ($calc) = @_;
+                $commands->_unary_numeric($calc, sub { POSIX::erf($_[0]) });
+            },
+        }
+    );
+
+    $commands->register(
+        erfc => {
+            type => 'numeric',
+            help => 'complementary error function: erfc(x)',
+            code => sub {
+                my ($calc) = @_;
+                $commands->_unary_numeric($calc, sub { POSIX::erfc($_[0]) });
+            },
+        }
+    );
+
+    $commands->register(
+        gamma => {
+            type => 'numeric',
+            help => 'gamma function: Gamma(x)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $x = $calc->stack->pop;
+
+                unless (!ref($x) && $calc->isanumber($x)) {
+                    $calc->stack->push($x);
+                    warn "gamma requires a numeric operand\n";
+                    return;
+                }
+
+                if (_is_nonpositive_integer($x)) {
+                    $calc->stack->push($x);
+                    warn "gamma undefined for zero and negative integers\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::tgamma($x));
+            },
+        }
+    );
+
+    $commands->register(
+        lgamma => {
+            type => 'numeric',
+            help => 'natural logarithm of the gamma function: ln(Gamma(x))',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $x = $calc->stack->pop;
+
+                unless (!ref($x) && $calc->isanumber($x)) {
+                    $calc->stack->push($x);
+                    warn "lgamma requires a numeric operand\n";
+                    return;
+                }
+
+                if ($x <= 0) {
+                    $calc->stack->push($x);
+                    warn "lgamma requires a positive value\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::lgamma($x));
+            },
+        }
+    );
+
+    $commands->register(
+        beta => {
+            type => 'numeric',
+            help => 'beta function: x y beta computes B(x,y)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my ($y, $x) = $calc->stack->pop2;
+
+                unless (!ref($x) && $calc->isanumber($x)
+                     && !ref($y) && $calc->isanumber($y)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($y);
+                    warn "beta requires numeric operands\n";
+                    return;
+                }
+
+                if ($x <= 0 || $y <= 0) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($y);
+                    warn "beta requires positive values\n";
+                    return;
+                }
+
+                my $log_beta = POSIX::lgamma($x)
+                             + POSIX::lgamma($y)
+                             - POSIX::lgamma($x + $y);
+
+                $calc->stack->push(exp($log_beta));
+            },
+        }
+    );
+
     #
     # Bessel functions
     #
@@ -640,6 +752,12 @@ sub register_commands {
     );
 
     return;
+}
+
+
+sub _is_nonpositive_integer {
+    my ($value) = @_;
+    return $value <= 0 && $value == int($value);
 }
 
 1;

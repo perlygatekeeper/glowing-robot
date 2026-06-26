@@ -1,0 +1,148 @@
+RPN Calculator Numeric Functions Tutorial
+Version 1
+
+This tutorial introduces the advanced numeric functions added in the
+mathematical expansion work for version 3.8.4.
+
+The examples below assume normal RPN entry: push values first, then enter the
+command.
+
+-------------------------------------------------------------------------------
+Hyperbolic Functions
+-------------------------------------------------------------------------------
+
+The calculator supports the standard hyperbolic functions:
+
+    sinh    hyperbolic sine
+    cosh    hyperbolic cosine
+    tanh    hyperbolic tangent
+
+Examples:
+
+    1 sinh
+    1 cosh
+    1 tanh
+
+The inverse hyperbolic functions are also available:
+
+    asinh   inverse hyperbolic sine
+    acosh   inverse hyperbolic cosine
+    atanh   inverse hyperbolic tangent
+
+Examples:
+
+    1 asinh
+    2 acosh
+    0.5 atanh
+
+Domain notes:
+
+    acosh requires x >= 1
+    atanh requires -1 < x < 1
+
+-------------------------------------------------------------------------------
+Bessel Functions
+-------------------------------------------------------------------------------
+
+The calculator supports cylindrical Bessel functions of the first and second
+kind.
+
+First kind:
+
+    j0      J0(x)
+    j1      J1(x)
+    jn      Jn(x)
+
+Examples:
+
+    1 j0
+    1 j1
+    1 2 jn
+
+The last example computes J2(1).  The stack order for jn is:
+
+    x n jn
+
+Second kind:
+
+    y0      Y0(x)
+    y1      Y1(x)
+    yn      Yn(x)
+
+Examples:
+
+    1 y0
+    1 y1
+    1 2 yn
+
+The last example computes Y2(1).  The stack order for yn is:
+
+    x n yn
+
+Domain notes:
+
+    y0, y1, and yn require x > 0
+    jn and yn require integer order n
+
+-------------------------------------------------------------------------------
+Special Functions
+-------------------------------------------------------------------------------
+
+The calculator supports several common special functions.
+
+Error functions:
+
+    erf     error function
+    erfc    complementary error function
+
+Examples:
+
+    1 erf
+    1 erfc
+
+Gamma functions:
+
+    gamma   Gamma(x)
+    lgamma  ln(Gamma(x))
+
+Examples:
+
+    5 gamma
+    5 lgamma
+    0.5 gamma
+
+Domain notes:
+
+    gamma is undefined for zero and negative integers
+    lgamma requires x > 0
+
+Beta function:
+
+    beta    B(x,y)
+
+The stack order for beta is:
+
+    x y beta
+
+Examples:
+
+    2 3 beta
+    0.5 0.5 beta
+
+The beta function requires both arguments to be positive.
+
+-------------------------------------------------------------------------------
+Summary
+-------------------------------------------------------------------------------
+
+New mathematical expansion commands include:
+
+    sinh cosh tanh asinh acosh atanh
+    j0 j1 jn y0 y1 yn
+    erf erfc gamma lgamma beta
+
+Use help for a quick reminder:
+
+    help sinh
+    help jn
+    help beta

@@ -643,41 +643,51 @@ Status: COMPLETE
 
 ## Version 3.8.4 - Mathematical Expansion
 
+Status: COMPLETE
+
 ### Numeric Functions
 
-[ ] Hyperbolic functions
+[x] Hyperbolic functions
+[x] sinh
+[x] cosh
+[x] tanh
+[x] asinh
+[x] acosh
+[x] atanh
 
-sinh
-cosh
-tanh
+[x] Bessel functions
+[x] j0
+[x] j1
+[x] jn
+[x] y0
+[x] y1
+[x] yn
 
-asinh
-acosh
-atanh
+[x] Special functions
+[x] erf
+[x] erfc
+[x] gamma
+[x] lgamma
+[x] beta
 
-[ ] Gamma function
-[ ] Factorial approximation
-[ ] Error function
-[ ] Complementary error function
+[x] Numeric functions tutorial
+[x] Additional unit tests
+[x] Release notes
+[x] Roadmap update
+
+### Deferred Candidates
+
+[ ] zeta
+[ ] Airy functions
 [ ] Additional numeric constants
-
-### Numeric Utilities
-
 [ ] Clamp
 [ ] Lerp (linear interpolation)
 [ ] Degrees ↔ radians convenience commands
 [ ] Better complex-number planning
-
-### Statistics
-
 [ ] Median Absolute Deviation
 [ ] Geometric Mean
 [ ] Harmonic Mean
 [ ] Weighted Mean
-
-### Documentation
-
-[ ] Hyperbolic functions tutorial
 [ ] Numeric cookbook examples
 
 

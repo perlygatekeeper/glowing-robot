@@ -1,0 +1,119 @@
+# Release Notes - Version 3.8.4
+
+## Overview
+
+Version 3.8.4 is a mathematical expansion release.  It adds hyperbolic
+functions, Bessel functions, and several common special functions while
+continuing the project's emphasis on behavior-focused tests and user-facing
+documentation.
+
+---
+
+## Hyperbolic Functions
+
+Added the standard hyperbolic functions:
+
+    sinh
+    cosh
+    tanh
+
+Added inverse hyperbolic functions:
+
+    asinh
+    acosh
+    atanh
+
+Domain checks were added for inverse functions where needed:
+
+* `acosh` requires a value greater than or equal to 1.
+* `atanh` requires a value greater than -1 and less than 1.
+
+---
+
+## Bessel Functions
+
+Added cylindrical Bessel functions of the first kind:
+
+    j0
+    j1
+    jn
+
+Added cylindrical Bessel functions of the second kind:
+
+    y0
+    y1
+    yn
+
+The indexed functions use calculator-oriented stack order:
+
+    x n jn
+    x n yn
+
+This computes Jn(x) or Yn(x).  The order `n` must be an integer.  The Y-family
+functions require positive x values.
+
+---
+
+## Special Functions
+
+Added common special functions:
+
+    erf
+    erfc
+    gamma
+    lgamma
+    beta
+
+The beta function uses stack order:
+
+    x y beta
+
+Domain checks were added for real-valued calculator behavior:
+
+* `gamma` is undefined for zero and negative integers.
+* `lgamma` requires a positive value.
+* `beta` requires both arguments to be positive.
+
+---
+
+## Documentation
+
+Added a numeric functions tutorial:
+
+    docs/tutorials/Numeric_v01.txt
+
+The tutorial covers:
+
+* hyperbolic functions
+* Bessel functions
+* error functions
+* gamma and log-gamma
+* beta function
+* stack order and domain notes
+
+---
+
+## Automated Testing
+
+Added focused test coverage for the new mathematical groups:
+
+    t/38_Hyperbolic.t
+    t/39_Bessel.t
+    t/40_SpecialFunctions.t
+
+The tests verify:
+
+* known numeric values
+* command registration
+* command types
+* domain warnings
+* stack preservation on invalid input
+
+---
+
+## Project Notes
+
+This release continues the pattern of small, cohesive feature groups supported
+by tests and documentation.  It also keeps advanced mathematical behavior in
+the numeric command module while preserving the command/domain separation used
+throughout the project.
