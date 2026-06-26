@@ -464,6 +464,149 @@ sub register_commands {
         }
     );
 
+    #
+    # Bessel functions
+    #
+
+    $commands->register(
+        j0 => {
+            type => 'numeric',
+            help => 'Bessel function of the first kind, order 0: J0(x)',
+            code => sub {
+                my ($calc) = @_;
+                $commands->_unary_numeric($calc, sub { POSIX::j0($_[0]) });
+            },
+        }
+    );
+
+    $commands->register(
+        j1 => {
+            type => 'numeric',
+            help => 'Bessel function of the first kind, order 1: J1(x)',
+            code => sub {
+                my ($calc) = @_;
+                $commands->_unary_numeric($calc, sub { POSIX::j1($_[0]) });
+            },
+        }
+    );
+
+    $commands->register(
+        jn => {
+            type => 'numeric',
+            help => 'Bessel function of the first kind: x n jn computes Jn(x)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my ($n, $x) = $calc->stack->pop2;
+
+                unless (!ref($x) && $calc->isanumber($x)
+                     && !ref($n) && $calc->isanumber($n)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($n);
+                    warn "jn requires numeric operands\n";
+                    return;
+                }
+
+                unless ($n == int($n)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($n);
+                    warn "jn requires an integer order\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::jn(int($n), $x));
+            },
+        }
+    );
+
+    $commands->register(
+        y0 => {
+            type => 'numeric',
+            help => 'Bessel function of the second kind, order 0: Y0(x)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $x = $calc->stack->pop;
+
+                unless (!ref($x) && $calc->isanumber($x)) {
+                    $calc->stack->push($x);
+                    warn "y0 requires a numeric operand\n";
+                    return;
+                }
+
+                if ($x <= 0) {
+                    $calc->stack->push($x);
+                    warn "y0 requires a positive value\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::y0($x));
+            },
+        }
+    );
+
+    $commands->register(
+        y1 => {
+            type => 'numeric',
+            help => 'Bessel function of the second kind, order 1: Y1(x)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $x = $calc->stack->pop;
+
+                unless (!ref($x) && $calc->isanumber($x)) {
+                    $calc->stack->push($x);
+                    warn "y1 requires a numeric operand\n";
+                    return;
+                }
+
+                if ($x <= 0) {
+                    $calc->stack->push($x);
+                    warn "y1 requires a positive value\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::y1($x));
+            },
+        }
+    );
+
+    $commands->register(
+        yn => {
+            type => 'numeric',
+            help => 'Bessel function of the second kind: x n yn computes Yn(x)',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                my ($n, $x) = $calc->stack->pop2;
+
+                unless (!ref($x) && $calc->isanumber($x)
+                     && !ref($n) && $calc->isanumber($n)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($n);
+                    warn "yn requires numeric operands\n";
+                    return;
+                }
+
+                unless ($n == int($n)) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($n);
+                    warn "yn requires an integer order\n";
+                    return;
+                }
+
+                if ($x <= 0) {
+                    $calc->stack->push($x);
+                    $calc->stack->push($n);
+                    warn "yn requires a positive x value\n";
+                    return;
+                }
+
+                $calc->stack->push(POSIX::yn(int($n), $x));
+            },
+        }
+    );
+
     $commands->register(
         modulo => {
             aliases => [qw(mod %)],
