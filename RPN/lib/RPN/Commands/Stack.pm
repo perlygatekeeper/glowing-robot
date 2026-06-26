@@ -156,7 +156,7 @@ sub register_commands {
 
     $commands->register(
         exchange => {
-            aliases => ['x'],
+            aliases => [qw(x swap)],
             type    => 'stack',
             help    => 'swaps the top two values on the stack',
             code    => sub {

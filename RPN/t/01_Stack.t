@@ -43,6 +43,13 @@ $calc->process_input('exchange');
 
 is($calc->stack->peek, 1, 'exchange swaps top two values');
 
+$calc->stack->clear;
+$calc->process_input('1');
+$calc->process_input('2');
+$calc->process_input('swap');
+
+is($calc->stack->peek, 1, 'swap is an alias for exchange');
+
 #
 # depth
 #

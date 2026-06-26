@@ -691,6 +691,17 @@ Status: COMPLETE
 [ ] Numeric cookbook examples
 
 
+### Version 3.8.4.1 - Swap Alias Compatibility
+
+Status: COMPLETE
+
+[x] Add `swap` as an alias for `exchange`
+[x] Preserve existing `exchange` and `x` behavior
+[x] Add regression test for `swap` alias
+[x] Add release notes
+[x] Update roadmap
+
+
 ### Version 3.8.5 - Constant Pack Enhancements
 
 [ ] Add descriptions to constants
