@@ -219,6 +219,113 @@ sub _initialize {
         }
     );
 
+
+
+    $self->register(
+        sinh => {
+            type => 'trig',
+            help => 'hyperbolic sine',
+            code => sub {
+                my ($calc) = @_;
+                $self->_unary_numeric(
+                    $calc,
+                    sub { (exp($_[0]) - exp(-$_[0])) / 2 }
+                );
+            },
+        }
+    );
+
+    $self->register(
+        cosh => {
+            type => 'trig',
+            help => 'hyperbolic cosine',
+            code => sub {
+                my ($calc) = @_;
+                $self->_unary_numeric(
+                    $calc,
+                    sub { (exp($_[0]) + exp(-$_[0])) / 2 }
+                );
+            },
+        }
+    );
+
+    $self->register(
+        tanh => {
+            type => 'trig',
+            help => 'hyperbolic tangent',
+            code => sub {
+                my ($calc) = @_;
+                $self->_unary_numeric(
+                    $calc,
+                    sub {
+                        my $e2x = exp(2 * $_[0]);
+                        ($e2x - 1) / ($e2x + 1);
+                    }
+                );
+            },
+        }
+    );
+
+    $self->register(
+        asinh => {
+            type => 'trig',
+            help => 'inverse hyperbolic sine',
+            code => sub {
+                my ($calc) = @_;
+                $self->_unary_numeric(
+                    $calc,
+                    sub { log($_[0] + sqrt($_[0] * $_[0] + 1)) }
+                );
+            },
+        }
+    );
+
+    $self->register(
+        acosh => {
+            type => 'trig',
+            help => 'inverse hyperbolic cosine',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $value = $calc->stack->pop;
+                unless (!ref($value) && $calc->isanumber($value)) {
+                    $calc->stack->push($value);
+                    warn "acosh requires a numeric operand\n";
+                    return;
+                }
+                if ($value < 1) {
+                    $calc->stack->push($value);
+                    warn "acosh requires a value greater than or equal to 1\n";
+                    return;
+                }
+                $calc->stack->push(log($value + sqrt($value * $value - 1)));
+            },
+        }
+    );
+
+    $self->register(
+        atanh => {
+            type => 'trig',
+            help => 'inverse hyperbolic tangent',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $value = $calc->stack->pop;
+                unless (!ref($value) && $calc->isanumber($value)) {
+                    $calc->stack->push($value);
+                    warn "atanh requires a numeric operand\n";
+                    return;
+                }
+                if ($value <= -1 || $value >= 1) {
+                    $calc->stack->push($value);
+                    warn "atanh requires a value greater than -1 and less than 1\n";
+                    return;
+                }
+                $calc->stack->push(0.5 * log((1 + $value) / (1 - $value)));
+            },
+        }
+    );
+
     #
     # Display / utility
     #

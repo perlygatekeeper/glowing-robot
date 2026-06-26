@@ -26,19 +26,30 @@ our @EXPORT = qw(stdout_is stdout_like stderr_like stdout_from);
 sub _capture_stdout {
     my ($code) = @_;
 
-    my $captured = '';
-    open my $capture_fh, '>', \$captured
-        or die "RPN::TestOutput: cannot open in-memory filehandle: $!";
+    # STDOUT may receive output from child processes invoked with system(),
+    # so capture the real OS filehandle rather than only Perl-level print().
+    require File::Temp;
+    my ($tmp_fh, $tmp_name) = File::Temp::tempfile();
 
-    my $old_fh = select($capture_fh);
-    $| = 1;   # autoflush the now-selected handle, matching Test::Output
+    open(my $saved_stdout, '>&STDOUT')
+        or die "RPN::TestOutput: cannot save STDOUT: $!";
+    open(STDOUT, '>&', $tmp_fh)
+        or die "RPN::TestOutput: cannot redirect STDOUT: $!";
+    { local $\; select(select(STDOUT)); $| = 1; }   # autoflush, matching Test::Output
+
     eval { $code->() };
     my $err = $@;
-    select($old_fh);
 
-    close $capture_fh;
+    open(STDOUT, '>&', $saved_stdout)
+        or die "RPN::TestOutput: cannot restore STDOUT: $!";
+
+    seek($tmp_fh, 0, 0);
+    my $captured = do { local $/; <$tmp_fh> };
+    close $tmp_fh;
+    unlink $tmp_name;
+
     die $err if $err;
-    return $captured;
+    return $captured // '';
 }
 
 sub _capture_stderr {
