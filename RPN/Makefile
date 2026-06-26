@@ -1,4 +1,4 @@
-PERL := perl5.34
+PERL ?= perl5.34
 TAR  := gtar
 NAME := rpn-oo
 
@@ -6,19 +6,21 @@ SCRIPT    := rpn.pl
 MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
              lib/RPN/Commands.pm \
-             lib/RPN/Commands/Matrix.pm \
              lib/RPN/Commands/Combinatorics.pm \
              lib/RPN/Commands/Financial.pm \
+             lib/RPN/Commands/Matrix.pm \
              lib/RPN/Commands/NumberTheory.pm \
-             lib/RPN/Commands/Vector.pm \
-             lib/RPN/Commands/Tutorials.pm \
              lib/RPN/Commands/Numeric.pm \
              lib/RPN/Commands/Stack.pm \
+             lib/RPN/Commands/Strings.pm \
+             lib/RPN/Commands/Tutorials.pm \
+             lib/RPN/Commands/Vector.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
+             lib/RPN/Matrix.pm \
              lib/RPN/Variables.pm \
              lib/RPN/Vector.pm \
-             lib/RPN/Matrix.pm
+             t/lib/RPN/TestOutput.pm
 TESTDIR   := t/
 CONSTANTS := constants/
 EXAMPLES  := examples/
@@ -37,7 +39,7 @@ backup:
 		$(CONSTANTS) \
 		$(EXAMPLES)/*/*.txt \
 		$(DOCS)/*.txt \
-		$(DEVELOPERS)/*.txt \
+		$(DEVELOPER)/*.txt \
 		$(TUTORIALS)/*_v[0-9][0-9].txt
 
 syntax:
@@ -66,6 +68,9 @@ gitadd:
 	$(CONSTANTS)/*.txt \
 	$(EXAMPLES)/*/*
 	git status
+
+perl-version:
+	$(PERL) -v
 
 clean:
 	find . -name '*~' -delete

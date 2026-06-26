@@ -5,16 +5,23 @@ use warnings;
 use Test::More ();
 use Exporter 'import';
 
-our @EXPORT = qw(stdout_is stdout_like stderr_like);
+our @EXPORT = qw(stdout_is stdout_like stderr_like stdout_from);
 
-# A small, dependency-free stand-in for the three Test::Output functions
-# this project's test suite actually uses. Not a general replacement for
-# Test::Output -- just enough to run our tests without needing it
-# installed from CPAN.
+# A small, dependency-free stand-in for the four Test::Output functions
+# this project's test suite actually uses. Modeled directly on the real
+# CPAN Test::Output (Shawn Sorichetti / brian d foy), specifically matching
+# its prototypes (so bare-block call syntax works) and its autoflush
+# behavior, but implemented with select()/temp-file capture instead of
+# Capture::Tiny so it has no CPAN dependency.
 #
 #   stdout_is(   \&code, $expected_string, $description );
+#   stdout_is  { ... } $expected_string, $description;
 #   stdout_like( \&code, qr/.../,          $description );
+#   stdout_like  { ... } qr/.../,          $description;
 #   stderr_like( \&code, qr/.../,          $description );
+#   stderr_like  { ... } qr/.../,          $description;
+#   my $text = stdout_from( \&code );   # no assertion, just returns captured text
+#   my $text = stdout_from { ... };
 
 sub _capture_stdout {
     my ($code) = @_;
@@ -24,6 +31,7 @@ sub _capture_stdout {
         or die "RPN::TestOutput: cannot open in-memory filehandle: $!";
 
     my $old_fh = select($capture_fh);
+    $| = 1;   # autoflush the now-selected handle, matching Test::Output
     eval { $code->() };
     my $err = $@;
     select($old_fh);
@@ -45,6 +53,7 @@ sub _capture_stderr {
         or die "RPN::TestOutput: cannot save STDERR: $!";
     open(STDERR, '>&', $tmp_fh)
         or die "RPN::TestOutput: cannot redirect STDERR: $!";
+    { local $\; select(select(STDERR)); $| = 1; }   # autoflush, matching Test::Output
 
     eval { $code->() };
     my $err = $@;
@@ -61,22 +70,27 @@ sub _capture_stderr {
     return $captured // '';
 }
 
-sub stdout_is {
+sub stdout_is (&$;$) {
     my ($code, $expected, $desc) = @_;
     my $got = _capture_stdout($code);
     return Test::More::is($got, $expected, $desc);
 }
 
-sub stdout_like {
+sub stdout_like (&$;$) {
     my ($code, $regex, $desc) = @_;
     my $got = _capture_stdout($code);
     return Test::More::like($got, $regex, $desc);
 }
 
-sub stderr_like {
+sub stderr_like (&$;$) {
     my ($code, $regex, $desc) = @_;
     my $got = _capture_stderr($code);
     return Test::More::like($got, $regex, $desc);
+}
+
+sub stdout_from (&) {
+    my ($code) = @_;
+    return _capture_stdout($code);
 }
 
 1;
@@ -96,13 +110,21 @@ RPN::TestOutput - minimal local stand-in for Test::Output
     stdout_like( sub { print "hi there\n" },   qr/there/,   'has there' );
     stderr_like( sub { warn "oops\n" },        qr/oops/,    'warns oops' );
 
+    my $text = stdout_from( sub { print "captured, not asserted\n" } );
+
 =head1 DESCRIPTION
 
-This project's test suite uses three functions from the CPAN module
-L<Test::Output>: C<stdout_is>, C<stdout_like>, and C<stderr_like>.
-Rather than require that module as a dependency, this is a small
-local implementation of just those three functions, with the same
-calling convention: C<(\&code, $expected, $description)>.
+This project's test suite uses four functions from the CPAN module
+L<Test::Output>: C<stdout_is>, C<stdout_like>, C<stderr_like>, and
+C<stdout_from>. Rather than require that module as a dependency, this
+is a small local implementation of just those four functions, with
+the same calling convention as the originals.
+
+C<stdout_from> differs from the others in that it makes no assertion
+of its own -- it just runs the code and returns whatever it printed
+to STDOUT, for the caller to inspect however it likes (e.g. passing
+it on to C<like()> directly, or checking multiple substrings against
+one capture).
 
 It is intentionally not a drop-in replacement for the real
 Test::Output -- it does not implement C<combined_*>, C<output_*>,

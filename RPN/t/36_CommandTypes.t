@@ -5,7 +5,6 @@ use Test::More;
 use File::Temp qw(tempdir);
 
 use lib 'lib';
-
 use RPN;
 
 my $dir = tempdir(CLEANUP => 1);

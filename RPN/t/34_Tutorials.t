@@ -2,11 +2,13 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Output;
 use File::Temp qw(tempdir);
 
-use lib 'lib';
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
+use lib 'lib';
 use RPN;
 
 my $dir = tempdir(CLEANUP => 1);
@@ -16,6 +18,7 @@ $ENV{RPN_STACKS}    = "$dir/stacks";
 $ENV{RPN_CONSTANTS} = "$dir/constants";
 $ENV{RPN_VARIABLES} = "$dir/variables";
 $ENV{RPN_FUNCTIONS} = "$dir/functions";
+$ENV{PAGER}         = "cat";
 
 my $calc = RPN->new(no_readline => 1);
 

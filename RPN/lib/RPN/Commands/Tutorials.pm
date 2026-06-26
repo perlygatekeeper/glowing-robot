@@ -73,30 +73,29 @@ sub register_commands {
                     return;
                 }
 
-                my $pager = $ENV{PAGER} || 'less';
+                my $pager = _select_pager();
+
+                unless ($pager) {
+                    warn 'No pager found; tried $ENV{PAGER}, less, and more' . "\n";
+                    return;
+                }
 
                 system('clear');
-                if ($pager =~ /\s/) {
-                    system("$pager '$best_file'");
-                }
-                else {
-                    system($pager, $best_file);
-                }
+                _run_pager($pager, $best_file);
                 system('clear');
+
+                # my $pager = $ENV{PAGER} || 'less';
+
+                # system('clear');
+                # if ($pager =~ /\s/) {
+                #     system("$pager '$best_file'");
+                #  }
+                # else {
+                #     system($pager, $best_file);
+                # }
+                # system('clear');
 
                 return;
-
-#               open my $fh, '<', $best_file
-#                   or do {
-#                       warn "Unable to read '$best_file': $!\n";
-#                       return;
-#                   };
-#               print "\n";
-#               while (<$fh>) {
-#                   print;
-#               }
-#               print "\n";
-#               close $fh;
 
             },
         },
@@ -129,6 +128,43 @@ sub _tutorial_key_and_version {
     }
 
     return (lc($name), $version);
+}
+
+sub _select_pager {
+    for my $pager ($ENV{PAGER}, 'less', 'more') {
+        next unless defined $pager && length $pager;
+        return $pager if _command_available($pager);
+    }
+
+    return;
+}
+
+sub _command_available {
+    my ($pager) = @_;
+
+    my ($command) = split /\s+/, $pager;
+    return unless defined $command && length $command;
+
+    return 1 if $command =~ m{/} && -x $command;
+
+    for my $dir (split /:/, $ENV{PATH} // '') {
+        return 1 if -x "$dir/$command";
+    }
+
+    return;
+}
+
+sub _run_pager {
+    my ($pager, $file) = @_;
+
+    if ($pager =~ /\s/) {
+        system("$pager '$file'");
+    }
+    else {
+        system($pager, $file);
+    }
+
+    return;
 }
 
 1;

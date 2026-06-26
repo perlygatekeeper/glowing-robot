@@ -2,12 +2,14 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Output;
 use File::Temp qw(tempdir);
+#
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
 use lib 'lib';
 use RPN;
-use RPN::Vector;
 
 sub close_enough {
     my ($got, $expected, $name) = @_;
