@@ -247,14 +247,9 @@ REPORT_EVERY = 210*100
 run_start_time = time.time()
 
 exp = 10 
-<<<<<<< HEAD
 beginning = 9
-n_base =   beginning       * 10**(exp-1)
-stop   = ( beginning + 1 ) * 10**(exp-1)
-=======
 n_base = 2 * 10**(exp-1)
 stop   = 3 * 10**(exp-1)
->>>>>>> dc7af21 (add new concurrently running Primality_Tests_10digits script)
 n = ( (n_base // 210) ) * 210  # Align n to a multiple of 210
 
 # stop = n_base + 5000   # this is for testing
@@ -284,11 +279,7 @@ print(f"Test:    {test_label}")
 print(f"Verbose: {'ON' if VERBOSE else 'OFF'}")
 print()
 
-<<<<<<< HEAD
 with open(f"Data/10_digit_probable_primes_{beginning}.txt", "w") as f:
-=======
-with open("Data/10_digit_probable_primes_2.txt", "w") as f:
->>>>>>> dc7af21 (add new concurrently running Primality_Tests_10digits script)
     while n <= stop:
         print(f"n: {n} found {primes_found} primes so far.")
         for r in WHEEL_RESIDUES:

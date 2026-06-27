@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     try:
         new_filename = generate_prime_filename(original_file)
-        print(new_filename)
+        print(f"mv {original_file} {new_filename}")
 
     except Exception as e:
         print(f"Error: {e}")
