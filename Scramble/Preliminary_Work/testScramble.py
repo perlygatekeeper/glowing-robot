@@ -132,14 +132,14 @@ for rotation in (range(4)):
 print("\n===============================\nSheering methods:\n")
 original = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
 
-for sheer in (range(1,8)):
+for shear in (range(1,8)):
     transformer = ByteTransformer.ByteTransformer(b'\xFF\x00\x00\x00\x00\x00\x00\x00')
-    transformer.sheer_vertically(sheer)
-    print(f"Original\tSheered Vertically by {sheer}:")
+    transformer.shear_vertically(shear)
+    print(f"Original\tSheered Vertically by {shear}:")
     original.print_comparison(transformer)
 
-    transformer.sheer_vertically(8 - sheer)
-    print(f"Original\tSheered Vertically back from {sheer}:")
+    transformer.shear_vertically(8 - shear)
+    print(f"Original\tSheered Vertically back from {shear}:")
     original.print_comparison(transformer)
     print("")
 print("\n-------------------------------\n")
@@ -147,15 +147,15 @@ print("\n-------------------------------\n")
 # original = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
 original    = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
 
-for sheer in (range(1,8)):
+for shear in (range(1,8)):
     # transformer = ByteTransformer.ByteTransformer(b'\x01\x01\x01\x01\x01\x01\x01\x01')
     transformer = ByteTransformer.ByteTransformer(b'\xF0\xE0\xC0\x80\x00\x00\x00\x00')
-    transformer.sheer_horizontally(sheer,0)
-    print(f"Original\tSheered Horizontally by {sheer}:")
+    transformer.shear_horizontally(shear,0)
+    print(f"Original\tSheered Horizontally by {shear}:")
     original.print_comparison(transformer)
 
-    transformer.sheer_horizontally(8 - sheer,0)
-    print(f"Original\tSheered horizontally back from {sheer}:")
+    transformer.shear_horizontally(8 - shear,0)
+    print(f"Original\tSheered horizontally back from {shear}:")
     original.print_comparison(transformer)
     print("")
 
@@ -184,7 +184,7 @@ transformer.read_from('-' ,1)
 #     invert
 #     rotate_90_CCW, rotate_90_CW, rotate_180
 #     flip_horizontal, flip_vertical
-#     horizontal_sheer, vertical_sheer
+#     horizontal_shear, vertical_shear
 #  Utilities
 #   * print_as_bytes, print_as_bit_array, print_comparison
 #   * random

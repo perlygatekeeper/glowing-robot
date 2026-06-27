@@ -5,7 +5,7 @@ setenv ECPP /usr/local/bin/ecpp
 echo $ECPP
 
 $ECPP -f 25k_digit_probable_prime \
-      -n `cat  25K_digit_probable_primes.txt` \
+      -n `cat  25K_digit_probable_prime.txt` \
       -v -g
 
 #  The argument

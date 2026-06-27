@@ -41,7 +41,7 @@ transformer.not_a_method()
 #  Transforms
 #   rotate_90_CCW, rotate_90_CW, rotate_180
 #   flip_horizontal, flip_vertical
-#   horizontal_sheer, vertical_sheer
+#   horizontal_shear, vertical_shear
 #   invert
 #  Utilities
 #   - compare

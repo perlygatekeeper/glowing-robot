@@ -248,8 +248,8 @@ run_start_time = time.time()
 
 exp = 10 
 beginning = 9
-n_base =   beginning       * 10**(exp-1)
-stop   = ( beginning + 1 ) * 10**(exp-1)
+n_base = 2 * 10**(exp-1)
+stop   = 3 * 10**(exp-1)
 n = ( (n_base // 210) ) * 210  # Align n to a multiple of 210
 
 # stop = n_base + 5000   # this is for testing

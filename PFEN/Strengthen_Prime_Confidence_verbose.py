@@ -198,9 +198,9 @@ def main():
     # ---- Miller-Rabin (standalone, 25 rounds) ----
     # print(f"\n[Test 1]  Miller-Rabin  (25 rounds)")
     # print("-" * 40)
-    # t0 = time.time()
+    t0 = time.time()
     # mr_result = miller_rabin(n, rounds=1)
-    # t1 = time.time()
+    t1 = time.time()
     # print(f"  Verdict : {'Probable Prime' if mr_result else 'COMPOSITE'}")
     # print(f"  Time    : {t1 - t0:.3f} s")
 

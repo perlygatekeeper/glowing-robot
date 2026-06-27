@@ -1,0 +1,33 @@
+
+   Goals:
+
+   Remake RPN in python
+
+   Use Curses to make it look like a real calculator
+
+   Include the following features from the original:
+
+   1) CLI and Curses modes
+   2) main stack, a-z and A-Z stacks
+   3) items on stacks can be int, float or complex
+   4) operators of the following types:
+     a) arithmatic          ( + - * / ++ -- isneg ispos iszero sqrt cubert square cube power mod )
+     b) boolean             ( == != < <= > >= )  
+     c) trigometric         ( sin cos tan asin acos atan )
+     d) range               ( ie. 0..10 )
+     e) python_code         ( exec arbitary python code input as a string )
+     f) unit conversion     ( farenhite <-> celcius, liters <-> quarts, pounds <-> kilograms, meters <-> yards )
+     g) base conversion     ( decimal, octal, hexidecimal, binary, chose_output_base )
+     h) stack manipulation  ( pop, push, rotate, slide, switch present stack, etc. )
+     i) string utilities    ( formatting and regular expressions )
+     j) flow and looping    ( if elif else; while and for )
+     k) python objects      ( list, set, dictionary )
+     l) matrices            ( multiply, diagonalize )
+     k) utilities           ( viewing stacks or elements )
+   5) New features
+     a) input more than one input on a single line
+        choose input field seperator
+     b) input strings with either '' or ""
+     c) execute stored operations in a given stack on the present stack
+        for instance, @c would walk the strings on the 'c' stack and 
+        execute them on the present stack

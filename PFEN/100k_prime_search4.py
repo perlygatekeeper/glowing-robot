@@ -1,4 +1,4 @@
-#!/usr/bin/env -S python3.13 -u
+#!/usr/bin/env -S python3 -u
 import random
 import time
 import sys
@@ -9,7 +9,7 @@ import json
 import signal
 import argparse  # NEW: for command-line argument parsing
 
-# Modded to use Lucas test conditionally, now set to False and up the number of Trial Primes from
+# Modded to use Lucas test conditionally, now set to False and up the number of Trail Primes from
 # 10_000 to 1_000_000
 #
 # further modified to allow restart of script by reading the output file from an earlier run.
@@ -28,7 +28,6 @@ print(f"Type check: {type(n_test)}")  # Should show <class 'mpz'>
 # ---------------------------------------------------------------------------
 # NEW: Checkpoint Management
 # ---------------------------------------------------------------------------
-describer = "100K"
 DEFAULT_CHECKPOINT = "prime_search_checkpoint_{describer}_{os.getpid()}.json"
 _checkpoint_file = DEFAULT_CHECKPOINT  # Global for signal handler access
 _current_state = None  # Global reference for signal handler
@@ -96,7 +95,7 @@ def load_checkpoint(checkpoint_path, trial_primes):
         residues_210 = {p: int(210 % p) for p in trial_primes}
         
         print(f"\n[✓ Resuming from checkpoint]")
-        print(f"  Wheel steps:       {wheel_steps:,}")
+        print(f"  Wheel steps:     {wheel_steps:,}")
         print(f"  Candidates tested: {candidates_tested:,}")
         print(f"  Candidates sieved: {candidates_sieved:,}")
         print(f"  Candidate        : {str(n)[:20]} ... {str(n)[-20:]}")
@@ -486,7 +485,6 @@ with open(OUTPUT_FILE, file_mode) as f:
                 print(f"    Wall time        : {elapsed_total:.1f}s")
                 print(f"    Candidate        : {str(candidate)[:20]} ... {str(candidate)[-20:]}")
                 print(f"    OUTPUT to        : {OUTPUT_FILE}")
-
                 f.write(f"{candidate}\n")
                 f.flush()  # Ensure prime is written immediately
                 top_sieves = sorted(sieve_hit_counts.items(), key=lambda x: x[1], reverse=True)[:30]

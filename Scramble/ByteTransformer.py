@@ -1,4 +1,3 @@
-#!/opt/local/bin/python
 # Can you help me begin development of an object-oriented module in
 # python for performing transformations on length 8 bytearrays
 
@@ -816,17 +815,17 @@ class ByteTransformer:
 
 # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-    def sheer_horizontally(self, param, debug=0):
-        """sheers the block of bits, rotating each row of bits by a number of bits
+    def shear_horizontally(self, param, debug=0):
+        """shears the block of bits, rotating each row of bits by a number of bits
         to the left.  The number of bits shifted starts at param (which must be
         between 1 and 7 inclusive) and increases by param for each row, modulo 8.
         The last row is always unchanged, see Notes.txt"""
-        sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        sheared = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
-            self.print_as_bit_array("Object before horizontal sheering:")
+            self.print_as_bit_array("Object before horizontal shearing:")
         for row in range(len(self.data)):
             shift = ( param * row ) % 8
-            sheered.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[shift]  ) >> ( 8 - shift ) | \
+            sheared.data[row] = ( self.data[row] & ByteTransformer.shift_mask_left[shift]  ) >> ( 8 - shift ) | \
                                 ( self.data[row] & ByteTransformer.shift_mask_right[shift] ) << shift
             if (debug>1):
                 print(f"  row is {row} & shift is {shift}")
@@ -834,27 +833,27 @@ class ByteTransformer:
                 print(f"  left side is {left:08b} and will be shifted right by 7 - {shift}")
                 right = self.data[row] & ByteTransformer.shift_mask_right[shift]
                 print(f"  right side is {right:08b} and will be shifted left by {shift}")
-        self.data = sheered.data
+        self.data = sheared.data
         if (debug):
             self.print_as_bit_array(f"Sheered horizontally by {param}:")
 
-    def sheer_vertically(self, param, debug=0):
-        """sheers the block of bits, rotating each column of bits by a number of bits
+    def shear_vertically(self, param, debug=0):
+        """shears the block of bits, rotating each column of bits by a number of bits
         to the down.  The number of bits shifted starts at param (which must be
         between 1 and 7 inclusive) and increases by param for each col, modulo 8.
         The last row is always unchanged, see Notes.txt
-        unlike horizontal sheer, we will locate each bit seperately and place it
-        into the sheered array.  """
-        sheered = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
+        unlike horizontal shear, we will locate each bit seperately and place it
+        into the sheared array.  """
+        sheared = ByteTransformer(bytearray(b'\x00\x00\x00\x00\x00\x00\x00\x00'))
         if (debug):
-            self.print_as_bit_array("Object before vertically sheering:")
+            self.print_as_bit_array("Object before vertically shearing:")
         for col in range(8):
             sensor = ByteTransformer.bit_sensor[col]
             for row in range(len(self.data)):
                 if (sensor & self.data[row]): # detect bit at this row,col
                     shift = ( param * col + row ) % len(self.data)  # if bit detected, find new col for vertically-shifted bit
-                    sheered.data[shift] |= sensor
-        self.data = sheered.data
+                    sheared.data[shift] |= sensor
+        self.data = sheared.data
         if (debug):
             self.print_as_bit_array(f"Sheered vertically by {param}:")
 
@@ -867,8 +866,8 @@ class ByteTransformer:
 #   - rotate_90_CW
 #   - rotate_180
 #   - invert
-#   - horizontal_sheer
-#   - vertical_sheer
+#   - horizontal_shear
+#   - vertical_shear
 #   + flip_horizontal
 #   + flip_vertical
 #   + increment_bytes
