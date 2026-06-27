@@ -702,14 +702,60 @@ Status: COMPLETE
 [x] Update roadmap
 
 
-### Version 3.8.5 - Constant Pack Enhancements
+----------------
+## Version 3.8.5 — Enhanced Constants
 
-[ ] Add descriptions to constants
-[ ] Add units to constants
-[ ] Add constant categories
-[ ] Add constant search capability
-[ ] Add metadata support to constant packs
-[ ] Add enhanced constant help output
+### Goals
+
+* [x] Add metadata support to constants.
+* [x] Preserve backward compatibility with existing constant files.
+* [x] Support arbitrary metadata key/value pairs.
+* [x] Support quoted metadata strings with escape sequences.
+* [x] Add metadata inheritance via `metadata:` directives.
+* [x] Support `metadata: reset` and `metadata: clear`.
+* [x] Add `constinfo`.
+* [x] Add `constants all`.
+* [x] Add `constants categories`.
+* [x] Add `constants <category>`.
+* [x] Normalize category names.
+* [x] Preserve unknown metadata for future releases.
+* [x] Add comprehensive automated tests.
+* [x] Add Constants_v02 tutorial.
+
+### Deferred
+
+* [ ] Update the example constant libraries to include metadata (Version 3.8.5.1).
+* [ ] Add searching by metadata and description.
+* [ ] Add aliases and alternate names for constants.
+* [ ] Explore user-installable constant packs.
+
+## Version 3.8.5.1 — Curated Constant Libraries
+
+### Goals
+
+* [x] Rewrite the bundled constant libraries using the Version 3.8.5 metadata format.
+* [x] Add units, categories, and descriptions.
+* [x] Use metadata inheritance to reduce repetition.
+* [x] Standardize formatting and comments across all libraries.
+* [x] Organize constants into logical sections.
+* [x] Add an index describing the available constant libraries.
+* [x] Ensure the bundled libraries serve as examples of best practices.
+
+### Result
+
+The Enhanced Constants project is complete.
+
+The calculator now includes:
+
+* Rich constant metadata
+* Metadata inheritance
+* Category-aware browsing
+* Self-documenting constant libraries
+* Comprehensive tutorials
+* Modernized example libraries
+
+Version 3.8.6 will build upon this foundation with new calculator functionality rather than further infrastructure work.
+
 
 
 ### Version 3.9.0 - Geometry and Transformations

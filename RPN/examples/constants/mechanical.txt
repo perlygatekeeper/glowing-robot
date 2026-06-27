@@ -1,13 +1,17 @@
 # RPN Mechanical Engineering Constants
 
-g0 = 9.80665                          # standard gravity, m/s^2
+metadata: category="Mechanical"
+metadata: source="Common mechanical engineering reference values"
+metadata: revision="2026-06"
 
-hp = 745.69987158227022               # horsepower, W
-psi = 6894.757293168                  # pascal
-atm = 101325                          # pascal
+g0 = 9.80665 ; units="m/s^2" ; category="Physics" ; description="Standard gravity"
 
-lbm = 0.45359237                      # kilogram
-lbf = 4.4482216152605                 # newton
+hp = 745.69987158227022 ; units="W" ; description="Mechanical horsepower"
+psi = 6894.757293168 ; units="Pa" ; description="Pound per square inch"
+atm = 101325 ; units="Pa" ; description="Standard atmosphere"
 
-ft = 0.3048                           # meter
-inch = 0.0254                         # meter
+lbm = 0.45359237 ; units="kg" ; description="Pound mass"
+lbf = 4.4482216152605 ; units="N" ; description="Pound force"
+
+ft = 0.3048 ; units="m" ; description="International foot"
+inch = 0.0254 ; units="m" ; description="International inch"

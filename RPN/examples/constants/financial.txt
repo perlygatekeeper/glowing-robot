@@ -1,9 +1,13 @@
 # RPN Financial Constants
 
-months_per_year = 12
-quarters_per_year = 4
-weeks_per_year = 52
-days_per_year = 365.25
+metadata: category="Financial"
+metadata: source="Common financial conventions"
+metadata: revision="2026-06"
 
-percent = 0.01
-basis_point = 0.0001
+months_per_year = 12 ; units="months/year" ; description="Calendar months per year"
+quarters_per_year = 4 ; units="quarters/year" ; description="Calendar quarters per year"
+weeks_per_year = 52 ; units="weeks/year" ; description="Approximate weeks per year"
+days_per_year = 365.25 ; units="days/year" ; description="Average Gregorian year length"
+
+percent = 0.01 ; units="dimensionless" ; description="One percent as a decimal"
+basis_point = 0.0001 ; units="dimensionless" ; description="One basis point as a decimal"

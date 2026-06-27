@@ -1,38 +1,34 @@
 # RPN Astronomy Constants
-
 # SI units unless otherwise noted.
 # Several astronomical values are conventional or approximate.
-# Use comments to keep track of assumptions.
 
-au = 149597870700                     # astronomical unit, m, exact IAU 2012
+metadata: category="Astronomy"
+metadata: source="IAU/NASA/CODATA reference values"
+metadata: revision="2026-06"
 
-julian_day = 86400                    # seconds
-julian_year = 31557600                # seconds, 365.25 days
+au = 149597870700 ; units="m" ; description="Astronomical unit"
 
-ly = 9.4607304725808e15               # light-year, m; c * Julian year
-pc = 3.0856775814913673e16            # parsec, m
+julian_day = 86400 ; units="s" ; description="Julian day"
+julian_year = 31557600 ; units="s" ; description="Julian year of 365.25 days"
 
-G = 6.67430e-11                       # gravitational constant, m^3 kg^-1 s^-2
+ly = 9.4607304725808e15 ; units="m" ; description="Light-year"
+pc = 3.0856775814913673e16 ; units="m" ; description="Parsec"
 
-M_sun = 1.98847e30                    # solar mass, kg
-R_sun = 6.957e8                       # nominal solar radius, m
-L_sun = 3.828e26                      # nominal solar luminosity, W
+G = 6.67430e-11 ; units="m^3/(kg*s^2)" ; category="Physics" ; description="Newtonian constant of gravitation"
 
-M_earth = 5.9722e24                   # Earth mass, kg
-R_earth_eq = 6378137                  # Earth equatorial radius, m
-R_earth_mean = 6371008.8              # Earth mean radius, m
+M_sun = 1.98847e30 ; units="kg" ; description="Solar mass"
+R_sun = 6.957e8 ; units="m" ; description="Nominal solar radius"
+L_sun = 3.828e26 ; units="W" ; description="Nominal solar luminosity"
 
-M_moon = 7.342e22                     # Moon mass, kg
-R_moon = 1737400                      # Moon mean radius, m
+M_earth = 5.9722e24 ; units="kg" ; description="Earth mass"
+R_earth_eq = 6378137 ; units="m" ; description="Earth equatorial radius"
+R_earth_mean = 6371008.8 ; units="m" ; description="Earth mean radius"
 
-M_jupiter = 1.89813e27                # Jupiter mass, kg
-R_jupiter_eq = 71492000               # Jupiter equatorial radius, m
+M_moon = 7.342e22 ; units="kg" ; description="Moon mass"
+R_moon = 1737400 ; units="m" ; description="Moon mean radius"
 
-earth_orbital_period = 31558149.7635456 # sidereal year, s, approximate
-moon_orbital_period = 2360591.5       # sidereal month, s, approximate
+M_jupiter = 1.89813e27 ; units="kg" ; description="Jupiter mass"
+R_jupiter_eq = 71492000 ; units="m" ; description="Jupiter equatorial radius"
 
-# Distance convenience alternatives:
-# au_km = 149597870.7                 # km
-# ly_km = 9.4607304725808e12          # km
-# pc_km = 3.0856775814913673e13       # km
-
+earth_orbital_period = 31558149.7635456 ; units="s" ; description="Earth sidereal orbital period"
+moon_orbital_period = 2360591.5 ; units="s" ; description="Moon sidereal orbital period"

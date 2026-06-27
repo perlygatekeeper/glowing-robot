@@ -1,9 +1,19 @@
 # Materials Constants
-density_steel = 7850
-density_aluminum = 2700
-density_copper = 8960
-density_brass = 8500
+# Values are representative engineering approximations.
 
-youngs_modulus_steel = 200e9
-youngs_modulus_aluminum = 69e9
-youngs_modulus_copper = 110e9
+metadata: category="Materials"
+metadata: source="Common engineering reference values"
+metadata: revision="2026-06"
+
+# Densities
+
+density_steel = 7850 ; units="kg/m^3" ; description="Approximate density of steel"
+density_aluminum = 2700 ; units="kg/m^3" ; description="Approximate density of aluminum"
+density_copper = 8960 ; units="kg/m^3" ; description="Approximate density of copper"
+density_brass = 8500 ; units="kg/m^3" ; description="Approximate density of brass"
+
+# Young's modulus
+
+youngs_modulus_steel = 200e9 ; units="Pa" ; description="Approximate Young's modulus of steel"
+youngs_modulus_aluminum = 69e9 ; units="Pa" ; description="Approximate Young's modulus of aluminum"
+youngs_modulus_copper = 110e9 ; units="Pa" ; description="Approximate Young's modulus of copper"

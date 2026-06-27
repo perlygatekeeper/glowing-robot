@@ -1,40 +1,33 @@
 # RPN Physics Constants
-
 # SI units unless otherwise noted.
 
-# Format:
-# name = value        # units / notes
+metadata: category="Physics"
+metadata: source="CODATA and SI defining constants"
+metadata: revision="2026-06"
 
-# Lines beginning with # are ignored.
-# Trailing comments are ignored.
+c = 299792458 ; units="m/s" ; description="Speed of light in vacuum"
 
-c = 299792458                         # speed of light in vacuum, m/s, exact
+G = 6.67430e-11 ; units="m^3/(kg*s^2)" ; description="Newtonian constant of gravitation"
 
-G = 6.67430e-11                       # Newtonian gravitational constant, m^3 kg^-1 s^-2
+h = 6.62607015e-34 ; units="J*s" ; description="Planck constant"
+hbar = 1.054571817e-34 ; units="J*s" ; description="Reduced Planck constant"
 
-h = 6.62607015e-34                    # Planck constant, J s, exact
-hbar = 1.054571817e-34                # reduced Planck constant, J s
+e_charge = 1.602176634e-19 ; units="C" ; description="Elementary charge"
 
-e_charge = 1.602176634e-19            # elementary charge, C, exact
+k_B = 1.380649e-23 ; units="J/K" ; description="Boltzmann constant"
 
-k_B = 1.380649e-23                    # Boltzmann constant, J/K, exact
+av = 6.02214076e23 ; units="mol^-1" ; description="Avogadro constant"
 
-av = 6.02214076e23                    # Avogadro constant, mol^-1, exact
+R = 8.31446261815324 ; units="J/(mol*K)" ; description="Molar gas constant"
 
-R = 8.31446261815324                  # molar gas constant, J mol^-1 K^-1
+F = 96485.3321233100184 ; units="C/mol" ; description="Faraday constant"
 
-F = 96485.3321233100184               # Faraday constant, C/mol
+m_e = 9.1093837139e-31 ; units="kg" ; description="Electron mass"
+m_p = 1.67262192595e-27 ; units="kg" ; description="Proton mass"
+m_n = 1.67492750056e-27 ; units="kg" ; description="Neutron mass"
 
-m_e = 9.1093837139e-31                # electron mass, kg
-m_p = 1.67262192595e-27               # proton mass, kg
-m_n = 1.67492750056e-27               # neutron mass, kg
+amu = 1.66053906892e-27 ; units="kg" ; description="Atomic mass constant"
 
-amu = 1.66053906892e-27               # atomic mass constant, kg
+g0 = 9.80665 ; units="m/s^2" ; description="Standard gravity"
 
-g0 = 9.80665                          # standard gravity, m/s^2, exact by convention
-
-sigma = 5.670374419e-8                # Stefan-Boltzmann constant, W m^-2 K^-4
-
-# Imperial / alternate convenience values:
-# g0_ft = 32.17404855643              # standard gravity, ft/s^2
-
+sigma = 5.670374419e-8 ; units="W/(m^2*K^4)" ; description="Stefan-Boltzmann constant"

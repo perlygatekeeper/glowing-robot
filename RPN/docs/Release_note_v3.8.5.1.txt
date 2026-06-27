@@ -1,0 +1,74 @@
+# RPN Calculator Release Notes
+
+## Version 3.8.5.1
+
+### Curated Constant Libraries
+
+Version 3.8.5.1 completes the Enhanced Constants project introduced in Version 3.8.5 by modernizing the example constant libraries supplied with the calculator.
+
+Rather than introducing new calculator functionality, this release focuses on improving the quality, consistency, and educational value of the bundled constant libraries.
+
+---
+
+## Updated Constant Libraries
+
+The example constant libraries have been rewritten to demonstrate the capabilities introduced in Version 3.8.5.
+
+Enhancements include:
+
+* Rich metadata
+* Categories
+* Units
+* Descriptions
+* Metadata inheritance
+* Improved comments
+* Consistent formatting
+
+---
+
+## Metadata Defaults
+
+The bundled libraries now make extensive use of inherited metadata.
+
+Example:
+
+metadata: category="Physics"
+metadata: source="CODATA 2022"
+
+This significantly reduces duplication while making the files easier to read and maintain.
+
+---
+
+## Improved Organization
+
+Constants are now grouped into logical sections.
+
+Categories have been standardized across the example libraries, making browsing and searching considerably easier.
+
+---
+
+## Documentation Improvements
+
+The bundled example libraries now serve as practical examples of recommended style and organization.
+
+Together with:
+
+docs/tutorials/Constants_v02.txt
+
+they provide a complete guide to creating new constant libraries.
+
+---
+
+## Compatibility
+
+No changes have been made to the constant file format introduced in Version 3.8.5.
+
+This release is entirely backward compatible.
+
+---
+
+## Looking Ahead
+
+The Enhanced Constants project is now complete.
+
+Future development will build upon this foundation with additional mathematical capability and expanded scientific functionality.

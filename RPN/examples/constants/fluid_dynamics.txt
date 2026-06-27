@@ -1,9 +1,15 @@
 # Fluid Dynamics Constants
-water_density = 1000
-air_density_stp = 1.225
+# Values are representative approximations unless otherwise noted.
 
-water_viscosity = 0.001002
-air_viscosity = 1.81e-5
+metadata: category="Fluid Dynamics"
+metadata: source="Common engineering reference values"
+metadata: revision="2026-06"
 
-gravity_earth = 9.80665
-gravity_moon = 1.62
+water_density = 1000 ; units="kg/m^3" ; description="Approximate density of water"
+air_density_stp = 1.225 ; units="kg/m^3" ; description="Density of air at standard conditions"
+
+water_viscosity = 0.001002 ; units="Pa*s" ; description="Dynamic viscosity of water near room temperature"
+air_viscosity = 1.81e-5 ; units="Pa*s" ; description="Dynamic viscosity of air near room temperature"
+
+gravity_earth = 9.80665 ; units="m/s^2" ; category="Physics" ; description="Standard gravity on Earth"
+gravity_moon = 1.62 ; units="m/s^2" ; category="Astronomy" ; description="Approximate lunar surface gravity"
