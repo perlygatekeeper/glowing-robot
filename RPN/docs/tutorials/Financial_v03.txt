@@ -53,10 +53,10 @@ are known.
 
 Example:
 
-    2000
-    0.05
-    10
-    pv
+    RPN> 2000
+    RPN> 0.05
+    RPN> 10
+    RPN> pv
 
 Result:
 
@@ -91,10 +91,10 @@ are known.
 
 Example:
 
-    1000
-    0.05
-    10
-    fv
+    RPN> 1000
+    RPN> 0.05
+    RPN> 10
+    RPN> fv
 
 Result:
 
@@ -130,10 +130,10 @@ are known.
 
 Example:
 
-    1000
-    2000
-    10
-    rate
+    RPN> 1000
+    RPN> 2000
+    RPN> 10
+    RPN> rate
 
 Result:
 
@@ -171,10 +171,10 @@ are known.
 
 Example:
 
-    1000
-    2000
-    0.05
-    nper
+    RPN> 1000
+    RPN> 2000
+    RPN> 0.05
+    RPN> nper
 
 Result:
 
@@ -229,11 +229,11 @@ Assuming monthly payments:
 
 Enter:
 
-    300000
-    0
-    0.005
-    360
-    pmt
+    RPN> 300000
+    RPN> 0
+    RPN> 0.005
+    RPN> 360
+    RPN> pmt
 
 Result:
 
@@ -268,11 +268,11 @@ invested.
 
 Enter:
 
-    0
-    1000000
-    0.07 / 12
-    360
-    pmt
+    RPN> 0
+    RPN> 1000000
+    RPN> 0.07 / 12
+    RPN> 360
+    RPN> pmt
 
 The result is the monthly contribution required to reach the goal.
 
@@ -306,10 +306,10 @@ Suppose:
 
 What will the investment be worth?
 
-    10000
-    0.06
-    18
-    fv
+    RPN> 10000
+    RPN> 0.06
+    RPN> 18
+    RPN> fv
 
 Result:
 
@@ -339,10 +339,10 @@ returns.
 
 How much would need to be invested today?
 
-    1000000
-    0.07
-    30
-    pv
+    RPN> 1000000
+    RPN> 0.07
+    RPN> 30
+    RPN> pv
 
 Result:
 
@@ -511,39 +511,39 @@ Be sure the desired unknown is the command you invoke.
 
 Try:
 
-    1000
-    0.05
-    10
-    fv
+    RPN> 1000
+    RPN> 0.05
+    RPN> 10
+    RPN> fv
 
 Then:
 
-    2000
-    0.05
-    10
-    pv
+    RPN> 2000
+    RPN> 0.05
+    RPN> 10
+    RPN> pv
 
 Then:
 
-    1000
-    2000
-    10
-    rate
+    RPN> 1000
+    RPN> 2000
+    RPN> 10
+    RPN> rate
 
 Then:
 
-    1000
-    2000
-    0.05
-    nper
+    RPN> 1000
+    RPN> 2000
+    RPN> 0.05
+    RPN> nper
 
 Then:
 
-    300000
-    0
-    0.005
-    360
-    pmt
+    RPN> 300000
+    RPN> 0
+    RPN> 0.005
+    RPN> 360
+    RPN> pmt
 
 Observe how the same financial relationships can be solved for different unknowns.
 

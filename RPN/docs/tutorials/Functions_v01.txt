@@ -4,8 +4,8 @@ Functions allow reusable sequences of commands.
 
 ## Example
 
-    def double
-    2 *
-    end
+    RPN> def double
+    RPN> 2 *
+    RPN> end
 
-    21 double
+    RPN> 21 double

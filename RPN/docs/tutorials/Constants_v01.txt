@@ -5,8 +5,8 @@ Constants provide named values.
 typing a constant's name as a command, pushes that constant's 
 value unto the stack.
 
-    Input [-EMPTY-] pi
-    Input [3.14159265358979]
+    RPN> pi
+    3.14159265358979
 
 Some constants are "builtin" and are protected from change or deletion.
 
@@ -20,7 +20,7 @@ Examples:
 
 Here are a breif list of commands that deal with constants:
 
-    help type constant
+    RPN> help type constant
 
 Command            Type         Help
 ------------------ ------------ ----------------------------------------

@@ -29,6 +29,7 @@ sub new {
         debug               => 0,
         angle_mode          => 'radians',
         install_dir         => $install_dir,
+        prompt_template    => exists $args{prompt} ? $args{prompt} : 'RPN> ',
         commands            => undef,
         term                => undef,
         stack               => RPN::Stack->new(),
@@ -382,11 +383,34 @@ sub angle_to_radians {
 
 sub prompt {
     my ($self) = @_;
+    return $self->current_prompt;
+}
+
+sub current_prompt {
+    my ($self) = @_;
+
+    my $prompt = $self->{prompt_template};
+
+    my %tokens = (
+        TOS       => sub { $self->prompt_tos },
+        DEPTH     => sub { $self->stack->depth },
+        StackName => sub { $self->stack->current_name },
+    );
+
+    $prompt =~ s/%([^%]+)%/
+        exists $tokens{$1} ? $tokens{$1}->() : "%$1%"
+    /gex;
+
+    return $prompt;
+}
+
+sub prompt_tos {
+    my ($self) = @_;
 
     my $top = $self->stack->peek;
-    $top = defined $top ? $self->format_value($top) : '-EMPTY-';
+    return '-EMPTY-' unless defined $top;
 
-    return "Input [$top] ";
+    return $self->format_value($top);
 }
 
 sub process_input {

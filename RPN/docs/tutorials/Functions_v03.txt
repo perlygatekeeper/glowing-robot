@@ -21,9 +21,9 @@ A function is simply a named sequence of calculator commands.
 
 For example:
 
-define double
-2 *
-end
+RPN> define double
+RPN> 2 *
+RPN> end
 
 creates a function named:
 
@@ -31,11 +31,11 @@ double
 
 When invoked:
 
-21 double
+RPN> 21 double
 
 the calculator behaves as if you had entered:
 
-21 2 *
+RPN> 21 2 *
 
 Result:
 
@@ -55,9 +55,9 @@ end
 
 Example:
 
-define double
-2 *
-end
+RPN> define double
+RPN> 2 *
+RPN> end
 
 The function is now available immediately.
 
@@ -69,7 +69,7 @@ Once defined, a function behaves like a built-in command.
 
 Example:
 
-21 double
+RPN> 21 double
 
 Result:
 
@@ -83,13 +83,13 @@ Functions may be used anywhere a normal command may be used.
 
 Define a square function:
 
-define square
-dup *
-end
+RPN> define square
+RPN> dup *
+RPN> end
 
 Use it:
 
-5 square
+RPN> 5 square
 
 Result:
 
@@ -111,13 +111,13 @@ Instead, they work with values already on the stack.
 
 Example:
 
-define add10
-10 +
-end
+RPN> define add10
+RPN> 10 +
+RPN> end
 
 Usage:
 
-7 add10
+RPN> 7 add10
 
 Result:
 
@@ -135,18 +135,18 @@ Functions and variables work well together.
 
 Example:
 
-0.07
-sto tax_rate
+RPN> 0.07
+RPN> sto tax_rate
 
 Define:
 
-define add_tax
-1 tax_rate + *
-end
+RPN> define add_tax
+RPN> 1 tax_rate + *
+RPN> end
 
 Usage:
 
-100 add_tax
+RPN> 100 add_tax
 
 Result:
 
@@ -162,19 +162,19 @@ Functions may invoke previously-defined functions.
 
 Example:
 
-define square
-dup *
-end
+RPN> define square
+RPN> dup *
+RPN> end
 
 Define:
 
-define fourth
-square square
-end
+RPN> define fourth
+RPN> square square
+RPN> end
 
 Usage:
 
-2 fourth
+RPN> 2 fourth
 
 Result:
 
@@ -193,7 +193,7 @@ Building larger functions from smaller functions is encouraged.
 
 To list all user-defined functions:
 
-funcs
+RPN> funcs
 
 Example output:
 
@@ -235,15 +235,15 @@ A function may be redefined.
 
 Example:
 
-define double
-2 *
-end
+RPN> define double
+RPN> 2 *
+RPN> end
 
 Later:
 
-define double
-dup +
-end
+RPN> define double
+RPN> dup +
+RPN> end
 
 The new definition replaces the previous one.
 
@@ -318,19 +318,19 @@ Functions, on the other hand, are created by the user and may contain arbitrary 
 
 Consider:
 
-define square
-dup *
-end
+RPN> define square
+RPN> dup *
+RPN> end
 
 This requires a value on the stack.
 
 Valid:
 
-5 square
+RPN> 5 square
 
 Invalid:
 
-square
+RPN> square
 
 because there is nothing to duplicate.
 
@@ -344,9 +344,9 @@ A function should generally not call itself.
 
 Example:
 
-define bad
-bad
-end
+RPN> define bad
+RPN> bad
+RPN> end
 
 This creates an endless loop of function calls.
 
@@ -381,23 +381,23 @@ Over time these become a personalized extension of the calculator.
 
 Try:
 
-define double
-2 *
-end
+RPN> define double
+RPN> 2 *
+RPN> end
 
-21 double
-
-Then:
-
-define square
-dup *
-end
-
-5 square
+RPN> 21 double
 
 Then:
 
-funcs
+RPN> define square
+RPN> dup *
+RPN> end
+
+RPN> 5 square
+
+Then:
+
+RPN> funcs
 
 Observe how user-defined functions become indistinguishable from built-in commands.
 

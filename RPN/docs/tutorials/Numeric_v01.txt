@@ -19,9 +19,9 @@ The calculator supports the standard hyperbolic functions:
 
 Examples:
 
-    1 sinh
-    1 cosh
-    1 tanh
+    RPN> 1 sinh
+    RPN> 1 cosh
+    RPN> 1 tanh
 
 The inverse hyperbolic functions are also available:
 
@@ -31,9 +31,9 @@ The inverse hyperbolic functions are also available:
 
 Examples:
 
-    1 asinh
-    2 acosh
-    0.5 atanh
+    RPN> 1 asinh
+    RPN> 2 acosh
+    RPN> 0.5 atanh
 
 Domain notes:
 
@@ -55,9 +55,9 @@ First kind:
 
 Examples:
 
-    1 j0
-    1 j1
-    1 2 jn
+    RPN> 1 j0
+    RPN> 1 j1
+    RPN> 1 2 jn
 
 The last example computes J2(1).  The stack order for jn is:
 
@@ -71,9 +71,9 @@ Second kind:
 
 Examples:
 
-    1 y0
-    1 y1
-    1 2 yn
+    RPN> 1 y0
+    RPN> 1 y1
+    RPN> 1 2 yn
 
 The last example computes Y2(1).  The stack order for yn is:
 
@@ -97,8 +97,8 @@ Error functions:
 
 Examples:
 
-    1 erf
-    1 erfc
+    RPN> 1 erf
+    RPN> 1 erfc
 
 Gamma functions:
 
@@ -107,9 +107,9 @@ Gamma functions:
 
 Examples:
 
-    5 gamma
-    5 lgamma
-    0.5 gamma
+    RPN> 5 gamma
+    RPN> 5 lgamma
+    RPN> 0.5 gamma
 
 Domain notes:
 
@@ -126,8 +126,8 @@ The stack order for beta is:
 
 Examples:
 
-    2 3 beta
-    0.5 0.5 beta
+    RPN> 2 3 beta
+    RPN> 0.5 0.5 beta
 
 The beta function requires both arguments to be positive.
 

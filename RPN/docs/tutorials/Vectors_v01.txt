@@ -4,6 +4,6 @@ Vectors represent ordered collections of numeric values.
 
 Example:
 
-    [1,2]
-    [3,4]
-    v+
+    RPN> [1,2]
+    RPN> [3,4]
+    RPN> v+

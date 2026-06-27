@@ -21,7 +21,7 @@ Generally:
 
 Specific Example:
 
-    1000 2000 0.05 nper
+    RPN> 1000 2000 0.05 nper
 
 Solves:
 

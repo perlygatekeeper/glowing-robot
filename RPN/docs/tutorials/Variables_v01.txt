@@ -4,13 +4,13 @@ Variables allow values to be stored and recalled by name.
 
 ## Creating a Variable
 
-    42
-    sto answer
+    RPN> 42
+    RPN> sto answer
 
 ## Recalling a Variable
 
-    answer
+    RPN> answer
 
 or:
 
-    rcl answer
+    RPN> rcl answer

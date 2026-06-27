@@ -61,7 +61,7 @@ isprime
 
 Example:
 
-17 isprime
+RPN> 17 isprime
 
 Result:
 
@@ -73,7 +73,7 @@ true
 
 Example:
 
-18 isprime
+RPN> 18 isprime
 
 Result:
 
@@ -97,7 +97,7 @@ factor
 
 Example:
 
-360 factor
+RPN> 360 factor
 
 Result:
 
@@ -125,7 +125,7 @@ gcd
 
 Example:
 
-24 36 gcd
+RPN> 24 36 gcd
 
 Result:
 
@@ -157,7 +157,7 @@ lcm
 
 Example:
 
-12 18 lcm
+RPN> 12 18 lcm
 
 Result:
 
@@ -200,7 +200,7 @@ mod
 
 Example:
 
-17 5 mod
+RPN> 17 5 mod
 
 Result:
 
@@ -234,7 +234,7 @@ idiv
 
 Example:
 
-17 5 idiv
+RPN> 17 5 idiv
 
 Result:
 
@@ -390,17 +390,17 @@ The security of much of the modern Internet relies on properties of prime number
 
 Try:
 
-97 isprime
+RPN> 97 isprime
 
-360 factor
+RPN> 360 factor
 
-24 36 gcd
+RPN> 24 36 gcd
 
-12 18 lcm
+RPN> 12 18 lcm
 
-17 5 mod
+RPN> 17 5 mod
 
-17 5 idiv
+RPN> 17 5 idiv
 
 Observe how these operations relate to one another.
 

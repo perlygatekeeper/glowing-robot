@@ -71,7 +71,7 @@ A vector behaves like a single object on the stack.
 
 Example:
 
-[1,2]
+RPN> [1,2]
 
 Stack:
 
@@ -93,9 +93,9 @@ v+
 
 Example:
 
-[1,2]
-[3,4]
-v+
+RPN> [1,2]
+RPN> [3,4]
+RPN> v+
 
 Result:
 
@@ -121,9 +121,9 @@ v-
 
 Example:
 
-[5,7]
-[2,3]
-v-
+RPN> [5,7]
+RPN> [2,3]
+RPN> v-
 
 Result:
 
@@ -141,9 +141,9 @@ A scalar is simply an ordinary number.
 
 Example:
 
-[1,2]
-3
-vmul
+RPN> [1,2]
+RPN> 3
+RPN> vmul
 
 Result:
 
@@ -163,9 +163,9 @@ dot
 
 Example:
 
-[1,2]
-[3,4]
-dot
+RPN> [1,2]
+RPN> [3,4]
+RPN> dot
 
 Result:
 
@@ -202,8 +202,8 @@ mag
 
 Example:
 
-[3,4]
-mag
+RPN> [3,4]
+RPN> mag
 
 Result:
 
@@ -333,9 +333,9 @@ Most vector operations require matching dimensions.
 
 Valid:
 
-[1,2]
-[3,4]
-v+
+RPN> [1,2]
+RPN> [3,4]
+RPN> v+
 
 Invalid:
 
@@ -377,20 +377,20 @@ The calculator supports matrix-vector multiplication through the matrix commands
 
 Try:
 
-[1,2]
-[3,4]
-v+
+RPN> [1,2]
+RPN> [3,4]
+RPN> v+
 
-[5,7]
-[2,3]
-v-
+RPN> [5,7]
+RPN> [2,3]
+RPN> v-
 
-[1,2]
-[3,4]
-dot
+RPN> [1,2]
+RPN> [3,4]
+RPN> dot
 
-[3,4]
-mag
+RPN> [3,4]
+RPN> mag
 
 [3,4]
 normalize

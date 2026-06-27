@@ -46,13 +46,13 @@ for small collections of constants.
 
 Once defined or loaded from a file, constants behave exactly like numbers.
 
-> pi
+RPN> pi
 3.141592653589793
 
-> pi 2 *
+RPN> pi 2 *
 6.283185307179586
 
-> c
+RPN> c
 299792458
 
 Constants push their numeric value onto the calculator stack.

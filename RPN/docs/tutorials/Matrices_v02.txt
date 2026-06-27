@@ -52,8 +52,8 @@ The simplest method is a matrix literal.
 
 Push the matrix as a string and then parse it:
 
-[[1,2],[3,4]]
-matparse
+RPN> [[1,2],[3,4]]
+RPN> matparse
 
 Result:
 
@@ -74,9 +74,9 @@ where N is the number of row vectors.
 
 Example:
 
-[1,2]
-[3,4]
-2 matrix
+RPN> [1,2]
+RPN> [3,4]
+RPN> 2 matrix
 
 Result:
 
@@ -95,9 +95,9 @@ N matcols
 
 Example:
 
-[1,3]
-[2,4]
-2 matcols
+RPN> [1,3]
+RPN> [2,4]
+RPN> 2 matcols
 
 Result:
 
@@ -112,7 +112,7 @@ This can be useful when vectors naturally represent columns rather than rows.
 
 Matrices can be stored in files and loaded later.
 
-loadmatrix matrix.txt
+RPN> loadmatrix matrix.txt
 
 This is useful for large matrices that would be inconvenient to enter manually.
 
@@ -127,8 +127,8 @@ cols
 
 Example:
 
-[[1,2],[3,4]] matparse
-rows
+RPN> [[1,2],[3,4]] matparse
+RPN> rows
 
 Result:
 
@@ -136,8 +136,8 @@ Result:
 
 Example:
 
-[[1,2],[3,4]] matparse
-cols
+RPN> [[1,2],[3,4]] matparse
+RPN> cols
 
 Result:
 
@@ -155,9 +155,9 @@ madd
 
 Example:
 
-[[1,2],[3,4]] matparse
-[[10,20],[30,40]] matparse
-madd
+RPN> [[1,2],[3,4]] matparse
+RPN> [[10,20],[30,40]] matparse
+RPN> madd
 
 Result:
 
@@ -197,9 +197,9 @@ Instead, rows of the first matrix are multiplied by columns of the second matrix
 
 Example:
 
-[[1,2],[3,4]] matparse
-[[5,6],[7,8]] matparse
-mmul
+RPN> [[1,2],[3,4]] matparse
+RPN> [[5,6],[7,8]] matparse
+RPN> mmul
 
 Result:
 
@@ -273,8 +273,8 @@ Determinants are defined only for square matrices.
 
 Example:
 
-[[1,2],[3,4]] matparse
-det
+RPN> [[1,2],[3,4]] matparse
+RPN> det
 
 Result:
 
@@ -302,8 +302,8 @@ invm
 
 Example:
 
-[[1,2],[3,4]] matparse
-inverse
+RPN> [[1,2],[3,4]] matparse
+RPN> inverse
 
 Result:
 

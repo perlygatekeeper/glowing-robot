@@ -16,9 +16,9 @@ Suppose you want to compute:
 
 Enter:
 
-3
-4
-+
+RPN> 3
+RPN> 4
+RPN> +
 
 The calculator performs the following steps:
 
@@ -46,9 +46,9 @@ Most commands remove one or more values from the top, perform an operation, and 
 
 For example:
 
-3
-4
-5
+RPN> 3
+RPN> 4
+RPN> 5
 
 produces a stack that looks like:
 
@@ -78,11 +78,11 @@ Then multiply the result by 5.
 
 Enter:
 
-3
-4
-+
-5
-*
+RPN> 3
+RPN> 4
+RPN> +
+RPN> 5
+RPN> *
 
 Result:
 
@@ -110,9 +110,9 @@ clear
 
 Example:
 
-5
-dup
-*
+RPN> 5
+RPN> dup
+RPN> *
 
 The stack evolves like this:
 
@@ -133,10 +133,10 @@ Stack commands let you rearrange values without retyping them.
 
 Example:
 
-10
-3
-swap
--
+RPN> 10
+RPN> 3
+RPN> swap
+RPN> -
 
 Without the swap command:
 
@@ -175,19 +175,19 @@ You can switch between them at any time.
 
 Example:
 
-stack primes
+RPN> stack primes
 
 Work with large prime numbers.
 
 Later:
 
-stack financial
+RPN> stack financial
 
 Perform financial calculations.
 
 Then return:
 
-stack primes
+RPN> stack primes
 
 Your previous work is still waiting exactly as you left it.
 
@@ -201,21 +201,21 @@ The stack command has three common uses.
 
 Report the current stack:
 
-stack
+RPN> stack
 
 Switch to another stack (creating it if necessary):
 
-stack <name>
+RPN> stack <name>
 
 Examples:
 
-stack default
-stack primes
-stack scratch
+RPN> stack default
+RPN> stack primes
+RPN> stack scratch
 
 List every stack:
 
-stack list
+RPN> stack list
 
 For more advanced operations, the calculator also provides commands such as:
 
@@ -234,7 +234,7 @@ deletestack
 
 Type:
 
-help type stack
+RPN> help type stack
 
 to see every stack-related command available in your version.
 
@@ -290,8 +290,8 @@ This behavior often proves useful when reorganizing work between stacks.
 
 If you enter:
 
-3
-+
+RPN> 3
+RPN> +
 
 the calculator reports an error because `+` requires two operands.
 

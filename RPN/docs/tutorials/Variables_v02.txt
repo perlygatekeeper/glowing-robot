@@ -30,8 +30,8 @@ sto
 
 Example:
 
-42
-sto answer
+RPN> 42
+RPN> sto answer
 
 The value:
 
@@ -51,7 +51,7 @@ There are two ways to retrieve a variable.
 
 Simply enter the variable name:
 
-answer
+RPN> answer
 
 Result:
 
@@ -65,7 +65,7 @@ The value is pushed onto the stack.
 
 Command:
 
-rcl answer
+rcl RPN> answer
 
 Result:
 
@@ -89,11 +89,11 @@ Recalling a variable copies its value onto the stack.
 
 Example:
 
-42
-sto answer
+RPN> 42
+RPN> sto answer
 
-answer
-answer
+RPN> answer
+RPN> answer
 
 Stack:
 
@@ -110,11 +110,11 @@ Storing into an existing variable replaces its value.
 
 Example:
 
-42
-sto answer
+RPN> 42
+RPN> sto answer
 
-99
-sto answer
+RPN> 99
+RPN> sto answer
 
 Now:
 
@@ -134,15 +134,15 @@ Variables may be mixed freely with numbers.
 
 Example:
 
-10
-sto width
+RPN> 10
+RPN> sto width
 
-20
-sto height
+RPN> 20
+RPN> sto height
 
-width
-height
-*
+RPN> width
+RPN> height
+RPN> *
 
 Result:
 
@@ -156,16 +156,16 @@ Suppose a circle has radius 5.
 
 Store the radius:
 
-5
-sto radius
+RPN> 5
+RPN> sto radius
 
 Compute the area:
 
-radius
-radius
-*
-pi
-*
+RPN> radius
+RPN> radius
+RPN> *
+RPN> pi
+RPN> *
 
 Result:
 
@@ -199,7 +199,7 @@ This allows long calculations to be resumed later.
 
 To see all defined variables:
 
-vars
+RPN> vars
 
 Example output:
 
@@ -215,7 +215,7 @@ tax_rate     0.07
 
 To delete a variable:
 
-unset answer
+RPN> unset answer
 
 or whatever delete command your calculator provides.
 
@@ -296,8 +296,8 @@ A variable stores the value it was given.
 
 Example:
 
-5
-sto radius
+RPN> 5
+RPN> sto radius
 
 Later:
 
@@ -363,20 +363,20 @@ Functions remember procedures.
 
 Try:
 
-42
-sto answer
+RPN> 42
+RPN> sto answer
 
 answer
 
-10
-sto width
+RPN> 10
+RPN> sto width
 
-20
-sto height
+RPN> 20
+RPN> sto height
 
-width
-height
-*
+RPN> width
+RPN> height
+RPN> *
 
 vars
 
