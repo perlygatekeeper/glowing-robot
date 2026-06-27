@@ -10,3 +10,4 @@ PFEN/*.json
 PFEN/backups
 __pycache__
 rpn-oo-*.tgz
+RPN/backups
