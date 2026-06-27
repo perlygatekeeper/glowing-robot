@@ -6,7 +6,7 @@ Enhanced Statistics (Completed)
 [x] variance
 [x] standard deviation
 [x] product
-[x] range
+[x] spread (formerly statistical range)
 
 ## Version 3.3.5
 
@@ -40,11 +40,14 @@ Quality of Life (Completed)
 
 Sequence and Selection (Completed)
 
-[x] sequence
-[x] sequenceby
+[x] range
+[x] rangeby
 
-[x] sequence alias (..)
-[x] sequenceby alias (...)
+[x] sequence alias
+[x] sequenceby alias
+
+[x] range alias (..)
+[x] rangeby alias (...)
 
 [x] seq alias
 [x] seqby alias
@@ -756,6 +759,20 @@ The calculator now includes:
 
 Version 3.8.6 will build upon this foundation with new calculator functionality rather than further infrastructure work.
 
+
+
+### Version 3.8.6 - Iteration and Higher-Order Operations
+
+[x] Rename statistical range to spread
+[x] Add span alias for spread
+[x] Make range the primary sequence command
+[x] Make rangeby the primary stepped sequence command
+[x] Keep sequence and sequenceby as compatibility aliases
+[ ] Add map for vector transformations
+[ ] Add filter for vector selection
+[ ] Add reduce for combining vector elements
+[ ] Add iteration tutorial
+[ ] Add release notes
 
 
 ### Version 3.9.0 - Geometry and Transformations

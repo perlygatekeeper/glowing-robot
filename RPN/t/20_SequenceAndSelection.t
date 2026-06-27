@@ -9,37 +9,37 @@ use RPN;
 my $calc = RPN->new(no_readline => 1);
 
 #
-# sequence ascending
+# range ascending
 #
 
 $calc->stack->clear;
 $calc->process_input('0');
 $calc->process_input('3');
-$calc->process_input('sequence');
+$calc->process_input('range');
 
-is($calc->stack->depth, 4, 'sequence ascending depth');
-is($calc->stack->pop, 3, 'sequence ascending top');
-is($calc->stack->pop, 2, 'sequence ascending');
-is($calc->stack->pop, 1, 'sequence ascending');
-is($calc->stack->pop, 0, 'sequence ascending');
+is($calc->stack->depth, 4, 'range ascending depth');
+is($calc->stack->pop, 3, 'range ascending top');
+is($calc->stack->pop, 2, 'range ascending');
+is($calc->stack->pop, 1, 'range ascending');
+is($calc->stack->pop, 0, 'range ascending');
 
 #
-# sequence descending
+# range descending
 #
 
 $calc->stack->clear;
 $calc->process_input('3');
 $calc->process_input('0');
-$calc->process_input('sequence');
+$calc->process_input('range');
 
-is($calc->stack->depth, 4, 'sequence descending depth');
-is($calc->stack->pop, 0, 'sequence descending top');
-is($calc->stack->pop, 1, 'sequence descending');
-is($calc->stack->pop, 2, 'sequence descending');
-is($calc->stack->pop, 3, 'sequence descending');
+is($calc->stack->depth, 4, 'range descending depth');
+is($calc->stack->pop, 0, 'range descending top');
+is($calc->stack->pop, 1, 'range descending');
+is($calc->stack->pop, 2, 'range descending');
+is($calc->stack->pop, 3, 'range descending');
 
 #
-# string sequence
+# string range
 #
 
 $calc->stack->clear;
@@ -47,31 +47,31 @@ $calc->process_input("'a");
 $calc->process_input("'f");
 $calc->process_input('..');
 
-is($calc->stack->depth, 6, 'string sequence depth');
-is($calc->stack->pop, 'f', 'string sequence top');
-is($calc->stack->pop, 'e', 'string sequence e');
-is($calc->stack->pop, 'd', 'string sequence d');
-is($calc->stack->pop, 'c', 'string sequence c');
-is($calc->stack->pop, 'b', 'string sequence b');
-is($calc->stack->pop, 'a', 'string sequence a');
+is($calc->stack->depth, 6, 'string range depth');
+is($calc->stack->pop, 'f', 'string range top');
+is($calc->stack->pop, 'e', 'string range e');
+is($calc->stack->pop, 'd', 'string range d');
+is($calc->stack->pop, 'c', 'string range c');
+is($calc->stack->pop, 'b', 'string range b');
+is($calc->stack->pop, 'a', 'string range a');
 
 #
-# sequenceby
+# rangeby
 #
 
 $calc->stack->clear;
 $calc->process_input('0');
 $calc->process_input('10');
 $calc->process_input('2');
-$calc->process_input('sequenceby');
+$calc->process_input('rangeby');
 
-is($calc->stack->depth, 6, 'sequenceby depth');
-is($calc->stack->pop, 10, 'sequenceby top');
-is($calc->stack->pop, 8, 'sequenceby');
-is($calc->stack->pop, 6, 'sequenceby');
-is($calc->stack->pop, 4, 'sequenceby');
-is($calc->stack->pop, 2, 'sequenceby');
-is($calc->stack->pop, 0, 'sequenceby');
+is($calc->stack->depth, 6, 'rangeby depth');
+is($calc->stack->pop, 10, 'rangeby top');
+is($calc->stack->pop, 8, 'rangeby');
+is($calc->stack->pop, 6, 'rangeby');
+is($calc->stack->pop, 4, 'rangeby');
+is($calc->stack->pop, 2, 'rangeby');
+is($calc->stack->pop, 0, 'rangeby');
 
 #
 # choose
@@ -142,5 +142,33 @@ is_deeply(
     [9,5,2,1],
     'sort descending'
 );
+
+
+
+# sequence remains alias for range
+$calc->stack->clear;
+$calc->process_input('0');
+$calc->process_input('3');
+$calc->process_input('sequence');
+is($calc->stack->depth, 4, 'sequence alias depth');
+is($calc->stack->pop, 3, 'sequence alias top');
+is($calc->stack->pop, 2, 'sequence alias');
+is($calc->stack->pop, 1, 'sequence alias');
+is($calc->stack->pop, 0, 'sequence alias');
+
+# sequenceby remains alias for rangeby
+$calc->stack->clear;
+$calc->process_input('0');
+$calc->process_input('10');
+$calc->process_input('2');
+$calc->process_input('sequenceby');
+is($calc->stack->depth, 6, 'sequenceby alias depth');
+is($calc->stack->pop, 10, 'sequenceby alias top');
+is($calc->stack->pop, 8, 'sequenceby alias');
+is($calc->stack->pop, 6, 'sequenceby alias');
+is($calc->stack->pop, 4, 'sequenceby alias');
+is($calc->stack->pop, 2, 'sequenceby alias');
+is($calc->stack->pop, 0, 'sequenceby alias');
+
 
 done_testing();

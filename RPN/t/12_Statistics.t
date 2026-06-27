@@ -96,14 +96,19 @@ $calc->process_input('product');
 is($calc->stack->peek, 24, 'product of 2 3 4 = 24');
 
 #
-# range
+# spread
 #
 
 $calc->stack->clear;
 $calc->process_input('9 4 7 2 8');
-$calc->process_input('range');
+$calc->process_input('spread');
 
-is($calc->stack->peek, 7, 'range = max - min = 7');
+is($calc->stack->peek, 7, 'spread = max - min = 7');
+
+$calc->stack->clear;
+$calc->process_input('5 2 9 4');
+$calc->process_input('span');
+is($calc->stack->peek, 7, 'span alias = max - min = 7');
 
 #
 # median odd count

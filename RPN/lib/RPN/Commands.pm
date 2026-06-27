@@ -1045,9 +1045,10 @@ sub _initialize {
     );
 
     $self->register(
-        range => {
-            type => 'statistics',
-            help => 'replaces the entire stack with maximum minus minimum',
+        spread => {
+            aliases => ['span'],
+            type    => 'statistics',
+            help    => 'replaces the entire stack with maximum minus minimum',
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(1);
@@ -1449,8 +1450,8 @@ sub _initialize {
     #
 
     $self->register(
-        sequence => {
-            aliases => ['..', 'seq'],
+        range => {
+            aliases => ['..', 'seq', 'sequence'],
             type    => 'sequence',
             help    => 'generate a sequence from start to stop',
             code    => sub {
@@ -1482,8 +1483,8 @@ sub _initialize {
     );
 
     $self->register(
-        sequenceby => {
-            aliases => ['...', 'seqby'],
+        rangeby => {
+            aliases => ['...', 'seqby', 'sequenceby'],
             type    => 'sequence',
             help    => 'generate a numeric sequence with explicit step',
             code    => sub {
@@ -1497,11 +1498,11 @@ sub _initialize {
                     && $calc->isanumber($stop)
                     && $calc->isanumber($step)
                 ) {
-                    warn "sequenceby requires numeric arguments\n";
+                    warn "rangeby requires numeric arguments\n";
                     return;
                 }
                 if ($step == 0) {
-                    warn "sequenceby step may not be zero\n";
+                    warn "rangeby step may not be zero\n";
                     return;
                 }
                 if ($step > 0) {
