@@ -18,10 +18,11 @@ sub register_commands {
             type => 'documentation',
             help => 'list available tutorials',
             code => sub {
+                my ($calc) = @_;
 
                 my %seen;
 
-                for my $file (glob('docs/tutorials/*.txt')) {
+                for my $file (glob($calc->tutorials_dir . '/*.txt')) {
 
                     my ($key, $version)
                         = _tutorial_key_and_version($file);
@@ -54,7 +55,7 @@ sub register_commands {
                 my $best_file;
                 my $best_version = -1;
 
-                for my $file (glob('docs/tutorials/*.txt')) {
+                for my $file (glob($calc->tutorials_dir . '/*.txt')) {
 
                     my ($key, $version)
                         = _tutorial_key_and_version($file);

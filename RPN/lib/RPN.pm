@@ -12,6 +12,7 @@ use RPN::Functions;
 use RPN::Vector;
 use RPN::Matrix;
 use Term::ReadLine;
+use Cwd qw(abs_path);
 use Data::Dumper;
 
 # Constuctor
@@ -19,10 +20,15 @@ use Data::Dumper;
 sub new {
     my ($class, %args) = @_;
 
+    my $install_dir = abs_path($args{install_dir} // '.')
+        || $args{install_dir}
+        || '.';
+
     my $self = {
         version             => '3.8.5.1',
         debug               => 0,
         angle_mode          => 'radians',
+        install_dir         => $install_dir,
         commands            => undef,
         term                => undef,
         stack               => RPN::Stack->new(),
@@ -30,7 +36,7 @@ sub new {
         functions           => RPN::Functions->new(),
         variables           => RPN::Variables->new(),
         history             => [],
-        function_call_stack => [],      
+        function_call_stack => [],
     };
 
     bless $self, $class;
@@ -165,6 +171,31 @@ sub angle_mode {
 sub version {
     my ($self) = @_;
     return $self->{version};
+}
+
+sub install_dir {
+    my ($self) = @_;
+    return $self->{install_dir};
+}
+
+sub docs_dir {
+    my ($self) = @_;
+    return $self->install_dir . '/docs';
+}
+
+sub tutorials_dir {
+    my ($self) = @_;
+    return $self->docs_dir . '/tutorials';
+}
+
+sub examples_dir {
+    my ($self) = @_;
+    return $self->install_dir . '/examples';
+}
+
+sub constants_dir {
+    my ($self) = @_;
+    return $self->install_dir . '/constants';
 }
 
 # History methods
@@ -369,7 +400,7 @@ sub process_input {
     # We examine the input and perform the lookup search in the following order:
     # This ordering is IMPORTANT for maintaining a sane and working namespace
     # of commands, aliases, user-defined functions, variables, constants and abbreviated command names
-    # 
+    #
     # 1) Quoted string
     # 2) Numeric list
     # 3) Single Number

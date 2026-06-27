@@ -2,7 +2,9 @@
 use v5.34;
 use strict;
 use warnings;
-use lib 'lib';
+
+use FindBin qw($RealBin);
+use lib "$RealBin/lib";
 
 use RPN;
 
@@ -20,5 +22,7 @@ if (@ARGV && $ARGV[0] =~ /^--v(ersion)?/i) {
     exit 0;
 }
 
-my $calc = RPN->new();
+my $calc = RPN->new(
+    install_dir => $RealBin,
+);
 $calc->run();

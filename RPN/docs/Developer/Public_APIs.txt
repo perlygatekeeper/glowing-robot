@@ -158,3 +158,32 @@ This guarantees forward compatibility between releases and allows future
 versions of the calculator to introduce new metadata fields without breaking
 existing constant libraries or third-party tools.
 
+---
+
+# Installation Resource Path API
+
+Beginning with Version 3.8.6, the calculator object owns the installation
+resource paths used to locate bundled documentation, tutorials, examples, and
+constant libraries.
+
+The constructor accepts an optional `install_dir` argument. When supplied, this
+value identifies the root of the calculator installation. When omitted, the
+calculator defaults to the current directory, preserving test and development
+behavior.
+
+The following read-only accessors are public API:
+
+    install_dir()
+    docs_dir()
+    tutorials_dir()
+    examples_dir()
+    constants_dir()
+
+Command modules must use these accessors instead of hard-coded relative paths
+such as `docs/tutorials`. This keeps resource lookup independent of the user's
+current working directory and allows `rpn.pl` to be launched through symlinks or
+from arbitrary directories.
+
+Persistence files such as history, stacks, variables, functions, and user
+constants remain controlled by the existing persistence file API and related
+environment variables.
