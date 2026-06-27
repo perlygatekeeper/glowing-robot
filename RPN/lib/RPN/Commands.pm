@@ -773,30 +773,37 @@ sub _initialize {
         constants => {
             aliases => ['const'],
             type    => 'constant',
-            help    => 'list, push, or define constants',
+            help    => 'list, push, define, or browse constants',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
 
                 #
                 # const
-                #   list constants
+                #   list constants in compact form
                 #
 
                 unless ($args && @$args) {
-                    printf "%-12s %-12s %s\n", "Name", "Source", "Value";
-                    printf "%-12s %-12s %s\n", "-" x 12, "-" x 12, "-" x 30;
+                    _print_constants_table($calc);
+                    return;
+                }
 
-                    foreach my $name ($calc->constants->names) {
-                        my $source = $calc->constants->is_builtin($name)
-                            ? 'builtin'
-                            : 'user';
+                #
+                # constants all
+                #   list constants with first-class metadata
+                #
 
-                        printf "%-12s %-12s %s\n",
-                            $name,
-                            $source,
-                            $calc->constants->get($name);
-                    }
+                if (@$args == 1 && lc($args->[0]) eq 'all') {
+                    _print_constants_table($calc, verbose => 1);
+                    return;
+                }
 
+                #
+                # constants categories
+                #   list defined categories
+                #
+
+                if (@$args == 1 && lc($args->[0]) eq 'categories') {
+                    _print_constant_categories($calc);
                     return;
                 }
 
@@ -805,15 +812,26 @@ sub _initialize {
                 #   push constant
                 #
 
-                if (@$args == 1) {
-                    my $name = $args->[0];
+                if (@$args == 1 && $calc->constants->exists($args->[0])) {
+                    $calc->stack->push($calc->constants->get($args->[0]));
+                    return;
+                }
 
-                    unless ($calc->constants->exists($name)) {
-                        warn "No constant '$name' was found. ";
+                #
+                # constants category
+                #   list constants in a category
+                #
+
+                if (@$args == 1) {
+                    my $category = $args->[0];
+                    my @names = $calc->constants->names_in_category($category);
+
+                    unless (@names) {
+                        warn "No constant or category '$category' was found. ";
                         return;
                     }
 
-                    $calc->stack->push($calc->constants->get($name));
+                    _print_constants_table($calc, verbose => 1, names => \@names);
                     return;
                 }
 
@@ -825,6 +843,44 @@ sub _initialize {
                 my ($name, $value) = @$args[0, 1];
 
                 $calc->constants->set($name, $value);
+
+                return;
+            },
+        }
+    );
+
+    $self->register(
+        constinfo => {
+            type => 'constant',
+            help => 'show value and metadata for one constant',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+
+                unless ($args && @$args == 1) {
+                    warn "usage: constinfo <name> ";
+                    return;
+                }
+
+                my $name = $args->[0];
+                my $record = $calc->constants->record($name);
+
+                unless ($record) {
+                    warn "No constant '$name' was found. ";
+                    return;
+                }
+
+                my $source = $calc->constants->is_builtin($name)
+                    ? 'builtin'
+                    : 'user';
+
+                printf "%-12s %s\n", 'Name',   $name;
+                printf "%-12s %s\n", 'Source', $source;
+                printf "%-12s %s\n", 'Value',  $record->{value};
+
+                my %metadata = %{ $record->{metadata} || {} };
+                foreach my $key (sort keys %metadata) {
+                    printf "%-12s %s\n", _metadata_label($key), $metadata{$key};
+                }
 
                 return;
             },
@@ -2036,6 +2092,86 @@ sub _print_help_line {
     }
     printf "%-18s %-12s %s\n", $command, $type, $help;
     return;
+}
+
+
+sub _print_constants_table {
+    my ($calc, %args) = @_;
+
+    my @names = $args{names}
+        ? @{ $args{names} }
+        : $calc->constants->names;
+
+    if ($args{verbose}) {
+        printf "%-12s %-12s %-20s %-18s %-18s\n",
+            "Name", "Source", "Value", "Units", "Category";
+        printf "%-12s %-12s %-20s %-18s %-18s\n",
+            "-" x 12, "-" x 12, "-" x 20, "-" x 18, "-" x 18;
+
+        foreach my $name (@names) {
+            my $record = $calc->constants->record($name);
+            next unless $record;
+
+            my $source = $calc->constants->is_builtin($name)
+                ? 'builtin'
+                : 'user';
+            my $metadata = $record->{metadata} || {};
+
+            printf "%-12s %-12s %-20s %-18s %-18s\n",
+                $name,
+                $source,
+                $record->{value},
+                _metadata_display($metadata->{units}),
+                _metadata_display($metadata->{category});
+        }
+
+        return;
+    }
+
+    printf "%-12s %-12s %s\n", "Name", "Source", "Value";
+    printf "%-12s %-12s %s\n", "-" x 12, "-" x 12, "-" x 30;
+
+    foreach my $name (@names) {
+        my $source = $calc->constants->is_builtin($name)
+            ? 'builtin'
+            : 'user';
+
+        printf "%-12s %-12s %s\n",
+            $name,
+            $source,
+            $calc->constants->get($name);
+    }
+
+    return;
+}
+
+sub _print_constant_categories {
+    my ($calc) = @_;
+
+    my @categories = $calc->constants->categories;
+
+    print "Available Categories\n";
+    print "--------------------\n";
+
+    foreach my $category (@categories) {
+        print "$category\n";
+    }
+
+    print "\n" . scalar(@categories) . " categories\n";
+
+    return;
+}
+
+sub _metadata_display {
+    my ($value) = @_;
+
+    return defined($value) && length($value) ? $value : '-';
+}
+
+sub _metadata_label {
+    my ($key) = @_;
+
+    return join ' ', map { ucfirst lc } split /_+/, $key;
 }
 
 sub _clean_filename {
