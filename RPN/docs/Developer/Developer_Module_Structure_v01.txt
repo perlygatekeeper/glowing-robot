@@ -1,0 +1,501 @@
+# Developer Module Structure
+
+## Purpose
+
+This document records the design choices behind the RPN Calculator directory and module structure.
+
+The project began as a single-file calculator, but has grown into a modular command-driven application. The module layout now exists to keep the code understandable, testable, and maintainable.
+
+The primary future reader of this document is Future Steve.
+
+---
+
+## Core Principle
+
+Command modules should parse user input and register commands.
+
+Domain modules should own data and behavior.
+
+In other words:
+
+Commands modules are the user interface layer.
+Domain modules are the logic and storage layer.
+
+For example:
+
+lib/RPN/Commands/Stack.pm
+
+registers stack-related commands such as:
+
+dup
+drop
+stackinfo
+copystack
+pour
+
+but the actual stack manipulation belongs in:
+
+lib/RPN/Stack.pm
+
+This prevents command modules from reaching directly into object internals.
+
+---
+
+## Directory Structure
+
+Current structure:
+
+rpn.pl
+lib/RPN.pm
+lib/RPN/Stack.pm
+lib/RPN/Variables.pm
+lib/RPN/Functions.pm
+lib/RPN/Constants.pm
+lib/RPN/Vector.pm
+lib/RPN/Matrix.pm
+
+lib/RPN/Commands.pm
+lib/RPN/Commands/Numeric.pm
+lib/RPN/Commands/Strings.pm
+lib/RPN/Commands/Stack.pm
+lib/RPN/Commands/Vector.pm
+lib/RPN/Commands/Matrix.pm
+lib/RPN/Commands/Financial.pm
+lib/RPN/Commands/NumberTheory.pm
+lib/RPN/Commands/Combinatorics.pm
+lib/RPN/Commands/Tutorials.pm
+
+---
+
+## Top-Level Driver
+
+### rpn.pl
+
+The file:
+
+rpn.pl
+
+should remain small.
+
+Its job is to:
+
+create the calculator object
+run the calculator
+
+It should not contain command definitions, persistence logic, or calculator behavior.
+
+---
+
+## Main Calculator Object
+
+### lib/RPN.pm
+
+The file:
+
+lib/RPN.pm
+
+owns the top-level calculator object.
+
+It coordinates:
+
+stack object
+constants object
+variables object
+functions object
+commands registry
+persistence files
+startup behavior
+shutdown behavior
+REPL loop
+
+This file should coordinate behavior, not accumulate command implementations.
+
+---
+
+## Command Registry
+
+### lib/RPN/Commands.pm
+
+The file:
+
+lib/RPN/Commands.pm
+
+owns the command registry framework.
+
+It should handle:
+
+command registration
+aliases
+abbreviation rebuilding
+command lookup
+help output
+command metadata
+dispatching commands
+
+It should not become a warehouse of unrelated command implementations.
+
+When a command family becomes large or conceptually distinct, it should move into:
+
+lib/RPN/Commands/<Domain>.pm
+
+---
+
+## Command Modules
+
+Command modules should follow this pattern:
+
+package RPN::Commands::Something;
+
+use strict;
+use warnings;
+
+sub register_commands {
+    my ($commands) = @_;
+
+    $commands->register(
+        command_name => {
+            type => 'something',
+            help => 'short help text',
+            code => sub {
+                my ($calc, $arg_str, $args) = @_;
+                ...
+            },
+        }
+    );
+
+    return;
+}
+
+1;
+
+Inside command modules, use:
+
+$commands->register(...)
+
+not:
+
+$self->register(...)
+
+There is no $self unless the method explicitly receives one.
+
+---
+
+## Domain Modules
+
+Domain modules own data structures and operations.
+
+Examples:
+
+lib/RPN/Stack.pm
+lib/RPN/Vector.pm
+lib/RPN/Matrix.pm
+lib/RPN/Constants.pm
+lib/RPN/Variables.pm
+lib/RPN/Functions.pm
+
+A command module may call methods on these objects, but should not normally manipulate their internal hashes or arrays directly.
+
+Good:
+
+$calc->stack->copy_stack($src, $dst);
+
+Bad:
+
+$calc->{stacks}{$dst} = ...
+
+The second form assumes internal structure and breaks encapsulation.
+
+---
+
+## Stack Design
+
+The stack object is more than a single stack.
+
+The file:
+
+lib/RPN/Stack.pm
+
+owns:
+
+current stack
+named stacks
+stack switching
+stack persistence
+stack contents
+stack management operations
+
+The command module:
+
+lib/RPN/Commands/Stack.pm
+
+should provide command names and user-facing argument parsing.
+
+The storage and manipulation should remain in:
+
+lib/RPN/Stack.pm
+
+---
+
+## Naming Collision Problem
+
+Some filenames naturally repeat.
+
+For example:
+
+lib/RPN/Stack.pm
+lib/RPN/Commands/Stack.pm
+
+These are different modules.
+
+RPN::Stack
+
+is the domain object.
+
+RPN::Commands::Stack
+
+is the command registration module.
+
+This naming is acceptable because it mirrors the architecture, but it can be confusing during file uploads, backups, and debugging.
+
+When discussing files, always include the full path.
+
+Say:
+
+lib/RPN/Stack.pm
+
+or:
+
+lib/RPN/Commands/Stack.pm
+
+not simply:
+
+Stack.pm
+
+---
+
+## Command Type Taxonomy
+
+Command types are user-facing categories used by:
+
+help types
+help type <name>
+
+They should describe the domain from the user's point of view.
+
+Examples:
+
+numeric
+string
+stack
+vector
+matrix
+financial
+number_theory
+combinatorics
+variable
+constant
+function
+documentation
+utility
+
+Avoid vague or implementation-centered categories when possible.
+
+For example:
+
+sort
+unique
+reverse
+
+belong under:
+
+stack
+
+when they operate on the current stack.
+
+---
+
+## Method Catalogue
+
+A method catalogue is useful and should be maintained.
+
+Each domain module should eventually have a short catalogue describing:
+
+public methods
+expected arguments
+return values
+side effects
+whether the method warns or dies
+whether it mutates object state
+
+This is especially useful for modules such as:
+
+RPN::Stack
+RPN::Matrix
+RPN::Vector
+RPN::Constants
+RPN::Functions
+RPN::Variables
+
+The catalogue does not need to be perfect at first.
+
+It is enough to record the methods that command modules are expected to call.
+
+---
+
+## Example Method Catalogue: RPN::Stack
+
+Current public methods include:
+
+new
+    Create a stack object.
+
+current_name
+    Return the name of the active stack.
+
+current_stack
+    Return the active stack array reference.
+
+require_depth($n)
+    Ensure the current stack has at least n values.
+
+depth
+    Return current stack depth.
+
+depth_of($name)
+    Return depth of a named stack.
+
+push(@values)
+    Push values onto the current stack.
+
+pop
+    Pop the top value.
+
+pop2
+    Pop the top two values.
+
+peek
+    Return the top value without popping it.
+
+peek_at($index)
+    Return value at stack depth index.
+
+clear
+    Clear the current stack.
+
+switch($name)
+    Switch to a named stack, creating it if necessary.
+
+stack_names
+    Return all named stack names.
+
+get_stack($name)
+    Return a named stack array reference.
+
+values
+    Return values from the current stack.
+
+set_values(@values)
+    Replace current stack contents.
+
+clear_all
+    Reset to a single default stack.
+
+as_hash
+    Return persistence representation.
+
+load_hash($hash)
+    Restore stack state from hash data.
+
+save_file($file)
+    Save stack state.
+
+load_file($file)
+    Load stack state.
+
+New stack-management methods:
+
+stack_exists($name)
+    Return true if a named stack exists.
+
+stack_size($name)
+    Return named stack depth.
+
+copy_stack($src, $dst)
+    Copy source stack to destination.
+
+dup_stack($dst)
+    Copy current stack to destination.
+
+rename_stack($old, $new)
+    Rename a stack.
+
+clear_named_stack($name)
+    Clear a named stack.
+
+merge_stacks($src, $dst)
+    Append source stack contents to destination.
+
+pour_stack($src, $dst)
+    Move source stack onto destination, reversing order.
+
+---
+
+## Consequences Of This Design
+
+### Advantages
+
+The design makes command families easier to find.
+
+It keeps individual files smaller.
+
+It makes testing easier.
+
+It allows future commands to reuse domain methods.
+
+It prevents every new feature from making Commands.pm larger.
+
+It makes the help system align with the module structure.
+
+### Costs
+
+There are more files.
+
+Some names repeat, such as Stack.pm.
+
+Adding a new command may require touching:
+
+domain module
+command module
+Makefile
+tests
+documentation
+
+This is acceptable because the project is no longer a single-file script. It is now a small application.
+
+---
+
+## Rule Of Thumb
+
+If the code answers:
+
+What command did the user type?
+
+it belongs in a command module.
+
+If the code answers:
+
+How does this object actually work?
+
+it belongs in a domain module.
+
+If the code answers:
+
+How does the calculator coordinate everything?
+
+it belongs in RPN.pm.
+
+If the code answers:
+
+How are commands registered, found, and described?
+
+it belongs in Commands.pm.

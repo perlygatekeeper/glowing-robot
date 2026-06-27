@@ -1,12 +1,24 @@
 use strict;
 use warnings;
+
 use Test::More;
-use Test::Output;
+use File::Temp qw(tempdir);
+
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
 use lib 'lib';
 use RPN;
 
-my $calc = RPN->new();
+my $dir = tempdir(CLEANUP => 1);
+
+$ENV{RPN_HISTORY}   = "$dir/history";
+$ENV{RPN_STACKS}    = "$dir/stacks";
+$ENV{RPN_CONSTANTS} = "$dir/constants";
+$ENV{RPN_VARIABLES} = "$dir/variables";
+
+my $calc = RPN->new(no_readline => 1);
 
 $calc->process_input('255');
 

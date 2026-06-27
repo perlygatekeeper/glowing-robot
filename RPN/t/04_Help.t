@@ -2,7 +2,9 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Output;
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
 use lib 'lib';
 use RPN;
@@ -37,6 +39,12 @@ stderr_like(
     sub { $calc->process_input('help nosuchcommand') },
     qr/No command 'nosuchcommand' was found/,
     'help unknown command warns'
+);
+
+stdout_like(
+    sub { $calc->process_input('help types') },
+    qr/Type\s+Description.*numeric.*stack/s,
+    'help types lists command types'
 );
 
 done_testing();

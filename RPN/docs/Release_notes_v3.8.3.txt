@@ -1,0 +1,108 @@
+# Release Notes - Version 3.8.3
+
+## Overview
+
+Version 3.8.3 focuses on advanced stack management, improved modularity, stronger automated testing, and significant improvements to the project's internal documentation.
+
+Although the user-visible additions center around named stack management, much of the work for this release was architectural. The codebase has reached the point where maintainability, consistency, and documentation have become first-class priorities.
+
+---
+
+## New Stack Commands
+
+Added support for advanced named stack management.
+
+New commands include:
+
+stackinfo
+stackexists
+stacksize
+
+copystack
+dupstack
+
+renamestack
+movestack
+
+clearstack
+deletestack
+
+mergestacks
+pour
+
+Aliases:
+
+dropstack
+rmstack
+
+The new `pour` command behaves like pouring one test tube into another, reversing the order of the transferred stack while leaving the destination stack beneath it.
+
+---
+
+## Stack Improvements
+
+* Default stack renamed from `s` to `default`.
+* Improved stack management capabilities.
+* Better support for multiple named workspaces.
+* Stack tutorial significantly expanded.
+
+---
+
+## Internal Refactoring
+
+Continued migration away from the monolithic `Commands.pm`.
+
+Stack-related commands now live in:
+
+lib/RPN/Commands/Stack.pm
+
+This continues the long-term effort to organize commands into logical modules.
+
+---
+
+## Automated Testing
+
+The stack management test suite was rewritten.
+
+Major improvements include:
+
+* Tests now use the public object interface.
+* Tests no longer examine internal data structures.
+* Human-readable test data replaces abstract numeric values.
+* Additional regression tests added.
+
+This establishes an important project principle:
+
+Tests verify behavior, not implementation.
+
+---
+
+## Documentation
+
+Expanded documentation includes:
+
+* Improved Stacks tutorial.
+* Developer Architecture guide.
+* Coding Standards.
+* Testing Philosophy.
+* Module Guide.
+* Public API reference.
+* Release Process documentation.
+
+These documents are intended to make future development easier for both humans and AI assistants.
+
+---
+
+## Project Philosophy
+
+This release marks an architectural milestone.
+
+The calculator has evolved from a collection of commands into a structured software project with:
+
+* modular source organization
+* extensive automated testing
+* integrated tutorials
+* developer documentation
+* documented release procedures
+
+These improvements should make future releases significantly easier to develop and maintain.

@@ -1,0 +1,24 @@
+# RPN Example Functions: Math
+#
+# Load with:
+#   loadfuncs examples/functions/math.txt
+#
+# Or copy selected lines into your ~/.rpn_functions file.
+
+sq = duplicate multiply
+
+cube = duplicate duplicate multiply multiply
+
+twice  = 2 multiply
+thrice = 3 multiply
+
+half = 2 divide
+
+percentof = 100 divide multiply
+
+circle_area = duplicate multiply pi multiply
+circumference = 2 pi multiply multiply
+
+exp = e x ^
+
+inverse = 1 x divide

@@ -1,0 +1,175 @@
+# Module Guide
+
+## Purpose
+
+This document describes the purpose of each source module and where new code should be added.
+
+As the project grows, choosing the correct location for new functionality becomes increasingly important.
+
+When in doubt, prefer adding code to the most appropriate existing module rather than creating a new one.
+
+---
+
+# Top-Level Files
+
+## rpn.pl
+
+Program entry point.
+
+Responsibilities:
+
+* Create the calculator object.
+* Start the interactive REPL.
+
+This file should remain very small.
+
+---
+
+# Core Calculator
+
+## lib/RPN.pm
+
+Owns the calculator object.
+
+Responsibilities include:
+
+* command dispatch
+* REPL
+* persistence
+* history
+* prompt generation
+* startup
+* shutdown
+
+Avoid placing individual command implementations here.
+
+---
+
+# Domain Modules
+
+## lib/RPN/Stack.pm
+
+Implements stack behavior.
+
+Owns:
+
+* current stack
+* named stacks
+* stack persistence
+* push/pop operations
+* stack management
+
+---
+
+## lib/RPN/Variables.pm
+
+Implements named variables.
+
+Responsibilities:
+
+* store values
+* retrieve values
+* persistence
+
+---
+
+## lib/RPN/Constants.pm
+
+Implements built-in and user-defined constants.
+
+Responsibilities:
+
+* constant lookup
+* persistence of user constants
+
+---
+
+## lib/RPN/Functions.pm
+
+Implements user-defined functions.
+
+Responsibilities:
+
+* definition
+* storage
+* execution
+* persistence
+
+---
+
+## lib/RPN/Vector.pm
+
+Implements vector mathematics.
+
+---
+
+## lib/RPN/Matrix.pm
+
+Implements matrix mathematics.
+
+---
+
+# Command Registry
+
+## lib/RPN/Commands.pm
+
+Registers commands.
+
+Provides:
+
+* command lookup
+* abbreviations
+* aliases
+* help system
+* dispatch
+
+This module should not become a catch-all for unrelated command implementations.
+
+---
+
+# Command Modules
+
+Each command module registers a logical family of commands.
+
+Examples:
+
+Numeric.pm
+String.pm
+Stack.pm
+Vector.pm
+Matrix.pm
+Financial.pm
+NumberTheory.pm
+Combinatorics.pm
+Tutorials.pm
+
+Command modules should:
+
+* parse arguments
+* validate user input
+* invoke public methods on domain objects
+* display user-facing output
+
+They should not manipulate another object's internal data structures directly.
+
+---
+
+# General Rule
+
+If the code answers:
+
+"How does this object work?"
+
+it belongs in the corresponding domain module.
+
+If the code answers:
+
+"What command did the user type?"
+
+it belongs in a command module.
+
+If the code answers:
+
+"How does the calculator coordinate everything?"
+
+it belongs in RPN.pm.

@@ -1,0 +1,206 @@
+# Deployment and Packaging Thoughts
+
+## Current Situation
+
+The original RPN calculator served well for many years.
+
+Deployment was simple:
+
+Copy rpn
+chmod +x rpn
+Done
+
+The current version is substantially more capable:
+
+* Multiple modules
+* Tutorial system
+* Documentation
+* Examples
+* Persistence
+* Constants
+* Functions
+* Vectors
+* Matrices
+* Financial calculations
+* Number theory
+
+The project is no longer a single-file utility.
+
+It is now a small application.
+
+---
+
+## Recommended Deployment Approach
+
+### Option 1 - Personal Installation
+
+Keep the project in a stable location:
+
+~/src/glowing-robot/RPN
+
+Create a wrapper script:
+
+~/bin/rpn
+
+containing:
+
+#!/bin/sh
+cd "$HOME/src/glowing-robot/RPN" || exit 1
+exec perl5.34 -Ilib ./rpn.pl "$@"
+
+Then:
+
+chmod +x ~/bin/rpn
+
+Usage remains:
+
+rpn
+
+This preserves the familiar workflow while allowing the project to remain organized as a multi-file application.
+
+This is currently the recommended deployment method.
+
+---
+
+### Option 2 - Portable Release Archive
+
+Create a release tarball:
+
+tar czf rpn-3.8.0.tgz rpn.pl lib docs examples Makefile
+
+On another machine:
+
+tar xzf rpn-3.8.0.tgz
+cd RPN
+make test
+
+Then either run:
+
+./rpn.pl
+
+or create the wrapper script described above.
+
+---
+
+### Option 3 - Future Installation System
+
+Eventually the project may support:
+
+make install PREFIX=$HOME
+
+which would install:
+
+$HOME/bin/rpn
+$HOME/lib/rpn/lib/...
+$HOME/share/rpn/docs/...
+$HOME/share/rpn/examples/...
+
+This would provide a more traditional installation mechanism while preserving portability.
+
+---
+
+## Self-Locating Installation
+
+One future concern is locating resources such as:
+
+docs/tutorials/
+examples/constants/
+
+If the user runs:
+
+cd /tmp
+rpn
+
+the current working directory may no longer be the project directory.
+
+A future enhancement would be to determine the installation location automatically.
+
+A common Perl approach is:
+
+use FindBin qw($RealBin);
+
+and then:
+
+$self->{install_dir} = $RealBin;
+
+or:
+
+$self->{install_dir} =
+    File::Spec->rel2abs($RealBin);
+
+Additional directories can then be derived from the installation location:
+
+$self->{docs_dir}
+$self->{examples_dir}
+$self->{tutorials_dir}
+
+This would allow:
+
+rpn
+
+to work correctly regardless of the current directory.
+
+---
+
+## Project Growth
+
+Current project size:
+
+Total project: 7,945 non-blank lines
+
+Components:
+
+Library Code:     4,802
+Tests:            2,908
+Documentation:    3,009
+Examples:           219
+
+An interesting milestone has been reached:
+
+Documentation is now larger than the test suite.
+
+This is not a problem.
+
+It indicates that effort is finally being invested in helping users understand and discover the capabilities of the calculator.
+
+---
+
+## Evolution of the Project
+
+The original question was:
+
+How do I carry the calculator around?
+
+The current question is:
+
+How do I install it?
+
+Those are fundamentally different questions.
+
+The project has evolved from:
+
+Steve's calculator script
+
+into something closer to:
+
+A small open-source utility
+
+with documentation, tutorials, examples, persistence, testing, and modular architecture.
+
+---
+
+## Suggested Future Roadmap Items
+
+### Installation and Packaging
+
+* [ ] Add install target to Makefile
+* [ ] Add uninstall target
+* [ ] Determine install root automatically
+* [ ] Support execution outside project directory
+* [ ] Create release packaging script
+
+These items are not immediately required.
+
+However, as documentation expands, tutorials multiply, and future features such as graphics are added, a polished deployment and installation story will become increasingly important.
+
+The calculator is approaching the point where ease of installation matters almost as much as the features themselves.

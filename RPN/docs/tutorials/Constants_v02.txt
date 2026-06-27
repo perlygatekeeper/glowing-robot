@@ -1,0 +1,215 @@
+# Constants Tutorial v02
+
+## Introduction
+
+One of the strengths of an RPN calculator is the ability to work with
+meaningful names instead of repeatedly typing long numeric values. Rather than
+entering the speed of light, π, or the gravitational constant every time they
+are needed, you can define them once and reuse them throughout your
+calculations.
+
+Beginning with version **3.8.5**, constants have evolved from simple numeric
+assignments into self-documenting objects. A constant may now contain metadata
+such as its units, category, and description, making it easier to organize
+large libraries of scientific, engineering, financial, or application-specific
+constants.
+
+The original constant file format remains fully supported. Existing constant
+files require no changes.
+
+---
+
+# A Simple Constants File
+
+The simplest constants file contains one definition per line.
+
+pi = 3.141592653589793
+e  = 2.718281828459045
+
+Blank lines are ignored.
+
+Comments begin with '#'.
+
+#
+# Mathematical Constants
+#
+
+pi = 3.141592653589793
+e  = 2.718281828459045
+
+This format is identical to previous releases and remains the preferred format
+for small collections of constants.
+
+---
+
+# Using Constants
+
+Once defined or loaded from a file, constants behave exactly like numbers.
+
+> pi
+3.141592653589793
+
+> pi 2 *
+6.283185307179586
+
+> c
+299792458
+
+Constants push their numeric value onto the calculator stack.
+
+Metadata never affects calculations.
+
+---
+
+# Rich Metadata
+
+When additional information is useful, metadata may be attached to any constant.
+
+pi = 3.141592653589793 ; \
+    units="dimensionless" ; \
+    category="Mathematics" ; \
+    description="Ratio of circumference to diameter"
+
+Metadata follows the constant definition as a sequence of key/value pairs.
+
+key="value"
+
+Metadata values are always quoted strings.
+
+Currently recognized metadata includes:
+
+units
+category
+description
+
+Additional metadata keys may be added in future releases without changing the file format.
+
+---
+
+# Units
+
+Units describe the physical units associated with a value.
+
+Examples:
+
+c = 299792458 ; \
+    units="m/s"
+
+g0 = 9.80665 ; \
+    units="m/s²"
+
+G = 6.67430e-11 ; \
+    units="m³/(kg·s²)"
+
+Dimensionless constants may simply use
+
+units="dimensionless"
+
+---
+
+# Categories
+
+Categories organize constants into logical groups.
+
+Examples include
+
+Mathematics
+Physics
+Chemistry
+Astronomy
+Engineering
+Financial
+Computer Science
+Statistics
+
+Category names are matched without regard to case.
+
+The following are equivalent:
+
+category="Physics"
+category="physics"
+category="PHYSICS"
+
+Internally they all become
+
+Physics
+
+---
+
+# Descriptions
+
+Descriptions provide a concise explanation of the constant.
+
+Good descriptions are short noun phrases.
+
+Good:
+
+description="Speed of light in vacuum"
+
+Less desirable:
+
+description="This is the speed of light in a vacuum."
+
+Descriptions are intended to appear in listings and information displays.
+
+Keep them brief.
+
+---
+
+# Escaped Characters
+
+Metadata strings support the following escape sequences.
+
+\"    double quote
+\\    backslash
+\n    newline
+\t    horizontal tab
+\r    carriage return
+
+Examples:
+
+description="Euler said \"Read Gauss.\""
+
+description="Line one\nLine two"
+
+description="Backslash: \\"
+
+---
+
+# Metadata Defaults
+
+Large constant libraries frequently contain many constants that share the same
+category, source, or other metadata.
+
+Rather than repeating this information for every constant, default metadata may
+be established.
+
+metadata: category="Physics"
+metadata: source="CODATA 2022"
+
+Every subsequent constant automatically inherits these metadata values.
+
+Example:
+
+metadata: category="Physics"
+metadata: source="CODATA 2022"
+
+c = 299792458 ; \
+    units="m/s" ; \
+    description="Speed of light in vacuum"
+
+g0 = 9.80665 ; \
+    units="m/s²" ; \
+    description="Standard acceleration due to gravity"
+
+Both constants automatically receive
+
+category = Physics
+source   = CODATA 2022
+
+without repeating those fields.
+
+TIP
+
+Whenever several consecutive constants share common metadata, use metadata
+defaults rather than repeating identical information.

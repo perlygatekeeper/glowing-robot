@@ -1,0 +1,173 @@
+# Stacks Tutorial
+
+The stack is the heart of an RPN calculator.
+
+Values are pushed onto the stack, and commands operate on the values near the top.
+
+Example:
+
+    3
+    4
+    +
+
+Result:
+
+    7
+
+The + command removes the top two values, adds them, and pushes the result.
+
+---
+
+## Stack Order
+
+If you enter:
+
+    3
+    4
+
+the stack contains:
+
+    1: 4
+    2: 3
+
+The most recent value is on top.
+
+Think of the stack like a pile of face-up cards.
+
+---
+
+## Basic Stack Commands
+
+Common stack commands include:
+
+    dup      duplicate the top value
+    drop     remove the top value
+    swap     exchange the top two values
+    clear    clear the stack
+
+Example:
+
+    5
+    dup
+    *
+
+Result:
+
+    25
+
+This computes 5 squared.
+
+---
+
+## Why Stack Commands Matter
+
+Stack commands let you rearrange values without retyping them.
+
+Example:
+
+    10
+    3
+    swap
+    -
+
+Without swap:
+
+    10 3 -
+
+means:
+
+    10 - 3
+
+With swap:
+
+    10 3 swap -
+
+means:
+
+    3 - 10
+
+Stack order matters.
+
+---
+
+## Multiple Stacks
+
+This calculator supports multiple named stacks.
+
+That means you can keep separate work areas.
+
+For example, you might have:
+
+    default
+    scratch
+    primes
+    financial
+
+The default stack is enough for normal use, but named stacks are useful for experiments.
+
+---
+
+## Stack Management
+
+Use:
+
+    help type stack
+
+to see the stack-related commands available in your version.
+
+Common stack-management ideas include:
+
+    create a new stack
+    switch stacks
+    list stacks
+    delete a stack
+    save stack contents
+    restore stack contents
+
+    stack
+        Report the current stack.
+
+    stack <name>
+        Switch to (or create) a named stack.
+
+    stack list
+        List all named stacks and their depths.
+
+---
+
+## Common Mistakes
+
+### Not Enough Values
+
+If you enter:
+
+    3
+    +
+
+the calculator will complain because + needs two values.
+
+The stack is left unchanged.
+
+### Wrong Order
+
+Subtraction and division depend on order.
+
+    10 2 -
+
+is different from:
+
+    2 10 -
+
+When results look strange, check stack order first.
+
+---
+
+## Where To Go Next
+
+After this tutorial, try:
+
+    tutorial variables
+    tutorial functions
+    tutorial vectors
+
+Understanding the stack makes every other part of the calculator easier.

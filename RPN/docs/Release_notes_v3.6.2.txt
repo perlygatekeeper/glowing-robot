@@ -1,0 +1,184 @@
+RPN Calculator
+Release Notes
+Version 3.6.2
+=============
+
+Release Date
+------------
+June 2026
+
+
+Overview
+--------
+Version 3.6.2 expands the collection of example scientific
+and engineering constant libraries.
+
+These libraries are provided as optional reference material
+and are not loaded automatically. They are intended to serve
+as examples, templates, and starting points for users building
+their own specialized calculation environments.
+
+
+New Example Constant Libraries
+------------------------------
+
+The following files have been added to:
+
+    examples/constants/
+
+New files:
+
+    thermodynamics.txt
+    materials.txt
+    fluid_dynamics.txt
+    electronics_parts.txt
+
+
+Thermodynamics
+--------------
+
+Contains commonly-used thermodynamic and physical constants.
+
+Examples:
+
+    gas_constant_R
+    stefan_boltzmann_constant
+    absolute_zero_c
+    absolute_zero_f
+    standard_pressure
+    standard_temperature
+
+
+Materials
+---------
+
+Contains representative engineering material properties.
+
+Examples:
+
+    density_steel
+    density_aluminum
+    density_copper
+    density_brass
+
+    youngs_modulus_steel
+    youngs_modulus_aluminum
+    youngs_modulus_copper
+
+
+Fluid Dynamics
+--------------
+
+Contains commonly-used fluid and environmental properties.
+
+Examples:
+
+    water_density
+    air_density_stp
+
+    water_viscosity
+    air_viscosity
+
+    gravity_earth
+    gravity_moon
+
+
+Electronics Parts
+-----------------
+
+Contains representative electronics component values and
+engineering reference constants.
+
+Examples:
+
+    silicon_diode_drop
+    germanium_diode_drop
+
+    led_red_drop
+    led_green_drop
+    led_blue_drop
+    led_white_drop
+
+    resistor_e6_count
+    resistor_e12_count
+    resistor_e24_count
+    resistor_e96_count
+
+
+Usage
+-----
+
+Load a library using:
+
+    loadconst examples/constants/thermodynamics.txt
+
+or:
+
+    loadconst examples/constants/materials.txt
+
+Once loaded, constants may be used exactly like any other
+built-in or user-defined constant.
+
+Example:
+
+    gas_constant_R
+
+Result:
+
+    8.314462618
+
+
+Compatibility
+-------------
+
+No code changes were required for this release.
+
+No compatibility-breaking changes were introduced.
+
+Existing stacks, variables, functions, vectors, constants,
+and persistence files remain fully compatible.
+
+
+Project Status
+--------------
+
+Current major feature groups:
+
+    Arithmetic
+    Trigonometry
+    Conversions
+    Statistics
+    Combinatorics
+    Probability
+    Boolean Logic
+    Flow Control
+    File I/O
+    Persistence
+    Constants
+    Variables
+    Functions
+    Financial Functions
+    Number Theory
+    Random Numbers
+    Date / Time
+    Sequence Operations
+    Vector Mathematics
+
+    Scientific Constant Libraries
+    Engineering Constant Libraries
+
+
+Next Release
+------------
+
+Version 3.6.3
+
+Function Introspection
+
+Planned:
+
+    showfunc
+
+    help function_name
+
+    function source display

@@ -1,0 +1,184 @@
+RPN Calculator
+Release Notes
+Version 3.7.4
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.7.4 completes the initial matrix mathematics roadmap by adding
+matrix powers.
+
+Matrices may now be raised to non-negative integer powers using the
+new mpow command.
+
+This release also introduces identity matrix generation and uses
+binary exponentiation internally for efficient matrix power
+calculation.
+
+## New Commands
+
+mpow
+
+Raise a square matrix to a non-negative integer power.
+
+Usage:
+
+matrix exponent mpow
+
+## Examples
+
+Square Matrix:
+
+[[1,2],[3,4]]
+2
+mpow
+
+Result:
+
+[[7,10],[15,22]]
+
+Identity Power:
+
+[[1,2],[3,4]]
+0
+mpow
+
+Result:
+
+[[1,0],[0,1]]
+
+Fibonacci Q-Matrix:
+
+[[1,1],[1,0]]
+5
+mpow
+
+Result:
+
+[[8,5],[5,3]]
+
+## Implementation
+
+Added:
+
+RPN::Matrix::identity()
+
+RPN::Matrix::power()
+
+The implementation uses binary exponentiation, providing efficient
+performance even for relatively large exponents.
+
+## Validation
+
+Matrix powers require:
+
+square matrices
+non-negative integer exponents
+
+Invalid operations preserve stack contents.
+
+## Examples
+
+Non-square matrix:
+
+[[1,2,3],[4,5,6]]
+2
+mpow
+
+Produces:
+
+mpow requires a square matrix
+
+Invalid exponent:
+
+[[1,2],[3,4]]
+"two"
+mpow
+
+Produces:
+
+mpow requires a non-negative integer exponent
+
+## Testing
+
+Added:
+
+t/32_MatrixPowers.t
+
+Coverage includes:
+
+identity matrix generation
+power 0
+power 1
+power 2
+Fibonacci Q-matrix powers
+command validation
+stack preservation
+
+## Matrix Mathematics Status
+
+The initial matrix roadmap is now complete.
+
+Implemented:
+
+Matrix creation
+Matrix loading
+Matrix display
+
+Matrix addition
+Matrix subtraction
+Matrix multiplication
+
+Matrix × Vector
+Vector × Matrix
+
+Transpose
+
+Determinant
+
+Inverse
+
+Matrix Powers
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+All existing matrix files, vector operations, constants,
+functions, variables, and persistence mechanisms remain
+fully compatible.
+
+## Internal Improvements
+
+Recent releases also completed a significant command
+module refactoring.
+
+Command families now reside in dedicated modules:
+
+Commands::Matrix
+Commands::Vector
+Commands::Combinatorics
+Commands::NumberTheory
+Commands::Financial
+
+This improves maintainability and provides a foundation
+for future expansion.
+
+## Next Release
+
+Version 3.8.0
+
+Planned:
+
+Function Metadata and Documentation
+
+Potential additions:
+
+function descriptions
+function categories
+enhanced showfunc output
+function discovery and navigation

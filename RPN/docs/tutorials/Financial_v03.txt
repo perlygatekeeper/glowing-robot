@@ -1,0 +1,575 @@
+# Financial Tutorial
+
+The calculator includes several financial functions for solving common time-value-of-money problems.
+
+The most common financial variables are:
+
+    PV     Present Value
+    FV     Future Value
+    RATE   Interest Rate
+    NPER   Number of Periods
+    PMT    Payment Per Period
+
+Most financial problems provide four of these values and ask for the fifth.
+
+These functions answer questions such as:
+
+- How much will an investment be worth in the future?
+- How much should I invest today to reach a goal?
+- How long will it take for an investment to grow?
+- What interest rate is required to achieve a target value?
+- What payment is required to pay off a loan?
+
+The financial commands are based on the relationship:
+
+    FV = PV × (1 + RATE)^NPER
+
+where:
+
+    PV     Present Value
+    FV     Future Value
+    RATE   Interest Rate per Period
+    NPER   Number of Periods
+
+---
+
+## Present Value (PV)
+
+Present Value answers:
+
+    What is a future amount worth today?
+
+Command:
+
+    pv
+
+The calculator solves for PV when:
+
+    FV
+    RATE
+    NPER
+
+are known.
+
+Example:
+
+    2000
+    0.05
+    10
+    pv
+
+Result:
+
+    1227.83
+
+Meaning:
+
+    $1227.83 invested today
+    becomes approximately
+    $2000 in 10 years
+    at 5% interest.
+
+---
+
+## Future Value (FV)
+
+Future Value answers:
+
+    What will an investment be worth later?
+
+Command:
+
+    fv
+
+The calculator solves for FV when:
+
+    PV
+    RATE
+    NPER
+
+are known.
+
+Example:
+
+    1000
+    0.05
+    10
+    fv
+
+Result:
+
+    1628.89
+
+Meaning:
+
+    $1000 invested
+    for 10 years
+    at 5%
+    grows to
+    approximately $1628.89.
+
+---
+
+## Interest Rate (RATE)
+
+Rate answers:
+
+    What rate of return is required?
+
+Command:
+
+    rate
+
+The calculator solves for RATE when:
+
+    PV
+    FV
+    NPER
+
+are known.
+
+Example:
+
+    1000
+    2000
+    10
+    rate
+
+Result:
+
+    0.07177
+
+or approximately:
+
+    7.18%
+
+Meaning:
+
+    An investment must earn
+    about 7.18% annually
+    to double in 10 years.
+
+---
+
+## Number of Periods (NPER)
+
+Number of Periods answers:
+
+    How long will it take?
+
+Command:
+
+    nper
+
+The calculator solves for NPER when:
+
+    PV
+    FV
+    RATE
+
+are known.
+
+Example:
+
+    1000
+    2000
+    0.05
+    nper
+
+Result:
+
+    14.2067
+
+Meaning:
+
+    At 5% growth,
+    it takes about
+    14.2 years
+    to double an investment.
+
+This is one of the most common financial calculations.
+
+---
+
+## Payment (PMT)
+
+Payment answers:
+
+    What periodic payment is required?
+
+Command:
+
+    pmt
+
+The calculator solves for PMT when:
+
+    PV
+    FV
+    RATE
+    NPER
+
+are known.
+
+---
+
+### Example: Mortgage Payment
+
+Suppose:
+
+    Loan Amount: $300,000
+    Annual Rate: 6%
+    Term: 30 years
+
+Assuming monthly payments:
+
+    PV   = 300000
+    FV   = 0
+    RATE = 0.06 / 12
+    NPER = 30 * 12
+
+Enter:
+
+    300000
+    0
+    0.005
+    360
+    pmt
+
+Result:
+
+    1798.65
+
+Meaning:
+
+    A monthly payment of approximately
+    $1,798.65 is required.
+
+---
+
+### Example: Retirement Savings
+
+Suppose you wish to accumulate:
+
+    $1,000,000
+
+over:
+
+    30 years
+
+earning:
+
+    7%
+
+and currently have:
+
+    $0
+
+invested.
+
+Enter:
+
+    0
+    1000000
+    0.07 / 12
+    360
+    pmt
+
+The result is the monthly contribution required to reach the goal.
+
+This answers:
+
+    How much must I save each month?
+
+---
+
+## The Five Financial Variables
+
+    PV
+    FV
+    RATE
+    NPER
+    PMT
+
+A typical financial problem provides four values and asks for the fifth.
+
+The financial functions solve the missing value.
+
+---
+
+## Example: College Fund
+
+Suppose:
+
+    Current investment: $10,000
+    Rate:               6%
+    Years:             18
+
+What will the investment be worth?
+
+    10000
+    0.06
+    18
+    fv
+
+Result:
+
+    28543.29
+
+Approximately:
+
+    $28,543
+
+---
+
+## Example: Retirement Goal
+
+Suppose you want:
+
+    $1,000,000
+
+in:
+
+    30 years
+
+and expect:
+
+    7%
+
+returns.
+
+How much would need to be invested today?
+
+    1000000
+    0.07
+    30
+    pv
+
+Result:
+
+    131367.98
+
+Approximately:
+
+    $131,368
+
+---
+
+## Example: Rule of 72
+
+A common estimate says:
+
+    Years to Double ≈ 72 / Rate%
+
+At:
+
+    5%
+
+the estimate gives:
+
+    72 / 5 = 14.4 years
+
+The calculator gives:
+
+    14.2067 years
+
+which is quite close.
+
+---
+
+## Periods Matter
+
+The meaning of:
+
+    RATE
+
+depends on the meaning of:
+
+    NPER
+
+Examples:
+
+    Annual:
+        RATE = yearly rate
+        NPER = years
+
+    Monthly:
+        RATE = monthly rate
+        NPER = months
+
+    Daily:
+        RATE = daily rate
+        NPER = days
+
+The units must be consistent.
+
+---
+
+## Percent vs Decimal Rates
+
+Rates should normally be entered as decimals.
+
+Examples:
+
+    5%   -> 0.05
+    7%   -> 0.07
+    12%  -> 0.12
+
+Common mistake:
+
+    5
+
+instead of:
+
+    0.05
+
+which represents:
+
+    500%
+
+rather than:
+
+    5%
+
+---
+
+## Common Mistakes
+
+### Wrong Rate Format
+
+Incorrect:
+
+    5
+
+Correct:
+
+    0.05
+
+---
+
+### Confusing Annual and Periodic Rates
+
+For monthly payments:
+
+    Annual Rate  = 6%
+    Monthly Rate = 0.06 / 12 = 0.005
+
+The rate supplied to the financial functions must match the period represented by NPER.
+
+Examples:
+
+    Monthly payments -> monthly rate
+    Annual periods   -> annual rate
+
+---
+
+### Mixing Time Units
+
+Incorrect:
+
+    Annual rate
+    Monthly periods
+
+Correct:
+
+    Annual rate with years
+
+or
+
+    Monthly rate with months
+
+---
+
+### Solving For The Wrong Variable
+
+Remember:
+
+    pv
+
+solves for Present Value.
+
+    fv
+
+solves for Future Value.
+
+    rate
+
+solves for Interest Rate.
+
+    nper
+
+solves for Number of Periods.
+
+    pmt
+
+solves for Payment Per Period.
+
+Be sure the desired unknown is the command you invoke.
+
+---
+
+## Common Explorations
+
+Try:
+
+    1000
+    0.05
+    10
+    fv
+
+Then:
+
+    2000
+    0.05
+    10
+    pv
+
+Then:
+
+    1000
+    2000
+    10
+    rate
+
+Then:
+
+    1000
+    2000
+    0.05
+    nper
+
+Then:
+
+    300000
+    0
+    0.005
+    360
+    pmt
+
+Observe how the same financial relationships can be solved for different unknowns.
+
+---
+
+## Where To Go Next
+
+After completing this tutorial consider:
+
+    tutorial variables
+    tutorial functions
+
+Many users create financial variables such as:
+
+    salary
+    mortgage_rate
+    tax_rate
+    investment_return
+
+and financial functions such as:
+
+    monthly_payment
+    retirement_goal
+    college_fund
+    mortgage_balance
+
+To see all financial commands:
+
+    help type financial

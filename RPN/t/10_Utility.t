@@ -2,10 +2,14 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Output;
+
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
 use lib 'lib';
 use RPN;
+
 
 my $calc = RPN->new();
 
@@ -69,6 +73,16 @@ stdout_like(
     sub { $calc->process_input('abbreviations') },
     qr/add/s,
     'abbreviations output contains add command'
+);
+
+#
+#  types
+#
+
+stdout_like(
+    sub { $calc->process_input('types') },
+    qr/Type\s+Description.*financial.*number_theory.*numeric.*stack.*/s,
+    'types lists command types'
 );
 
 done_testing();

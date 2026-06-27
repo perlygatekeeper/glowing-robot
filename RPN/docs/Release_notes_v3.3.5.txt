@@ -1,0 +1,265 @@
+RPN Calculator
+Release Notes
+Version 3.3.5
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.3.5 is a quality-of-life release focused on stack manipulation,
+random number generation, and date/time utilities. These additions improve
+interactive calculator use, scripting, simulations, and data manipulation
+without changing the core architecture.
+
+## Highlights
+
+* Expanded stack manipulation commands
+* Random number generation
+* Date and time utilities
+* Improved stack rotation support
+* Additional automated test coverage
+
+## New Stack Operations
+
+reverse
+
+Reverses the contents of the current stack.
+
+Example:
+
+1 2 3 4
+
+reverse
+
+Result:
+
+4 3 2 1
+
+pop N
+
+Removes one or more values from the top of the stack.
+
+Examples:
+
+pop
+
+pop 5
+
+pick N
+
+Copies the value at depth N to the top of the stack without
+removing the original.
+
+Example:
+
+pick 2
+
+pullup N
+
+Moves the value at depth N to the top of the stack.
+
+Example:
+
+pullup 3
+
+pushdown N
+
+Moves the top value down to depth N.
+
+Example:
+
+pushdown 4
+
+roll N
+
+Performs a circular rotation of the entire stack.
+
+Examples:
+
+roll
+
+    Equivalent to:
+
+        roll -1
+
+roll 1
+
+roll -3
+
+Rotation amounts are reduced modulo the stack size.
+
+shuffle
+
+Randomly shuffles the current stack using a Fisher-Yates shuffle.
+
+Example:
+
+shuffle
+
+clearall
+
+Removes all named stacks and restores the default stack.
+
+Example:
+
+clearall
+
+## Random Number Functions
+
+rand
+
+Pushes a random floating-point value in the range:
+
+    [0,1)
+
+Example:
+
+rand
+
+randint
+
+Pushes a random integer.
+
+Examples:
+
+randint 20
+
+    Generates:
+
+        1 .. 20
+
+randint 50 100
+
+    Generates:
+
+        50 .. 100
+
+seed
+
+Seeds the pseudo-random number generator.
+
+Example:
+
+seed 12345
+
+Seeding allows deterministic and repeatable random sequences.
+
+## Date and Time Functions
+
+now
+
+Pushes the current Unix epoch timestamp.
+
+Example:
+
+now
+
+today
+
+Pushes the current date.
+
+Format:
+
+YYYY-MM-DD
+
+time
+
+Pushes the current local time.
+
+Format:
+
+HH:MM:SS
+
+datetime
+
+Pushes the current local date and time.
+
+Format:
+
+YYYY-MM-DD HH:MM:SS
+
+## Examples
+
+Generate a random d20 roll:
+
+randint 20
+
+Record a timestamp:
+
+datetime
+
+Shuffle a list of values:
+
+1 2 3 4 5 6
+
+shuffle
+
+Rotate a stack:
+
+roll -2
+
+## Testing
+
+Added:
+
+t/17_StackExtra.t
+t/18_Random.t
+t/19_DateTime.t
+
+Coverage includes:
+
+reverse
+pop N
+pick
+pullup
+pushdown
+roll
+shuffle
+clearall
+
+rand
+randint
+seed
+
+now
+today
+time
+datetime
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+Existing functionality from versions:
+
+3.0.0
+3.1.0
+3.2.0
+3.3.0
+
+remains fully supported.
+
+## Next Release
+
+Version 3.4.0
+
+Planned features:
+
+Variables
+
+    store
+    recall
+    variables
+    delvar
+
+Variable persistence
+
+Future planned work:
+
+User-defined commands
+Vector mathematics
+Matrix mathematics
+Transformation matrices

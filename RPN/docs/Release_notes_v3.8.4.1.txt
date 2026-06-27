@@ -1,0 +1,40 @@
+# Release Notes - Version 3.8.4.1
+
+## Overview
+
+Version 3.8.4.1 is a small compatibility and documentation cleanup release.
+
+It adds `swap` as an alias for the existing `exchange` command so that the
+stack tutorials and common RPN terminology match the implemented command set.
+
+---
+
+## Stack Command Alias
+
+Added `swap` as an alias for:
+
+    exchange
+
+The existing short alias remains unchanged:
+
+    x
+
+All three forms now exchange the top two stack values:
+
+    exchange
+    x
+    swap
+
+---
+
+## Testing
+
+Added regression coverage confirming that `swap` behaves as an alias for
+`exchange`.
+
+---
+
+## Compatibility
+
+No existing commands were changed or removed.  Existing uses of `exchange` and
+`x` continue to work unchanged.

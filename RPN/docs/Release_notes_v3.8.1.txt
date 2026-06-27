@@ -1,0 +1,74 @@
+Release Notes - Version 3.8.1
+=============================
+
+Documentation and Tutorial System
+---------------------------------
+
+This release focuses on discoverability, user education, and first-time
+user experience.
+
+New Features
+------------
+
+* Added tutorial subsystem.
+* Added 'tutorials' command to list available tutorials.
+* Added 'tutorial <name>' command to display a tutorial.
+* Tutorial discovery is automatic via docs/tutorials/.
+* Added version-aware tutorial selection.
+* Added startup guidance for first-time users.
+* Added Quick Start guide.
+* Added Quick Reference guide.
+
+New Tutorials
+-------------
+
+* Variables
+* Functions
+* Constants
+* Vectors
+* Matrices
+* Financial Functions
+* Number Theory
+
+User Experience Improvements
+----------------------------
+
+* Improved empty function-list messaging.
+* Added tutorial cross-references.
+* Added guidance for new users.
+* Added documentation-first onboarding workflow.
+
+Testing
+-------
+
+* Added presentation tests.
+* Added tutorial loading tests.
+* Improved regression coverage for user-facing output.
+
+Internal Improvements
+---------------------
+
+* Refactored persistence filename handling.
+* Improved tutorial version-selection logic.
+* Added automatic tutorial discovery.
+
+Statistics
+----------
+
+Project continues to grow in both functionality and documentation.
+
+This release marks the transition from feature accumulation to
+user-focused usability and documentation.
+
+Recommended First Commands
+--------------------------
+
+    quickstart
+
+    tutorials
+
+    tutorial variables
+
+    tutorial functions
+
+    tutorial financial

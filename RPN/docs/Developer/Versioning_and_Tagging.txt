@@ -1,0 +1,286 @@
+# Versioning and Tags
+
+## Overview
+
+Git tags provide permanent names for important points in a project's history.
+
+For the RPN Calculator project, tags are used to identify significant releases and milestones.
+
+Unlike ordinary commits, tags serve as long-term historical landmarks.
+
+Examples:
+
+rpn-3.7.0
+rpn-3.8.0
+rpn-3.8.1
+
+A tag answers the question:
+
+"Which exact commit was this release?"
+
+---
+
+## Why Use Tags?
+
+Suppose six months from now a bug report arrives:
+
+"Version 3.8.1 crashes when loading functions."
+
+Without tags it may be difficult to determine which commit represented Version 3.8.1.
+
+With tags:
+
+git checkout rpn-3.8.1
+
+immediately restores the exact source code used for that release.
+
+Tags provide:
+
+* Historical reference points
+* Easier debugging
+* Easier release management
+* Reproducible builds
+* Better project documentation
+
+---
+
+## Repository Structure
+
+The RPN Calculator is one project within the larger:
+
+glowing-robot
+
+repository.
+
+Because multiple projects exist within the same repository, tags should identify both:
+
+* The project
+* The version
+
+For example:
+
+rpn-3.8.1
+pfen-0.2.0
+webscraper-0.2.0
+
+This avoids ambiguity.
+
+---
+
+## Tag Naming Convention
+
+Recommended format:
+
+<project>-<version>
+
+Examples:
+
+rpn-3.8.1
+rpn-3.9.0
+pfen-0.2.0
+webscraper-0.3.0
+
+This convention makes it immediately clear which project a tag belongs to.
+
+---
+
+## Annotated Tags
+
+Git supports two kinds of tags:
+
+### Lightweight Tags
+
+Example:
+
+git tag rpn-3.8.1
+
+Lightweight tags simply attach a name to a commit.
+
+### Annotated Tags
+
+Example:
+
+git tag -a rpn-3.8.1 \
+    -m "Documentation and Tutorial Release"
+
+Annotated tags also store:
+
+* Author
+* Date
+* Message
+
+Annotated tags are preferred for releases.
+
+---
+
+## Viewing Tags
+
+List all tags:
+
+git tag
+
+List tags with descriptions:
+
+git tag -n
+
+Show a specific tag:
+
+git show rpn-3.8.1
+
+---
+
+## Creating a Release Tag
+
+After:
+
+* All tests pass
+* Release notes are complete
+* Roadmap is updated
+* Backup is created
+
+Commit the release:
+
+git add .
+git commit -m "Complete documentation and tutorial system"
+
+Create the tag:
+
+git tag -a rpn-3.8.1 \
+    -m "Documentation and Tutorial Release"
+
+Verify:
+
+git tag -n
+
+---
+
+## Pushing Tags
+
+Push a specific tag:
+
+git push origin rpn-3.8.1
+
+Push all tags:
+
+git push --tags
+
+---
+
+## Renaming Tags
+
+Git does not provide a direct rename command.
+
+Instead:
+
+1. Create a new tag pointing at the old tag.
+2. Delete the old tag.
+
+Example:
+
+Existing tag:
+
+v3.8.1
+
+Create replacement:
+
+git tag -a rpn-3.8.1 v3.8.1 \
+    -m "Documentation and Tutorial Release"
+
+Delete old tag:
+
+git tag -d v3.8.1
+
+---
+
+## Renaming Remote Tags
+
+If a tag has already been pushed:
+
+Delete the old remote tag:
+
+git push origin :refs/tags/v3.8.1
+
+Push the replacement:
+
+git push origin rpn-3.8.1
+
+---
+
+## Historical Cleanup
+
+Older tags may not follow a consistent naming convention.
+
+Examples:
+
+v1.0
+v2.0
+RPN_3.5
+
+It is not always necessary to rename historical tags.
+
+Consistency going forward is generally more important than perfect consistency in the past.
+
+For this reason, new releases should follow:
+
+rpn-x.y.z
+
+even if older tags use a different convention.
+
+---
+
+## Recommended Practice
+
+Commit frequently.
+
+Tag only meaningful releases.
+
+Examples of suitable tag points:
+
+rpn-3.7.0   Matrix support
+rpn-3.8.0   Tutorial framework
+rpn-3.8.1   Documentation and tutorials
+rpn-4.0.0   Major future milestone
+
+Not every intermediate version requires a tag.
+
+Tags should represent significant milestones in the evolution of the project.
+
+---
+
+## Relationship to Release Notes
+
+Tags identify source code.
+
+Release notes explain what changed.
+
+Both should be maintained together.
+
+Example:
+
+Tag:
+    rpn-3.8.1
+
+Release Notes:
+    Release_Notes_3.8.1.txt
+
+Together they provide a complete historical record of the project.
+
+---
+
+## Summary
+
+For the RPN Calculator project:
+
+* Use annotated tags.
+* Use project-prefixed tag names.
+* Tag significant releases.
+* Maintain release notes alongside tags.
+* Favor consistency going forward over retroactive perfection.
+
+Suggested tag for this release:
+
+rpn-3.8.1
+
+Description:
+
+Documentation and Tutorial Release

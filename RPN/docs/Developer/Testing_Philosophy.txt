@@ -1,0 +1,115 @@
+# Testing Philosophy
+
+The test suite exists to verify observable behavior.
+
+It should not verify implementation details.
+
+---
+
+## The Public Interface Rule
+
+Tests should interact with objects through their documented public methods.
+
+Examples:
+
+process_input()
+
+push()
+pop()
+peek()
+
+switch()
+
+depth()
+
+stack_exists()
+
+These methods define the contract presented to users and other modules.
+
+---
+
+## Avoid Testing Internal Representation
+
+Do not inspect object internals such as:
+
+$self->{...}
+
+@{ $object->{array} }
+
+%{ $object->{hash} }
+
+unless the purpose of the test is specifically to verify serialization or persistence.
+
+The implementation should remain free to change while preserving observable behavior.
+
+---
+
+## Prefer Behavioral Tests
+
+Good:
+
+push values
+
+perform command
+
+pop values
+
+verify result
+
+Poor:
+
+inspect internal array layout
+
+Behavior is part of the public API.
+
+Internal storage is not.
+
+---
+
+## Human-Readable Tests
+
+Use meaningful values whenever possible.
+
+Instead of:
+
+1
+2
+3
+
+prefer:
+
+P - bottom
+P - middle
+P - top
+
+This makes test failures immediately understandable.
+
+---
+
+## Isolate Tests
+
+Tests should never depend upon:
+
+* previous tests
+* user files
+* saved stacks
+* saved variables
+* saved history
+
+Each test should establish its own environment using temporary files.
+
+---
+
+## Regression Tests
+
+Every bug that is fixed should receive a regression test.
+
+The purpose is not merely to verify today's implementation, but to ensure the bug never returns.
+
+---
+
+## Goal
+
+A passing test suite should give developers confidence that they can refactor internal code without changing externally observable behavior.
+
+Tests should encourage better design rather than constrain it.

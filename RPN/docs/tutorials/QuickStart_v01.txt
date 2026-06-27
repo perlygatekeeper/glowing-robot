@@ -1,0 +1,211 @@
+# RPN Calculator Quick Reference
+
+## Welcome
+
+This calculator uses Reverse Polish Notation, or RPN.
+
+The basic idea is simple:
+
+Values go onto a stack.
+Commands operate on the top values of the stack.
+
+You do not type an equals sign.
+
+---
+
+## 1. The Stack
+
+What is a stack?
+
+Think of the stack like a pile of face-up playing cards.
+The most recently entered value is always on top.
+
+Enter a number:
+
+RPN> 3
+
+The value is pushed onto the stack:
+
+1: 3
+
+Enter another number:
+
+RPN> 4
+
+The new value is pushed on top:
+
+1: 4
+2: 3
+
+---
+
+## 2. Basic Arithmetic
+
+To add two numbers:
+
+RPN> 3
+RPN> 4
+RPN> +
+
+Result:
+
+1: 7
+
+The + command uses the top two stack values, removes them,
+and pushes the result.
+
+Common arithmetic commands:
+
++     add
+-     subtract
+*     multiply
+/     divide
+
+Examples:
+
+10 5 -
+6 7 *
+20 4 /
+
+---
+
+## 3. Building Larger Calculations
+
+To calculate:
+
+(3 + 4) * 5
+
+enter each of these hitting return after each:
+
+3 4 + 5 *
+
+Step by step:
+
+3        push 3
+4        push 4
++        add them, producing 7
+5        push 5
+*        multiply, producing 35
+
+No parentheses are needed.
+
+Try it.
+
+---
+
+## 4. Stack Operations
+
+Useful stack commands:
+
+dup      copy the top value
+drop     remove the top value
+swap     exchange the top two values
+clear    clear the stack
+
+Example:
+
+enter each of these hitting return after each:
+
+5 dup *
+
+Step by step:
+
+5        push 5
+dup      duplicate the 5 on the top, now there are 2 5's on the stack
+*        multiply, now the 2 5's are gone, and the stack has 25
+
+
+---
+
+## 5. If Something Goes Wrong
+
+If a command needs more values than are on the stack,
+the calculator will warn you and leave the stack unchanged.
+
+Example:
+
+RPN> 3
+RPN> +
+
+The + command needs two values. Since only one value is present,
+the calculator warns you, leaving the 3 on the stack.
+
+Enter another value and try again:
+
+RPN> 4
+RPN> +
+
+Result:
+
+1: 7
+
+Mistakes are recoverable.
+
+---
+
+## 6. Finding Help
+
+Show general help:
+
+help
+
+Show command categories:
+
+help types
+
+Show commands in one category:
+
+help type matrix
+
+Show help for one command:
+
+help det
+
+Show available tutorials:
+
+tutorials
+
+Read a tutorial:
+
+tutorial quick_reference
+
+Explore one command at a time. You do not need to learn everything
+at once.
+
+---
+
+## 7. Leaving and Returning
+
+The calculator keeps a command history.
+
+You can use the up and down arrow keys to recall previous commands.
+Recalled commands may be edited before pressing Enter.
+
+When you exit, your work can be saved and restored later, including:
+
+command history
+stack contents
+variables
+functions
+
+You can safely leave the calculator and continue later.
+
+---
+
+## 8. Where To Go Next
+
+After this quick reference, try the other tutorial documents:
+
+variables
+functions
+constants
+vectors
+matrices
+financial
+number_theory
+
+Use:
+
+tutorials
+
+to see what is available.

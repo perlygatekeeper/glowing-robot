@@ -1,0 +1,150 @@
+# RPN Calculator Release Notes
+
+## Version 3.8.5
+
+### Enhanced Constants
+
+Version 3.8.5 significantly expands the calculator's constant subsystem, transforming constants from simple numeric values into rich, self-documenting objects. Constants may now include descriptive metadata, be organized into categories, and be queried interactively from within the calculator.
+
+This release remains fully backward compatible with all existing constant files.
+
+---
+
+## New Features
+
+### Rich Constant Metadata
+
+Constants may now include arbitrary metadata fields.
+
+Example:
+
+PI = 3.141592653589793 ; \
+    units="dimensionless" ; \
+    category="Mathematics" ; \
+    description="Ratio of circumference to diameter"
+
+The following metadata fields are recognized by the calculator:
+
+* units
+* category
+* description
+
+Additional metadata fields are preserved for future use.
+
+---
+
+### Metadata Defaults
+
+Metadata may be inherited by subsequent constant definitions.
+
+Example:
+
+metadata: category="Physics"
+metadata: source="CODATA 2022"
+
+All following constants automatically inherit these metadata values until they are reset or overridden.
+
+---
+
+### Metadata Reset
+
+Inherited metadata may be cleared.
+
+Example:
+
+metadata: reset
+
+or
+
+metadata: clear
+
+---
+
+### Metadata Override
+
+Metadata attached directly to a constant always overrides inherited metadata.
+
+---
+
+### Escaped Metadata Strings
+
+Quoted metadata strings now support:
+
+\"
+\\
+\n
+\t
+\r
+
+---
+
+## New Commands
+
+### constants all
+
+Displays an expanded listing including:
+
+* Name
+* Value
+* Units
+* Category
+
+---
+
+### constants categories
+
+Lists all categories currently defined.
+
+---
+
+### constants <category>
+
+Displays only constants belonging to the specified category.
+
+Category names are matched case-insensitively.
+
+---
+
+### constinfo
+
+Displays all available information for a constant, including every metadata field.
+
+---
+
+## Documentation
+
+Added:
+
+* docs/tutorials/Constants_v02.txt
+
+---
+
+## Testing
+
+This release includes comprehensive automated tests covering:
+
+* Metadata parsing
+* Metadata inheritance
+* Metadata reset
+* Metadata override
+* Escaped strings
+* Unknown metadata preservation
+* Category filtering
+* Category listing
+* Constant information display
+
+---
+
+## Compatibility
+
+Version 3.8.5 is fully backward compatible with all existing constant files.
+
+Existing files require no modification.
+
+---
+
+## Looking Ahead
+
+Version 3.8.5 establishes the infrastructure for rich constant libraries.
+
+Version 3.8.5.1 will focus on modernizing the example constant libraries to take advantage of metadata, categories, descriptions, and best practices introduced by this release.

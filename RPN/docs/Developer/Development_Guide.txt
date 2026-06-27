@@ -1,0 +1,103 @@
+# Development Guide
+
+## Coding Style
+
+Use:
+
+use strict;
+use warnings;
+
+in every module.
+
+Prefer small, focused methods over large ones.
+
+Write code that explains itself before relying on comments.
+
+---
+
+## Error Handling
+
+Use `warn` for user mistakes.
+
+Examples:
+
+* invalid arguments
+* missing stack
+* divide by zero
+
+Reserve `die` for programmer errors or unrecoverable internal failures.
+
+---
+
+## Commands
+
+Every command should provide:
+
+* help text
+* type
+* aliases (when appropriate)
+
+Commands should be grouped into logical command modules.
+
+---
+
+## New Features
+
+A new feature is not complete until it includes:
+
+* implementation
+* help text
+* tutorial updates (if appropriate)
+* automated tests
+* roadmap update
+* release notes
+
+---
+
+## Documentation
+
+Tutorials should teach concepts before commands.
+
+Examples should resemble actual calculator sessions whenever practical.
+
+Favor examples using meaningful values over abstract numbers.
+
+---
+
+## Release Checklist
+
+Before every release:
+
+make syntax
+prove -Ilib t
+make test
+
+Then:
+
+* update tutorials
+* update Roadmap.txt
+* write release notes
+* commit
+* tag
+* create backup
+
+Never skip the test suite before a release.
+
+---
+
+## Git Tags
+
+Each released version receives a tag.
+
+Tags identify known-good releases.
+
+Tags should not be rewritten after publication unless absolutely necessary.
+
+If a tag must change:
+
+* delete local tag
+* delete remote tag
+* recreate
+* push
+
+Published release tags should represent builds that pass the complete test suite.

@@ -1,0 +1,18 @@
+# RPN Example Constant Libraries
+#
+# These files demonstrate the enhanced constant metadata format introduced
+# in version 3.8.5.  Each file may be loaded as a constant pack.
+#
+# The examples use metadata defaults to reduce repetition.  Individual
+# constants may still override inherited metadata where appropriate.
+
+# astronomy.txt           Astronomical distances, bodies, solar values, and periods
+# chemistry.txt           Chemistry and physical chemistry constants
+# electrical.txt          Electrical and electromagnetic constants
+# electronics_parts.txt   Common electronics part values and resistor series sizes
+# financial.txt           Finance and calendar convenience constants
+# fluid_dynamics.txt      Fluid properties and common gravitational accelerations
+# materials.txt           Material densities and elastic moduli
+# mechanical.txt          Mechanical engineering and imperial conversion constants
+# physics.txt             Fundamental physical constants
+# thermodynamics.txt      Thermodynamics reference values

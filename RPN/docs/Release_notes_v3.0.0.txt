@@ -1,0 +1,192 @@
+RPN Calculator
+Release Notes
+Version 3.0.0
+=============
+
+## Plans
+
+Major refactor from legacy procedural implementation to a
+fully object-oriented architecture.
+
+New module structure:
+    RPN.pm
+    RPN::Stack
+    RPN::Commands
+
+Features retained:
+    Arithmetic
+    Trigonometry
+    Aliases
+    Abbreviations
+    Interactive REPL
+
+New:
+    Automated test suite
+    Command registry
+    Easier extensibility
+
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.0.0 marks the completion of the major object-oriented
+refactoring of the RPN Calculator.
+
+The original single-file implementation has been replaced with a
+modular architecture designed for long-term maintenance, testing,
+and expansion.
+
+## New Architecture
+
+Project structure:
+
+rpn.pl
+
+lib/RPN.pm
+lib/RPN/Stack.pm
+lib/RPN/Commands.pm
+
+Benefits:
+
+* Reduced complexity
+* Easier maintenance
+* Improved testing
+* Cleaner command implementation
+* Better future extensibility
+
+## Implemented Features
+
+Arithmetic
+
+add
+subtract
+multiply
+divide
+modulo
+exponentiate
+negate
+increment
+decrement
+square
+cube
+squareroot
+
+Stack Operations
+
+duplicate
+exchange
+pop
+clear
+depth
+stack
+
+Trigonometry
+
+sine
+cosine
+tangent
+
+Conversions
+
+degrees/radians
+temperature
+distance
+weight
+volume
+
+Display
+
+peek
+peekall
+peekf
+printf
+hex
+oct
+bin
+dec
+
+Boolean Operations
+
+<  >  <=  >=
+== != <=>
+
+lt gt le ge
+eq ne cmp
+
+Constants
+
+pi
+e
+phi
+r2
+r3
+r5
+r7
+
+Statistics
+
+count
+sum
+average
+minimum
+maximum
+
+Flow Control
+
+execute
+if
+ifelse
+
+Usability
+
+aliases
+abbreviations
+help
+history
+version
+
+Persistence
+
+History save/load
+Stack save/load
+
+## Testing
+
+The project includes a comprehensive automated test suite.
+
+Current test coverage:
+
+Arithmetic
+Stack
+Trigonometry
+Conversions
+Help
+History
+Abbreviations
+Aliases
+Display
+Boolean
+Utility
+Constants
+Statistics
+Flow Control
+Persistence
+
+## Acknowledgements
+
+The 3.0.0 release represents the successful completion of the
+object-oriented redesign and establishes the foundation for future
+features including custom constants, file I/O, vectors, matrices,
+transformations, and graphics.
+
+## Next Release
+
+Version 3.1.0
+
+Planned features:
+
+* User-defined constants
+* Persistent custom constants

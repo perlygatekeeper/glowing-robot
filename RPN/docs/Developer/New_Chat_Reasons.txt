@@ -1,0 +1,96 @@
+# Starting a New ChatGPT Conversation
+
+## Why
+
+As the RPN Calculator has grown, conversations eventually become very large.
+
+Long conversations have several disadvantages:
+
+* slower responses
+* more context to search
+* greater chance of confusing old and new design decisions
+* increased likelihood of architectural drift
+
+For this reason, begin a fresh conversation after each completed release.
+
+---
+
+## Recommended Workflow
+
+1. Complete a release.
+
+2. Ensure:
+
+   make syntax
+
+   prove -Ilib t
+
+   make test
+
+   all pass.
+
+3. Commit.
+
+4. Tag the release.
+
+5. Create a backup.
+
+6. Start a new ChatGPT conversation.
+
+---
+
+## Initial Prompt
+
+The first prompt of a new conversation should be something like:
+
+We are continuing development of the RPN Calculator.
+
+Current version:
+
+    v3.8.3
+
+Please read the developer documentation before making suggestions:
+
+    docs/Developer/Architecture.txt
+    docs/Developer/Coding_Standards.txt
+    docs/Developer/Testing_Philosophy.txt
+    docs/Developer/Module_Guide.txt
+    docs/Developer/Public_APIs.txt
+    docs/Developer/Release_Process.txt
+
+The codebase should be treated as authoritative. Suggestions should preserve
+the documented architecture and public interfaces.
+
+---
+
+## Working Style
+
+Prefer incremental changes over large rewrites.
+
+When modifying existing code:
+
+* identify the file being modified
+* explain why the change belongs there
+* minimize unrelated edits
+
+When adding new features:
+
+* implementation
+* tests
+* documentation
+* roadmap updates
+* release notes
+
+should all be considered part of the same task.
+
+---
+
+## Guiding Principle
+
+The source code is the project.
+
+The tests define its observable behavior.
+
+The documentation records its architecture.
+
+All three should evolve together.

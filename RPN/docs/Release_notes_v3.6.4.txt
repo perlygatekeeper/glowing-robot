@@ -1,0 +1,179 @@
+RPN Calculator
+Release Notes
+Version 3.6.4
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.6.4 expands the calculator's number theory
+capabilities with three new functions commonly used in
+analytic number theory and prime-related research.
+
+These functions are especially useful for studying prime
+distribution, multiplicative arithmetic functions, and
+classical number theoretic identities.
+
+## New Commands
+
+primorial
+mobius
+mertens
+
+## Primorial
+
+New command:
+
+primorial
+
+Computes the product of all prime numbers less than or
+equal to the supplied value.
+
+Examples:
+
+5 primorial
+
+Result:
+
+30
+
+11 primorial
+
+Result:
+
+2310
+
+13 primorial
+
+Result:
+
+30030
+
+## Möbius Function
+
+New command:
+
+mobius
+
+Computes the Möbius function μ(n).
+
+Examples:
+
+1 mobius
+
+Result:
+
+1
+
+6 mobius
+
+Result:
+
+1
+
+30 mobius
+
+Result:
+
+-1
+
+12 mobius
+
+Result:
+
+0
+
+The Möbius function is widely used in multiplicative
+number theory, inversion formulas, and prime counting
+research.
+
+## Mertens Function
+
+New command:
+
+mertens
+
+Computes the Mertens function:
+
+M(n) = Σ μ(k)
+
+for k = 1 to n.
+
+Examples:
+
+1 mertens
+
+Result:
+
+1
+
+2 mertens
+
+Result:
+
+0
+
+10 mertens
+
+Result:
+
+-1
+
+The Mertens function is closely connected to the behavior
+of the Möbius function and has historical significance in
+analytic number theory.
+
+## Error Handling
+
+All commands validate operands and preserve stack contents
+when invalid data is supplied.
+
+Examples:
+
+'hello mobius
+
+'hello primorial
+
+The stack remains unchanged after the error.
+
+## Testing
+
+Added:
+
+t/27_NumberTheoryExtra.t
+
+Coverage includes:
+
+primorial
+mobius
+mertens
+operand validation
+stack preservation
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+Existing constants, variables, functions, vectors,
+stacks, and persistence files remain fully compatible.
+
+## Next Release
+
+Version 3.7.0
+
+Matrix Mathematics
+
+Planned:
+
+matrix creation
+
+madd
+msub
+mmul
+
+determinant
+transpose
+inverse

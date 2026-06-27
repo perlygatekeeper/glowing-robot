@@ -1,10 +1,23 @@
 use strict;
 use warnings;
 use Test::More;
-use Test::Output;
+
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
 
 use lib 'lib';
 use RPN;
+
+use File::Temp qw(tempdir);
+
+my $dir = tempdir(CLEANUP => 1);
+
+$ENV{RPN_HISTORY}   = "$dir/history";
+$ENV{RPN_STACKS}    = "$dir/stacks";
+$ENV{RPN_CONSTANTS} = "$dir/constants";
+$ENV{RPN_VARIABLES} = "$dir/variables";
+$ENV{RPN_FUNCTIONS} = "$dir/functions";
 
 my $calc = RPN->new();
 
@@ -29,6 +42,13 @@ $calc->process_input('2');
 $calc->process_input('exchange');
 
 is($calc->stack->peek, 1, 'exchange swaps top two values');
+
+$calc->stack->clear;
+$calc->process_input('1');
+$calc->process_input('2');
+$calc->process_input('swap');
+
+is($calc->stack->peek, 1, 'swap is an alias for exchange');
 
 #
 # depth
@@ -69,7 +89,7 @@ is($calc->stack->depth, 0, 'clear empties stack');
 
 stdout_like(
     sub { $calc->process_input('stack') },
-    qr/Stack 's' is in use and has 0 elements\./,
+    qr/Stack 'default' is in use and has 0 elements\./,
     'stack reports current stack'
 );
 
@@ -88,9 +108,9 @@ is($calc->stack->current_name, 'work', 'current stack is work');
 $calc->process_input('99');
 is($calc->stack->peek, 99, 'work stack can receive values');
 
-$calc->process_input('stack s');
-is($calc->stack->current_name, 's', 'switched back to s');
-is($calc->stack->depth, 0, 's stack still empty');
+$calc->process_input('stack default');
+is($calc->stack->current_name, 'default', 'switched back to default');
+is($calc->stack->depth, 0, 'default stack still empty');
 
 $calc->process_input('stack work');
 is($calc->stack->peek, 99, 'work stack preserved its value');
@@ -101,7 +121,7 @@ is($calc->stack->peek, 99, 'work stack preserved its value');
 
 stdout_like(
     sub { $calc->process_input('stack *') },
-    qr/Stack\s+Depth.*s\s+0.*work\s+1/s,
+    qr/Stack\s+Depth.*default\s+0.*work\s+1/s,
     'stack * lists stack names and depths'
 );
 

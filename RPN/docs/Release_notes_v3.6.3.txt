@@ -1,0 +1,151 @@
+RPN Calculator
+Release Notes
+Version 3.6.3
+=============
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.6.3 introduces function introspection features.
+
+User-defined functions are now first-class citizens within
+the help system and can be inspected directly from the
+calculator.
+
+This release makes it significantly easier to understand,
+debug, maintain, and share custom function libraries.
+
+## New Command
+
+showfunc
+
+Displays the definition of a user-defined function.
+
+Example:
+
+showfunc distance
+
+Output:
+
+distance = vsub magnitude
+
+## Function Help Integration
+
+The help system now recognizes user-defined functions.
+
+Example:
+
+help distance
+
+Output:
+
+User-defined function
+
+distance = vsub magnitude
+
+This allows custom functions to participate naturally in
+the calculator's existing help workflow.
+
+## Enhanced Function Listings
+
+The functions command has been enhanced to display both
+function names and their definitions.
+
+Previous output:
+
+Name
+------------------
+distance
+midpoint
+
+New output:
+
+Name               Body
+------------------ ------------------------
+distance           vsub magnitude
+midpoint           vadd 0.5 vscale
+
+This provides immediate visibility into loaded function
+libraries without requiring separate inspection.
+
+## Error Handling
+
+showfunc validates function names before displaying
+definitions.
+
+Example:
+
+showfunc nosuchfunc
+
+Result:
+
+Unknown function 'nosuchfunc'
+
+The calculator state is not modified.
+
+## Testing
+
+Extended:
+
+t/24_Functions.t
+
+Coverage includes:
+
+showfunc
+help function_name
+function source display
+unknown function handling
+enhanced functions listing
+
+## Compatibility
+
+No compatibility-breaking changes were introduced.
+
+Existing functions, variables, constants, vectors,
+stacks, persistence files, and user libraries remain
+fully compatible.
+
+## Project Status
+
+Current major feature groups:
+
+Arithmetic
+Trigonometry
+Conversions
+Statistics
+Combinatorics
+Probability
+Boolean Logic
+Flow Control
+File I/O
+Persistence
+Constants
+Variables
+Functions
+Function Introspection
+Financial Functions
+Number Theory
+Random Numbers
+Date / Time
+Sequence Operations
+Vector Mathematics
+
+Scientific Constant Libraries
+Engineering Constant Libraries
+
+## Next Release
+
+Version 3.6.4
+
+Obscure Number Theory
+
+Planned:
+
+mobius
+
+mertens
+
+primorial

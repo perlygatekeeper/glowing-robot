@@ -1,0 +1,396 @@
+# Matrices Tutorial
+
+Matrices are rectangular arrays of numbers arranged in rows and columns.
+
+They are useful in:
+
+* Linear algebra
+* Geometry and coordinate transformations
+* Computer graphics
+* Physics simulations
+* Engineering calculations
+* Solving systems of equations
+
+A matrix is similar to a spreadsheet table, except every entry is numeric and
+mathematical operations can be performed on the entire structure.
+
+---
+
+## Matrix Dimensions
+
+A matrix is described by its:
+
+rows × columns
+
+Examples:
+
+[ [1, 2],
+  [3, 4] ]
+
+is a:
+
+2 × 2 matrix
+
+while:
+
+[ [1, 2, 3],
+  [4, 5, 6] ]
+
+is a:
+
+2 × 3 matrix
+
+---
+
+## Matrix Input Methods
+
+The calculator supports several ways to create matrices.
+
+### Method 1 - Matrix Literal
+
+The simplest method is a matrix literal.
+
+Push the matrix as a string and then parse it:
+
+[[1,2],[3,4]]
+matparse
+
+Result:
+
+[ [1, 2],
+  [3, 4] ]
+
+This is the easiest method for experimentation and small matrices.
+
+---
+
+### Method 2 - Build From Row Vectors
+
+Push row vectors onto the stack and use:
+
+N matrix
+
+where N is the number of row vectors.
+
+Example:
+
+[1,2]
+[3,4]
+2 matrix
+
+Result:
+
+[ [1, 2],
+  [3, 4] ]
+
+The row vectors are consumed from the stack and combined into a matrix.
+
+---
+
+### Method 3 - Build From Column Vectors
+
+Push column vectors onto the stack and use:
+
+N matcols
+
+Example:
+
+[1,3]
+[2,4]
+2 matcols
+
+Result:
+
+[ [1, 2],
+  [3, 4] ]
+
+This can be useful when vectors naturally represent columns rather than rows.
+
+---
+
+### Method 4 - Load From File
+
+Matrices can be stored in files and loaded later.
+
+loadmatrix matrix.txt
+
+This is useful for large matrices that would be inconvenient to enter manually.
+
+---
+
+## Matrix Dimensions
+
+To determine matrix size:
+
+rows
+cols
+
+Example:
+
+[[1,2],[3,4]] matparse
+rows
+
+Result:
+
+2
+
+Example:
+
+[[1,2],[3,4]] matparse
+cols
+
+Result:
+
+2
+
+---
+
+## Matrix Addition
+
+Two matrices of identical dimensions may be added.
+
+Command:
+
+madd
+
+Example:
+
+[[1,2],[3,4]] matparse
+[[10,20],[30,40]] matparse
+madd
+
+Result:
+
+[ [11,22],
+  [33,44] ]
+
+---
+
+## Matrix Subtraction
+
+Command:
+
+msub
+
+Example:
+
+[[10,20],[30,40]] matparse
+[[1,2],[3,4]] matparse
+msub
+
+Result:
+
+[ [9,18],
+  [27,36] ]
+
+---
+
+## Matrix Multiplication
+
+Command:
+
+mmul
+
+Matrix multiplication is not performed element-by-element.
+
+Instead, rows of the first matrix are multiplied by columns of the second matrix.
+
+Example:
+
+[[1,2],[3,4]] matparse
+[[5,6],[7,8]] matparse
+mmul
+
+Result:
+
+[ [19,22],
+  [43,50] ]
+
+The dimensions must be compatible:
+
+A (m × n)
+B (n × p)
+
+The result will be:
+
+(m × p)
+
+---
+
+## Matrix and Vector Multiplication
+
+The calculator also supports:
+
+matrix × vector
+vector × matrix
+
+using the same:
+
+mmul
+
+command.
+
+This is particularly useful for coordinate transformations and geometry.
+
+---
+
+## Matrix Transpose
+
+Command:
+
+transpose
+
+Alias:
+
+trans
+
+Rows become columns and columns become rows.
+
+Example:
+
+[ [1,2,3],
+  [4,5,6] ]
+
+becomes:
+
+[ [1,4],
+  [2,5],
+  [3,6] ]
+
+---
+
+## Determinants
+
+Command:
+
+determinant
+
+Alias:
+
+det
+
+Determinants are defined only for square matrices.
+
+Example:
+
+[[1,2],[3,4]] matparse
+det
+
+Result:
+
+-2
+
+Determinants are useful for:
+
+* Testing invertibility
+* Solving systems of equations
+* Computing geometric scaling factors
+
+If the determinant is zero, the matrix is singular and has no inverse.
+
+---
+
+## Matrix Inverse
+
+Command:
+
+inverse
+
+Alias:
+
+invm
+
+Example:
+
+[[1,2],[3,4]] matparse
+inverse
+
+Result:
+
+[ [-2, 1],
+  [1.5, -0.5] ]
+
+Only square, non-singular matrices may be inverted.
+
+A matrix with determinant zero has no inverse.
+
+---
+
+## Matrix Powers
+
+Command:
+
+mpow
+
+Usage:
+
+matrix exponent mpow
+
+Example:
+
+[[1,1],[1,0]] matparse
+5 mpow
+
+Matrix powers are useful for:
+
+* Linear recurrences
+* Markov chains
+* Graph theory
+* Fast Fibonacci calculations
+
+---
+
+## Identity Matrix
+
+The identity matrix plays the same role for matrices that the number 1 plays
+for multiplication.
+
+Example:
+
+[ [1,0],
+  [0,1] ]
+
+Multiplying by the identity matrix leaves a matrix unchanged.
+
+A × I = A
+I × A = A
+
+---
+
+## Common Errors
+
+### Dimension Mismatch
+
+These cannot be added:
+
+2 × 2
+3 × 3
+
+because the dimensions differ.
+
+### Invalid Multiplication
+
+These cannot be multiplied:
+
+2 × 3
+4 × 2
+
+because the inner dimensions do not match.
+
+### Singular Matrix
+
+A matrix with determinant zero cannot be inverted.
+
+---
+
+## Where To Go Next
+
+After completing this tutorial consider:
+
+tutorial vectors
+tutorial number_theory
+
+Matrices and vectors are often used together.
+
+Many geometry and graphics transformations are naturally expressed using matrix
+multiplication.

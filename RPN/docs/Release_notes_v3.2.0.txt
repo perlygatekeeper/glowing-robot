@@ -1,0 +1,93 @@
+RPN Calculator
+Release Notes
+Version 3.2.0
+=============
+
+# Plans
+
+File Input/Output
+
+    readnums
+    readcsv
+    writecsv
+    appendcsv
+
+New command type:
+
+    io
+
+New tests:
+
+    16_FileIO.t
+
+
+## Release Date
+
+June 2026
+
+## Overview
+
+Version 3.2.0 adds file input and output capabilities, allowing the
+calculator to exchange data with text and CSV files.
+
+## New Features
+
+readnums
+
+Read numeric values from a text file and push them onto the stack.
+
+readcsv
+
+Read numeric values from a CSV file and push them onto the stack.
+
+readcolumn
+
+Read a specific CSV column by name or index.
+
+writecsv
+
+Write the current stack to a CSV file.
+
+appendcsv
+
+Append the current stack to an existing CSV file.
+
+## Help System
+
+A new command type has been added:
+
+io
+
+which may be listed using:
+
+help type io
+
+## Testing
+
+Added:
+
+t/16_FileIO.t
+
+Coverage includes:
+
+readnums
+readcsv
+readcolumn
+writecsv
+appendcsv
+
+## Status
+
+All tests pass successfully.
+
+## Next Release
+
+Version 3.3.0
+
+Planned features:
+
+median
+variance
+stddev
+product
+range

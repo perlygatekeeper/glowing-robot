@@ -1,0 +1,39 @@
+# Constants Tutorial
+
+Constants provide named values.
+
+typing a constant's name as a command, pushes that constant's 
+value unto the stack.
+
+    Input [-EMPTY-] pi
+    Input [3.14159265358979]
+
+Some constants are "builtin" and are protected from change or deletion.
+
+Examples:
+
+    pi  - The ratio of a circle's circumference to its diameter
+    e   - Euler's number
+    phi - The golden ratio
+    r2  - Squareroot(2)
+
+
+Here are a breif list of commands that deal with constants:
+
+    help type constant
+
+Command            Type         Help
+------------------ ------------ ----------------------------------------
+constants          constant     list, push, or define constants aliases: const
+delconst           constant     delete a user-defined constant
+loadconst          constant     load user constants from a file: loadconst [file]
+saveconst          constant     save user constants: saveconst [file]
+
+The constants command will either
+
+list all constants if given no arguments
+
+push that constant's value onto the stack if given one argument, a defined constant's name
+
+define a new constant if given two arguments, a constant name (not a builtin name) and its value
+                  

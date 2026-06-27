@@ -1,0 +1,29 @@
+# RPN Chemistry Constants
+# SI units unless otherwise noted.
+
+metadata: category="Chemistry"
+metadata: source="CODATA and common chemistry references"
+metadata: revision="2026-06"
+
+av = 6.02214076e23 ; units="mol^-1" ; description="Avogadro constant"
+
+R = 8.31446261815324 ; units="J/(mol*K)" ; description="Molar gas constant"
+R_L_atm = 0.082057366080960 ; units="L*atm/(mol*K)" ; description="Ideal gas constant in liter-atmospheres"
+R_cal = 1.98720425864083 ; units="cal/(mol*K)" ; description="Ideal gas constant in calories"
+
+k_B = 1.380649e-23 ; units="J/K" ; category="Physics" ; description="Boltzmann constant"
+
+F = 96485.3321233100184 ; units="C/mol" ; description="Faraday constant"
+
+e_charge = 1.602176634e-19 ; units="C" ; category="Physics" ; description="Elementary charge"
+
+amu = 1.66053906892e-27 ; units="kg" ; description="Atomic mass constant"
+
+std_atm = 101325 ; units="Pa" ; description="Standard atmosphere"
+bar = 100000 ; units="Pa" ; description="Bar"
+torr = 133.32236842105263 ; units="Pa" ; description="Torr"
+
+water_molar_mass = 18.01528 ; units="g/mol" ; description="Molar mass of water"
+air_molar_mass = 28.9652 ; units="g/mol" ; description="Molar mass of dry air"
+
+zero_C_in_K = 273.15 ; units="K" ; description="Celsius zero offset in kelvin"

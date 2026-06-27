@@ -3,6 +3,10 @@ use warnings;
 
 use Test::More;
 
+# use Test::Output;
+use lib 't/lib';
+use RPN::TestOutput;
+
 use lib 'lib';
 use RPN;
 

@@ -1,0 +1,816 @@
+## Version 3.3.0
+
+Enhanced Statistics (Completed)
+
+[x] median
+[x] variance
+[x] standard deviation
+[x] product
+[x] range
+
+## Version 3.3.5
+
+Quality of Life (Completed)
+
+### Stack
+
+[x] reverse
+[x] pop N
+[x] pick
+[x] pullup
+[x] pushdown
+[x] roll N
+[x] shuffle
+[x] clearall
+
+### Random
+
+[x] rand
+[x] randint
+[x] seed
+
+### Date / Time
+
+[x] now
+[x] today
+[x] time
+[x] datetime
+
+## Version 3.3.6
+
+Sequence and Selection (Completed)
+
+[x] sequence
+[x] sequenceby
+
+[x] sequence alias (..)
+[x] sequenceby alias (...)
+
+[x] seq alias
+[x] seqby alias
+
+[x] choose
+
+[x] sort
+[x] sort -1
+
+[x] unique
+
+[x] numeric ranges
+[x] descending ranges
+[x] string ranges
+[x] explicit step ranges
+
+## Version 3.4.0
+
+Variables (Completed)
+
+[x] Variables.pm
+
+[x] store
+[x] recall
+
+[x] sto alias
+[x] rcl alias
+
+[x] variables
+[x] delvar
+
+[x] savevars
+[x] loadvars
+
+[x] variable persistence
+
+[x] bare-word variable lookup
+
+[x] namespace protection
+
+[x] variable tests
+
+## Version 3.4.5
+
+Scientific & Financial Toolkit (Completed)
+
+### Financial Functions
+
+[x] pv
+[x] fv
+[x] pmt
+[x] nper
+[x] rate
+
+### Scientific Constant Packs
+
+[x] physics.txt
+[x] chemistry.txt
+[x] astronomy.txt
+[x] electrical.txt
+[x] mechanical.txt
+[x] financial.txt
+
+### Number Theory
+
+[x] isprime
+[x] nextprime
+[x] prevprime
+
+[x] factor
+[x] divisors
+
+[x] gcd
+[x] lcm
+
+[x] totient
+
+### Help System
+
+[x] types
+[x] help types
+
+### Tests
+
+[x] t/22_Financial.t
+[x] t/23_NumberTheory.t
+
+## Version 3.5.0
+
+User-Defined Functions (Completed)
+
+[x] Functions.pm
+
+[x] def
+[x] undef
+
+[x] functions
+
+[x] savefuncs
+[x] loadfuncs
+
+[x] function persistence
+
+[x] bare-word function execution
+
+[x] namespace protection
+
+[x] command alias protection
+
+[x] lookup order redesign
+
+[x] t/24_Functions.t
+
+## Version 3.5.5 Persistence file arguments
+
+[x] loadconst [file]
+[x] saveconst [file]
+[x] loadvars [file]
+[x] savevars [file]
+[x] loadfuncs [file]
+[x] savefuncs [file]
+
+[x] examples/constants
+[x] examples/functions
+
+[x] function recursion guard
+
+## Version 3.6.0
+
+Vector Mathematics
+
+## Version 3.6.0
+
+Vector Mathematics (Completed)
+
+[x] RPN::Vector
+
+[x] vector
+[x] vec2
+[x] vec3
+
+[x] dim
+
+[x] vadd
+[x] vsub
+[x] vscale
+
+[x] dot
+[x] cross
+
+[x] magnitude
+[x] normalize
+
+[x] mag alias
+[x] unit alias
+
+[x] vector display support [0,1]
+
+[x] stack preservation for invalid numeric operations
+
+[x] examples/functions/vectors.txt
+
+[x] t/25_Vector.t
+
+## Version 3.6.1
+
+Combinatorics and Probability (Completed)
+
+[x] factorial
+[x] fact alias
+
+[x] npr
+[x] permute alias
+
+[x] ncr
+[x] binom alias
+[x] comb alias
+
+[x] binompdf
+[x] binomcdf
+
+[x] operand validation
+
+[x] stack preservation on error
+
+[x] t/26_Combinatorics.t
+
+## Version 3.6.2
+
+Engineering Constant Packs (Completed)
+
+[x] thermodynamics.txt
+
+    [x] gas constant
+    [x] Stefan-Boltzmann constant
+    [x] standard conditions
+    [x] absolute zero
+
+[x] materials.txt
+
+    [x] material densities
+    [x] Young's modulus values
+
+[x] fluid_dynamics.txt
+
+    [x] fluid densities
+    [x] viscosities
+    [x] gravitational constants
+
+[x] electronics_parts.txt
+
+    [x] diode voltage drops
+    [x] LED forward voltages
+    [x] E-series resistor information
+
+[x] example library documentation
+
+[x] loadconst integration
+
+## Version 3.6.3
+
+Function Introspection (Completed)
+
+[x] showfunc
+
+[x] help function_name
+
+[x] function source display
+
+[x] enhanced functions listing
+
+[x] unknown function handling
+
+[x] t/24_Functions.t updates
+
+## Version 3.6.4
+
+Obscure Number Theory (Completed)
+
+[x] primorial
+
+[x] mobius
+
+[x] mertens
+
+[x] operand validation
+
+[x] stack preservation
+
+[x] t/27_NumberTheoryExtra.t
+
+
+
+## Version 3.7.0
+
+Matrix Mathematics (Completed)
+
+[x] RPN::Matrix
+
+[x] matrix
+[x] matcols
+[x] matparse
+[x] loadmatrix
+
+[x] rows
+[x] cols
+
+[x] madd
+[x] msub
+[x] mmul
+
+[x] transpose
+[x] trans alias
+
+[x] compact matrix display
+
+[x] matrix creation from row vectors
+[x] matrix creation from column vectors
+[x] matrix creation from literal strings
+[x] matrix creation from files
+
+[x] examples/matrices/unit_2x2.txt
+[x] examples/matrices/unit_3x3.txt
+[x] examples/matrices/unit_4x4.txt
+
+[x] operand validation
+[x] dimension validation
+[x] stack preservation on error
+
+[x] t/28_Matrix.t
+
+## un-versioned Completed Refactors
+
+[x] Split matrix commands into Commands::Matrix
+[x] Split vector commands into Commands::Vector
+[x] Split combinatorics commands into Commands::Combinatorics
+[x] Split number theory commands into Commands::NumberTheory
+[x] Split financial commands into Commands::Financial
+
+## Version 3.7.1
+
+Matrix Determinants (Completed)
+
+[x] determinant command
+[x] det alias
+
+[x] determinant support in RPN::Matrix
+
+[x] 1x1 determinants
+[x] 2x2 determinants
+[x] NxN determinants
+
+[x] square matrix validation
+
+[x] stack preservation on error
+
+[x] t/29_Determinant.t
+
+
+## Version 3.7.2
+
+Matrix Inverses
+
+[x] inverse command
+[x] invm alias
+
+[x] inverse support in RPN::Matrix
+
+[x] square matrix validation
+
+[x] singular matrix detection
+
+[x] stack preservation on error
+
+[x] t/30_MatrixInverse.t
+
+
+## Version 3.7.3
+
+Matrix / Vector Operations (Completed)
+
+[x] matrix × vector multiplication
+
+[x] vector × matrix multiplication
+
+[x] mmul enhanced to support:
+[x] matrix × matrix
+[x] matrix × vector
+[x] vector × matrix
+
+[x] dimensional validation
+
+[x] stack preservation on error
+
+[x] t/31_MatrixVector.t
+
+Additional Changes
+
+[x] Vector display changed from:
+
+```
+    <1,2,3>
+
+to:
+
+    [1,2,3]
+```
+
+[x] Documentation updated
+
+[x] Tests updated
+
+
+## Version 3.7.4
+
+Matrix Powers (Completed)
+
+[x] mpow command
+
+[x] identity matrix generation
+
+[x] matrix powers
+
+[x] power 0 returns identity matrix
+
+[x] power 1 returns original matrix
+
+[x] binary exponentiation
+
+[x] square matrix validation
+
+[x] non-negative integer exponent validation
+
+[x] stack preservation on error
+
+[x] t/32_MatrixPowers.t
+
+## Matrix Mathematics Status
+
+Completed
+
+[x] Matrix creation
+[x] Matrix loading
+[x] Matrix display
+
+[x] Matrix addition
+[x] Matrix subtraction
+[x] Matrix multiplication
+
+[x] Matrix × Vector
+[x] Vector × Matrix
+
+[x] Transpose
+
+[x] Determinant
+
+[x] Inverse
+
+[x] Matrix Powers
+
+## Version 3.8.0
+
+Function Metadata and Documentation
+
+[ ] Function descriptions
+[ ] Function categories
+[ ] Enhanced showfunc output
+[ ] Enhanced help function_name output
+[ ] Function discovery
+[ ] Function navigation
+[ ] Example documentation for built-in functions
+[ ] Tests
+
+## Version 3.8.1
+
+Constant Pack Enhancements
+
+Existing Packs
+
+[x] astronomy
+[x] chemistry
+[x] electrical
+[x] electronics_parts
+[x] financial
+[x] fluid_dynamics
+[x] materials
+[x] mechanical
+[x] physics
+[x] thermodynamics
+
+Planned
+
+[ ] constant pack discovery
+
+[ ] help constants <pack>
+
+[ ] constant descriptions
+
+[ ] constant metadata
+
+[ ] additional engineering constants
+
+[ ] additional scientific constants
+
+[ ] tests
+
+## Version 3.8.2
+
+Advanced Number Theory
+
+Potential Additions
+
+[ ] Carmichael function
+
+[ ] Liouville function
+
+[ ] Jacobi symbol
+
+[ ] Legendre symbol
+
+[ ] Integer partitions
+
+[ ] Additional prime-search helpers
+
+[ ] Tests
+
+## Completed Refactors
+
+[x] Commands::Matrix
+
+[x] Commands::Vector
+
+[x] Commands::Combinatorics
+
+[x] Commands::NumberTheory
+
+[x] Commands::Financial
+
+### Version 3.8.0 - Documentation & Discoverability
+
+[x] Add tutorial subsystem
+[x] Add tutorials command
+[x] Add tutorial command
+[x] Add quickstart command
+[x] Add versioned tutorial support
+[x] Add startup quickstart hint
+[x] Add Quick Reference guide
+[x] Centralize persistence save operations
+[x] Add tutorial pager support using $PAGER
+
+### Version 3.8.1 - Documentation & Tutorials
+
+[x] Tutorial subsystem
+[x] Automatic tutorial discovery
+[x] Tutorial version selection
+[x] tutorials command
+[x] tutorial command
+[x] Quick Start guide
+[x] Quick Reference guide
+[x] Variables tutorial
+[x] Functions tutorial
+[x] Constants tutorial
+[x] Vectors tutorial
+[x] Matrices tutorial
+[x] Financial tutorial
+[x] Number Theory tutorial
+[x] Startup guidance for first-time users
+[x] Presentation tests
+[x] Tutorial tests
+
+### Version 3.8.2 - Numeric Completion
+
+[x] ln        Natural logarithm
+[x] log       Base-10 logarithm
+[x] log2      Base-2 logarithm
+
+[x] exp       e^x
+[x] exp10     10^x
+
+[x] inv       Reciprocal (1/x)
+
+[x] sqr       Square (x^2)
+[x] cube      Cube (x^3)
+[x] cbrt      Cube root
+
+[x] abs       Absolute value
+[x] sign      Sign of value (-1, 0, +1)
+
+[x] floor     Round down
+[x] ceil      Round up
+[x] round     Nearest integer
+[x] trunc     Truncate toward zero
+[x] frac      Fractional portion
+
+[x] idiv      Integer division
+[x] mod       Modulus / remainder
+
+[x] hypot     sqrt(x^2 + y^2)
+
+[x] Numeric command module
+[x] String command module
+[x] Stacks tutorial
+[x] Additional unit tests
+
+[x] Documentation
+[x] Unit tests
+[x] Release notes
+
+## Version 3.8.3 - Advanced Stack Management
+
+Status: COMPLETE
+
+### Stack Management
+
+[x] Repartition stack commands into lib/RPN/Commands/Stack.pm
+[x] Move stack-related commands from Commands.pm
+[x] Add stackinfo
+[x] Add stackexists
+[x] Add stacksize
+[x] Add copystack
+[x] Add dupstack
+[x] Add renamestack
+[x] Add movestack alias
+[x] Add clearstack
+[x] Add deletestack
+[x] Add dropstack alias
+[x] Add rmstack alias
+[x] Add mergestacks
+[x] Add pour
+[x] Improve stack tutorial
+[x] Rewrite stack management tests
+[x] Establish Developers Guides and Processes Documentation
+[x] Update release documentation
+
+---
+
+## Version 3.8.4 - Mathematical Expansion
+
+Status: COMPLETE
+
+### Numeric Functions
+
+[x] Hyperbolic functions
+[x] sinh
+[x] cosh
+[x] tanh
+[x] asinh
+[x] acosh
+[x] atanh
+
+[x] Bessel functions
+[x] j0
+[x] j1
+[x] jn
+[x] y0
+[x] y1
+[x] yn
+
+[x] Special functions
+[x] erf
+[x] erfc
+[x] gamma
+[x] lgamma
+[x] beta
+
+[x] Numeric functions tutorial
+[x] Additional unit tests
+[x] Release notes
+[x] Roadmap update
+
+### Deferred Candidates
+
+[ ] zeta
+[ ] Airy functions
+[ ] Additional numeric constants
+[ ] Clamp
+[ ] Lerp (linear interpolation)
+[ ] Degrees ↔ radians convenience commands
+[ ] Better complex-number planning
+[ ] Median Absolute Deviation
+[ ] Geometric Mean
+[ ] Harmonic Mean
+[ ] Weighted Mean
+[ ] Numeric cookbook examples
+
+
+### Version 3.8.4.1 - Swap Alias Compatibility
+
+Status: COMPLETE
+
+[x] Add `swap` as an alias for `exchange`
+[x] Preserve existing `exchange` and `x` behavior
+[x] Add regression test for `swap` alias
+[x] Add release notes
+[x] Update roadmap
+
+
+----------------
+## Version 3.8.5 — Enhanced Constants
+
+### Goals
+
+* [x] Add metadata support to constants.
+* [x] Preserve backward compatibility with existing constant files.
+* [x] Support arbitrary metadata key/value pairs.
+* [x] Support quoted metadata strings with escape sequences.
+* [x] Add metadata inheritance via `metadata:` directives.
+* [x] Support `metadata: reset` and `metadata: clear`.
+* [x] Add `constinfo`.
+* [x] Add `constants all`.
+* [x] Add `constants categories`.
+* [x] Add `constants <category>`.
+* [x] Normalize category names.
+* [x] Preserve unknown metadata for future releases.
+* [x] Add comprehensive automated tests.
+* [x] Add Constants_v02 tutorial.
+
+### Deferred
+
+* [ ] Update the example constant libraries to include metadata (Version 3.8.5.1).
+* [ ] Add searching by metadata and description.
+* [ ] Add aliases and alternate names for constants.
+* [ ] Explore user-installable constant packs.
+
+## Version 3.8.5.1 — Curated Constant Libraries
+
+### Goals
+
+* [x] Rewrite the bundled constant libraries using the Version 3.8.5 metadata format.
+* [x] Add units, categories, and descriptions.
+* [x] Use metadata inheritance to reduce repetition.
+* [x] Standardize formatting and comments across all libraries.
+* [x] Organize constants into logical sections.
+* [x] Add an index describing the available constant libraries.
+* [x] Ensure the bundled libraries serve as examples of best practices.
+
+### Result
+
+The Enhanced Constants project is complete.
+
+The calculator now includes:
+
+* Rich constant metadata
+* Metadata inheritance
+* Category-aware browsing
+* Self-documenting constant libraries
+* Comprehensive tutorials
+* Modernized example libraries
+
+Version 3.8.6 will build upon this foundation with new calculator functionality rather than further infrastructure work.
+
+
+
+### Version 3.9.0 - Geometry and Transformations
+
+[ ] Add transformation matrix examples
+[ ] Add rotation helpers
+[ ] Add reflection helpers
+[ ] Add scaling helpers
+[ ] Add shearing helpers
+[ ] Add coordinate geometry functions
+[ ] Add geometry tutorial
+
+### Version 4.0.0 - Graphics
+
+[ ] Design graphics architecture
+[ ] Define point and shape objects
+[ ] Implement SVG output
+[ ] Add line primitive
+[ ] Add rectangle primitive
+[ ] Add circle primitive
+[ ] Add polygon primitive
+[ ] Integrate transforms with graphics
+[ ] Add graphics tutorial
+
+
+
+## Version 4.0.0
+
+Transformations
+
+[ ] 2D transformations
+[ ] 3D transformations
+
+[ ] translation
+[ ] rotation
+[ ] scaling
+
+[ ] transformation tests
+
+## Version 5.0.0
+
+Graphics (Optional)
+
+[ ] graphing
+[ ] plotting
+[ ] function visualization
+[ ] export graphics
+
+## Future Ideas
+
+[ ] scientific constant pack expansion
+[ ] units and dimensional analysis
+[ ] JSON import/export
+[ ] HTTP/API import
+[ ] spreadsheet integration
+[ ] programmable scripts
+[ ] user libraries
+[ ] package/import system

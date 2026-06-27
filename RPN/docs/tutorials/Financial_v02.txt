@@ -1,0 +1,35 @@
+# Financial Tutorial
+
+Common functions:
+
+    pv   - Present Value
+    fv   - Future Value
+    rate - Rate
+    nper - Number of Periods (days or months)
+
+    These all solve the missing value of the Equation:
+
+    PV = FV / (1+rate)^nper
+
+    when the other 3 values are on the stack.
+
+Example:
+
+Generally:
+
+    PV FV RATE nper
+
+Specific Example:
+
+    1000 2000 0.05 nper
+
+Solves:
+
+    2000 = 1000 * (1.05)^nper
+
+for nper, resulting in:
+
+    14.2067
+
+Answering the question, how many years would it take to double an $1000
+investment given a 5% rate of return.

@@ -1,0 +1,117 @@
+Release Notes - RPN 3.8.2
+=========================
+
+Numeric Completion and String Support
+-------------------------------------
+
+Version 3.8.2 focuses on completing the calculator's core numeric
+capabilities while continuing the modularization of the command
+architecture.
+
+New Numeric Functions
+---------------------
+
+The following numeric commands have been added:
+
+    ln       Natural logarithm
+    log      Base-10 logarithm
+    log2     Base-2 logarithm
+
+    exp      e^x
+    exp10    10^x
+
+    inv      Reciprocal (1/x)
+
+    sqr      Square
+    cube     Cube
+    cbrt     Cube Root
+
+    abs      Absolute Value
+    sign     Sign (-1, 0, +1)
+
+    floor    Round Down
+    ceil     Round Up
+    round    Round to Nearest Integer
+    trunc    Truncate Toward Zero
+    frac     Fractional Portion
+
+    idiv     Integer Division
+    mod      Modulus / Remainder
+    hypot    sqrt(x²+y²)
+
+These additions substantially complete the calculator's fundamental
+numeric command set.
+
+New String Commands
+-------------------
+
+Added a dedicated string command family:
+
+    lower
+    upper
+
+    trim
+    ltrim
+    rtrim
+
+    split
+    join
+
+    length
+    strrev
+    repeat
+
+    match
+    search
+    replace
+    subst
+
+These commands provide a foundation for string processing and regular
+expression support.
+
+Documentation
+-------------
+
+Added:
+
+    Stacks Tutorial
+
+Tutorial coverage now includes nearly every major feature area of the
+calculator.
+
+Architecture
+------------
+
+Refactored numeric commands into their own module:
+
+    lib/RPN/Commands/Numeric.pm
+
+continuing the ongoing modularization of the command system.
+
+Testing
+-------
+
+Added:
+
+    String command tests
+    Command metadata validation tests
+
+Expanded arithmetic regression testing for all newly-added commands.
+
+User Interface
+--------------
+
+Improved:
+
+    Help command type handling
+    Numeric command categorization
+    Command type consistency
+
+Statistics
+----------
+
+Version 3.8.2 represents one of the largest expansions of the calculator's
+core mathematical capabilities since the object-oriented rewrite.
+
+The calculator now includes a broad collection of numeric, matrix, vector,
+financial, combinatoric, number-theoretic, and string processing commands.

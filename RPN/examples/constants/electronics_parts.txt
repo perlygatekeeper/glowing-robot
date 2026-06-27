@@ -1,0 +1,18 @@
+# Electronics Parts Constants
+
+metadata: category="Electronics"
+metadata: source="Common electronics reference values"
+metadata: revision="2026-06"
+
+silicon_diode_drop = 0.7 ; units="V" ; description="Typical silicon diode forward voltage drop"
+germanium_diode_drop = 0.3 ; units="V" ; description="Typical germanium diode forward voltage drop"
+
+led_red_drop = 2.0 ; units="V" ; description="Typical red LED forward voltage drop"
+led_green_drop = 2.2 ; units="V" ; description="Typical green LED forward voltage drop"
+led_blue_drop = 3.2 ; units="V" ; description="Typical blue LED forward voltage drop"
+led_white_drop = 3.2 ; units="V" ; description="Typical white LED forward voltage drop"
+
+resistor_e6_count = 6 ; units="count/decade" ; description="E6 preferred resistor values per decade"
+resistor_e12_count = 12 ; units="count/decade" ; description="E12 preferred resistor values per decade"
+resistor_e24_count = 24 ; units="count/decade" ; description="E24 preferred resistor values per decade"
+resistor_e96_count = 96 ; units="count/decade" ; description="E96 preferred resistor values per decade"

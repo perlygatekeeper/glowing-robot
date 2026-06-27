@@ -1,0 +1,247 @@
+RPN Calculator
+Release Notes
+Version 3.4.5
+=============
+
+Release Date
+------------
+June 2026
+
+
+Overview
+--------
+Version 3.4.5 expands the calculator into a broader scientific,
+engineering, financial, and number-theory toolset.
+
+This release introduces financial functions, prime-number utilities,
+scientific constant libraries, and improved help-system navigation.
+
+
+New Financial Functions
+-----------------------
+
+Future Value
+
+    fv
+
+    pv rate nper fv
+
+Present Value
+
+    pv
+
+    fv rate nper pv
+
+Payment
+
+    pmt
+
+    pv rate nper pmt
+
+Number of Periods
+
+    nper
+
+    pv rate pmt nper
+
+Periodic Interest Rate
+
+    rate
+
+    pv fv nper rate
+
+
+Examples
+
+    1000 0.05 10 fv
+
+    1000 1628.89462677744 10 rate
+
+    1000 0.01 12 pmt
+
+
+Number Theory Functions
+-----------------------
+
+Primality
+
+    isprime
+
+Next / Previous Prime
+
+    nextprime
+    prevprime
+
+Alias
+
+    prime
+
+Prime Factorization
+
+    factor
+
+Alias
+
+    factors
+
+Divisors
+
+    divisors
+
+Greatest Common Divisor
+
+    gcd
+
+Least Common Multiple
+
+    lcm
+
+Euler Totient Function
+
+    totient
+
+Alias
+
+    eulerphi
+
+
+Examples
+
+    17 isprime
+
+    100 nextprime
+
+    360 factor
+
+    28 divisors
+
+    24 18 gcd
+
+    24 18 lcm
+
+    36 totient
+
+
+Scientific Constant Libraries
+-----------------------------
+
+Example constant packs have been added.
+
+Physics
+
+    physics.txt
+
+Chemistry
+
+    chemistry.txt
+
+Astronomy
+
+    astronomy.txt
+
+Electrical Engineering
+
+    electrical.txt
+
+Mechanical Engineering
+
+    mechanical.txt
+
+Financial
+
+    financial.txt
+
+
+These files provide a collection of commonly used constants and
+serve as examples for creating custom constant libraries.
+
+
+Help System Improvements
+------------------------
+
+New command:
+
+    types
+
+Displays all registered command categories.
+
+Example:
+
+    types
+
+The following also works:
+
+    help types
+
+
+Testing
+-------
+
+Added:
+
+    t/22_Financial.t
+    t/23_NumberTheory.t
+
+Coverage includes:
+
+    Financial functions
+    Prime utilities
+    Factorization
+    Divisors
+    GCD / LCM
+    Euler Totient
+    Help-system type listing
+
+
+Compatibility
+-------------
+
+No compatibility-breaking changes were introduced.
+
+All previous releases remain fully compatible.
+
+
+Project Status
+--------------
+
+Current feature groups include:
+
+    Arithmetic
+    Trigonometry
+    Conversions
+    Boolean Logic
+    Statistics
+    Flow Control
+    File I/O
+    Persistence
+    Constants
+    Variables
+    Sequences
+    Selection
+    Random Numbers
+    Date / Time
+    Financial Functions
+    Number Theory
+    Scientific Libraries
+
+
+Next Release
+------------
+
+Version 3.5.0
+
+User-Defined Functions
+
+Planned:
+
+    def
+    undef
+
+    functions
+
+    savefuncs
+    loadfuncs
+
+    Function persistence
+
+    Bare-word function execution

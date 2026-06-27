@@ -1,0 +1,11 @@
+# Functions Tutorial
+
+Functions allow reusable sequences of commands.
+
+## Example
+
+    def double
+    2 *
+    end
+
+    21 double

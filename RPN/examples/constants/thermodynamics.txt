@@ -1,0 +1,12 @@
+# Thermodynamics Constants
+
+metadata: category="Thermodynamics"
+metadata: source="Common thermodynamics reference values"
+metadata: revision="2026-06"
+
+gas_constant_R = 8.314462618 ; units="J/(mol*K)" ; description="Universal gas constant"
+stefan_boltzmann_constant = 5.670374419e-8 ; units="W/(m^2*K^4)" ; category="Physics" ; description="Stefan-Boltzmann constant"
+absolute_zero_c = -273.15 ; units="degC" ; description="Absolute zero in Celsius"
+absolute_zero_f = -459.67 ; units="degF" ; description="Absolute zero in Fahrenheit"
+standard_pressure = 101325 ; units="Pa" ; description="Standard atmospheric pressure"
+standard_temperature = 273.15 ; units="K" ; description="Standard temperature"

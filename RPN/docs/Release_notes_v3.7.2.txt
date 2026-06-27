@@ -1,0 +1,20 @@
+Overview
+
+New Commands
+    inverse
+    invm
+
+Implementation
+    cofactor matrix
+    adjugate matrix
+    determinant-based inversion
+
+Validation
+    square matrices only
+    singular matrix rejection
+
+Testing
+    t/30_MatrixInverse.t
+
+Next Release
+    3.7.3 Matrix / Vector Operations

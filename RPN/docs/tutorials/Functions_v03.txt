@@ -1,0 +1,423 @@
+# Functions Tutorial
+
+Functions allow reusable sequences of commands to be stored under a name.
+
+Instead of entering the same commands repeatedly, a function can be defined once and used whenever needed.
+
+Functions are useful when:
+
+* A calculation is performed repeatedly
+* A sequence of commands is cumbersome to type
+* A common operation deserves a meaningful name
+* A calculation should be documented and reused
+
+Functions are one of the most powerful features of the calculator.
+
+---
+
+## What Is A Function?
+
+A function is simply a named sequence of calculator commands.
+
+For example:
+
+define double
+2 *
+end
+
+creates a function named:
+
+double
+
+When invoked:
+
+21 double
+
+the calculator behaves as if you had entered:
+
+21 2 *
+
+Result:
+
+42
+
+---
+
+## Creating A Function
+
+Functions are defined using:
+
+define
+
+and terminated using:
+
+end
+
+Example:
+
+define double
+2 *
+end
+
+The function is now available immediately.
+
+---
+
+## Calling A Function
+
+Once defined, a function behaves like a built-in command.
+
+Example:
+
+21 double
+
+Result:
+
+42
+
+Functions may be used anywhere a normal command may be used.
+
+---
+
+## A More Useful Example
+
+Define a square function:
+
+define square
+dup *
+end
+
+Use it:
+
+5 square
+
+Result:
+
+25
+
+Because:
+
+dup *
+
+duplicates the value and multiplies it by itself.
+
+---
+
+## Functions Operate On The Stack
+
+Functions do not have named parameters.
+
+Instead, they work with values already on the stack.
+
+Example:
+
+define add10
+10 +
+end
+
+Usage:
+
+7 add10
+
+Result:
+
+17
+
+The function expects a value to already be present on the stack.
+
+This is one of the strengths of Reverse Polish Notation.
+
+---
+
+## Functions Can Use Variables
+
+Functions and variables work well together.
+
+Example:
+
+0.07
+sto tax_rate
+
+Define:
+
+define add_tax
+1 tax_rate + *
+end
+
+Usage:
+
+100 add_tax
+
+Result:
+
+107
+
+The function uses the current value of the variable whenever it runs.
+
+---
+
+## Functions Can Call Other Functions
+
+Functions may invoke previously-defined functions.
+
+Example:
+
+define square
+dup *
+end
+
+Define:
+
+define fourth
+square square
+end
+
+Usage:
+
+2 fourth
+
+Result:
+
+16
+
+Because:
+
+2² = 4
+4² = 16
+
+Building larger functions from smaller functions is encouraged.
+
+---
+
+## Viewing Defined Functions
+
+To list all user-defined functions:
+
+funcs
+
+Example output:
+
+Name               Body
+------------------ -------------------------
+double             2 *
+square             dup *
+add10              10 +
+
+This is useful when returning to a calculator session after some time away.
+
+---
+
+## Function Names
+
+Good function names describe their purpose:
+
+double
+square
+cube
+add_tax
+circle_area
+monthly_payment
+
+Less helpful names:
+
+f1
+test
+foo
+bar
+
+A descriptive name makes calculations easier to understand later.
+
+---
+
+## Redefining Functions
+
+A function may be redefined.
+
+Example:
+
+define double
+2 *
+end
+
+Later:
+
+define double
+dup +
+end
+
+The new definition replaces the previous one.
+
+Both implementations happen to produce the same result, but the original definition is lost.
+
+---
+
+## Functions And Persistence
+
+User-defined functions are automatically saved.
+
+When the calculator exits:
+
+double
+square
+circle_area
+
+are written to the functions file.
+
+When the calculator starts again, those functions are automatically restored.
+
+This allows you to build a personal library of useful functions over time.
+
+---
+
+## Functions vs Variables
+
+Variables store:
+
+values
+
+Examples:
+
+radius
+tax_rate
+answer
+
+Functions store:
+
+commands
+
+Examples:
+
+square
+double
+add_tax
+
+Variables remember data.
+
+Functions remember procedures.
+
+---
+
+## Functions vs Aliases
+
+An alias provides an alternate name for a command.
+
+Example:
+
+determinant
+det
+
+Both perform the same built-in operation.
+
+Functions, on the other hand, are created by the user and may contain arbitrary command sequences.
+
+---
+
+## Common Mistakes
+
+### Forgetting Stack Requirements
+
+Consider:
+
+define square
+dup *
+end
+
+This requires a value on the stack.
+
+Valid:
+
+5 square
+
+Invalid:
+
+square
+
+because there is nothing to duplicate.
+
+Always consider what values a function expects.
+
+---
+
+### Infinite Recursion
+
+A function should generally not call itself.
+
+Example:
+
+define bad
+bad
+end
+
+This creates an endless loop of function calls.
+
+---
+
+### Choosing Poor Names
+
+Avoid names that do not describe the purpose of the function.
+
+Future-you will appreciate meaningful names.
+
+---
+
+## Building A Personal Library
+
+Many users gradually create functions such as:
+
+square
+cube
+circle_area
+sphere_volume
+fahrenheit
+celsius
+tip
+mortgage
+
+Over time these become a personalized extension of the calculator.
+
+---
+
+## Common Explorations
+
+Try:
+
+define double
+2 *
+end
+
+21 double
+
+Then:
+
+define square
+dup *
+end
+
+5 square
+
+Then:
+
+funcs
+
+Observe how user-defined functions become indistinguishable from built-in commands.
+
+---
+
+## Where To Go Next
+
+After completing this tutorial consider:
+
+tutorial variables
+tutorial constants
+
+Functions become even more powerful when combined with variables and constants.
+
+To see all function-related commands:
+
+help type function
+
+or:
+
+help type utility
+
+depending on how your installation categorizes function commands.

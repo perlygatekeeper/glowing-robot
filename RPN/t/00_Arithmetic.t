@@ -100,4 +100,311 @@ $calc->process_input('10');
 $calc->process_input('exponentiate');
 is($calc->stack->peek, 1024, '2 10 exponentiate = 1024');
 
+#
+# ln
+#
+
+$calc->process_input('1');
+$calc->process_input('ln');
+
+ok(
+    abs($calc->stack->pop) < 1e-10,
+    'ln(1) = 0'
+);
+
+#
+# exp
+#
+
+$calc->process_input('0');
+$calc->process_input('exp');
+
+ok(
+    abs($calc->stack->pop - 1) < 1e-10,
+    'exp(0) = 1'
+);
+
+#
+# exp(ln(x))
+#
+
+$calc->process_input('5');
+$calc->process_input('ln');
+$calc->process_input('exp');
+
+ok(
+    abs($calc->stack->pop - 5) < 1e-10,
+    'exp(ln(5)) = 5'
+);
+
+#
+# log
+#
+
+$calc->process_input('1000');
+$calc->process_input('log');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'log10(1000) = 3'
+);
+
+#
+# inv
+#
+
+$calc->process_input('4');
+$calc->process_input('inv');
+
+ok(
+    abs($calc->stack->pop - 0.25) < 1e-10,
+    'inv(4) = 0.25'
+);
+
+#
+# abs positive
+#
+
+$calc->process_input('5');
+$calc->process_input('abs');
+
+is(
+    $calc->stack->pop,
+    5,
+    'abs(5) = 5'
+);
+
+#
+# abs negative
+#
+
+$calc->process_input('-5');
+$calc->process_input('abs');
+
+is(
+    $calc->stack->pop,
+    5,
+    'abs(-5) = 5'
+);
+
+#
+# log2
+#
+
+$calc->process_input('8');
+$calc->process_input('log2');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'log2(8) = 3'
+);
+
+#
+# exp10
+#
+
+$calc->process_input('3');
+$calc->process_input('exp10');
+
+ok(
+    abs($calc->stack->pop - 1000) < 1e-10,
+    'exp10(3) = 1000'
+);
+
+#
+# sqr
+#
+
+$calc->process_input('5');
+$calc->process_input('sqr');
+
+is(
+    $calc->stack->pop,
+    25,
+    'sqr(5) = 25'
+);
+
+#
+# cube
+#
+
+$calc->process_input('3');
+$calc->process_input('cube');
+
+is(
+    $calc->stack->pop,
+    27,
+    'cube(3) = 27'
+);
+
+#
+# cbrt positive
+#
+
+$calc->process_input('27');
+$calc->process_input('cbrt');
+
+ok(
+    abs($calc->stack->pop - 3) < 1e-10,
+    'cbrt(27) = 3'
+);
+
+#
+# cbrt negative
+#
+
+$calc->process_input('-8');
+$calc->process_input('cbrt');
+
+ok(
+    abs($calc->stack->pop + 2) < 1e-10,
+    'cbrt(-8) = -2'
+);
+
+#
+# sign
+#
+
+$calc->process_input('5');
+$calc->process_input('sign');
+is($calc->stack->pop, 1, 'sign(5) = 1');
+
+$calc->process_input('-5');
+$calc->process_input('sign');
+is($calc->stack->pop, -1, 'sign(-5) = -1');
+
+$calc->process_input('0');
+$calc->process_input('sign');
+is($calc->stack->pop, 0, 'sign(0) = 0');
+
+#
+# floor
+#
+
+$calc->process_input('3.7');
+$calc->process_input('floor');
+is($calc->stack->pop, 3, 'floor(3.7) = 3');
+
+$calc->process_input('-3.7');
+$calc->process_input('floor');
+is($calc->stack->pop, -4, 'floor(-3.7) = -4');
+
+#
+# ceil
+#
+
+$calc->process_input('3.2');
+$calc->process_input('ceil');
+is($calc->stack->pop, 4, 'ceil(3.2) = 4');
+
+$calc->process_input('-3.2');
+$calc->process_input('ceil');
+is($calc->stack->pop, -3, 'ceil(-3.2) = -3');
+
+#
+# round
+#
+
+$calc->process_input('3.5');
+$calc->process_input('round');
+is($calc->stack->pop, 4, 'round(3.5) = 4');
+
+$calc->process_input('3.4');
+$calc->process_input('round');
+is($calc->stack->pop, 3, 'round(3.4) = 3');
+
+$calc->process_input('-3.5');
+$calc->process_input('round');
+is($calc->stack->pop, -4, 'round(-3.5) = -4');
+
+$calc->process_input('-3.4');
+$calc->process_input('round');
+is($calc->stack->pop, -3, 'round(-3.4) = -3');
+
+#
+# trunc
+#
+
+$calc->process_input('3.7');
+$calc->process_input('trunc');
+is($calc->stack->pop, 3, 'trunc(3.7) = 3');
+
+$calc->process_input('-3.7');
+$calc->process_input('trunc');
+is($calc->stack->pop, -3, 'trunc(-3.7) = -3');
+
+#
+# frac
+#
+
+$calc->process_input('3.7');
+$calc->process_input('frac');
+ok(
+    abs($calc->stack->pop - 0.7) < 1e-10,
+    'frac(3.7) = 0.7'
+);
+
+$calc->process_input('-3.7');
+$calc->process_input('frac');
+ok(
+    abs($calc->stack->pop + 0.7) < 1e-10,
+    'frac(-3.7) = -0.7'
+);
+
+#
+# idiv
+#
+
+$calc->process_input('17');
+$calc->process_input('5');
+$calc->process_input('idiv');
+is($calc->stack->pop, 3, '17 5 idiv = 3');
+
+$calc->process_input('-17');
+$calc->process_input('5');
+$calc->process_input('idiv');
+is($calc->stack->pop, -3, '-17 5 idiv = -3');
+
+$calc->process_input('17');
+$calc->process_input('-5');
+$calc->process_input('idiv');
+is($calc->stack->pop, -3, '17 -5 idiv = -3');
+
+$calc->process_input('-17');
+$calc->process_input('-5');
+$calc->process_input('idiv');
+is($calc->stack->pop, 3, '-17 -5 idiv = 3');
+
+#
+# mod
+#
+
+$calc->process_input('17');
+$calc->process_input('5');
+$calc->process_input('mod');
+is($calc->stack->pop, 2, '17 5 mod = 2');
+
+#
+# hypot
+#
+
+$calc->process_input('3');
+$calc->process_input('4');
+$calc->process_input('hypot');
+
+ok(
+    abs($calc->stack->pop - 5) < 1e-10,
+    '3 4 hypot = 5'
+);
+
+$calc->process_input('5');
+$calc->process_input('12');
+$calc->process_input('hypot');
+
+ok(
+    abs($calc->stack->pop - 13) < 1e-10,
+    '5 12 hypot = 13'
+);
+
 done_testing();
+

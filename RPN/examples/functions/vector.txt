@@ -1,0 +1,54 @@
+# RPN Example Functions: Vectors
+#
+# These functions assume vector support from v3.6.0.
+# Load with:
+#
+#   loadfuncs examples/functions/vectors.txt
+#
+# These are examples only and are not loaded automatically.
+
+# Distance between two vectors:
+#   <a> <b> distance
+#
+# Equivalent to:
+#   a b vsub magnitude
+
+distance = vsub magnitude
+
+
+# Unit vector in the same direction:
+#
+#   <v> unit_vector
+
+unit_vector = normalize
+
+
+# Double a vector:
+#
+#   <v> double_vector
+
+double_vector = 2 vscale
+
+
+# Triple a vector:
+#
+#   <v> triple_vector
+
+triple_vector = 3 vscale
+
+
+# Midpoint between two vectors:
+#
+#   <a> <b> midpoint
+#
+# Equivalent to:
+#   a b vadd 0.5 vscale
+
+midpoint = vadd 0.5 vscale
+
+
+# Dot product alias example:
+#
+#   <a> <b> projection_scalar
+
+projection_scalar = dot
