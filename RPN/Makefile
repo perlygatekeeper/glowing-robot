@@ -31,7 +31,7 @@ DEVELOPER := docs/Developer/
 RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 ROADMAP       := $(shell ls docs/Roadmap*.txt)
 
-.PHONY: backup syntax run test clean size size-modules
+.PHONY: backup syntax run test docs-check clean size size-modules
 
 backup:
 	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
@@ -55,18 +55,21 @@ run:
 test: syntax
 	prove -Ilib t
 
+docs-check:
+	$(PERL) -Ilib tools/tutorial_audit.pl
+
 version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
 
 gitadd:
 	git add Makefile $(SCRIPT) \
 	$(MODS) \
-	$(TESTDIR)/*.t \
-	$(DOCS)/*.txt \
-	$(DEVELOPER)/*.txt \
-	$(TUTORIALS)/*.txt \
-	$(CONSTANTS)/*.txt \
-	$(EXAMPLES)/*/*
+	$(TESTDIR)*.t \
+	$(DOCS)*.txt \
+	$(DEVELOPER)*.txt \
+	$(TUTORIALS)*.txt \
+	$(CONSTANTS)*.txt \
+	$(EXAMPLES)*/*
 	git status
 
 perl-version:

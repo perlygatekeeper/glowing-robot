@@ -12,28 +12,29 @@ sub new_calc {
     return RPN->new(no_readline => 1, @_);
 }
 
+# my $calc = new_calc(prompt => 'RPN> ');
 my $calc = new_calc();
 is($calc->prompt, 'RPN> ', 'default prompt is RPN>');
 is($calc->current_prompt, 'RPN> ', 'current_prompt returns default prompt');
 
 $calc = new_calc(prompt => 'Input [%TOS%] ');
-is($calc->prompt, 'Input [-EMPTY-] ', 'empty stack expands TOS to -EMPTY-');
+is($calc->prompt, 'Input [-EMPTY-] ', 'empty stack expands %TOS% to -EMPTY-');
 
 $calc->stack->push(42);
-is($calc->prompt, 'Input [42] ', 'numeric top of stack expands into prompt');
+is($calc->prompt, 'Input [42] ', 'numeric top of stack expands into prompt with %TOS%');
 
 $calc = new_calc(prompt => 'RPN[%DEPTH%]> ');
-is($calc->prompt, 'RPN[0]> ', 'DEPTH expands for empty stack');
+is($calc->prompt, 'RPN[0]> ', '%DEPTH expands for empty stack');
 $calc->stack->push(1, 2, 3);
-is($calc->prompt, 'RPN[3]> ', 'DEPTH expands for populated stack');
+is($calc->prompt, 'RPN[3]> ', '%DEPTH expands for populated stack');
 
-$calc = new_calc(prompt => '%StackName%> ');
+$calc = new_calc(prompt => '%STACKNAME%> ');
 my $initial_stack_name = $calc->stack->current_name;
-is($calc->prompt, "$initial_stack_name> ", 'StackName expands to current stack name');
+is($calc->prompt, "$initial_stack_name> ", '%STACKNAME% expands to current stack name');
 $calc->stack->switch('scratch');
-is($calc->prompt, 'scratch> ', 'StackName expands to current named stack');
+is($calc->prompt, 'scratch> ', '%STACKNAME% expands to current named stack');
 
-$calc = new_calc(prompt => '%StackName% [%DEPTH%] %TOS% > ');
+$calc = new_calc(prompt => '%STACKNAME% [%DEPTH%] %TOS% > ');
 $initial_stack_name = $calc->stack->current_name;
 is($calc->prompt, "$initial_stack_name [0] -EMPTY- > ", 'multiple prompt substitutions expand together');
 $calc->stack->push('hello');

@@ -25,11 +25,11 @@ sub new {
         || '.';
 
     my $self = {
-        version             => '3.8.5.1',
+        version             => '3.8.6',
         debug               => 0,
         angle_mode          => 'radians',
         install_dir         => $install_dir,
-        prompt_template    => exists $args{prompt} ? $args{prompt} : 'RPN> ',
+        prompt_template     => exists $args{prompt} ? $args{prompt} : 'RPN> ',
         commands            => undef,
         term                => undef,
         stack               => RPN::Stack->new(),
@@ -394,7 +394,7 @@ sub current_prompt {
     my %tokens = (
         TOS       => sub { $self->prompt_tos },
         DEPTH     => sub { $self->stack->depth },
-        StackName => sub { $self->stack->current_name },
+        STACKNAME => sub { $self->stack->current_name },
     );
 
     $prompt =~ s/%([^%]+)%/

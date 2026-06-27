@@ -12,9 +12,9 @@ use RPN;
 # See lib/RPN.pm, lib/RPN/Stack.pm, lib/RPN/Commands.pm for implementation.
 # usage: rpn.pl [--version]
 
-our $VERSION = '3.8.5.1';
+our $VERSION = '3.8.6';
 my $AUTHOR        = 'Dr. Steven Parker';
-my $LAST_MOD_DATE = 'Fri, Jun 26, 2026';
+my $LAST_MOD_DATE = 'Sat, Jun 27, 2026';
 
 if (@ARGV && $ARGV[0] =~ /^--v(ersion)?/i) {
     printf "rpn.pl written by %s, version %s, last modified %s.\n",
@@ -24,5 +24,6 @@ if (@ARGV && $ARGV[0] =~ /^--v(ersion)?/i) {
 
 my $calc = RPN->new(
     install_dir => $RealBin,
+    prompt      => " RPN [%TOS%] ",
 );
 $calc->run();

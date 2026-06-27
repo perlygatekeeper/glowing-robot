@@ -757,17 +757,50 @@ The calculator now includes:
 * Comprehensive tutorials
 * Modernized example libraries
 
-Version 3.8.6 will build upon this foundation with new calculator functionality rather than further infrastructure work.
+## Version 3.8.6 - 3.8.7 prepwork, command renaming, add customizable prompt, rewrite tutorial examples
 
+### Goals
 
-
-### Version 3.8.6 - Iteration and Higher-Order Operations
+[x] Make the calculator self-locating using FindBin/$RealBin.
+[x] Remove dependency on the current working directory for tutorials,
+    examples, and constants.
+[x] Add public accessors for installation and resource directories.
+[x] Rename sequence commands:
+        range
+        rangeby
+    with sequence and sequenceby retained as aliases.
+[x] Rename the statistical range command to:
+        spread
+    with span provided as an alias.
 
 [x] Rename statistical range to spread
 [x] Add span alias for spread
 [x] Make range the primary sequence command
 [x] Make rangeby the primary stepped sequence command
 [x] Keep sequence and sequenceby as compatibility aliases
+
+[x] Modernize the interactive prompt.
+[x] Default prompt is now:
+        RPN>
+[x] Add prompt substitution tokens:
+        %TOS%
+        %DEPTH%
+        %StackName%
+[x] Update tutorials to display the canonical interactive prompt.
+[x] Add tutorial auditing tools to help ensure documentation and
+    implementation remain synchronized.
+
+### Notes
+
+Version 3.8.6 focuses on portability, usability, documentation quality,
+and preparing the project for future language enhancements. It provides
+the architectural foundation for the planned first-class code block and
+functional programming work scheduled for Version 3.8.7.
+
+### Version 3.8.7 
+
+
+### Version 3.8.7 - Iteration and Higher-Order Operations
 [ ] Add map for vector transformations
 [ ] Add filter for vector selection
 [ ] Add reduce for combining vector elements
