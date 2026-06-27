@@ -137,3 +137,24 @@ Whenever practical:
 * update documentation when interfaces change
 
 The automated test suite assumes these interfaces remain stable.
+
+## Constant Metadata API
+
+Beginning with Version 3.8.5, constants may contain arbitrary metadata in
+addition to their numeric value.
+
+The parser recognizes several metadata fields (`units`, `category`, and
+`description`), but implementations **must preserve all metadata fields**,
+including unknown keys.
+
+Unknown metadata is considered part of the persistent public file format and
+must not be discarded during loading, saving, or manipulation of constants.
+
+Metadata inheritance established by `metadata:` directives applies only while
+parsing a constants file. Metadata attached directly to a constant always takes
+precedence over inherited metadata.
+
+This guarantees forward compatibility between releases and allows future
+versions of the calculator to introduce new metadata fields without breaking
+existing constant libraries or third-party tools.
+
