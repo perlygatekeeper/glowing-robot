@@ -1,0 +1,535 @@
+Command            Type         Help
+------------------ ------------ ----------------------------------------
+!=                 boolean      numeric comparison !=
+<                  boolean      numeric comparison <
+<=                 boolean      numeric comparison <=
+<=>                boolean      numeric comparison <=>
+==                 boolean      numeric comparison ==
+>                  boolean      numeric comparison >
+>=                 boolean      numeric comparison >=
+cmp                boolean      string comparison cmp
+eq                 boolean      string comparison eq
+ge                 boolean      string comparison ge
+gt                 boolean      string comparison gt
+le                 boolean      string comparison le
+lt                 boolean      string comparison lt
+ne                 boolean      string comparison ne
+binomcdf           combinatorics cumulative binomial probability: n k p binomcdf
+binompdf           combinatorics binomial probability: n k p binompdf
+factorial          combinatorics factorial: n factorial aliases: fact
+ncr                combinatorics combinations: n r ncr aliases: binom, comb
+npr                combinatorics permutations: n r npr aliases: permute
+constants          constant     list, push, define, or browse constants aliases: const
+constinfo          constant     show value and metadata for one constant
+delconst           constant     delete a user-defined constant
+loadconst          constant     load user constants from a file: loadconst [file]
+saveconst          constant     save user constants: saveconst [file]
+celsius_fahrenheit conversion   convert Celsius to Fahrenheit aliases: ctof
+centimeter_inch    conversion   convert centimeters to inches aliases: ctoi
+degrees_radians    conversion   convert degrees to radians aliases: dtor
+fahrenheit_celsius conversion   convert Fahrenheit to Celsius aliases: ftoc
+gram_ounce         conversion   convert grams to ounces aliases: gtoo
+inch_centimeter    conversion   convert inches to centimeters aliases: itoc
+kilogram_pound     conversion   convert kilograms to pounds aliases: ktop
+kilometer_mile     conversion   convert kilometers to miles aliases: ktom
+liter_quart        conversion   convert liters to quarts aliases: ltoq
+mile_kilometer     conversion   convert miles to kilometers aliases: mtok
+ounce_gram         conversion   convert ounces to grams aliases: otog
+pound_kilogram     conversion   convert pounds to kilograms aliases: ptok
+quart_liter        conversion   convert quarts to liters aliases: qtol
+radians_degrees    conversion   convert radians to degrees aliases: rtod
+datetime           datetime     push current date and time as YYYY-MM-DD HH:MM:SS
+now                datetime     push current epoch time
+time               datetime     push current time as HH:MM:SS
+today              datetime     push current date as YYYY-MM-DD
+quickstart         documentation display the quick reference guide
+tutorial           documentation display a tutorial: tutorial <name>
+tutorials          documentation list available tutorials
+fv                 financial    future value: pv rate nper fv
+nper               financial    number of periods: pv rate pmt nper
+pmt                financial    loan payment: pv rate nper pmt
+pv                 financial    present value: fv rate nper pv
+rate               financial    periodic growth rate: pv fv nper rate
+execute            flow         executes the string on top of the stack as an RPN command aliases: exec
+if                 flow         pops boolean and command; executes command if boolean is true aliases: ifthen
+ifelse             flow         pops boolean and two commands; executes first command if true, second if false
+define             function     define a user function: define <name> <body> aliases: def
+functions          function     list user-defined functions aliases: funcs
+loadfuncs          function     load user-defined functions from disk: loadfuncs [file]
+savefuncs          function     save user-defined functions to disk: savefuncs [file]
+showfunc           function     show the definition of a function
+undef              function     delete a user function
+appendcsv          io           append current stack to a CSV file
+readcolumn         io           read one numeric column from a CSV file by column number or header name
+readcsv            io           read numeric values from a CSV file and push them onto the stack
+readnums           io           read numeric tokens from a file and push them onto the stack
+writecsv           io           write current stack to a CSV file
+cols               matrix       replace a matrix with its column count
+determinant        matrix       compute determinant of a square matrix aliases: det
+inverse            matrix       compute inverse of a square non-singular matrix aliases: invm
+loadmatrix         matrix       load a matrix from a file: loadmatrix <file>
+madd               matrix       add two matrices of the same dimensions
+matcols            matrix       create a matrix from N column vectors: N matcols
+matparse           matrix       parse a matrix literal from the stack: [[1,2],[3,4]] matparse
+matrix             matrix       create a matrix from N row vectors: N matrix
+mmul               matrix       multiply matrices, matrix/vector, or vector/matrix operands
+mpow               matrix       raise a square matrix to a non-negative integer power: matrix n mpow
+msub               matrix       subtract top matrix from second matrix
+rows               matrix       replace a matrix with its row count
+transpose          matrix       transpose a matrix aliases: trans
+divisors           number_theory replace top value with its positive divisors
+factor             number_theory replace top value with its prime factors aliases: factors
+gcd                number_theory replace top two values with their greatest common divisor
+isprime            number_theory push 1 if top value is prime, otherwise 0
+lcm                number_theory replace top two values with their least common multiple
+mertens            number_theory Mertens function: n mertens
+mobius             number_theory Möbius function: n mobius
+nextprime          number_theory replace top value with next prime greater than it aliases: prime
+prevprime          number_theory replace top value with previous prime less than it
+primorial          number_theory product of all primes <= n: n primorial
+totient            number_theory replace top value with Euler totient phi(n) aliases: eulerphi
+abs                numeric      absolute value
+add                numeric      pops two numbers and pushes their sum aliases: +
+beta               numeric      beta function: x y beta computes B(x,y)
+cbrt               numeric      cube root
+ceil               numeric      round up
+cube               numeric      cube a value
+decrement          numeric      decrements the number on top of the stack
+divide             numeric      pops two numbers and pushes their quotient aliases: /
+erf                numeric      error function: erf(x)
+erfc               numeric      complementary error function: erfc(x)
+exp                numeric      e raised to x
+exp10              numeric      10 raised to x
+exponentiate       numeric      raises the second stack value to the power of the top stack value aliases: **, ^
+floor              numeric      round down
+frac               numeric      fractional portion
+gamma              numeric      gamma function: Gamma(x)
+hypot              numeric      sqrt(x^2 + y^2)
+idiv               numeric      integer division, truncated toward zero
+increment          numeric      increments the number on top of the stack
+inv                numeric      reciprocal (1/x)
+j0                 numeric      Bessel function of the first kind, order 0: J0(x)
+j1                 numeric      Bessel function of the first kind, order 1: J1(x)
+jn                 numeric      Bessel function of the first kind: x n jn computes Jn(x)
+lgamma             numeric      natural logarithm of the gamma function: ln(Gamma(x))
+ln                 numeric      natural logarithm
+log                numeric      base-10 logarithm
+log2               numeric      base-2 logarithm
+modulo             numeric      pops two numbers and pushes their modulus aliases: mod, %
+multiply           numeric      pops two numbers and pushes their product aliases: *
+negate             numeric      negates the number on top of the stack
+round              numeric      nearest integer
+sign               numeric      sign of value (-1, 0, +1)
+sqr                numeric      square a value
+square             numeric      squares the number on top of the stack
+squareroot         numeric      replaces the number on top of the stack with its square root aliases: sqrt, sqr
+subtract           numeric      pops two numbers and pushes their difference aliases: -
+trunc              numeric      truncate toward zero
+y0                 numeric      Bessel function of the second kind, order 0: Y0(x)
+y1                 numeric      Bessel function of the second kind, order 1: Y1(x)
+yn                 numeric      Bessel function of the second kind: x n yn computes Yn(x)
+choose             random       copy a random stack element to the top
+rand               random       push a random floating point number in the range [0,1)
+randint            random       push a random integer; randint N gives 1..N, randint A B gives A..B
+seed               random       seed the random number generator
+range              sequence     generate a sequence from start to stop aliases: .., seq, sequence
+rangeby            sequence     generate a numeric sequence with explicit step aliases: ..., seqby, sequenceby
+clear              stack        empties the stack aliases: clr
+clearall           stack        clear all stacks and return to the default stack
+clearstack         stack        clear named stack: clearstack <name>
+copystack          stack        copy stack: copystack <src> <dst>
+deletestack        stack        delete a named stack: deletestack <name> aliases: dropstack, rmstack
+depth              stack        pushes the current stack depth onto the stack
+duplicate          stack        duplicates the number on top of the stack aliases: dup
+dupstack           stack        duplicate current stack: dupstack <dst>
+exchange           stack        swaps the top two values on the stack aliases: x, swap
+mergestacks        stack        append source stack onto destination: mergestacks <src> <dst>
+pick               stack        copy value at depth N to the top of the stack
+pop                stack        remove one or more values from the top of the stack aliases: drop
+pour               stack        pour source stack onto destination, reversing order: pour <src> <dst>
+pullup             stack        move value at depth N to the top of the stack aliases: rollup
+pushdown           stack        move the top value down to depth N
+renamestack        stack        rename stack: renamestack <old> <new> aliases: movestack
+reverse            stack        reverse the current stack
+roll               stack        circularly rotate the whole stack by N positions; default is -1
+shuffle            stack        randomly shuffle the current stack
+sort               stack        sort the stack; sort -1 reverses order
+stack              stack        (stack NAME) switches stacks, (stack list) lists stacks, (stack) reports current stack
+stackexists        stack        return true if named stack exists: stackname stackexists
+stackinfo          stack        display information about all stacks
+stacksize          stack        push depth of named stack: stackname stacksize
+unique             stack        remove duplicate values while preserving order
+average            statistics   replaces the entire stack with the average of its values aliases: avg
+count              statistics   pushes the current stack depth onto the stack
+maximum            statistics   replaces the entire stack with the maximum value aliases: max
+median             statistics   replaces the entire stack with the median value
+minimum            statistics   replaces the entire stack with the minimum value aliases: min
+product            statistics   replaces the entire stack with the product of its values
+spread             statistics   replaces the entire stack with maximum minus minimum aliases: span
+stddev             statistics   replaces the entire stack with the population standard deviation aliases: stdev
+sum                statistics   replaces the entire stack with the sum of its values
+variance           statistics   replaces the entire stack with the population variance aliases: var
+join               string       join array/vector elements with delimiter: list delimiter join
+length             string       string length
+lower              string       convert string to lowercase
+ltrim              string       remove leading whitespace
+match              string       regex match: string pattern match
+repeat             string       repeat string N times: string n repeat
+replace            string       literal replace first occurrence: string old new replace
+rtrim              string       remove trailing whitespace
+search             string       return first regex match: string pattern search
+split              string       split string by delimiter: string delimiter split
+strrev             string       reverse a string
+subst              string       regex replace first match: string pattern replacement subst
+trim               string       remove leading and trailing whitespace
+upper              string       convert string to uppercase
+acosh              trig         inverse hyperbolic cosine
+asinh              trig         inverse hyperbolic sine
+atanh              trig         inverse hyperbolic tangent
+cosh               trig         hyperbolic cosine
+cosine             trig         replaces the number on top of the stack with its cosine aliases: cos
+degrees            trig         sets angle mode to degrees
+radians            trig         sets angle mode to radians
+sine               trig         replaces the number on top of the stack with its sine aliases: sin
+sinh               trig         hyperbolic sine
+tangent            trig         replaces the number on top of the stack with its tangent aliases: tan
+tanh               trig         hyperbolic tangent
+abbreviations      utility      lists shortest usable abbreviations for commands aliases: abbrevs
+aliases            utility      lists commands that have aliases
+binary             utility      prints the top value in binary without popping it aliases: bin
+decimal            utility      prints the top value as a decimal integer without popping it aliases: dec
+help               utility      prints help for all commands, one command, or one type aliases: ?
+hexadecimal        utility      prints the top value in hexadecimal without popping it aliases: hex
+history            utility      prints command history aliases: hist
+noop               utility      no operation
+octal              utility      prints the top value in octal without popping it aliases: oct
+peek               utility      prints top value on stack without popping it aliases: .
+peekall            utility      prints the entire stack without changing it aliases: :
+peekf              utility      prints the top value using a printf format without popping it
+print              utility      pops and prints the top value on the stack
+printf             utility      pops and prints the top value using a printf format
+quit               utility      exits the program aliases: exit, bye, ZZ
+save               utility      saves history and stacks
+types              utility      list command types
+version            utility      prints calculator version aliases: ver
+delvar             variable     delete a stored variable
+loadvars           variable     load variables from disk: loadvars [file]
+recall             variable     recall a variable and push it onto the stack aliases: rcl
+savevars           variable     save variables to disk: savevars [file]
+store              variable     store the top stack value in a variable aliases: sto
+variables          variable     list stored variables aliases: vars
+cross              vector       cross product of two 3D vectors
+dim                vector       replace a vector with its dimension
+dot                vector       dot product of two vectors
+magnitude          vector       replace a vector with its magnitude aliases: mag
+normalize          vector       replace a vector with a unit vector in the same direction aliases: unit
+vadd               vector       add two vectors of the same dimension
+vec2               vector       create a 2D vector from top two stack values
+vec3               vector       create a 3D vector from top three stack values
+vector             vector       create a vector from N stack values: N vector
+vscale             vector       scale a vector by a scalar: vector scalar vscale
+vsub               vector       subtract top vector from second vector
+
+Command            Aliases
+------------------ ------------------------------
+abbreviations      abbrevs
+add                +
+average            avg
+binary             bin
+celsius_fahrenheit ctof
+centimeter_inch    ctoi
+clear              clr
+constants          const
+cosine             cos
+decimal            dec
+define             def
+degrees_radians    dtor
+deletestack        dropstack, rmstack
+determinant        det
+divide             /
+duplicate          dup
+exchange           x, swap
+execute            exec
+exponentiate       **, ^
+factor             factors
+factorial          fact
+fahrenheit_celsius ftoc
+functions          funcs
+gram_ounce         gtoo
+help               ?
+hexadecimal        hex
+history            hist
+if                 ifthen
+inch_centimeter    itoc
+inverse            invm
+kilogram_pound     ktop
+kilometer_mile     ktom
+liter_quart        ltoq
+magnitude          mag
+maximum            max
+mile_kilometer     mtok
+minimum            min
+modulo             mod, %
+multiply           *
+ncr                binom, comb
+nextprime          prime
+normalize          unit
+npr                permute
+octal              oct
+ounce_gram         otog
+peek               .
+peekall            :
+pop                drop
+pound_kilogram     ptok
+pullup             rollup
+quart_liter        qtol
+quit               exit, bye, ZZ
+radians_degrees    rtod
+range              .., seq, sequence
+rangeby            ..., seqby, sequenceby
+recall             rcl
+renamestack        movestack
+sine               sin
+spread             span
+squareroot         sqrt, sqr
+stddev             stdev
+store              sto
+subtract           -
+tangent            tan
+totient            eulerphi
+transpose          trans
+variables          vars
+variance           var
+version            ver
+
+Command            Shortest
+------------------ --------------------
+!=                 !-=
+<                  <
+<=                 <=
+<=>                <=>
+==                 =-=
+>                  >
+>=                 >=
+abbreviations      abb-reviations
+abs                abs
+acosh              ac-osh
+add                ad-d
+aliases            al-iases
+appendcsv          ap-pendcsv
+asinh              as-inh
+atanh              at-anh
+average            av-erage
+beta               be-ta
+binary             bin-ary
+binomcdf           binomc-df
+binompdf           binomp-df
+cbrt               cb-rt
+ceil               cei-l
+celsius_fahrenheit cel-sius_fahrenheit
+centimeter_inch    cen-timeter_inch
+choose             ch-oose
+clear              clear
+clearall           cleara-ll
+clearstack         clears-tack
+cmp                cm-p
+cols               col-s
+constants          const-ants
+constinfo          consti-nfo
+copystack          cop-ystack
+cosh               cosh
+cosine             cos-ine
+count              cou-nt
+cross              cr-oss
+cube               cu-be
+datetime           da-tetime
+decimal            dec-imal
+decrement          decr-ement
+define             def-ine
+degrees            degrees
+degrees_radians    degrees_-radians
+delconst           delc-onst
+deletestack        dele-testack
+delvar             delv-ar
+depth              dep-th
+determinant        det-erminant
+dim                dim
+divide             divid-e
+divisors           divis-ors
+dot                do-t
+duplicate          dup-licate
+dupstack           dups-tack
+eq                 eq
+erf                erf
+erfc               erfc
+exchange           exc-hange
+execute            exe-cute
+exp                exp
+exp10              exp1-0
+exponentiate       expo-nentiate
+factor             factor
+factorial          fact-orial
+fahrenheit_celsius fah-renheit_celsius
+floor              fl-oor
+frac               fr-ac
+functions          fu-nctions
+fv                 fv
+gamma              ga-mma
+gcd                gc-d
+ge                 ge
+gram_ounce         gr-am_ounce
+gt                 gt
+help               hel-p
+hexadecimal        hex-adecimal
+history            hi-story
+hypot              hy-pot
+idiv               id-iv
+if                 if
+ifelse             ife-lse
+inch_centimeter    inch-_centimeter
+increment          incr-ement
+inv                inv
+inverse            inve-rse
+isprime            is-prime
+j0                 j0
+j1                 j1
+jn                 jn
+join               jo-in
+kilogram_pound     kilog-ram_pound
+kilometer_mile     kilom-eter_mile
+lcm                lc-m
+le                 le
+length             len-gth
+lgamma             lg-amma
+liter_quart        li-ter_quart
+ln                 ln
+loadconst          loadc-onst
+loadfuncs          loadf-uncs
+loadmatrix         loadm-atrix
+loadvars           loadv-ars
+log                log
+log2               log2
+lower              low-er
+lt                 lt
+ltrim              ltr-im
+madd               mad-d
+magnitude          mag-nitude
+match              match
+matcols            matco-ls
+matparse           matp-arse
+matrix             matr-ix
+maximum            max-imum
+median             med-ian
+mergestacks        merg-estacks
+mertens            mert-ens
+mile_kilometer     mil-e_kilometer
+minimum            min-imum
+mmul               mm-ul
+mobius             mob-ius
+modulo             mod-ulo
+mpow               mp-ow
+msub               ms-ub
+multiply           mu-ltiply
+ncr                nc-r
+ne                 ne
+negate             neg-ate
+nextprime          nex-tprime
+noop               noo-p
+normalize          nor-malize
+now                now
+nper               npe-r
+npr                npr
+octal              oc-tal
+ounce_gram         ou-nce_gram
+peek               peek
+peekall            peeka-ll
+peekf              peekf
+pick               pi-ck
+pmt                pm-t
+pop                pop
+pound_kilogram     poun-d_kilogram
+pour               pour
+prevprime          pre-vprime
+primorial          prim-orial
+print              print
+printf             printf
+product            pro-duct
+pullup             pul-lup
+pushdown           pus-hdown
+pv                 pv
+quart_liter        qua-rt_liter
+quickstart         quic-kstart
+quit               quit
+radians            radians
+radians_degrees    radians_-degrees
+rand               rand
+randint            randi-nt
+range              range
+rangeby            rangeb-y
+rate               rat-e
+readcolumn         readco-lumn
+readcsv            readcs-v
+readnums           readn-ums
+recall             rec-all
+renamestack        ren-amestack
+repeat             repe-at
+replace            repl-ace
+reverse            rev-erse
+roll               rol-l
+round              rou-nd
+rows               row-s
+rtrim              rt-rim
+save               save
+saveconst          savec-onst
+savefuncs          savef-uncs
+savevars           savev-ars
+search             sea-rch
+seed               see-d
+showfunc           sho-wfunc
+shuffle            shu-ffle
+sign               sig-n
+sine               sin-e
+sinh               sinh
+sort               so-rt
+split              spl-it
+spread             spr-ead
+sqr                sqr
+square             square
+squareroot         squarer-oot
+stack              stack
+stackexists        stacke-xists
+stackinfo          stacki-nfo
+stacksize          stacks-ize
+stddev             std-dev
+store              sto-re
+strrev             str-rev
+subst              subs-t
+subtract           subt-ract
+sum                sum
+tangent            tan-gent
+tanh               tanh
+time               ti-me
+today              tod-ay
+totient            tot-ient
+transpose          tra-nspose
+trim               tri-m
+trunc              tru-nc
+tutorial           tutorial
+tutorials          tutorials
+types              ty-pes
+undef              und-ef
+unique             uni-que
+upper              up-per
+vadd               vad-d
+variables          variab-les
+variance           var-iance
+vec2               vec2
+vec3               vec3
+vector             vect-or
+version            ver-sion
+vscale             vsc-ale
+vsub               vsu-b
+writecsv           w-ritecsv
+y0                 y0
+y1                 y1
+yn                 yn

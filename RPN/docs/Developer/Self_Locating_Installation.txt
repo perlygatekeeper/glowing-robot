@@ -1,0 +1,133 @@
+# Self-Locating Installation
+
+## Purpose
+This document describes the transition from a wrapper-script deployment model
+to a self-locating Perl application. It outlines the implementation steps
+required to allow the calculator to find its resources (tutorials, examples,
+constants) regardless of the user's current working directory.
+
+---
+
+## The Problem with the Current Approach
+Currently, the recommended deployment method relies on a shell wrapper script:
+
+    #!/bin/sh
+    cd "$HOME/src/glowing-robot/RPN" || exit 1
+    exec perl5.34 -Ilib ./rpn.pl "$@"
+
+While this works, it has several drawbacks:
+
+* It requires maintaining an extra file outside the project tree.
+
+* It forces the execution environment to change directories, which can cause confusion
+  if the user expects to remain in their original working directory.
+
+* If the wrapper is bypassed or misconfigured, relative paths to
+  docs/, examples/, and constants/ will break.
+
+The Self-Locating Advantage
+
+By using Perl's core FindBin module, the calculator can automatically determine
+its true installation directory at runtime, resolving any symlinks.
+
+This approach:
+
+Eliminates the need for wrapper scripts.
+
+Allows the user to execute rpn from any directory (e.g., cd /tmp && rpn).
+
+Ensures resources are always located relative to the code installation, not the
+user's shell context.
+
+Uses $RealBin instead of $Bin, guaranteeing that symlinked executables (e.g.,
+~/bin/rpn -> ~/src/.../rpn.pl) still resolve to the correct project root.
+
+Implementation Plan
+
+Step 1: Update rpn.pl
+
+Add FindBin to the entry point and pass the resolved installation directory to
+the calculator object.
+
+    #!/usr/bin/env perl
+    use v5.34;
+    use strict;
+    use warnings;
+    use lib 'lib';
+    use FindBin qw($RealBin); # Core module, resolves symlinks
+    use RPN;
+    
+    # ... version handling ...
+    
+    my $calc = RPN->new(
+        install_dir => $RealBin, # Pass the true installation directory
+    );
+    $calc->run();
+
+Step 2: Update lib/RPN.pm Constructor
+
+Accept the install_dir argument and derive all resource directory paths from it.
+
+    sub new {
+        my ($class, %args) = @_;
+    
+        # Default to current directory if not provided (useful for testing)
+        my $install_dir = $args{install_dir} || '.';
+    
+        my $self = {
+            # ... existing fields ...
+            install_dir   => $install_dir,
+            docs_dir      => "$install_dir/docs",
+            tutorials_dir => "$install_dir/docs/tutorials",
+            examples_dir  => "$install_dir/examples",
+            constants_dir => "$install_dir/constants",
+        };
+        bless $self, $class;
+    
+        # ... rest of initialization ...
+        return $self;
+    }
+
+Step 3: Add Accessor Methods
+
+Expose these paths as read-only public methods so command modules can access
+them without reaching into internal hashes.
+
+    sub install_dir   { $_[0]->{install_dir} }
+    sub docs_dir      { $_[0]->{docs_dir} }
+    sub tutorials_dir { $_[0]->{tutorials_dir} }
+    sub examples_dir  { $_[0]->{examples_dir} }
+    sub constants_dir { $_[0]->{constants_dir} }
+
+Step 4: Update Command Modules (Tutorial/Example Loading)
+
+Refactor modules like RPN::Commands::Tutorials to use the new accessors instead
+of hardcoded relative paths.
+
+Before:
+
+    open my $fh, '<', "docs/tutorials/QuickStart_v01.txt"
+        or warn "Cannot read tutorial: $!\n";
+
+After:
+
+    my $file = $calc->tutorials_dir . "/QuickStart_v01.txt";
+    open my $fh, '<', $file
+        or warn "Cannot read tutorial: $!\n";
+
+Step 5: Benefits
+
+Implementing this self-locating architecture provides the following benefits:
+
+True Portability: The calculator works correctly regardless of where it is
+invoked from.
+
+Cleaner Deployment: Users can symlink ~/src/.../rpn.pl to ~/bin/rpn without
+breaking resource loading.
+
+Testability: Tests can instantiate RPN->new(install_dir => $test_dir) to load
+mock tutorials and examples without altering the global working directory.
+
+Alignment with Architecture: Resource paths are now part of the calculator
+object's state, accessible via the public API, adhering to the rule against
+manipulating internal data structures.
