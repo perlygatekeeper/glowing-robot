@@ -25,6 +25,7 @@ TESTDIR   := t/
 CONSTANTS := constants/
 EXAMPLES  := examples/
 DOCS      := docs/
+TOOLS     := tools/
 TUTORIALS := docs/tutorials/
 DEVELOPER := docs/Developer/
 
@@ -37,6 +38,7 @@ backup:
 	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
 		$(TESTDIR) \
 		$(CONSTANTS) \
+		$(TOOLS) \
 		$(EXAMPLES)/*/*.txt \
 		$(DOCS)/*.txt \
 		$(DEVELOPER)/*.txt \
@@ -64,6 +66,7 @@ version:
 gitadd:
 	git add Makefile $(SCRIPT) \
 	$(MODS) \
+	$(TOOLS) \
 	$(TESTDIR)*.t \
 	$(DOCS)*.txt \
 	$(DEVELOPER)*.txt \

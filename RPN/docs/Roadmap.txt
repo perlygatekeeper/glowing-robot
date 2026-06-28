@@ -408,13 +408,11 @@ Additional Changes
 
 [x] Vector display changed from:
 
-```
     <1,2,3>
 
 to:
 
     [1,2,3]
-```
 
 [x] Documentation updated
 
@@ -799,8 +797,265 @@ functional programming work scheduled for Version 3.8.7.
 
 ### Version 3.8.7 
 
+## Version 3.8.7 — Discoverability and Command Catalog
 
-### Version 3.8.7 - Iteration and Higher-Order Operations
+**Theme**
+
+This release focuses on making the calculator easier to explore, learn, and
+understand. It consolidates the command discovery experience, standardizes
+terminology, and establishes the runtime command registry as the single
+source of truth for command metadata.
+
+---
+
+### Phase 1 — Terminology Cleanup
+
+#### Goals
+
+[x] Replace the user-facing term **Type** with **Category**.
+
+[x] Replace the `types` command with the canonical `categories` command.
+
+[x] Retain `types` as a compatibility alias.
+
+[x] Retain `help type <category>` as a compatibility form.
+
+[x] Make `help category <category>` the canonical syntax.
+
+[x] Display all command categories in Proper Case.
+
+[x] Sweep the source tree for user-visible occurrences of:
+
+Type
+Types
+type
+types
+
+converting them to Category/Categories where appropriate.
+
+[x] Retain the internal command-registration hash key:
+
+    type => ...
+
+for this release to minimize implementation churn.
+
+---
+
+### Phase 2 — Unified Command Catalog
+
+[x] Add the new `commands` command.
+
+[x] Display:
+
+    Command
+    Abbrev
+    Aliases
+    Category
+    Description
+
+[x] Sort alphabetically by canonical command name.
+
+[x] Support:
+
+    commands
+    commands <category>
+    commands bycategory
+    commands categories
+    commands aliases
+    commands abbreviations
+
+[x] Display category membership counts.
+
+Example:
+
+    Categories      Member Commands
+    ==========      =================
+    Arithmetic              24
+    Boolean                 12
+    Discovery                8
+
+---
+
+### Phase 3 — Command Categories
+
+[x] Eliminate the "Utility" junk-drawer category.
+
+[x] Introduce:
+
+    Discovery
+    Display
+    Session
+    Execution
+
+[x] Move commands into more descriptive categories.
+
+Examples:
+
+Discovery
+
+help
+commands
+categories
+tutorials
+aliases
+abbreviations
+version
+
+Display
+
+peek
+peekall
+peekf
+print
+printf
+binary
+octal
+decimal
+hexadecimal
+
+Session
+
+save
+history
+quit
+
+Execution
+
+noop
+
+---
+
+### Phase 4 — Canonical Command Naming
+
+[x] Rename:
+
+    ncr
+        ->
+    combinations
+
+[x] Rename:
+
+    npr
+        ->
+    permutations
+
+[x] Retain compatibility aliases:
+
+    ncr
+    comb
+    binom
+
+    npr
+    perm
+
+[x] Review other potential naming collisions.
+
+---
+
+### Phase 5 — Help System Redesign
+
+Transform `help` from a command index into a navigation system.
+
+Behavior:
+
+help
+
+    Introduces the calculator and directs users to:
+
+        tutorials
+        categories
+        commands
+
+help <command>
+
+    Displays detailed help for a command.
+
+help category <category>
+
+    Displays information about a command category.
+
+help <ambiguous>
+
+    Reports all matching objects.
+
+Example:
+
+RPN> help stack
+
+Multiple matches found:
+
+    Category   Stack        Use: help category Stack
+    Tutorial   Stacks       Use: tutorial Stacks
+    Command    stackinfo    Use: help stackinfo
+    Command    stacksize    Use: help stacksize
+
+The help command remains non-interactive and suitable for scripting.
+
+---
+
+### Phase 6 — Generated Documentation
+
+[x] Generate:
+
+    docs/Command_Catalog_v3.8.7.txt
+
+directly from the runtime command registry.
+
+[x] Eliminate duplicated command metadata.
+
+[x] Use the generated catalog as the published command reference.
+
+---
+
+### Phase 7 — Release Cleanup
+
+[x] Update tutorials.
+
+[x] Update release notes.
+
+[x] Update Roadmap.
+
+[x] Expand tutorial audit.
+
+[x] Verify generated command catalog.
+
+[x] Verify category consistency.
+
+[x] Verify aliases and abbreviations.
+
+---
+
+### Release Philosophy
+
+The calculator should teach itself.
+
+Learning
+
+tutorials
+
+Browsing
+
+categories
+
+Vocabulary
+
+commands
+
+Explanation
+
+help
+
+Reference
+
+aliases
+abbreviations
+
+The runtime command registry is the authoritative source for command
+metadata and documentation.
+
+
+
+### Version 3.8.9 - Iteration and Higher-Order Operations
 [ ] Add map for vector transformations
 [ ] Add filter for vector selection
 [ ] Add reduce for combining vector elements

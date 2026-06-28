@@ -570,6 +570,36 @@ sub _initialize {
         }
     );
 
+    $self->register(
+        commands => {
+            type => 'utility',
+            help => 'lists commands with abbreviations, aliases, categories, and descriptions',
+            code => sub {
+                my ($calc, $args, $arguments) = @_;
+                my $query = @$arguments ? lc($arguments->[0]) : '';
+
+                if (!length $query) {
+                    $self->_print_command_catalog();
+                }
+                elsif ($query eq 'categories' || $query eq 'types') {
+                    $self->_print_command_categories();
+                }
+                elsif ($query eq 'aliases') {
+                    $self->_print_command_catalog(aliases_only => 1);
+                }
+                elsif ($query eq 'abbreviations' || $query eq 'abbrevs') {
+                    $self->_print_command_catalog(abbrevs_only => 1);
+                }
+                elsif (exists $self->{types}{$query}) {
+                    $self->_print_command_catalog(category => $query);
+                }
+                else {
+                    warn "No such command category '$arguments->[0]'\n";
+                }
+            },
+        }
+    );
+
     #
     # Conversions
     #
@@ -2093,6 +2123,67 @@ sub _print_help_line {
     }
     printf "%-18s %-12s %s\n", $command, $type, $help;
     return;
+}
+
+sub _print_command_catalog {
+    my ($self, %args) = @_;
+
+    printf "%-18s %-10s %-22s %-15s %s\n",
+        "Command", "Abbrev", "Aliases", "Category", "Description";
+    printf "%-18s %-10s %-22s %-15s %s\n",
+        "-" x 18, "-" x 10, "-" x 22, "-" x 15, "-" x 40;
+
+    foreach my $command (sort keys %{ $self->{commands} }) {
+        my $entry = $self->{commands}{$command};
+        my $category = $entry->{type} || '';
+        next if defined $args{category} && $category ne $args{category};
+
+        my $aliases = $entry->{aliases} || [];
+        next if $args{aliases_only} && !@$aliases;
+
+        my $abbrev = $self->_shortest_command_abbrev($command);
+        next if $args{abbrevs_only} && !length $abbrev;
+
+        printf "%-18s %-10s %-22s %-15s %s\n",
+            $command,
+            $abbrev,
+            join(", ", @$aliases),
+            $category,
+            $entry->{help} || '';
+    }
+
+    return;
+}
+
+sub _print_command_categories {
+    my ($self) = @_;
+
+    printf "%-18s %s\n", "Category", "Description";
+    printf "%-18s %s\n", "-" x 18, "-" x 40;
+
+    foreach my $category (sort keys %{ $self->{types} }) {
+        printf "%-18s %s\n",
+            $category,
+            $self->{types}{$category} || '';
+    }
+
+    return;
+}
+
+sub _shortest_command_abbrev {
+    my ($self, $command) = @_;
+
+    my $abbrevs = $self->abbrevs;
+    my @matches =
+        sort { length($a) <=> length($b) || $a cmp $b }
+        grep {
+            $abbrevs->{$_} eq $command
+                && index($command, $_) == 0
+                && length($_) < length($command)
+        }
+        keys %$abbrevs;
+
+    return $matches[0] || '';
 }
 
 
