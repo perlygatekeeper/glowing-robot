@@ -161,17 +161,17 @@ Help System Improvements
 
 New command:
 
-    types
+    categories
 
 Displays all registered command categories.
 
 Example:
 
-    types
+    categories
 
 The following also works:
 
-    help types
+    help categories
 
 
 Testing

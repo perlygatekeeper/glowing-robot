@@ -21,7 +21,7 @@ mathematical capabilities and provides a foundation for
 future probability and statistics enhancements.
 
 
-New Command Type
+New Command Category
 ----------------
 
 combinatorics

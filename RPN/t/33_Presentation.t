@@ -72,19 +72,19 @@ like(
 #
 
 my $help_types_output = stdout_from(
-    sub { $calc->process_input('help types') }
+    sub { $calc->process_input('help categories') }
 );
 
 like(
     $help_types_output,
     qr/\S/,
-    'help types produces output'
+    'help categories produces output'
 );
 
 like(
     $help_types_output,
     qr/\n/,
-    'help types output contains newlines'
+    'help categories output contains newlines'
 );
 
 #

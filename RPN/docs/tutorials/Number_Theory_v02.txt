@@ -417,7 +417,7 @@ tutorial functions
 
 or explore:
 
-help type number_theory
+help category number_theory
 
 to see all available number theory commands.
 

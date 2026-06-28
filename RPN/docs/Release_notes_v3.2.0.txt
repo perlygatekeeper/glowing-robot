@@ -12,7 +12,7 @@ File Input/Output
     writecsv
     appendcsv
 
-New command type:
+New command category:
 
     io
 
@@ -54,13 +54,13 @@ Append the current stack to an existing CSV file.
 
 ## Help System
 
-A new command type has been added:
+A new command category has been added:
 
 io
 
 which may be listed using:
 
-help type io
+help category io
 
 ## Testing
 

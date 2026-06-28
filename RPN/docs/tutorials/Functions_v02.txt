@@ -12,7 +12,7 @@ Functions allow reusable sequences of commands.
 
 Use
 
-    RPN> help type functions
+    RPN> help category functions
 
 for a list of all function-related commands.
 

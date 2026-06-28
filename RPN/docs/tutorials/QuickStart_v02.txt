@@ -151,11 +151,11 @@ help
 
 Show command categories:
 
-help types
+help categories
 
 Show commands in one category:
 
-help type matrix
+help category matrix
 
 Show help for one command:
 

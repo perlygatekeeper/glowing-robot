@@ -1,4 +1,4 @@
-Command            Type         Help
+Command            Category     Help
 ------------------ ------------ ----------------------------------------
 !=                 boolean      numeric comparison !=
 <                  boolean      numeric comparison <
@@ -198,7 +198,7 @@ abbreviations      utility      lists shortest usable abbreviations for commands
 aliases            utility      lists commands that have aliases
 binary             utility      prints the top value in binary without popping it aliases: bin
 decimal            utility      prints the top value as a decimal integer without popping it aliases: dec
-help               utility      prints help for all commands, one command, or one type aliases: ?
+help               utility      prints help for all commands, one command, or one category aliases: ?
 hexadecimal        utility      prints the top value in hexadecimal without popping it aliases: hex
 history            utility      prints command history aliases: hist
 noop               utility      no operation
@@ -210,7 +210,7 @@ print              utility      pops and prints the top value on the stack
 printf             utility      pops and prints the top value using a printf format
 quit               utility      exits the program aliases: exit, bye, ZZ
 save               utility      saves history and stacks
-types              utility      list command types
+categories         utility      list command categories aliases: types
 version            utility      prints calculator version aliases: ver
 delvar             variable     delete a stored variable
 loadvars           variable     load variables from disk: loadvars [file]
@@ -516,7 +516,7 @@ trim               tri-m
 trunc              tru-nc
 tutorial           tutorial
 tutorials          tutorials
-types              ty-pes
+categories         cat-egories
 undef              und-ef
 unique             uni-que
 upper              up-per

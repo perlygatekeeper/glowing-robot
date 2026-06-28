@@ -395,4 +395,4 @@ Variables are often used together with constants and user-defined functions.
 
 To see all variable-related commands:
 
-help type variable
+help category variable

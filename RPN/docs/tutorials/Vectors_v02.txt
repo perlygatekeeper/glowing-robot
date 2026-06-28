@@ -436,6 +436,6 @@ Many geometry and graphics operations are naturally expressed as matrix-vector m
 
 You may also explore:
 
-help type vector
+help category vector
 
 to see all available vector commands.

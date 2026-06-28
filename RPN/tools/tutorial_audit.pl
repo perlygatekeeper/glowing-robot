@@ -76,7 +76,7 @@ for my $dir (qw(constants examples/constants)) {
 $known{end} = 1;
 
 my %argument_command = map { $_ => 1 } qw(
-    help type tutorial stack stacks constants const constinfo delconst loadconst saveconst
+    help category tutorial stack stacks constants const constinfo delconst loadconst saveconst
     vars variables sto store delvar loadvar savevar funcs functions define def deldef
     history clearhistory
 );

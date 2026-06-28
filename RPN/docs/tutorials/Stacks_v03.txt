@@ -232,9 +232,9 @@ renamestack
 clearstack
 deletestack
 
-Type:
+Category:
 
-RPN> help type stack
+RPN> help category stack
 
 to see every stack-related command available in your version.
 

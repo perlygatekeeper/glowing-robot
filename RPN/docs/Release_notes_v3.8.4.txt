@@ -105,7 +105,7 @@ The tests verify:
 
 * known numeric values
 * command registration
-* command types
+* command categories
 * domain warnings
 * stack preservation on invalid input
 

@@ -13,26 +13,26 @@ my $calc = RPN->new();
 
 stdout_like(
     sub { $calc->process_input('help') },
-    qr/Command\s+Type\s+Help/s,
+    qr/Command\s+Category\s+Help/s,
     'help prints table header'
 );
 
 stdout_like(
     sub { $calc->process_input('help add') },
-    qr/add\s+numeric\s+pops two numbers/s,
+    qr/add\s+Numeric\s+pops two numbers/s,
     'help add prints add help'
 );
 
 stdout_like(
     sub { $calc->process_input('help +') },
-    qr/add\s+numeric\s+pops two numbers/s,
+    qr/add\s+Numeric\s+pops two numbers/s,
     'help + resolves alias to add'
 );
 
 stdout_like(
-    sub { $calc->process_input('help type numeric') },
-    qr/add\s+numeric.*multiply\s+numeric.*subtract\s+numeric/s,
-    'help type numeric lists numeric commands'
+    sub { $calc->process_input('help category numeric') },
+    qr/add\s+Numeric.*multiply\s+Numeric.*subtract\s+Numeric/s,
+    'help category numeric lists numeric commands'
 );
 
 stderr_like(
@@ -42,9 +42,9 @@ stderr_like(
 );
 
 stdout_like(
-    sub { $calc->process_input('help types') },
-    qr/Type\s+Description.*numeric.*stack/s,
-    'help types lists command types'
+    sub { $calc->process_input('help categories') },
+    qr/Category\s+Description.*Numeric.*Stack/s,
+    'help categories lists command categories'
 );
 
 done_testing();

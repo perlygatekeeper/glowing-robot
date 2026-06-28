@@ -23,7 +23,7 @@ sub new {
         calc     => $calc,
         commands => {},
         abbrevs  => {},
-        types    => {},
+        categories => {},
     };
 
     bless $self, $class;
@@ -36,7 +36,7 @@ sub new {
 sub _initialize {
     my ($self) = @_;
 
-    $self->{types} = {
+    $self->{categories} = {
         boolean       => 'true or false',
         constant      => 'named constants',
         conversion    => 'unit conversions',
@@ -581,7 +581,7 @@ sub _initialize {
                 if (!length $query) {
                     $self->_print_command_catalog();
                 }
-                elsif ($query eq 'categories' || $query eq 'types') {
+                elsif ($query eq 'categories') {
                     $self->_print_command_categories();
                 }
                 elsif ($query eq 'aliases') {
@@ -590,11 +590,14 @@ sub _initialize {
                 elsif ($query eq 'abbreviations' || $query eq 'abbrevs') {
                     $self->_print_command_catalog(abbrevs_only => 1);
                 }
-                elsif (exists $self->{types}{$query}) {
-                    $self->_print_command_catalog(category => $query);
-                }
                 else {
-                    warn "No such command category '$arguments->[0]'\n";
+                    my $category = $self->_normalize_category($arguments->[0]);
+                    if (exists $self->{categories}{$category}) {
+                        $self->_print_command_catalog(category => $category);
+                    }
+                    else {
+                        warn "No such command category '$arguments->[0]'\n";
+                    }
                 }
             },
         }
@@ -773,12 +776,13 @@ sub _initialize {
     );
 
     $self->register(
-        types => {
-            type => 'utility',
-            help => 'list command types',
-            code => sub {
+        categories => {
+            aliases => ['types'],
+            type    => 'utility',
+            help    => 'list command categories',
+            code    => sub {
                 my ($calc) = @_;
-                $self->print_types;
+                $self->print_categories;
             },
         }
     );
@@ -787,7 +791,7 @@ sub _initialize {
         help => {
             aliases => ['?'],
             type    => 'utility',
-            help    => 'prints help for all commands, one command, or one type',
+            help    => 'prints help for all commands, one command, or one category',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
                 $self->print_help($args);
@@ -1946,9 +1950,9 @@ sub abbrevs {
     return $self->{abbrevs};
 }
 
-sub types {
+sub categories {
     my ($self) = @_;
-    return $self->{types};
+    return $self->{categories};
 }
 
 sub _unary_numeric {
@@ -2001,17 +2005,17 @@ sub _conversion {
 sub print_help {
     my ($self, $args) = @_;
     if ($args && @$args) {
-        if ($args->[0] eq 'types') {
-             return $self->print_types;
+        if ($args->[0] eq 'categories') {
+             return $self->print_categories;
         }
 
-        if ($args->[0] eq 'type') {
-            my $type = $args->[1];
-            unless (defined $type && length $type) {
-                warn "usage: help type <type>\n";
+        if ($args->[0] eq 'category' || $args->[0] eq 'type') {
+            my $category = $args->[1];
+            unless (defined $category && length $category) {
+                warn "usage: help category <category>\n";
                 return;
             }
-            return $self->_print_help_by_type($type);
+            return $self->_print_help_by_category($category);
         }
 
         if ($self->{calc}->functions->exists($args->[0])) {
@@ -2038,33 +2042,35 @@ sub _print_help_all {
     return;
 }
 
-sub print_types {
+sub print_categories {
     my ($self) = @_;
-    printf "%-18s %s\n", "Type", "Description";
+    printf "%-18s %s\n", "Category", "Description";
     printf "%-18s %s\n", "-" x 18, "-" x 40;
-    foreach my $type (sort keys %{ $self->{types} }) {
+    foreach my $category (sort keys %{ $self->{categories} }) {
         printf "%-18s %s\n",
-            $type,
-            $self->{types}{$type};
+            $self->_display_category($category),
+            $self->{categories}{$category};
     }
     return;
 }
 
-sub _print_help_by_type {
-    my ($self, $type) = @_;
+sub _print_help_by_category {
+    my ($self, $category) = @_;
+
+    my $category_key = $self->_normalize_category($category);
 
     my @matches = grep {
-        ($self->{commands}{$_}{type} // '') eq $type
+        ($self->{commands}{$_}{type} // '') eq $category_key
     } sort keys %{ $self->{commands} };
 
     unless (@matches) {
-        print "No commands found for type '$type'.\n";
+        print "No commands found for category '$category'.\n";
         print "\n";
         print "Use:\n";
         print "\n";
-        print "    help types\n";
+        print "    help categories\n";
         print "\n";
-        print "to see available command types.\n";
+        print "to see available command categories.\n";
         return;
     }
 
@@ -2107,7 +2113,7 @@ sub _print_help_for_command {
 
 sub _print_help_header {
     my ($self) = @_;
-    printf "%-18s %-12s %s\n", "Command", "Type", "Help";
+    printf "%-18s %-12s %s\n", "Command", "Category", "Help";
     printf "%-18s %-12s %s\n", "-" x 18, "-" x 12, "-" x 40;
     return;
 }
@@ -2115,14 +2121,30 @@ sub _print_help_header {
 sub _print_help_line {
     my ($self, $command) = @_;
     my $entry   = $self->{commands}{$command};
-    my $type    = $entry->{type} || '';
+    my $category = $self->_display_category($entry->{type} || '');
     my $help    = $entry->{help} || '';
     my $aliases = $entry->{aliases};
     if ($aliases && @$aliases) {
         $help .= " aliases: " . join(", ", @$aliases);
     }
-    printf "%-18s %-12s %s\n", $command, $type, $help;
+    printf "%-18s %-12s %s\n", $command, $category, $help;
     return;
+}
+
+sub _normalize_category {
+    my ($self, $category) = @_;
+    $category //= '';
+    $category =~ s/^\s+//;
+    $category =~ s/\s+$//;
+    $category = lc $category;
+    $category =~ s/[\s-]+/_/g;
+    return $category;
+}
+
+sub _display_category {
+    my ($self, $category) = @_;
+    return '' unless defined $category && length $category;
+    return join ' ', map { ucfirst lc $_ } split /_+/, $category;
 }
 
 sub _print_command_catalog {
@@ -2148,7 +2170,7 @@ sub _print_command_catalog {
             $command,
             $abbrev,
             join(", ", @$aliases),
-            $category,
+            $self->_display_category($category),
             $entry->{help} || '';
     }
 
@@ -2161,10 +2183,10 @@ sub _print_command_categories {
     printf "%-18s %s\n", "Category", "Description";
     printf "%-18s %s\n", "-" x 18, "-" x 40;
 
-    foreach my $category (sort keys %{ $self->{types} }) {
+    foreach my $category (sort keys %{ $self->{categories} }) {
         printf "%-18s %s\n",
-            $category,
-            $self->{types}{$category} || '';
+            $self->_display_category($category),
+            $self->{categories}{$category} || '';
     }
 
     return;

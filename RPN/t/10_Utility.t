@@ -76,13 +76,13 @@ stdout_like(
 );
 
 #
-#  types
+#  categories
 #
 
 stdout_like(
-    sub { $calc->process_input('types') },
-    qr/Type\s+Description.*financial.*number_theory.*numeric.*stack.*/s,
-    'types lists command types'
+    sub { $calc->process_input('categories') },
+    qr/Category\s+Description.*Financial.*Number Theory.*Numeric.*Stack.*/s,
+    'categories lists command categories'
 );
 
 done_testing();

@@ -127,8 +127,8 @@ Scientific & Financial Toolkit (Completed)
 
 ### Help System
 
-[x] types
-[x] help types
+[x] categories
+[x] help categories
 
 ### Tests
 
@@ -818,7 +818,7 @@ source of truth for command metadata.
 
 [x] Retain `types` as a compatibility alias.
 
-[x] Retain `help type <category>` as a compatibility form.
+[x] Retain `help category <category>` as a compatibility form.
 
 [x] Make `help category <category>` the canonical syntax.
 

@@ -414,10 +414,10 @@ Functions become even more powerful when combined with variables and constants.
 
 To see all function-related commands:
 
-help type function
+help category function
 
 or:
 
-help type utility
+help category utility
 
 depending on how your installation categorizes function commands.

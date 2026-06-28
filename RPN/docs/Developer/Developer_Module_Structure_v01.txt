@@ -273,12 +273,12 @@ Stack.pm
 
 ---
 
-## Command Type Taxonomy
+## Command Category Taxonomy
 
-Command types are user-facing categories used by:
+Command categories are user-facing categories used by:
 
-help types
-help type <name>
+help categories
+help category <name>
 
 They should describe the domain from the user's point of view.
 

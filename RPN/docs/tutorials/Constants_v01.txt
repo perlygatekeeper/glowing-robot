@@ -20,9 +20,9 @@ Examples:
 
 Here are a breif list of commands that deal with constants:
 
-    RPN> help type constant
+    RPN> help category constant
 
-Command            Type         Help
+Command            Category     Help
 ------------------ ------------ ----------------------------------------
 constants          constant     list, push, or define constants aliases: const
 delconst           constant     delete a user-defined constant

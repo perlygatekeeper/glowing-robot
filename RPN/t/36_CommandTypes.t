@@ -18,27 +18,27 @@ $ENV{RPN_FUNCTIONS} = "$dir/functions";
 my $calc = RPN->new(no_readline => 1);
 
 my $commands = $calc->{commands}{commands};
-my $types    = $calc->{commands}{types};
+my $categories = $calc->{commands}{categories};
 
 ok(keys %$commands, 'command registry is not empty');
-ok(keys %$types,    'command type registry is not empty');
+ok(keys %$categories,    'command category registry is not empty');
 
 for my $command (sort keys %$commands) {
     my $entry = $commands->{$command};
 
     ok(
         exists $entry->{type},
-        "$command has a type"
+        "$command has a category"
     );
 
     ok(
         defined $entry->{type} && length $entry->{type},
-        "$command type is non-empty"
+        "$command category is non-empty"
     );
 
     ok(
-        exists $types->{ $entry->{type} },
-        "$command has valid type '$entry->{type}'"
+        exists $categories->{ $entry->{type} },
+        "$command has valid category '$entry->{type}'"
     );
 
     ok(

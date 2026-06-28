@@ -572,4 +572,4 @@ and financial functions such as:
 
 To see all financial commands:
 
-    help type financial
+    help category financial

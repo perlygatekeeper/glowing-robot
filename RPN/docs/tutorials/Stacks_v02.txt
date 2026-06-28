@@ -111,7 +111,7 @@ The default stack is enough for normal use, but named stacks are useful for expe
 
 Use:
 
-    RPN> help type stack
+    RPN> help category stack
 
 to see the stack-related commands available in your version.
 
