@@ -1016,92 +1016,242 @@ directly from the runtime command registry.
 The calculator should teach itself.
 
 Learning
-
-tutorials
+  tutorials
 
 Browsing
-
-categories
+  categories
 
 Vocabulary
-
-commands
+  commands
 
 Explanation
-
-help
+  help
 
 Reference
-
-aliases
-abbreviations
+  aliases
+  abbreviations
 
 The runtime command registry is the authoritative source for command
 metadata and documentation.
 
+## Pre-3.8.8 Cleanup — Registry and Test Hygiene
 
+### Goals
 
-### Version 3.8.9 - Iteration and Higher-Order Operations
+[ ] Investigate duplicate command catalog tests:
+
+        t/46_CommandCatalog.t
+        t/46_CommandsCatalog.t
+
+[ ] Remove or merge redundant test coverage.
+
+[ ] Tighten command registration validation.
+
+[ ] Require every registered command to provide:
+
+        name
+        category
+        help
+        code
+
+[ ] Keep aliases optional.
+
+[ ] Fail loudly during registration if required metadata is missing.
+
+[ ] Validate command metadata:
+
+        non-empty name
+        non-empty category
+        non-empty help
+        code is executable
+        aliases do not collide with canonical command names
+        aliases do not collide with other aliases
+
+[ ] Confirm generated command catalog still passes.
+
+[ ] Confirm docs-check and full test suite pass.
+
+### Purpose
+
+Before adding new language objects, make sure the command registry fully
+defends itself. The registry is now the authoritative source for command
+metadata, so incomplete or malformed command definitions should fail at
+startup/test time rather than silently entering the calculator.
+
+## Version 3.8.8 — CodeBlock Object Foundation
+
+### Theme
+
+Introduce CodeBlock as a first-class executable value object.
+
+This release establishes the object model and persistence foundation for
+future execution features. CodeBlocks do not need to replace functions
+immediately. Instead, they become a structured representation that later
+features can consume.
+
+### Design Principle
+
+Token Strings are convenience.
+
+Code Blocks are structure.
+
+### Goals
+
+[ ] Add RPN::CodeBlock as a value object.
+
+[ ] Support anonymous CodeBlock values.
+
+[ ] Initial internal representation:
+
+        source
+        body
+        steps
+
+[ ] Add basic methods:
+
+        new
+        source
+        body
+        steps
+        as_string
+        is_codeblock
+
+[ ] Add RPN::CodeBlocks as a named registry object.
+
+[ ] Store named CodeBlock values.
+
+[ ] Add registry methods:
+
+        define
+        undefine
+        get
+        exists
+        names
+        save_file
+        load_file
+
+[ ] Add RPN::Commands::CodeBlocks.
+
+[ ] Add preliminary user commands:
+
+        codeblocks
+        showblock
+        iscodeblock
+
+[ ] Add persistence format for named CodeBlocks.
+
+        square = { dup * }
+
+[ ] Add basic tests for:
+
+        object construction
+        string representation
+        registry storage
+        registry lookup
+        persistence
+        command listing
+        showblock
+        iscodeblock
+
+### Non-Goals
+
+[ ] Do not replace existing functions.
+
+[ ] Do not overload def yet.
+
+[ ] Do not require all CodeBlocks to be named.
+
+[ ] Do not implement map/filter/reduce yet.
+
+[ ] Do not introduce blessed Number or String objects.
+
+[ ] Do not solve full execution semantics yet unless naturally required.
+
+### Future Use
+
+CodeBlocks will provide the foundation for:
+
+        call
+        named executable values
+        map
+        filter
+        reduce
+        branching
+        recursion
+        structured execution
+        future debugging/introspection
+
+### Notes
+
+RPN::Functions currently represents named Token Strings.
+RPN::CodeBlock will represent structured executable values.
+RPN::CodeBlocks will represent named CodeBlock storage.
+
+These concepts are related, but intentionally distinct.
+
+-----
+
+### Version 3.8.9 - Looping and Map/Filter/Reduce over Stack functionality
+
+### Version 3.9.0 - Iteration and Higher-Order Operations
 [ ] Add map for vector transformations
 [ ] Add filter for vector selection
 [ ] Add reduce for combining vector elements
 [ ] Add iteration tutorial
 [ ] Add release notes
 
+-----
 
-### Version 3.9.0 - Geometry and Transformations
-
-[ ] Add transformation matrix examples
-[ ] Add rotation helpers
-[ ] Add reflection helpers
-[ ] Add scaling helpers
-[ ] Add shearing helpers
-[ ] Add coordinate geometry functions
-[ ] Add geometry tutorial
-
-### Version 4.0.0 - Graphics
-
-[ ] Design graphics architecture
-[ ] Define point and shape objects
-[ ] Implement SVG output
-[ ] Add line primitive
-[ ] Add rectangle primitive
-[ ] Add circle primitive
-[ ] Add polygon primitive
-[ ] Integrate transforms with graphics
-[ ] Add graphics tutorial
-
-
-
-## Version 4.0.0
-
-Transformations
+### Version 3.9.1 - Geometry and Transformations
 
 [ ] 2D transformations
 [ ] 3D transformations
 
-[ ] translation
-[ ] rotation
-[ ] scaling
+[ ] Add transformation matrix examples
+[ ] Add translation helpers
+[ ] Add rotation    helpers
+[ ] Add reflection  helpers
+[ ] Add scaling     helpers
+[ ] Add shearing    helpers
+
+[ ] Add coordinate geometry functions
+[ ] Add geometry tutorial
 
 [ ] transformation tests
 
-## Version 5.0.0
+-----
 
-Graphics (Optional)
+### Version 4.0.0 - Graphics (Optional)
+
+This could go over board really easily
+Start small, accumulate slowly
+
+[ ] Design graphics architecture
+[ ] Define point and shape objects
+[ ] Implement SVG output
+[ ]    Add line primitive
+[ ]    Add rectangle primitive
+[ ]    Add circle primitive
+[ ]    Add polygon primitive
+
+[ ] Integrate transforms with graphics
 
 [ ] graphing
-[ ] plotting
+[ ] plotting (is this different from graphing?)
 [ ] function visualization
 [ ] export graphics
+[ ] Add graphics tutorial
+
+-----
 
 ## Future Ideas
 
-[ ] scientific constant pack expansion
-[ ] units and dimensional analysis
-[ ] JSON import/export
-[ ] HTTP/API import
-[ ] spreadsheet integration
-[ ] programmable scripts
-[ ] user libraries
-[ ] package/import system
+[x] scientific constant pack expansion
+[ ] units and dimensional analysis - Probably never
+[ ] JSON import/export - we do not have JSON support, we have csv support
+[ ] HTTP/API import - probably overkill, and potentially dangerous, definately difficult, but hell, R has it!
+[ ] spreadsheet integration - we have csv support, did this entry mean more than that
+[ ] programmable scripts - this feels like Token Strings and Code Blocks
+
+[ ] user libraries - I think this was meant to house both constants and functions
+[ ] package/import system  - need to see a proposed example of this first

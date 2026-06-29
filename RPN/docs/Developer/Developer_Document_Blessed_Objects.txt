@@ -1,0 +1,331 @@
+# Developer_Document_Blessed_Objects.txt
+
+========================================================================
+Blessed Objects
+===============
+
+As the RPN Calculator has evolved, the internal representation has moved
+away from primitive Perl data structures toward small, focused objects.
+
+This document describes the current object model, its purpose, and the
+planned direction for future releases.
+
+---
+
+## Design Philosophy
+
+Objects should represent concepts within the calculator, not merely data
+structures.
+
+Whenever possible:
+
+One object
+    ->
+One responsibility
+
+Objects should expose a clean interface while hiding their internal
+implementation.
+
+---
+
+## Current Blessed Objects
+
+## RPN
+
+Purpose
+
+The main calculator object.
+
+Responsibilities
+
+* Own the calculator state.
+* Parse and execute user input.
+* Coordinate all subsystems.
+* Manage persistence.
+* Manage prompts.
+* Dispatch commands.
+
+Internal Structure
+
+stack
+commands
+constants
+variables
+functions
+history
+install_dir
+prompt_template
+...
+
+---
+
+## RPN::Stack
+
+Purpose
+
+Manage one or more named stacks.
+
+Responsibilities
+
+* Current stack
+* Named stacks
+* Stack persistence
+
+Internal Structure
+
+current_name
+
+stacks
+
+    {
+        name => [ values... ]
+    }
+
+---
+
+## RPN::Commands
+
+Purpose
+
+Runtime command registry.
+
+Responsibilities
+
+* Command lookup
+* Alias lookup
+* Abbreviation lookup
+* Category lookup
+* Help metadata
+* Command dispatch
+
+Internal Structure
+
+commands
+
+aliases
+
+abbreviations
+
+categories
+
+---
+
+## RPN::Constants
+
+Purpose
+
+Built-in and user-defined constants.
+
+Responsibilities
+
+* Metadata
+* Persistence
+* Lookup
+
+---
+
+## RPN::Variables
+
+Purpose
+
+User-defined variables.
+
+Responsibilities
+
+* Named values
+* Persistence
+
+Current Representation
+
+name -> value
+
+---
+
+## RPN::Functions
+
+Purpose
+
+User-defined executable token strings.
+
+Responsibilities
+
+* Store named executable text.
+* Execute token strings.
+* Persistence.
+
+Current Representation
+
+name -> token string
+
+Example
+
+square
+
+    "dup *"
+
+Functions currently provide a convenient way to avoid repeatedly typing
+common command sequences.
+
+---
+
+## RPN::Vector
+
+Purpose
+
+Vector mathematics.
+
+Responsibilities
+
+* Arithmetic
+* Dot product
+* Cross product
+* Magnitude
+* Display
+
+---
+
+## RPN::Matrix
+
+Purpose
+
+Matrix mathematics.
+
+Responsibilities
+
+* Matrix arithmetic
+* Dimensions
+* Display
+
+---
+
+## The Missing Object
+
+One conceptual gap currently exists.
+
+Functions store executable text, but there is no object representing
+executable code itself.
+
+Current
+
+Function
+
+    name
+
+        ->
+    executable token string
+
+Future
+
+Code Block
+
+    executable object
+
+The distinction is important.
+
+---
+
+## Future Object: Token String
+
+Purpose
+
+Lightweight executable text.
+
+Representation
+
+source
+
+Behavior
+
+* Trim whitespace.
+* Split into tokens.
+* Execute tokens in sequence.
+
+Design Philosophy
+
+Token Strings are convenience.
+
+They provide a compact way to store short executable command sequences
+without introducing additional structure.
+
+They intentionally remain simple.
+
+---
+
+## Future Object: Code Block
+
+Purpose
+
+Structured executable object.
+
+Possible Representation
+
+source
+
+steps
+
+Behavior
+
+* Ordered executable steps.
+* Validation.
+* Introspection.
+* Branching.
+* Recursion.
+* Future optimization.
+* Future debugging support.
+
+Design Philosophy
+
+Code Blocks are structure.
+
+Unlike Token Strings, a Code Block represents executable code as a first-
+class value rather than executable text.
+
+---
+
+## Relationship
+
+Token Strings and Code Blocks are expected to be interchangeable from the
+user's point of view.
+
+Commands such as
+
+call
+
+map
+
+filter
+
+reduce
+
+should eventually accept either representation.
+
+Internally, however, they may execute differently.
+
+Token Strings
+
+tokenize
+    ->
+execute
+
+Code Blocks
+
+execute structured steps
+
+---
+
+## Design Principle
+
+The calculator should distinguish between executable text and executable
+structure.
+
+Token Strings are convenience.
+
+Code Blocks are structure.
+
+Both are valuable.
+
+Both belong in the language.
+
+The appropriate representation should be chosen according to the problem
+being solved rather than forcing a single abstraction to satisfy every
+use case.
