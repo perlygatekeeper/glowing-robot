@@ -41,12 +41,15 @@ sub _initialize {
         constant      => 'named constants',
         conversion    => 'unit conversions',
         debug         => 'developer functions',
+        discovery     => 'command discovery and documentation',
+        display       => 'printing and displaying stack values',
+        execution     => 'execution and flow-control primitives',
         flow          => 'flow control',
         numeric       => 'arithmetic functions',
+        session       => 'session history, persistence, and exit commands',
         stack         => 'stack manipulation',
         string        => 'string operations',
         trig          => 'trigonometric functions',
-        utility       => 'help, display, quit',
         statistics    => 'whole-stack and statistical functions',
         random        => 'random number functions',
         datetime      => 'date and time functions',
@@ -333,7 +336,7 @@ sub _initialize {
     $self->register(
         peek => {
             aliases => ['.'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints top value on stack without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -345,7 +348,7 @@ sub _initialize {
 
     $self->register(
         print => {
-            type => 'utility',
+            type => 'display',
             help => 'pops and prints the top value on the stack',
             code => sub {
                 my ($calc) = @_;
@@ -358,7 +361,7 @@ sub _initialize {
     $self->register(
         peekall => {
             aliases => [':'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints the entire stack without changing it',
             code    => sub {
                 my ($calc) = @_;
@@ -372,7 +375,7 @@ sub _initialize {
 
     $self->register(
         peekf => {
-            type => 'utility',
+            type => 'display',
             help => 'prints the top value using a printf format without popping it',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -385,7 +388,7 @@ sub _initialize {
 
     $self->register(
         printf => {
-            type => 'utility',
+            type => 'display',
             help => 'pops and prints the top value using a printf format',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -399,7 +402,7 @@ sub _initialize {
     $self->register(
         decimal => {
             aliases => ['dec'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints the top value as a decimal integer without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -412,7 +415,7 @@ sub _initialize {
     $self->register(
         hexadecimal => {
             aliases => ['hex'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints the top value in hexadecimal without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -425,7 +428,7 @@ sub _initialize {
     $self->register(
         octal => {
             aliases => ['oct'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints the top value in octal without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -438,7 +441,7 @@ sub _initialize {
     $self->register(
         binary => {
             aliases => ['bin'],
-            type    => 'utility',
+            type    => 'display',
             help    => 'prints the top value in binary without popping it',
             code    => sub {
                 my ($calc, $arg_str) = @_;
@@ -460,7 +463,7 @@ sub _initialize {
     $self->register(
         history => {
             aliases => ['hist'],
-            type    => 'utility',
+            type    => 'session',
             help    => 'prints command history',
             code    => sub {
                 my ($calc) = @_;
@@ -476,8 +479,8 @@ sub _initialize {
 
     $self->register(
         save => {
-            type => 'utility',
-            help => 'saves history and stacks',
+            type => 'session',
+            help => 'saves persistent calculator state',
             code => sub {
                 my ($calc) = @_;
                 $calc->save_history;
@@ -491,7 +494,7 @@ sub _initialize {
     $self->register(
         quit => {
             aliases => [qw(exit bye ZZ)],
-            type    => 'utility',
+            type    => 'session',
             help    => 'exits the program',
             code => sub {
                  my ($calc) = @_;
@@ -502,7 +505,7 @@ sub _initialize {
 
     $self->register(
         noop => {
-            type => 'utility',
+            type => 'execution',
             help => 'no operation',
             code => sub {
                 return;
@@ -513,7 +516,7 @@ sub _initialize {
     $self->register(
         version => {
             aliases => ['ver'],
-            type    => 'utility',
+            type    => 'discovery',
             help    => 'prints calculator version',
             code    => sub {
                 my ($calc) = @_;
@@ -524,7 +527,7 @@ sub _initialize {
 
     $self->register(
         aliases => {
-            type => 'utility',
+            type => 'discovery',
             help => 'lists commands that have aliases',
             code => sub {
                 my ($calc) = @_;
@@ -543,7 +546,7 @@ sub _initialize {
     $self->register(
         abbreviations => {
             aliases => ['abbrevs'],
-            type    => 'utility',
+            type    => 'discovery',
             help    => 'lists shortest usable abbreviations for commands',
             code    => sub {
                 my ($calc) = @_;
@@ -572,7 +575,7 @@ sub _initialize {
 
     $self->register(
         commands => {
-            type => 'utility',
+            type => 'discovery',
             help => 'lists commands with abbreviations, aliases, categories, and descriptions',
             code => sub {
                 my ($calc, $args, $arguments) = @_;
@@ -781,7 +784,7 @@ sub _initialize {
     $self->register(
         categories => {
             aliases => ['types'],
-            type    => 'utility',
+            type    => 'discovery',
             help    => 'list command categories',
             code    => sub {
                 my ($calc) = @_;
@@ -793,7 +796,7 @@ sub _initialize {
     $self->register(
         help => {
             aliases => ['?'],
-            type    => 'utility',
+            type    => 'discovery',
             help    => 'prints help for all commands, one command, or one category',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
