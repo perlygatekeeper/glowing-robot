@@ -32,7 +32,7 @@ DEVELOPER := docs/Developer/
 RELEASE_NOTES := $(shell ls docs/Release_*.txt)
 ROADMAP       := $(shell ls docs/Roadmap*.txt)
 
-.PHONY: backup syntax run test docs-check clean size size-modules
+.PHONY: backup syntax run test docs-check catalog clean size size-modules
 
 backup:
 	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
@@ -59,6 +59,10 @@ test: syntax
 
 docs-check:
 	$(PERL) -Ilib tools/tutorial_audit.pl
+	$(PERL) -Ilib tools/generate_command_catalog.pl --check
+
+catalog:
+	$(PERL) -Ilib tools/generate_command_catalog.pl
 
 version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
