@@ -1869,6 +1869,8 @@ sub _binary_boolean {
 sub register {
     my ($self, $name, $definition) = @_;
 
+    $self->_validate_registration($name, $definition);
+
     # Backward compatibility: older command modules may still provide
     # a `type` key. Internally, command grouping is now represented as
     # `category`. Do not retain `type` in the registry.
@@ -1878,6 +1880,75 @@ sub register {
     }
 
     $self->{commands}{$name} = $definition;
+    return;
+}
+
+sub _validate_registration {
+    my ($self, $name, $definition) = @_;
+
+    die "Command registration failed: missing required field 'name'\n"
+        unless defined $name && length $name;
+
+    die "Command registration failed for '$name': definition must be a hash reference\n"
+        unless ref($definition) eq 'HASH';
+
+    # Backward compatibility for command modules that still pass
+    # `type`. The canonical registry field is now `category`.
+    my $category = exists $definition->{category}
+        ? $definition->{category}
+        : $definition->{type};
+
+    die "Command registration failed for '$name': missing required field 'category'\n"
+        unless defined $category && length $category;
+
+    die "Command registration failed for '$name': missing required field 'help'\n"
+        unless defined $definition->{help} && length $definition->{help};
+
+    die "Command registration failed for '$name': missing required field 'code'\n"
+        unless exists $definition->{code};
+
+    die "Command registration failed for '$name': code must be a CODE reference\n"
+        unless ref($definition->{code}) eq 'CODE';
+
+    die "Command registration failed for '$name': duplicate command name\n"
+        if exists $self->{commands}{$name};
+
+    foreach my $existing_name (keys %{ $self->{commands} }) {
+        my $existing_aliases = $self->{commands}{$existing_name}{aliases} || [];
+        foreach my $existing_alias (@$existing_aliases) {
+            die "Command registration failed for '$name': command name conflicts with alias for '$existing_name'\n"
+                if $name eq $existing_alias;
+        }
+    }
+
+    if (exists $definition->{aliases}) {
+        die "Command registration failed for '$name': aliases must be an array reference\n"
+            unless ref($definition->{aliases}) eq 'ARRAY';
+
+        my %seen;
+        foreach my $alias (@{ $definition->{aliases} }) {
+            die "Command registration failed for '$name': alias must be non-empty\n"
+                unless defined $alias && length $alias;
+
+            die "Command registration failed for '$name': duplicate alias '$alias'\n"
+                if $seen{$alias}++;
+
+            die "Command registration failed for '$name': alias '$alias' duplicates command name '$name'\n"
+                if $alias eq $name;
+
+            die "Command registration failed for '$name': alias '$alias' conflicts with existing command\n"
+                if exists $self->{commands}{$alias};
+
+            foreach my $existing_name (keys %{ $self->{commands} }) {
+                my $existing_aliases = $self->{commands}{$existing_name}{aliases} || [];
+                foreach my $existing_alias (@$existing_aliases) {
+                    die "Command registration failed for '$name': alias '$alias' conflicts with alias for '$existing_name'\n"
+                        if $alias eq $existing_alias;
+                }
+            }
+        }
+    }
+
     return;
 }
 

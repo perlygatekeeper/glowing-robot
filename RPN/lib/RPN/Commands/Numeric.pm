@@ -121,7 +121,7 @@ sub register_commands {
 
     $commands->register(
         squareroot => {
-            aliases => [qw(sqrt sqr)],
+            aliases => [qw(sqrt)],
             category => 'numeric',
             help    => 'replaces the number on top of the stack with its square root',
             code    => sub {
@@ -297,18 +297,6 @@ sub register_commands {
                 my ($calc) = @_;
                 my $x = $calc->stack->pop;
                 $calc->stack->push( $x * $x );
-            },
-        }
-    );
-
-    $commands->register(
-        cube => {
-            category => 'numeric',
-            help => 'cube a value',
-            code => sub {
-                my ($calc) = @_;
-                my $x = $calc->stack->pop;
-                $calc->stack->push( $x * $x * $x );
             },
         }
     );

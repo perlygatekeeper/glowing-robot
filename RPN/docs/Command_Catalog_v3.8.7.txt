@@ -40,7 +40,7 @@ cosh                                                 Trig            hyperbolic 
 cosine             cos        cos                    Trig            replaces the number on top of the stack with its cosine
 count              cou                               Statistics      pushes the current stack depth onto the stack
 cross              cr                                Vector          cross product of two 3D vectors
-cube               cu                                Numeric         cube a value
+cube               cu                                Numeric         cubes the number on top of the stack
 datetime           da                                Datetime        push current date and time as YYYY-MM-DD HH:MM:SS
 decimal            dec        dec                    Display         prints the top value as a decimal integer without popping it
 decrement          decr                              Numeric         decrements the number on top of the stack
@@ -193,7 +193,7 @@ split              spl                               String          split strin
 spread             spr        span                   Statistics      replaces the entire stack with maximum minus minimum
 sqr                                                  Numeric         square a value
 square                                               Numeric         squares the number on top of the stack
-squareroot         squarer    sqrt, sqr              Numeric         replaces the number on top of the stack with its square root
+squareroot         squarer    sqrt                   Numeric         replaces the number on top of the stack with its square root
 stack                                                Stack           (stack NAME) switches stacks, (stack list) lists stacks, (stack) reports current stack
 stackexists        stacke                            Stack           return true if named stack exists: stackname stackexists
 stackinfo          stacki                            Stack           display information about all stacks

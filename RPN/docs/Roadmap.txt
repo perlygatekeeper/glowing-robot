@@ -1,3 +1,18 @@
+
+## Guiding Principles
+
+These principles guide the long-term evolution of the RPN Calculator.
+
+* The command registry is the authoritative source for command metadata.
+* Documentation should be generated whenever practical rather than
+  duplicated.
+* Preserve backward compatibility whenever practical.
+* Favor simple user-facing semantics over clever implementation.
+* Executable text and executable structure are distinct concepts.
+* Token Strings are convenience.
+* Code Blocks are structure.
+* Introduce new abstractions before introducing commands that depend on them.
+
 ## Version 3.3.0
 
 Enhanced Statistics (Completed)
@@ -1034,42 +1049,47 @@ Reference
 The runtime command registry is the authoritative source for command
 metadata and documentation.
 
+-----
+
 ## Pre-3.8.8 Cleanup — Registry and Test Hygiene
 
-### Goals
+Status: Completed
 
-[ ] Investigate duplicate command catalog tests:
+Purpose
 
+Strengthen the command registry before introducing new executable object
+types.
+
+## Completed
+
+[x] Investigated duplicate Command Catalog test numbering.
+[x] Renumbered runtime Commands Catalog test to eliminate numbering
+    collision while preserving both test suites.
         t/46_CommandCatalog.t
-        t/46_CommandsCatalog.t
+        t/46_CommandsCatalog.t -> t/47_CommandsCatalog.t
+[x] Added command registration validation.
+[x] Required command metadata:
 
-[ ] Remove or merge redundant test coverage.
+    non-empty name
+    non-empty category
+    non-empty help
+    code is executable
+    aliases do not collide with canonical command names
+    aliases do not collide with other aliases
 
-[ ] Tighten command registration validation.
+[x] Aliases remain optional.
+[x] Registration now fails immediately if required metadata is missing.
+    Fail loudly during registration if required metadata is missing.
+[x] Registry validation now protects the calculator from incomplete
+    command registrations.
+[x] Confirm generated command catalog still passes.
+[x] Confirm docs-check and full test suite pass.
+[x] Verified:
 
-[ ] Require every registered command to provide:
-
-        name
-        category
-        help
-        code
-
-[ ] Keep aliases optional.
-
-[ ] Fail loudly during registration if required metadata is missing.
-
-[ ] Validate command metadata:
-
-        non-empty name
-        non-empty category
-        non-empty help
-        code is executable
-        aliases do not collide with canonical command names
-        aliases do not collide with other aliases
-
-[ ] Confirm generated command catalog still passes.
-
-[ ] Confirm docs-check and full test suite pass.
+    make catalog
+    make docs-check
+    make syntax
+    make test
 
 ### Purpose
 
@@ -1078,7 +1098,10 @@ defends itself. The registry is now the authoritative source for command
 metadata, so incomplete or malformed command definitions should fail at
 startup/test time rather than silently entering the calculator.
 
+---
+
 ## Version 3.8.8 — CodeBlock Object Foundation
+
 
 ### Theme
 
@@ -1089,18 +1112,24 @@ future execution features. CodeBlocks do not need to replace functions
 immediately. Instead, they become a structured representation that later
 features can consume.
 
-### Design Principle
+### Goal
 
-Token Strings are convenience.
+  Introduce CodeBlocks as first-class executable value objects while
+  preserving existing Function (Token String) behavior.
 
-Code Blocks are structure.
+### Design Philosophy/Principle
+
+  Token Strings are convenience.
+  Code Blocks are structure.
+  Functions remain lightweight executable Token Strings.
+  CodeBlocks become structured executable values.
 
 ### Goals
 
-[ ] Add RPN::CodeBlock as a value object.
-
-[ ] Support anonymous CodeBlock values.
-
+[ ] Add RPN::CodeBlock value object.
+[ ] Support anonymous CodeBlocks.
+[ ] Support named CodeBlocks.
+[ ] Implement save/load support.
 [ ] Initial internal representation:
 
         source
@@ -1116,32 +1145,6 @@ Code Blocks are structure.
         as_string
         is_codeblock
 
-[ ] Add RPN::CodeBlocks as a named registry object.
-
-[ ] Store named CodeBlock values.
-
-[ ] Add registry methods:
-
-        define
-        undefine
-        get
-        exists
-        names
-        save_file
-        load_file
-
-[ ] Add RPN::Commands::CodeBlocks.
-
-[ ] Add preliminary user commands:
-
-        codeblocks
-        showblock
-        iscodeblock
-
-[ ] Add persistence format for named CodeBlocks.
-
-        square = { dup * }
-
 [ ] Add basic tests for:
 
         object construction
@@ -1153,18 +1156,59 @@ Code Blocks are structure.
         showblock
         iscodeblock
 
+[ ] Add RPN::CodeBlocks as a named registry object.
+[ ] Store named CodeBlock values.
+[ ] Add registry methods:
+
+        define
+        undefine
+        get
+        exists
+        names
+        save_file
+        load_file
+
+[ ] Add RPN::Commands::CodeBlocks.
+[ ] Add preliminary user commands:
+
+        codeblocks
+        showblock
+        iscodeblock
+
+[ ] Add persistence format for named CodeBlocks.
+
+        square = { dup * }
+
+[ ] Initial methods:
+    new()
+    as_string()
+    is_codeblock()
+
+[ ] Registry methods:
+    define()
+    undefine()
+    exists()
+    get()
+    names()
+    save_file()
+    load_file()
+
+[ ] Preliminary commands:
+    codeblocks
+    showblock
+    iscodeblock
+
+[ ] Basic unit tests.
+
 ### Non-Goals
 
 [ ] Do not replace existing functions.
-
 [ ] Do not overload def yet.
-
+[ ] Do not implement execution semantics.
 [ ] Do not require all CodeBlocks to be named.
-
+[ ] Do not implement looping.
 [ ] Do not implement map/filter/reduce yet.
-
 [ ] Do not introduce blessed Number or String objects.
-
 [ ] Do not solve full execution semantics yet unless naturally required.
 
 ### Future Use
@@ -1189,69 +1233,124 @@ RPN::CodeBlocks will represent named CodeBlock storage.
 
 These concepts are related, but intentionally distinct.
 
------
+## Purpose
 
-### Version 3.8.9 - Looping and Map/Filter/Reduce over Stack functionality
+This release establishes the object model only.
 
-### Version 3.9.0 - Iteration and Higher-Order Operations
-[ ] Add map for vector transformations
-[ ] Add filter for vector selection
-[ ] Add reduce for combining vector elements
-[ ] Add iteration tutorial
-[ ] Add release notes
+It intentionally postpones execution semantics until the following
+release.
 
------
+---
 
-### Version 3.9.1 - Geometry and Transformations
+## Version 3.8.9 — Execution and Higher-Order Operations
+
+Theme
+
+Execute executable values.
+
+## Goals
+
+[ ] call
+[ ] if
+[ ] ifelse
+[ ] while
+[ ] until
+[ ] repeat
+[ ] foreach
+[ ] map (Stack)
+[ ] filter (Stack)
+[ ] reduce (Stack)
+[ ] Tutorial
+
+## Purpose
+
+Introduce execution constructs operating on executable values.
+
+Both Token Strings and CodeBlocks should be accepted wherever practical.
+
+---
+
+## Version 3.9.0 — Higher-Order Collections
+
+Theme
+
+Extend higher-order execution to collection objects.
+
+## Goals
+
+[ ] map (Vector)
+[ ] filter (Vector)
+[ ] reduce (Vector)
+[ ] map (Matrix)
+[ ] filter (Matrix)
+[ ] reduce (Matrix)
+[ ] Collection tutorial
+
+## Purpose
+
+Generalize higher-order execution from stacks to vectors and matrices
+while preserving a consistent programming model.
+
+---
+
+## Version 3.9.1 — Geometry and Transformations
 
 [ ] 2D transformations
 [ ] 3D transformations
+[ ] Translation
+[ ] Rotation
+[ ] Reflection
+[ ] Scaling
+[ ] Shearing
+[ ] Coordinate geometry
+[ ] Geometry tutorial
+[ ] Transformation tests
 
-[ ] Add transformation matrix examples
-[ ] Add translation helpers
-[ ] Add rotation    helpers
-[ ] Add reflection  helpers
-[ ] Add scaling     helpers
-[ ] Add shearing    helpers
+---
 
-[ ] Add coordinate geometry functions
-[ ] Add geometry tutorial
+## Version 4.0.0 — Graphics (Optional)
 
-[ ] transformation tests
+This could go over board really easily!
+Start small.  Accumulate slowly.
 
------
+[ ] Graphics architecture
+[ ] Point object
+[ ] Shape object
+[ ] SVG output
+[ ] Line
+[ ] Rectangle
+[ ] Circle
+[ ] Polygon
+[ ] Transformation integration
+[ ] Graphing
+[ ] Plotting
+[ ] Function visualization
+[ ] Graphics tutorial
 
-### Version 4.0.0 - Graphics (Optional)
-
-This could go over board really easily
-Start small, accumulate slowly
-
-[ ] Design graphics architecture
-[ ] Define point and shape objects
-[ ] Implement SVG output
-[ ]    Add line primitive
-[ ]    Add rectangle primitive
-[ ]    Add circle primitive
-[ ]    Add polygon primitive
-
-[ ] Integrate transforms with graphics
-
-[ ] graphing
-[ ] plotting (is this different from graphing?)
-[ ] function visualization
-[ ] export graphics
-[ ] Add graphics tutorial
-
------
+---
 
 ## Future Ideas
 
-[x] scientific constant pack expansion
-[ ] units and dimensional analysis - Probably never
-[ ] JSON import/export - we do not have JSON support, we have csv support
-[ ] HTTP/API import - probably overkill, and potentially dangerous, definately difficult, but hell, R has it!
-[ ] spreadsheet integration - we have csv support, did this entry mean more than that
-[ ] programmable scripts - this feels like Token Strings and Code Blocks
+[x] Scientific constant pack expansion
 
-[ ] user libraries - I think this was meant to house both constants and functions
-[ ] package/import system  - need to see a proposed example of this first
+[ ] Units and dimensional analysis
+    Probably never.
+
+[ ] JSON import/export
+    Requires JSON support.
+
+[ ] HTTP/API import
+    Probably overkill.
+    Potentially dangerous.
+    Interesting, but low priority.
+
+[ ] Spreadsheet integration
+    CSV support already exists.
+    Clarify whether anything more is desired.
+
+[ ] Programmable scripts
+    Likely evolves naturally from Token Strings and CodeBlocks.
+
+[ ] User libraries
+    Shared collections of functions, Token Strings, CodeBlocks,
+    constants, variables, tutorials, or examples.
