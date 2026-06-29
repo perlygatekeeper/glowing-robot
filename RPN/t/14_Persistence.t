@@ -16,6 +16,8 @@ my $dir = tempdir(CLEANUP => 1);
 $ENV{RPN_HISTORY} = "$dir/history";
 $ENV{RPN_STACKS}  = "$dir/stacks";
 $ENV{RPN_CONSTANTS} = "$dir/constants";
+$ENV{RPN_VARIABLES} = "$dir/variables";
+$ENV{RPN_FUNCTIONS} = "$dir/functions";
 
 my $calc = RPN->new(no_readline => 1);
 
@@ -88,7 +90,7 @@ is($calc5->stack->peek, 42, 'loaded user constant');
 
 stdout_like(
     sub { $calc4->process_input('save') },
-    qr/Saved history, stacks, and constants\./,
+    qr/Saved persistent calculator state\./,
     'save command reports success'
 );
 

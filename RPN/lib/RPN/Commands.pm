@@ -480,13 +480,11 @@ sub _initialize {
     $self->register(
         save => {
             type => 'session',
-            help => 'saves persistent calculator state',
+            help => 'persist all calculator state',
             code => sub {
                 my ($calc) = @_;
-                $calc->save_history;
-                $calc->save_stacks;
-                $calc->save_constants;
-                print "Saved history, stacks, and constants.\n";
+                $calc->save_all;
+                print "Saved persistent calculator state.\n";
             },
         }
     );

@@ -43,8 +43,8 @@ is($calc->stack->peek, 1, '0 factorial = 1');
 $calc->stack->clear;
 $calc->process_input('4');
 $calc->process_input('2');
-$calc->process_input('ncr');
-is($calc->stack->peek, 6, '4 choose 2 = 6');
+$calc->process_input('combinations');
+is($calc->stack->peek, 6, '4 choose 2 combinations = 6');
 
 $calc->stack->clear;
 $calc->process_input('4');
@@ -55,8 +55,20 @@ is($calc->stack->peek, 6, 'binom alias works');
 $calc->stack->clear;
 $calc->process_input('4');
 $calc->process_input('2');
+$calc->process_input('ncr');
+is($calc->stack->peek, 6, 'ncr compatibility alias works');
+
+$calc->stack->clear;
+$calc->process_input('4');
+$calc->process_input('2');
+$calc->process_input('permutations');
+is($calc->stack->peek, 12, '4 permute 2 permutations = 12');
+
+$calc->stack->clear;
+$calc->process_input('4');
+$calc->process_input('2');
 $calc->process_input('npr');
-is($calc->stack->peek, 12, '4 permute 2 = 12');
+is($calc->stack->peek, 12, 'npr compatibility alias works');
 
 $calc->stack->clear;
 $calc->process_input('10');
@@ -98,7 +110,7 @@ stderr_like(
 is($calc->stack->peek, 'hello', 'factorial preserves bad operand');
 
 #
-# invalid ncr preserves stack
+# invalid combinations preserves stack
 #
 
 $calc->stack->clear;
@@ -106,13 +118,13 @@ $calc->process_input('4');
 $calc->process_input("'two");
 
 stderr_like(
-    sub { $calc->process_input('ncr') },
-    qr/ncr requires non-negative integer operands/,
-    'ncr rejects bad operand'
+    sub { $calc->process_input('combinations') },
+    qr/combinations requires non-negative integer operands/,
+    'combinations rejects bad operand'
 );
 
-is($calc->stack->depth, 2, 'ncr preserves stack depth');
-is($calc->stack->peek, 'two', 'ncr preserves top operand');
+is($calc->stack->depth, 2, 'combinations preserves stack depth');
+is($calc->stack->peek, 'two', 'combinations preserves top operand');
 
 #
 # invalid probability preserves stack

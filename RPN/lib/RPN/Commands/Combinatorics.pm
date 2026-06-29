@@ -35,10 +35,10 @@ sub register_commands {
     );
 
     $commands->register(
-        npr => {
-            aliases => ['permute'],
+        permutations => {
+            aliases => ['npr', 'perm', 'permute'],
             type    => 'combinatorics',
-            help    => 'permutations: n r npr',
+            help    => 'number of permutations (n permute r): n r permutations',
             code    => sub {
                 my ($calc) = @_;
 
@@ -51,7 +51,7 @@ sub register_commands {
                     && _comb_is_nonnegative_integer($calc, $r)) {
                     $calc->stack->push($n);
                     $calc->stack->push($r);
-                    warn "npr requires non-negative integer operands\n";
+                    warn "permutations requires non-negative integer operands\n";
                     return;
                 }
 
@@ -61,10 +61,10 @@ sub register_commands {
     );
 
     $commands->register(
-        ncr => {
-            aliases => ['binom', 'comb'],
+        combinations => {
+            aliases => ['ncr', 'comb', 'binom'],
             type    => 'combinatorics',
-            help    => 'combinations: n r ncr',
+            help    => 'number of combinations (n choose r): n r combinations',
             code    => sub {
                 my ($calc) = @_;
 
@@ -77,7 +77,7 @@ sub register_commands {
                     && _comb_is_nonnegative_integer($calc, $r)) {
                     $calc->stack->push($n);
                     $calc->stack->push($r);
-                    warn "ncr requires non-negative integer operands\n";
+                    warn "combinations requires non-negative integer operands\n";
                     return;
                 }
 
