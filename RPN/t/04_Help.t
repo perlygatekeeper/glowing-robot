@@ -31,8 +31,28 @@ stdout_like(
 
 stdout_like(
     sub { $calc->process_input('help category numeric') },
-    qr/add\s+Numeric.*multiply\s+Numeric.*subtract\s+Numeric/s,
-    'help category numeric lists numeric commands'
+    qr/Category:\s+Numeric.*arithmetic functions.*Commands.*add\s+Numeric.*multiply\s+Numeric.*subtract\s+Numeric.*See also:.*commands Numeric.*categories/s,
+    'help category numeric prints category guide and lists numeric commands'
+);
+
+
+stdout_like(
+    sub { $calc->process_input('help type numeric') },
+    qr/Category:\s+Numeric.*Commands.*add\s+Numeric/s,
+    'help type numeric remains a compatibility spelling'
+);
+
+
+stdout_like(
+    sub { $calc->process_input('help stacks') },
+    qr/Multiple matches found for 'stacks':.*Category\s+Stack\s+Use: help category Stack.*Tutorial\s+Stacks\s+Use: tutorial Stacks.*Command\s+stackinfo\s+Use: help stackinfo.*Command\s+stacksize\s+Use: help stacksize/s,
+    'help ambiguous term prints non-interactive suggestions'
+);
+
+stdout_like(
+    sub { $calc->process_input('help stack') },
+    qr/stack\s+Stack\s+\(stack NAME\) switches stacks/s,
+    'help exact command still wins over ambiguous suggestions'
 );
 
 stderr_like(

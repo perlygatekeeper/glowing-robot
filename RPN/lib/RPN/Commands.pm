@@ -14,6 +14,7 @@ use RPN::Commands::Tutorials;
 use RPN::Commands::Numeric;
 use RPN::Commands::Stack;
 use POSIX ();
+use File::Basename qw(basename);
 use Text::Abbrev qw(abbrev);
 
 sub new {
@@ -2122,11 +2123,29 @@ sub _print_help_by_category {
         return;
     }
 
+    my $display_category = $self->_display_category($category_key);
+    my $description = $self->{categories}{$category_key} || '';
+
+    print "Category: $display_category\n";
+    print "\n";
+    print "$description\n" if length $description;
+    print "\n" if length $description;
+
+    print "Commands\n";
+    print "--------\n";
+    print "\n";
+
     $self->_print_help_header;
 
     for my $command (@matches) {
         $self->_print_help_line($command);
     }
+
+    print "\n";
+    print "See also:\n";
+    print "\n";
+    print "    commands $display_category\n";
+    print "    categories\n";
 
     return;
 }
@@ -2149,13 +2168,162 @@ sub _print_help_for_function {
 
 sub _print_help_for_command {
     my ($self, $query) = @_;
-    my $command = $self->{abbrevs}{$query};
-    unless ($command) {
-        warn "No command '$query' was found.\n";
+
+    if (my $exact = $self->_exact_command_name($query)) {
+        $self->_print_help_header;
+        $self->_print_help_line($exact);
         return;
     }
-    $self->_print_help_header;
-    $self->_print_help_line($command);
+
+    my @matches = $self->_find_help_matches($query);
+    if (@matches > 1) {
+        return $self->_print_help_matches($query, @matches);
+    }
+
+    my $command = $self->{abbrevs}{$query};
+    if ($command) {
+        $self->_print_help_header;
+        $self->_print_help_line($command);
+        return;
+    }
+
+    if (@matches) {
+        return $self->_print_help_matches($query, @matches);
+    }
+
+    warn "No command '$query' was found.\n";
+    return;
+}
+
+sub _exact_command_name {
+    my ($self, $query) = @_;
+    return unless defined $query && length $query;
+
+    return $query if exists $self->{commands}{$query};
+
+    foreach my $command (sort keys %{ $self->{commands} }) {
+        foreach my $alias (@{ $self->{commands}{$command}{aliases} || [] }) {
+            return $command if $alias eq $query;
+        }
+    }
+
+    return;
+}
+
+sub _find_help_matches {
+    my ($self, $query) = @_;
+
+    my $needle = lc($query // '');
+    $needle =~ s/^\s+//;
+    $needle =~ s/\s+$//;
+    return unless length $needle;
+
+    my @matches;
+
+    foreach my $category (sort keys %{ $self->{categories} }) {
+        my $display = $self->_display_category($category);
+        if ($self->_help_term_matches($needle, $category, $display)) {
+            push @matches, {
+                kind  => 'Category',
+                name  => $display,
+                usage => "help category $display",
+            };
+        }
+    }
+
+    foreach my $tutorial ($self->_tutorial_help_matches($needle)) {
+        push @matches, {
+            kind  => 'Tutorial',
+            name  => $tutorial,
+            usage => "tutorial $tutorial",
+        };
+    }
+
+    foreach my $command (sort keys %{ $self->{commands} }) {
+        next unless $self->_command_help_matches($needle, $command);
+        push @matches, {
+            kind  => 'Command',
+            name  => $command,
+            usage => "help $command",
+        };
+    }
+
+    return @matches;
+}
+
+sub _help_term_matches {
+    my ($self, $needle, @candidates) = @_;
+
+    my $compact = $needle;
+    $compact =~ s/[\s_-]+//g;
+    my $singular = $compact;
+    $singular =~ s/s\z// if length $singular > 1;
+
+    foreach my $candidate (@candidates) {
+        next unless defined $candidate && length $candidate;
+        my $value = lc $candidate;
+        $value =~ s/[\s_-]+//g;
+        my $value_singular = $value;
+        $value_singular =~ s/s\z// if length $value_singular > 1;
+
+        return 1 if $value eq $compact;
+        return 1 if $value_singular eq $singular;
+        return 1 if index($value, $compact) == 0;
+        return 1 if index($value_singular, $singular) == 0;
+    }
+
+    return;
+}
+
+sub _tutorial_help_matches {
+    my ($self, $needle) = @_;
+
+    my %seen;
+    foreach my $file (glob($self->{calc}->tutorials_dir . '/*.txt')) {
+        my $name = basename($file, '.txt');
+        $name =~ s/_(?:v|version)\d+$//i;
+
+        my $display = $name;
+        $display =~ s/_/ /g;
+        $display = join ' ', map { ucfirst lc $_ } split /\s+/, $display;
+
+        my $key = lc $name;
+        $key =~ s/_/ /g;
+
+        next unless $self->_help_term_matches($needle, $key, $display);
+        $seen{$display} = 1;
+    }
+
+    return sort keys %seen;
+}
+
+sub _command_help_matches {
+    my ($self, $needle, $command) = @_;
+
+    my $entry = $self->{commands}{$command};
+    return 1 if $self->_help_term_matches($needle, $command);
+
+    foreach my $alias (@{ $entry->{aliases} || [] }) {
+        return 1 if $self->_help_term_matches($needle, $alias);
+    }
+
+    return;
+}
+
+sub _print_help_matches {
+    my ($self, $query, @matches) = @_;
+
+    print "Multiple matches found for '$query':\n";
+    print "\n";
+
+    foreach my $match (@matches) {
+        printf "    %-9s %-18s Use: %s\n",
+            $match->{kind},
+            $match->{name},
+            $match->{usage};
+    }
+
+    print "\n";
     return;
 }
 
