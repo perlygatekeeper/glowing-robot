@@ -584,6 +584,9 @@ sub _initialize {
                 elsif ($query eq 'categories') {
                     $self->_print_command_categories();
                 }
+                elsif ($query eq 'bycategory') {
+                    $self->_print_command_catalog_by_category();
+                }
                 elsif ($query eq 'aliases') {
                     $self->_print_command_catalog(aliases_only => 1);
                 }
@@ -2172,6 +2175,36 @@ sub _print_command_catalog {
             join(", ", @$aliases),
             $self->_display_category($category),
             $entry->{help} || '';
+    }
+
+    return;
+}
+
+
+sub _print_command_catalog_by_category {
+    my ($self) = @_;
+
+    foreach my $category (sort keys %{ $self->{categories} }) {
+        my @commands = grep {
+            ($self->{commands}{$_}{type} || '') eq $category
+        } sort keys %{ $self->{commands} };
+
+        next unless @commands;
+
+        printf "%s (%d)\n", $self->_display_category($category), scalar @commands;
+        printf "%s\n", "-" x (length($self->_display_category($category)) + 4 + length(scalar @commands));
+        for my $command (@commands) {
+            my $entry = $self->{commands}{$command};
+            my $aliases = $entry->{aliases} || [];
+            my $abbrev = $self->_shortest_command_abbrev($command);
+
+            printf "    %-18s %-10s %-22s %s\n",
+                $command,
+                $abbrev,
+                join(", ", @$aliases),
+                $entry->{help} || '';
+        }
+        print "\n";
     }
 
     return;

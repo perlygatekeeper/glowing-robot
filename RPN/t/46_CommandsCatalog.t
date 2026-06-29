@@ -49,6 +49,12 @@ unlike($aliases_output, qr/^abs\s+/m, 'commands aliases excludes commands withou
 
 my $abbrevs_output = stdout_from { $calc->process_input('commands abbreviations') };
 like($abbrevs_output, qr/^add\s+\S+\s+\+\s+Numeric\s+pops two numbers/m, 'commands abbreviations includes commands with abbreviations');
+
+my $bycategory_output = stdout_from { $calc->process_input('commands bycategory') };
+like($bycategory_output, qr/^Numeric \(\d+\)/m, 'commands bycategory includes Numeric heading with count');
+like($bycategory_output, qr/^\s+add\s+/m, 'commands bycategory lists commands under headings');
+like($bycategory_output, qr/^Matrix \(\d+\)/m, 'commands bycategory includes Matrix heading with count');
+
 stderr_like(
     sub { $calc->process_input('commands nosuchcategory') },
     qr/No such command category 'nosuchcategory'/,
