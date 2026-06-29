@@ -86,7 +86,7 @@ for my $command (qw(j0 j1 jn y0 y1 yn)) {
     );
 
     is(
-        $calc->{commands}{commands}{$command}{type},
+        $calc->{commands}{commands}{$command}{category},
         'numeric',
         "$command is a numeric command"
     );

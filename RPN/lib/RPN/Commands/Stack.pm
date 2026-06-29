@@ -28,7 +28,7 @@ sub register_commands {
 
     $commands->register(
         sort => {
-            type => 'stack',
+            category => 'stack',
             help => 'sort the stack; sort -1 reverses order',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -56,7 +56,7 @@ sub register_commands {
 
     $commands->register(
         unique => {
-            type => 'stack',
+            category => 'stack',
             help => 'remove duplicate values while preserving order',
             code => sub {
                 my ($calc) = @_;
@@ -72,7 +72,7 @@ sub register_commands {
 
     $commands->register(
         stack => {
-            type => 'stack',
+            category => 'stack',
             help => '(stack NAME) switches stacks, (stack list) lists stacks, (stack) reports current stack',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -105,7 +105,7 @@ sub register_commands {
     $commands->register(
         pop => {
             aliases => ['drop'],
-            type => 'stack',
+            category => 'stack',
             help => 'remove one or more values from the top of the stack',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -127,7 +127,7 @@ sub register_commands {
 
     $commands->register(
         shuffle => {
-            type => 'stack',
+            category => 'stack',
             help => 'randomly shuffle the current stack',
             code => sub {
                 my ($calc) = @_;
@@ -144,7 +144,7 @@ sub register_commands {
     $commands->register(
         duplicate => {
             aliases => ['dup'],
-            type    => 'stack',
+            category => 'stack',
             help    => 'duplicates the number on top of the stack',
             code    => sub {
                 my ($calc) = @_;
@@ -157,7 +157,7 @@ sub register_commands {
     $commands->register(
         exchange => {
             aliases => [qw(x swap)],
-            type    => 'stack',
+            category => 'stack',
             help    => 'swaps the top two values on the stack',
             code    => sub {
                 my ($calc) = @_;
@@ -172,7 +172,7 @@ sub register_commands {
     $commands->register(
         clear => {
             aliases => ['clr'],
-            type    => 'stack',
+            category => 'stack',
             help    => 'empties the stack',
             code    => sub {
                 my ($calc) = @_;
@@ -184,7 +184,7 @@ sub register_commands {
     $commands->register(
         deletestack => {
             aliases => [qw(dropstack rmstack)],
-            type    => 'stack',
+            category => 'stack',
             help    => 'delete a named stack: deletestack <name>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -203,7 +203,7 @@ sub register_commands {
 
     $commands->register(
         depth => {
-            type => 'stack',
+            category => 'stack',
             help => 'pushes the current stack depth onto the stack',
             code => sub {
                 my ($calc) = @_;
@@ -218,7 +218,7 @@ sub register_commands {
 
     $commands->register(
         reverse => {
-            type => 'stack',
+            category => 'stack',
             help => 'reverse the current stack',
             code => sub {
                 my ($calc) = @_;
@@ -230,7 +230,7 @@ sub register_commands {
 
     $commands->register(
         pick => {
-            type => 'stack',
+            category => 'stack',
             help => 'copy value at depth N to the top of the stack',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -248,7 +248,7 @@ sub register_commands {
     $commands->register(
         pullup => {
             aliases => ['rollup'],
-            type    => 'stack',
+            category => 'stack',
             help    => 'move value at depth N to the top of the stack',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -268,7 +268,7 @@ sub register_commands {
 
     $commands->register(
         pushdown => {
-            type => 'stack',
+            category => 'stack',
             help => 'move the top value down to depth N',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -288,7 +288,7 @@ sub register_commands {
 
     $commands->register(
         roll => {
-            type => 'stack',
+            category => 'stack',
             help => 'circularly rotate the whole stack by N positions; default is -1',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -314,7 +314,7 @@ sub register_commands {
 
     $commands->register(
         clearall => {
-            type => 'stack',
+            category => 'stack',
             help => 'clear all stacks and return to the default stack',
             code => sub {
                 my ($calc) = @_;
@@ -327,7 +327,7 @@ sub register_commands {
 
         $commands->register(
         stackexists => {
-            type => 'stack',
+            category => 'stack',
             help => 'return true if named stack exists: stackname stackexists',
             code => sub {
                 my ($calc) = @_;
@@ -342,7 +342,7 @@ sub register_commands {
 
     $commands->register(
         stacksize => {
-            type => 'stack',
+            category => 'stack',
             help => 'push depth of named stack: stackname stacksize',
             code => sub {
                 my ($calc) = @_;
@@ -362,7 +362,7 @@ sub register_commands {
 
     $commands->register(
         copystack => {
-            type => 'stack',
+            category => 'stack',
             help => 'copy stack: copystack <src> <dst>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -381,7 +381,7 @@ sub register_commands {
 
     $commands->register(
         dupstack => {
-            type => 'stack',
+            category => 'stack',
             help => 'duplicate current stack: dupstack <dst>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -401,7 +401,7 @@ sub register_commands {
     $commands->register(
         renamestack => {
             aliases => ['movestack'],
-            type    => 'stack',
+            category => 'stack',
             help    => 'rename stack: renamestack <old> <new>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -420,7 +420,7 @@ sub register_commands {
 
     $commands->register(
         clearstack => {
-            type => 'stack',
+            category => 'stack',
             help => 'clear named stack: clearstack <name>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -439,7 +439,7 @@ sub register_commands {
 
     $commands->register(
         mergestacks => {
-            type => 'stack',
+            category => 'stack',
             help => 'append source stack onto destination: mergestacks <src> <dst>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -458,7 +458,7 @@ sub register_commands {
 
     $commands->register(
         pour => {
-            type => 'stack',
+            category => 'stack',
             help => 'pour source stack onto destination, reversing order: pour <src> <dst>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -477,7 +477,7 @@ sub register_commands {
 
     $commands->register(
         stackinfo => {
-            type => 'stack',
+            category => 'stack',
             help => 'display information about all stacks',
             code => sub {
                 my ($calc) = @_;

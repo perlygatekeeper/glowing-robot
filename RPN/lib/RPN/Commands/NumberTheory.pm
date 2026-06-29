@@ -15,7 +15,7 @@ sub register_commands {
 
     $commands->register(
         isprime => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'push 1 if top value is prime, otherwise 0',
             code => sub {
                 my ($calc) = @_;
@@ -29,7 +29,7 @@ sub register_commands {
     $commands->register(
         nextprime => {
             aliases => ['prime'],
-            type    => 'number_theory',
+            category => 'number_theory',
             help    => 'replace top value with next prime greater than it',
             code    => sub {
                 my ($calc) = @_;
@@ -42,7 +42,7 @@ sub register_commands {
 
     $commands->register(
         prevprime => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'replace top value with previous prime less than it',
             code => sub {
                 my ($calc) = @_;
@@ -61,7 +61,7 @@ sub register_commands {
     $commands->register(
         factor => {
             aliases => ['factors'],
-            type    => 'number_theory',
+            category => 'number_theory',
             help    => 'replace top value with its prime factors',
             code    => sub {
                 my ($calc) = @_;
@@ -75,7 +75,7 @@ sub register_commands {
 
     $commands->register(
         divisors => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'replace top value with its positive divisors',
             code => sub {
                 my ($calc) = @_;
@@ -89,7 +89,7 @@ sub register_commands {
 
     $commands->register(
         gcd => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'replace top two values with their greatest common divisor',
             code => sub {
                 my ($calc) = @_;
@@ -103,7 +103,7 @@ sub register_commands {
 
     $commands->register(
         lcm => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'replace top two values with their least common multiple',
             code => sub {
                 my ($calc) = @_;
@@ -119,7 +119,7 @@ sub register_commands {
     $commands->register(
     totient => {
         aliases => ['eulerphi'],
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'replace top value with Euler totient phi(n)',
             code => sub {
                 my ($calc) = @_;
@@ -136,7 +136,7 @@ sub register_commands {
 
     $commands->register(
         primorial => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'product of all primes <= n: n primorial',
             code => sub {
                 my ($calc) = @_;
@@ -154,7 +154,7 @@ sub register_commands {
 
     $commands->register(
         mobius => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'Möbius function: n mobius',
             code => sub {
                 my ($calc) = @_;
@@ -172,7 +172,7 @@ sub register_commands {
 
     $commands->register(
         mertens => {
-            type => 'number_theory',
+            category => 'number_theory',
             help => 'Mertens function: n mertens',
             code => sub {
                 my ($calc) = @_;

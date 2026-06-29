@@ -27,18 +27,18 @@ for my $command (sort keys %$commands) {
     my $entry = $commands->{$command};
 
     ok(
-        exists $entry->{type},
+        exists $entry->{category},
         "$command has a category"
     );
 
     ok(
-        defined $entry->{type} && length $entry->{type},
+        defined $entry->{category} && length $entry->{category},
         "$command category is non-empty"
     );
 
     ok(
-        exists $categories->{ $entry->{type} },
-        "$command has valid category '$entry->{type}'"
+        exists $categories->{ $entry->{category} },
+        "$command has valid category '$entry->{category}'"
     );
 
     ok(

@@ -90,7 +90,7 @@ for my $command (qw(erf erfc gamma lgamma beta)) {
     );
 
     is(
-        $calc->{commands}{commands}{$command}{type},
+        $calc->{commands}{commands}{$command}{category},
         'numeric',
         "$command is a numeric command"
     );

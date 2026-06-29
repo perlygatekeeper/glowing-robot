@@ -83,7 +83,7 @@ sub command_catalog_text {
             $command,
             $registry->_shortest_command_abbrev($command),
             join(', ', @$aliases),
-            $registry->_display_category($entry->{type} || ''),
+            $registry->_display_category($entry->{category} || ''),
             $entry->{help} || '';
     }
 

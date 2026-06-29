@@ -13,7 +13,7 @@ sub register_commands {
 
     $commands->register(
         fv => {
-            type => 'financial',
+            category => 'financial',
             help => 'future value: pv rate nper fv',
             code => sub {
                 my ($calc) = @_;
@@ -37,7 +37,7 @@ sub register_commands {
 
     $commands->register(
         pv => {
-            type => 'financial',
+            category => 'financial',
             help => 'present value: fv rate nper pv',
             code => sub {
                 my ($calc) = @_;
@@ -61,7 +61,7 @@ sub register_commands {
 
     $commands->register(
         pmt => {
-            type => 'financial',
+            category => 'financial',
             help => 'loan payment: pv rate nper pmt',
             code => sub {
                 my ($calc) = @_;
@@ -97,7 +97,7 @@ sub register_commands {
 
     $commands->register(
         nper => {
-            type => 'financial',
+            category => 'financial',
             help => 'number of periods: pv rate pmt nper',
             code => sub {
                 my ($calc) = @_;
@@ -140,7 +140,7 @@ sub register_commands {
 
     $commands->register(
         rate => {
-            type => 'financial',
+            category => 'financial',
             help => 'periodic growth rate: pv fv nper rate',
             code => sub {
                 my ($calc) = @_;

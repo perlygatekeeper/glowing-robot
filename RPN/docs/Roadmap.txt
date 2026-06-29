@@ -835,7 +835,7 @@ converting them to Category/Categories where appropriate.
 
 [x] Retain the internal command-registration hash key:
 
-    type => ...
+    category => ...
 
 for this release to minimize implementation churn.
 

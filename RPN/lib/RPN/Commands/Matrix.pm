@@ -16,7 +16,7 @@ sub register_commands {
 
     $commands->register(
         matrix => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'create a matrix from N row vectors: N matrix',
             code => sub {
                 my ($calc) = @_;
@@ -75,7 +75,7 @@ sub register_commands {
 
     $commands->register(
         matcols => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'create a matrix from N column vectors: N matcols',
             code => sub {
                 my ($calc) = @_;
@@ -147,7 +147,7 @@ sub register_commands {
 
     $commands->register(
         matparse => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'parse a matrix literal from the stack: [[1,2],[3,4]] matparse',
             code => sub {
                 my ($calc) = @_;
@@ -177,7 +177,7 @@ sub register_commands {
 
     $commands->register(
         loadmatrix => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'load a matrix from a file: loadmatrix <file>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -242,7 +242,7 @@ sub register_commands {
 
     $commands->register(
         rows => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'replace a matrix with its row count',
             code => sub {
                 my ($calc) = @_;
@@ -264,7 +264,7 @@ sub register_commands {
 
     $commands->register(
         cols => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'replace a matrix with its column count',
             code => sub {
                 my ($calc) = @_;
@@ -286,7 +286,7 @@ sub register_commands {
 
     $commands->register(
         madd => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'add two matrices of the same dimensions',
             code => sub {
                 my ($calc) = @_;
@@ -317,7 +317,7 @@ sub register_commands {
 
     $commands->register(
         msub => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'subtract top matrix from second matrix',
             code => sub {
                 my ($calc) = @_;
@@ -343,7 +343,7 @@ sub register_commands {
 
     $commands->register(
         mmul => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'multiply matrices, matrix/vector, or vector/matrix operands',
             code => sub {
                 my ($calc) = @_;
@@ -398,7 +398,7 @@ sub register_commands {
     $commands->register(
         transpose => {
             aliases => ['trans'],
-            type    => 'matrix',
+            category => 'matrix',
             help    => 'transpose a matrix',
             code    => sub {
                 my ($calc) = @_;
@@ -417,7 +417,7 @@ sub register_commands {
     $commands->register(
         determinant => {
             aliases => ['det'],
-            type    => 'matrix',
+            category => 'matrix',
             help    => 'compute determinant of a square matrix',
             code    => sub {
                 my ($calc) = @_;
@@ -441,7 +441,7 @@ sub register_commands {
     $commands->register(
         inverse => {
             aliases => ['invm'],
-            type    => 'matrix',
+            category => 'matrix',
             help    => 'compute inverse of a square non-singular matrix',
             code    => sub {
                 my ($calc) = @_;
@@ -469,7 +469,7 @@ sub register_commands {
 
     $commands->register(
         mpow => {
-            type => 'matrix',
+            category => 'matrix',
             help => 'raise a square matrix to a non-negative integer power: matrix n mpow',
             code => sub {
                 my ($calc) = @_;

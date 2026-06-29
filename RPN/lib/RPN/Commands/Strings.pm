@@ -8,7 +8,7 @@ sub register_commands {
 
     $commands->register(
         lower => {
-            type => 'string',
+            category => 'string',
             help => 'convert string to lowercase',
             code => sub {
                 my ($calc) = @_;
@@ -20,7 +20,7 @@ sub register_commands {
 
     $commands->register(
         upper => {
-            type => 'string',
+            category => 'string',
             help => 'convert string to uppercase',
             code => sub {
                 my ($calc) = @_;
@@ -32,7 +32,7 @@ sub register_commands {
 
     $commands->register(
         trim => {
-            type => 'string',
+            category => 'string',
             help => 'remove leading and trailing whitespace',
             code => sub {
                 my ($calc) = @_;
@@ -46,7 +46,7 @@ sub register_commands {
 
     $commands->register(
         ltrim => {
-            type => 'string',
+            category => 'string',
             help => 'remove leading whitespace',
             code => sub {
                 my ($calc) = @_;
@@ -59,7 +59,7 @@ sub register_commands {
 
     $commands->register(
         rtrim => {
-            type => 'string',
+            category => 'string',
             help => 'remove trailing whitespace',
             code => sub {
                 my ($calc) = @_;
@@ -72,7 +72,7 @@ sub register_commands {
 
     $commands->register(
         split => {
-            type => 'string',
+            category => 'string',
             help => 'split string by delimiter: string delimiter split',
             code => sub {
                 my ($calc) = @_;
@@ -87,7 +87,7 @@ sub register_commands {
 
     $commands->register(
         join => {
-            type => 'string',
+            category => 'string',
             help => 'join array/vector elements with delimiter: list delimiter join',
             code => sub {
                 my ($calc) = @_;
@@ -104,7 +104,7 @@ sub register_commands {
 
     $commands->register(
         length => {
-            type => 'string',
+            category => 'string',
             help => 'string length',
             code => sub {
                 my ($calc) = @_;
@@ -116,7 +116,7 @@ sub register_commands {
 
     $commands->register(
         strrev => {
-            type => 'string',
+            category => 'string',
             help => 'reverse a string',
             code => sub {
                 my ($calc) = @_;
@@ -128,7 +128,7 @@ sub register_commands {
 
     $commands->register(
         repeat => {
-            type => 'string',
+            category => 'string',
             help => 'repeat string N times: string n repeat',
             code => sub {
                 my ($calc) = @_;
@@ -141,7 +141,7 @@ sub register_commands {
 
     $commands->register(
         match => {
-            type => 'string',
+            category => 'string',
             help => 'regex match: string pattern match',
             code => sub {
                 my ($calc) = @_;
@@ -154,7 +154,7 @@ sub register_commands {
 
     $commands->register(
         search => {
-            type => 'string',
+            category => 'string',
             help => 'return first regex match: string pattern search',
             code => sub {
                 my ($calc) = @_;
@@ -173,7 +173,7 @@ sub register_commands {
 
     $commands->register(
         replace => {
-            type => 'string',
+            category => 'string',
             help => 'literal replace first occurrence: string old new replace',
             code => sub {
                 my ($calc) = @_;
@@ -189,7 +189,7 @@ sub register_commands {
 
     $commands->register(
         subst => {
-            type => 'string',
+            category => 'string',
             help => 'regex replace first match: string pattern replacement subst',
             code => sub {
                 my ($calc) = @_;

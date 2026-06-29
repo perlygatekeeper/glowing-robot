@@ -69,7 +69,7 @@ for my $command (qw(sinh cosh tanh asinh acosh atanh)) {
     );
 
     is(
-        $calc->{commands}{commands}{$command}{type},
+        $calc->{commands}{commands}{$command}{category},
         'trig',
         "$command is a trig command"
     );

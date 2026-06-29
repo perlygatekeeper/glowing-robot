@@ -25,7 +25,7 @@ sub register_commands {
     $commands->register(
         add => {
             aliases => ['+'],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'pops two numbers and pushes their sum',
             code    => sub {
                 my ($calc) = @_;
@@ -37,7 +37,7 @@ sub register_commands {
     $commands->register(
         subtract => {
             aliases => ['-'],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'pops two numbers and pushes their difference',
             code    => sub {
                 my ($calc) = @_;
@@ -49,7 +49,7 @@ sub register_commands {
     $commands->register(
         multiply => {
             aliases => ['*'],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'pops two numbers and pushes their product',
             code    => sub {
                 my ($calc) = @_;
@@ -61,7 +61,7 @@ sub register_commands {
     $commands->register(
         divide => {
             aliases => ['/'],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'pops two numbers and pushes their quotient',
             code    => sub {
                 my ($calc) = @_;
@@ -88,7 +88,7 @@ sub register_commands {
     $commands->register(
         exponentiate => {
             aliases => ['**', '^'],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'raises the second stack value to the power of the top stack value',
             code    => sub {
                 my ($calc) = @_;
@@ -99,7 +99,7 @@ sub register_commands {
 
     $commands->register(
         square => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'squares the number on top of the stack',
             code => sub {
                 my ($calc) = @_;
@@ -110,7 +110,7 @@ sub register_commands {
 
     $commands->register(
         cube => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'cubes the number on top of the stack',
             code => sub {
                 my ($calc) = @_;
@@ -122,7 +122,7 @@ sub register_commands {
     $commands->register(
         squareroot => {
             aliases => [qw(sqrt sqr)],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'replaces the number on top of the stack with its square root',
             code    => sub {
                 my ($calc) = @_;
@@ -140,7 +140,7 @@ sub register_commands {
 
     $commands->register(
         negate => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'negates the number on top of the stack',
             code => sub {
                 my ($calc) = @_;
@@ -151,7 +151,7 @@ sub register_commands {
 
     $commands->register(
         increment => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'increments the number on top of the stack',
             code => sub {
                 my ($calc) = @_;
@@ -162,7 +162,7 @@ sub register_commands {
 
     $commands->register(
         decrement => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'decrements the number on top of the stack',
             code => sub {
                 my ($calc) = @_;
@@ -177,7 +177,7 @@ sub register_commands {
 
     $commands->register(
         ln => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'natural logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -195,7 +195,7 @@ sub register_commands {
 
     $commands->register(
         log => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'base-10 logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -213,7 +213,7 @@ sub register_commands {
 
     $commands->register(
         exp => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'e raised to x',
             code => sub {
                 my ($calc) = @_;
@@ -229,7 +229,7 @@ sub register_commands {
 
     $commands->register(
         inv => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'reciprocal (1/x)',
             code => sub {
                 my ($calc) = @_;
@@ -249,7 +249,7 @@ sub register_commands {
 
     $commands->register(
         abs => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'absolute value',
             code => sub {
                 my ($calc) = @_;
@@ -265,7 +265,7 @@ sub register_commands {
 
     $commands->register(
         log2 => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'base-2 logarithm',
             code => sub {
                 my ($calc) = @_;
@@ -279,7 +279,7 @@ sub register_commands {
 
     $commands->register(
         exp10 => {
-            type => 'numeric',
+            category => 'numeric',
             help => '10 raised to x',
             code => sub {
                 my ($calc) = @_;
@@ -291,7 +291,7 @@ sub register_commands {
 
     $commands->register(
         sqr => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'square a value',
             code => sub {
                 my ($calc) = @_;
@@ -303,7 +303,7 @@ sub register_commands {
 
     $commands->register(
         cube => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'cube a value',
             code => sub {
                 my ($calc) = @_;
@@ -315,7 +315,7 @@ sub register_commands {
 
     $commands->register(
         cbrt => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'cube root',
             code => sub {
                 my ($calc) = @_;
@@ -332,7 +332,7 @@ sub register_commands {
 
     $commands->register(
         sign => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'sign of value (-1, 0, +1)',
             code => sub {
                 my ($calc) = @_;
@@ -350,7 +350,7 @@ sub register_commands {
 
     $commands->register(
         floor => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'round down',
             code => sub {
                 my ($calc) = @_;
@@ -362,7 +362,7 @@ sub register_commands {
 
     $commands->register(
         ceil => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'round up',
             code => sub {
                 my ($calc) = @_;
@@ -374,7 +374,7 @@ sub register_commands {
 
     $commands->register(
         round => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'nearest integer',
             code => sub {
                 my ($calc) = @_;
@@ -391,7 +391,7 @@ sub register_commands {
 
     $commands->register(
         trunc => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'truncate toward zero',
             code => sub {
                 my ($calc) = @_;
@@ -408,7 +408,7 @@ sub register_commands {
 
     $commands->register(
         frac => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'fractional portion',
             code => sub {
                 my ($calc) = @_;
@@ -425,7 +425,7 @@ sub register_commands {
 
     $commands->register(
         idiv => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'integer division, truncated toward zero',
             code => sub {
                 my ($calc) = @_;
@@ -451,7 +451,7 @@ sub register_commands {
 
     $commands->register(
         hypot => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'sqrt(x^2 + y^2)',
             code => sub {
                 my ($calc) = @_;
@@ -471,7 +471,7 @@ sub register_commands {
 
     $commands->register(
         erf => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'error function: erf(x)',
             code => sub {
                 my ($calc) = @_;
@@ -482,7 +482,7 @@ sub register_commands {
 
     $commands->register(
         erfc => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'complementary error function: erfc(x)',
             code => sub {
                 my ($calc) = @_;
@@ -493,7 +493,7 @@ sub register_commands {
 
     $commands->register(
         gamma => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'gamma function: Gamma(x)',
             code => sub {
                 my ($calc) = @_;
@@ -519,7 +519,7 @@ sub register_commands {
 
     $commands->register(
         lgamma => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'natural logarithm of the gamma function: ln(Gamma(x))',
             code => sub {
                 my ($calc) = @_;
@@ -545,7 +545,7 @@ sub register_commands {
 
     $commands->register(
         beta => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'beta function: x y beta computes B(x,y)',
             code => sub {
                 my ($calc) = @_;
@@ -582,7 +582,7 @@ sub register_commands {
 
     $commands->register(
         j0 => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the first kind, order 0: J0(x)',
             code => sub {
                 my ($calc) = @_;
@@ -593,7 +593,7 @@ sub register_commands {
 
     $commands->register(
         j1 => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the first kind, order 1: J1(x)',
             code => sub {
                 my ($calc) = @_;
@@ -604,7 +604,7 @@ sub register_commands {
 
     $commands->register(
         jn => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the first kind: x n jn computes Jn(x)',
             code => sub {
                 my ($calc) = @_;
@@ -633,7 +633,7 @@ sub register_commands {
 
     $commands->register(
         y0 => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the second kind, order 0: Y0(x)',
             code => sub {
                 my ($calc) = @_;
@@ -659,7 +659,7 @@ sub register_commands {
 
     $commands->register(
         y1 => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the second kind, order 1: Y1(x)',
             code => sub {
                 my ($calc) = @_;
@@ -685,7 +685,7 @@ sub register_commands {
 
     $commands->register(
         yn => {
-            type => 'numeric',
+            category => 'numeric',
             help => 'Bessel function of the second kind: x n yn computes Yn(x)',
             code => sub {
                 my ($calc) = @_;
@@ -722,7 +722,7 @@ sub register_commands {
     $commands->register(
         modulo => {
             aliases => [qw(mod %)],
-            type    => 'numeric',
+            category => 'numeric',
             help    => 'pops two numbers and pushes their modulus',
             code    => sub {
                 my ($calc) = @_;

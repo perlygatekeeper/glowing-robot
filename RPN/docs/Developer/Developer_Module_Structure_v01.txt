@@ -154,7 +154,7 @@ sub register_commands {
 
     $commands->register(
         command_name => {
-            type => 'something',
+            category => 'something',
             help => 'short help text',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;

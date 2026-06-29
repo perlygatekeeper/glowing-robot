@@ -91,7 +91,7 @@ sub _initialize {
     ) {
              $self->register(
                  $op => {
-                     type => 'boolean',
+                     category => 'boolean',
                      help => "numeric comparison $op",
                      code => sub {
                          my ($calc) = @_;
@@ -122,7 +122,7 @@ sub _initialize {
         ) {
                 $self->register(
                     $op => {
-                        type => 'boolean',
+                        category => 'boolean',
                         help => "string comparison $op",
                         code => sub {
                             my ($calc) = @_;
@@ -146,7 +146,7 @@ sub _initialize {
 
     $self->register(
         radians => {
-            type => 'trig',
+            category => 'trig',
             help => 'sets angle mode to radians',
             code => sub {
                 my ($calc) = @_;
@@ -157,7 +157,7 @@ sub _initialize {
 
     $self->register(
         degrees => {
-            type => 'trig',
+            category => 'trig',
             help => 'sets angle mode to degrees',
             code => sub {
                 my ($calc) = @_;
@@ -169,7 +169,7 @@ sub _initialize {
     $self->register(
         sine => {
             aliases => ['sin'],
-            type    => 'trig',
+            category => 'trig',
             help    => 'replaces the number on top of the stack with its sine',
             code    => sub {
                 my ($calc) = @_;
@@ -185,7 +185,7 @@ sub _initialize {
     $self->register(
         cosine => {
             aliases => ['cos'],
-            type    => 'trig',
+            category => 'trig',
             help    => 'replaces the number on top of the stack with its cosine',
             code    => sub {
                 my ($calc) = @_;
@@ -200,7 +200,7 @@ sub _initialize {
     $self->register(
         tangent => {
             aliases => ['tan'],
-            type    => 'trig',
+            category => 'trig',
             help    => 'replaces the number on top of the stack with its tangent',
             code    => sub {
                 my ($calc) = @_;
@@ -227,7 +227,7 @@ sub _initialize {
 
     $self->register(
         sinh => {
-            type => 'trig',
+            category => 'trig',
             help => 'hyperbolic sine',
             code => sub {
                 my ($calc) = @_;
@@ -241,7 +241,7 @@ sub _initialize {
 
     $self->register(
         cosh => {
-            type => 'trig',
+            category => 'trig',
             help => 'hyperbolic cosine',
             code => sub {
                 my ($calc) = @_;
@@ -255,7 +255,7 @@ sub _initialize {
 
     $self->register(
         tanh => {
-            type => 'trig',
+            category => 'trig',
             help => 'hyperbolic tangent',
             code => sub {
                 my ($calc) = @_;
@@ -272,7 +272,7 @@ sub _initialize {
 
     $self->register(
         asinh => {
-            type => 'trig',
+            category => 'trig',
             help => 'inverse hyperbolic sine',
             code => sub {
                 my ($calc) = @_;
@@ -286,7 +286,7 @@ sub _initialize {
 
     $self->register(
         acosh => {
-            type => 'trig',
+            category => 'trig',
             help => 'inverse hyperbolic cosine',
             code => sub {
                 my ($calc) = @_;
@@ -309,7 +309,7 @@ sub _initialize {
 
     $self->register(
         atanh => {
-            type => 'trig',
+            category => 'trig',
             help => 'inverse hyperbolic tangent',
             code => sub {
                 my ($calc) = @_;
@@ -337,7 +337,7 @@ sub _initialize {
     $self->register(
         peek => {
             aliases => ['.'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints top value on stack without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -349,7 +349,7 @@ sub _initialize {
 
     $self->register(
         print => {
-            type => 'display',
+            category => 'display',
             help => 'pops and prints the top value on the stack',
             code => sub {
                 my ($calc) = @_;
@@ -362,7 +362,7 @@ sub _initialize {
     $self->register(
         peekall => {
             aliases => [':'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints the entire stack without changing it',
             code    => sub {
                 my ($calc) = @_;
@@ -376,7 +376,7 @@ sub _initialize {
 
     $self->register(
         peekf => {
-            type => 'display',
+            category => 'display',
             help => 'prints the top value using a printf format without popping it',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -389,7 +389,7 @@ sub _initialize {
 
     $self->register(
         printf => {
-            type => 'display',
+            category => 'display',
             help => 'pops and prints the top value using a printf format',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -403,7 +403,7 @@ sub _initialize {
     $self->register(
         decimal => {
             aliases => ['dec'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints the top value as a decimal integer without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -416,7 +416,7 @@ sub _initialize {
     $self->register(
         hexadecimal => {
             aliases => ['hex'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints the top value in hexadecimal without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -429,7 +429,7 @@ sub _initialize {
     $self->register(
         octal => {
             aliases => ['oct'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints the top value in octal without popping it',
             code    => sub {
                 my ($calc) = @_;
@@ -442,7 +442,7 @@ sub _initialize {
     $self->register(
         binary => {
             aliases => ['bin'],
-            type    => 'display',
+            category => 'display',
             help    => 'prints the top value in binary without popping it',
             code    => sub {
                 my ($calc, $arg_str) = @_;
@@ -464,7 +464,7 @@ sub _initialize {
     $self->register(
         history => {
             aliases => ['hist'],
-            type    => 'session',
+            category => 'session',
             help    => 'prints command history',
             code    => sub {
                 my ($calc) = @_;
@@ -480,7 +480,7 @@ sub _initialize {
 
     $self->register(
         save => {
-            type => 'session',
+            category => 'session',
             help => 'persist all calculator state',
             code => sub {
                 my ($calc) = @_;
@@ -493,7 +493,7 @@ sub _initialize {
     $self->register(
         quit => {
             aliases => [qw(exit bye ZZ)],
-            type    => 'session',
+            category => 'session',
             help    => 'exits the program',
             code => sub {
                  my ($calc) = @_;
@@ -504,7 +504,7 @@ sub _initialize {
 
     $self->register(
         noop => {
-            type => 'execution',
+            category => 'execution',
             help => 'no operation',
             code => sub {
                 return;
@@ -515,7 +515,7 @@ sub _initialize {
     $self->register(
         version => {
             aliases => ['ver'],
-            type    => 'discovery',
+            category => 'discovery',
             help    => 'prints calculator version',
             code    => sub {
                 my ($calc) = @_;
@@ -526,7 +526,7 @@ sub _initialize {
 
     $self->register(
         aliases => {
-            type => 'discovery',
+            category => 'discovery',
             help => 'lists commands that have aliases',
             code => sub {
                 my ($calc) = @_;
@@ -545,7 +545,7 @@ sub _initialize {
     $self->register(
         abbreviations => {
             aliases => ['abbrevs'],
-            type    => 'discovery',
+            category => 'discovery',
             help    => 'lists shortest usable abbreviations for commands',
             code    => sub {
                 my ($calc) = @_;
@@ -574,7 +574,7 @@ sub _initialize {
 
     $self->register(
         commands => {
-            type => 'discovery',
+            category => 'discovery',
             help => 'lists commands with abbreviations, aliases, categories, and descriptions',
             code => sub {
                 my ($calc, $args, $arguments) = @_;
@@ -615,7 +615,7 @@ sub _initialize {
     $self->register(
         degrees_radians => {
             aliases => ['dtor'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert degrees to radians',
             code    => sub {
                 my ($calc) = @_;
@@ -627,7 +627,7 @@ sub _initialize {
     $self->register(
         radians_degrees => {
             aliases => ['rtod'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert radians to degrees',
             code    => sub {
                 my ($calc) = @_;
@@ -639,7 +639,7 @@ sub _initialize {
     $self->register(
         fahrenheit_celsius => {
             aliases => ['ftoc'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert Fahrenheit to Celsius',
             code    => sub {
                 my ($calc) = @_;
@@ -651,7 +651,7 @@ sub _initialize {
     $self->register(
         celsius_fahrenheit => {
             aliases => ['ctof'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert Celsius to Fahrenheit',
             code    => sub {
                 my ($calc) = @_;
@@ -663,7 +663,7 @@ sub _initialize {
     $self->register(
         kilometer_mile => {
             aliases => ['ktom'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert kilometers to miles',
             code    => sub {
                 my ($calc) = @_;
@@ -675,7 +675,7 @@ sub _initialize {
     $self->register(
         mile_kilometer => {
             aliases => ['mtok'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert miles to kilometers',
             code    => sub {
                 my ($calc) = @_;
@@ -687,7 +687,7 @@ sub _initialize {
     $self->register(
         centimeter_inch => {
             aliases => ['ctoi'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert centimeters to inches',
             code    => sub {
                 my ($calc) = @_;
@@ -699,7 +699,7 @@ sub _initialize {
     $self->register(
         inch_centimeter => {
             aliases => ['itoc'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert inches to centimeters',
             code    => sub {
                 my ($calc) = @_;
@@ -711,7 +711,7 @@ sub _initialize {
     $self->register(
         gram_ounce => {
             aliases => ['gtoo'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert grams to ounces',
             code    => sub {
                 my ($calc) = @_;
@@ -723,7 +723,7 @@ sub _initialize {
     $self->register(
         ounce_gram => {
             aliases => ['otog'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert ounces to grams',
             code    => sub {
                 my ($calc) = @_;
@@ -735,7 +735,7 @@ sub _initialize {
     $self->register(
         kilogram_pound => {
             aliases => ['ktop'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert kilograms to pounds',
             code    => sub {
                 my ($calc) = @_;
@@ -747,7 +747,7 @@ sub _initialize {
     $self->register(
         pound_kilogram => {
             aliases => ['ptok'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert pounds to kilograms',
             code    => sub {
                 my ($calc) = @_;
@@ -759,7 +759,7 @@ sub _initialize {
     $self->register(
         liter_quart => {
             aliases => ['ltoq'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert liters to quarts',
             code    => sub {
                 my ($calc) = @_;
@@ -771,7 +771,7 @@ sub _initialize {
     $self->register(
         quart_liter => {
             aliases => ['qtol'],
-            type    => 'conversion',
+            category => 'conversion',
             help    => 'convert quarts to liters',
             code    => sub {
                 my ($calc) = @_;
@@ -783,7 +783,7 @@ sub _initialize {
     $self->register(
         categories => {
             aliases => ['types'],
-            type    => 'discovery',
+            category => 'discovery',
             help    => 'list command categories',
             code    => sub {
                 my ($calc) = @_;
@@ -795,7 +795,7 @@ sub _initialize {
     $self->register(
         help => {
             aliases => ['?'],
-            type    => 'discovery',
+            category => 'discovery',
             help    => 'guide users to tutorials, commands, categories, and detailed help',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -811,7 +811,7 @@ sub _initialize {
     $self->register(
         constants => {
             aliases => ['const'],
-            type    => 'constant',
+            category => 'constant',
             help    => 'list, push, define, or browse constants',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -890,7 +890,7 @@ sub _initialize {
 
     $self->register(
         constinfo => {
-            type => 'constant',
+            category => 'constant',
             help => 'show value and metadata for one constant',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -928,7 +928,7 @@ sub _initialize {
 
     $self->register(
         delconst => {
-            type => 'constant',
+            category => 'constant',
             help => 'delete a user-defined constant',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -947,7 +947,7 @@ sub _initialize {
 
     $self->register(
         loadconst => {
-            type => 'constant',
+            category => 'constant',
             help => 'load user constants from a file: loadconst [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -961,7 +961,7 @@ sub _initialize {
 
     $self->register(
         saveconst => {
-            type => 'constant',
+            category => 'constant',
             help => 'save user constants: saveconst [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -979,7 +979,7 @@ sub _initialize {
 
     $self->register(
         count => {
-            type => 'statistics',
+            category => 'statistics',
             help => 'pushes the current stack depth onto the stack',
             code => sub {
                 my ($calc) = @_;
@@ -990,7 +990,7 @@ sub _initialize {
 
     $self->register(
         sum => {
-            type => 'statistics',
+            category => 'statistics',
             help => 'replaces the entire stack with the sum of its values',
             code => sub {
                 my ($calc) = @_;
@@ -1009,7 +1009,7 @@ sub _initialize {
     $self->register(
         average => {
             aliases => ['avg'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with the average of its values',
             code    => sub {
                 my ($calc) = @_;
@@ -1028,7 +1028,7 @@ sub _initialize {
     $self->register(
         minimum => {
             aliases => ['min'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with the minimum value',
             code    => sub {
                 my ($calc) = @_;
@@ -1047,7 +1047,7 @@ sub _initialize {
     $self->register(
         maximum => {
             aliases => ['max'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with the maximum value',
             code    => sub {
                 my ($calc) = @_;
@@ -1069,7 +1069,7 @@ sub _initialize {
 
     $self->register(
         product => {
-            type => 'statistics',
+            category => 'statistics',
             help => 'replaces the entire stack with the product of its values',
             code => sub {
                 my ($calc) = @_;
@@ -1086,7 +1086,7 @@ sub _initialize {
     $self->register(
         spread => {
             aliases => ['span'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with maximum minus minimum',
             code => sub {
                 my ($calc) = @_;
@@ -1105,7 +1105,7 @@ sub _initialize {
 
     $self->register(
         median => {
-            type => 'statistics',
+            category => 'statistics',
             help => 'replaces the entire stack with the median value',
             code => sub {
                 my ($calc) = @_;
@@ -1128,7 +1128,7 @@ sub _initialize {
     $self->register(
         variance => {
             aliases => ['var'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with the population variance',
             code    => sub {
                 my ($calc) = @_;
@@ -1149,7 +1149,7 @@ sub _initialize {
     $self->register(
         stddev => {
             aliases => ['stdev'],
-            type    => 'statistics',
+            category => 'statistics',
             help    => 'replaces the entire stack with the population standard deviation',
             code    => sub {
                 my ($calc) = @_;
@@ -1175,7 +1175,7 @@ sub _initialize {
     $self->register(
         execute => {
             aliases => ['exec'],
-            type    => 'flow',
+            category => 'flow',
             help    => 'executes the string on top of the stack as an RPN command',
             code    => sub {
                 my ($calc) = @_;
@@ -1191,7 +1191,7 @@ sub _initialize {
     $self->register(
         if => {
             aliases => ['ifthen'],
-            type    => 'flow',
+            category => 'flow',
             help    => 'pops boolean and command; executes command if boolean is true',
             code    => sub {
                 my ($calc) = @_;
@@ -1209,7 +1209,7 @@ sub _initialize {
 
     $self->register(
         ifelse => {
-            type => 'flow',
+            category => 'flow',
             help => 'pops boolean and two commands; executes first command if true, second if false',
             code => sub {
                 my ($calc) = @_;
@@ -1231,7 +1231,7 @@ sub _initialize {
 
     $self->register(
         readnums => {
-            type => 'io',
+            category => 'io',
             help => 'read numeric tokens from a file and push them onto the stack',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -1252,7 +1252,7 @@ sub _initialize {
 
     $self->register(
         readcsv => {
-            type => 'io',
+            category => 'io',
             help => 'read numeric values from a CSV file and push them onto the stack',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -1276,7 +1276,7 @@ sub _initialize {
 
     $self->register(
         readcolumn => {
-            type => 'io',
+            category => 'io',
             help => 'read one numeric column from a CSV file by column number or header name',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1328,7 +1328,7 @@ sub _initialize {
 
     $self->register(
         writecsv => {
-            type => 'io',
+            category => 'io',
             help => 'write current stack to a CSV file',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -1341,7 +1341,7 @@ sub _initialize {
 
     $self->register(
         appendcsv => {
-            type => 'io',
+            category => 'io',
             help => 'append current stack to a CSV file',
             code => sub {
                 my ($calc, $arg_str) = @_;
@@ -1358,7 +1358,7 @@ sub _initialize {
 
     $self->register(
         rand => {
-            type => 'random',
+            category => 'random',
             help => 'push a random floating point number in the range [0,1)',
             code => sub {
                 my ($calc) = @_;
@@ -1369,7 +1369,7 @@ sub _initialize {
 
     $self->register(
         randint => {
-            type => 'random',
+            category => 'random',
             help => 'push a random integer; randint N gives 1..N, randint A B gives A..B',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1400,7 +1400,7 @@ sub _initialize {
 
     $self->register(
         seed => {
-            type => 'random',
+            category => 'random',
             help => 'seed the random number generator',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1413,7 +1413,7 @@ sub _initialize {
 
     $self->register(
         choose => {
-            type => 'random',
+            category => 'random',
             help => 'copy a random stack element to the top',
             code => sub {
                 my ($calc) = @_;
@@ -1431,7 +1431,7 @@ sub _initialize {
 
     $self->register(
         now => {
-            type => 'datetime',
+            category => 'datetime',
             help => 'push current epoch time',
             code => sub {
                 my ($calc) = @_;
@@ -1442,7 +1442,7 @@ sub _initialize {
 
     $self->register(
         today => {
-            type => 'datetime',
+            category => 'datetime',
             help => 'push current date as YYYY-MM-DD',
             code => sub {
                 my ($calc) = @_;
@@ -1454,7 +1454,7 @@ sub _initialize {
 
     $self->register(
         time => {
-            type => 'datetime',
+            category => 'datetime',
             help => 'push current time as HH:MM:SS',
             code => sub {
                 my ($calc) = @_;
@@ -1466,7 +1466,7 @@ sub _initialize {
 
     $self->register(
         datetime => {
-            type => 'datetime',
+            category => 'datetime',
             help => 'push current date and time as YYYY-MM-DD HH:MM:SS',
             code => sub {
                 my ($calc) = @_;
@@ -1491,7 +1491,7 @@ sub _initialize {
     $self->register(
         range => {
             aliases => ['..', 'seq', 'sequence'],
-            type    => 'sequence',
+            category => 'sequence',
             help    => 'generate a sequence from start to stop',
             code    => sub {
                 my ($calc) = @_;
@@ -1524,7 +1524,7 @@ sub _initialize {
     $self->register(
         rangeby => {
             aliases => ['...', 'seqby', 'sequenceby'],
-            type    => 'sequence',
+            category => 'sequence',
             help    => 'generate a numeric sequence with explicit step',
             code    => sub {
                 my ($calc) = @_;
@@ -1564,7 +1564,7 @@ sub _initialize {
     $self->register(
         store => {
             aliases => ['sto'],
-            type    => 'variable',
+            category => 'variable',
             help    => 'store the top stack value in a variable',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1603,7 +1603,7 @@ sub _initialize {
     $self->register(
         recall => {
             aliases => ['rcl'],
-            type    => 'variable',
+            category => 'variable',
             help    => 'recall a variable and push it onto the stack',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1628,7 +1628,7 @@ sub _initialize {
     $self->register(
         variables => {
             aliases => ['vars'],
-            type    => 'variable',
+            category => 'variable',
             help    => 'list stored variables',
             code    => sub {
                 my ($calc) = @_;
@@ -1647,7 +1647,7 @@ sub _initialize {
 
     $self->register(
         delvar => {
-            type => 'variable',
+            category => 'variable',
             help => 'delete a stored variable',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1671,7 +1671,7 @@ sub _initialize {
 
     $self->register(
         savevars => {
-            type => 'variable',
+            category => 'variable',
             help => 'save variables to disk: savevars [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1684,7 +1684,7 @@ sub _initialize {
 
     $self->register(
         loadvars => {
-            type => 'variable',
+            category => 'variable',
             help => 'load variables from disk: loadvars [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1702,7 +1702,7 @@ sub _initialize {
     $self->register(
         define => {
             aliases => ['def'],
-            type => 'function',
+            category => 'function',
             help => 'define a user function: define <name> <body>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1736,7 +1736,7 @@ sub _initialize {
 
     $self->register(
         undef => {
-            type => 'function',
+            category => 'function',
             help => 'delete a user function',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1757,7 +1757,7 @@ sub _initialize {
     $self->register(
         functions => {
             aliases => ['funcs'],
-            type    => 'function',
+            category => 'function',
             help    => 'list user-defined functions',
             code    => sub {
                 my ($calc) = @_;
@@ -1795,7 +1795,7 @@ sub _initialize {
 
     $self->register(
         savefuncs => {
-            type => 'function',
+            category => 'function',
             help => 'save user-defined functions to disk: savefuncs [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1808,7 +1808,7 @@ sub _initialize {
 
     $self->register(
         loadfuncs => {
-            type => 'function',
+            category => 'function',
             help => 'load user-defined functions from disk: loadfuncs [file]',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1821,7 +1821,7 @@ sub _initialize {
 
     $self->register(
         showfunc => {
-            type => 'function',
+            category => 'function',
             help => 'show the definition of a function',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -1868,6 +1868,15 @@ sub _binary_boolean {
 
 sub register {
     my ($self, $name, $definition) = @_;
+
+    # Backward compatibility: older command modules may still provide
+    # a `type` key. Internally, command grouping is now represented as
+    # `category`. Do not retain `type` in the registry.
+    if (exists $definition->{type}) {
+        $definition->{category} //= $definition->{type};
+        delete $definition->{type};
+    }
+
     $self->{commands}{$name} = $definition;
     return;
 }
@@ -2080,7 +2089,7 @@ sub _print_help_all {
     $self->_print_help_header;
     foreach my $command (
         sort {
-            $self->{commands}{$a}{type} cmp $self->{commands}{$b}{type}
+            $self->{commands}{$a}{category} cmp $self->{commands}{$b}{category}
                 ||
             $a cmp $b
         }
@@ -2109,7 +2118,7 @@ sub _print_help_by_category {
     my $category_key = $self->_normalize_category($category);
 
     my @matches = grep {
-        ($self->{commands}{$_}{type} // '') eq $category_key
+        ($self->{commands}{$_}{category} // '') eq $category_key
     } sort keys %{ $self->{commands} };
 
     unless (@matches) {
@@ -2337,7 +2346,7 @@ sub _print_help_header {
 sub _print_help_line {
     my ($self, $command) = @_;
     my $entry   = $self->{commands}{$command};
-    my $category = $self->_display_category($entry->{type} || '');
+    my $category = $self->_display_category($entry->{category} || '');
     my $help    = $entry->{help} || '';
     my $aliases = $entry->{aliases};
     if ($aliases && @$aliases) {
@@ -2373,7 +2382,7 @@ sub _print_command_catalog {
 
     foreach my $command (sort keys %{ $self->{commands} }) {
         my $entry = $self->{commands}{$command};
-        my $category = $entry->{type} || '';
+        my $category = $entry->{category} || '';
         next if defined $args{category} && $category ne $args{category};
 
         my $aliases = $entry->{aliases} || [];
@@ -2399,7 +2408,7 @@ sub _print_command_catalog_by_category {
 
     foreach my $category (sort keys %{ $self->{categories} }) {
         my @commands = grep {
-            ($self->{commands}{$_}{type} || '') eq $category
+            ($self->{commands}{$_}{category} || '') eq $category
         } sort keys %{ $self->{commands} };
 
         next unless @commands;

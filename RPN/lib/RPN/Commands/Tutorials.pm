@@ -15,7 +15,7 @@ sub register_commands {
 
     $commands->register(
         tutorials => {
-            type => 'documentation',
+            category => 'documentation',
             help => 'list available tutorials',
             code => sub {
                 my ($calc) = @_;
@@ -40,7 +40,7 @@ sub register_commands {
 
     $commands->register(
         tutorial => {
-            type => 'documentation',
+            category => 'documentation',
             help => 'display a tutorial: tutorial <name>',
             code => sub {
                 my ($calc, $arg_str, $args) = @_;
@@ -104,7 +104,7 @@ sub register_commands {
 
     $commands->register(
         quickstart => {
-            type => 'documentation',
+            category => 'documentation',
             help => 'display the quick reference guide',
             code => sub {
                 my ($calc) = @_;

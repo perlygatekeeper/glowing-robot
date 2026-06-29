@@ -14,7 +14,7 @@ sub register_commands {
     $commands->register(
         factorial => {
             aliases => ['fact'],
-            type    => 'combinatorics',
+            category => 'combinatorics',
             help    => 'factorial: n factorial',
             code    => sub {
                 my ($calc) = @_;
@@ -37,7 +37,7 @@ sub register_commands {
     $commands->register(
         permutations => {
             aliases => ['npr', 'perm', 'permute'],
-            type    => 'combinatorics',
+            category => 'combinatorics',
             help    => 'number of permutations (n permute r): n r permutations',
             code    => sub {
                 my ($calc) = @_;
@@ -63,7 +63,7 @@ sub register_commands {
     $commands->register(
         combinations => {
             aliases => ['ncr', 'comb', 'binom'],
-            type    => 'combinatorics',
+            category => 'combinatorics',
             help    => 'number of combinations (n choose r): n r combinations',
             code    => sub {
                 my ($calc) = @_;
@@ -88,7 +88,7 @@ sub register_commands {
 
     $commands->register(
         binompdf => {
-            type => 'combinatorics',
+            category => 'combinatorics',
             help => 'binomial probability: n k p binompdf',
             code => sub {
                 my ($calc) = @_;
@@ -119,7 +119,7 @@ sub register_commands {
 
     $commands->register(
         binomcdf => {
-            type => 'combinatorics',
+            category => 'combinatorics',
             help => 'cumulative binomial probability: n k p binomcdf',
             code => sub {
                 my ($calc) = @_;

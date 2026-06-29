@@ -13,7 +13,7 @@ sub register_commands {
 
     $commands->register(
         vector => {
-            type => 'vector',
+            category => 'vector',
             help => 'create a vector from N stack values: N vector',
             code => sub {
                 my ($calc) = @_;
@@ -48,7 +48,7 @@ sub register_commands {
 
     $commands->register(
         vec2 => {
-            type => 'vector',
+            category => 'vector',
             help => 'create a 2D vector from top two stack values',
             code => sub {
                 my ($calc) = @_;
@@ -68,7 +68,7 @@ sub register_commands {
 
     $commands->register(
         vec3 => {
-            type => 'vector',
+            category => 'vector',
             help => 'create a 3D vector from top three stack values',
             code => sub {
                 my ($calc) = @_;
@@ -95,7 +95,7 @@ sub register_commands {
 
     $commands->register(
         dim => {
-            type => 'vector',
+            category => 'vector',
             help => 'replace a vector with its dimension',
             code => sub {
                 my ($calc) = @_;
@@ -113,7 +113,7 @@ sub register_commands {
 
     $commands->register(
         vadd => {
-            type => 'vector',
+            category => 'vector',
             help => 'add two vectors of the same dimension',
             code => sub {
                 my ($calc) = @_;
@@ -139,7 +139,7 @@ sub register_commands {
 
     $commands->register(
         vsub => {
-            type => 'vector',
+            category => 'vector',
             help => 'subtract top vector from second vector',
             code => sub {
                 my ($calc) = @_;
@@ -165,7 +165,7 @@ sub register_commands {
 
     $commands->register(
         vscale => {
-            type => 'vector',
+            category => 'vector',
             help => 'scale a vector by a scalar: vector scalar vscale',
             code => sub {
                 my ($calc) = @_;
@@ -185,7 +185,7 @@ sub register_commands {
 
     $commands->register(
         dot => {
-            type => 'vector',
+            category => 'vector',
             help => 'dot product of two vectors',
             code => sub {
                 my ($calc) = @_;
@@ -211,7 +211,7 @@ sub register_commands {
 
     $commands->register(
         cross => {
-            type => 'vector',
+            category => 'vector',
             help => 'cross product of two 3D vectors',
             code => sub {
                 my ($calc) = @_;
@@ -238,7 +238,7 @@ sub register_commands {
     $commands->register(
         magnitude => {
             aliases => ['mag'],
-            type    => 'vector',
+            category => 'vector',
             help    => 'replace a vector with its magnitude',
             code    => sub {
                 my ($calc) = @_;
@@ -257,7 +257,7 @@ sub register_commands {
     $commands->register(
         normalize => {
             aliases => ['unit'],
-            type    => 'vector',
+            category => 'vector',
             help    => 'replace a vector with a unit vector in the same direction',
             code    => sub {
                 my ($calc) = @_;

@@ -34,7 +34,7 @@ Reserve `die` for programmer errors or unrecoverable internal failures.
 Every command should provide:
 
 * help text
-* type
+* category
 * aliases (when appropriate)
 
 Commands should be grouped into logical command modules.
