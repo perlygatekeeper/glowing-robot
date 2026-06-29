@@ -1,0 +1,158 @@
+# Release_notes_v3.8.7.txt
+
+Version 3.8.7
+Released: June 2026
+
+---
+
+## Overview
+
+Version 3.8.7 focuses on discoverability and documentation.
+
+The calculator has grown to include hundreds of commands, aliases,
+abbreviations, tutorials, and examples. This release reorganizes those
+resources into a coherent navigation system so users can discover
+features without referring to external documentation.
+
+The runtime command registry is now the authoritative source for command
+metadata, allowing documentation and command listings to remain
+consistent.
+
+---
+
+## Major Features
+
+### Command Catalog
+
+Added the new `commands` command.
+
+The command catalog displays:
+
+Command
+Abbreviation
+Aliases
+Category
+Description
+
+Commands are listed alphabetically by canonical command name.
+
+Additional views include:
+
+commands <category>
+commands bycategory
+commands categories
+commands aliases
+commands abbreviations
+
+---
+
+## Command Categories
+
+The previous Utility category has been eliminated.
+
+Commands are now organized into meaningful categories including:
+
+Discovery
+Display
+Session
+Execution
+
+This provides a much more logical organization of the command language.
+
+---
+
+## Terminology Cleanup
+
+The user-facing term "Type" has been replaced by "Category".
+
+New canonical commands:
+
+categories
+help category <category>
+
+Backward compatibility has been preserved:
+
+types
+help type <category>
+
+remain supported.
+
+Internally, the command registry now also uses the term
+`category`, matching the public interface.
+
+---
+
+## Help System
+
+The help command has been redesigned.
+
+Instead of acting primarily as a command index, it now serves as a guide
+to the calculator.
+
+Help now directs users toward:
+
+tutorials
+categories
+commands
+aliases
+abbreviations
+
+When an ambiguous topic is requested, help provides suggested commands
+rather than requiring interactive input.
+
+---
+
+## Generated Documentation
+
+The command catalog is now generated directly from the runtime command
+registry.
+
+This eliminates duplicated metadata and ensures published documentation
+matches the implementation.
+
+---
+
+## Canonical Naming
+
+Several command names were reviewed and standardized.
+
+Descriptive canonical names are preferred while preserving concise
+compatibility aliases.
+
+Examples include:
+
+combinations
+    aliases:
+        ncr
+        comb
+        binom
+
+permutations
+    aliases:
+        npr
+        perm
+
+---
+
+## Developer Improvements
+
+* Tutorial audit improvements.
+* Command catalog generation.
+* Registry cleanup.
+* Improved documentation consistency.
+* Continued expansion of automated verification.
+
+---
+
+## Compatibility
+
+Version 3.8.7 preserves compatibility with previous releases through
+aliases and compatibility parsing wherever practical.
+
+---
+
+## Looking Ahead
+
+Version 3.8.8 will introduce first-class executable code blocks,
+providing the foundation for higher-order language features including
+map, filter, reduce, and user-defined executable values.

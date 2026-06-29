@@ -813,17 +813,11 @@ source of truth for command metadata.
 #### Goals
 
 [x] Replace the user-facing term **Type** with **Category**.
-
 [x] Replace the `types` command with the canonical `categories` command.
-
 [x] Retain `types` as a compatibility alias.
-
 [x] Retain `help category <category>` as a compatibility form.
-
 [x] Make `help category <category>` the canonical syntax.
-
 [x] Display all command categories in Proper Case.
-
 [x] Sweep the source tree for user-visible occurrences of:
 
 Type
@@ -833,11 +827,6 @@ types
 
 converting them to Category/Categories where appropriate.
 
-[x] Retain the internal command-registration hash key:
-
-    category => ...
-
-for this release to minimize implementation churn.
 
 ---
 
@@ -1010,18 +999,15 @@ directly from the runtime command registry.
 ### Phase 7 — Release Cleanup
 
 [x] Update tutorials.
-
 [x] Update release notes.
-
 [x] Update Roadmap.
-
 [x] Expand tutorial audit.
-
 [x] Verify generated command catalog.
-
 [x] Verify category consistency.
-
 [x] Verify aliases and abbreviations.
+[x] Change the internal command-registration hash key:
+
+    type =>   to   category =>
 
 ---
 
