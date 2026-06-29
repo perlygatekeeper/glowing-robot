@@ -795,7 +795,7 @@ sub _initialize {
         help => {
             aliases => ['?'],
             type    => 'discovery',
-            help    => 'prints help for all commands, one command, or one category',
+            help    => 'guide users to tutorials, commands, categories, and detailed help',
             code    => sub {
                 my ($calc, $arg_str, $args) = @_;
                 $self->print_help($args);
@@ -2027,7 +2027,51 @@ sub print_help {
         }
         return $self->_print_help_for_command($args->[0]);
     }
-    return $self->_print_help_all;
+    return $self->_print_help_overview;
+}
+
+sub _print_help_overview {
+    my ($self) = @_;
+
+    print <<'HELP';
+Welcome to the RPN Calculator.
+
+Learning
+--------
+
+    tutorials
+        Browse the available tutorials.
+
+Browsing
+--------
+
+    categories
+        Browse command categories.
+
+    commands
+        Browse the complete command catalog.
+
+Getting Details
+---------------
+
+    help <command>
+        Display help for a command.
+
+    help category <category>
+        Display help for a command category.
+
+Reference
+---------
+
+    aliases
+        Display command aliases.
+
+    abbreviations
+        Display command abbreviations.
+
+HELP
+
+    return;
 }
 
 sub _print_help_all {

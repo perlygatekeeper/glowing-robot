@@ -13,8 +13,8 @@ my $calc = RPN->new();
 
 stdout_like(
     sub { $calc->process_input('help') },
-    qr/Command\s+Category\s+Help/s,
-    'help prints table header'
+    qr/Welcome to the RPN Calculator.*Learning.*tutorials.*Browsing.*categories.*commands.*Getting Details.*help <command>.*help category <category>.*Reference.*aliases.*abbreviations/s,
+    'help prints navigation guide'
 );
 
 stdout_like(
