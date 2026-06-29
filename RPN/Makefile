@@ -5,6 +5,7 @@ NAME := rpn-oo
 SCRIPT    := rpn.pl
 MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
+             lib/RPN/CodeBlock.pm \
              lib/RPN/Commands.pm \
              lib/RPN/Commands/Combinatorics.pm \
              lib/RPN/Commands/Financial.pm \
