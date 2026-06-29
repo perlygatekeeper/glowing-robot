@@ -1126,17 +1126,17 @@ features can consume.
 
 ### Goals
 
-[ ] Add RPN::CodeBlock value object.
-[ ] Support anonymous CodeBlocks.
-[ ] Support named CodeBlocks.
-[ ] Implement save/load support.
-[ ] Initial internal representation:
+[x] Add RPN::CodeBlock value object.
+[x] Support anonymous CodeBlocks.
+[x] Support named CodeBlocks.
+[x] Implement save/load support.
+[x] Initial internal representation:
 
         source
         body
         steps
 
-[ ] Add basic methods:
+[x] Add basic methods:
 
         new
         source
@@ -1145,7 +1145,7 @@ features can consume.
         as_string
         is_codeblock
 
-[ ] Add basic tests for:
+[x] Add basic tests for:
 
         object construction
         string representation
