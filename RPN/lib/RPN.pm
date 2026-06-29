@@ -9,6 +9,7 @@ use RPN::Commands;
 use RPN::Constants;
 use RPN::Variables;
 use RPN::Functions;
+use RPN::CodeBlocks;
 use RPN::Vector;
 use RPN::Matrix;
 use Term::ReadLine;
@@ -35,6 +36,7 @@ sub new {
         stack               => RPN::Stack->new(),
         constants           => RPN::Constants->new(),
         functions           => RPN::Functions->new(),
+        codeblocks          => undef,
         variables           => RPN::Variables->new(),
         history             => [],
         function_call_stack => [],
@@ -51,7 +53,8 @@ sub new {
         stacks    => $ENV{RPN_STACKS}    || "$ENV{HOME}/.rpn_stacks",
         variables => $ENV{RPN_VARIABLES} || "$ENV{HOME}/.rpn_variables",
         constants => $ENV{RPN_CONSTANTS} || "$ENV{HOME}/.rpn_constants",
-        functions => $ENV{RPN_FUNCTIONS} || "$ENV{HOME}/.rpn_functions",
+        functions  => $ENV{RPN_FUNCTIONS}  || "$ENV{HOME}/.rpn_functions",
+        codeblocks => $ENV{RPN_CODEBLOCKS} || "$ENV{HOME}/.rpn_codeblocks",
     };
 
     $self->{first_run} =
@@ -63,7 +66,9 @@ sub new {
     $self->load_constants( $self->file('constants') )
         if -e $self->file('constants');
     $self->load_variables( $self->file('variables') );
+    $self->{codeblocks} = RPN::CodeBlocks->new(file => $self->file('codeblocks'));
     $self->load_functions( $self->file('functions') );
+    $self->load_codeblocks( $self->file('codeblocks') );
     $self->{commands} = RPN::Commands->new($self);
 
     return $self;
@@ -121,6 +126,7 @@ sub save_all {
     $self->save_constants( $self->file('constants') );
     $self->save_variables( $self->file('variables') );
     $self->save_functions( $self->file('functions') );
+    $self->save_codeblocks( $self->file('codeblocks') );
     return;
 }
 
@@ -137,6 +143,11 @@ sub history {
 sub functions {
     my ($self) = @_;
     return $self->{functions};
+}
+
+sub codeblocks {
+    my ($self) = @_;
+    return $self->{codeblocks};
 }
 
 sub stack {
@@ -327,6 +338,25 @@ sub load_functions {
         unless defined $file && length $file;
 
     return $self->{functions}->load_file($file);
+}
+
+# CODE BLOCKS
+sub save_codeblocks {
+    my ($self, $file) = @_;
+
+    $file = $self->file('codeblocks')
+        unless defined $file && length $file;
+
+    return $self->{codeblocks}->save_file($file);
+}
+
+sub load_codeblocks {
+    my ($self, $file) = @_;
+
+    $file = $self->file('codeblocks')
+        unless defined $file && length $file;
+
+    return $self->{codeblocks}->load_file($file);
 }
 
 # Helper methods

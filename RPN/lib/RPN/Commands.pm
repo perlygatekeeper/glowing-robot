@@ -13,6 +13,7 @@ use RPN::Commands::Strings;
 use RPN::Commands::Tutorials;
 use RPN::Commands::Numeric;
 use RPN::Commands::Stack;
+use RPN::Commands::CodeBlocks;
 use POSIX ();
 use File::Basename qw(basename);
 use Text::Abbrev qw(abbrev);
@@ -64,6 +65,7 @@ sub _initialize {
         matrix        => 'matrix mathematics',
         combinatorics => 'factorials, combinations, permutations, probability',
         documentation => 'display tutorials',
+        codeblock     => 'structured executable code block values',
     };
 
     RPN::Commands::Matrix::register_commands($self);
@@ -75,6 +77,7 @@ sub _initialize {
     RPN::Commands::Tutorials::register_commands($self);
     RPN::Commands::Numeric::register_commands($self);
     RPN::Commands::Stack::register_commands($self);
+    RPN::Commands::CodeBlocks::register_commands($self);
 
     #
     # Boolean for both Numerical and String Entries

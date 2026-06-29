@@ -8,6 +8,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/CodeBlock.pm \
              lib/RPN/CodeBlocks.pm \
              lib/RPN/Commands.pm \
+             lib/RPN/Commands/CodeBlocks.pm \
              lib/RPN/Commands/Combinatorics.pm \
              lib/RPN/Commands/Financial.pm \
              lib/RPN/Commands/Matrix.pm \

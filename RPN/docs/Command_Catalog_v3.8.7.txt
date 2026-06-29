@@ -30,6 +30,7 @@ clear                         clr                    Stack           empties the
 clearall           cleara                            Stack           clear all stacks and return to the default stack
 clearstack         clears                            Stack           clear named stack: clearstack <name>
 cmp                cm                                Boolean         string comparison cmp
+codeblocks         cod                               Codeblock       list named code blocks
 cols               col                               Matrix          replace a matrix with its column count
 combinations       comb       ncr, comb, binom       Combinatorics   number of combinations (n choose r): n r combinations
 commands           comm                              Discovery       lists commands with abbreviations, aliases, categories, and descriptions
@@ -89,7 +90,8 @@ inch_centimeter    inch       itoc                   Conversion      convert inc
 increment          incr                              Numeric         increments the number on top of the stack
 inv                                                  Numeric         reciprocal (1/x)
 inverse            inve       invm                   Matrix          compute inverse of a square non-singular matrix
-isprime            is                                Number Theory   push 1 if top value is prime, otherwise 0
+iscodeblock        isc                               Codeblock       test whether the top stack value is a code block
+isprime            isp                               Number Theory   push 1 if top value is prime, otherwise 0
 j0                                                   Numeric         Bessel function of the first kind, order 0: J0(x)
 j1                                                   Numeric         Bessel function of the first kind, order 1: J1(x)
 jn                                                   Numeric         Bessel function of the first kind: x n jn computes Jn(x)
@@ -183,7 +185,8 @@ savefuncs          savef                             Function        save user-d
 savevars           savev                             Variable        save variables to disk: savevars [file]
 search             sea                               String          return first regex match: string pattern search
 seed               see                               Random          seed the random number generator
-showfunc           sho                               Function        show the definition of a function
+showblock          showb                             Codeblock       display a named code block
+showfunc           showf                             Function        show the definition of a function
 shuffle            shu                               Stack           randomly shuffle the current stack
 sign               sig                               Numeric         sign of value (-1, 0, +1)
 sine               sin        sin                    Trig            replaces the number on top of the stack with its sine
