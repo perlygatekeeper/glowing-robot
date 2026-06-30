@@ -516,6 +516,27 @@ sub _initialize {
     );
 
     $self->register(
+        call => {
+            category => 'execution',
+            help => 'execute the top stack value as an executable value',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
+                my $exec = $calc->stack->pop;
+
+                unless ($calc->is_executable($exec)) {
+                    $calc->stack->push($exec);
+                    warn "call requires an executable value\n";
+                    return;
+                }
+
+                return $calc->execute($exec);
+            },
+        }
+    );
+
+    $self->register(
         version => {
             aliases => ['ver'],
             category => 'discovery',

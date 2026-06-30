@@ -1,0 +1,55 @@
+Latitude and longitude can be expressed in several different notations, and the
+differences matter when you're parsing or generating coordinate data.
+
+The most common distinction is between degrees-minutes-seconds (DMS),
+degrees-decimal minutes (DDM), and decimal degrees (DD). DMS looks like
+40°26'46"N, 79°58'56"W, splitting each coordinate into whole degrees, minutes
+(1/60 of a degree), and seconds (1/60 of a minute). DDM keeps degrees as a
+whole number but expresses the remainder as decimal minutes, e.g. 40°26.767'N,
+79°58.933'W — this format is common in marine and aviation navigation because
+GPS receivers often display it that way. Decimal degrees collapse everything
+into a single signed or directional decimal number, e.g. 40.446188, -79.982025,
+which is what most APIs, databases, and programming libraries expect since it's
+just two floats.
+
+On sign conventions: decimal degrees can use a leading negative sign for south
+or west (the convention ISO 6709 and most software use), or they can use a
+trailing hemisphere letter (N/S/E/W) instead of a sign, which is more common in
+DMS/DDM contexts and in older or more human-facing formats. Latitude ranges -90
+to 90, longitude -180 to 180 (or sometimes 0-360 for longitude in some
+astronomical/oceanographic contexts).
+
+A few other notations worth knowing about:
+
+ISO 6709 is a formal string standard for representing geographic coordinates,
+e.g. +40.446195-079.982195/, including optional altitude and a coordinate
+reference system identifier at the end.
+
+UTM (Universal Transverse Mercator) doesn't use lat/long at all — it divides
+the Earth into 60 zones and gives a position as zone number + easting +
+northing in meters, e.g. 17T 589948 4477138. It's popular in surveying and
+military contexts because distances within a zone are easy to compute in plain
+meters.
+
+MGRS (Military Grid Reference System) builds on UTM but adds a grid-zone
+designator and uses concatenated alphanumeric strings, e.g. 17T PE 89948 77138,
+common in military and some emergency-response applications.
+
+Geohash encodes lat/long into a single short alphanumeric string (like
+9q8yyk8ytpxr) by interleaving bits of latitude and longitude, useful for
+spatial indexing and proximity search in databases.
+
+Plus codes (Google's Open Location Code) are similar in spirit, producing
+strings like 849VCWC8+R9, designed to be usable even without street addresses.
+
+One more thing that trips people up: the datum. The same nominal
+"latitude/longitude" numbers can refer to slightly different physical locations
+depending on the reference ellipsoid/datum used. WGS84 is the de facto global
+standard now (used by GPS), but older datums like NAD27 or local national
+datums can differ by tens to hundreds of meters for the same coordinate pair,
+so when precision matters it's worth confirming which datum a given dataset
+uses.
+
+If you're working with any of these in code (parsing, converting between
+formats, distance calculations) — let me know what you're trying to do and I
+can help with the actual implementation.

@@ -20,7 +20,8 @@ beta               be                                Numeric         beta functi
 binary             bin        bin                    Display         prints the top value in binary without popping it
 binomcdf           binomc                            Combinatorics   cumulative binomial probability: n k p binomcdf
 binompdf           binomp                            Combinatorics   binomial probability: n k p binompdf
-categories         ca         types                  Discovery       list command categories
+call               cal                               Execution       execute the top stack value as an executable value
+categories         cat        types                  Discovery       list command categories
 cbrt               cb                                Numeric         cube root
 ceil               cei                               Numeric         round up
 celsius_fahrenheit cel        ctof                   Conversion      convert Celsius to Fahrenheit
