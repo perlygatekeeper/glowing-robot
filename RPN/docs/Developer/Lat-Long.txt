@@ -1,3 +1,8 @@
+For consideration for inclusion.
+
+Lat/long data type, which can be converted into the other types listed below
+or used for distance calculation.
+
 Latitude and longitude can be expressed in several different notations, and the
 differences matter when you're parsing or generating coordinate data.
 

@@ -634,6 +634,58 @@ sub _initialize {
     );
 
     $self->register(
+        reduce => {
+            category => 'execution',
+            help => 'combine stack items using an executable value: executable reduce',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
+                my @original = $calc->stack->values;
+                my $exec = $calc->stack->pop;
+
+                unless ($calc->is_executable($exec)) {
+                    $calc->stack->clear;
+                    $calc->stack->push(@original);
+                    warn "reduce requires an executable value\n";
+                    return;
+                }
+
+                my @items = reverse $calc->stack->values;
+
+                if (!@items) {
+                    $calc->stack->clear;
+                    return;
+                }
+
+                my $accumulator = shift @items;
+
+                foreach my $item (@items) {
+                    $calc->stack->clear;
+                    $calc->stack->push($item, $accumulator);
+
+                    my $before = $calc->stack->depth;
+                    $calc->execute($exec);
+                    my $after = $calc->stack->depth;
+
+                    if ($after - $before != -1) {
+                        $calc->stack->clear;
+                        $calc->stack->push(@original);
+                        warn "reduce executable must consume 2 values and produce 1 value\n";
+                        return;
+                    }
+
+                    $accumulator = $calc->stack->pop;
+                }
+
+                $calc->stack->clear;
+                $calc->stack->push($accumulator);
+                return;
+            },
+        }
+    );
+
+    $self->register(
         version => {
             aliases => ['ver'],
             category => 'discovery',
