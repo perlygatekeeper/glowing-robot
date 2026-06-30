@@ -537,6 +537,55 @@ sub _initialize {
     );
 
     $self->register(
+        map => {
+            category => 'execution',
+            help => 'apply an executable value to each stack item: executable map',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
+                my @original = $calc->stack->values;
+                my $exec = $calc->stack->pop;
+
+                unless ($calc->is_executable($exec)) {
+                    $calc->stack->clear;
+                    $calc->stack->push(@original);
+                    warn "map requires an executable value
+";
+                    return;
+                }
+
+                my @items = $calc->stack->values;
+                my @results;
+
+                $calc->stack->clear;
+
+                foreach my $item (@items) {
+                    $calc->stack->push($item);
+
+                    my $before = $calc->stack->depth;
+                    $calc->execute($exec);
+                    my $after = $calc->stack->depth;
+
+                    if ($after - $before != 0) {
+                        $calc->stack->clear;
+                        $calc->stack->push(@original);
+                        warn "map executable must consume 1 value and produce 1 value
+";
+                        return;
+                    }
+
+                    push @results, $calc->stack->pop;
+                }
+
+                $calc->stack->clear;
+                $calc->stack->push(@results);
+                return;
+            },
+        }
+    );
+
+    $self->register(
         version => {
             aliases => ['ver'],
             category => 'discovery',

@@ -1249,12 +1249,12 @@ Execute executable values.
 
 ## Goals
 
-[ ] call
-[ ] if
-[ ] ifelse
-[ ] while
-[ ] until
-[ ] repeat
+[x] call
+[x] if
+[x] ifelse
+[x] while
+[x] until
+[x] repeat
 [ ] foreach
 [ ] map (Stack)
 [ ] filter (Stack)

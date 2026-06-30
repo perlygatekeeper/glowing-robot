@@ -116,6 +116,7 @@ lt                                                   Boolean         string comp
 ltrim              ltr                               String          remove leading whitespace
 madd               mad                               Matrix          add two matrices of the same dimensions
 magnitude          mag        mag                    Vector          replace a vector with its magnitude
+map                                                  Execution       apply an executable value to each stack item: executable map
 match                                                String          regex match: string pattern match
 matcols            matco                             Matrix          create a matrix from N column vectors: N matcols
 matparse           matp                              Matrix          parse a matrix literal from the stack: [[1,2],[3,4]] matparse
