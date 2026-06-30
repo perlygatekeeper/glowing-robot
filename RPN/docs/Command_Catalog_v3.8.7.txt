@@ -71,6 +71,7 @@ exponentiate       expo       **, ^                  Numeric         raises the 
 factor                        factors                Number Theory   replace top value with its prime factors
 factorial          fact       fact                   Combinatorics   factorial: n factorial
 fahrenheit_celsius fah        ftoc                   Conversion      convert Fahrenheit to Celsius
+filter             fi                                Execution       keep stack items whose executable predicate returns true: executable filter
 floor              fl                                Numeric         round down
 frac               fr                                Numeric         fractional portion
 functions          fu         funcs                  Function        list user-defined functions
