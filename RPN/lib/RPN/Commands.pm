@@ -1216,17 +1216,35 @@ sub _initialize {
         if => {
             aliases => ['ifthen'],
             category => 'flow',
-            help    => 'pops boolean and command; executes command if boolean is true',
+            help    => 'execute an executable value when a condition is true: condition executable if',
             code    => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(2);
-                my $test  = $calc->stack->pop;
-                my $input = $calc->stack->pop;
-                if ($test) {
-                    unless ($calc->commands->execute($calc, $input)) {
-                        warn "unknown input type '$input'\n";
-                    }
+
+                my $top    = $calc->stack->pop;
+                my $second = $calc->stack->pop;
+
+                my ($test, $exec);
+
+                if ($calc->is_executable($top)) {
+                    # Preferred PostScript-style order:
+                    #     condition executable if
+                    ($test, $exec) = ($second, $top);
                 }
+                elsif ($calc->is_executable($second)) {
+                    # Compatibility with the older RPN order:
+                    #     executable condition if
+                    ($test, $exec) = ($top, $second);
+                }
+                else {
+                    $calc->stack->push($second);
+                    $calc->stack->push($top);
+                    warn "if requires a condition and an executable value\n";
+                    return;
+                }
+
+                return unless $test;
+                return $calc->execute($exec);
             },
         }
     );
@@ -1234,17 +1252,36 @@ sub _initialize {
     $self->register(
         ifelse => {
             category => 'flow',
-            help => 'pops boolean and two commands; executes first command if true, second if false',
+            help => 'execute one of two executable values based on a condition: condition true-exec false-exec ifelse',
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(3);
-                my $test        = $calc->stack->pop;
-                my $true_input  = $calc->stack->pop;
-                my $false_input = $calc->stack->pop;
-                my $input = $test ? $true_input : $false_input;
-                unless ($calc->commands->execute($calc, $input)) {
-                    warn "unknown input type '$input'\n";
+
+                my $top    = $calc->stack->pop;
+                my $middle = $calc->stack->pop;
+                my $bottom = $calc->stack->pop;
+
+                my ($test, $true_exec, $false_exec);
+
+                if ($calc->is_executable($middle) && $calc->is_executable($top)) {
+                    # Preferred PostScript-style order:
+                    #     condition true-exec false-exec ifelse
+                    ($test, $true_exec, $false_exec) = ($bottom, $middle, $top);
                 }
+                elsif ($calc->is_executable($bottom) && $calc->is_executable($middle)) {
+                    # Compatibility with the older RPN order:
+                    #     false-exec true-exec condition ifelse
+                    ($test, $true_exec, $false_exec) = ($top, $middle, $bottom);
+                }
+                else {
+                    $calc->stack->push($bottom);
+                    $calc->stack->push($middle);
+                    $calc->stack->push($top);
+                    warn "ifelse requires a condition and two executable values\n";
+                    return;
+                }
+
+                return $calc->execute($test ? $true_exec : $false_exec);
             },
         }
     );

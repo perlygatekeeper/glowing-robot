@@ -85,8 +85,8 @@ hexadecimal        hex        hex                    Display         prints the 
 history            hi         hist                   Session         prints command history
 hypot              hy                                Numeric         sqrt(x^2 + y^2)
 idiv               id                                Numeric         integer division, truncated toward zero
-if                            ifthen                 Flow            pops boolean and command; executes command if boolean is true
-ifelse             ife                               Flow            pops boolean and two commands; executes first command if true, second if false
+if                            ifthen                 Flow            execute an executable value when a condition is true: condition executable if
+ifelse             ife                               Flow            execute one of two executable values based on a condition: condition true-exec false-exec ifelse
 inch_centimeter    inch       itoc                   Conversion      convert inches to centimeters
 increment          incr                              Numeric         increments the number on top of the stack
 inv                                                  Numeric         reciprocal (1/x)
