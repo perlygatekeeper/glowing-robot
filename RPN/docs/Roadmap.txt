@@ -1102,7 +1102,6 @@ startup/test time rather than silently entering the calculator.
 
 ## Version 3.8.8 — CodeBlock Object Foundation
 
-
 ### Theme
 
 Introduce CodeBlock as a first-class executable value object.
@@ -1156,9 +1155,9 @@ features can consume.
         showblock
         iscodeblock
 
-[ ] Add RPN::CodeBlocks as a named registry object.
-[ ] Store named CodeBlock values.
-[ ] Add registry methods:
+[x] Add RPN::CodeBlocks as a named registry object.
+[x] Store named CodeBlock values.
+[x] Add registry methods:
 
         define
         undefine
@@ -1168,23 +1167,23 @@ features can consume.
         save_file
         load_file
 
-[ ] Add RPN::Commands::CodeBlocks.
-[ ] Add preliminary user commands:
+[x] Add RPN::Commands::CodeBlocks.
+[x] Add preliminary user commands:
 
         codeblocks
         showblock
         iscodeblock
 
-[ ] Add persistence format for named CodeBlocks.
+[x] Add persistence format for named CodeBlocks.
 
         square = { dup * }
 
-[ ] Initial methods:
+[x] Initial methods:
     new()
     as_string()
     is_codeblock()
 
-[ ] Registry methods:
+[x] Registry methods:
     define()
     undefine()
     exists()
@@ -1193,23 +1192,23 @@ features can consume.
     save_file()
     load_file()
 
-[ ] Preliminary commands:
+[x] Preliminary commands:
     codeblocks
     showblock
     iscodeblock
 
-[ ] Basic unit tests.
+[x] Basic unit tests.
 
 ### Non-Goals
 
-[ ] Do not replace existing functions.
-[ ] Do not overload def yet.
-[ ] Do not implement execution semantics.
-[ ] Do not require all CodeBlocks to be named.
-[ ] Do not implement looping.
-[ ] Do not implement map/filter/reduce yet.
-[ ] Do not introduce blessed Number or String objects.
-[ ] Do not solve full execution semantics yet unless naturally required.
+[0] Do not replace existing functions.
+[0] Do not overload def yet.
+[0] Do not implement execution semantics.
+[0] Do not require all CodeBlocks to be named.
+[0] Do not implement looping.
+[0] Do not implement map/filter/reduce yet.
+[0] Do not introduce blessed Number or String objects.
+[0] Do not solve full execution semantics yet unless naturally required.
 
 ### Future Use
 

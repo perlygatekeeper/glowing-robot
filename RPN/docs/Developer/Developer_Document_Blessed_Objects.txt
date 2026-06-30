@@ -251,7 +251,7 @@ They intentionally remain simple.
 
 ---
 
-## Future Object: Code Block
+## Code Block
 
 Purpose
 
@@ -290,11 +290,8 @@ user's point of view.
 Commands such as
 
 call
-
 map
-
 filter
-
 reduce
 
 should eventually accept either representation.
