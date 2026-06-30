@@ -128,13 +128,48 @@ sub register_commands {
 
     $commands->register(
         repeat => {
-            category => 'string',
-            help => 'repeat string N times: string n repeat',
+            category => 'execution',
+            help => 'repeat a string or executable value N times: string n repeat or n executable repeat',
             code => sub {
                 my ($calc) = @_;
-                my $n = $calc->stack->pop;
-                my $s = $calc->stack->pop;
-                $calc->stack->push($s x $n);
+                return unless $calc->stack->require_depth(2);
+
+                my $top    = $calc->stack->pop;
+                my $second = $calc->stack->pop;
+
+                if ($calc->is_executable($top)) {
+                    # Preferred executable order:
+                    #     count executable repeat
+                    my $count = $second;
+
+                    unless (_string_is_nonnegative_integer($calc, $count)) {
+                        $calc->stack->push($second);
+                        $calc->stack->push($top);
+                        warn "repeat requires a non-negative integer count
+";
+                        return;
+                    }
+
+                    for (1 .. int($count)) {
+                        $calc->execute($top);
+                    }
+
+                    return;
+                }
+
+                # Existing string behavior:
+                #     string count repeat
+                my ($s, $count) = ($second, $top);
+
+                unless (_string_is_nonnegative_integer($calc, $count)) {
+                    $calc->stack->push($second);
+                    $calc->stack->push($top);
+                    warn "repeat requires a non-negative integer count
+";
+                    return;
+                }
+
+                $calc->stack->push($s x int($count));
             },
         }
     );
@@ -204,6 +239,15 @@ sub register_commands {
     );
 
     return;
+}
+
+
+sub _string_is_nonnegative_integer {
+    my ($calc, $n) = @_;
+    return !ref($n)
+        && $calc->isanumber($n)
+        && int($n) == $n
+        && $n >= 0;
 }
 
 1;

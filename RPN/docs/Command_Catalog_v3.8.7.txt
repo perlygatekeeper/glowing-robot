@@ -173,7 +173,7 @@ readcsv            readcs                            Io              read numeri
 readnums           readn                             Io              read numeric tokens from a file and push them onto the stack
 recall             rec        rcl                    Variable        recall a variable and push it onto the stack
 renamestack        ren        movestack              Stack           rename stack: renamestack <old> <new>
-repeat             repe                              String          repeat string N times: string n repeat
+repeat             repe                              Execution       repeat a string or executable value N times: string n repeat or n executable repeat
 replace            repl                              String          literal replace first occurrence: string old new replace
 reverse            rev                               Stack           reverse the current stack
 roll               rol                               Stack           circularly rotate the whole stack by N positions; default is -1
