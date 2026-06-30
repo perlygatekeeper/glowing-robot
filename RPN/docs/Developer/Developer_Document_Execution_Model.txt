@@ -1,0 +1,318 @@
+# Developer_Document_Execution_Model.txt
+
+========================================================================
+Execution Model
+===============
+
+This document describes the execution model planned for the RPN
+Calculator beginning with Version 3.8.9.
+
+It is intentionally implementation-independent.
+
+Its purpose is to define language semantics and stack contracts before
+implementation begins.
+
+---
+
+## Design Philosophy
+
+The RPN Calculator distinguishes between executable text and executable
+structure.
+
+Token Strings are convenience.
+
+Code Blocks are structure.
+
+Both are executable.
+
+Both are valuable.
+
+Both should eventually be accepted by most commands that operate on
+executable values.
+
+---
+
+## Executable Values
+
+## Token String
+
+A Token String is executable text.
+
+Example
+
+"dup *"
+
+Characteristics
+
+* Lightweight.
+* Human-readable.
+* Executed by tokenizing text.
+* Late name resolution.
+* Excellent for short convenience functions.
+
+---
+
+## Code Block
+
+A Code Block is an executable object.
+
+Example
+
+{ dup * }
+
+Characteristics
+
+* Structured.
+* Validated.
+* First-class value.
+* Stored on the stack.
+* May be anonymous.
+* May be named through the CodeBlocks registry.
+
+Future releases may expand Code Blocks to support additional executable
+structure without changing their external behavior.
+
+---
+
+## Execution Primitive
+
+Every higher-order operation is built upon a single primitive:
+
+call
+
+Purpose
+
+Execute an executable value.
+
+Stack Contract
+
+Consumes
+
+Executable Value
+
+Produces
+
+Whatever the executable value leaves on the stack.
+
+Accepted Types
+
+Token String
+
+Code Block
+
+The implementation of call defines the execution model used throughout
+the language.
+
+---
+
+## Higher-Order Operations
+
+Higher-order operations receive executable values and apply them in
+various ways.
+
+Initial operations planned for Version 3.8.9 include:
+
+map
+
+filter
+
+reduce
+
+These operations should accept either Token Strings or Code Blocks
+whenever practical.
+
+---
+
+## Flow Control
+
+Flow-control operations follow the PostScript execution model whenever
+practical.
+
+---
+
+if
+
+Stack
+
+condition
+
+executable
+
+if
+
+Consumes
+
+Boolean
+
+Executable Value
+
+Produces
+
+Whatever the executable leaves on the stack when executed.
+
+---
+
+ifelse
+
+Stack
+
+condition
+
+true executable
+
+false executable
+
+ifelse
+
+Consumes
+
+Boolean
+
+Executable Value
+
+Executable Value
+
+Produces
+
+Whatever the selected executable leaves on the stack.
+
+---
+
+repeat
+
+Stack
+
+count
+
+executable
+
+repeat
+
+Consumes
+
+Integer
+
+Executable Value
+
+Produces
+
+Whatever repeated execution leaves on the stack.
+
+---
+
+while
+
+Stack
+
+condition executable
+
+body executable
+
+while
+
+Consumes
+
+Executable Value
+
+Executable Value
+
+Produces
+
+Whatever execution leaves on the stack when the loop terminates.
+
+The condition executable is evaluated before each iteration.
+
+---
+
+loop
+
+Stack
+
+executable
+
+loop
+
+Consumes
+
+Executable Value
+
+Produces
+
+Nothing beyond the effects of repeated execution.
+
+Initially reserved for future implementation.
+
+---
+
+## Stack Contracts
+
+Every executable command should document:
+
+What it consumes.
+
+What it produces.
+
+Commands should never leave ambiguity regarding stack behavior.
+
+The stack contract is considered part of the language specification.
+
+---
+
+## Implementation Strategy
+
+Development proceeds in layers.
+
+1. Introduce executable value objects.
+
+2. Introduce persistence.
+
+3. Introduce inspection commands.
+
+4. Introduce reader support.
+
+5. Introduce execution primitives.
+
+6. Introduce higher-order operations.
+
+7. Introduce flow control.
+
+Each layer should be independently testable before the next begins.
+
+---
+
+## Future Directions
+
+Future releases may extend executable values with additional
+capabilities, including:
+
+Nested Code Blocks
+
+Branching
+
+Recursion
+
+Debugging support
+
+Introspection
+
+Optimization
+
+Such additions should preserve the existing execution model whenever
+possible.
+
+---
+
+## Guiding Principle
+
+The language should distinguish between executable text and executable
+structure.
+
+Token Strings are convenience.
+
+Code Blocks are structure.
+
+The user should choose the representation that best expresses the
+problem rather than being forced into a single abstraction.
+
+Ultimately, the language should provide a small number of consistent
+execution primitives from which powerful behavior naturally emerges.

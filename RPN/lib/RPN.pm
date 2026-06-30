@@ -444,8 +444,52 @@ sub prompt_tos {
     return $self->format_value($top);
 }
 
+sub strip_input_comment {
+    my ($self, $input) = @_;
+
+    return '' unless defined $input;
+
+    my $quote;
+    my $escaped = 0;
+    my $out = '';
+
+    foreach my $char (split //, $input) {
+        if ($escaped) {
+            $out .= $char;
+            $escaped = 0;
+            next;
+        }
+
+        if (defined $quote && $char eq '\\') {
+            $out .= $char;
+            $escaped = 1;
+            next;
+        }
+
+        if ($char eq q{"} || $char eq q{'}) {
+            if (defined $quote) {
+                undef $quote if $char eq $quote;
+            }
+            else {
+                $quote = $char;
+            }
+
+            $out .= $char;
+            next;
+        }
+
+        last if !defined($quote) && $char eq '#';
+
+        $out .= $char;
+    }
+
+    return $out;
+}
+
 sub process_input {
     my ($self, $input) = @_;
+
+    $input = $self->strip_input_comment($input);
 
     $input =~ s/^\s+//;
     $input =~ s/\s+$//;
