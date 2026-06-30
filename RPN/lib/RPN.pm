@@ -657,6 +657,61 @@ sub push_number {
     return 1;
 }
 
+
+sub is_executable {
+    my ($self, $value) = @_;
+
+    return 1 if RPN::CodeBlock::is_codeblock($value);
+
+    return 0 if ref $value;
+    return 0 unless defined $value;
+
+    my $source = $value;
+    $source =~ s/^\s+//;
+    $source =~ s/\s+$//;
+
+    return 0 unless length $source;
+    return 0 if $self->isanumber($source);
+
+    return 1;
+}
+
+sub execute {
+    my ($self, $value) = @_;
+
+    die "execute requires an executable value\n"
+        unless $self->is_executable($value);
+
+    if (RPN::CodeBlock::is_codeblock($value)) {
+        return $self->_execute_codeblock($value);
+    }
+
+    return $self->_execute_token_string($value);
+}
+
+sub _execute_token_string {
+    my ($self, $source) = @_;
+
+    foreach my $token (split /\s+/, $source) {
+        next unless length $token;
+        $self->process_input($token);
+    }
+
+    return 1;
+}
+
+sub _execute_codeblock {
+    my ($self, $block) = @_;
+
+    foreach my $step ($block->steps) {
+        my $token = $step->{token};
+        next unless defined $token && length $token;
+        $self->process_input($token);
+    }
+
+    return 1;
+}
+
 sub execute_function {
     my ($self, $name) = @_;
 
