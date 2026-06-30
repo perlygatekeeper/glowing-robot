@@ -10,6 +10,7 @@ use RPN::Constants;
 use RPN::Variables;
 use RPN::Functions;
 use RPN::CodeBlocks;
+use RPN::CodeBlock;
 use RPN::Vector;
 use RPN::Matrix;
 use Term::ReadLine;
@@ -455,17 +456,51 @@ sub process_input {
     # This ordering is IMPORTANT for maintaining a sane and working namespace
     # of commands, aliases, user-defined functions, variables, constants and abbreviated command names
     #
-    # 1) Quoted string
-    # 2) Numeric list
-    # 3) Single Number
-    # 4) Command or an Alias (named exactly, names registered, ie. not abbreviated)
-    # 5) Function
-    # 6) Constant
-    # 7) Variable
-    # 8) Abbreviated Command
-    # 9) Unknown
+    # 1) CodeBlock literal
+    # 2) Quoted string
+    # 3) Numeric list
+    # 4) Single Number
+    # 5) Command or an Alias (named exactly, names registered, ie. not abbreviated)
+    # 6) Function
+    # 7) Constant
+    # 8) Variable
+    # 9) Abbreviated Command
+    # 10) Unknown
 
-    # 1) Quoted string input.
+    # 1) CodeBlock literal input.
+    # Accepts a single-line literal such as:
+    #   { dup * }
+    # Nested CodeBlocks and multi-line CodeBlocks are intentionally deferred.
+
+    if ($input =~ /^\{.*\}$/s) {
+        my $body = $input;
+        $body =~ s/^\{\s*//;
+        $body =~ s/\s*\}$//;
+
+        if ($body =~ /[{}]/) {
+            warn "Nested code blocks are not supported yet
+";
+            return;
+        }
+
+        my $block = eval { RPN::CodeBlock->new(source => $input) };
+        if (!$block) {
+            warn $@ || "Invalid code block literal
+";
+            return;
+        }
+
+        $self->stack->push($block);
+        return;
+    }
+
+    if ($input =~ /^\{/ || $input =~ /\}$/) {
+        warn "Invalid code block literal
+";
+        return;
+    }
+
+    # 2) Quoted string input.
     # Accepts:
     #   "hello
     #   "hello"
@@ -484,7 +519,7 @@ sub process_input {
     }
 
     #
-    # 2) Numeric list input.
+    # 3) Numeric list input.
     # Accepts:
     #   12 14 18 20 16
     #   12,14,18,20,16
@@ -502,7 +537,7 @@ sub process_input {
     }
 
     #
-    # 3) Single number input.
+    # 4) Single number input.
     #
 
     if ($self->isanumber($input)) {
@@ -511,7 +546,7 @@ sub process_input {
     }
 
     #
-    # 4) Registered commands or aliases
+    # 5) Registered commands or aliases
     #
 
     if ($self->commands->execute_registered($self, $input)) {
@@ -519,7 +554,7 @@ sub process_input {
     }
 
     #
-    # 5) User-defined Functions
+    # 6) User-defined Functions
     #
 
     if ($input =~ /^[A-Za-z_]\w*$/ && $self->functions->exists($input)) {
@@ -536,7 +571,7 @@ sub process_input {
     }
 
     #
-    # 6) Constants
+    # 7) Constants
     #
 
     if ($input =~ /^[A-Za-z_]\w*$/ && $self->constants->exists($input)) {
@@ -545,7 +580,7 @@ sub process_input {
     }
 
     #
-    # 7) Variables
+    # 8) Variables
     #
 
     if ($input =~ /^[A-Za-z_]\w*$/ && $self->variables->exists($input)) {
@@ -554,7 +589,7 @@ sub process_input {
     }
 
     #
-    # 8) Abbreviated Commands
+    # 9) Abbreviated Commands
     #
 
     if ($self->commands->execute($self, $input)) {
