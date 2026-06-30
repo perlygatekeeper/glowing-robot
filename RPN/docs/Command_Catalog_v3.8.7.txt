@@ -220,6 +220,7 @@ tutorial                                             Documentation   display a t
 tutorials                                            Documentation   list available tutorials
 undef              und                               Function        delete a user function
 unique             uni                               Stack           remove duplicate values while preserving order
+until              unt                               Flow            repeat an executable value until a condition executable returns true: condition-exec body-exec until
 upper              up                                String          convert string to uppercase
 vadd               vad                               Vector          add two vectors of the same dimension
 variables          variab     vars                   Variable        list stored variables
@@ -230,7 +231,8 @@ vector             vect                              Vector          create a ve
 version            ver        ver                    Discovery       prints calculator version
 vscale             vsc                               Vector          scale a vector by a scalar: vector scalar vscale
 vsub               vsu                               Vector          subtract top vector from second vector
-writecsv           w                                 Io              write current stack to a CSV file
+while              wh                                Flow            repeat an executable value while a condition executable returns true: condition-exec body-exec while
+writecsv           wr                                Io              write current stack to a CSV file
 y0                                                   Numeric         Bessel function of the second kind, order 0: Y0(x)
 y1                                                   Numeric         Bessel function of the second kind, order 1: Y1(x)
 yn                                                   Numeric         Bessel function of the second kind: x n yn computes Yn(x)

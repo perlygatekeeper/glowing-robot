@@ -37,6 +37,8 @@ ROADMAP       := $(shell ls docs/Roadmap*.txt)
 
 .PHONY: backup syntax run test docs-check catalog clean size size-modules
 
+tarball: backup
+
 backup:
 	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
 		$(TESTDIR) \

@@ -1286,6 +1286,70 @@ sub _initialize {
         }
     );
 
+
+
+    $self->register(
+        while => {
+            category => 'flow',
+            help => 'repeat an executable value while a condition executable returns true: condition-exec body-exec while',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+
+                my $body_exec = $calc->stack->pop;
+                my $cond_exec = $calc->stack->pop;
+
+                unless ($calc->is_executable($cond_exec) && $calc->is_executable($body_exec)) {
+                    $calc->stack->push($cond_exec);
+                    $calc->stack->push($body_exec);
+                    warn "while requires condition and body executable values\n";
+                    return;
+                }
+
+                while (1) {
+                    my ($ok, $condition) = _execute_loop_condition($calc, $cond_exec, 'while');
+                    return unless $ok;
+                    last unless $condition;
+
+                    $calc->execute($body_exec);
+                }
+
+                return;
+            },
+        }
+    );
+
+    $self->register(
+        until => {
+            category => 'flow',
+            help => 'repeat an executable value until a condition executable returns true: condition-exec body-exec until',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+
+                my $body_exec = $calc->stack->pop;
+                my $cond_exec = $calc->stack->pop;
+
+                unless ($calc->is_executable($cond_exec) && $calc->is_executable($body_exec)) {
+                    $calc->stack->push($cond_exec);
+                    $calc->stack->push($body_exec);
+                    warn "until requires condition and body executable values\n";
+                    return;
+                }
+
+                while (1) {
+                    my ($ok, $condition) = _execute_loop_condition($calc, $cond_exec, 'until');
+                    return unless $ok;
+                    last if $condition;
+
+                    $calc->execute($body_exec);
+                }
+
+                return;
+            },
+        }
+    );
+
     #
     # File I/O
     #
@@ -2673,6 +2737,24 @@ sub _metadata_label {
     my ($key) = @_;
 
     return join ' ', map { ucfirst lc } split /_+/, $key;
+}
+
+
+sub _execute_loop_condition {
+    my ($calc, $exec, $command_name) = @_;
+
+    my $before = $calc->stack->depth;
+    $calc->execute($exec);
+    my $after = $calc->stack->depth;
+
+    if ($after <= $before) {
+        warn "$command_name condition executable must leave a condition value\n";
+        return;
+    }
+
+    my $condition = $calc->stack->pop;
+
+    return (1, $condition ? 1 : 0);
 }
 
 sub _clean_filename {
