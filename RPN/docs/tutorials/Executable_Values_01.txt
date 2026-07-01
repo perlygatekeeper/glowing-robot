@@ -1,0 +1,143 @@
+Tutorial - Executable Values
+
+Overview
+
+Beginning with Version 3.8.9, executable code becomes a first-class
+value in the RPN Calculator.
+
+Two executable value types are supported:
+
+-   Token Strings
+-   Code Blocks
+
+Token Strings are convenience.
+
+Code Blocks are structure.
+
+call
+
+call executes an executable value.
+
+Example:
+
+    { 2 3 + } call
+
+Result:
+
+    5
+
+if
+
+Stack:
+
+    condition
+    { true-block }
+    if
+
+The Code Block executes only when the condition is true.
+
+ifelse
+
+Stack:
+
+    condition
+    { true-block }
+    { false-block }
+    ifelse
+
+repeat
+
+Stack:
+
+    count
+    { body }
+    repeat
+
+Executes the body a fixed number of times.
+
+while
+
+Stack:
+
+    { condition }
+    { body }
+    while
+
+Evaluates the condition before each iteration.
+
+until
+
+Stack:
+
+    { condition }
+    { body }
+    until
+
+Executes until the condition becomes true.
+
+map
+
+Applies an executable value to every stack element.
+
+Required stack contract:
+
+    1 input → 1 output
+
+Example:
+
+    1 2 3 4
+    { dup * }
+    map
+
+Result:
+
+    1 4 9 16
+
+filter
+
+Keeps values accepted by an executable predicate.
+
+Typical predicate contract:
+
+    1 input → Boolean
+
+Example:
+
+    1 2 3 4 5
+    { dup 2 % 0 == }
+    filter
+
+Result:
+
+    2 4
+
+reduce
+
+Combines many values into one.
+
+Required stack contract:
+
+    2 inputs → 1 output
+
+Example:
+
+    1 2 3 4
+    { + }
+    reduce
+
+Result:
+
+    10
+
+Runtime Contract Checking
+
+Higher-order operations verify executable stack behavior at runtime.
+
+If an executable violates the required stack contract, the operation
+aborts with an error.
+
+Summary
+
+Version 3.8.9 introduces a unified execution model built around
+executable values while preserving backward compatibility with existing
+Token Strings.

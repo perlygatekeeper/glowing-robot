@@ -1243,29 +1243,66 @@ release.
 
 ## Version 3.8.9 — Execution and Higher-Order Operations
 
+Status: Completed
+
 Theme
 
 Execute executable values.
 
 ## Goals
 
-[x] call
-[x] if
-[x] ifelse
-[x] while
-[x] until
-[x] repeat
+[x] Add support for `#` comments in input as a Pre-3.8.9 cleanup.
+[x] Add executable value abstraction:
+
+        is_executable()
+        execute()
+
+[x] Add `call` for executing executable values.
+[x] Add conditional execution:
+
+        if
+        ifelse
+
+[x] Add counted iteration:
+
+        repeat
+
+[x] Add conditional loops:
+
+        while
+        until
+
+[x] Add stack higher-order operations:
+
+        map
+        filter
+        reduce
+
+[x] Add runtime stack-contract validation for higher-order operations.
+[x] Add tests for executable values and higher-order execution.
+[x] Add release notes.
+
+## Deferred
+
 [ ] foreach
-[ ] map (Stack)
-[ ] filter (Stack)
-[ ] reduce (Stack)
-[ ] Tutorial
+
+    Deferred deliberately. The read-only iteration semantics require
+    more design work before becoming part of the language.
+
+[ ] loop / break / continue
+
+    Reserved for a future release. These require a loop-control model
+    rather than simple executable-value dispatch.
 
 ## Purpose
 
 Introduce execution constructs operating on executable values.
 
-Both Token Strings and CodeBlocks should be accepted wherever practical.
+Both Token Strings and CodeBlocks are accepted wherever practical.
+
+Version 3.8.9 is the release where CodeBlocks become useful as
+executable values and where the calculator gains the foundation for
+higher-order stack programming.
 
 ---
 

@@ -4,13 +4,10 @@
 Execution Model
 ===============
 
-This document describes the execution model planned for the RPN
-Calculator beginning with Version 3.8.9.
+This document describes the execution model introduced in Version 3.8.9.
 
-It is intentionally implementation-independent.
-
-Its purpose is to define language semantics and stack contracts before
-implementation begins.
+It describes language semantics and stack contracts rather than low-level
+implementation details.
 
 ---
 
@@ -110,7 +107,7 @@ the language.
 Higher-order operations receive executable values and apply them in
 various ways.
 
-Initial operations planned for Version 3.8.9 include:
+Initial operations introduced in Version 3.8.9 include:
 
 map
 
@@ -118,8 +115,76 @@ filter
 
 reduce
 
-These operations should accept either Token Strings or Code Blocks
-whenever practical.
+These operations accept either Token Strings or Code Blocks wherever
+practical.
+
+map
+---
+
+Stack
+
+executable
+
+map
+
+Consumes
+
+Executable Value
+
+Produces
+
+A transformed stack.
+
+Contract
+
+The executable is applied to each stack item and must behave as:
+
+1 input -> 1 output
+
+filter
+------
+
+Stack
+
+executable
+
+filter
+
+Consumes
+
+Executable Value
+
+Produces
+
+A filtered stack.
+
+Contract
+
+The executable is applied as a predicate to each stack item and must
+leave exactly one truth value.
+
+reduce
+------
+
+Stack
+
+executable
+
+reduce
+
+Consumes
+
+Executable Value
+
+Produces
+
+A single reduced value.
+
+Contract
+
+The executable combines adjacent reduction values and must behave as:
+
+2 inputs -> 1 output
 
 ---
 
@@ -240,7 +305,17 @@ Produces
 
 Nothing beyond the effects of repeated execution.
 
-Initially reserved for future implementation.
+Reserved for future implementation.
+
+foreach
+-------
+
+The `foreach` command was considered for Version 3.8.9 but deliberately
+deferred.
+
+Its intended read-only iteration semantics require more design work,
+especially around how to preserve the iterated stack span while still
+allowing useful side effects.
 
 ---
 
@@ -275,6 +350,8 @@ Development proceeds in layers.
 6. Introduce higher-order operations.
 
 7. Introduce flow control.
+
+8. Introduce higher-order stack operations.
 
 Each layer should be independently testable before the next begins.
 

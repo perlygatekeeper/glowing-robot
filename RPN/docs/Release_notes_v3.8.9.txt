@@ -1,0 +1,62 @@
+Release Notes - Version 3.8.9
+
+Overview
+
+Version 3.8.9 introduces executable values and higher-order execution.
+
+Building on the CodeBlock foundation introduced in Version 3.8.8, this
+release unifies execution of Token Strings and Code Blocks.
+
+Highlights
+
+-   Executable value abstraction
+-   call
+-   if
+-   ifelse
+-   repeat
+-   while
+-   until
+-   map
+-   filter
+-   reduce
+-   Runtime stack-contract verification
+
+New Commands
+
+-   call
+-   if
+-   ifelse
+-   repeat
+-   while
+-   until
+-   map
+-   filter
+-   reduce
+
+Runtime Verification
+
+Higher-order operations verify executable stack behavior while running.
+
+Expected contracts include:
+
+-   map: 1 → 1
+-   filter: predicate
+-   reduce: 2 → 1
+
+Violations terminate the operation with an error.
+
+Documentation
+
+-   New Tutorial: Executable Values
+-   Updated Command Catalog
+-   Updated developer documentation
+
+Compatibility
+
+Version 3.8.9 remains backward compatible with existing scripts and
+functions.
+
+Looking Ahead
+
+Future work includes additional collection operations, foreach, and
+continued command-module refactoring.
