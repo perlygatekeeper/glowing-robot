@@ -15,6 +15,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Matrix.pm \
              lib/RPN/Commands/NumberTheory.pm \
              lib/RPN/Commands/Numeric.pm \
+             lib/RPN/Commands/Random.pm \
              lib/RPN/Commands/Stack.pm \
              lib/RPN/Commands/Strings.pm \
              lib/RPN/Commands/Tutorials.pm \

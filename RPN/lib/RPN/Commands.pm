@@ -15,6 +15,7 @@ use RPN::Commands::Numeric;
 use RPN::Commands::Stack;
 use RPN::Commands::CodeBlocks;
 use RPN::Commands::Conversion;
+use RPN::Commands::Random;
 use POSIX ();
 use File::Basename qw(basename);
 use Text::Abbrev qw(abbrev);
@@ -80,6 +81,7 @@ sub _initialize {
     RPN::Commands::Stack::register_commands($self);
     RPN::Commands::CodeBlocks::register_commands($self);
     RPN::Commands::Conversion::register_commands($self);
+    RPN::Commands::Random::register_commands($self);
 
     #
     # Boolean for both Numerical and String Entries
@@ -1452,79 +1454,6 @@ sub _initialize {
                 my $file = _clean_filename($arg_str);
                 return unless $file;
                 _write_stack_csv($calc, $file, 1);
-            },
-        }
-    );
-
-    #
-    # Random numbers
-    #
-
-    $self->register(
-        rand => {
-            category => 'random',
-            help => 'push a random floating point number in the range [0,1)',
-            code => sub {
-                my ($calc) = @_;
-                $calc->stack->push(rand());
-            },
-        }
-    );
-
-    $self->register(
-        randint => {
-            category => 'random',
-            help => 'push a random integer; randint N gives 1..N, randint A B gives A..B',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my ($low, $high);
-                if ($args && @$args == 1) {
-                    $low  = 1;
-                    $high = $args->[0];
-                }
-                elsif ($args && @$args >= 2) {
-                    ($low, $high) = @$args[0, 1];
-                }
-                else {
-                    warn "usage: randint <high> or randint <low> <high>\n";
-                    return;
-                }
-                unless ($low =~ /^-?\d+$/ && $high =~ /^-?\d+$/) {
-                    warn "randint requires integer arguments\n";
-                    return;
-                }
-                if ($high < $low) {
-                    ($low, $high) = ($high, $low);
-                }
-                my $value = $low + int(rand($high - $low + 1));
-                $calc->stack->push($value);
-            },
-        }
-    );
-
-    $self->register(
-        seed => {
-            category => 'random',
-            help => 'seed the random number generator',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $seed = $args && @$args ? $args->[0] : time;
-                srand($seed);
-                $calc->stack->push($seed);
-            },
-        }
-    );
-
-    $self->register(
-        choose => {
-            category => 'random',
-            help => 'copy a random stack element to the top',
-            code => sub {
-                my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
-                my @values = $calc->stack->values;
-                my $index = int(rand(@values));
-                $calc->stack->push($values[$index]);
             },
         }
     );
