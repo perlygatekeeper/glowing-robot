@@ -19,6 +19,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Stack.pm \
              lib/RPN/Commands/Strings.pm \
              lib/RPN/Commands/Tutorials.pm \
+             lib/RPN/Commands/Variables.pm \
              lib/RPN/Commands/Vector.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
