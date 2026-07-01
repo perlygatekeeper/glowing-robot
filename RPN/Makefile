@@ -13,6 +13,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Constants.pm \
              lib/RPN/Commands/Conversion.pm \
              lib/RPN/Commands/Financial.pm \
+             lib/RPN/Commands/Functions.pm \
              lib/RPN/Commands/Matrix.pm \
              lib/RPN/Commands/NumberTheory.pm \
              lib/RPN/Commands/Numeric.pm \

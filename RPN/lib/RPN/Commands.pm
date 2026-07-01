@@ -18,6 +18,7 @@ use RPN::Commands::Conversion;
 use RPN::Commands::Random;
 use RPN::Commands::Variables;
 use RPN::Commands::Constants;
+use RPN::Commands::Functions;
 use POSIX ();
 use File::Basename qw(basename);
 use Text::Abbrev qw(abbrev);
@@ -86,6 +87,7 @@ sub _initialize {
     RPN::Commands::Random::register_commands($self);
     RPN::Commands::Variables::register_commands($self);
     RPN::Commands::Constants::register_commands($self);
+    RPN::Commands::Functions::register_commands($self);
 
     #
     # Boolean for both Numerical and String Entries
@@ -1425,158 +1427,6 @@ sub _initialize {
             },
         }
     );
-    #
-    # User-defined Functions
-    #
-
-    $self->register(
-        define => {
-            aliases => ['def'],
-            category => 'function',
-            help => 'define a user function: define <name> <body>',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                unless ($args && @$args >= 2) {
-                    warn "usage: def <name> <body>\n";
-                    return;
-                }
-                my $name = shift @$args;
-                my $body = join ' ', @$args;
-                unless ($name =~ /^[A-Za-z_]\w*$/) {
-                    warn "Invalid function name '$name'\n";
-                    return;
-                }
-                if ($calc->constants->exists($name)) {
-                    warn "Cannot define function '$name': name already used by a constant\n";
-                    return;
-                }
-                if ($self->is_registered_command_name($name)) {
-                    warn "Cannot define function '$name': name already used by a command\n";
-                    return;
-                }
-                if ($calc->variables->exists($name)) {
-                    warn "Cannot define function '$name': name already used by a variable\n";
-                    return;
-                }
-                $body =~ s/^(['"])(.*)\1$/$2/;
-                $calc->functions->set($name, $body);
-            },
-        }
-    );
-
-    $self->register(
-        undef => {
-            category => 'function',
-            help => 'delete a user function',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                unless ($args && @$args) {
-                    warn "usage: undef <name>\n";
-                    return;
-                }
-                my $name = $args->[0];
-                unless ($calc->functions->exists($name)) {
-                    warn "No such function '$name'\n";
-                    return;
-                }
-                $calc->functions->delete($name);
-            },
-        }
-    );
-
-    $self->register(
-        functions => {
-            aliases => ['funcs'],
-            category => 'function',
-            help    => 'list user-defined functions',
-            code    => sub {
-                my ($calc) = @_;
-                my @names = $calc->functions->names;
-                unless (@names) {
-                    print "No user functions are currently defined.\n";
-                    print "\n";
-                    print "Define one with:\n";
-                    print "\n";
-                    print "    define double 2 *\n";
-                    print "\n";
-                    print "Then use\n";
-                    print "\n";
-                    print "    double\n";
-                    print "\n";
-                    print "to use it.\n";
-                    print "\n";
-                    print "See:\n";
-                    print "\n";
-                    print "    tutorial functions\n";
-                    print "\n";
-                    print "for more information.\n";
-                    return;
-                }
-                printf "%-18s %s\n", "Name", "Body";
-                printf "%-18s %s\n", "-" x 18, "-" x 40;
-                foreach my $name (@names) {
-                    printf "%-18s %s\n",
-                        $name,
-                        $calc->functions->get($name);
-                }
-            },
-        }
-    );
-
-    $self->register(
-        savefuncs => {
-            category => 'function',
-            help => 'save user-defined functions to disk: savefuncs [file]',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $file = $args && @$args ? $args->[0] : undef;
-                $calc->save_functions($file);
-                print "Saved functions.\n";
-            },
-        }
-    );
-
-    $self->register(
-        loadfuncs => {
-            category => 'function',
-            help => 'load user-defined functions from disk: loadfuncs [file]',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $file = $args && @$args ? $args->[0] : undef;
-                $calc->load_functions($file);
-                print "Loaded functions.\n";
-            },
-        }
-    );
-
-    $self->register(
-        showfunc => {
-            category => 'function',
-            help => 'show the definition of a function',
-            code => sub {
-                my ($calc, $arg_str, $args) = @_;
-
-                my $name = $args->[0];
-
-                unless (defined $name) {
-                    warn "Usage: showfunc function_name\n";
-                    return;
-                }
-
-                unless ($calc->functions->exists($name)) {
-                    warn "Unknown function '$name'\n";
-                    return;
-                }
-
-                print "$name = "
-                    . $calc->functions->get($name)
-                    . "\n";
-
-                return;
-            },
-        },
-    );
-
     #
     # END OF COMMANDS
     #
