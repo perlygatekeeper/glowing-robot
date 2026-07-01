@@ -54,6 +54,7 @@ deletestack        dele       dropstack, rmstack     Stack           delete a na
 delvar             delv                              Variable        delete a stored variable
 depth              dep                               Stack           pushes the current stack depth onto the stack
 determinant        det        det                    Matrix          compute determinant of a square matrix
+dieroll            die                               Random          pop SIDES and push a random integer from 1 to SIDES
 dim                                                  Vector          replace a vector with its dimension
 divide             divid      /                      Numeric         pops two numbers and pushes their quotient
 divisors           divis                             Number Theory   replace top value with its positive divisors
@@ -166,7 +167,7 @@ quit                          exit, bye, ZZ          Session         exits the p
 radians                                              Trig            sets angle mode to radians
 radians_degrees    radians_   rtod                   Conversion      convert radians to degrees
 rand                                                 Random          push a random floating point number in the range [0,1)
-randint            randi                             Random          push a random integer; randint N gives 1..N, randint A B gives A..B
+randint            randi                             Random          pop MIN and MAX and push a random integer in that inclusive range
 range                         .., seq, sequence      Sequence        generate a sequence from start to stop
 rangeby            rangeb     ..., seqby, sequenceby Sequence        generate a numeric sequence with explicit step
 rate               rat                               Financial       periodic growth rate: pv fv nper rate
@@ -195,7 +196,8 @@ shuffle            shu                               Stack           randomly sh
 sign               sig                               Numeric         sign of value (-1, 0, +1)
 sine               sin        sin                    Trig            replaces the number on top of the stack with its sine
 sinh                                                 Trig            hyperbolic sine
-sort               so                                Stack           sort the stack; sort -1 reverses order
+sort                                                 Stack           sort the stack in ascending order
+sortr                                                Stack           sort the stack in descending order
 split              spl                               String          split string by delimiter: string delimiter split
 spread             spr        span                   Statistics      replaces the entire stack with maximum minus minimum
 sqr                                                  Numeric         square a value

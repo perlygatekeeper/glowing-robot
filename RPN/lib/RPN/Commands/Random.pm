@@ -21,29 +21,46 @@ sub register_commands {
     $commands->register(
         randint => {
             category => 'random',
-            help     => 'push a random integer; randint N gives 1..N, randint A B gives A..B',
+            help     => 'pop MIN and MAX and push a random integer in that inclusive range',
             code     => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my ($low, $high);
-                if ($args && @$args == 1) {
-                    $low  = 1;
-                    $high = $args->[0];
-                }
-                elsif ($args && @$args >= 2) {
-                    ($low, $high) = @$args[0, 1];
-                }
-                else {
-                    warn "usage: randint <high> or randint <low> <high>\n";
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+
+                my ($high, $low) = $calc->stack->pop2;
+                unless (!ref($low) && !ref($high)
+                     && $low =~ /^-?\d+$/ && $high =~ /^-?\d+$/) {
+                    $calc->stack->push($low);
+                    $calc->stack->push($high);
+                    warn "randint requires integer MIN and MAX on the stack\n";
                     return;
                 }
-                unless ($low =~ /^-?\d+$/ && $high =~ /^-?\d+$/) {
-                    warn "randint requires integer arguments\n";
-                    return;
-                }
+
                 if ($high < $low) {
                     ($low, $high) = ($high, $low);
                 }
+
                 my $value = $low + int(rand($high - $low + 1));
+                $calc->stack->push($value);
+            },
+        }
+    );
+
+    $commands->register(
+        dieroll => {
+            category => 'random',
+            help     => 'pop SIDES and push a random integer from 1 to SIDES',
+            code     => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
+                my $sides = $calc->stack->pop;
+                unless (!ref($sides) && $sides =~ /^\d+$/ && $sides >= 1) {
+                    $calc->stack->push($sides);
+                    warn "dieroll requires a positive integer SIDES value on the stack\n";
+                    return;
+                }
+
+                my $value = 1 + int(rand($sides));
                 $calc->stack->push($value);
             },
         }

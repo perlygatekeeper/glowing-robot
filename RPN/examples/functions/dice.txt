@@ -5,12 +5,12 @@
 #
 # Or copy selected lines into your ~/.rpn_functions file.
 
-d4   = 1   4 randint
-d6   = 1   6 randint
-d8   = 1   8 randint
-d10  = 1  10 randint
-d20  = 1  20 randint
-d100 = 1 100 randint
+d4   = 4 dieroll
+d6   = 6 dieroll
+d8   = 8 dieroll
+d10  = 10 dieroll
+d20  = 20 dieroll
+d100 = 100 dieroll
 
 adv  = d20 d20 max
 dis  = d20 d20 min

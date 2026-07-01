@@ -3,6 +3,26 @@ package RPN::Commands::Stack;
 use strict;
 use warnings;
 
+
+sub _sort_stack {
+    my ($calc, $direction) = @_;
+
+    my @values = $calc->stack->values;
+    if (@values && $calc->isanumber($values[0])) {
+        @values =
+            $direction < 0
+            ? sort { $b <=> $a } @values
+            : sort { $a <=> $b } @values;
+    }
+    else {
+        @values =
+            $direction < 0
+            ? sort { $b cmp $a } @values
+            : sort { $a cmp $b } @values;
+    }
+    $calc->stack->set_values(@values);
+}
+
 sub register_commands {
     my ($commands) = @_;
 
@@ -29,27 +49,21 @@ sub register_commands {
     $commands->register(
         sort => {
             category => 'stack',
-            help => 'sort the stack; sort -1 reverses order',
+            help => 'sort the stack in ascending order',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $direction = 1;
-                if ($args && @$args) {
-                    $direction = $args->[0];
-                }
-                my @values = $calc->stack->values;
-                if (@values && $calc->isanumber($values[0])) {
-                    @values =
-                        $direction < 0
-                        ? sort { $b <=> $a } @values
-                        : sort { $a <=> $b } @values;
-                }
-                else {
-                    @values =
-                        $direction < 0
-                        ? sort { $b cmp $a } @values
-                        : sort { $a cmp $b } @values;
-                }
-                $calc->stack->set_values(@values);
+                my ($calc) = @_;
+                _sort_stack($calc, 1);
+            },
+        }
+    );
+
+    $commands->register(
+        sortr => {
+            category => 'stack',
+            help => 'sort the stack in descending order',
+            code => sub {
+                my ($calc) = @_;
+                _sort_stack($calc, -1);
             },
         }
     );

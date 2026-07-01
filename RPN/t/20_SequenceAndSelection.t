@@ -133,14 +133,14 @@ is_deeply(
 $calc->stack->clear;
 $calc->process_input('5 1 9 2');
 
-$calc->process_input('sort -1');
+$calc->process_input('sortr');
 
 my @reverse_sorted_values = map { $calc->stack->pop } 1 .. 4;
 
 is_deeply(
     \@reverse_sorted_values,
     [9,5,2,1],
-    'sort descending'
+    'sortr descending'
 );
 
 
