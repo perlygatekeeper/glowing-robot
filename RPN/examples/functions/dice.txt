@@ -1,0 +1,16 @@
+# RPN Example Functions: Math
+#
+# Load with:
+#   loadfuncs examples/functions/math.txt
+#
+# Or copy selected lines into your ~/.rpn_functions file.
+
+d4   = 1   4 randint
+d6   = 1   6 randint
+d8   = 1   8 randint
+d10  = 1  10 randint
+d20  = 1  20 randint
+d100 = 1 100 randint
+
+adv  = d20 d20 max
+dis  = d20 d20 min

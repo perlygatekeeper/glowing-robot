@@ -14,6 +14,7 @@ use RPN::Commands::Tutorials;
 use RPN::Commands::Numeric;
 use RPN::Commands::Stack;
 use RPN::Commands::CodeBlocks;
+use RPN::Commands::Conversion;
 use POSIX ();
 use File::Basename qw(basename);
 use Text::Abbrev qw(abbrev);
@@ -78,6 +79,7 @@ sub _initialize {
     RPN::Commands::Numeric::register_commands($self);
     RPN::Commands::Stack::register_commands($self);
     RPN::Commands::CodeBlocks::register_commands($self);
+    RPN::Commands::Conversion::register_commands($self);
 
     #
     # Boolean for both Numerical and String Entries
@@ -777,178 +779,6 @@ sub _initialize {
                         warn "No such command category '$arguments->[0]'\n";
                     }
                 }
-            },
-        }
-    );
-
-    #
-    # Conversions
-    #
-
-    $self->register(
-        degrees_radians => {
-            aliases => ['dtor'],
-            category => 'conversion',
-            help    => 'convert degrees to radians',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * atan2(1, 1) / 45 });
-            },
-        }
-    );
-
-    $self->register(
-        radians_degrees => {
-            aliases => ['rtod'],
-            category => 'conversion',
-            help    => 'convert radians to degrees',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / atan2(1, 1) * 45 });
-            },
-        }
-    );
-
-    $self->register(
-        fahrenheit_celsius => {
-            aliases => ['ftoc'],
-            category => 'conversion',
-            help    => 'convert Fahrenheit to Celsius',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { ($_[0] - 32) / 1.8 });
-            },
-        }
-    );
-
-    $self->register(
-        celsius_fahrenheit => {
-            aliases => ['ctof'],
-            category => 'conversion',
-            help    => 'convert Celsius to Fahrenheit',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { ($_[0] * 1.8) + 32 });
-            },
-        }
-    );
-
-    $self->register(
-        kilometer_mile => {
-            aliases => ['ktom'],
-            category => 'conversion',
-            help    => 'convert kilometers to miles',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / 1.609 });
-            },
-        }
-    );
-
-    $self->register(
-        mile_kilometer => {
-            aliases => ['mtok'],
-            category => 'conversion',
-            help    => 'convert miles to kilometers',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * 1.609 });
-            },
-        }
-    );
-
-    $self->register(
-        centimeter_inch => {
-            aliases => ['ctoi'],
-            category => 'conversion',
-            help    => 'convert centimeters to inches',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / 2.54 });
-            },
-        }
-    );
-
-    $self->register(
-        inch_centimeter => {
-            aliases => ['itoc'],
-            category => 'conversion',
-            help    => 'convert inches to centimeters',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * 2.54 });
-            },
-        }
-    );
-
-    $self->register(
-        gram_ounce => {
-            aliases => ['gtoo'],
-            category => 'conversion',
-            help    => 'convert grams to ounces',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / 28.3495 });
-            },
-        }
-    );
-
-    $self->register(
-        ounce_gram => {
-            aliases => ['otog'],
-            category => 'conversion',
-            help    => 'convert ounces to grams',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * 28.3495 });
-            },
-        }
-    );
-
-    $self->register(
-        kilogram_pound => {
-            aliases => ['ktop'],
-            category => 'conversion',
-            help    => 'convert kilograms to pounds',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * 2.20458553791875 });
-            },
-        }
-    );
-
-    $self->register(
-        pound_kilogram => {
-            aliases => ['ptok'],
-            category => 'conversion',
-            help    => 'convert pounds to kilograms',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / 2.20458553791875 });
-            },
-        }
-    );
-
-    $self->register(
-        liter_quart => {
-            aliases => ['ltoq'],
-            category => 'conversion',
-            help    => 'convert liters to quarts',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] * 1.05669 });
-            },
-        }
-    );
-
-    $self->register(
-        quart_liter => {
-            aliases => ['qtol'],
-            category => 'conversion',
-            help    => 'convert quarts to liters',
-            code    => sub {
-                my ($calc) = @_;
-                $self->_conversion($calc, sub { $_[0] / 1.05669 });
             },
         }
     );
@@ -2351,14 +2181,6 @@ sub _clean_format {
     $format =~ s/\s+$//;
     $format =~ s/^(['"])(.*)\1$/$2/;
     return $format;
-}
-
-sub _conversion {
-    my ($self, $calc, $code) = @_;
-    return unless $calc->stack->require_depth(1);
-    my $value = $calc->stack->pop;
-    $calc->stack->push($code->($value));
-    return;
 }
 
 sub print_help {
