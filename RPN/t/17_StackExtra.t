@@ -44,7 +44,8 @@ is_deeply(
 
 $calc->stack->clear;
 $calc->process_input('10 20 30 40');
-$calc->process_input('pick 2');
+$calc->process_input('2');
+$calc->process_input('pick');
 
 is($calc->stack->peek, 20, 'pick copies depth 2');
 
@@ -54,7 +55,8 @@ is($calc->stack->peek, 20, 'pick copies depth 2');
 
 $calc->stack->clear;
 $calc->process_input('10 20 30 40');
-$calc->process_input('pullup 2');
+$calc->process_input('2');
+$calc->process_input('pullup');
 
 is($calc->stack->pop, 20, 'pullup moved depth 2 to top');
 is($calc->stack->pop, 40, 'pullup preserves order');
@@ -67,24 +69,26 @@ is($calc->stack->pop, 10, 'pullup preserves order');
 
 $calc->stack->clear;
 $calc->process_input('10 20 30 40');
-$calc->process_input('pushdown 2');
+$calc->process_input('2');
+$calc->process_input('pushdown');
 
 is($calc->stack->pop, 30, 'pushdown top');
 is($calc->stack->pop, 20, 'pushdown second');
 is($calc->stack->pop, 40, 'pushdown moved top');
 is($calc->stack->pop, 10, 'pushdown preserves order');
 #
-# roll -1 / default
+# roll -1
 #
 
 $calc->stack->clear;
 $calc->process_input('1 2 3 4');
+$calc->process_input('-1');
 $calc->process_input('roll');
 
-is($calc->stack->pop, 3, 'roll default top');
-is($calc->stack->pop, 2, 'roll default second');
-is($calc->stack->pop, 1, 'roll default third');
-is($calc->stack->pop, 4, 'roll default fourth');
+is($calc->stack->pop, 3, 'roll -1 top');
+is($calc->stack->pop, 2, 'roll -1 second');
+is($calc->stack->pop, 1, 'roll -1 third');
+is($calc->stack->pop, 4, 'roll -1 fourth');
 
 #
 # roll 1
@@ -92,7 +96,8 @@ is($calc->stack->pop, 4, 'roll default fourth');
 
 $calc->stack->clear;
 $calc->process_input('1 2 3 4');
-$calc->process_input('roll 1');
+$calc->process_input('1');
+$calc->process_input('roll');
 
 is($calc->stack->pop, 1, 'roll 1 top');
 is($calc->stack->pop, 4, 'roll 1 second');
@@ -105,7 +110,8 @@ is($calc->stack->pop, 2, 'roll 1 fourth');
 
 $calc->stack->clear;
 $calc->process_input('1 2 3 4');
-$calc->process_input('roll -2');
+$calc->process_input('-2');
+$calc->process_input('roll');
 
 is($calc->stack->pop, 2, 'roll -2 top');
 is($calc->stack->pop, 1, 'roll -2 second');

@@ -75,12 +75,14 @@ ok($cb_roll <= 6, 'CodeBlock randint upper bound');
 
 $calc->stack->clear;
 
-$calc->process_input('seed 12345');
+$calc->process_input('12345');
+$calc->process_input('seed');
 $calc->process_input('rand');
 
 my $a = $calc->stack->pop;
 
-$calc->process_input('seed 12345');
+$calc->process_input('12345');
+$calc->process_input('seed');
 $calc->process_input('rand');
 
 my $b = $calc->stack->pop;

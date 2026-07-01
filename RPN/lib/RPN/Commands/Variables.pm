@@ -12,35 +12,32 @@ sub register_commands {
         store => {
             aliases => ['sto'],
             category => 'variable',
-            help    => 'store the top stack value in a variable',
+            help    => 'pop NAME and store the top stack value in that variable',
             code    => sub {
-                my ($calc, $arg_str, $args) = @_;
+                my ($calc) = @_;
 
-                unless ($args && @$args) {
-                    warn "usage: store <name>\n";
-                    return;
-                }
+                return unless $calc->stack->require_depth(2);
 
-                my $name = $args->[0];
+                my $name  = $calc->stack->pop;
+                my $value = $calc->stack->peek;
 
-                return unless $calc->stack->require_depth(1);
-
-                unless ($name =~ /^[A-Za-z_]\w*$/) {
-                    warn "Invalid variable name '$name'\n";
+                unless (defined $name && !ref($name) && $name =~ /^[A-Za-z_]\w*$/) {
+                    $calc->stack->push($name) if defined $name;
+                    warn "store requires a variable name string on the stack\n";
                     return;
                 }
 
                 if ($self->is_registered_command_name($name)) {
+                    $calc->stack->push($name);
                     warn "Cannot store variable '$name': name already used by a command\n";
                     return;
                 }
 
                 if ($calc->constants->exists($name)) {
+                    $calc->stack->push($name);
                     warn "Cannot store variable '$name': name already used by a constant\n";
                     return;
                 }
-
-                my $value = $calc->stack->peek;
 
                 $calc->variables->set($name, $value);
             },
@@ -51,18 +48,22 @@ sub register_commands {
         recall => {
             aliases => ['rcl'],
             category => 'variable',
-            help    => 'recall a variable and push it onto the stack',
+            help    => 'pop NAME and push that variable value onto the stack',
             code    => sub {
-                my ($calc, $arg_str, $args) = @_;
+                my ($calc) = @_;
 
-                unless ($args && @$args) {
-                    warn "usage: recall <name>\n";
+                return unless $calc->stack->require_depth(1);
+
+                my $name = $calc->stack->pop;
+
+                unless (defined $name && !ref($name)) {
+                    $calc->stack->push($name) if defined $name;
+                    warn "recall requires a variable name string on the stack\n";
                     return;
                 }
 
-                my $name = $args->[0];
-
                 unless ($calc->variables->exists($name)) {
+                    $calc->stack->push($name);
                     warn "No such variable '$name'\n";
                     return;
                 }
@@ -95,18 +96,22 @@ sub register_commands {
     $self->register(
         delvar => {
             category => 'variable',
-            help => 'delete a stored variable',
+            help => 'pop NAME and delete that stored variable',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
+                my ($calc) = @_;
 
-                unless ($args && @$args) {
-                    warn "usage: delvar <name>\n";
+                return unless $calc->stack->require_depth(1);
+
+                my $name = $calc->stack->pop;
+
+                unless (defined $name && !ref($name)) {
+                    $calc->stack->push($name) if defined $name;
+                    warn "delvar requires a variable name string on the stack\n";
                     return;
                 }
 
-                my $name = $args->[0];
-
                 unless ($calc->variables->exists($name)) {
+                    $calc->stack->push($name);
                     warn "No such variable '$name'\n";
                     return;
                 }

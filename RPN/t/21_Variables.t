@@ -26,12 +26,14 @@ my $calc = RPN->new(no_readline => 1);
 
 $calc->stack->clear;
 $calc->process_input('42');
-$calc->process_input('store answer');
+$calc->process_input(q{'answer});
+$calc->process_input('store');
 
 is($calc->stack->peek, 42, 'store leaves value on stack');
 
 $calc->stack->clear;
-$calc->process_input('recall answer');
+$calc->process_input(q{'answer});
+$calc->process_input('recall');
 
 is($calc->stack->peek, 42, 'recall pushes variable');
 
@@ -50,7 +52,8 @@ is($calc->stack->peek, 42, 'bare variable name pushes value');
 
 $calc->stack->clear;
 $calc->process_input('43');
-$calc->process_input('store answer');
+$calc->process_input(q{'answer});
+$calc->process_input('store');
 
 $calc->stack->clear;
 $calc->process_input('answer');
@@ -63,7 +66,8 @@ is($calc->stack->peek, 43, 'store overwrites existing variable');
 
 $calc->stack->clear;
 $calc->process_input("'Steve");
-$calc->process_input('store name');
+$calc->process_input(q{'name});
+$calc->process_input('store');
 
 $calc->stack->clear;
 $calc->process_input('name');
@@ -88,7 +92,7 @@ $calc->stack->clear;
 $calc->process_input('3');
 
 stderr_like(
-    sub { $calc->process_input('store pi') },
+    sub { $calc->process_input(q{'pi}); $calc->process_input('store') },
     qr/name already used by a constant|Cannot store variable 'pi'/,
     'cannot store variable using constant name'
 );
@@ -101,7 +105,7 @@ $calc->stack->clear;
 $calc->process_input('3');
 
 stderr_like(
-    sub { $calc->process_input('store add') },
+    sub { $calc->process_input(q{'add}); $calc->process_input('store') },
     qr/name already used by a command|Cannot store variable 'add'/,
     'cannot store variable using command name'
 );
@@ -110,7 +114,8 @@ stderr_like(
 # delete variable
 #
 
-$calc->process_input('delvar answer');
+$calc->process_input(q{'answer});
+$calc->process_input('delvar');
 
 stderr_like(
     sub { $calc->process_input('answer') },

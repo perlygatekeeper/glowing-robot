@@ -69,10 +69,17 @@ sub register_commands {
     $commands->register(
         seed => {
             category => 'random',
-            help     => 'seed the random number generator',
+            help     => 'pop SEED and seed the random number generator',
             code     => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $seed = $args && @$args ? $args->[0] : time;
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $seed = $calc->stack->pop;
+                unless (defined $seed && !ref($seed) && $seed =~ /^-?\d+(?:\.\d+)?$/) {
+                    $calc->stack->push($seed) if defined $seed;
+                    warn "seed requires a numeric seed on the stack
+";
+                    return;
+                }
                 srand($seed);
                 $calc->stack->push($seed);
             },

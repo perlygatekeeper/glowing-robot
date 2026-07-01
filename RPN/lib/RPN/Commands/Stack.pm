@@ -120,21 +120,11 @@ sub register_commands {
         pop => {
             aliases => ['drop'],
             category => 'stack',
-            help => 'remove one or more values from the top of the stack',
+            help => 'remove the top value from the stack',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $count = 1;
-                if ($args && @$args) {
-                    $count = $args->[0];
-                    unless ($count =~ /^\d+$/ && $count > 0) {
-                        warn "pop count must be a positive integer\n";
-                        return;
-                    }
-                }
-                return unless $calc->stack->require_depth($count);
-                for (1 .. $count) {
-                    $calc->stack->pop;
-                }
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                $calc->stack->pop;
             },
         }
     );
@@ -247,8 +237,9 @@ sub register_commands {
             category => 'stack',
             help => 'copy value at depth N to the top of the stack',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pick requires a non-negative integer\n";
                     return;
@@ -265,8 +256,9 @@ sub register_commands {
             category => 'stack',
             help    => 'move value at depth N to the top of the stack',
             code    => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pullup requires a non-negative integer\n";
                     return;
@@ -285,8 +277,9 @@ sub register_commands {
             category => 'stack',
             help => 'move the top value down to depth N',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : $calc->stack->pop;
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pushdown requires a non-negative integer\n";
                     return;
@@ -303,10 +296,11 @@ sub register_commands {
     $commands->register(
         roll => {
             category => 'stack',
-            help => 'circularly rotate the whole stack by N positions; default is -1',
+            help => 'pop N and circularly rotate the whole stack by that many positions',
             code => sub {
-                my ($calc, $arg_str, $args) = @_;
-                my $n = $args && @$args ? $args->[0] : -1;
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^-?\d+$/ && $n != 0) {
                     warn "roll requires a non-zero integer\n";
                     return;

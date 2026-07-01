@@ -45,15 +45,18 @@ sub register_commands {
     $commands->register(
         undef => {
             category => 'function',
-            help     => 'delete a user function',
+            help     => 'pop NAME and delete that user function',
             code     => sub {
-                my ($calc, $arg_str, $args) = @_;
-                unless ($args && @$args) {
-                    warn "usage: undef <name>\n";
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+                my $name = $calc->stack->pop;
+                unless (defined $name && !ref($name)) {
+                    $calc->stack->push($name) if defined $name;
+                    warn "undef requires a function name string on the stack\n";
                     return;
                 }
-                my $name = $args->[0];
                 unless ($calc->functions->exists($name)) {
+                    $calc->stack->push($name);
                     warn "No such function '$name'\n";
                     return;
                 }

@@ -51,7 +51,7 @@ degrees                                              Trig            sets angle 
 degrees_radians    degrees_   dtor                   Conversion      convert degrees to radians
 delconst           delc                              Constant        delete a user-defined constant
 deletestack        dele       dropstack, rmstack     Stack           delete a named stack: deletestack <name>
-delvar             delv                              Variable        delete a stored variable
+delvar             delv                              Variable        pop NAME and delete that stored variable
 depth              dep                               Stack           pushes the current stack depth onto the stack
 determinant        det        det                    Matrix          compute determinant of a square matrix
 dieroll            die                               Random          pop SIDES and push a random integer from 1 to SIDES
@@ -150,7 +150,7 @@ peekf                                                Display         prints the 
 permutations       per        npr, perm, permute     Combinatorics   number of permutations (n permute r): n r permutations
 pick               pi                                Stack           copy value at depth N to the top of the stack
 pmt                pm                                Financial       loan payment: pv rate nper pmt
-pop                           drop                   Stack           remove one or more values from the top of the stack
+pop                           drop                   Stack           remove the top value from the stack
 pound_kilogram     poun       ptok                   Conversion      convert pounds to kilograms
 pour                                                 Stack           pour source stack onto destination, reversing order: pour <src> <dst>
 prevprime          pre                               Number Theory   replace top value with previous prime less than it
@@ -174,13 +174,13 @@ rate               rat                               Financial       periodic gr
 readcolumn         readco                            Io              read one numeric column from a CSV file by column number or header name
 readcsv            readcs                            Io              read numeric values from a CSV file and push them onto the stack
 readnums           readn                             Io              read numeric tokens from a file and push them onto the stack
-recall             rec        rcl                    Variable        recall a variable and push it onto the stack
+recall             rec        rcl                    Variable        pop NAME and push that variable value onto the stack
 reduce             red                               Execution       combine stack items using an executable value: executable reduce
 renamestack        ren        movestack              Stack           rename stack: renamestack <old> <new>
 repeat             repe                              Execution       repeat a string or executable value N times: string n repeat or n executable repeat
 replace            repl                              String          literal replace first occurrence: string old new replace
 reverse            rev                               Stack           reverse the current stack
-roll               rol                               Stack           circularly rotate the whole stack by N positions; default is -1
+roll               rol                               Stack           pop N and circularly rotate the whole stack by that many positions
 round              rou                               Numeric         nearest integer
 rows               row                               Matrix          replace a matrix with its row count
 rtrim              rt                                String          remove trailing whitespace
@@ -189,7 +189,7 @@ saveconst          savec                             Constant        save user c
 savefuncs          savef                             Function        save user-defined functions to disk: savefuncs [file]
 savevars           savev                             Variable        save variables to disk: savevars [file]
 search             sea                               String          return first regex match: string pattern search
-seed               see                               Random          seed the random number generator
+seed               see                               Random          pop SEED and seed the random number generator
 showblock          showb                             Codeblock       display a named code block
 showfunc           showf                             Function        show the definition of a function
 shuffle            shu                               Stack           randomly shuffle the current stack
@@ -208,7 +208,7 @@ stackexists        stacke                            Stack           return true
 stackinfo          stacki                            Stack           display information about all stacks
 stacksize          stacks                            Stack           push depth of named stack: stackname stacksize
 stddev             std        stdev                  Statistics      replaces the entire stack with the population standard deviation
-store              sto        sto                    Variable        store the top stack value in a variable
+store              sto        sto                    Variable        pop NAME and store the top stack value in that variable
 strrev             str                               String          reverse a string
 subst              subs                              String          regex replace first match: string pattern replacement subst
 subtract           subt       -                      Numeric         pops two numbers and pushes their difference
@@ -223,7 +223,7 @@ trim               tri                               String          remove lead
 trunc              tru                               Numeric         truncate toward zero
 tutorial                                             Documentation   display a tutorial: tutorial <name>
 tutorials                                            Documentation   list available tutorials
-undef              und                               Function        delete a user function
+undef              und                               Function        pop NAME and delete that user function
 unique             uni                               Stack           remove duplicate values while preserving order
 until              unt                               Flow            repeat an executable value until a condition executable returns true: condition-exec body-exec until
 upper              up                                String          convert string to uppercase

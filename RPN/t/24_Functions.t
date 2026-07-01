@@ -81,7 +81,8 @@ stderr_like(
 
 $calc->stack->clear;
 $calc->process_input('123');
-$calc->process_input('store answer');
+$calc->process_input(q{'answer});
+$calc->process_input('store');
 
 stderr_like(
     sub { $calc->process_input('def answer "duplicate multiply"') },
@@ -93,7 +94,8 @@ stderr_like(
 # delete function
 #
 
-$calc->process_input('undef sq');
+$calc->process_input(q{'sq});
+$calc->process_input('undef');
 
 stderr_like(
     sub { $calc->process_input('sq') },
