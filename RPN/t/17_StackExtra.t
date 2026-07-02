@@ -38,6 +38,27 @@ is_deeply(
     'shuffle preserves values'
 );
 
+
+#
+# over
+#
+
+$calc->stack->clear;
+$calc->process_input('1 2');
+$calc->process_input('over');
+
+is($calc->stack->pop, 1, 'over copies second item to top');
+is($calc->stack->pop, 2, 'over leaves original top in place');
+is($calc->stack->pop, 1, 'over leaves original second in place');
+
+$calc->stack->clear;
+$calc->process_input('10 20');
+$calc->process_input('over');
+$calc->process_input('+');
+
+is($calc->stack->pop, 30, 'over composes with arithmetic');
+is($calc->stack->pop, 10, 'over preserves original second item');
+
 #
 # pick
 #

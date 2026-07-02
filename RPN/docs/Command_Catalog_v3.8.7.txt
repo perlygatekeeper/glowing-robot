@@ -144,6 +144,7 @@ now                                                  Datetime        push curren
 nper               np                                Financial       number of periods: pv rate pmt nper
 octal              oc         oct                    Display         prints the top value in octal without popping it
 ounce_gram         ou         otog                   Conversion      convert ounces to grams
+over               ov                                Stack           duplicate the second value on the stack: ( a b -- a b a )
 peek                          .                      Display         prints top value on stack without popping it
 peekall            peeka      :                      Display         prints the entire stack without changing it
 peekf                                                Display         prints the top value using a printf format without popping it
@@ -180,7 +181,7 @@ renamestack        ren        movestack              Stack           rename stac
 repeat             repe                              Execution       repeat a string or executable value N times: string n repeat or n executable repeat
 replace            repl                              String          literal replace first occurrence: string old new replace
 reverse            rev                               Stack           reverse the current stack
-roll               rol                               Stack           pop N and circularly rotate the whole stack by that many positions
+roll               rol                               Stack           pop N and rotate the whole stack; positive moves bottom values to top, negative moves top values to bottom
 round              rou                               Numeric         nearest integer
 rows               row                               Matrix          replace a matrix with its row count
 rtrim              rt                                String          remove trailing whitespace

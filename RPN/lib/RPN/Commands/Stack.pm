@@ -158,6 +158,19 @@ sub register_commands {
         }
     );
 
+
+    $commands->register(
+        over => {
+            category => 'stack',
+            help => 'duplicate the second value on the stack: ( a b -- a b a )',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+                $calc->stack->push($calc->stack->peek_at(1));
+            },
+        }
+    );
+
     $commands->register(
         exchange => {
             aliases => [qw(x swap)],
@@ -296,7 +309,7 @@ sub register_commands {
     $commands->register(
         roll => {
             category => 'stack',
-            help => 'pop N and circularly rotate the whole stack by that many positions',
+            help => 'pop N and rotate the whole stack; positive moves bottom values to top, negative moves top values to bottom',
             code => sub {
                 my ($calc) = @_;
                 return unless $calc->stack->require_depth(1);
