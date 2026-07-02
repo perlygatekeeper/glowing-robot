@@ -1305,8 +1305,45 @@ executable values and where the calculator gains the foundation for
 higher-order stack programming.
 
 ---
+========================================================================
+Version 3.9.0 — Stack-Based Operand Cleanup
+========================================================================
 
-## Version 3.9.0 — Higher-Order Collections
+Completed
+
+    ✓ Continued extraction of command families from lib/RPN/Commands.pm
+
+        Random
+        Variables
+        Constants
+        Functions
+        Conversion
+        Trig
+        Statistics
+
+    ✓ Reduced Commands.pm from 2378 to approximately 1540 non-blank
+      lines.
+
+    ✓ Established the language distinction between
+
+        Programming Commands
+
+        Environment Commands
+
+    ✓ Refactored programmable commands to obtain operands from the
+      stack.
+
+    ✓ Introduced dieroll.
+
+    ✓ Split sort into
+
+        sort
+        sortr
+
+Future releases should continue applying this philosophy to new commands.
+---
+
+## Version 3.9.1 — Higher-Order Collections
 
 Theme
 

@@ -1,0 +1,132 @@
+========================================================================
+RPN Calculator Language Philosophy
+========================================================================
+
+The RPN Calculator has evolved from a programmable calculator into a
+small stack-oriented programming language.
+
+Every design decision should reinforce a few simple principles.
+
+------------------------------------------------------------------------
+Everything Is A Value
+------------------------------------------------------------------------
+
+Numbers.
+
+Strings.
+
+Vectors.
+
+Matrices.
+
+Executable Values.
+
+Future language additions should continue this philosophy whenever
+possible.
+
+------------------------------------------------------------------------
+The Stack Is The Programming Interface
+------------------------------------------------------------------------
+
+Programmable commands obtain their operands from the stack.
+
+Examples
+
+    1 20 randint
+
+    "answer" recall
+
+    "counter" store
+
+rather than
+
+    randint 1 20
+
+    recall answer
+
+    store counter
+
+This allows every command to compose naturally inside
+
+    Functions
+    Token Strings
+    Code Blocks
+    call
+    if
+    ifelse
+    repeat
+    while
+    until
+    map
+    filter
+    reduce
+
+------------------------------------------------------------------------
+Interactive Commands
+------------------------------------------------------------------------
+
+Some commands exist primarily to interact with the calculator itself.
+
+Examples
+
+    help
+    commands
+    tutorial
+
+    loadfuncs
+    savefuncs
+
+    loadvars
+    savevars
+
+    readcsv
+    writecsv
+
+These commands are part of the calculator environment rather than the
+programming language.
+
+They may continue to accept command-line arguments when appropriate.
+
+------------------------------------------------------------------------
+One Command, One Purpose
+------------------------------------------------------------------------
+
+Commands should perform one operation.
+
+Examples
+
+    sort
+    sortr
+
+rather than
+
+    sort
+    sort -1
+
+Likewise
+
+    randint
+    dieroll
+
+rather than one command serving multiple unrelated purposes.
+
+------------------------------------------------------------------------
+Token Strings Are Convenience.
+Code Blocks Are Structure.
+------------------------------------------------------------------------
+
+Token Strings provide lightweight executable values.
+
+Code Blocks provide structured executable values suitable for larger
+programs and future language features.
+
+Both execute through the same execution model.
+
+------------------------------------------------------------------------
+Compatibility
+------------------------------------------------------------------------
+
+Backward compatibility is important.
+
+However, language consistency takes precedence when a cleaner,
+more composable design can be achieved with reasonable migration.

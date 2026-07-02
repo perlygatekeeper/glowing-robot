@@ -27,6 +27,43 @@ Examples:
 
 Reserve `die` for programmer errors or unrecoverable internal failures.
 
+------------------------------------------------------------------------
+Choosing Stack Operands vs Command Arguments
+------------------------------------------------------------------------
+
+When designing a new command, first determine whether it is part of the
+programming language or part of the calculator environment.
+
+Programming-language commands obtain all operands from the stack.
+
+Examples
+
+    +
+    sqrt
+    randint
+    recall
+    store
+
+These commands must compose naturally inside executable values.
+
+Environment commands interact with the calculator itself and may accept
+command-line arguments.
+
+Examples
+
+    help
+    tutorial
+    loadfuncs
+    savevars
+
+This distinction allows executable values to remain simple while keeping
+interactive commands convenient for REPL use.
+
+As a general rule:
+
+    If a command should work inside a Function, Token String or Code
+    Block, it should obtain its operands from the stack.
+
 ---
 
 ## Commands
