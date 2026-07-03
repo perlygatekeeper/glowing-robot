@@ -1,0 +1,79 @@
+Release Notes for Version 3.9.0
+
+Overview
+
+Version 3.9.0 completes the transition to the executable-value execution
+model introduced in Version 3.8.9.
+
+Earlier releases added executable values and higher-order operations
+such as call, map, filter, reduce, repeat, and while. This release
+removes many of the remaining inconsistencies by converting commands
+that previously depended on command-line arguments into true
+stack-oriented operations.
+
+The result is a more orthogonal language in which commands can be
+composed naturally inside executable values without requiring special
+parsing rules.
+
+In addition to these language improvements, Version 3.9.0 continues the
+ongoing cleanup of the implementation and simplifies the command
+architecture.
+
+Highlights
+
+-   Stack-based execution completed for remaining applicable commands.
+-   Improved compatibility with executable values.
+-   Continued internal refactoring and simplification.
+-   Documentation improvements.
+
+Language Improvements
+
+Several commands that previously accepted parameters directly from the
+input line have been redesigned to obtain their operands from the stack
+instead.
+
+This change makes these commands behave consistently with the rest of
+the language and allows them to be used naturally inside executable
+values and higher-order operations.
+
+The language now has substantially fewer special cases, making scripts
+easier to reason about and improving composability.
+
+Internal Improvements
+
+Continued refactoring of the command implementation reduced special-case
+handling and further simplified the execution engine.
+
+This work also continues the long-term effort of breaking the historical
+Commands.pm monolith into smaller, better-organized modules.
+
+Documentation
+
+The command catalog has been updated to reflect the current command set
+and language behavior.
+
+Developer documentation has also been updated to match the
+executable-value execution model.
+
+Compatibility
+
+Version 3.9.0 remains backward compatible with existing programs except
+where commands have been intentionally modernized to use stack operands
+instead of command-line arguments.
+
+These changes improve consistency and make the language significantly
+more suitable for higher-order programming.
+
+Looking Ahead
+
+The following items are planned for a future release and are not part of
+Version 3.9.0:
+
+-   Add the traditional RPN stack operator over.
+-   Expand the collection of worked example executables.
+-   Add an examples discovery command, similar to commands, tutorials,
+    aliases, and abbreviations.
+-   Investigate a withstack command to temporarily execute code on an
+    alternate stack before restoring the current execution context.
+-   Continue refactoring the remaining Commands.pm implementation into
+    dedicated command modules.

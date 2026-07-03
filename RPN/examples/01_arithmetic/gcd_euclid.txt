@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: Greatest Common Divisor
+#
+# Category:
+#     01 Arithmetic
+#
+# Purpose:
+#     Demonstrates iterative thinking and Euclid's algorithm.
+#
+# Demonstrates:
+#     TODO: list commands and language concepts demonstrated here.
+#
+# Notes:
+#     Educational example only. Prefer built-in commands when they are more
+#     robust, faster, or better tested.
+#
+# Status:
+#     TODO
+#------------------------------------------------------------
+
+# TODO: Add worked RPN example/function here.

@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: Coin Flip Statistics
+#
+# Category:
+#     10 Fun
+#
+# Purpose:
+#     Demonstrates probability experimentation.
+#
+# Demonstrates:
+#     TODO: list commands and language concepts demonstrated here.
+#
+# Notes:
+#     Educational example only. Prefer built-in commands when they are more
+#     robust, faster, or better tested.
+#
+# Status:
+#     TODO
+#------------------------------------------------------------
+
+# TODO: Add worked RPN example/function here.

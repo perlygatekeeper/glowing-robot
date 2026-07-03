@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: Factorial with reduce
+#
+# Category:
+#     01 Arithmetic
+#
+# Purpose:
+#     Demonstrates range, exchange, reduce, and executable values. Educational only; prefer the built-in factorial command for robust use.
+#
+# Demonstrates:
+#     TODO: list commands and language concepts demonstrated here.
+#
+# Notes:
+#     Educational example only. Prefer built-in commands when they are more
+#     robust, faster, or better tested.
+#
+# Status:
+#     TODO
+#------------------------------------------------------------
+
+# TODO: Add worked RPN example/function here.

@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: Callbacks
+#
+# Category:
+#     03 Functional Programming
+#
+# Purpose:
+#     Demonstrates executable values as deferred behavior.
+#
+# Demonstrates:
+#     TODO: list commands and language concepts demonstrated here.
+#
+# Notes:
+#     Educational example only. Prefer built-in commands when they are more
+#     robust, faster, or better tested.
+#
+# Status:
+#     TODO
+#------------------------------------------------------------
+
+# TODO: Add worked RPN example/function here.
