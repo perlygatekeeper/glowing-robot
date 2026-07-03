@@ -1311,7 +1311,7 @@ Version 3.9.0 — Stack-Based Operand Cleanup
 
 Completed
 
-    ✓ Continued extraction of command families from lib/RPN/Commands.pm
+[x] Continued extraction of command families from lib/RPN/Commands.pm
 
         Random
         Variables
@@ -1321,21 +1321,20 @@ Completed
         Trig
         Statistics
 
-    ✓ Reduced Commands.pm from 2378 to approximately 1540 non-blank
+[x] Reduced Commands.pm from 2378 to approximately 1540 non-blank
       lines.
 
-    ✓ Established the language distinction between
+[x] Established the language distinction between
 
         Programming Commands
-
         Environment Commands
 
-    ✓ Refactored programmable commands to obtain operands from the
+[x] Refactored programmable commands to obtain operands from the
       stack.
 
-    ✓ Introduced dieroll.
+[x] Introduced dieroll.
 
-    ✓ Split sort into
+[x] Split sort into
 
         sort
         sortr
@@ -1366,7 +1365,7 @@ while preserving a consistent programming model.
 
 ---
 
-## Version 3.9.1 — Geometry and Transformations
+## Version 3.9.2 — Geometry and Transformations
 
 [ ] 2D transformations
 [ ] 3D transformations

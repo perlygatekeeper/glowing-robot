@@ -9,7 +9,7 @@ use Getopt::Long qw(GetOptions);
 use lib 'lib';
 use RPN;
 
-my $output = 'docs/Command_Catalog_v3.8.7.txt';
+my $output = 'docs/Command_Catalog_v3.9.0.txt';
 my $check  = 0;
 my $help   = 0;
 

@@ -1,0 +1,102 @@
+﻿RPN Cookbook Ideas
+A collection of recipe ideas demonstrating how to combine RPN Calculator
+commands into practical solutions. Each recipe is intended to become a worked
+example in a future cookbook.
+
+Chapter 1 – Arithmetic
+* Factorial: Compute n! using higher-order operations.
+* Greatest Common Divisor: Implement Euclid's algorithm.
+* Least Common Multiple: Compute the least common multiple of two integers.
+* Integer Power: Raise a value to an integer exponent.
+* Running Product: Multiply a sequence of values.
+* Running Sum: Accumulate a sequence into a total.
+* Clamp a Value: Restrict a value to a minimum/maximum range.
+* Minimum/Maximum of Two: Build min2/max2 from stack primitives.
+
+Chapter 2 – Dice & Games
+* Roll a d20: Generate a standard twenty-sided die roll.
+* Roll NdM Dice: Generalize arbitrary dice expressions.
+* Advantage / Disadvantage: Choose the higher or lower of two d20 rolls.
+* 4d6 Drop Lowest: Generate D&D ability scores.
+* Exploding Dice: Re-roll maximum values and accumulate.
+* Percentile Dice: Generate 1–100 results.
+* Dice Pool Successes: Count rolls meeting a target.
+* Random Ability Scores: Generate a complete character array.
+
+Chapter 3 – Functional Programming
+* Square Every Element: Transform values with map.
+* Keep Only Even Values: Select values with filter.
+* Sum a Collection: Reduce with addition.
+* Product of a Collection: Reduce with multiplication.
+* Running Totals: Build cumulative results.
+* Composable Functions: Combine reusable functions.
+* Callbacks: Use executable values as deferred behavior.
+
+Chapter 4 – Statistics
+* Mean: Average a data set.
+* Median: Find the middle value.
+* Mode: Determine the most frequent value.
+* Histogram: Count occurrences.
+* Normalize: Scale data consistently.
+* Z-Scores: Standardize observations.
+* Five-Number Summary: Summarize a distribution.
+* Outlier Detection: Identify unusual values.
+
+Chapter 5 – Number Theory
+* Sieve of Eratosthenes: Generate primes efficiently.
+* Prime Factorization: Break numbers into prime factors.
+* Euler's Totient: Count relatively prime integers.
+* Modular Exponentiation: Efficient exponentiation modulo n.
+* Perfect Numbers: Test for perfection.
+* Fibonacci Sequence: Generate successive Fibonacci numbers.
+
+Chapter 6 – Vectors
+* Scale a Vector: Multiply every component.
+* Normalize a Vector: Produce a unit vector.
+* Dot Product: Compute vector similarity.
+* Distance Between Points: Measure Euclidean distance.
+* Average of Vectors: Compute a centroid.
+* Nearest Point: Find the closest candidate.
+
+Chapter 7 – Matrices
+* Matrix × Vector: Apply a transformation.
+* Matrix × Matrix: Compose transformations.
+* Rotation Matrix: Rotate coordinates.
+* Reflection Matrix: Mirror geometry.
+* Identity Matrix: Construct the identity.
+* Transpose: Swap rows and columns.
+
+Chapter 8 – Data Processing
+* CSV Averages: Summarize numeric columns.
+* Filter Bad Data: Remove invalid records.
+* Unit Conversion: Convert values in bulk.
+* Normalize a Column: Scale imported data.
+* Moving Average: Smooth a data series.
+* Maximum Record: Locate an extreme entry.
+
+Chapter 9 – Stack Techniques
+* Intermediate Values: Preserve temporary results.
+* Named Stacks: Organize independent workspaces.
+* Scratch Stacks: Use temporary execution areas.
+* Efficient Rearrangement: Minimize stack shuffling.
+* Common Idioms: Recognize recurring stack patterns.
+
+Chapter 10 – Fun
+* Countdown Timer: Create a simple timer.
+* Lottery Numbers: Generate random selections.
+* Password Generator: Produce random passwords.
+* Monte Carlo π: Estimate pi experimentally.
+* Guess the Number: Interactive game logic.
+* Blackjack Hand Value: Score a blackjack hand.
+* Craps Simulator: Simulate casino play.
+* Coin Flip Statistics: Explore probability experimentally.
+
+Chapter 11 – Building with Executable Values
+* Callbacks: Defer execution with executable values.
+* Conditional Behavior: Select actions with the “ifelse” command.
+* Transformations: Use the “map” command effectively.
+* Selection: Use the “filter” command to retain desired values.
+* Accumulation: Use reduce for aggregation.
+* Custom Control Structures: Compose reusable execution patterns.
+* Functions Calling Functions: Build layered abstractions.
+* Scratch Execution: Explore future “withstack” workflows.

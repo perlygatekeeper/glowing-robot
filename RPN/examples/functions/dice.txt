@@ -1,7 +1,7 @@
-# RPN Example Functions: Math
+# RPN Example Functions: Dice
 #
 # Load with:
-#   loadfuncs examples/functions/math.txt
+#   loadfuncs examples/functions/dice.txt
 #
 # Or copy selected lines into your ~/.rpn_functions file.
 
@@ -12,5 +12,9 @@ d10  = 10 dieroll
 d20  = 20 dieroll
 d100 = 100 dieroll
 
-adv  = d20 d20 max
-dis  = d20 d20 min
+keep2 = pop
+keeptop = exch pop
+max2 = over over <= "keeptop" "keep2" ifelse
+min2 = over over >= "keeptop" "keep2" ifelse
+dis = d20 d20 min2
+adv = d20 d20 max2
