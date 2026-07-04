@@ -486,6 +486,21 @@ sub strip_input_comment {
     return $out;
 }
 
+
+sub _unescape_quoted_string {
+    my ($self, $value, $quote) = @_;
+
+    return '' unless defined $value;
+
+    # Backslashes are already used by strip_input_comment() to keep escaped
+    # quote characters from ending the string early.  Interpret only the
+    # escapes that are part of RPN string syntax here, so useful backslashes
+    # such as regex tokens (\d, \s, etc.) are preserved.
+    $value =~ s/\\([\\\Q$quote\E])/$1/g;
+
+    return $value;
+}
+
 sub process_input {
     my ($self, $input) = @_;
 
@@ -554,6 +569,8 @@ sub process_input {
 
         $value =~ s/\Q$quote\E$//
             if length($value);
+
+        $value = $self->_unescape_quoted_string($value, $quote);
 
         $self->stack->push($value);
         return;

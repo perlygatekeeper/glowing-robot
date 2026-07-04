@@ -35,6 +35,9 @@ is($calc->stack->depth, 0, 'comment-only input does nothing');
 $calc->process_input('"hello # world" # trailing comment');
 is($calc->stack->pop, 'hello # world', 'quoted string keeps hash content');
 
+$calc->process_input(q{"abc \" # still string" # trailing comment});
+is($calc->stack->pop, 'abc " # still string', 'escaped quote inside string does not end string and is unescaped');
+
 $calc->process_input('{ dup * } # square top stack item');
 my $block = $calc->stack->pop;
 ok(RPN::CodeBlock::is_codeblock($block), 'codeblock literal may have trailing comment');

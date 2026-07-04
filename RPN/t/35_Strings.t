@@ -22,6 +22,15 @@ sub top {
     return $calc->stack->pop;
 }
 
+$calc->process_input(q{"abc \"def"});
+is(top(), 'abc "def', 'double-quoted string unescapes escaped double quote');
+
+$calc->process_input(q{"4 \"d6\" repeat sort"});
+is(top(), '4 "d6" repeat sort', 'double-quoted string can contain escaped quotes for token strings');
+
+$calc->process_input(q{"\\d+"});
+is(top(), '\\d+', 'string input preserves non-string-syntax backslash escapes');
+
 $calc->stack->push('Hello World');
 $calc->process_input('lower');
 is(top(), 'hello world', 'lower');
