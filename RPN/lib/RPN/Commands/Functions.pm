@@ -20,7 +20,7 @@ sub register_commands {
                 }
                 my $name = shift @$args;
                 my $body = join ' ', @$args;
-                unless ($name =~ /^[A-Za-z_]\w*$/) {
+                unless ($name =~ /^[A-Za-z_0-9]\w*$/) {
                     warn "Invalid function name '$name'\n";
                     return;
                 }

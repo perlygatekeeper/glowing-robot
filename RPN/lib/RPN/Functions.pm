@@ -65,10 +65,10 @@ sub load_file {
 
         my ($name, $body);
 
-        if ($line =~ /^([A-Za-z_]\w*)\s*=\s*(.+)$/) {
+        if ($line =~ /^([A-Za-z_0-9]\w*)\s*=\s*(.+)$/) {
             ($name, $body) = ($1, $2);
         }
-        elsif ($line =~ /^([A-Za-z_]\w*)\s+(.+)$/) {
+        elsif ($line =~ /^([A-Za-z_0-9]\w*)\s+(.+)$/) {
             ($name, $body) = ($1, $2);
         }
         else {

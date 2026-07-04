@@ -522,15 +522,13 @@ sub process_input {
         $body =~ s/\s*\}$//;
 
         if ($body =~ /[{}]/) {
-            warn "Nested code blocks are not supported yet
-";
+            warn "Nested code blocks are not supported yet\n";
             return;
         }
 
         my $block = eval { RPN::CodeBlock->new(source => $input) };
         if (!$block) {
-            warn $@ || "Invalid code block literal
-";
+            warn $@ || "Invalid code block literal\n ";
             return;
         }
 
@@ -539,8 +537,7 @@ sub process_input {
     }
 
     if ($input =~ /^\{/ || $input =~ /\}$/) {
-        warn "Invalid code block literal
-";
+        warn "Invalid code block literal\n";
         return;
     }
 
@@ -601,7 +598,7 @@ sub process_input {
     # 6) User-defined Functions
     #
 
-    if ($input =~ /^[A-Za-z_]\w*$/ && $self->functions->exists($input)) {
+    if ($input =~ /^[A-Za-z_0-9]\w*$/ && $self->functions->exists($input)) {
         $self->execute_function($input);
 
         #       removed to make recursion possible
