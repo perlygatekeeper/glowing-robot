@@ -46,6 +46,17 @@ $calc->process_input('addtwo');
 is($calc->stack->peek, 42, 'function can use numeric literal and command');
 
 #
+# function body quoted strings may contain escaped quotes
+#
+
+$calc->process_input(q{def quoted_body "4 \"d6\" repeat sort"});
+is(
+    $calc->functions->get('quoted_body'),
+    '4 "d6" repeat sort',
+    'define unescapes escaped quotes in quoted function body'
+);
+
+#
 # functions listing
 #
 

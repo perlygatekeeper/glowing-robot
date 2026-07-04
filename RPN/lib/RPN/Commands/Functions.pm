@@ -36,7 +36,9 @@ sub register_commands {
                     warn "Cannot define function '$name': name already used by a variable\n";
                     return;
                 }
-                $body =~ s/^(['"])(.*)\1$/$2/;
+                if ($body =~ /^(['"])(.*)\1$/s) {
+                    $body = $calc->_unescape_quoted_string($2, $1);
+                }
                 $calc->functions->set($name, $body);
             },
         }

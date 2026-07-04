@@ -239,7 +239,8 @@ version            ver        ver                    Discovery       prints calc
 vscale             vsc                               Vector          scale a vector by a scalar: vector scalar vscale
 vsub               vsu                               Vector          subtract top vector from second vector
 while              wh                                Flow            repeat an executable value while a condition executable returns true: condition-exec body-exec while
-withstack          wi                                Execution       execute on a named stack and return one result: stackname executable withstack
+withcopystack      withc                             Execution       copy current stack to a named stack, execute there, and return one result: stackname executable withcopystack
+withstack          withs                             Execution       execute on a named stack and return one result: stackname executable withstack
 writecsv           wr                                Io              write current stack to a CSV file
 y0                                                   Numeric         Bessel function of the second kind, order 0: Y0(x)
 y1                                                   Numeric         Bessel function of the second kind, order 1: Y1(x)

@@ -28,6 +28,9 @@ is(top(), 'abc "def', 'double-quoted string unescapes escaped double quote');
 $calc->process_input(q{"4 \"d6\" repeat sort"});
 is(top(), '4 "d6" repeat sort', 'double-quoted string can contain escaped quotes for token strings');
 
+$calc->process_input(q{'it\'s quoted'});
+is(top(), q{it's quoted}, 'single-quoted string unescapes escaped single quote');
+
 $calc->process_input(q{"\\d+"});
 is(top(), '\\d+', 'string input preserves non-string-syntax backslash escapes');
 

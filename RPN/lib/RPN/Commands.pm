@@ -366,54 +366,18 @@ sub _initialize {
             help => 'execute on a named stack and return one result: stackname executable withstack',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return _execute_on_named_stack($calc, 'withstack', 0);
+            },
+        }
+    );
 
-                my $exec = $calc->stack->pop;
-                my $name = $calc->stack->pop;
-
-                unless (defined $name && !ref($name) && length $name) {
-                    $calc->stack->push($name) if defined $name;
-                    $calc->stack->push($exec);
-                    warn "withstack requires a stack name\n";
-                    return;
-                }
-
-                unless ($calc->is_executable($exec)) {
-                    $calc->stack->push($name);
-                    $calc->stack->push($exec);
-                    warn "withstack requires an executable value\n";
-                    return;
-                }
-
-                my $original_stack = $calc->stack->current_name;
-                my @original_values = $calc->stack->values;
-
-                my $ok = eval {
-                    $calc->stack->switch($name);
-                    $calc->execute($exec);
-                    1;
-                };
-                my $error = $@;
-
-                my $result;
-                my $has_result = 0;
-                if ($calc->stack->depth) {
-                    $result = $calc->stack->pop;
-                    $has_result = 1;
-                }
-
-                $calc->stack->switch($original_stack);
-                $calc->stack->set_values(@original_values);
-
-                die $error unless $ok;
-
-                unless ($has_result) {
-                    warn "withstack executable produced no result\n";
-                    return;
-                }
-
-                $calc->stack->push($result);
-                return;
+    $self->register(
+        withcopystack => {
+            category => 'execution',
+            help => 'copy current stack to a named stack, execute there, and return one result: stackname executable withcopystack',
+            code => sub {
+                my ($calc) = @_;
+                return _execute_on_named_stack($calc, 'withcopystack', 1);
             },
         }
     );
@@ -1224,6 +1188,60 @@ sub _rebuild_abbrevs {
         }
     }
     $self->{abbrevs} = \%abbrevs;
+    return;
+}
+
+sub _execute_on_named_stack {
+    my ($calc, $command_name, $copy_current_stack) = @_;
+
+    return unless $calc->stack->require_depth(2);
+
+    my $exec = $calc->stack->pop;
+    my $name = $calc->stack->pop;
+
+    unless (defined $name && !ref($name) && length $name) {
+        $calc->stack->push($name) if defined $name;
+        $calc->stack->push($exec);
+        warn "$command_name requires a stack name\n";
+        return;
+    }
+
+    unless ($calc->is_executable($exec)) {
+        $calc->stack->push($name);
+        $calc->stack->push($exec);
+        warn "$command_name requires an executable value\n";
+        return;
+    }
+
+    my $original_stack = $calc->stack->current_name;
+    my @original_values = $calc->stack->values;
+
+    my $ok = eval {
+        $calc->stack->switch($name);
+        $calc->stack->set_values(@original_values) if $copy_current_stack;
+        $calc->execute($exec);
+        1;
+    };
+    my $error = $@;
+
+    my $result;
+    my $has_result = 0;
+    if ($calc->stack->depth) {
+        $result = $calc->stack->pop;
+        $has_result = 1;
+    }
+
+    $calc->stack->switch($original_stack);
+    $calc->stack->set_values(@original_values);
+
+    die $error unless $ok;
+
+    unless ($has_result) {
+        warn "$command_name executable produced no result\n";
+        return;
+    }
+
+    $calc->stack->push($result);
     return;
 }
 
