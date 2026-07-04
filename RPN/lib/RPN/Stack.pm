@@ -181,7 +181,7 @@ sub set_values {
 sub clear_all {
     my ($self) = @_;
 
-    $self->{stacks} = { s => [] };
+    $self->{stacks} = { default => [] };
     $self->{current_name} = 'default';
 
     return;
