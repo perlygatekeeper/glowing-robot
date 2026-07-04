@@ -200,7 +200,8 @@ sinh                                                 Trig            hyperbolic 
 sort                                                 Stack           sort the stack in ascending order
 sortr                                                Stack           sort the stack in descending order
 split              spl                               String          split string by delimiter: string delimiter split
-spread             spr        span                   Statistics      replaces the entire stack with maximum minus minimum
+spread             spre       span                   Statistics      replaces the entire stack with maximum minus minimum
+sprintf            spri                              String          format values using a printf format string on top of the stack and push the result: 1 "[%d]" sprintf; 2 3 5 "%d + %d = %d" sprintf
 sqr                                                  Numeric         square a value
 square                                               Numeric         squares the number on top of the stack
 squareroot         squarer    sqrt                   Numeric         replaces the number on top of the stack with its square root

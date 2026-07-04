@@ -118,4 +118,36 @@ $calc->stack->push('NUMBER');
 $calc->process_input('subst');
 is(top(), 'abcNUMBERxyz', 'subst');
 
+$calc->stack->clear_all;
+$calc->stack->push('[%d]', 1);
+$calc->process_input('sprintf');
+is(
+    $calc->stack->pop,
+    '[1]',
+    'sprintf formats one value and pushes the result'
+);
+
+$calc->stack->clear_all;
+$calc->stack->push('%d + %d = %d', 5, 3, 2);
+$calc->process_input('sprintf');
+is(
+    $calc->stack->pop,
+    '2 + 3 = 5',
+    'sprintf formats multiple values in stack order'
+);
+
+$calc->stack->clear_all;
+$calc->stack->push('%02d:%02d', 5, 9, 99);
+$calc->process_input('sprintf');
+is(
+    $calc->stack->pop,
+    '09:05',
+    'sprintf preserves stack values below the formatted result'
+);
+is(
+    $calc->stack->pop,
+    99,
+    'sprintf leaves lower stack values in place'
+);
+
 done_testing();

@@ -123,6 +123,50 @@ sub register_commands {
         }
     );
 
+
+    $commands->register(
+        sprintf => {
+            category => 'string',
+            help => 'format values using a printf format string on top of the stack and push the result: 1 "[%d]" sprintf; 2 3 5 "%d + %d = %d" sprintf',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
+                my $format = $calc->stack->pop;
+
+                if (ref $format || !defined $format) {
+                    $calc->stack->push($format);
+                    warn "sprintf format must be a string\n";
+                    return;
+                }
+
+                my $arg_count = _sprintf_arg_count($format);
+
+                unless (defined $arg_count) {
+                    $calc->stack->push($format);
+                    warn "sprintf invalid format string\n";
+                    return;
+                }
+
+                unless ($calc->stack->require_depth($arg_count)) {
+                    $calc->stack->push($format);
+                    return;
+                }
+
+                my @args = reverse map { $calc->stack->pop } 1 .. $arg_count;
+
+                my $result = eval { sprintf($format, @args) };
+                if ($@) {
+                    $calc->stack->push($format, reverse @args);
+                    warn "sprintf failed: $@";
+                    return;
+                }
+
+                $calc->stack->push($result);
+            },
+        }
+    );
+
     $commands->register(
         length => {
             category => 'string',
@@ -269,6 +313,27 @@ sub _string_is_nonnegative_integer {
         && $calc->isanumber($n)
         && int($n) == $n
         && $n >= 0;
+}
+
+1;
+
+sub _sprintf_arg_count {
+    my ($format) = @_;
+
+    my $count = 0;
+    my $saw_conversion = 0;
+
+    while ($format =~ /%(%|(?:\d+\$)?([-+ 0#]*)(\*|\d+)?(?:\.(\*|\d+))?(?:[hljztLqv]+)?[bcdeEufFgGosxXopsiDUO])/g) {
+        next if $1 eq '%';
+        $saw_conversion = 1;
+        $count++;
+        $count++ if defined($3) && $3 eq '*';
+        $count++ if defined($4) && $4 eq '*';
+    }
+
+    return 0 if !$saw_conversion && $format !~ /%/;
+    return $count if $saw_conversion;
+    return;
 }
 
 1;
