@@ -98,7 +98,7 @@ isprime            isp                               Number Theory   push 1 if t
 j0                                                   Numeric         Bessel function of the first kind, order 0: J0(x)
 j1                                                   Numeric         Bessel function of the first kind, order 1: J1(x)
 jn                                                   Numeric         Bessel function of the first kind: x n jn computes Jn(x)
-join               jo                                String          join array/vector elements with delimiter: list delimiter join
+join               jo                                String          join vector or stack values with delimiter: values delimiter join or vector delimiter join
 kilogram_pound     kilog      ktop                   Conversion      convert kilograms to pounds
 kilometer_mile     kilom      ktom                   Conversion      convert kilometers to miles
 lcm                lc                                Number Theory   replace top two values with their least common multiple
@@ -238,6 +238,7 @@ version            ver        ver                    Discovery       prints calc
 vscale             vsc                               Vector          scale a vector by a scalar: vector scalar vscale
 vsub               vsu                               Vector          subtract top vector from second vector
 while              wh                                Flow            repeat an executable value while a condition executable returns true: condition-exec body-exec while
+withstack          wi                                Execution       execute on a named stack and return one result: stackname executable withstack
 writecsv           wr                                Io              write current stack to a CSV file
 y0                                                   Numeric         Bessel function of the second kind, order 0: Y0(x)
 y1                                                   Numeric         Bessel function of the second kind, order 1: Y1(x)

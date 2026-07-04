@@ -361,6 +361,65 @@ sub _initialize {
     );
 
     $self->register(
+        withstack => {
+            category => 'execution',
+            help => 'execute on a named stack and return one result: stackname executable withstack',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(2);
+
+                my $exec = $calc->stack->pop;
+                my $name = $calc->stack->pop;
+
+                unless (defined $name && !ref($name) && length $name) {
+                    $calc->stack->push($name) if defined $name;
+                    $calc->stack->push($exec);
+                    warn "withstack requires a stack name\n";
+                    return;
+                }
+
+                unless ($calc->is_executable($exec)) {
+                    $calc->stack->push($name);
+                    $calc->stack->push($exec);
+                    warn "withstack requires an executable value\n";
+                    return;
+                }
+
+                my $original_stack = $calc->stack->current_name;
+                my @original_values = $calc->stack->values;
+
+                my $ok = eval {
+                    $calc->stack->switch($name);
+                    $calc->execute($exec);
+                    1;
+                };
+                my $error = $@;
+
+                my $result;
+                my $has_result = 0;
+                if ($calc->stack->depth) {
+                    $result = $calc->stack->pop;
+                    $has_result = 1;
+                }
+
+                $calc->stack->switch($original_stack);
+                $calc->stack->set_values(@original_values);
+
+                die $error unless $ok;
+
+                unless ($has_result) {
+                    warn "withstack executable produced no result\n";
+                    return;
+                }
+
+                $calc->stack->push($result);
+                return;
+            },
+        }
+    );
+
+
+    $self->register(
         map => {
             category => 'execution',
             help => 'apply an executable value to each stack item: executable map',

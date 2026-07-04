@@ -3,6 +3,8 @@ package RPN::Commands::Strings;
 use strict;
 use warnings;
 
+use RPN::Vector;
+
 sub register_commands {
     my ($commands) = @_;
 
@@ -88,16 +90,35 @@ sub register_commands {
     $commands->register(
         join => {
             category => 'string',
-            help => 'join array/vector elements with delimiter: list delimiter join',
+            help => 'join vector or stack values with delimiter: values delimiter join or vector delimiter join',
             code => sub {
                 my ($calc) = @_;
+                return unless $calc->stack->require_depth(1);
+
                 my $delim = $calc->stack->pop;
-                my $items = $calc->stack->pop;
 
-                die "join requires an array reference\n"
-                    unless ref($items) eq 'ARRAY';
+                if (ref $delim) {
+                    $calc->stack->push($delim);
+                    warn "join delimiter must be a string\n";
+                    return;
+                }
 
-                $calc->stack->push(join($delim, @$items));
+                unless (defined $delim) {
+                    warn "join delimiter must be a string\n";
+                    return;
+                }
+
+                return unless $calc->stack->require_depth(1);
+
+                if (RPN::Vector::is_vector($calc->stack->peek)) {
+                    my $vector = $calc->stack->pop;
+                    $calc->stack->push(join($delim, $vector->values));
+                    return;
+                }
+
+                my @values = reverse $calc->stack->values;
+                $calc->stack->clear;
+                $calc->stack->push(join($delim, @values));
             },
         }
     );

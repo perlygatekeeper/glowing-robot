@@ -6,6 +6,7 @@ use File::Temp qw(tempdir);
 
 use lib 'lib';
 use RPN;
+use RPN::Vector;
 
 my $dir = tempdir(CLEANUP => 1);
 
@@ -48,10 +49,34 @@ $calc->process_input('split');
 my $parts = top();
 is_deeply($parts, [qw(one two three)], 'split');
 
-$calc->stack->push([qw(one two three)]);
+$calc->stack->push(RPN::Vector->new(qw(one two three)));
 $calc->stack->push(',');
 $calc->process_input('join');
-is(top(), 'one,two,three', 'join');
+is(top(), 'one,two,three', 'join vector');
+
+$calc->stack->clear;
+$calc->stack->push('one');
+$calc->stack->push('two');
+$calc->stack->push('three');
+$calc->stack->push(',');
+$calc->process_input('join');
+is(top(), 'one,two,three', 'join stack');
+
+$calc->stack->clear;
+$calc->stack->push('red');
+$calc->stack->push('green');
+$calc->stack->push('blue');
+$calc->stack->push(' | ');
+$calc->process_input('join');
+is(top(), 'red | green | blue', 'join stack with multi-character delimiter');
+
+$calc->stack->clear;
+$calc->stack->push(qw(one two));
+$calc->stack->push(RPN::Vector->new(1, 2));
+$calc->process_input('join');
+isa_ok($calc->stack->pop, 'RPN::Vector', 'join preserves non-string delimiter');
+is($calc->stack->depth, 2, 'join non-string delimiter leaves original values');
+$calc->stack->clear;
 
 $calc->stack->push('hello');
 $calc->process_input('length');
