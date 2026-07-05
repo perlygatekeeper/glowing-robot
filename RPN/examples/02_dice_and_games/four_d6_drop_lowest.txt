@@ -1,21 +1,84 @@
-#------------------------------------------------------------
-# Example: 4d6 Drop Lowest
+# four_d6_drop_lowest.txt
 #
-# Category:
-#     02 Dice And Games
+# Demonstrates how user-defined functions, executable values, named stacks,
+# withstack, withcopystack, sprintf, and join-style formatting can be composed
+# to roll 4d6, drop the lowest die, sum the highest three dice, and present
+# the result as a readable string:
 #
-# Purpose:
-#     Demonstrates dice rolling, sorting, dropping, and reducing.
+#     6 + 5 + 4 + [2] = 15
 #
-# Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
-#
-# Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
-#
-# Status:
-#     TODO
-#------------------------------------------------------------
+# The dropped die is shown in brackets.
 
-# TODO: Add worked RPN example/function here.
+# Roll one die with the given number of sides.
+d4 = 4 dieroll
+
+# Roll one eight-sided die.
+d8 = 8 dieroll
+
+# Roll one ten-sided die.
+d10 = 10 dieroll
+
+# Roll one percentile die.
+d100 = 100 dieroll
+
+# Discard the top stack value, keeping the second value.
+keep2 = pop
+
+# Exchange the top two values, then discard the new top.
+# This keeps the original top value and discards the one below it.
+keeptop = exch pop
+
+# Compare two values and keep the larger one.
+# over over duplicates the two values for comparison.
+# If the lower value is <= the upper value, keep the top value;
+# otherwise keep the second value.
+max2 = over over <= "keeptop" "keep2" ifelse
+
+# Compare two values and keep the smaller one.
+# over over duplicates the two values for comparison.
+# If the lower value is >= the upper value, keep the top value;
+# otherwise keep the second value.
+min2 = over over >= "keeptop" "keep2" ifelse
+
+# Roll one twenty-sided die.
+d20 = 20 dieroll
+
+# Roll two d20s and keep the higher result.
+adv = d20 d20 max2
+
+# Roll two d20s and keep the lower result.
+dis = d20 d20 min2
+
+# The format variable is used by sprintf to build the final display string.
+# It expects five values:
+#     die1 die2 die3 dropped total format sprintf
+#
+# Example result:
+#     6 + 5 + 4 + [2] = 15
+format = "%d + %d + %d + [%d] = %2d"
+
+# Roll one six-sided die.
+d6 = 6 dieroll
+
+# Roll four six-sided dice, then sort them.
+# The quoted "d6" is an executable value used by repeat.
+4d6 = 4 "d6" repeat sort
+
+# Given a sorted stack of four dice, discard the lowest die and sum the rest.
+# Since the dice are sorted, the lowest value is on top after sort.
+sum3 = pop sum
+
+# Run sum3 on a copied working stack.
+# This preserves the original four dice while calculating the total.
+sum_highest_3 = "_sum_" "sum3" withcopystack
+
+# Roll 4d6, then calculate the sum of the highest three dice.
+# The original dice remain available, and the sum is added as the result.
+4d6kh3 = 4d6 sum_highest_3
+
+# Convert the roll and total into a formatted string.
+# The sorted dice and final total are consumed by sprintf using format.
+4d6kh3_as_string = 4d6kh3 format sprintf
+
+# Run the whole formatter on a named stack and return the final string.
+stat = "_string_" "4d6kh3_as_string" withstack

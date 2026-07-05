@@ -24,7 +24,7 @@ sub register_commands {
             help     => 'pop MIN and MAX and push a random integer in that inclusive range',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'randint');
 
                 my ($high, $low) = $calc->stack->pop2;
                 unless (!ref($low) && !ref($high)
@@ -51,7 +51,7 @@ sub register_commands {
             help     => 'pop SIDES and push a random integer from 1 to SIDES',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'dieroll');
 
                 my $sides = $calc->stack->pop;
                 unless (!ref($sides) && $sides =~ /^\d+$/ && $sides >= 1) {
@@ -72,7 +72,7 @@ sub register_commands {
             help     => 'pop SEED and seed the random number generator',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'seed');
                 my $seed = $calc->stack->pop;
                 unless (defined $seed && !ref($seed) && $seed =~ /^-?\d+(?:\.\d+)?$/) {
                     $calc->stack->push($seed) if defined $seed;
@@ -92,7 +92,7 @@ sub register_commands {
             help     => 'copy a random stack element to the top',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'choose');
                 my @values = $calc->stack->values;
                 my $index = int(rand(@values));
                 $calc->stack->push($values[$index]);

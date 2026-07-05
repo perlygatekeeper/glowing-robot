@@ -65,7 +65,7 @@ sub register_commands {
             help    => 'pops two numbers and pushes their quotient',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'divide');
                 my ($a, $b) = $calc->stack->pop2;
                 unless (!ref($a) && $calc->isanumber($a)
                      && !ref($b) && $calc->isanumber($b)) {
@@ -126,7 +126,7 @@ sub register_commands {
             help    => 'replaces the number on top of the stack with its square root',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'squareroot');
                 my $value = $calc->stack->peek;
                 if ($value < 0) {
                     warn "sqrt of negative number\n";
@@ -485,7 +485,7 @@ sub register_commands {
             help => 'gamma function: Gamma(x)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'gamma');
                 my $x = $calc->stack->pop;
 
                 unless (!ref($x) && $calc->isanumber($x)) {
@@ -511,7 +511,7 @@ sub register_commands {
             help => 'natural logarithm of the gamma function: ln(Gamma(x))',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'lgamma');
                 my $x = $calc->stack->pop;
 
                 unless (!ref($x) && $calc->isanumber($x)) {
@@ -537,7 +537,7 @@ sub register_commands {
             help => 'beta function: x y beta computes B(x,y)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'beta');
                 my ($y, $x) = $calc->stack->pop2;
 
                 unless (!ref($x) && $calc->isanumber($x)
@@ -596,7 +596,7 @@ sub register_commands {
             help => 'Bessel function of the first kind: x n jn computes Jn(x)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'jn');
                 my ($n, $x) = $calc->stack->pop2;
 
                 unless (!ref($x) && $calc->isanumber($x)
@@ -625,7 +625,7 @@ sub register_commands {
             help => 'Bessel function of the second kind, order 0: Y0(x)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'y0');
                 my $x = $calc->stack->pop;
 
                 unless (!ref($x) && $calc->isanumber($x)) {
@@ -651,7 +651,7 @@ sub register_commands {
             help => 'Bessel function of the second kind, order 1: Y1(x)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'y1');
                 my $x = $calc->stack->pop;
 
                 unless (!ref($x) && $calc->isanumber($x)) {
@@ -677,7 +677,7 @@ sub register_commands {
             help => 'Bessel function of the second kind: x n yn computes Yn(x)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'yn');
                 my ($n, $x) = $calc->stack->pop2;
 
                 unless (!ref($x) && $calc->isanumber($x)
@@ -715,7 +715,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
     
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'modulo');
     
                 my ($a, $b) = $calc->stack->pop2;
     

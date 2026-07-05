@@ -65,7 +65,7 @@ sub register_commands {
             help     => 'test whether the top stack value is a code block',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'iscodeblock');
                 my $value = $calc->stack->pop;
                 $calc->stack->push($value);
                 $calc->stack->push(RPN::CodeBlock::is_codeblock($value) ? 1 : 0);

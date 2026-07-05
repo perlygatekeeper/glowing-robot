@@ -50,7 +50,7 @@ sub register_commands {
             help     => 'pop NAME and delete that user function',
             code     => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'undef');
                 my $name = $calc->stack->pop;
                 unless (defined $name && !ref($name)) {
                     $calc->stack->push($name) if defined $name;

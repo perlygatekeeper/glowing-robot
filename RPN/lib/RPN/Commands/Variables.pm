@@ -16,7 +16,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'store');
 
                 my $name  = $calc->stack->pop;
                 my $value = $calc->stack->peek;
@@ -52,7 +52,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'recall');
 
                 my $name = $calc->stack->pop;
 
@@ -100,7 +100,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'delvar');
 
                 my $name = $calc->stack->pop;
 

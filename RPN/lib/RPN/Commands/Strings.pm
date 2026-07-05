@@ -93,7 +93,7 @@ sub register_commands {
             help => 'join vector or stack values with delimiter: values delimiter join or vector delimiter join',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'join');
 
                 my $delim = $calc->stack->pop;
 
@@ -108,7 +108,7 @@ sub register_commands {
                     return;
                 }
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'join 2nd');
 
                 if (RPN::Vector::is_vector($calc->stack->peek)) {
                     my $vector = $calc->stack->pop;
@@ -130,7 +130,7 @@ sub register_commands {
             help => 'format values using a printf format string on top of the stack and push the result: 1 "[%d]" sprintf; 2 3 5 "%d + %d = %d" sprintf',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'sprintf');
 
                 my $format = $calc->stack->pop;
 
@@ -148,7 +148,7 @@ sub register_commands {
                     return;
                 }
 
-                unless ($calc->stack->require_depth($arg_count)) {
+                unless ($calc->stack->require_depth($arg_count,'sprintf 2nd')) {
                     $calc->stack->push($format);
                     return;
                 }
@@ -197,7 +197,7 @@ sub register_commands {
             help => 'repeat a string or executable value N times: string n repeat or n executable repeat',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'repeat');
 
                 my $top    = $calc->stack->pop;
                 my $second = $calc->stack->pop;

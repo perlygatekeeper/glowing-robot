@@ -180,7 +180,7 @@ sub register_commands {
 
 sub _conversion {
     my ($calc, $code) = @_;
-    return unless $calc->stack->require_depth(1);
+    return unless $calc->stack->require_depth(1,'_conversion');
     my $value = $calc->stack->pop;
     $calc->stack->push($code->($value));
     return;

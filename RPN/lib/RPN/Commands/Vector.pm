@@ -17,14 +17,14 @@ sub register_commands {
             help => 'create a vector from N stack values: N vector',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'vector');
                 my $n = $calc->stack->pop;
                 unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n > 0) {
                     $calc->stack->push($n);
                     warn "vector requires a positive integer dimension\n";
                     return;
                 }
-                unless ($calc->stack->require_depth($n)) {
+                unless ($calc->stack->require_depth($n,'vector 2nd')) {
                     $calc->stack->push($n);
                     return;
                 }
@@ -52,7 +52,7 @@ sub register_commands {
             help => 'create a 2D vector from top two stack values',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'vec2');
                 my $y = $calc->stack->pop;
                 my $x = $calc->stack->pop;
                 unless (!ref($x) && !ref($y) && $calc->isanumber($x) && $calc->isanumber($y)) {
@@ -72,7 +72,7 @@ sub register_commands {
             help => 'create a 3D vector from top three stack values',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'vec3');
                 my $z = $calc->stack->pop;
                 my $y = $calc->stack->pop;
                 my $x = $calc->stack->pop;
@@ -99,7 +99,7 @@ sub register_commands {
             help => 'replace a vector with its dimension',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'dim');
                 my $v = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($v)) {
                     $calc->stack->push($v);
@@ -117,7 +117,7 @@ sub register_commands {
             help => 'add two vectors of the same dimension',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'vadd');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
@@ -143,7 +143,7 @@ sub register_commands {
             help => 'subtract top vector from second vector',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'vsub');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
@@ -169,7 +169,7 @@ sub register_commands {
             help => 'scale a vector by a scalar: vector scalar vscale',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'vscale');
                 my $scalar = $calc->stack->pop;
                 my $vector = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($vector) && !ref($scalar) && $calc->isanumber($scalar)) {
@@ -189,7 +189,7 @@ sub register_commands {
             help => 'dot product of two vectors',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'dot');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
@@ -215,7 +215,7 @@ sub register_commands {
             help => 'cross product of two 3D vectors',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'cross');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($a) && RPN::Vector::is_vector($b)) {
@@ -242,7 +242,7 @@ sub register_commands {
             help    => 'replace a vector with its magnitude',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'magnitude');
                 my $v = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($v)) {
                     $calc->stack->push($v);
@@ -261,7 +261,7 @@ sub register_commands {
             help    => 'replace a vector with a unit vector in the same direction',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'normalize');
                 my $v = $calc->stack->pop;
                 unless (RPN::Vector::is_vector($v)) {
                     $calc->stack->push($v);

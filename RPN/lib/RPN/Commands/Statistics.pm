@@ -28,7 +28,7 @@ sub register_commands {
             help => 'replaces the entire stack with the sum of its values',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'sum');
                 my @values = $calc->stack->values;
                 my $sum = 0;
                 foreach my $value (@values) {
@@ -47,7 +47,7 @@ sub register_commands {
             help    => 'replaces the entire stack with the average of its values',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'average');
                 my @values = $calc->stack->values;
                 my $sum = 0;
                 foreach my $value (@values) {
@@ -66,7 +66,7 @@ sub register_commands {
             help    => 'replaces the entire stack with the minimum value',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'minimus');
                 my @values = $calc->stack->values;
                 my $min = $values[0];
                 foreach my $value (@values) {
@@ -85,7 +85,7 @@ sub register_commands {
             help    => 'replaces the entire stack with the maximum value',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'maximum');
                 my @values = $calc->stack->values;
                 my $max = $values[0];
                 foreach my $value (@values) {
@@ -107,7 +107,7 @@ sub register_commands {
             help => 'replaces the entire stack with the product of its values',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'product');
                 my @values = $calc->stack->values;
                 my $product = 1;
                 $product *= $_ for @values;
@@ -124,7 +124,7 @@ sub register_commands {
             help    => 'replaces the entire stack with maximum minus minimum',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'spread');
                 my @values = $calc->stack->values;
                 my ($min, $max) = ($values[0], $values[0]);
                 foreach my $value (@values) {
@@ -143,7 +143,7 @@ sub register_commands {
             help => 'replaces the entire stack with the median value',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'median');
                 my @values = sort { $a <=> $b } $calc->stack->values;
                 my $n = @values;
                 my $median;
@@ -166,7 +166,7 @@ sub register_commands {
             help    => 'replaces the entire stack with the population variance',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'variance');
                 my @values = $calc->stack->values;
                 my $n = @values;
                 my $sum = 0;
@@ -187,7 +187,7 @@ sub register_commands {
             help    => 'replaces the entire stack with the population standard deviation',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'stddev');
                 my @values = $calc->stack->values;
                 my $n = @values;
                 my $sum = 0;

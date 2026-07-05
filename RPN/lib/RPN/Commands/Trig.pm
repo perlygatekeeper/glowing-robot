@@ -67,7 +67,7 @@ sub register_commands {
             help    => 'replaces the number on top of the stack with its tangent',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'tangent');
                 my $value = $calc->stack->pop;
                 unless (!ref($value) && $calc->isanumber($value)) {
                     $calc->stack->push($value);
@@ -151,7 +151,7 @@ sub register_commands {
             help => 'inverse hyperbolic cosine',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'acosh');
                 my $value = $calc->stack->pop;
                 unless (!ref($value) && $calc->isanumber($value)) {
                     $calc->stack->push($value);
@@ -174,7 +174,7 @@ sub register_commands {
             help => 'inverse hyperbolic tangent',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'atanh');
                 my $value = $calc->stack->pop;
                 unless (!ref($value) && $calc->isanumber($value)) {
                     $calc->stack->push($value);

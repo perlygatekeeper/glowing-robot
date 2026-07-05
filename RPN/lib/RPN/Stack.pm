@@ -27,14 +27,17 @@ sub current_stack {
 }
 
 sub require_depth {
-    my ($self, $needed) = @_;
-    if ($needed and $self->depth < $needed ) {
-      warn "stack underflow: need $needed values\n";
-      return 0;
-    } else {
-      return $needed;
-    }
+    my ($self, $needed, $caller) = @_;
 
+    return 1 if $self->depth >= $needed;
+
+    my $msg = "stack underflow";
+    $msg .= " in $caller" if defined $caller && length $caller;
+    $msg .= ": need $needed value";
+    $msg .= "s" unless $needed == 1;
+
+    warn "$msg\n";
+    return;
 }
 
 sub depth {
@@ -60,7 +63,7 @@ sub pop {
 
 sub pop2 {
     my ($self) = @_;
-    if ($self->require_depth(2)) {
+    if ($self->require_depth(2,'pop2')) {
       return (
           $self->pop,
           $self->pop,

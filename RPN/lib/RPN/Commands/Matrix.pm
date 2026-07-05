@@ -21,7 +21,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'matrix');
 
                 my $n = $calc->stack->pop;
 
@@ -31,7 +31,7 @@ sub register_commands {
                     return;
                 }
 
-                unless ($calc->stack->require_depth($n)) {
+                unless ($calc->stack->require_depth($n,'matrix 2nd')) {
                     $calc->stack->push($n);
                     return;
                 }
@@ -80,7 +80,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'matcols');
 
                 my $n = $calc->stack->pop;
 
@@ -90,7 +90,7 @@ sub register_commands {
                     return;
                 }
 
-                unless ($calc->stack->require_depth($n)) {
+                unless ($calc->stack->require_depth($n,'matcols 2nd')) {
                     $calc->stack->push($n);
                     return;
                 }
@@ -152,7 +152,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'matparse');
 
                 my $text = $calc->stack->pop;
 
@@ -247,7 +247,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'rows');
 
                 my $m = $calc->stack->pop;
 
@@ -269,7 +269,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'cols');
 
                 my $m = $calc->stack->pop;
 
@@ -291,7 +291,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'madd');
 
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
@@ -321,7 +321,7 @@ sub register_commands {
             help => 'subtract top matrix from second matrix',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'msub');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 unless (RPN::Matrix::is_matrix($a) && RPN::Matrix::is_matrix($b)) {
@@ -347,7 +347,7 @@ sub register_commands {
             help => 'multiply matrices, matrix/vector, or vector/matrix operands',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'mmul');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
 
@@ -402,7 +402,7 @@ sub register_commands {
             help    => 'transpose a matrix',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'transpose');
                 my $m = $calc->stack->pop;
                 unless (RPN::Matrix::is_matrix($m)) {
                     $calc->stack->push($m);
@@ -421,7 +421,7 @@ sub register_commands {
             help    => 'compute determinant of a square matrix',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'determinant');
                 my $m = $calc->stack->pop;
                 unless (RPN::Matrix::is_matrix($m)) {
                     $calc->stack->push($m);
@@ -445,7 +445,7 @@ sub register_commands {
             help    => 'compute inverse of a square non-singular matrix',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'inverse');
                 my $m = $calc->stack->pop;
                 unless (RPN::Matrix::is_matrix($m)) {
                     $calc->stack->push($m);
@@ -474,7 +474,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'mpow');
 
                 my $n = $calc->stack->pop;
                 my $m = $calc->stack->pop;

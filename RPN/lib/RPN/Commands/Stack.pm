@@ -123,7 +123,7 @@ sub register_commands {
             help => 'remove the top value from the stack',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'pop');
                 $calc->stack->pop;
             },
         }
@@ -152,7 +152,7 @@ sub register_commands {
             help    => 'duplicates the number on top of the stack',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'duplicate');
                 $calc->stack->push($calc->stack->peek);
             },
         }
@@ -165,7 +165,7 @@ sub register_commands {
             help => 'duplicate the second value on the stack: ( a b -- a b a )',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'over');
                 $calc->stack->push($calc->stack->peek_at(1));
             },
         }
@@ -178,7 +178,7 @@ sub register_commands {
             help    => 'swaps the top two values on the stack',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'exchange');
                 my ($a, $b) = $calc->stack->pop2;
                 $calc->stack->push($b, $a);
             },
@@ -251,13 +251,13 @@ sub register_commands {
             help => 'copy value at depth N to the top of the stack',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'pick');
                 my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pick requires a non-negative integer\n";
                     return;
                 }
-                return unless $calc->stack->require_depth($n + 1);
+                return unless $calc->stack->require_depth($n + 1,'pick 2nd');
                 $calc->stack->push($calc->stack->peek_at($n));
             },
         }
@@ -270,13 +270,13 @@ sub register_commands {
             help    => 'move value at depth N to the top of the stack',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'pullup');
                 my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pullup requires a non-negative integer\n";
                     return;
                 }
-                return unless $calc->stack->require_depth($n + 1);
+                return unless $calc->stack->require_depth($n + 1,'pullup 2nd');
                 my @values = $calc->stack->values;
                 my $value  = splice @values, $n, 1;
                 unshift @values, $value;
@@ -291,13 +291,13 @@ sub register_commands {
             help => 'move the top value down to depth N',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'pushdown');
                 my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^\d+$/) {
                     warn "pushdown requires a non-negative integer\n";
                     return;
                 }
-                return unless $calc->stack->require_depth($n + 1);
+                return unless $calc->stack->require_depth($n + 1,'pushdown 2nd');
                 my @values = $calc->stack->values;
                 my $value  = shift @values;
                 splice @values, $n, 0, $value;
@@ -312,7 +312,7 @@ sub register_commands {
             help => 'pop N and rotate the whole stack; positive moves bottom values to top, negative moves top values to bottom',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'roll');
                 my $n = $calc->stack->pop;
                 unless (defined $n && $n =~ /^-?\d+$/ && $n != 0) {
                     warn "roll requires a non-zero integer\n";

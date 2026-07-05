@@ -17,7 +17,7 @@ sub register_commands {
             help => 'future value: pv rate nper fv',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'fv');
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
@@ -41,7 +41,7 @@ sub register_commands {
             help => 'present value: fv rate nper pv',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'pv');
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $fv   = $calc->stack->pop;
@@ -65,7 +65,7 @@ sub register_commands {
             help => 'loan payment: pv rate nper pmt',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'pmt');
                 my $nper = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
@@ -101,7 +101,7 @@ sub register_commands {
             help => 'number of periods: pv rate pmt nper',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'nper');
                 my $pmt  = $calc->stack->pop;
                 my $rate = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;
@@ -144,7 +144,7 @@ sub register_commands {
             help => 'periodic growth rate: pv fv nper rate',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'rate');
                 my $nper = $calc->stack->pop;
                 my $fv   = $calc->stack->pop;
                 my $pv   = $calc->stack->pop;

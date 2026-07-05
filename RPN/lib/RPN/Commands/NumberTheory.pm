@@ -19,7 +19,7 @@ sub register_commands {
             help => 'push 1 if top value is prime, otherwise 0',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'isprime');
                 my $n = $calc->stack->pop;
                 $calc->stack->push(_nt_is_prime($n) ? 1 : 0);
             },
@@ -33,7 +33,7 @@ sub register_commands {
             help    => 'replace top value with next prime greater than it',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'nextprime');
                 my $n = $calc->stack->pop;
                 $calc->stack->push(_nt_next_prime($n));
             },
@@ -46,7 +46,7 @@ sub register_commands {
             help => 'replace top value with previous prime less than it',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'prevprime');
                 my $n = $calc->stack->pop;
                 my $p = _nt_prev_prime($n);
                 unless (defined $p) {
@@ -65,7 +65,7 @@ sub register_commands {
             help    => 'replace top value with its prime factors',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'factor');
                 my $n = $calc->stack->pop;
                 my @factors = _nt_factor($n);
                 $calc->stack->push($_) for @factors;
@@ -79,7 +79,7 @@ sub register_commands {
             help => 'replace top value with its positive divisors',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'divisors');
                 my $n = $calc->stack->pop;
                 my @divisors = _nt_divisors($n);
                 $calc->stack->push($_) for @divisors;
@@ -93,7 +93,7 @@ sub register_commands {
             help => 'replace top two values with their greatest common divisor',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'gcd');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 $calc->stack->push(_nt_gcd($a, $b));
@@ -107,7 +107,7 @@ sub register_commands {
             help => 'replace top two values with their least common multiple',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'lcm');
                 my $b = $calc->stack->pop;
                 my $a = $calc->stack->pop;
                 my $gcd = _nt_gcd($a, $b);
@@ -123,7 +123,7 @@ sub register_commands {
             help => 'replace top value with Euler totient phi(n)',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'totient');
                 my $n = $calc->stack->pop;
                 $calc->stack->push(_nt_phi($n));
             },
@@ -140,7 +140,7 @@ sub register_commands {
             help => 'product of all primes <= n: n primorial',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'primorial');
                 my $n = $calc->stack->pop;
                 unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 0) {
                     $calc->stack->push($n);
@@ -158,7 +158,7 @@ sub register_commands {
             help => 'Möbius function: n mobius',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'mobius');
                 my $n = $calc->stack->pop;
                 unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 1) {
                     $calc->stack->push($n);
@@ -176,7 +176,7 @@ sub register_commands {
             help => 'Mertens function: n mertens',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'mertens');
                 my $n = $calc->stack->pop;
                 unless (!ref($n) && $calc->isanumber($n) && int($n) == $n && $n >= 1) {
                     $calc->stack->push($n);

@@ -19,7 +19,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'factorial');
 
                 my $n = $calc->stack->pop;
 
@@ -42,7 +42,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'permutations');
 
                 my $r = $calc->stack->pop;
                 my $n = $calc->stack->pop;
@@ -68,7 +68,7 @@ sub register_commands {
             code    => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'combinations');
 
                 my $r = $calc->stack->pop;
                 my $n = $calc->stack->pop;
@@ -93,7 +93,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'binompdf');
 
                 my $p = $calc->stack->pop;
                 my $k = $calc->stack->pop;
@@ -124,7 +124,7 @@ sub register_commands {
             code => sub {
                 my ($calc) = @_;
 
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'binomcdf');
 
                 my $p = $calc->stack->pop;
                 my $k = $calc->stack->pop;

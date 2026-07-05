@@ -112,7 +112,7 @@ sub _initialize {
                      help => "numeric comparison $op",
                      code => sub {
                          my ($calc) = @_;
-                         return unless $calc->stack->require_depth(2);
+                         return unless $calc->stack->require_depth(2,'boolean numerical');
                          my ($a, $b) = $calc->stack->pop2;
                          my $result =
                              eval "\$b $op \$a";
@@ -143,7 +143,7 @@ sub _initialize {
                         help => "string comparison $op",
                         code => sub {
                             my ($calc) = @_;
-                            return unless $calc->stack->require_depth(2);
+                            return unless $calc->stack->require_depth(2,'boolean string');
                             my ($a, $b) = $calc->stack->pop2;
                             my $result =
                                 eval "\$b $op \$a";
@@ -168,7 +168,7 @@ sub _initialize {
             help    => 'prints top value on stack without popping it',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'peek');
                 print $calc->format_value($calc->stack->peek) . "\n";
             },
         }
@@ -180,7 +180,7 @@ sub _initialize {
             help => 'pops and prints the top value on the stack',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'print');
                 print $calc->stack->pop . "\n";
             },
         }
@@ -207,7 +207,7 @@ sub _initialize {
             help => 'prints the top value using a printf format without popping it',
             code => sub {
                 my ($calc, $arg_str) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'peekf');
                 my $format = $self->_clean_format($arg_str);
                 printf "$format\n", $calc->stack->peek;
             },
@@ -220,7 +220,7 @@ sub _initialize {
             help => 'pops and prints the top value using a printf format',
             code => sub {
                 my ($calc, $arg_str) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'printf');
                 my $format = $self->_clean_format($arg_str);
                 printf "$format\n", $calc->stack->pop;
             },
@@ -234,7 +234,7 @@ sub _initialize {
             help    => 'prints the top value as a decimal integer without popping it',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'decimal');
                 printf "%d\n", $calc->stack->peek;
             },
         }
@@ -247,7 +247,7 @@ sub _initialize {
             help    => 'prints the top value in hexadecimal without popping it',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'hexadecimal');
                 printf "0x%x\n", $calc->stack->peek;
             },
         }
@@ -260,7 +260,7 @@ sub _initialize {
             help    => 'prints the top value in octal without popping it',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'octal');
                 printf "0%o\n", $calc->stack->peek;
             },
         }
@@ -273,7 +273,7 @@ sub _initialize {
             help    => 'prints the top value in binary without popping it',
             code    => sub {
                 my ($calc, $arg_str) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'binary');
                 my $width = '';
                 if (defined $arg_str && $arg_str =~ /^\s*(\d+)\s*$/) {
                     $width = $1;
@@ -345,7 +345,7 @@ sub _initialize {
             help => 'execute the top stack value as an executable value',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'call');
 
                 my $exec = $calc->stack->pop;
 
@@ -389,7 +389,7 @@ sub _initialize {
             help => 'apply an executable value to each stack item: executable map',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'map');
 
                 my @original = $calc->stack->values;
                 my $exec = $calc->stack->pop;
@@ -438,7 +438,7 @@ sub _initialize {
             help => 'keep stack items whose executable predicate returns true: executable filter',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'filter');
 
                 my @original = $calc->stack->values;
                 my $exec = $calc->stack->pop;
@@ -486,7 +486,7 @@ sub _initialize {
             help => 'combine stack items using an executable value: executable reduce',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'reduce');
 
                 my @original = $calc->stack->values;
                 my $exec = $calc->stack->pop;
@@ -663,7 +663,7 @@ sub _initialize {
             help    => 'executes the string on top of the stack as an RPN command',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(1);
+                return unless $calc->stack->require_depth(1,'execute');
                 my $input = $calc->stack->pop;
                 unless ($calc->commands->execute($calc, $input)) {
                     warn "unknown input type '$input'\n";
@@ -679,7 +679,7 @@ sub _initialize {
             help    => 'execute an executable value when a condition is true: condition executable if',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'if');
 
                 my $top    = $calc->stack->pop;
                 my $second = $calc->stack->pop;
@@ -715,7 +715,7 @@ sub _initialize {
             help => 'execute one of two executable values based on a condition: condition true-exec false-exec ifelse',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'ifelse');
 
                 my $top    = $calc->stack->pop;
                 my $middle = $calc->stack->pop;
@@ -754,7 +754,7 @@ sub _initialize {
             help => 'repeat an executable value while a condition executable returns true: condition-exec body-exec while',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'while');
 
                 my $body_exec = $calc->stack->pop;
                 my $cond_exec = $calc->stack->pop;
@@ -785,7 +785,7 @@ sub _initialize {
             help => 'repeat an executable value until a condition executable returns true: condition-exec body-exec until',
             code => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'until');
 
                 my $body_exec = $calc->stack->pop;
                 my $cond_exec = $calc->stack->pop;
@@ -1007,7 +1007,7 @@ sub _initialize {
             help    => 'generate a sequence from start to stop',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(2);
+                return unless $calc->stack->require_depth(2,'range');
                 my $stop  = $calc->stack->pop;
                 my $start = $calc->stack->pop;
                 my @range;
@@ -1040,7 +1040,7 @@ sub _initialize {
             help    => 'generate a numeric sequence with explicit step',
             code    => sub {
                 my ($calc) = @_;
-                return unless $calc->stack->require_depth(3);
+                return unless $calc->stack->require_depth(3,'rangebv');
                 my $step  = $calc->stack->pop;
                 my $stop  = $calc->stack->pop;
                 my $start = $calc->stack->pop;
@@ -1080,7 +1080,7 @@ sub _initialize {
 
 sub _binary_boolean {
     my ($self, $calc, $code) = @_;
-    return unless $calc->stack->require_depth(2);
+    return unless $calc->stack->require_depth(2,'_binary_boolean');
     my ($a, $b) = $calc->stack->pop2;
     $calc->stack->push(
         $code->($b, $a)
@@ -1194,7 +1194,7 @@ sub _rebuild_abbrevs {
 sub _execute_on_named_stack {
     my ($calc, $command_name, $copy_current_stack) = @_;
 
-    return unless $calc->stack->require_depth(2);
+    return unless $calc->stack->require_depth(2,'_execute_on_named_stack');
 
     my $exec = $calc->stack->pop;
     my $name = $calc->stack->pop;
@@ -1318,7 +1318,7 @@ sub categories {
 
 sub _unary_numeric {
     my ($self, $calc, $code) = @_;
-    return unless $calc->stack->require_depth(1);
+    return unless $calc->stack->require_depth(1,'_unary_numeric');
     my $a = $calc->stack->pop;
     unless (!ref($a) && $calc->isanumber($a)) {
         $calc->stack->push($a);
@@ -1331,7 +1331,7 @@ sub _unary_numeric {
 
 sub _binary_numeric {
     my ($self, $calc, $code) = @_;
-    return unless $calc->stack->require_depth(2);
+    return unless $calc->stack->require_depth(2,'_binary_numeric');
     my ($a, $b) = $calc->stack->pop2;
     unless (!ref($a) && $calc->isanumber($a)
          && !ref($b) && $calc->isanumber($b)) {
