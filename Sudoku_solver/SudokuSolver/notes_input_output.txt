@@ -1,0 +1,99 @@
+1) Input/Output
+
+     1   2   3   4   5   6   7   8   9  
+   +===+===+===+===+===+===+===+===+===+
+ 1 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 2 H   | 1 |   H   | 2 |   H   | 3 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 3 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+ 4 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 5 H   | 4 |   H   | 5 |   H   | 6 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 6 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+ 7 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 8 H   | 7 |   H   | 8 |   H   | 9 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 9 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+
+
+   Examples of input formats:
+
+# Puzzle from Dispatch December 2, 2019 - Spaced input
+2  4 9  1
+ 6     3 
+5       4
+38 9 5 47
+  1 8 2  
+4       8
+ 1     5 
+8  3 1  6
+
+# Puzzle from Dispatch December 2, 2019 - Punctuation input, period
+2..4.9..1
+.6.....3.
+5.......4
+38.9.5.47
+..1.8.2..
+4.......8
+.1.....5.
+8..3.1..6
+
+# Puzzle from Dispatch December 2, 2019 - Punctuation input, underscore
+2__4_9__1
+_6_____3_
+5_______4
+38_9_5_47
+__1_8_2__
+4_______8
+_1_____5_
+8__3_1__6
+
+# Puzzle from Dispatch December 2, 2019 - Punctuation input, underscore with spaces
+    2 _ _ 4 _ 9 _ _ 1
+    _ 6 _ _ _ _ _ 3 _
+    5 _ _ _ _ _ _ _ 4
+    3 8 _ 9 _ 5 _ 4 7
+    _ _ 1 _ 8 _ 2 _ _
+    4 _ _ _ _ _ _ _ 8
+    _ 1 _ _ _ _ _ 5 _
+    8 _ _ 3 _ 1 _ _ 6
+
+2) Data Structure
+
+  Difficulty         number range of given numbers, other attributes as of yet unknown or unidentified
+        0 - easy
+        1 - medium
+        2 - hard
+        3 - crazy
+        4 - diabolical
+
+   Puzzle
+     Notes           -> string describing origin of the puzzle
+     Difficulty      -> 0 - easy, 1 - medium, 2 - hard, 3 - crazy, 4 - diabolical
+     Rows            -> array 1 .. 9, pointers to each member row
+     Columns         -> array 1 .. 9, pointers to each member columns
+     Boxs            -> array 1 .. 9, pointers to each member box
+
+   Row
+     Members         -> array 1 .. 9, with pointers to cells in this Row
+
+   Column
+     Members         -> array 1 .. 9, with pointers to cells in this Column
+
+   Box
+     Members         -> array 1 .. 9, with pointers to cells in this Box
+
+   Cell
+     Given           -> boolean, true if given value was 'given' in original puzzle
+     Value           -> single digit 1 - 9
+     Possible values -> array 1 .. 9, with numbers for those that are possible and zeros for those that are not.
+                        example, [ 1, 0, 0, 4, 0, 0, 0, 0, 0, 9 ] would be a cell who's possible remaining values would be 1, 4 and 9
+     Box             -> number from 1 - 9, to which box    does this cell belong    
+     Row             -> number from 1 - 9, to which row    does this cell belong    
+     Column          -> number from 1 - 9, to which column does this cell belong    

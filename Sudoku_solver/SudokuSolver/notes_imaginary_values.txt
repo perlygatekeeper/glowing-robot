@@ -1,0 +1,53 @@
+
+The term Imaginary Values (coined by my son Jamison Parker) combines two concepts
+found in the Beginner solving techniques found at Sudoku Snake web site:
+
+http://www.sudokusnake.com/techniques.php
+
+These concepts are "Pointing" and "Claiming":
+
+http://www.sudokusnake.com/claiming.php
+http://www.sudokusnake.com/pointing.php
+
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '     3 '     3 |       '       '     3 |     3 '     3 '     3 |  
+  1 |   1   '       '     6 |   9   '   2   ' 4 5   | 4 5 6 '   5 6 ' 4     |   <- values 4 and 5 in Box 3 are both only in Row 1 and therefore may be
+    |       ' 7 8   ' 7 8   |       '       '       |   8   '   8   '   8   |      considered imaginary values in Box 3, thus clearing the 4 and 5 has
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +      possible values for cell 6 ( 1, 6 )
+    |       '       '       |     3 '       '       |     3 '     3 '       |  
+  2 |   5   '   2   '   4   |     6 '   1   '   7   |     6 '     6 '   9   |  
+    |       '       '       |   8   '       '       |   8   '   8   '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |     3 '     3 '     3 |     3 '       '     3 |       '       '       |  
+  3 |     6 '       '     6 | 4 5 6 ' 4 5 6 ' 4 5   |   2   '   7   '   1   |  
+    |   8 9 '   8 9 '   8 9 |   8   '   8   '       |       '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '     3 |     3 '       '       |       '     3 '       |  
+  4 |     6 '   5   '     6 | 4   6 ' 4   6 '   8   |   1   '     6 '   2   |  
+    | 7   9 '       ' 7   9 |       '     9 '       |       '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |     3 '     3 '     3 |       '       '       |     3 '     3 '     3 |  
+  5 |     6 '       '     6 |   1   ' 4 5 6 '   2   | 4 5 6 '   5 6 ' 4     |  
+    | 7 8 9 ' 7 8 9 ' 7 8 9 |       '     9 '       | 7 8   '   8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       |       '       '     3 |     3 '       '     3 |  
+  6 |   4   '   1   '   2   |   7   '   5 6 '   5   |   5 6 '   9   '       |  
+    |       '       '       |       '       '       |   8   '       '   8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |   2 3 '       '     3 |   2   '       '       |     3 '       '     3 |  
+  7 |       '   6   '   5   | 4 5   ' 4 5   '   9   |       '   1   '       |  
+    | 7 8   '       ' 7 8   |   8   '   8   '       | 7 8   '       ' 7 8   |   <- the value 7 is an imaginary value for Row 7 portion of Box 9
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +      this will clear the value 7 from both ( 7, 1 ) and ( 7, 3 ) 
+    |   2   '       '       |   2   '       '       |       '       '       |  
+  8 |       '       '   1   |       '   3   '   6   |   9   '   4   '   5   |  
+    | 7 8   ' 7 8   '       |   8   '       '       |       '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |     3 '       '     3 |       '       '       |     3 '       '       |  
+  9 |       '   4   '   5   |   5   '   7   '   1   |       '   2   '   6   |  
+    |   8 9 '       '   8 9 |   8   '       '       |   8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+                                \
+                                 \
+                                  \__ Although 2, is an imaginary value for the Col 4 portion of Box 8, it does
+                                      not lead to clearing any possible values in any other Cells in Col 4

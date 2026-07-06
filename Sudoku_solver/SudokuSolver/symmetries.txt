@@ -1,0 +1,56 @@
+
+     1   2   3   4   5   6   7   8   9  
+   +===+===+===+===+===+===+===+===+===+
+ 1 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 2 H   | 1 |   H   | 2 |   H   | 3 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 3 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+ 4 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 5 H   | 4 |   H   | 5 |   H   | 6 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 6 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+ 7 H   |   |   H   |   |   H   |   |   H
+   + - + - + - + - + - + - + - + - + - +
+ 8 H   | 7 |   H   | 8 |   H   | 9 |   H
+   + - + - + - + - + - + - + - + - + - +
+ 9 H   |   |   H   |   |   H   |   |   H
+   +===+===+===+===+===+===+===+===+===+
+
+
+   Mirror images:
+   horizontal
+   vertical
+   diagonal \
+   diagonal /
+
+   Rotations:
+   rotation clockwise
+   rotation counter-clockwise
+   rotation 180
+
+   Shifts:
+   shift boxes up 1
+   shift boxes down 1
+   shift boxes right 1
+   shift boxes left 1
+   row    swap within box
+   column swap within box
+
+   Symbol identities:
+   Numeral swaps 1-9, 2-9, 3-9, ...
+
+   ---------------------------------------------------
+
+   What makes a puzzle unique, what defines it?
+
+   How many cells are occupied in each row, column, box?
+
+
+
+
+
+

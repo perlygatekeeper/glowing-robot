@@ -1,0 +1,428 @@
+puzzle_string: 000000012800040000000000060090200000700000400000501000015000000000030900602000000
+==== Pass 1 ====
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '     3 '     3 |     3 '       '     3 |     3 '       '       |  
+  1 | 4 5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |     9 ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7   9 | 7   9 '       ' 7   9 | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2 3 ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '     3 |  
+  3 | 4 5   ' 4 5   ' 4     |       '   5   '   5   |   5   '   6   ' 4 5   |  
+    |     9 ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '     3 | 1   3 '     3 ' 1   3 |  
+  4 | 4 5   '   9   ' 4   6 |   2   '     6 ' 4   6 |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   ' 7 8   | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 |     3 '       '     3 |       '   2 3 ' 1   3 |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2 3 '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 | 4     ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7 8   ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 | 4     '   1   '   5   | 4   6 '     6 ' 4   6 |     6 ' 4     ' 4   6 |  
+    |     9 '       '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 | 4     ' 4     ' 4     | 4   6 '   3   ' 4 5 6 |   9   ' 4 5   ' 4 5 6 |  
+    |       ' 7 8   ' 7 8   | 7 8   '       ' 7 8   |       ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '     3 '       | 1     ' 1     '       | 1   3 '     3 ' 1   3 |  
+  9 |   6   ' 4     '   2   | 4     '   5   ' 4 5   |   5   ' 4 5   ' 4 5   |  
+    |       ' 7 8   '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+Looking for Singletons (cells with only one possible value left) :
+Setting cell ( 8, 1, 7 ) to 4
+Found and set 1 cells this singletons search pass.
+
+So far we filled this many cells: 18
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '     3 '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |     9 ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7   9 | 7   9 '       ' 7   9 | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2 3 ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '     3 |  
+  3 |   5   ' 4 5   ' 4     |       '   5   '   5   |   5   '   6   ' 4 5   |  
+    |     9 ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '     3 | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   ' 4   6 |   2   '     6 ' 4   6 |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   ' 7 8   | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 |     3 '       '     3 |       '   2 3 ' 1   3 |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2 3 '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7 8   ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |       '   1   '   5   | 4   6 '     6 ' 4   6 |     6 ' 4     ' 4   6 |  
+    |     9 '       '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   | 7 8   '       ' 7 8   |       ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '     3 '       | 1     ' 1     '       | 1   3 '     3 ' 1   3 |  
+  9 |   6   '       '   2   | 4     '   5   ' 4 5   |   5   ' 4 5   ' 4 5   |  
+    |       ' 7 8   '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+---- end singletons method ----
+
+Looking for Singletons (cells with only one possible value left) :
+Found and set 0 cells this singletons search pass.
+
+Looking for Lone representatives (possible value's present in only one cell of a cluster [row column or box]):
+Lone in Box    Setting cell ( 3, 9, 3 ) to 4
+Lone in Box    Setting cell ( 4, 6, 5 ) to 4
+Lone in Box    Setting cell ( 7, 1, 7 ) to 9
+Found and set 3 cells this lone representatives search pass.
+
+So far we filled this many cells: 21
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '     3 '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |       ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7   9 | 7   9 '       ' 7   9 | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2 3 ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '       |  
+  3 |   5   '   5   '       |       '   5   '   5   |   5   '   6   '   4   |  
+    |       ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '       | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   '     6 |   2   '     6 '   4   |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   '       | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2 3 ' 1   3 |     3 '       '     3 |       '   2 3 ' 1   3 |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2 3 '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7 8   ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |   9   '   1   '   5   | 4   6 '     6 '     6 |     6 ' 4     '     6 |  
+    |       '       '       | 7 8   ' 7 8   ' 7 8   | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   | 7 8   '       ' 7 8   |       ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '     3 '       | 1     ' 1     '       | 1   3 '     3 ' 1   3 |  
+  9 |   6   '       '   2   | 4     '   5   '   5   |   5   ' 4 5   '   5   |  
+    |       ' 7 8   '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+---- end lone representatives method ----
+
+Looking for Lone representatives (possible value's present in only one cell of a cluster [row column or box]):
+Lone in Box    Setting cell ( 9, 2, 7 ) to 3
+Found and set 1 cells this lone representatives search pass.
+
+So far we filled this many cells: 22
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |       ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7   9 | 7   9 '       ' 7   9 | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2   ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '       |  
+  3 |   5   '   5   '       |       '   5   '   5   |   5   '   6   '   4   |  
+    |       ' 7     ' 7   9 | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '       | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   '     6 |   2   '     6 '   4   |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   '       | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1   3 |     3 '       '     3 |       '   2 3 ' 1   3 |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2   '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7 8   ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |   9   '   1   '   5   | 4   6 '     6 '     6 |     6 ' 4     '     6 |  
+    |       '       '       | 7 8   ' 7 8   ' 7 8   | 7 8   ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   | 7 8   '       ' 7 8   |       ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     ' 1     '       | 1     '       ' 1     |  
+  9 |   6   '   3   '   2   | 4     '   5   '   5   |   5   ' 4 5   '   5   |  
+    |       '       '       | 7 8 9 ' 7 8 9 ' 7 8 9 | 7 8   ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+---- end lone representatives method ----
+
+Looking for Lone representatives (possible value's present in only one cell of a cluster [row column or box]):
+Found and set 0 cells this lone representatives search pass.
+
+Looking for Imaginary Values (all 2 or 3 representatives of a given value in a cluster share all belong to another cluster):
+Imaginary value of 8 found in Box 3 all in col 7...   removing it from the cell ( 4, 7, 6 ).
+Imaginary value of 8 found in Box 3 all in col 7...   removing it from the cell ( 6, 7, 6 ).
+Imaginary value of 8 found in Box 3 all in col 7...   removing it from the cell ( 7, 7, 9 ).
+Imaginary value of 8 found in Box 3 all in col 7...   removing it from the cell ( 9, 7, 9 ).
+Imaginary value of 9 found in Box 3 all in row 2...   removing it from the cell ( 2, 3, 1 ).
+Imaginary value of 9 found in Box 3 all in row 2...   removing it from the cell ( 2, 4, 2 ).
+Imaginary value of 9 found in Box 3 all in row 2...   removing it from the cell ( 2, 6, 2 ).
+Imaginary value of 3 found in Box 5 all in row 5...   removing it from the cell ( 5, 3, 4 ).
+Imaginary value of 3 found in Box 5 all in row 5...   removing it from the cell ( 5, 8, 6 ).
+Imaginary value of 3 found in Box 5 all in row 5...   removing it from the cell ( 5, 9, 6 ).
+Imaginary value of 7 found in Box 5 all in col 5...   removing it from the cell ( 1, 5, 2 ).
+Imaginary value of 7 found in Box 5 all in col 5...   removing it from the cell ( 3, 5, 2 ).
+Imaginary value of 7 found in Box 5 all in col 5...   removing it from the cell ( 7, 5, 8 ).
+Imaginary value of 7 found in Box 5 all in col 5...   removing it from the cell ( 9, 5, 8 ).
+Imaginary value of 7 found in Box 7 all in row 8...   removing it from the cell ( 8, 4, 8 ).
+Imaginary value of 7 found in Box 7 all in row 8...   removing it from the cell ( 8, 6, 8 ).
+Imaginary value of 7 found in Box 7 all in row 8...   removing it from the cell ( 8, 8, 9 ).
+Imaginary value of 7 found in Box 7 all in row 8...   removing it from the cell ( 8, 9, 9 ).
+Imaginary value of 8 found in Box 7 all in row 8...   removing it from the cell ( 8, 4, 8 ).
+Imaginary value of 8 found in Box 7 all in row 8...   removing it from the cell ( 8, 6, 8 ).
+Imaginary value of 8 found in Box 7 all in row 8...   removing it from the cell ( 8, 8, 9 ).
+Imaginary value of 8 found in Box 7 all in row 8...   removing it from the cell ( 8, 9, 9 ).
+Found and removed 22 possible values from cells via imaginary numbers.
+
+So far we filled this many cells: 22
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7     | 7     '       ' 7     | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2   ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '       |  
+  3 |   5   '   5   '       |       '   5   '   5   |   5   '   6   '   4   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '       | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   '     6 |   2   '     6 '   4   |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   '       | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1     |     3 '       '     3 |       '   2   ' 1     |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2   '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7     ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |   9   '   1   '   5   | 4   6 '     6 '     6 |     6 ' 4     '     6 |  
+    |       '       '       | 7 8   '   8   ' 7 8   | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   |       '       '       |       '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     ' 1     '       | 1     '       ' 1     |  
+  9 |   6   '   3   '   2   | 4     '   5   '   5   |   5   ' 4 5   '   5   |  
+    |       '       '       | 7 8 9 '   8 9 ' 7 8 9 | 7     ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+---- end imaginary values processing ----
+
+Looking for Imaginary Values (all 2 or 3 representatives of a given value in a cluster share all belong to another cluster):
+Found and removed 0 possible values from cells via imaginary numbers.
+
+Looking for Naked Pairs, any two cells with the same
+pair of possible values that exist in the same cluster [row column or box]):
+Found and processed 0 naked pairs.
+
+Looking for Hidden Pairs, (any two candidate values which exist 
+only in the same two cells in a given cluster):
+Hidden pair (box): comparing candadate values box0:4 and box0:9.
+Hidden pair (box): comparing candadate values box2:8 and box2:9.
+Hidden pair (box): comparing candadate values box3:4 and box3:5.
+Hidden pair (box): comparing candadate values box4:3 and box4:7.
+Hidden pair (box): comparing candadate values box6:7 and box6:8.
+Two candidate values shared first cell.
+Two candidate values shared second cell!  We have a pair.
+Hidden pair (row): comparing candadate values row1:1 and row1:2.
+Hidden pair (row): comparing candadate values row1:1 and row1:9.
+Hidden pair (row): comparing candadate values row1:2 and row1:9.
+Hidden pair (row): comparing candadate values row4:1 and row4:2.
+Hidden pair (row): comparing candadate values row4:1 and row4:3.
+Hidden pair (row): comparing candadate values row4:2 and row4:3.
+Hidden pair (row): comparing candadate values row7:1 and row7:2.
+Hidden pair (row): comparing candadate values row7:1 and row7:7.
+Hidden pair (row): comparing candadate values row7:1 and row7:8.
+Hidden pair (row): comparing candadate values row7:2 and row7:7.
+Hidden pair (row): comparing candadate values row7:2 and row7:8.
+Hidden pair (row): comparing candadate values row7:7 and row7:8.
+Two candidate values shared first cell.
+Two candidate values shared second cell!  We have a pair.
+Hidden pair (col): comparing candadate values col0:1 and col0:2.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col2:4 and col2:9.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col4:1 and col4:2.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col4:1 and col4:7.
+Hidden pair (col): comparing candadate values col4:2 and col4:7.
+Hidden pair (col): comparing candadate values col6:1 and col6:2.
+Hidden pair (col): comparing candadate values col6:1 and col6:8.
+Hidden pair (col): comparing candadate values col6:2 and col6:8.
+Found and processed 0 hidden pairs.
+
+==== End Pass 1 (progress is 27) ====
+==== Pass 2 ====
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7     | 7     '       ' 7     | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2   ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '       |  
+  3 |   5   '   5   '       |       '   5   '   5   |   5   '   6   '   4   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '       | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   '     6 |   2   '     6 '   4   |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   '       | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1     |     3 '       '     3 |       '   2   ' 1     |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2   '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7     ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |   9   '   1   '   5   | 4   6 '     6 '     6 |     6 ' 4     '     6 |  
+    |       '       '       | 7 8   '   8   ' 7 8   | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   |       '       '       |       '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     ' 1     '       | 1     '       ' 1     |  
+  9 |   6   '   3   '   2   | 4     '   5   '   5   |   5   ' 4 5   '   5   |  
+    |       '       '       | 7 8 9 '   8 9 ' 7 8 9 | 7     ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+Looking for Singletons (cells with only one possible value left) :
+Found and set 0 cells this singletons search pass.
+
+Looking for Lone representatives (possible value's present in only one cell of a cluster [row column or box]):
+Found and set 0 cells this lone representatives search pass.
+
+Looking for Imaginary Values (all 2 or 3 representatives of a given value in a cluster share all belong to another cluster):
+Found and removed 0 possible values from cells via imaginary numbers.
+
+Looking for Naked Pairs, any two cells with the same
+pair of possible values that exist in the same cluster [row column or box]):
+Found and processed 0 naked pairs.
+
+Looking for Hidden Pairs, (any two candidate values which exist 
+only in the same two cells in a given cluster):
+Hidden pair (box): comparing candadate values box0:4 and box0:9.
+Hidden pair (box): comparing candadate values box2:8 and box2:9.
+Hidden pair (box): comparing candadate values box3:4 and box3:5.
+Hidden pair (box): comparing candadate values box4:3 and box4:7.
+Hidden pair (box): comparing candadate values box6:7 and box6:8.
+Two candidate values shared first cell.
+Two candidate values shared second cell!  We have a pair.
+Hidden pair (row): comparing candadate values row1:1 and row1:2.
+Hidden pair (row): comparing candadate values row1:1 and row1:9.
+Hidden pair (row): comparing candadate values row1:2 and row1:9.
+Hidden pair (row): comparing candadate values row4:1 and row4:2.
+Hidden pair (row): comparing candadate values row4:1 and row4:3.
+Hidden pair (row): comparing candadate values row4:2 and row4:3.
+Hidden pair (row): comparing candadate values row7:1 and row7:2.
+Hidden pair (row): comparing candadate values row7:1 and row7:7.
+Hidden pair (row): comparing candadate values row7:1 and row7:8.
+Hidden pair (row): comparing candadate values row7:2 and row7:7.
+Hidden pair (row): comparing candadate values row7:2 and row7:8.
+Hidden pair (row): comparing candadate values row7:7 and row7:8.
+Two candidate values shared first cell.
+Two candidate values shared second cell!  We have a pair.
+Hidden pair (col): comparing candadate values col0:1 and col0:2.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col2:4 and col2:9.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col4:1 and col4:2.
+Two candidate values shared first cell.
+Hidden pair (col): comparing candadate values col4:1 and col4:7.
+Hidden pair (col): comparing candadate values col4:2 and col4:7.
+Hidden pair (col): comparing candadate values col6:1 and col6:2.
+Hidden pair (col): comparing candadate values col6:1 and col6:8.
+Hidden pair (col): comparing candadate values col6:2 and col6:8.
+Found and processed 0 hidden pairs.
+
+==== End Pass 2 (progress is 0) ====
+We were able to determine 22 cells.
+                                                                               
+        1       2       3       4       5       6       7       8       9      
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |     3 '       '     3 |     3 '       '     3 |     3 '       '       |  
+  1 |   5   ' 4 5 6 ' 4   6 |     6 '   5 6 '   5 6 |   5   '   1   '   2   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1   3 | 1   3 '       '   2 3 |     3 '     3 '     3 |  
+  2 |   8   '   5 6 '     6 |     6 '   4   '   5 6 |   5   '   5   '   5   |  
+    |       ' 7     ' 7     | 7     '       ' 7     | 7     ' 7   9 ' 7   9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    | 1 2 3 '   2   ' 1   3 | 1   3 ' 1 2   '   2 3 |     3 '       '       |  
+  3 |   5   '   5   '       |       '   5   '   5   |   5   '   6   '   4   |  
+    |       ' 7     ' 7   9 | 7 8 9 '   8 9 ' 7 8 9 | 7 8   '       '       |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    | 1   3 '       ' 1   3 |       '       '       | 1   3 '     3 ' 1   3 |  
+  4 |   5   '   9   '     6 |   2   '     6 '   4   |   5 6 '   5   '   5 6 |  
+    |       '       '   8   |       ' 7 8   '       | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '   2   ' 1     |     3 '       '     3 |       '   2   ' 1     |  
+  5 |   7   '   5 6 '     6 |     6 '     6 '     6 |   4   '   5   '   5 6 |  
+    |       '   8   '   8   |   8 9 '   8 9 '   8 9 |       '   8 9 '   8 9 |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |   2 3 '   2   '     3 |       '       '       |   2 3 '   2 3 '     3 |  
+  6 |       ' 4   6 ' 4   6 |   5   '     6 '   1   |     6 '       '     6 |  
+    |       '   8   '   8   |       ' 7 8 9 '       | 7     ' 7 8 9 ' 7 8 9 |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  
+    |       '       '       |       '   2   '   2   |   2 3 '   2 3 '     3 |  
+  7 |   9   '   1   '   5   | 4   6 '     6 '     6 |     6 ' 4     '     6 |  
+    |       '       '       | 7 8   '   8   ' 7 8   | 7     ' 7 8   ' 7 8   |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     '       '   2   |       '   2   ' 1     |  
+  8 |   4   '       '       |     6 '   3   '   5 6 |   9   '   5   '   5 6 |  
+    |       ' 7 8   ' 7 8   |       '       '       |       '       '       |  
+    + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- + ----- +  
+    |       '       '       | 1     ' 1     '       | 1     '       ' 1     |  
+  9 |   6   '   3   '   2   | 4     '   5   '   5   |   5   ' 4 5   '   5   |  
+    |       '       '       | 7 8 9 '   8 9 ' 7 8 9 | 7     ' 7 8   ' 7 8   |  
+    +-------+-------+-------+-------+-------+-------+-------+-------+-------+  

@@ -1,0 +1,6 @@
+
+
+   1) This code should be housed on Github.com
+   2) Will use Moose and Object-Orienated
+   3) This code shared on cpan
+   4) Test driven development should be utilized
