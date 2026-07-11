@@ -1,0 +1,27 @@
+             +----------------+
+             |     Solver     |
+             +-------+--------+
+                     |
+                     |
+          applies Deductions
+                     |
+                     v
+              +-------------+
+              |    Grid     |
+              +------+------+ 
+                     |
+           owns Cell objects
+                     |
+          +----------+----------+
+          |                     |
+          v                     v
+      Cell model          Deduction log
+                                |
+                                |
+                    +-----------+-----------+
+                    |                       |
+                    v                       v
+             Formatter::Text        Formatter::HTML
+                    |                       |
+                    v                       v
+               terminal                 browser
