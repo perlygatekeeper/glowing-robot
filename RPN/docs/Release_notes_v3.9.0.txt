@@ -1,0 +1,12 @@
+String operations have been expanded with four new composable primitives:
+
+* `substr` extracts part of a string using the fixed stack form
+  `string offset length substr`. Negative offsets and lengths follow Perl
+  semantics.
+* `chr` converts an integer Unicode code point into a character.
+* `ord` returns the Unicode code point of the first character of a string.
+* `chars` converts a string into a vector of individual characters.
+
+These operations complement `map`, `filter`, `join`, and the executable-value
+system, allowing character-oriented string processing to be written directly
+in the RPN language.
