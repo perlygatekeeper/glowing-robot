@@ -27,7 +27,7 @@ sub new {
         || '.';
 
     my $self = {
-        version             => '3.9.0',
+        version             => '3.9.1',
         debug               => 0,
         angle_mode          => 'radians',
         install_dir         => $install_dir,
