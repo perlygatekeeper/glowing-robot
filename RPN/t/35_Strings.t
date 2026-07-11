@@ -90,6 +90,46 @@ isa_ok($calc->stack->pop, 'RPN::Vector', 'join preserves non-string delimiter');
 is($calc->stack->depth, 2, 'join non-string delimiter leaves original values');
 $calc->stack->clear;
 
+$calc->stack->push(3, 2, 'abcdef');
+$calc->process_input('substr');
+is(top(), 'cde', 'substr extracts offset and length');
+
+$calc->stack->push(2, -2, 'abcdef');
+$calc->process_input('substr');
+is(top(), 'ef', 'substr supports negative offsets');
+
+$calc->stack->push(-1, 1, 'abcdef');
+$calc->process_input('substr');
+is(top(), 'bcde', 'substr retains Perl negative-length semantics');
+
+$calc->stack->push(65);
+$calc->process_input('chr');
+is(top(), 'A', 'chr converts a code point to a character');
+
+$calc->stack->push(9731);
+$calc->process_input('chr');
+is(ord(top()), 9731, 'chr supports Unicode code points');
+
+$calc->stack->push('ABC');
+$calc->process_input('ord');
+is(top(), 65, 'ord returns the first character code point');
+
+$calc->stack->push(chr(9731));
+$calc->process_input('ord');
+is(top(), 9731, 'ord supports Unicode characters');
+
+$calc->stack->push('Steve');
+$calc->process_input('chars');
+my $chars = top();
+isa_ok($chars, 'RPN::Vector', 'chars returns a vector');
+is_deeply([$chars->values], [qw(S t e v e)], 'chars splits a string into characters');
+
+$calc->stack->push('');
+$calc->process_input('chars');
+$chars = top();
+isa_ok($chars, 'RPN::Vector', 'chars of empty string returns a vector');
+is_deeply([$chars->values], [], 'chars of empty string returns an empty vector');
+
 $calc->stack->push('hello');
 $calc->process_input('length');
 is(top(), 5, 'length');

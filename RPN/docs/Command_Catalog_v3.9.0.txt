@@ -26,7 +26,9 @@ cbrt               cb                                Numeric         cube root
 ceil               cei                               Numeric         round up
 celsius_fahrenheit cel        ctof                   Conversion      convert Celsius to Fahrenheit
 centimeter_inch    cen        ctoi                   Conversion      convert centimeters to inches
-choose             ch                                Random          copy a random stack element to the top
+chars              cha                               String          convert a string to a vector of characters
+choose             cho                               Random          copy a random stack element to the top
+chr                                                  String          convert an integer Unicode code point to a character
 clear                         clr                    Stack           empties the stack
 clearall           cleara                            Stack           clear all stacks and return to the default stack
 clearstack         clears                            Stack           clear named stack: clearstack <name>
@@ -143,6 +145,7 @@ normalize          nor        unit                   Vector          replace a v
 now                                                  Datetime        push current epoch time
 nper               np                                Financial       number of periods: pv rate pmt nper
 octal              oc         oct                    Display         prints the top value in octal without popping it
+ord                or                                String          return the Unicode code point of the first character
 ounce_gram         ou         otog                   Conversion      convert ounces to grams
 over               ov                                Stack           duplicate the second value on the stack: ( a b -- a b a )
 peek                          .                      Display         prints top value on stack without popping it
@@ -212,7 +215,8 @@ stacksize          stacks                            Stack           push depth 
 stddev             std        stdev                  Statistics      replaces the entire stack with the population standard deviation
 store              sto        sto                    Variable        pop NAME and store the top stack value in that variable
 strrev             str                               String          reverse a string
-subst              subs                              String          regex replace first match: string pattern replacement subst
+subst                                                String          regex replace first match: string pattern replacement subst
+substr                                               String          extract substring: string offset length substr
 subtract           subt       -                      Numeric         pops two numbers and pushes their difference
 sum                                                  Statistics      replaces the entire stack with the sum of its values
 tangent            tan        tan                    Trig            replaces the number on top of the stack with its tangent

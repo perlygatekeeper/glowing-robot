@@ -168,6 +168,95 @@ sub register_commands {
     );
 
     $commands->register(
+        substr => {
+            category => 'string',
+            help => 'extract substring: string offset length substr',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(3, 'substr');
+
+                my $length = $calc->stack->pop;
+                my $offset = $calc->stack->pop;
+                my $string = $calc->stack->pop;
+
+                unless (_string_is_integer($calc, $offset)
+                    && _string_is_integer($calc, $length)) {
+                    $calc->stack->push($string, $offset, $length);
+                    warn "substr requires integer offset and length values\n";
+                    return;
+                }
+
+                $calc->stack->push(substr($string, int($offset), int($length)));
+            },
+        }
+    );
+
+    $commands->register(
+        chr => {
+            category => 'string',
+            help => 'convert an integer Unicode code point to a character',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1, 'chr');
+
+                my $codepoint = $calc->stack->pop;
+
+                unless (_string_is_integer($calc, $codepoint)
+                    && $codepoint >= 0
+                    && $codepoint <= 0x10FFFF) {
+                    $calc->stack->push($codepoint);
+                    warn "chr requires an integer Unicode code point from 0 through 1114111\n";
+                    return;
+                }
+
+                $calc->stack->push(chr(int($codepoint)));
+            },
+        }
+    );
+
+    $commands->register(
+        ord => {
+            category => 'string',
+            help => 'return the Unicode code point of the first character',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1, 'ord');
+
+                my $string = $calc->stack->pop;
+
+                if (ref($string) || !defined($string) || $string eq '') {
+                    $calc->stack->push($string);
+                    warn "ord requires a non-empty string\n";
+                    return;
+                }
+
+                $calc->stack->push(ord($string));
+            },
+        }
+    );
+
+    $commands->register(
+        chars => {
+            category => 'string',
+            help => 'convert a string to a vector of characters',
+            code => sub {
+                my ($calc) = @_;
+                return unless $calc->stack->require_depth(1, 'chars');
+
+                my $string = $calc->stack->pop;
+
+                if (ref($string) || !defined($string)) {
+                    $calc->stack->push($string);
+                    warn "chars requires a string\n";
+                    return;
+                }
+
+                $calc->stack->push(RPN::Vector->new(split //, $string));
+            },
+        }
+    );
+
+    $commands->register(
         length => {
             category => 'string',
             help => 'string length',
@@ -306,6 +395,14 @@ sub register_commands {
     return;
 }
 
+
+sub _string_is_integer {
+    my ($calc, $n) = @_;
+    return !ref($n)
+        && defined($n)
+        && $calc->isanumber($n)
+        && int($n) == $n;
+}
 
 sub _string_is_nonnegative_integer {
     my ($calc, $n) = @_;

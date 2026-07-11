@@ -67,8 +67,10 @@ syntax:
 run:
 	$(PERL) -Ilib rpn.pl
 
-test: syntax
+test: 
 	prove -Ilib t
+
+check: syntax test 
 
 docs-check:
 	$(PERL) -Ilib tools/tutorial_audit.pl
