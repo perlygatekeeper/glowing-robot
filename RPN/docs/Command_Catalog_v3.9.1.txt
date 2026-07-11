@@ -1,0 +1,251 @@
+Command            Abbrev     Aliases                Category        Description
+------------------ ---------- ---------------------- --------------- ----------------------------------------
+!=                 !                                 Boolean         numeric comparison !=
+<                                                    Boolean         numeric comparison <
+<=                                                   Boolean         numeric comparison <=
+<=>                                                  Boolean         numeric comparison <=>
+==                 =                                 Boolean         numeric comparison ==
+>                                                    Boolean         numeric comparison >
+>=                                                   Boolean         numeric comparison >=
+abbreviations      abb        abbrevs                Discovery       lists shortest usable abbreviations for commands
+abs                                                  Numeric         absolute value
+acosh              ac                                Trig            inverse hyperbolic cosine
+add                ad         +                      Numeric         pops two numbers and pushes their sum
+aliases            al                                Discovery       lists commands that have aliases
+appendcsv          ap                                Io              append current stack to a CSV file
+asinh              as                                Trig            inverse hyperbolic sine
+atanh              at                                Trig            inverse hyperbolic tangent
+average            av         avg                    Statistics      replaces the entire stack with the average of its values
+beta               be                                Numeric         beta function: x y beta computes B(x,y)
+binary             bin        bin                    Display         prints the top value in binary without popping it
+binomcdf           binomc                            Combinatorics   cumulative binomial probability: n k p binomcdf
+binompdf           binomp                            Combinatorics   binomial probability: n k p binompdf
+call               cal                               Execution       execute the top stack value as an executable value
+categories         cat        types                  Discovery       list command categories
+cbrt               cb                                Numeric         cube root
+ceil               cei                               Numeric         round up
+celsius_fahrenheit cel        ctof                   Conversion      convert Celsius to Fahrenheit
+centimeter_inch    cen        ctoi                   Conversion      convert centimeters to inches
+chars              cha                               String          convert a string to a vector of characters
+choose             cho                               Random          copy a random stack element to the top
+chr                                                  String          convert an integer Unicode code point to a character
+clear                         clr                    Stack           empties the stack
+clearall           cleara                            Stack           clear all stacks and return to the default stack
+clearstack         clears                            Stack           clear named stack: clearstack <name>
+cmp                cm                                Boolean         string comparison cmp
+codeblocks         cod                               Codeblock       list named code blocks
+cols               col                               Matrix          replace a matrix with its column count
+combinations       comb       ncr, comb, binom       Combinatorics   number of combinations (n choose r): n r combinations
+commands           comm                              Discovery       lists commands with abbreviations, aliases, categories, and descriptions
+constants          const      const                  Constant        list, push, define, or browse constants
+constinfo          consti                            Constant        show value and metadata for one constant
+copystack          cop                               Stack           copy stack: copystack <src> <dst>
+cosh                                                 Trig            hyperbolic cosine
+cosine             cos        cos                    Trig            replaces the number on top of the stack with its cosine
+count              cou                               Statistics      pushes the current stack depth onto the stack
+cross              cr                                Vector          cross product of two 3D vectors
+cube               cu                                Numeric         cubes the number on top of the stack
+datetime           da                                Datetime        push current date and time as YYYY-MM-DD HH:MM:SS
+decimal            dec        dec                    Display         prints the top value as a decimal integer without popping it
+decrement          decr                              Numeric         decrements the number on top of the stack
+define             def        def                    Function        define a user function: define <name> <body>
+degrees                                              Trig            sets angle mode to degrees
+degrees_radians    degrees_   dtor                   Conversion      convert degrees to radians
+delconst           delc                              Constant        delete a user-defined constant
+deletestack        dele       dropstack, rmstack     Stack           delete a named stack: deletestack <name>
+delvar             delv                              Variable        pop NAME and delete that stored variable
+depth              dep                               Stack           pushes the current stack depth onto the stack
+determinant        det        det                    Matrix          compute determinant of a square matrix
+dieroll            die                               Random          pop SIDES and push a random integer from 1 to SIDES
+dim                                                  Vector          replace a vector with its dimension
+divide             divid      /                      Numeric         pops two numbers and pushes their quotient
+divisors           divis                             Number Theory   replace top value with its positive divisors
+dot                do                                Vector          dot product of two vectors
+duplicate          dup        dup                    Stack           duplicates the number on top of the stack
+dupstack           dups                              Stack           duplicate current stack: dupstack <dst>
+eq                                                   Boolean         string comparison eq
+erf                                                  Numeric         error function: erf(x)
+erfc                                                 Numeric         complementary error function: erfc(x)
+exchange           exc        x, swap                Stack           swaps the top two values on the stack
+execute            exe        exec                   Flow            executes the string on top of the stack as an RPN command
+exp                                                  Numeric         e raised to x
+exp10              exp1                              Numeric         10 raised to x
+exponentiate       expo       **, ^                  Numeric         raises the second stack value to the power of the top stack value
+factor                        factors                Number Theory   replace top value with its prime factors
+factorial          fact       fact                   Combinatorics   factorial: n factorial
+fahrenheit_celsius fah        ftoc                   Conversion      convert Fahrenheit to Celsius
+filter             fi                                Execution       keep stack items whose executable predicate returns true: executable filter
+floor              fl                                Numeric         round down
+frac               fr                                Numeric         fractional portion
+functions          fu         funcs                  Function        list user-defined functions
+fv                                                   Financial       future value: pv rate nper fv
+gamma              ga                                Numeric         gamma function: Gamma(x)
+gcd                gc                                Number Theory   replace top two values with their greatest common divisor
+ge                                                   Boolean         string comparison ge
+gram_ounce         gr         gtoo                   Conversion      convert grams to ounces
+gt                                                   Boolean         string comparison gt
+help               hel        ?                      Discovery       guide users to tutorials, commands, categories, and detailed help
+hexadecimal        hex        hex                    Display         prints the top value in hexadecimal without popping it
+history            hi         hist                   Session         prints command history
+hypot              hy                                Numeric         sqrt(x^2 + y^2)
+idiv               id                                Numeric         integer division, truncated toward zero
+if                            ifthen                 Flow            execute an executable value when a condition is true: condition executable if
+ifelse             ife                               Flow            execute one of two executable values based on a condition: condition true-exec false-exec ifelse
+inch_centimeter    inch       itoc                   Conversion      convert inches to centimeters
+increment          incr                              Numeric         increments the number on top of the stack
+inv                                                  Numeric         reciprocal (1/x)
+inverse            inve       invm                   Matrix          compute inverse of a square non-singular matrix
+iscodeblock        isc                               Codeblock       test whether the top stack value is a code block
+isprime            isp                               Number Theory   push 1 if top value is prime, otherwise 0
+j0                                                   Numeric         Bessel function of the first kind, order 0: J0(x)
+j1                                                   Numeric         Bessel function of the first kind, order 1: J1(x)
+jn                                                   Numeric         Bessel function of the first kind: x n jn computes Jn(x)
+join               jo                                String          join vector or stack values with delimiter: values delimiter join or vector delimiter join
+kilogram_pound     kilog      ktop                   Conversion      convert kilograms to pounds
+kilometer_mile     kilom      ktom                   Conversion      convert kilometers to miles
+lcm                lc                                Number Theory   replace top two values with their least common multiple
+le                                                   Boolean         string comparison le
+length             len                               String          string length
+lgamma             lg                                Numeric         natural logarithm of the gamma function: ln(Gamma(x))
+liter_quart        li         ltoq                   Conversion      convert liters to quarts
+ln                                                   Numeric         natural logarithm
+loadconst          loadc                             Constant        load user constants from a file: loadconst [file]
+loadfuncs          loadf                             Function        load user-defined functions from disk: loadfuncs [file]
+loadmatrix         loadm                             Matrix          load a matrix from a file: loadmatrix <file>
+loadvars           loadv                             Variable        load variables from disk: loadvars [file]
+log                                                  Numeric         base-10 logarithm
+log2                                                 Numeric         base-2 logarithm
+lower              low                               String          convert string to lowercase
+lt                                                   Boolean         string comparison lt
+ltrim              ltr                               String          remove leading whitespace
+madd               mad                               Matrix          add two matrices of the same dimensions
+magnitude          mag        mag                    Vector          replace a vector with its magnitude
+map                                                  Execution       apply an executable value to each stack item: executable map
+match                                                String          regex match: string pattern match
+matcols            matco                             Matrix          create a matrix from N column vectors: N matcols
+matparse           matp                              Matrix          parse a matrix literal from the stack: [[1,2],[3,4]] matparse
+matrix             matr                              Matrix          create a matrix from N row vectors: N matrix
+maximum            max        max                    Statistics      replaces the entire stack with the maximum value
+median             med                               Statistics      replaces the entire stack with the median value
+mergestacks        merg                              Stack           append source stack onto destination: mergestacks <src> <dst>
+mertens            mert                              Number Theory   Mertens function: n mertens
+mile_kilometer     mil        mtok                   Conversion      convert miles to kilometers
+minimum            min        min                    Statistics      replaces the entire stack with the minimum value
+mmul               mm                                Matrix          multiply matrices, matrix/vector, or vector/matrix operands
+mobius             mob                               Number Theory   Möbius function: n mobius
+modulo             mod        mod, %                 Numeric         pops two numbers and pushes their modulus
+mpow               mp                                Matrix          raise a square matrix to a non-negative integer power: matrix n mpow
+msub               ms                                Matrix          subtract top matrix from second matrix
+multiply           mu         *                      Numeric         pops two numbers and pushes their product
+ne                                                   Boolean         string comparison ne
+negate             neg                               Numeric         negates the number on top of the stack
+nextprime          nex        prime                  Number Theory   replace top value with next prime greater than it
+noop               noo                               Execution       no operation
+normalize          nor        unit                   Vector          replace a vector with a unit vector in the same direction
+now                                                  Datetime        push current epoch time
+nper               np                                Financial       number of periods: pv rate pmt nper
+octal              oc         oct                    Display         prints the top value in octal without popping it
+ord                or                                String          return the Unicode code point of the first character
+ounce_gram         ou         otog                   Conversion      convert ounces to grams
+over               ov                                Stack           duplicate the second value on the stack: ( a b -- a b a )
+peek                          .                      Display         prints top value on stack without popping it
+peekall            peeka      :                      Display         prints the entire stack without changing it
+peekf                                                Display         prints the top value using a printf format without popping it
+permutations       per        npr, perm, permute     Combinatorics   number of permutations (n permute r): n r permutations
+pick               pi                                Stack           copy value at depth N to the top of the stack
+pmt                pm                                Financial       loan payment: pv rate nper pmt
+pop                           drop                   Stack           remove the top value from the stack
+pound_kilogram     poun       ptok                   Conversion      convert pounds to kilograms
+pour                                                 Stack           pour source stack onto destination, reversing order: pour <src> <dst>
+prevprime          pre                               Number Theory   replace top value with previous prime less than it
+primorial          prim                              Number Theory   product of all primes <= n: n primorial
+print                                                Display         pops and prints the top value on the stack
+printf                                               Display         pops and prints the top value using a printf format
+product            pro                               Statistics      replaces the entire stack with the product of its values
+pullup             pul        rollup                 Stack           move value at depth N to the top of the stack
+pushdown           pus                               Stack           move the top value down to depth N
+pv                                                   Financial       present value: fv rate nper pv
+quart_liter        qua        qtol                   Conversion      convert quarts to liters
+quickstart         quic                              Documentation   display the quick reference guide
+quit                          exit, bye, ZZ          Session         exits the program
+radians                                              Trig            sets angle mode to radians
+radians_degrees    radians_   rtod                   Conversion      convert radians to degrees
+rand                                                 Random          push a random floating point number in the range [0,1)
+randint            randi                             Random          pop MIN and MAX and push a random integer in that inclusive range
+range                         .., seq, sequence      Sequence        generate a sequence from start to stop
+rangeby            rangeb     ..., seqby, sequenceby Sequence        generate a numeric sequence with explicit step
+rate               rat                               Financial       periodic growth rate: pv fv nper rate
+readcolumn         readco                            Io              read one numeric column from a CSV file by column number or header name
+readcsv            readcs                            Io              read numeric values from a CSV file and push them onto the stack
+readnums           readn                             Io              read numeric tokens from a file and push them onto the stack
+recall             rec        rcl                    Variable        pop NAME and push that variable value onto the stack
+reduce             red                               Execution       combine stack items using an executable value: executable reduce
+renamestack        ren        movestack              Stack           rename stack: renamestack <old> <new>
+repeat             repe                              Execution       repeat a string or executable value N times: string n repeat or n executable repeat
+replace            repl                              String          literal replace first occurrence: string old new replace
+reverse            rev                               Stack           reverse the current stack
+roll               rol                               Stack           pop N and rotate the whole stack; positive moves bottom values to top, negative moves top values to bottom
+round              rou                               Numeric         nearest integer
+rows               row                               Matrix          replace a matrix with its row count
+rtrim              rt                                String          remove trailing whitespace
+save                                                 Session         persist all calculator state
+saveconst          savec                             Constant        save user constants: saveconst [file]
+savefuncs          savef                             Function        save user-defined functions to disk: savefuncs [file]
+savevars           savev                             Variable        save variables to disk: savevars [file]
+search             sea                               String          return first regex match: string pattern search
+seed               see                               Random          pop SEED and seed the random number generator
+showblock          showb                             Codeblock       display a named code block
+showfunc           showf                             Function        show the definition of a function
+shuffle            shu                               Stack           randomly shuffle the current stack
+sign               sig                               Numeric         sign of value (-1, 0, +1)
+sine               sin        sin                    Trig            replaces the number on top of the stack with its sine
+sinh                                                 Trig            hyperbolic sine
+sort                                                 Stack           sort the stack in ascending order
+sortr                                                Stack           sort the stack in descending order
+split              spl                               String          split string by delimiter: string delimiter split
+spread             spre       span                   Statistics      replaces the entire stack with maximum minus minimum
+sprintf            spri                              String          format values using a printf format string on top of the stack and push the result: 1 "[%d]" sprintf; 2 3 5 "%d + %d = %d" sprintf
+sqr                                                  Numeric         square a value
+square                                               Numeric         squares the number on top of the stack
+squareroot         squarer    sqrt                   Numeric         replaces the number on top of the stack with its square root
+stack                                                Stack           (stack NAME) switches stacks, (stack list) lists stacks, (stack) reports current stack
+stackexists        stacke                            Stack           return true if named stack exists: stackname stackexists
+stackinfo          stacki                            Stack           display information about all stacks
+stacksize          stacks                            Stack           push depth of named stack: stackname stacksize
+stddev             std        stdev                  Statistics      replaces the entire stack with the population standard deviation
+store              sto        sto                    Variable        pop NAME and store the top stack value in that variable
+strrev             str                               String          reverse a string
+subst                                                String          regex replace first match: string pattern replacement subst
+substr                                               String          extract substring: string offset length substr
+subtract           subt       -                      Numeric         pops two numbers and pushes their difference
+sum                                                  Statistics      replaces the entire stack with the sum of its values
+tangent            tan        tan                    Trig            replaces the number on top of the stack with its tangent
+tanh                                                 Trig            hyperbolic tangent
+time               ti                                Datetime        push current time as HH:MM:SS
+today              tod                               Datetime        push current date as YYYY-MM-DD
+totient            tot        eulerphi               Number Theory   replace top value with Euler totient phi(n)
+transpose          tra        trans                  Matrix          transpose a matrix
+trim               tri                               String          remove leading and trailing whitespace
+trunc              tru                               Numeric         truncate toward zero
+tutorial                                             Documentation   display a tutorial: tutorial <name>
+tutorials                                            Documentation   list available tutorials
+undef              und                               Function        pop NAME and delete that user function
+unique             uni                               Stack           remove duplicate values while preserving order
+until              unt                               Flow            repeat an executable value until a condition executable returns true: condition-exec body-exec until
+upper              up                                String          convert string to uppercase
+vadd               vad                               Vector          add two vectors of the same dimension
+variables          variab     vars                   Variable        list stored variables
+variance           var        var                    Statistics      replaces the entire stack with the population variance
+vec2                                                 Vector          create a 2D vector from top two stack values
+vec3                                                 Vector          create a 3D vector from top three stack values
+vector             vect                              Vector          create a vector from N stack values: N vector
+version            ver        ver                    Discovery       prints calculator version
+vscale             vsc                               Vector          scale a vector by a scalar: vector scalar vscale
+vsub               vsu                               Vector          subtract top vector from second vector
+while              wh                                Flow            repeat an executable value while a condition executable returns true: condition-exec body-exec while
+withcopystack      withc                             Execution       copy current stack to a named stack, execute there, and return one result: stackname executable withcopystack
+withstack          withs                             Execution       execute on a named stack and return one result: stackname executable withstack
+writecsv           wr                                Io              write current stack to a CSV file
+y0                                                   Numeric         Bessel function of the second kind, order 0: Y0(x)
+y1                                                   Numeric         Bessel function of the second kind, order 1: Y1(x)
+yn                                                   Numeric         Bessel function of the second kind: x n yn computes Yn(x)

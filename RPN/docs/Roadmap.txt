@@ -1339,25 +1339,89 @@ Completed
         sort
         sortr
 
-## Version 3.9.1 new string primatives
+## Version 3.9.1 — String Primitives
 
-[x] String primitives
+Status: Completed
 
-* Add `substr` with the fixed stack form:
-  string offset length substr
-  Negative offsets and lengths retain Perl `substr` semantics.
+[x] Add `substr` with the fixed stack form:
 
-* Add `chr` to convert an integer Unicode code point into a one-character string.
+        string offset length substr
 
-* Add `ord` to return the Unicode code point of the first character in a string.
+    Negative offsets and lengths retain Perl `substr` semantics.
 
-* Add `chars` to convert a string into a vector of one-character strings.
+[x] Add `chr` to convert an integer Unicode code point into a
+    one-character string.
 
+[x] Add `ord` to return the Unicode code point of the first character
+    in a string.
+
+[x] Add `chars` to convert a string into a vector of one-character
+    strings.
 
 Future releases should continue applying this philosophy to new commands.
+
 ---
 
-## Version 3.9.2 — Higher-Order Collections
+## Version 3.9.2 — Examples & Discoverability
+
+Theme
+
+The calculator should continue learning to teach itself.
+
+## Goals
+
+[ ] Add example discovery commands.
+
+        examples
+        examples <category>
+        example <name>
+
+[ ] Establish example categories.
+
+        Basics
+        Strings
+        Vectors
+        Matrices
+        Number Theory
+        Dice & Games
+        Programming
+        Financial
+        Statistics
+
+[ ] Add example metadata.
+
+        Name
+        Category
+        Description
+
+[ ] Add heavily commented examples.
+
+        Four d6 drop lowest
+        Advantage and disadvantage
+        Statistics
+        Number theory
+        Variables
+        Executable values
+        Named stacks
+        withstack
+        withcopystack
+
+[ ] Add an examples tutorial.
+
+[ ] Add a generated Examples Catalog.
+
+[ ] Add tests for example discovery and loading.
+
+## Purpose
+
+Examples should become the primary way users discover how to combine
+commands into useful programs. The examples collection should serve as
+both documentation and a growing standard library of programming
+techniques.
+
+---
+
+## Version 3.9.3 — Higher-Order Collections
 
 Theme
 
@@ -1380,7 +1444,7 @@ while preserving a consistent programming model.
 
 ---
 
-## Version 3.9.2 — Geometry and Transformations
+## Version 4.0.0 — Geometry and Transformations
 
 [ ] 2D transformations
 [ ] 3D transformations
@@ -1395,10 +1459,10 @@ while preserving a consistent programming model.
 
 ---
 
-## Version 4.0.0 — Graphics (Optional)
+## Version 4.1.0 — Graphics (Optional)
 
-This could go over board really easily!
-Start small.  Accumulate slowly.
+This could go overboard easily.
+Start small. Accumulate slowly.
 
 [ ] Graphics architecture
 [ ] Point object
