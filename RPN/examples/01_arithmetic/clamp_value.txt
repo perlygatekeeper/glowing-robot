@@ -5,17 +5,33 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates bounding a value between a minimum and maximum.
+#     Restricts a value to an inclusive lower and upper bound.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     function composition, min2, max2, stack-order design
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     This example depends on keep2, keeptop, max2, and min2 from
+#     minmax_two_values.txt. Its stack order is:
+#
+#         lower value upper clamp
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# min2 first limits value to the upper bound. max2 then raises that result to
+# the lower bound when necessary.
+clamp = min2 max2
+
+# Examples:
+#
+#     0 15 10 clamp
+#     0 -3 10 clamp
+#     0 7 10 clamp
+#
+# Results:
+#
+#     10
+#     0
+#     7

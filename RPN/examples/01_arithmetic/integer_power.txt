@@ -5,17 +5,32 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates repeated multiplication.
+#     Raises a value to a non-negative integer power by repeated multiplication.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     repeat, executable values, helper functions, over, stack cleanup
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     Educational example only. Prefer the built-in exponentiate command for
+#     normal use. This recipe expects a non-negative integer exponent.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# During repetition, the stack contains the original base below the current
+# accumulator. over copies the base and multiply updates the accumulator.
+multiply_accumulator = over multiply
+
+# Start the accumulator at 1, arrange the stack as base accumulator exponent,
+# and repeat multiply_accumulator exponent times. The final exchange/pop removes
+# the preserved base and leaves the result.
+integer_power = 1 exchange "multiply_accumulator" repeat exchange pop
+
+# Example:
+#
+#     2 10 integer_power
+#
+# Result:
+#
+#     1024

@@ -5,17 +5,29 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates range, exchange, reduce, and executable values. Educational only; prefer the built-in factorial command for robust use.
+#     Builds n! by generating the integers from 1 through n and reducing
+#     them with multiplication.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     range, exchange, reduce, executable token strings, user functions
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     Educational example only. Prefer the built-in factorial command for
+#     normal use because it handles validation and edge cases directly.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Start with n on the stack. Push 1 and exchange the top two values so range
+# receives 1 n and leaves the inclusive sequence 1 through n on the stack.
+# The executable value "*" tells reduce to multiply the sequence together.
+factorial_reduce = 1 exchange range "*" reduce
+
+# Example:
+#
+#     5 factorial_reduce
+#
+# Result:
+#
+#     120

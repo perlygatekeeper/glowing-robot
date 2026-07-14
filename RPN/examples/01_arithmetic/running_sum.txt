@@ -5,17 +5,27 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates accumulation by addition.
+#     Combines every value on the current stack by addition.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     reduce, executable values, user functions
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     The result is the total of the stack, not a vector of intermediate
+#     cumulative totals. The built-in sum command performs the same final
+#     calculation more directly.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# reduce repeatedly executes + until the stack has been combined into one value.
+running_sum = "+" reduce
+
+# Example:
+#
+#     1 2 3 4 5 running_sum
+#
+# Result:
+#
+#     15

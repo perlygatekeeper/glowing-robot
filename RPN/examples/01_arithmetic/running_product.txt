@@ -5,17 +5,27 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates accumulation by multiplication.
+#     Combines every value on the current stack by multiplication.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     reduce, executable values, user functions
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     The result is the product of the stack, not a vector of intermediate
+#     cumulative products. The built-in product command performs the same
+#     final calculation more directly.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# reduce repeatedly executes * until the stack has been combined into one value.
+running_product = "*" reduce
+
+# Example:
+#
+#     1 2 3 4 5 running_product
+#
+# Result:
+#
+#     120

@@ -5,17 +5,31 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates composing arithmetic recipes.
+#     Computes the least common multiple using:
+#
+#         lcm(a,b) = (a * b) / gcd(a,b)
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     composing arithmetic operations, pick, pullup, gcd, stack cleanup
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     Educational example only. Prefer the built-in lcm command for normal
+#     use. This compact recipe assumes positive integer inputs.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Preserve both inputs while calculating their product. The two pick commands
+# then copy the original inputs above the product so gcd can consume the copies.
+# After division, pullup and exchange remove the original inputs, leaving only
+# the least common multiple.
+lcm_recipe = over over multiply 2 pick 2 pick gcd divide 2 pullup pop exchange pop
+
+# Example:
+#
+#     21 6 lcm_recipe
+#
+# Result:
+#
+#     42

@@ -5,17 +5,39 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates iterative thinking and Euclid's algorithm.
+#     Implements Euclid's algorithm as a pair of executable user functions.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     modulo, while, executable values, helper functions, stack manipulation
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     Educational example only. Prefer the built-in gcd command for normal
+#     use. The inputs should be non-negative integers.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# The loop continues while the second value is nonzero. dup preserves the
+# divisor while the comparison produces the Boolean consumed by while.
+gcd_condition = dup 0 !=
+
+# Transform a b into b (a modulo b), which is one step of Euclid's algorithm.
+#
+#     over over modulo    changes a b into a b remainder
+#     2 pullup pop        moves a to the top and discards it
+#
+# The remaining stack is b remainder, ready for the next iteration.
+gcd_step = over over modulo 2 pullup pop
+
+# while repeatedly runs gcd_step while gcd_condition returns true. When the
+# second value reaches zero, pop discards it and leaves the GCD.
+gcd_euclid = "gcd_condition" "gcd_step" while pop
+
+# Example:
+#
+#     48 18 gcd_euclid
+#
+# Result:
+#
+#     6

@@ -5,17 +5,41 @@
 #     01 Arithmetic
 #
 # Purpose:
-#     Demonstrates stack manipulation and conditional execution.
+#     Keeps either the smaller or larger of two values without using the
+#     whole-stack minimum and maximum commands.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     over, comparison, ifelse, executable values, reusable helper functions
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     minimum and maximum operate on the entire current stack. These functions
+#     are useful when only the top two values should participate.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Discard the top value, thereby keeping the second value.
+keep2 = pop
+
+# Exchange the top two values, then discard the new top. This keeps the value
+# that was originally on top.
+keeptop = exchange pop
+
+# Duplicate both inputs for comparison. If the second value is less than or
+# equal to the top value, keep the top value; otherwise keep the second value.
+max2 = over over <= "keeptop" "keep2" ifelse
+
+# Duplicate both inputs for comparison. If the second value is greater than or
+# equal to the top value, keep the top value; otherwise keep the second value.
+min2 = over over >= "keeptop" "keep2" ifelse
+
+# Examples:
+#
+#     7 12 max2
+#     7 12 min2
+#
+# Results:
+#
+#     12
+#     7
