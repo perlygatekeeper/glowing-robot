@@ -142,6 +142,7 @@ Financial.pm
 NumberTheory.pm
 Combinatorics.pm
 Tutorials.pm
+Examples.pm
 
 Command modules should:
 

@@ -11,6 +11,7 @@ use RPN::Commands::NumberTheory;
 use RPN::Commands::Financial;
 use RPN::Commands::Strings;
 use RPN::Commands::Tutorials;
+use RPN::Commands::Examples;
 use RPN::Commands::Numeric;
 use RPN::Commands::Stack;
 use RPN::Commands::CodeBlocks;
@@ -82,6 +83,7 @@ sub _initialize {
     RPN::Commands::Financial::register_commands($self);
     RPN::Commands::Strings::register_commands($self);
     RPN::Commands::Tutorials::register_commands($self);
+    RPN::Commands::Examples::register_commands($self);
     RPN::Commands::Numeric::register_commands($self);
     RPN::Commands::Stack::register_commands($self);
     RPN::Commands::CodeBlocks::register_commands($self);
