@@ -1396,15 +1396,15 @@ The calculator should continue learning to teach itself.
 
 [ ] Add heavily commented examples.
 
-        Four d6 drop lowest
-        Advantage and disadvantage
-        Statistics
-        Number theory
-        Variables
-        Executable values
-        Named stacks
-        withstack
-        withcopystack
+        [x] Four d6 drop lowest
+        [x] Advantage and disadvantage
+        [ ] Statistics
+        [ ] Number theory
+        [ ] Variables
+        [ ] Executable values
+        [ ] Named stacks
+        [ ] withstack
+        [ ] withcopystack
 
 [ ] Add an examples tutorial.
 

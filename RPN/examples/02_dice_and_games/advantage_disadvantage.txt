@@ -1,21 +1,53 @@
 #------------------------------------------------------------
-# Example: Advantage / Disadvantage
+# Example: Advantage and Disadvantage
 #
 # Category:
 #     02 Dice And Games
 #
 # Purpose:
-#     Demonstrates max/min over dice rolls.
+#     Rolls two twenty-sided dice and keeps the higher roll for advantage
+#     or the lower roll for disadvantage.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     dieroll, over, numeric comparison, ifelse, executable values,
+#     user functions
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     max2 and min2 affect only the top two values. Any deeper values on
+#     the current stack are preserved.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Roll one twenty-sided die.
+d20 = 20 dieroll
+
+# pop keeps the second value because it discards the top value.
+keep_second = pop
+
+# exchange first swaps the top two values. pop then discards the value
+# that was originally second, leaving the original top value.
+keep_top = exchange pop
+
+# Duplicate the top pair with over over, then compare the copies. The
+# comparison leaves a Boolean consumed by ifelse. The selected executable
+# value removes one original die and leaves the larger result.
+max2 = over over <= "keep_top" "keep_second" ifelse
+
+# The same pattern with >= leaves the smaller result.
+min2 = over over >= "keep_top" "keep_second" ifelse
+
+# Roll twice and keep the higher result.
+advantage = d20 d20 max2
+
+# Roll twice and keep the lower result.
+disadvantage = d20 d20 min2
+
+# Examples:
+#
+#     advantage
+#     disadvantage
+#
+# Each command leaves one value from 1 through 20.
+#------------------------------------------------------------

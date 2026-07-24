@@ -1,84 +1,85 @@
-# four_d6_drop_lowest.txt
+#------------------------------------------------------------
+# Example: Four d6, Drop the Lowest
 #
-# Demonstrates how user-defined functions, executable values, named stacks,
-# withstack, withcopystack, sprintf, and join-style formatting can be composed
-# to roll 4d6, drop the lowest die, sum the highest three dice, and present
-# the result as a readable string:
+# Category:
+#     02 Dice And Games
 #
-#     6 + 5 + 4 + [2] = 15
+# Purpose:
+#     Rolls four six-sided dice, drops the lowest roll, and adds the
+#     remaining three to produce one role-playing ability score.
 #
-# The dropped die is shown in brackets.
-
-# Roll one die with the given number of sides.
-d4 = 4 dieroll
-
-# Roll one eight-sided die.
-d8 = 8 dieroll
-
-# Roll one ten-sided die.
-d10 = 10 dieroll
-
-# Roll one percentile die.
-d100 = 100 dieroll
-
-# Discard the top stack value, keeping the second value.
-keep2 = pop
-
-# Exchange the top two values, then discard the new top.
-# This keeps the original top value and discards the one below it.
-keeptop = exch pop
-
-# Compare two values and keep the larger one.
-# over over duplicates the two values for comparison.
-# If the lower value is <= the upper value, keep the top value;
-# otherwise keep the second value.
-max2 = over over <= "keeptop" "keep2" ifelse
-
-# Compare two values and keep the smaller one.
-# over over duplicates the two values for comparison.
-# If the lower value is >= the upper value, keep the top value;
-# otherwise keep the second value.
-min2 = over over >= "keeptop" "keep2" ifelse
-
-# Roll one twenty-sided die.
-d20 = 20 dieroll
-
-# Roll two d20s and keep the higher result.
-adv = d20 d20 max2
-
-# Roll two d20s and keep the lower result.
-dis = d20 d20 min2
-
-# The format variable is used by sprintf to build the final display string.
-# It expects five values:
-#     die1 die2 die3 dropped total format sprintf
+# Demonstrates:
+#     dieroll, repeat, sort, pop, sum, sprintf, executable values,
+#     user functions, named scratch stacks, withstack, withcopystack
 #
-# Example result:
-#     6 + 5 + 4 + [2] = 15
-format = "%d + %d + %d + [%d] = %2d"
+# Notes:
+#     The public functions use private named stacks so they neither consume
+#     nor include values already on the current stack.
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
 
 # Roll one six-sided die.
 d6 = 6 dieroll
 
-# Roll four six-sided dice, then sort them.
-# The quoted "d6" is an executable value used by repeat.
-4d6 = 4 "d6" repeat sort
+# repeat consumes the count 4 and executes the quoted function name "d6"
+# four times. The four results remain on the scratch stack.
+roll_four_d6 = 4 "d6" repeat
 
-# Given a sorted stack of four dice, discard the lowest die and sum the rest.
-# Since the dice are sorted, the lowest value is on top after sort.
-sum3 = pop sum
+# Roll and sort four dice. With ascending sort order, the lowest die is on
+# top and the highest die is deepest.
+ability_score_rolls = roll_four_d6 sort
 
-# Run sum3 on a copied working stack.
-# This preserves the original four dice while calculating the total.
-sum_highest_3 = "_sum_" "sum3" withcopystack
+# sort puts the lowest die on top. pop discards that die, and sum replaces
+# the remaining three dice with their total.
+drop_lowest_and_sum = pop sum
 
-# Roll 4d6, then calculate the sum of the highest three dice.
-# The original dice remain available, and the sum is added as the result.
-4d6kh3 = 4d6 sum_highest_3
+# Run drop_lowest_and_sum on a copy of the four sorted dice. withcopystack
+# returns the total while preserving the original dice for later formatting.
+ability_score_total = "_ability_total" "drop_lowest_and_sum" withcopystack
 
-# Convert the roll and total into a formatted string.
-# The sorted dice and final total are consumed by sprintf using format.
-4d6kh3_as_string = 4d6kh3 format sprintf
+# This is the complete calculation, intended to run on an empty scratch
+# stack. Its stack effect is:
+#
+#     ( empty -- score )
+ability_score_work = ability_score_rolls drop_lowest_and_sum
 
-# Run the whole formatter on a named stack and return the final string.
-stat = "_string_" "4d6kh3_as_string" withstack
+# withstack switches to the named stack, runs ability_score_work there,
+# returns its top result, and restores the caller's original stack. This
+# keeps unrelated caller values out of sort and sum.
+ability_score = "_ability_score" "ability_score_work" withstack
+
+# Keep both the sorted rolls and their total:
+#
+#     ( empty -- lowest middle middle highest total )
+ability_score_and_rolls = ability_score_rolls ability_score_total
+
+# Function bodies are token strings, so a literal space cannot live inside
+# one token. Build the format on a private stack using chr(32) for each space,
+# then join the fragments with an empty delimiter.
+ability_score_format_work = "%d" 32 chr "+" 32 chr "%d" 32 chr "+" 32 chr "%d" 32 chr "+" 32 chr "[%d]" 32 chr "=" 32 chr "%2d" "" join
+ability_score_format = "_ability_score_format" "ability_score_format_work" withstack
+
+# sprintf consumes the four dice, the total, and the constructed format.
+# Because the dice are stored lowest-first on the stack, sprintf receives the
+# three kept dice in descending order and the dropped die last.
+ability_score_as_string_work = ability_score_and_rolls ability_score_format sprintf
+
+# Run the formatter on its own scratch stack and return only the string.
+ability_score_as_string = "_ability_score_string" "ability_score_as_string_work" withstack
+
+# Example:
+#
+#     ability_score
+#
+# Possible result:
+#
+#     15
+#
+#     ability_score_as_string
+#
+# Possible result:
+#
+#     6 + 5 + 4 + [2] = 15
+#------------------------------------------------------------
