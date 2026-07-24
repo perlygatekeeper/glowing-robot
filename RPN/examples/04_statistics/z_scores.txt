@@ -8,14 +8,35 @@
 #     Demonstrates standardization.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     average, stddev, variables, map, standardization
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Compute the data set's mean and population standard deviation on scratch
+# copies, then store them as data_mean and data_stddev.
+#
+# For the data 2 4 4 4 5 5 7 9, those values are 5 and 2.
+#
+#     5
+#     'data_mean
+#     store
+#     pop
+#     2
+#     'data_stddev
+#     store
+#     pop
+#
+# Transform x into (x-mean)/standard_deviation.
+zscore_value = data_mean subtract data_stddev divide
+zscore_values = "zscore_value" map
+
+#     2 4 4 4 5 5 7 9
+#     zscore_values
+#
+# Result: -1.5 -0.5 -0.5 -0.5 0 0 1 2

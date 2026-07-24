@@ -8,14 +8,27 @@
 #     Demonstrates combining multiple vectors.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vadd, vscale, averaging two vectors, function composition
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Add two vectors component-wise, then divide the result by two.
+average_two_vectors = vadd 0.5 vscale
+
+# Example using [2,4] and [6,8]:
+#
+#     2 4
+#     vec2
+#     6 8
+#     vec2
+#     average_two_vectors
+#
+# Result:
+#
+#     [4,6]

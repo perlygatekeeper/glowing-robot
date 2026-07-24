@@ -8,14 +8,24 @@
 #     Demonstrates repeated random rolls.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     dieroll, duplicate, exchange, repeat, executable values
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Keep SIDES on top between rolls while accumulating each result beneath it.
+roll_same_die = duplicate dieroll exchange
+
+# Input is COUNT SIDES. Move COUNT to the top for repeat, perform the roll
+# COUNT times, then discard the preserved SIDES value.
+roll_ndm = exchange "roll_same_die" repeat pop
+
+#     3 6
+#     roll_ndm
+#
+# Result: three independent values from 1 through 6.

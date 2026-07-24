@@ -8,14 +8,19 @@
 #     Demonstrates swapping rows and columns.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     matparse, transpose, exchanging rows and columns
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+rectangular_matrix = '[[1,2,3],[4,5,6]] matparse
+transpose_example = rectangular_matrix transpose
+
+# Running transpose_example leaves:
+#
+#     [[1,4],[2,5],[3,6]]

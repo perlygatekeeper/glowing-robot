@@ -8,14 +8,26 @@
 #     Demonstrates mirroring geometry.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     matparse, vec2, mmul, reflection across the x-axis
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Negating the y component reflects a point across the x-axis.
+reflect_x_matrix = '[[1,0],[0,-1]] matparse
+reflect_x = reflect_x_matrix exchange mmul
+
+# Example:
+#
+#     3 4
+#     vec2
+#     reflect_x
+#
+# Result:
+#
+#     [3,-4]

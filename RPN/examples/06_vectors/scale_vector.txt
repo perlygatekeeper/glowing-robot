@@ -8,14 +8,23 @@
 #     Demonstrates multiplying components.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vec2, vscale, scalar multiplication
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Construct [3,4], push the scale factor 2, and scale the vector.
+#
+#     3 4
+#     vec2
+#     2
+#     vscale
+#
+# Result:
+#
+#     [6,8]

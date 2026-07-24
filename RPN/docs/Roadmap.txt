@@ -1394,23 +1394,23 @@ The calculator should continue learning to teach itself.
         Category
         Description
 
-[ ] Add heavily commented examples.
+[x] Add heavily commented examples.
 
         [x] Four d6 drop lowest
         [x] Advantage and disadvantage
-        [ ] Statistics
-        [ ] Number theory
-        [ ] Variables
-        [ ] Executable values
-        [ ] Named stacks
-        [ ] withstack
-        [ ] withcopystack
+        [x] Statistics
+        [x] Number theory
+        [x] Variables
+        [x] Executable values
+        [x] Named stacks
+        [x] withstack
+        [x] withcopystack
 
 [ ] Add an examples tutorial.
 
 [ ] Add a generated Examples Catalog.
 
-[ ] Add tests for example discovery and loading.
+[x] Add tests for example discovery and loading.
 
 ## Purpose
 

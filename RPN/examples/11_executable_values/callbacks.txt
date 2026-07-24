@@ -8,14 +8,22 @@
 #     Demonstrates deferred execution.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     executable token strings, execute, deferred behavior
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+choose_square_callback = "square"
+choose_cube_callback = "cube"
+run_selected_callback = execute
+
+#     4
+#     choose_cube_callback
+#     run_selected_callback
+#
+# Result: 64

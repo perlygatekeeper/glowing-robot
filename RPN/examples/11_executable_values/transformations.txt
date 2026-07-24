@@ -8,14 +8,20 @@
 #     Demonstrates map as a transformer.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     map, executable transformers, square, negate
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+square_all_values = "square" map
+negate_all_values = "negate" map
+
+#     1 2 3 4
+#     square_all_values
+#
+# Result: 1 4 9 16

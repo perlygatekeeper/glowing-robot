@@ -8,14 +8,24 @@
 #     Demonstrates descriptive statistics.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     minimum, median, maximum, sorting, quartile interpretation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# For the ordered data 1 2 3 4 5 6 7 8 9:
+#
+#     minimum = 1
+#     lower quartile = median of 1 2 3 4 = 2.5
+#     median = 5
+#     upper quartile = median of 6 7 8 9 = 7.5
+#     maximum = 9
+#
+# Verify each statistic by entering the relevant values followed by minimum,
+# median, or maximum. Quartile conventions differ; this example excludes the
+# overall median from each half.

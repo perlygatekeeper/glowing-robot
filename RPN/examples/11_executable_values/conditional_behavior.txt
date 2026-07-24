@@ -8,14 +8,21 @@
 #     Demonstrates choosing behavior with ifelse.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     ifelse, Boolean predicates, executable branches
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# duplicate preserves the original value while the comparison creates the
+# condition consumed by ifelse.
+absolute_value = duplicate 0 < "negate" "noop" ifelse
+
+#     -12
+#     absolute_value
+#
+# Result: 12

@@ -8,14 +8,24 @@
 #     Demonstrates reduce with addition.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     reduce, addition, executable operator values, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# reduce repeatedly combines two values with the quoted + operator.
+sum_with_reduce = "+" reduce
+
+# Example:
+#
+#     10 20 30 40
+#     sum_with_reduce
+#
+# Result:
+#
+#     100

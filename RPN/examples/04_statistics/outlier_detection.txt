@@ -8,14 +8,25 @@
 #     Demonstrates filtering unusual values.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     variables, absolute value, filter, z-score threshold
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# After storing data_mean and data_stddev as shown in z_scores.txt, compute
+# the absolute z-score and keep values at least two standard deviations away.
+absolute_zscore = data_mean subtract data_stddev divide abs
+is_outlier = absolute_zscore 2 >=
+select_outliers = "is_outlier" filter
+
+# With data_mean=5 and data_stddev=2:
+#
+#     2 4 4 4 5 5 7 9
+#     select_outliers
+#
+# Result: 9

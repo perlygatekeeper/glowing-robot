@@ -8,14 +8,21 @@
 #     Demonstrates future withstack-style workflows.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     withcopystack, executable values, isolated calculation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Evaluate a whole-stack average on a copy, returning the result while
+# preserving every original value.
+average_on_scratch = "_average_scratch" "average" withcopystack
+
+#     10 20 30
+#     average_on_scratch
+#
+# The stack retains 10, 20, and 30, with 20 added on top.

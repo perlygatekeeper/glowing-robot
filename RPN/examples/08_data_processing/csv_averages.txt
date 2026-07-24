@@ -8,14 +8,20 @@
 #     Demonstrates reading numeric data and summarizing it.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     readcolumn, CSV headers, average
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# For a file temperatures.csv with a numeric column named reading:
+#
+#     readcolumn temperatures.csv reading
+#     average
+#
+# readcolumn ignores the header, pushes every numeric value in the selected
+# column, and average replaces those values with their mean.

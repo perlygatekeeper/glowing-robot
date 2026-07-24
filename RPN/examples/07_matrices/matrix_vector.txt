@@ -8,14 +8,20 @@
 #     Demonstrates applying a transformation.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     matparse, vec2, mmul, applying a matrix to a vector
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+transform_matrix = '[[1,2],[3,4]] matparse
+input_vector = 5 6 vec2
+apply_transform = transform_matrix input_vector mmul
+
+# Running apply_transform leaves:
+#
+#     [17,39]

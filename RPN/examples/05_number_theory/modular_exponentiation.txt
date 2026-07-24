@@ -8,14 +8,27 @@
 #     Demonstrates efficient repeated operations.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     exponentiate, modulo, composing arithmetic operations
 #
 # Notes:
-#     Educational example only. Prefer built-in commands when they are more
-#     robust, faster, or better tested.
+#     This direct method is suitable for small exact integers. Large powers
+#     need a future modular-power command to avoid constructing the full
+#     intermediate value.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Compute (7 ** 4) modulo 13:
+#
+#     7 4
+#     exponentiate
+#     13
+#     modulo
+#
+# Result:
+#
+#     9
+#
+# This illustrates composition clearly: exponentiate leaves 2401, then
+# modulo reduces it to the remainder 9.

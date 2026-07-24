@@ -8,14 +8,24 @@
 #     Demonstrates map.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     map, square, executable values, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# map applies the quoted square command to every value on the current stack.
+square_every = "square" map
+
+# Example:
+#
+#     2 3 4
+#     square_every
+#
+# Result:
+#
+#     4 9 16

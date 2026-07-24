@@ -8,14 +8,30 @@
 #     Demonstrates divisor sums.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     divisors, pop, sum, comparison
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# divisors leaves the positive divisors in ascending order with n on top.
+# Remove n itself, sum the proper divisors, and compare the result with n.
+#
+# Example:
+#
+#     28
+#     divisors
+#     pop
+#     sum
+#     28
+#     ==
+#
+# Result:
+#
+#     1
+#
+# The proper divisors 1, 2, 4, 7, and 14 sum to 28.

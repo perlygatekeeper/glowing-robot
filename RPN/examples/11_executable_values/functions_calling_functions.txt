@@ -8,14 +8,21 @@
 #     Demonstrates layered abstractions.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     layered user functions, composition, reusable vocabulary
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+double_exec_value = 2 multiply
+square_exec_value = duplicate multiply
+double_then_square = double_exec_value square_exec_value
+
+#     5
+#     double_then_square
+#
+# Result: 100

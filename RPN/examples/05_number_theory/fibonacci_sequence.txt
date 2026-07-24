@@ -8,14 +8,29 @@
 #     Demonstrates recurrence.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     over, add, repeat, recurrence, executable values
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Given consecutive Fibonacci values a b, duplicate both and add the copies.
+# This preserves a b and appends their successor:
+#
+#     ( ... a b -- ... a b a+b )
+fibonacci_step = over over add
+
+# Start with 0 and 1, then append eight more values.
+fibonacci_10 = 0 1 8 "fibonacci_step" repeat
+
+# Example:
+#
+#     fibonacci_10
+#
+# Result:
+#
+#     0 1 1 2 3 5 8 13 21 34

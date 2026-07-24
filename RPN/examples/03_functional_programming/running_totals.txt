@@ -8,14 +8,43 @@
 #     Demonstrates cumulative thinking; may require future scan support.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     duplicate, add, preserving intermediate results
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# A running total preserves each subtotal before adding the next value.
+#
+# Start the first total:
+#
+#     3
+#     duplicate
+#
+# Add 5, preserving the new total:
+#
+#     5
+#     add
+#     duplicate
+#
+# Add 2:
+#
+#     2
+#     add
+#
+# Complete example:
+#
+#     3
+#     duplicate
+#     5
+#     add
+#     duplicate
+#     2
+#     add
+#
+# The stack contains 3, 8, and 10, with the final total on top.
+# A future scan command could generalize this pattern to an arbitrary stack.

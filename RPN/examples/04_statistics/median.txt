@@ -8,14 +8,26 @@
 #     Demonstrates sorting and selection.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     median, sorting concept, odd and even data sets
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Odd-sized data set:
+#
+#     9 2 7 4 5
+#     median
+#
+# Result: 5
+#
+# Even-sized data set:
+#
+#     2 4 8 10
+#     median
+#
+# Result: 6

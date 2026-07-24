@@ -8,14 +8,19 @@
 #     Demonstrates mapping conversions across data.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     readcolumn, map, celsius_fahrenheit, executable transformations
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+convert_celsius_column = "celsius_fahrenheit" map
+
+#     readcolumn weather.csv celsius
+#     convert_celsius_column
+#
+# Every imported Celsius value is replaced by its Fahrenheit equivalent.

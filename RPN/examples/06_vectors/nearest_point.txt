@@ -8,14 +8,58 @@
 #     Demonstrates comparison across distances.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vectors, named variables, distance comparison
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Store the query point and two candidates:
+#
+#     0 0
+#     vec2
+#     'query
+#     store
+#     pop
+#
+#     2 1
+#     vec2
+#     'candidate_a
+#     store
+#     pop
+#
+#     5 5
+#     vec2
+#     'candidate_b
+#     store
+#     pop
+#
+# Compute each distance and store it:
+#
+#     candidate_a
+#     query
+#     vsub
+#     magnitude
+#     'distance_a
+#     store
+#     pop
+#
+#     candidate_b
+#     query
+#     vsub
+#     magnitude
+#     'distance_b
+#     store
+#     pop
+#
+# Compare the distances:
+#
+#     distance_a
+#     distance_b
+#     <
+#
+# Result 1 means candidate_a is nearer; result 0 means it is not.

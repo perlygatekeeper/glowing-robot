@@ -8,14 +8,21 @@
 #     Demonstrates filtering rolls by target number.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     repeat, dieroll, filter, count, named scratch stacks
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+pool_d6 = 6 dieroll
+at_least_five = 5 >=
+
+# Roll ten dice, keep results of 5 or 6, and push the number retained.
+ten_d6_successes_work = 10 "pool_d6" repeat "at_least_five" filter count
+
+# Run on a private stack so only the success count returns to the caller.
+ten_d6_successes = "_dice_pool" "ten_d6_successes_work" withstack

@@ -8,14 +8,21 @@
 #     Demonstrates composing execution patterns.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     repeat, executable values, user-defined control vocabulary
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Given an executable value, run it three times.
+three_times = 3 exchange repeat
+
+#     2
+#     "square"
+#     three_times
+#
+# Result: 256, because square runs three times: 2, 4, 16, 256.

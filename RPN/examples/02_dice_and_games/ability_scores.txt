@@ -8,14 +8,19 @@
 #     Demonstrates repeating a recipe several times.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     repeat, dieroll, sort, sum, named scratch stacks
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+ability_d6 = 6 dieroll
+one_ability_score_work = 4 "ability_d6" repeat sort pop sum
+one_ability_score = "_one_ability" "one_ability_score_work" withstack
+
+# Generate six scores by executing the isolated recipe six times.
+six_ability_scores = 6 "one_ability_score" repeat

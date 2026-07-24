@@ -8,14 +8,23 @@
 #     Demonstrates stack manipulation idioms.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     exchange, over, duplicate, pullup, pushdown
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Useful local rearrangements:
+#
+#     exchange     swap the top two values
+#     duplicate    copy the top value
+#     over         copy the second value to the top
+#     3 pullup     bring the fourth value to the top
+#     3 pushdown   move the top value three places deeper
+#
+# Prefer these direct operations over moving values through a temporary
+# variable when the values are already nearby.

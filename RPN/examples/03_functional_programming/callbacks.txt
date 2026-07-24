@@ -8,14 +8,34 @@
 #     Demonstrates executable values as deferred behavior.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     executable values, deferred behavior, execute, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# These functions return behavior as data rather than executing it immediately.
+square_callback = "square"
+negate_callback = "negate"
+
+# execute consumes whichever executable value is on top of the stack.
+run_callback = execute
+
+# Examples:
+#
+#     7
+#     square_callback
+#     run_callback
+#
+#     7
+#     negate_callback
+#     run_callback
+#
+# Results:
+#
+#     49
+#     -7

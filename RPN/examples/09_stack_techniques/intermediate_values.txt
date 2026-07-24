@@ -8,14 +8,21 @@
 #     Demonstrates preserving temporary results.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     square, exchange, add, squareroot, preserving intermediate values
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Compute sqrt(a*a + b*b), preserving one squared value while calculating
+# the other.
+hypotenuse = square exchange square add squareroot
+
+#     3 4
+#     hypotenuse
+#
+# Result: 5

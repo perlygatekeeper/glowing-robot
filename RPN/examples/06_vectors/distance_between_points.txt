@@ -8,14 +8,27 @@
 #     Demonstrates vector subtraction and magnitude.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vec2, vsub, magnitude, function composition
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Subtract one point from the other, then measure the displacement vector.
+distance_between = vsub magnitude
+
+# Example using points [1,2] and [4,6]:
+#
+#     1 2
+#     vec2
+#     4 6
+#     vec2
+#     distance_between
+#
+# Result:
+#
+#     5

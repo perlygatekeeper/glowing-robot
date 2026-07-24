@@ -8,14 +8,26 @@
 #     Demonstrates coordinate rotation.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     matparse, vec2, mmul, a 90-degree rotation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# This matrix rotates column vectors 90 degrees counterclockwise.
+rotate_90_matrix = '[[0,-1],[1,0]] matparse
+rotate_90 = rotate_90_matrix exchange mmul
+
+# Example:
+#
+#     1 0
+#     vec2
+#     rotate_90
+#
+# Result:
+#
+#     [0,1]

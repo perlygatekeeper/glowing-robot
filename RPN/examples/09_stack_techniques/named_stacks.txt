@@ -8,14 +8,24 @@
 #     Demonstrates separate workspaces.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     stack, stack list, switching workspaces, stack isolation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Create and use a separate workspace:
+#
+#     stack measurements
+#     10 20 30
+#     stack default
+#
+# The default stack is unchanged. Return later with:
+#
+#     stack measurements
+#
+# Use `stack list` to see every named stack and its depth.

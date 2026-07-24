@@ -8,14 +8,17 @@
 #     Demonstrates d100-style rolling.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     dieroll, percentile interpretation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+percentile_roll = 100 dieroll
+
+# Each call leaves one integer from 1 through 100. In systems where 00 means
+# 100, display a result of 100 as 00 at the presentation layer.

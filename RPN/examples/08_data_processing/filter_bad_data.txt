@@ -8,14 +8,21 @@
 #     Demonstrates rejecting invalid records.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     readcsv, numeric validation, skipped fields
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# readcsv pushes only fields recognized as numbers. Headers, empty fields,
+# and text such as NA are skipped:
+#
+#     readcsv measurements.csv
+#
+# Follow with count, average, minimum, or maximum as appropriate. This is
+# field-level filtering; preserving or rejecting whole mixed records will
+# require a future record object.

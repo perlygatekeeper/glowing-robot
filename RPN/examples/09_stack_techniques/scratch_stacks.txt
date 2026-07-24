@@ -8,14 +8,21 @@
 #     Demonstrates temporary stacks for isolated work.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     sum, named scratch stacks, withcopystack, preserving caller data
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Copy the current stack to a private workspace, sum it there, and return the
+# result while leaving the original values intact.
+sum_on_scratch = "_sum_scratch" "sum" withcopystack
+
+#     10 20 30
+#     sum_on_scratch
+#
+# The caller retains 10, 20, and 30, with 60 added on top.

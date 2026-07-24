@@ -8,14 +8,25 @@
 #     Demonstrates smoothing a series.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     average, overlapping windows, smoothing
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# For data 2, 4, 8, 10, a three-value moving average uses two windows:
+#
+#     2 4 8
+#     average
+#     print
+#
+#     4 8 10
+#     average
+#     print
+#
+# Results are 14/3 and 22/3. This explicit form teaches the windowing rule;
+# a future window or scan primitive could generalize it for long streams.

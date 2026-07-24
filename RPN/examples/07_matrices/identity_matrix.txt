@@ -8,14 +8,17 @@
 #     Demonstrates neutral matrix construction.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vec2, matrix, identity transformation, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Construct the two rows [1,0] and [0,1], then combine them into a matrix.
+identity_2d = 1 0 vec2 0 1 vec2 2 matrix
+
+# Multiplying any compatible vector by this matrix leaves it unchanged.

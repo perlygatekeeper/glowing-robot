@@ -8,14 +8,22 @@
 #     Demonstrates conditional repetition.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     dieroll, while, executable conditions and bodies, named scratch stacks
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+exploding_d6_roll = 6 dieroll
+
+# Preserve the latest roll and leave true only when it is the maximum face.
+exploding_d6_condition = duplicate 6 ==
+
+# Roll once, then keep rolling while the latest result is 6. Finally sum all
+# rolls in the chain.
+exploding_d6_work = exploding_d6_roll "exploding_d6_condition" "exploding_d6_roll" while sum
+exploding_d6 = "_exploding_d6" "exploding_d6_work" withstack

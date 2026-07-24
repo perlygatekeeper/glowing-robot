@@ -13,6 +13,8 @@ Conventions
 
 * Each chapter folder contains one example file per recipe idea.
 * Each file starts with a standard header.
-* Solution bodies are intentionally left as TODO stubs for later development.
+* Complete recipes have executable bodies and worked examples.
+* A small number of TODO recipes remain where the language still lacks a
+  suitable primitive; those placeholders identify useful future work.
 * Examples may eventually be loaded with loadfuncs during experimentation, but
   they should not be treated as polished libraries.

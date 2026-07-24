@@ -8,14 +8,28 @@
 #     Demonstrates combining reusable functions.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     small user functions, function composition, execution order
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Each function performs one small transformation.
+double_value = 2 multiply
+add_one = 1 add
+
+# A larger operation is composed by naming the smaller functions in order.
+double_then_add_one = double_value add_one
+
+# Example:
+#
+#     10
+#     double_then_add_one
+#
+# Result:
+#
+#     21

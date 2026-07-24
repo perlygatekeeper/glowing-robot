@@ -8,14 +8,23 @@
 #     Demonstrates vector magnitude and scaling.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     vec2, magnitude, normalize, unit vectors
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# The vector [3,4] has magnitude 5. normalize divides each component by that
+# magnitude.
+#
+#     3 4
+#     vec2
+#     normalize
+#
+# Result:
+#
+#     [0.6,0.8]

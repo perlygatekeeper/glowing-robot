@@ -8,14 +8,24 @@
 #     Demonstrates recurring stack patterns.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     duplicate, exchange, over, pop, reusable stack idioms
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Consume x and leave x*x.
+square_with_stack = duplicate multiply
+
+# Consume a b and leave a, discarding the top value b.
+keep_second_value = pop
+
+# Consume a b and leave b, discarding a.
+keep_top_value = exchange pop
+
+# Given a b, copy a without consuming either value.
+copy_second_value = over

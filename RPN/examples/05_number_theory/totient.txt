@@ -8,14 +8,26 @@
 #     Demonstrates number-theory composition.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     totient, coprime counting, number-theory composition
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Euler's totient phi(n) counts positive integers through n that are coprime
+# to n.
+#
+# Example:
+#
+#     36
+#     totient
+#
+# Result:
+#
+#     12
+#
+# The twelve residues are 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31, and 35.

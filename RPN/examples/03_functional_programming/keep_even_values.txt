@@ -8,14 +8,27 @@
 #     Demonstrates filter.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     filter, modulo, comparison, executable values, predicate functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# A filter predicate consumes one value and leaves one truth value.
+is_even = 2 modulo 0 ==
+
+# filter preserves only values for which is_even returns true.
+keep_even = "is_even" filter
+
+# Example:
+#
+#     1 2 3 4 5 6
+#     keep_even
+#
+# Result:
+#
+#     2 4 6

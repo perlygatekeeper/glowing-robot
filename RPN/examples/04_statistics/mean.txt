@@ -8,14 +8,17 @@
 #     Demonstrates average computation.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     average, whole-stack statistics
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+#     4 7 9 10
+#     average
+#
+# Result: 7.5

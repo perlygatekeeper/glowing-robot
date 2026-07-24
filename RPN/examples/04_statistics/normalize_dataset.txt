@@ -8,14 +8,32 @@
 #     Demonstrates scaling values consistently.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     variables, subtraction, division, map, min-max normalization
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Store the bounds for the data set:
+#
+#     10
+#     'data_min
+#     store
+#     pop
+#     30
+#     'data_max
+#     store
+#     pop
+#
+# Transform x into (x-min)/(max-min).
+normalize_value = data_min subtract data_max data_min subtract divide
+normalize_values = "normalize_value" map
+
+#     10 15 20 30
+#     normalize_values
+#
+# Result: 0 0.25 0.5 1

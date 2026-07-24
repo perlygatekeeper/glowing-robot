@@ -8,14 +8,20 @@
 #     Demonstrates finding an extreme entry.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     readcolumn, maximum, locating extreme numeric values
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Find the largest value in a named CSV column:
+#
+#     readcolumn observations.csv reading
+#     maximum
+#
+# This identifies the extreme numeric value. Returning the entire associated
+# row will require a future record object that keeps fields together.

@@ -8,14 +8,20 @@
 #     Demonstrates reduce as an accumulator.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     reduce, executable operators, accumulation
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+accumulate_sum = "+" reduce
+accumulate_product = "*" reduce
+
+#     1 2 3 4
+#     accumulate_sum
+#
+# Result: 10

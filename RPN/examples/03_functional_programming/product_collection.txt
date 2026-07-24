@@ -8,14 +8,24 @@
 #     Demonstrates reduce with multiplication.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     reduce, multiplication, executable operator values, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# reduce repeatedly combines two values with the quoted * operator.
+product_with_reduce = "*" reduce
+
+# Example:
+#
+#     2 3 4 5
+#     product_with_reduce
+#
+# Result:
+#
+#     120

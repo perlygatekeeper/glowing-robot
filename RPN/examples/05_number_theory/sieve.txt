@@ -8,14 +8,24 @@
 #     Demonstrates filtering candidates.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     range, filter, isprime, executable predicates, user functions
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# Build the inclusive sequence 2 through n, then keep only prime values.
+primes_through = 2 exchange range "isprime" filter
+
+# Example:
+#
+#     20
+#     primes_through
+#
+# Result:
+#
+#     2 3 5 7 11 13 17 19

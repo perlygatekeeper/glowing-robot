@@ -8,14 +8,23 @@
 #     Demonstrates scaling imported data.
 #
 # Demonstrates:
-#     TODO: list commands and language concepts demonstrated here.
+#     readcolumn, variables, map, min-max scaling
 #
 # Notes:
 #     Educational example only. Prefer built-in commands when they are more
 #     robust, faster, or better tested.
 #
 # Status:
-#     TODO
+#     Complete
 #------------------------------------------------------------
 
-# TODO: Add worked RPN example/function here.
+# After inspecting a column, store its minimum and maximum as column_min and
+# column_max. This transformer maps each x to (x-min)/(max-min).
+normalize_column_value = column_min subtract column_max column_min subtract divide
+normalize_column_values = "normalize_column_value" map
+
+#     readcolumn measurements.csv reading
+#     normalize_column_values
+#
+# The resulting values lie from 0 through 1. A constant-valued column needs
+# separate handling because max-min is zero.
