@@ -7,6 +7,21 @@ use warnings;
 use File::Basename qw(basename);
 use File::Find qw(find);
 
+my @OFFICIAL_CATEGORIES = (
+    'Basics',
+    'Strings',
+    'Vectors',
+    'Matrices',
+    'Number Theory',
+    'Dice & Games',
+    'Programming',
+    'Financial',
+    'Statistics',
+);
+
+my %CATEGORY_RANK = map { $OFFICIAL_CATEGORIES[$_] => $_ }
+    0 .. $#OFFICIAL_CATEGORIES;
+
 sub register_commands {
     my ($commands) = @_;
 
@@ -22,6 +37,8 @@ sub register_commands {
                 if (length $wanted) {
                     @examples = grep {
                         _category_key($_->{category}) eq _category_key($arg_str)
+                            || _category_key($_->{source_category})
+                                eq _category_key($arg_str)
                     } @examples;
 
                     unless (@examples) {
@@ -94,6 +111,9 @@ sub _discover_examples {
             wanted => sub {
                 return unless -f $_ && /\.txt\z/i;
                 return if basename($_) eq 'README.txt';
+                my $relative = $File::Find::name;
+                $relative =~ s{^\Q$root\E/?}{};
+                return unless $relative =~ m{\A\d\d_[^/]+/[^/]+\.txt\z};
                 push @files, $File::Find::name;
             },
         },
@@ -111,13 +131,17 @@ sub _discover_examples {
 
         push @examples, {
             %{$metadata},
-            file => $file,
-            key  => $relative,
+            source_category => $metadata->{category},
+            category        => _official_category($metadata->{category}),
+            file            => $file,
+            key             => $relative,
         };
     }
 
     return sort {
-           lc($a->{category}) cmp lc($b->{category})
+           ($CATEGORY_RANK{$a->{category}} // 999)
+               <=> ($CATEGORY_RANK{$b->{category}} // 999)
+        || lc($a->{category}) cmp lc($b->{category})
         || lc($a->{name}) cmp lc($b->{name})
     } @examples;
 }
@@ -182,6 +206,38 @@ sub _category_key {
     $value //= '';
     $value =~ s/^\s*\d+\s*//;
     return _normalize($value);
+}
+
+sub _official_category {
+    my ($category) = @_;
+    my $key = _category_key($category);
+
+    return 'Basics'
+        if $key =~ /^(?:arithmetic|basics|stacktechniques)$/;
+    return 'Strings'
+        if $key eq 'strings';
+    return 'Vectors'
+        if $key eq 'vectors';
+    return 'Matrices'
+        if $key eq 'matrices';
+    return 'Number Theory'
+        if $key eq 'numbertheory';
+    return 'Dice & Games'
+        if $key =~ /^(?:diceandgames|games)$/;
+    return 'Programming'
+        if $key =~ /^(?:functionalprogramming|dataprocessing|executablevalues|fun|programming)$/;
+    return 'Financial'
+        if $key eq 'financial';
+    return 'Statistics'
+        if $key eq 'statistics';
+
+    $category //= 'Uncategorized';
+    $category =~ s/^\s*\d+\s*//;
+    return $category;
+}
+
+sub official_categories {
+    return @OFFICIAL_CATEGORIES;
 }
 
 1;

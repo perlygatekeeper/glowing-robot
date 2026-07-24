@@ -1,0 +1,150 @@
+Release Notes for Version 3.9.2
+===============================
+
+Overview
+--------
+
+Version 3.9.2 makes the RPN Calculator's example collection discoverable,
+teachable, and verifiable.
+
+The calculator can now list examples by category and display an individual
+recipe by its human-readable name or stable path key. The examples collection
+has also received a broad content pass: 66 of 76 cookbook recipes now contain
+worked material, and the remaining ten explicitly identify language
+capabilities needed for future implementation.
+
+
+Example Discovery
+-----------------
+
+New commands:
+
+    examples
+    examples <category>
+    example <name>
+
+`examples` lists recipe metadata grouped by category.
+
+`examples <category>` limits discovery to one official category.
+
+`example <name>` displays the authoritative source recipe without executing it
+automatically. A stable path key may be used instead of the display name.
+
+
+Official Categories
+-------------------
+
+The user-facing example categories are:
+
+    Basics
+    Strings
+    Vectors
+    Matrices
+    Number Theory
+    Dice & Games
+    Programming
+    Financial
+    Statistics
+
+Numbered source chapters remain unchanged on disk. Discovery maps their source
+metadata into these stable categories.
+
+
+Expanded Cookbook
+-----------------
+
+The release completes or substantially expands examples covering:
+
+* dice and random simulations
+* map, filter, and reduce
+* callbacks and executable values
+* statistics and normalization
+* number theory
+* vectors and matrices
+* CSV and column processing
+* named stacks, withstack, and withcopystack
+
+Examples that define reusable functions can be inspected and loaded with
+`loadfuncs`.
+
+
+Four-d6 Example
+---------------
+
+The four-d6 recipe now provides separate calculation and presentation
+functions:
+
+    ability_score
+    ability_score_as_string
+
+The numeric form returns the sum of the highest three dice. The formatted form
+also shows every roll and brackets the dropped die.
+
+
+Documentation
+-------------
+
+Added:
+
+    docs/tutorials/Examples_v01.txt
+    docs/Examples_Catalog_v3.9.2.txt
+    docs/Command_Catalog_v3.9.2.txt
+
+The Examples Catalog is generated from recipe metadata and checked for
+freshness by the documentation audit.
+
+
+Deferred Recipes
+----------------
+
+Ten TODO recipes remain intentionally visible:
+
+* mode
+* histogram
+* blackjack hand value
+* coin flip statistics
+* countdown timer
+* craps simulator
+* guess the number
+* lottery numbers
+* Monte Carlo pi
+* password generator
+
+The roadmap groups these by the missing foundations they require, including
+frequency tables, record objects, interactive input, durable local state,
+sampling, richer iteration, and timed execution.
+
+
+Testing
+-------
+
+The release adds behavioral coverage for:
+
+* discovery and category filtering
+* metadata completeness and unique path keys
+* generated catalog freshness
+* dice recipes
+* functional-programming recipes
+* number-theory recipes
+* vector and matrix recipes
+* stack and executable-value recipes
+* statistics recipes
+
+Every numbered cookbook recipe is included in the metadata audit.
+
+
+Compatibility
+-------------
+
+Version 3.9.2 preserves existing example source paths and command behavior.
+Displaying an example is read-only and does not execute or load it.
+
+
+Looking Ahead
+-------------
+
+Version 3.9.3 is planned to extend map, filter, and reduce to vectors and
+matrices.
+
+Version 4.0.0 remains the geometry and transformation milestone, followed by
+the optional graphics work in Version 4.1.0.

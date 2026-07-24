@@ -12,9 +12,9 @@ use RPN;
 # See lib/RPN.pm, lib/RPN/Stack.pm, lib/RPN/Commands.pm for implementation.
 # usage: rpn.pl [--version]
 
-our $VERSION = '3.9.1';
+our $VERSION = '3.9.2';
 my $AUTHOR        = 'Dr. Steven Parker';
-my $LAST_MOD_DATE = 'Sat, Jul 11, 2026';
+my $LAST_MOD_DATE = 'Fri, Jul 24, 2026';
 
 if (@ARGV && $ARGV[0] =~ /^--v(ersion)?/i) {
     printf "rpn.pl written by %s, version %s, last modified %s.\n",

@@ -1,0 +1,209 @@
+RPN Examples Tutorial
+=====================
+
+Purpose
+-------
+
+The examples collection is a cookbook of small RPN programs. It shows how
+commands, functions, variables, executable values, vectors, matrices, named
+stacks, and file input compose into useful calculations.
+
+Examples are educational source files. Displaying an example does not execute
+it automatically.
+
+
+1. Discovering Examples
+-----------------------
+
+List every available example:
+
+    examples
+
+The output is grouped into official categories:
+
+    Basics
+    Strings
+    Vectors
+    Matrices
+    Number Theory
+    Dice & Games
+    Programming
+    Financial
+    Statistics
+
+Some categories are reserved for future recipes and may currently be empty.
+
+Limit the list to one category:
+
+    examples Basics
+
+    examples Number Theory
+
+    examples Dice & Games
+
+Category matching ignores capitalization, spaces, punctuation, and the
+difference between "and" and "&".
+
+
+2. Displaying One Example
+-------------------------
+
+Use the human-readable example name:
+
+    example Four d6, Drop the Lowest
+
+Or use the stable path key shown by `examples`:
+
+    example 02_dice_and_games/four_d6_drop_lowest
+
+The path key is useful when two examples eventually acquire similar names.
+
+
+3. Reading an Example Header
+----------------------------
+
+Every recipe begins with metadata:
+
+    Example
+        Human-readable name.
+
+    Category
+        Source chapter. Discovery maps it to an official category.
+
+    Purpose
+        The problem solved or technique demonstrated.
+
+    Demonstrates
+        Commands and language concepts used by the recipe.
+
+    Notes
+        Limitations, preferred built-ins, or important assumptions.
+
+    Status
+        Complete or TODO.
+
+A TODO recipe remains discoverable. It records a useful program that needs a
+future language primitive before it can be implemented honestly.
+
+
+4. Trying Worked Input
+----------------------
+
+RPN accepts a numeric list on one line:
+
+    2 3 4
+
+Enter the command or function on the next line:
+
+    square_every
+
+Worked transcripts use that same form. A compact line such as
+
+    2 3 4 square_every
+
+is explanatory pseudocode, not valid REPL input.
+
+
+5. Loading Example Functions
+----------------------------
+
+Many examples contain definitions in the same format used by loadfuncs:
+
+    function_name = function body
+
+Load one of those files explicitly:
+
+    loadfuncs examples/03_functional_programming/square_every_element.txt
+
+Then run its function:
+
+    2 3 4
+    square_every
+
+Loading an example adds its named functions to the current function
+environment. Review the file first, especially when combining several
+examples, because user functions share one namespace.
+
+
+6. Examples as Programming Lessons
+----------------------------------
+
+Start with these chapters:
+
+    Basics
+        Arithmetic composition and stack movement.
+
+    Programming
+        map, filter, reduce, callbacks, variables, and scratch execution.
+
+    Dice & Games
+        Randomness, repeat, while, and formatted results.
+
+Then continue with:
+
+    Number Theory
+        Predicates, ranges, filtering, factors, and recurrence.
+
+    Vectors
+        Construction, scaling, distance, dot products, and normalization.
+
+    Matrices
+        Matrix construction, multiplication, transposition, and geometric
+        transformations.
+
+    Statistics
+        Whole-stack statistics, normalization, z-scores, and outliers.
+
+
+7. Safe Scratch Calculations
+----------------------------
+
+Several recipes use:
+
+    withstack
+    withcopystack
+
+These commands isolate whole-stack operations such as sum, average, sort, and
+formatting.
+
+`withstack` runs on a named stack and returns its top result.
+
+`withcopystack` first copies the caller's values, so the calculation can return
+a result while preserving the original data.
+
+The four-d6 example demonstrates both calculation and presentation without
+disturbing the caller's stack:
+
+    ability_score
+
+    ability_score_as_string
+
+
+8. Catalog and Source Files
+---------------------------
+
+The generated catalog is:
+
+    docs/Examples_Catalog_v3.9.2.txt
+
+It provides a compact category, name, key, and description index.
+
+The source recipes under examples/ remain authoritative. The catalog is
+generated from their metadata and should not be edited by hand.
+
+
+9. Where To Go Next
+-------------------
+
+Try:
+
+    examples Programming
+    example Square Every Element
+
+Then:
+
+    examples Dice & Games
+    example Advantage and Disadvantage
+
+Finally inspect the TODO recipes. They are not dead ends: each one identifies
+a concrete language capability that can unlock a future group of examples.

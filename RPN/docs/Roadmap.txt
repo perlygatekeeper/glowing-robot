@@ -1364,6 +1364,8 @@ Future releases should continue applying this philosophy to new commands.
 
 ## Version 3.9.2 — Examples & Discoverability
 
+Status: Completed
+
 Theme
 
 The calculator should continue learning to teach itself.
@@ -1376,7 +1378,7 @@ The calculator should continue learning to teach itself.
         examples <category>
         example <name>
 
-[ ] Establish example categories.
+[x] Establish example categories.
 
         Basics
         Strings
@@ -1406,11 +1408,62 @@ The calculator should continue learning to teach itself.
         [x] withstack
         [x] withcopystack
 
-[ ] Add an examples tutorial.
+[x] Add an examples tutorial.
 
-[ ] Add a generated Examples Catalog.
+[x] Add a generated Examples Catalog.
 
 [x] Add tests for example discovery and loading.
+
+## Deferred Example Recipes
+
+The following recipes remain visible as TODO examples because implementing
+them honestly requires language primitives that do not yet exist.
+
+### Frequency and Grouping
+
+[ ] mode
+[ ] histogram
+
+Needed foundation:
+
+        frequency table or counting collection
+        grouped values
+        key/value records
+
+### Interactive and Stateful Programs
+
+[ ] blackjack hand value
+[ ] craps simulator
+[ ] guess the number
+
+Needed foundation:
+
+        interactive input command
+        durable local state
+        richer loop control
+
+### Repeated Simulation and Sampling
+
+[ ] coin flip statistics
+[ ] lottery numbers
+[ ] Monte Carlo pi
+[ ] password generator
+
+Needed foundation:
+
+        bounded collection selection
+        sampling without replacement
+        collection construction
+        richer iteration or scan
+
+### Time-Based Execution
+
+[ ] countdown timer
+
+Needed foundation:
+
+        sleep or delay command
+        timed output
 
 ## Purpose
 

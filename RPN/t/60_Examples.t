@@ -19,14 +19,14 @@ make_path("$install_dir/examples/02_games");
 _write_example(
     "$install_dir/examples/01_basics/add_two.txt",
     'Add Two Numbers',
-    'Basics',
+    '01 Arithmetic',
     'Adds two values.',
     '2 3 add',
 );
 _write_example(
     "$install_dir/examples/02_games/roll_die.txt",
     'Roll a Die',
-    'Dice & Games',
+    '02 Dice And Games',
     'Rolls one six-sided die.',
     '6 dieroll',
 );
@@ -46,6 +46,34 @@ stdout_like(
     sub { $calc->process_input('examples dice and games') },
     qr/Dice & Games.*roll_die/s,
     'examples accepts a normalized multiword category',
+);
+
+stdout_like(
+    sub { $calc->process_input('examples basics') },
+    qr/Basics.*add_two/s,
+    'numbered source category maps to official Basics category',
+);
+
+stdout_like(
+    sub { $calc->process_input('examples 01 arithmetic') },
+    qr/Basics.*add_two/s,
+    'legacy numbered source category remains accepted',
+);
+
+is_deeply(
+    [RPN::Commands::Examples::official_categories()],
+    [
+        'Basics',
+        'Strings',
+        'Vectors',
+        'Matrices',
+        'Number Theory',
+        'Dice & Games',
+        'Programming',
+        'Financial',
+        'Statistics',
+    ],
+    'official example categories are stable',
 );
 
 stdout_like(

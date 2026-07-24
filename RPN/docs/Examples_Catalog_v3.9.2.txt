@@ -1,0 +1,331 @@
+RPN Examples Catalog
+====================
+
+Generated from example metadata. Do not edit by hand.
+
+Basics
+------
+
+Clamp a Value
+    Key: 01_arithmetic/clamp_value
+    Restricts a value to an inclusive lower and upper bound.
+
+Common Stack Idioms
+    Key: 09_stack_techniques/common_idioms
+    Demonstrates recurring stack patterns.
+
+Efficient Rearrangement
+    Key: 09_stack_techniques/efficient_rearrangement
+    Demonstrates stack manipulation idioms.
+
+Factorial with reduce
+    Key: 01_arithmetic/factorial_with_reduce
+    Builds n! by generating the integers from 1 through n and reducing
+
+Greatest Common Divisor
+    Key: 01_arithmetic/gcd_euclid
+    Implements Euclid's algorithm as a pair of executable user functions.
+
+Integer Power
+    Key: 01_arithmetic/integer_power
+    Raises a value to a non-negative integer power by repeated multiplication.
+
+Intermediate Values
+    Key: 09_stack_techniques/intermediate_values
+    Demonstrates preserving temporary results.
+
+Least Common Multiple
+    Key: 01_arithmetic/least_common_multiple
+    lcm(a,b) = (a * b) / gcd(a,b)
+
+Minimum/Maximum of Two Values
+    Key: 01_arithmetic/minmax_two_values
+    Keeps either the smaller or larger of two values without using the
+
+Named Stacks
+    Key: 09_stack_techniques/named_stacks
+    Demonstrates separate workspaces.
+
+Running Product
+    Key: 01_arithmetic/running_product
+    Combines every value on the current stack by multiplication.
+
+Running Sum
+    Key: 01_arithmetic/running_sum
+    Combines every value on the current stack by addition.
+
+Scratch Stacks
+    Key: 09_stack_techniques/scratch_stacks
+    Demonstrates temporary stacks for isolated work.
+
+Vectors
+-------
+
+Average of Vectors
+    Key: 06_vectors/average_vectors
+    Demonstrates combining multiple vectors.
+
+Distance Between Points
+    Key: 06_vectors/distance_between_points
+    Demonstrates vector subtraction and magnitude.
+
+Dot Product
+    Key: 06_vectors/dot_product
+    Demonstrates vector multiplication and summing.
+
+Nearest Point
+    Key: 06_vectors/nearest_point
+    Demonstrates comparison across distances.
+
+Normalize a Vector
+    Key: 06_vectors/normalize_vector
+    Demonstrates vector magnitude and scaling.
+
+Scale a Vector
+    Key: 06_vectors/scale_vector
+    Demonstrates multiplying components.
+
+Matrices
+--------
+
+Identity Matrix
+    Key: 07_matrices/identity_matrix
+    Demonstrates neutral matrix construction.
+
+Matrix × Matrix
+    Key: 07_matrices/matrix_matrix
+    Demonstrates composing transformations.
+
+Matrix × Vector
+    Key: 07_matrices/matrix_vector
+    Demonstrates applying a transformation.
+
+Reflection Matrix
+    Key: 07_matrices/reflection_matrix
+    Demonstrates mirroring geometry.
+
+Rotation Matrix
+    Key: 07_matrices/rotation_matrix
+    Demonstrates coordinate rotation.
+
+Transpose
+    Key: 07_matrices/transpose
+    Demonstrates swapping rows and columns.
+
+Number Theory
+-------------
+
+Euler's Totient
+    Key: 05_number_theory/totient
+    Demonstrates number-theory composition.
+
+Fibonacci Sequence
+    Key: 05_number_theory/fibonacci_sequence
+    Demonstrates recurrence.
+
+Modular Exponentiation
+    Key: 05_number_theory/modular_exponentiation
+    Demonstrates efficient repeated operations.
+
+Perfect Numbers
+    Key: 05_number_theory/perfect_numbers
+    Demonstrates divisor sums.
+
+Prime Factorization
+    Key: 05_number_theory/prime_factorization
+    Demonstrates repeated division and factor extraction.
+
+Sieve of Eratosthenes
+    Key: 05_number_theory/sieve
+    Demonstrates filtering candidates.
+
+Dice & Games
+------------
+
+Advantage and Disadvantage
+    Key: 02_dice_and_games/advantage_disadvantage
+    Rolls two twenty-sided dice and keeps the higher roll for advantage
+
+Dice Pool Successes
+    Key: 02_dice_and_games/dice_pool_successes
+    Demonstrates filtering rolls by target number.
+
+Exploding Dice
+    Key: 02_dice_and_games/exploding_dice
+    Demonstrates conditional repetition.
+
+Four d6, Drop the Lowest
+    Key: 02_dice_and_games/four_d6_drop_lowest
+    Rolls four six-sided dice, drops the lowest roll, and adds the
+
+Percentile Dice
+    Key: 02_dice_and_games/percentile_dice
+    Demonstrates d100-style rolling.
+
+Random Ability Scores
+    Key: 02_dice_and_games/ability_scores
+    Demonstrates repeating a recipe several times.
+
+Roll a d20
+    Key: 02_dice_and_games/roll_d20
+    Demonstrates dieroll.
+
+Roll NdM Dice
+    Key: 02_dice_and_games/roll_ndm
+    Demonstrates repeated random rolls.
+
+Programming
+-----------
+
+Accumulation
+    Key: 11_executable_values/accumulation
+    Demonstrates reduce as an accumulator.
+
+Blackjack Hand Value
+    Key: 10_fun/blackjack_value
+    Demonstrates conditional scoring.
+
+Callbacks
+    Key: 03_functional_programming/callbacks
+    Demonstrates executable values as deferred behavior.
+
+Callbacks
+    Key: 11_executable_values/callbacks
+    Demonstrates deferred execution.
+
+Coin Flip Statistics
+    Key: 10_fun/coin_flip_statistics
+    Demonstrates probability experimentation.
+
+Composable Functions
+    Key: 03_functional_programming/composable_functions
+    Demonstrates combining reusable functions.
+
+Conditional Behavior
+    Key: 11_executable_values/conditional_behavior
+    Demonstrates choosing behavior with ifelse.
+
+Countdown Timer
+    Key: 10_fun/countdown_timer
+    Demonstrates repeated actions.
+
+Craps Simulator
+    Key: 10_fun/craps_simulator
+    Demonstrates game-state simulation.
+
+CSV Averages
+    Key: 08_data_processing/csv_averages
+    Demonstrates reading numeric data and summarizing it.
+
+Custom Control Structures
+    Key: 11_executable_values/custom_control_structures
+    Demonstrates composing execution patterns.
+
+Filter Bad Data
+    Key: 08_data_processing/filter_bad_data
+    Demonstrates rejecting invalid records.
+
+Functions Calling Functions
+    Key: 11_executable_values/functions_calling_functions
+    Demonstrates layered abstractions.
+
+Guess the Number
+    Key: 10_fun/guess_the_number
+    Demonstrates interactive game logic.
+
+Keep Only Even Values
+    Key: 03_functional_programming/keep_even_values
+    Demonstrates filter.
+
+Lottery Numbers
+    Key: 10_fun/lottery_numbers
+    Demonstrates random selection.
+
+Maximum Record
+    Key: 08_data_processing/maximum_record
+    Demonstrates finding an extreme entry.
+
+Monte Carlo Pi
+    Key: 10_fun/monte_carlo_pi
+    Demonstrates simulation.
+
+Moving Average
+    Key: 08_data_processing/moving_average
+    Demonstrates smoothing a series.
+
+Normalize a Column
+    Key: 08_data_processing/normalize_column
+    Demonstrates scaling imported data.
+
+Password Generator
+    Key: 10_fun/password_generator
+    Demonstrates random character selection.
+
+Product of a Collection
+    Key: 03_functional_programming/product_collection
+    Demonstrates reduce with multiplication.
+
+Running Totals
+    Key: 03_functional_programming/running_totals
+    Demonstrates cumulative thinking; may require future scan support.
+
+Scratch Execution
+    Key: 11_executable_values/scratch_execution
+    Demonstrates future withstack-style workflows.
+
+Selection
+    Key: 11_executable_values/selection
+    Demonstrates filter as a selector.
+
+Square Every Element
+    Key: 03_functional_programming/square_every_element
+    Demonstrates map.
+
+Sum a Collection
+    Key: 03_functional_programming/sum_collection
+    Demonstrates reduce with addition.
+
+Transformations
+    Key: 11_executable_values/transformations
+    Demonstrates map as a transformer.
+
+Unit Conversion
+    Key: 08_data_processing/unit_conversion
+    Demonstrates mapping conversions across data.
+
+Statistics
+----------
+
+Five-Number Summary
+    Key: 04_statistics/five_number_summary
+    Demonstrates descriptive statistics.
+
+Histogram
+    Key: 04_statistics/histogram
+    Demonstrates grouping and counting.
+
+Mean
+    Key: 04_statistics/mean
+    Demonstrates average computation.
+
+Median
+    Key: 04_statistics/median
+    Demonstrates sorting and selection.
+
+Mode
+    Key: 04_statistics/mode
+    Demonstrates counting repeated values.
+
+Normalize a Data Set
+    Key: 04_statistics/normalize_dataset
+    Demonstrates scaling values consistently.
+
+Outlier Detection
+    Key: 04_statistics/outlier_detection
+    Demonstrates filtering unusual values.
+
+Z-Scores
+    Key: 04_statistics/z_scores
+    Demonstrates standardization.
+
+Total: 76 examples
