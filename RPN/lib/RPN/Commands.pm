@@ -5,6 +5,7 @@ use strict;
 use warnings;
 
 use RPN::Commands::Matrix;
+use RPN::Commands::Transform;
 use RPN::Commands::Vector;
 use RPN::Commands::Combinatorics;
 use RPN::Commands::NumberTheory;
@@ -68,6 +69,7 @@ sub _initialize {
         financial     => 'financial compound interest calculations',
         number_theory => 'prime, factor, gcd, lcm, divisor functions',
         function      => 'user-defined functions',
+        geometry      => 'coordinate geometry and transformations',
         io            => 'file input and output',
         vector        => 'vector mathematics',
         matrix        => 'matrix mathematics',
@@ -77,6 +79,7 @@ sub _initialize {
     };
 
     RPN::Commands::Matrix::register_commands($self);
+    RPN::Commands::Transform::register_commands($self);
     RPN::Commands::Vector::register_commands($self);
     RPN::Commands::Combinatorics::register_commands($self);
     RPN::Commands::NumberTheory::register_commands($self);

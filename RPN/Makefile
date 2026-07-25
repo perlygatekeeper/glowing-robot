@@ -16,6 +16,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Financial.pm \
              lib/RPN/Commands/Functions.pm \
              lib/RPN/Commands/Matrix.pm \
+             lib/RPN/Commands/Transform.pm \
              lib/RPN/Commands/NumberTheory.pm \
              lib/RPN/Commands/Numeric.pm \
              lib/RPN/Commands/Random.pm \
@@ -30,6 +31,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
              lib/RPN/Matrix.pm \
+             lib/RPN/Transform.pm \
              lib/RPN/Variables.pm \
              lib/RPN/Vector.pm \
              t/lib/RPN/TestOutput.pm

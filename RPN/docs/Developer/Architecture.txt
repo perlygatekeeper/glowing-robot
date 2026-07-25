@@ -36,6 +36,7 @@ lib/
         Functions.pm
         Vector.pm
         Matrix.pm
+        Transform.pm
 
         Commands.pm
         Commands/
@@ -44,6 +45,7 @@ lib/
             Stack.pm
             Vector.pm
             Matrix.pm
+            Transform.pm
             Financial.pm
             NumberTheory.pm
             Combinatorics.pm
@@ -94,6 +96,7 @@ Examples:
 RPN::Stack
 RPN::Vector
 RPN::Matrix
+RPN::Transform
 RPN::Variables
 RPN::Constants
 RPN::Functions

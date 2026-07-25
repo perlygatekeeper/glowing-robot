@@ -1,0 +1,357 @@
+RPN Geometry and Transformations
+================================
+
+Purpose
+-------
+
+This tutorial introduces immutable 2D transformations. A transform describes
+how points move; it does not modify a point until `apply2d` is used.
+
+RPN represents 2D transforms internally with 3x3 homogeneous matrices. The
+extra coordinate allows translation, rotation, scaling, shearing, reflection,
+and composition to share one object model.
+
+
+1. Points
+---------
+
+For this first geometry release, a 2D point is represented by a two-dimensional
+vector:
+
+    3 4
+    vec2
+
+Result:
+
+    [3,4]
+
+
+2. Identity
+-----------
+
+The identity transform leaves every point unchanged:
+
+    3 4
+    vec2
+    identity2d
+    apply2d
+
+Result:
+
+    [3,4]
+
+
+3. Translation
+--------------
+
+Create a translation from horizontal and vertical offsets:
+
+    3 4
+    vec2
+    5 -2
+    translate2d
+    apply2d
+
+Result:
+
+    [8,2]
+
+The stack form is:
+
+    POINT DX DY translate2d apply2d
+
+
+4. Rotation
+-----------
+
+`rotate2d` follows the calculator's current angle mode.
+
+Using degrees:
+
+    degrees
+    1 0
+    vec2
+    90
+    rotate2d
+    apply2d
+
+Result, allowing for floating-point rounding:
+
+    [0,1]
+
+Using radians:
+
+    radians
+
+    1 0
+    vec2
+    pi
+    2
+    divide
+    rotate2d
+    apply2d
+
+
+5. Scaling
+----------
+
+Scale x and y independently:
+
+    3 4
+    vec2
+    2 3
+    scale2d
+    apply2d
+
+Result:
+
+    [6,12]
+
+Negative scale factors also reflect across an axis.
+
+
+6. Shearing
+-----------
+
+`shear2d` accepts:
+
+    X-BY-Y Y-BY-X shear2d
+
+For example, add one y-coordinate to x while leaving y unchanged:
+
+    2 3
+    vec2
+    1 0
+    shear2d
+    apply2d
+
+Result:
+
+    [5,3]
+
+
+7. Reflection
+-------------
+
+Reflect across the x-axis:
+
+    2 3
+    vec2
+    reflectx2d
+    apply2d
+
+Result:
+
+    [2,-3]
+
+Reflect across the y-axis:
+
+    2 3
+    vec2
+    reflecty2d
+    apply2d
+
+Result:
+
+    [-2,3]
+
+
+8. Composition
+--------------
+
+Composition combines several transforms into one reusable transform.
+
+The stack form:
+
+    FIRST SECOND compose2d
+
+means "apply FIRST, then apply SECOND."
+
+Translate [1,1] by [2,3], then scale the result by [2,2]:
+
+    1 1
+    vec2
+    2 3
+    translate2d
+    2 2
+    scale2d
+    compose2d
+    apply2d
+
+Result:
+
+    [6,8]
+
+Order matters. Scaling first and translating second gives a different result.
+
+
+9. Inversion
+------------
+
+`inverse2d` creates the transform that reverses a non-singular transform:
+
+    7 -4
+    vec2
+    3 9
+    translate2d
+    apply2d
+
+    3 9
+    translate2d
+    inverse2d
+    apply2d
+
+Result:
+
+    [7,-4]
+
+A scale containing a zero factor is singular and cannot be inverted.
+
+
+10. Inspecting the Matrix
+-------------------------
+
+Transform objects have a readable display form:
+
+    transform2d[[1,0,5],[0,1,-2],[0,0,1]]
+
+To obtain a regular matrix object:
+
+    transformmatrix
+
+The returned matrix is a copy. Transform objects remain immutable.
+
+
+11. Design Principle
+--------------------
+
+Use transforms when the operation represents geometry.
+
+Use raw matrices for general linear algebra.
+
+The distinction records intent and lets future 3D geometry and graphics build
+on a stable transformation API.
+
+
+12. Three-Dimensional Points
+----------------------------
+
+Create a 3D point:
+
+    1 2 3
+    point3d
+
+Result:
+
+    [1,2,3]
+
+Measure distance between two 3D points:
+
+    0 0 0
+    point3d
+    2 3 6
+    point3d
+    distance3d
+
+Result:
+
+    7
+
+
+13. Three-Dimensional Translation and Scaling
+---------------------------------------------
+
+Translate a point:
+
+    1 2 3
+    point3d
+    4 -2 5
+    translate3d
+    apply3d
+
+Result:
+
+    [5,0,8]
+
+Scale independently along all three axes:
+
+    1 2 3
+    point3d
+    2 3 4
+    scale3d
+    apply3d
+
+Result:
+
+    [2,6,12]
+
+
+14. Three-Dimensional Rotation
+------------------------------
+
+Three commands rotate around the coordinate axes:
+
+    rotatex3d
+    rotatey3d
+    rotatez3d
+
+They honor the current angle mode. Rotate [1,0,0] around the z-axis:
+
+    degrees
+    1 0 0
+    point3d
+    90
+    rotatez3d
+    apply3d
+
+Result:
+
+    [0,1,0]
+
+
+15. Three-Dimensional Reflection
+--------------------------------
+
+Reflect across a coordinate plane:
+
+    reflectxy3d
+    reflectxz3d
+    reflectyz3d
+
+Reflection across the xy-plane negates z. Reflection across xz negates y.
+Reflection across yz negates x.
+
+
+16. Three-Dimensional Composition
+---------------------------------
+
+`compose3d` uses the same execution-order rule as `compose2d`:
+
+    FIRST SECOND compose3d
+
+Translate [1,1,1] by [1,2,3], then scale by [2,2,2]:
+
+    1 1 1
+    point3d
+    1 2 3
+    translate3d
+    2 2 2
+    scale3d
+    compose3d
+    apply3d
+
+Result:
+
+    [4,6,8]
+
+Use `identity3d` and `inverse3d` for the corresponding identity and inverse
+operations.
+
+
+17. Where To Go Next
+--------------------
+
+Version 4.0 establishes the geometry layer.
+
+Graphics can now reuse the same point and transformation semantics for shapes,
+SVG output, graphing, and plotting.

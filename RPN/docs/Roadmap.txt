@@ -1499,16 +1499,18 @@ while preserving a consistent programming model.
 
 ## Version 4.0.0 — Geometry and Transformations
 
-[ ] 2D transformations
-[ ] 3D transformations
-[ ] Translation
-[ ] Rotation
-[ ] Reflection
-[ ] Scaling
-[ ] Shearing
-[ ] Coordinate geometry
-[ ] Geometry tutorial
-[ ] Transformation tests
+Status: Completed
+
+[x] 2D transformations
+[x] 3D transformations
+[x] Translation
+[x] Rotation
+[x] Reflection
+[x] Scaling
+[x] Shearing
+[x] Coordinate geometry
+[x] Geometry tutorial
+[x] Transformation tests
 
 ---
 

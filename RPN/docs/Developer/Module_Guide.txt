@@ -109,6 +109,20 @@ Implements matrix mathematics.
 
 ---
 
+## lib/RPN/Transform.pm
+
+Implements immutable 2D and 3D homogeneous transformations.
+
+Owns:
+
+* transformation dimension
+* homogeneous matrix representation
+* point application
+* composition order
+* inversion
+
+---
+
 # Command Registry
 
 ## lib/RPN/Commands.pm
@@ -138,6 +152,7 @@ String.pm
 Stack.pm
 Vector.pm
 Matrix.pm
+Transform.pm
 Financial.pm
 NumberTheory.pm
 Combinatorics.pm

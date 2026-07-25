@@ -126,6 +126,59 @@ Public matrix operations should remain independent of calculator state.
 
 ---
 
+# RPN::Transform
+
+Construction:
+
+identity()
+
+translation2d()
+
+rotation2d()
+
+scaling2d()
+
+shearing2d()
+
+reflection_x2d()
+
+reflection_y2d()
+
+translation3d()
+
+rotation_x3d()
+
+rotation_y3d()
+
+rotation_z3d()
+
+scaling3d()
+
+reflection_xy3d()
+
+reflection_xz3d()
+
+reflection_yz3d()
+
+Information:
+
+dimension()
+
+matrix()
+
+Operations:
+
+apply()
+
+then()
+
+inverse()
+
+Transform objects are immutable. Composition with `then()` is defined in
+execution order: `A->then(B)` applies A first and B second.
+
+---
+
 # API Stability
 
 Public methods should evolve slowly.

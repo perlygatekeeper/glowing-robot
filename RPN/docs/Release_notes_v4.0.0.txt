@@ -1,0 +1,143 @@
+Release Notes for Version 4.0.0
+===============================
+
+Overview
+--------
+
+Version 4.0.0 introduces a first-class geometry and transformation layer.
+
+RPN can now create immutable 2D and 3D transforms, compose them in execution
+order, apply them to points, invert them, and inspect their homogeneous matrix
+representation.
+
+
+Architecture
+------------
+
+The new `RPN::Transform` domain object owns:
+
+* transformation dimension
+* homogeneous matrix representation
+* point application
+* composition order
+* inversion
+
+2D transforms use 3x3 homogeneous matrices. 3D transforms use 4x4 homogeneous
+matrices.
+
+Transform objects are distinct from general matrices so programs can express
+geometric intent while reusing the established matrix implementation.
+
+
+Two-Dimensional Commands
+------------------------
+
+    point2d
+    distance2d
+    identity2d
+    translate2d
+    rotate2d
+    scale2d
+    shear2d
+    reflectx2d
+    reflecty2d
+    compose2d
+    inverse2d
+    apply2d
+
+
+Three-Dimensional Commands
+--------------------------
+
+    point3d
+    distance3d
+    identity3d
+    translate3d
+    rotatex3d
+    rotatey3d
+    rotatez3d
+    scale3d
+    reflectxy3d
+    reflectxz3d
+    reflectyz3d
+    compose3d
+    inverse3d
+    apply3d
+
+
+Shared Inspection
+-----------------
+
+    transformmatrix
+
+This command replaces a transform with a copy of its homogeneous matrix.
+
+
+Composition Order
+-----------------
+
+Composition follows execution order:
+
+    FIRST SECOND compose2d
+    FIRST SECOND compose3d
+
+The resulting transform applies FIRST and then SECOND.
+
+This user-facing rule is intentionally explicit because the underlying matrix
+product is formed in the opposite textual order for column vectors.
+
+
+Angles
+------
+
+All rotation commands honor the existing angle mode:
+
+    degrees
+    radians
+
+
+Coordinate Geometry
+-------------------
+
+`point2d` and `point3d` create points represented by existing vector objects.
+
+`distance2d` and `distance3d` compute Euclidean distance between compatible
+points.
+
+This preserves interoperability with vector mathematics without introducing a
+duplicate point-storage object.
+
+
+Documentation and Testing
+-------------------------
+
+Added:
+
+    docs/tutorials/Geometry_v01.txt
+    t/69_Transform.t
+    t/70_TransformCommands.t
+    t/71_Transform3D.t
+
+Tests cover construction, application, composition, inversion, rotation,
+reflection, scaling, shearing, point creation, distance, validation, operand
+preservation, and angle-mode behavior.
+
+
+Compatibility
+-------------
+
+Version 4.0.0 adds new commands and objects without changing existing vector or
+matrix semantics.
+
+
+Looking Ahead
+-------------
+
+The transformation layer is the foundation for the optional Version 4.1
+graphics work:
+
+* points and shapes
+* SVG output
+* transformation integration
+* graphing and plotting
+* function visualization
