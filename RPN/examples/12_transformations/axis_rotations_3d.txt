@@ -1,0 +1,23 @@
+#------------------------------------------------------------
+# Example: 3D Axis Rotations
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Demonstrates quarter turns around the x, y, and z axes.
+#
+# Demonstrates:
+#     degrees, rotatex3d, rotatey3d, rotatez3d, apply3d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+quarter_turn_x = degrees 90 rotatex3d apply3d
+quarter_turn_y = degrees 90 rotatey3d apply3d
+quarter_turn_z = degrees 90 rotatez3d apply3d
+
+# [0,1,0] around x becomes [0,0,1].
+# [0,0,1] around y becomes [1,0,0].
+# [1,0,0] around z becomes [0,1,0].

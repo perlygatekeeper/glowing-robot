@@ -1,0 +1,23 @@
+#------------------------------------------------------------
+# Example: 2D Scaling and Shearing
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Scales a point and then shears x by the scaled y-coordinate.
+#
+# Demonstrates:
+#     scale2d, shear2d, compose2d, apply2d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+scale_then_shear_2d = 2 3 scale2d 1 0 shear2d compose2d apply2d
+
+#     1 1
+#     point2d
+#     scale_then_shear_2d
+#
+# Scaling produces [2,3]; shearing produces [5,3].

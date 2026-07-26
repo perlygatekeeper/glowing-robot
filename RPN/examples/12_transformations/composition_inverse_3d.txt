@@ -1,0 +1,20 @@
+#------------------------------------------------------------
+# Example: 3D Composition and Inversion
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Composes 3D translation and rotation and reverses the result.
+#
+# Demonstrates:
+#     translate3d, rotatez3d, compose3d, inverse3d, apply3d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+move_then_turn_3d = degrees 1 2 3 translate3d 90 rotatez3d compose3d
+undo_move_then_turn_3d = move_then_turn_3d inverse3d
+
+# Composition preserves the stated execution order: translation, then rotation.

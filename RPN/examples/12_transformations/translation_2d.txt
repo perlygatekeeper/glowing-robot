@@ -1,0 +1,24 @@
+#------------------------------------------------------------
+# Example: 2D Translation
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Moves a 2D point by fixed horizontal and vertical offsets.
+#
+# Demonstrates:
+#     point2d, translate2d, apply2d, user functions
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+# Apply the translation [5,-2] to the point already on the stack.
+move_right_5_down_2 = 5 -2 translate2d apply2d
+
+#     3 4
+#     point2d
+#     move_right_5_down_2
+#
+# Result: [8,2]

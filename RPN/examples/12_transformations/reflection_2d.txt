@@ -1,0 +1,20 @@
+#------------------------------------------------------------
+# Example: 2D Reflection
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Reflects 2D points across the coordinate axes.
+#
+# Demonstrates:
+#     reflectx2d, reflecty2d, apply2d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+mirror_across_x = reflectx2d apply2d
+mirror_across_y = reflecty2d apply2d
+
+# [2,3] becomes [2,-3] across x and [-2,3] across y.

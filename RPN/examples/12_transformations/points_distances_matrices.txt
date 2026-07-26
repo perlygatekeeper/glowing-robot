@@ -1,0 +1,32 @@
+#------------------------------------------------------------
+# Example: Points, Distances, and Transform Matrices
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Connects point geometry with vectors and homogeneous matrices.
+#
+# Demonstrates:
+#     point2d, point3d, distance2d, distance3d, transformmatrix
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+# 2D distance:
+#     0 0 point2d
+#     3 4 point2d
+#     distance2d
+# Result: 5
+
+# 3D distance:
+#     0 0 0 point3d
+#     2 3 6 point3d
+#     distance3d
+# Result: 7
+
+# Inspect a transform's homogeneous representation:
+#     5 -2 translate2d
+#     transformmatrix
+# Result: [[1,0,5],[0,1,-2],[0,0,1]]

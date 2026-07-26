@@ -118,6 +118,17 @@ Added:
     t/70_TransformCommands.t
     t/71_Transform3D.t
 
+Added a ten-recipe cookbook chapter:
+
+    examples/12_transformations/
+
+The recipes cover 2D and 3D construction, application, composition, inversion,
+coordinate points, distances, reflections, rotations, and matrix inspection.
+
+The recipes are discoverable under the Geometry category and indexed in:
+
+    docs/Examples_Catalog_v4.0.0.txt
+
 Tests cover construction, application, composition, inversion, rotation,
 reflection, scaling, shearing, point creation, distance, validation, operand
 preservation, and angle-mode behavior.

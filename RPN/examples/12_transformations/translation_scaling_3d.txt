@@ -1,0 +1,23 @@
+#------------------------------------------------------------
+# Example: 3D Translation and Scaling
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Moves a 3D point and then scales all three coordinates.
+#
+# Demonstrates:
+#     translate3d, scale3d, compose3d, apply3d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+move_then_scale_3d = 1 2 3 translate3d 2 2 2 scale3d compose3d apply3d
+
+#     1 1 1
+#     point3d
+#     move_then_scale_3d
+#
+# Result: [4,6,8]

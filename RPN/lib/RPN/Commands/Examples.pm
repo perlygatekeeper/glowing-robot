@@ -12,6 +12,7 @@ my @OFFICIAL_CATEGORIES = (
     'Strings',
     'Vectors',
     'Matrices',
+    'Geometry',
     'Number Theory',
     'Dice & Games',
     'Programming',
@@ -220,6 +221,8 @@ sub _official_category {
         if $key eq 'vectors';
     return 'Matrices'
         if $key eq 'matrices';
+    return 'Geometry'
+        if $key =~ /^(?:geometry|transformations)$/;
     return 'Number Theory'
         if $key eq 'numbertheory';
     return 'Dice & Games'

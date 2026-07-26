@@ -1,0 +1,22 @@
+#------------------------------------------------------------
+# Example: 2D Composition and Inversion
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Builds one reusable transform and its exact inverse.
+#
+# Demonstrates:
+#     translate2d, scale2d, compose2d, inverse2d, apply2d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+# Translate first, then scale.
+move_then_double_2d = 2 3 translate2d 2 2 scale2d compose2d
+undo_move_then_double_2d = move_then_double_2d inverse2d
+
+# Applied to [1,1], the forward transform produces [6,8]. Applying the inverse
+# to [6,8] restores [1,1].

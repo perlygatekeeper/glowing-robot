@@ -351,6 +351,20 @@ operations.
 17. Where To Go Next
 --------------------
 
+Browse the worked transformation recipes:
+
+    examples Geometry
+
+Display one recipe:
+
+    example 2D Composition and Inversion
+
+The complete generated index is:
+
+    docs/Examples_Catalog_v4.0.0.txt
+
+---
+
 Version 4.0 establishes the geometry layer.
 
 Graphics can now reuse the same point and transformation semantics for shapes,

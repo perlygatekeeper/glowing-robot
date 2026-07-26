@@ -25,6 +25,7 @@ The output is grouped into official categories:
     Strings
     Vectors
     Matrices
+    Geometry
     Number Theory
     Dice & Games
     Programming
@@ -150,6 +151,9 @@ Then continue with:
     Matrices
         Matrix construction, multiplication, transposition, and geometric
         transformations.
+
+    Geometry
+        First-class 2D and 3D transforms, composition, inversion, and points.
 
     Statistics
         Whole-stack statistics, normalization, z-scores, and outliers.

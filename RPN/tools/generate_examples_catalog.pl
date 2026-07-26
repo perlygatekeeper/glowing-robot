@@ -7,7 +7,7 @@ use Getopt::Long qw(GetOptions);
 use lib 'lib';
 use RPN::Commands::Examples;
 
-my $output = 'docs/Examples_Catalog_v3.9.2.txt';
+my $output = 'docs/Examples_Catalog_v4.0.0.txt';
 my $check  = 0;
 my $help   = 0;
 
@@ -82,7 +82,7 @@ Usage: perl -Ilib tools/generate_examples_catalog.pl [options]
 
 Options:
     --output FILE   Catalog file to write or check
-                    default: docs/Examples_Catalog_v3.9.2.txt
+                    default: docs/Examples_Catalog_v4.0.0.txt
     --check         Verify FILE matches the generated catalog
     --help          Show this help
 

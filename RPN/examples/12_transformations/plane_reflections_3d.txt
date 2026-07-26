@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: 3D Plane Reflections
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Reflects a point across each coordinate plane.
+#
+# Demonstrates:
+#     reflectxy3d, reflectxz3d, reflectyz3d, apply3d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+mirror_across_xy = reflectxy3d apply3d
+mirror_across_xz = reflectxz3d apply3d
+mirror_across_yz = reflectyz3d apply3d
+
+# Starting with [1,2,3], the results are [1,2,-3], [1,-2,3], and [-1,2,3].

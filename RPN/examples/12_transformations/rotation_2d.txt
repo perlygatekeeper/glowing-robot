@@ -1,0 +1,23 @@
+#------------------------------------------------------------
+# Example: 2D Rotation
+#
+# Category:
+#     12 Transformations
+#
+# Purpose:
+#     Rotates a 2D point one quarter turn counterclockwise.
+#
+# Demonstrates:
+#     degrees, point2d, rotate2d, apply2d
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+quarter_turn_2d = degrees 90 rotate2d apply2d
+
+#     1 0
+#     point2d
+#     quarter_turn_2d
+#
+# Result: [0,1], allowing for floating-point rounding.
