@@ -15,6 +15,7 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Examples.pm \
              lib/RPN/Commands/Financial.pm \
              lib/RPN/Commands/Functions.pm \
+             lib/RPN/Commands/Graphics.pm \
              lib/RPN/Commands/Matrix.pm \
              lib/RPN/Commands/Transform.pm \
              lib/RPN/Commands/NumberTheory.pm \
@@ -30,6 +31,12 @@ MODS      := lib/RPN.pm \
              lib/RPN/Commands/Vector.pm \
              lib/RPN/Constants.pm \
              lib/RPN/Functions.pm \
+             lib/RPN/Graphics/Plot.pm \
+             lib/RPN/Graphics/Point.pm \
+             lib/RPN/Graphics/QRCode.pm \
+             lib/RPN/Graphics/Scene.pm \
+             lib/RPN/Graphics/Shape.pm \
+             lib/RPN/Graphics/SVG.pm \
              lib/RPN/Matrix.pm \
              lib/RPN/Transform.pm \
              lib/RPN/Variables.pm \

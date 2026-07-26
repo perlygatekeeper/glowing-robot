@@ -68,6 +68,7 @@ is_deeply(
         'Vectors',
         'Matrices',
         'Geometry',
+        'Graphics',
         'Number Theory',
         'Dice & Games',
         'Programming',

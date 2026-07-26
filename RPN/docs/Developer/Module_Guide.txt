@@ -123,6 +123,25 @@ Owns:
 
 ---
 
+## lib/RPN/Graphics/*.pm
+
+Implements the SVG-first graphics value layer.
+
+Responsibilities are divided among:
+
+* `Point.pm` for explicit 2D graphics coordinates
+* `Shape.pm` for immutable geometry, style, and transforms
+* `Scene.pm` for canvas metadata and ordered shapes
+* `Plot.pm` for mapping numeric series into scene coordinates
+* `QRCode.pm` for optional QR encoding and QR shapes
+* `SVG.pm` for safe SVG serialization and file output
+
+`QRCode.pm` dynamically loads `Text::QRCode`, which uses the system
+`libqrencode` library; the rest of the graphics layer has no non-core graphics
+dependency.
+
+---
+
 # Command Registry
 
 ## lib/RPN/Commands.pm
@@ -153,6 +172,7 @@ Stack.pm
 Vector.pm
 Matrix.pm
 Transform.pm
+Graphics.pm
 Financial.pm
 NumberTheory.pm
 Combinatorics.pm

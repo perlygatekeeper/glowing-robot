@@ -37,6 +37,13 @@ lib/
         Vector.pm
         Matrix.pm
         Transform.pm
+        Graphics/
+            Point.pm
+            Shape.pm
+            Scene.pm
+            Plot.pm
+            QRCode.pm
+            SVG.pm
 
         Commands.pm
         Commands/
@@ -46,6 +53,7 @@ lib/
             Vector.pm
             Matrix.pm
             Transform.pm
+            Graphics.pm
             Financial.pm
             NumberTheory.pm
             Combinatorics.pm
@@ -97,6 +105,9 @@ RPN::Stack
 RPN::Vector
 RPN::Matrix
 RPN::Transform
+RPN::Graphics::Point
+RPN::Graphics::Shape
+RPN::Graphics::Scene
 RPN::Variables
 RPN::Constants
 RPN::Functions
@@ -107,6 +118,11 @@ Each domain object owns:
 * all operations on that representation
 
 Other modules should not manipulate those internals directly.
+
+Graphics rendering is deliberately layered. Shapes contain geometry and style,
+scenes contain ordered shapes, and `RPN::Graphics::SVG` serializes scenes. Plot
+and QR modules create ordinary shapes and scenes instead of bypassing this
+model. QR encoding is the only optional external graphics dependency.
 
 ---
 

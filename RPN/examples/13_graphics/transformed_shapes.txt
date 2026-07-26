@@ -1,0 +1,24 @@
+#------------------------------------------------------------
+# Example: Transformed Shapes
+#
+# Category:
+#     13 Graphics
+#
+# Purpose:
+#     Applies an existing 2D transform to a graphics shape.
+#
+# Demonstrates:
+#     rectangle, translate2d, rotate2d, compose2d, transformshape
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+#     10 10 100 50
+#     rectangle
+#     150 80
+#     translate2d
+#     30
+#     rotate2d
+#     compose2d
+#     transformshape

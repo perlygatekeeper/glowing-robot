@@ -1,0 +1,24 @@
+#------------------------------------------------------------
+# Example: Data Plot
+#
+# Category:
+#     13 Graphics
+#
+# Purpose:
+#     Plots paired x and y vectors as an SVG scene.
+#
+# Demonstrates:
+#     vectors, plot, savesvg
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+#     0 1 2 3 4
+#     vec5
+#     0 1 4 9 16
+#     vec5
+#     640 480
+#     plot
+#     'data-plot.svg
+#     savesvg

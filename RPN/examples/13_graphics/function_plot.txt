@@ -1,0 +1,21 @@
+#------------------------------------------------------------
+# Example: Function Plot
+#
+# Category:
+#     13 Graphics
+#
+# Purpose:
+#     Samples y=x squared and produces a graphics scene.
+#
+# Demonstrates:
+#     code blocks, functionplot, savesvg
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+#     -5 5 101 640 480
+#     { dup * }
+#     functionplot
+#     'parabola.svg
+#     savesvg

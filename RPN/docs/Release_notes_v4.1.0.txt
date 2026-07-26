@@ -1,0 +1,48 @@
+RPN Calculator Version 4.1.0 Release Notes
+==========================================
+
+Version 4.1.0 adds an optional, SVG-first graphics system built on the 4.0
+geometry and transformation foundation.
+
+Graphics Values
+---------------
+
+The release adds immutable graphics points, shapes, and scenes. Supported
+shapes include lines, rectangles, circles, polygons, plot polylines, and QR
+codes. Styling and shape transformations return new values.
+
+SVG Output
+----------
+
+Scenes can be converted to SVG strings or saved as `.svg` files. SVG rendering
+uses Perl string and file operations and does not require a raster graphics or
+GUI library.
+
+Plotting
+--------
+
+`plot` graphs paired numeric vectors. `functionplot` samples an executable RPN
+value across a numeric range. Both produce ordinary scenes that can receive
+more shapes before being rendered.
+
+QR Codes
+--------
+
+QR codes integrate with the same scene and SVG renderer. Encoding requires the
+optional `Text::QRCode` CPAN module and its system `libqrencode` library.
+`qravailable` reports whether the Perl module is installed. Keeping this
+dependency optional preserves a dependency-light core.
+
+Commands
+--------
+
+    scene line rectangle circle polygon draw
+    strokecolor fillcolor strokewidth
+    transformshape svg savesvg
+    plot functionplot qrcode qravailable
+
+Documentation and Tests
+-----------------------
+
+The release includes a Graphics tutorial, cookbook examples, domain tests,
+command tests, and regenerated command and example catalogs.

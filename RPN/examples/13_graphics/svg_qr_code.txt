@@ -1,0 +1,30 @@
+#------------------------------------------------------------
+# Example: SVG QR Code
+#
+# Category:
+#     13 Graphics
+#
+# Purpose:
+#     Creates a scalable QR code inside an SVG scene.
+#
+# Demonstrates:
+#     qravailable, qrcode, scene, draw, savesvg
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+# `qrcode` requires the optional Text::QRCode module. Check first:
+#
+#     qravailable
+#
+# Then:
+#
+#     500 500
+#     scene
+#     'https://example.com
+#     50 50 400
+#     qrcode
+#     draw
+#     'example-qr.svg
+#     savesvg

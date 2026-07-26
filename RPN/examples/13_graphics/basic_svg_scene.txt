@@ -1,0 +1,32 @@
+#------------------------------------------------------------
+# Example: Basic SVG Scene
+#
+# Category:
+#     13 Graphics
+#
+# Purpose:
+#     Builds a styled scene from a rectangle and circle.
+#
+# Demonstrates:
+#     scene, rectangle, circle, fillcolor, strokecolor, draw, savesvg
+#
+# Status:
+#     Complete
+#------------------------------------------------------------
+
+#     640 480
+#     scene
+#     50 50 220 120
+#     rectangle
+#     'lightblue
+#     fillcolor
+#     'navy
+#     strokecolor
+#     draw
+#     400 180 75
+#     circle
+#     'gold
+#     fillcolor
+#     draw
+#     'basic-scene.svg
+#     savesvg

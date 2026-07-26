@@ -1520,19 +1520,24 @@ Status: Completed
 This could go overboard easily.
 Start small. Accumulate slowly.
 
-[ ] Graphics architecture
-[ ] Point object
-[ ] Shape object
-[ ] SVG output
-[ ] Line
-[ ] Rectangle
-[ ] Circle
-[ ] Polygon
-[ ] Transformation integration
-[ ] Graphing
-[ ] Plotting
-[ ] Function visualization
-[ ] Graphics tutorial
+Status: Completed
+
+[x] Graphics architecture
+[x] Point object
+[x] Shape object
+[x] SVG output
+[x] Line
+[x] Rectangle
+[x] Circle
+[x] Polygon
+[x] Transformation integration
+[x] Graphing
+[x] Plotting
+[x] Function visualization
+[x] QR code generation
+[x] QR code SVG output
+[x] QR code tests and examples
+[x] Graphics tutorial
 
 ---
 

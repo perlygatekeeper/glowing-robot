@@ -1,0 +1,141 @@
+RPN Graphics
+============
+
+Purpose
+-------
+
+RPN 4.1 creates vector graphics as immutable values. Shapes are collected in
+a scene and rendered as standards-based SVG text. SVG files can be opened by
+web browsers and vector drawing programs.
+
+
+1. Scenes and Shapes
+--------------------
+
+Create a 640 by 480 scene, then add a line:
+
+    640 480
+    scene
+    20 30 300 200
+    line
+    draw
+
+`draw` consumes a scene and shape and returns a new scene. The original values
+are not modified.
+
+Other shape constructors are:
+
+    X Y WIDTH HEIGHT rectangle
+    CENTER-X CENTER-Y RADIUS circle
+    POINT-MATRIX polygon
+
+A polygon matrix has one [x,y] point per row.
+
+
+2. Styling
+----------
+
+Style a shape before drawing it:
+
+    40 40 180 100
+    rectangle
+    'navy
+    strokecolor
+    'lightblue
+    fillcolor
+    3
+    strokewidth
+
+Colors may be SVG color names or values such as '#336699'.
+
+
+3. Transforming Shapes
+----------------------
+
+Graphics reuse the 2D transformation system introduced in RPN 4.0:
+
+    10 10 80 40
+    rectangle
+    100 50
+    translate2d
+    transformshape
+
+Translation, rotation, scaling, reflection, shearing, and composed transforms
+can all be attached to shapes.
+
+
+4. SVG Output
+-------------
+
+Convert the scene to SVG text on the stack:
+
+    svg
+
+Or save it directly:
+
+    'drawing.svg
+    savesvg
+
+`savesvg` leaves the filename on the stack after a successful write.
+
+
+5. Plotting Data
+----------------
+
+Supply equally sized x and y vectors followed by the image dimensions:
+
+    0 1 2 3
+    vec4
+    0 1 4 9
+    vec4
+    640 480
+    plot
+
+The result is a scene containing a polyline and visible zero axes.
+
+
+6. Plotting Functions
+---------------------
+
+`functionplot` evaluates an executable value across a range:
+
+    -5 5 101 640 480
+    { dup * }
+    functionplot
+
+The operands are minimum x, maximum x, sample count, width, height, and an
+executable string or code block. Each evaluation receives x and must leave a
+numeric y value.
+
+
+7. QR Codes
+-----------
+
+QR encoding is an optional capability supplied by the CPAN `Text::QRCode`
+module, which in turn requires the system `libqrencode` library. Check
+availability with:
+
+    qravailable
+
+When it returns 1, create and draw a QR code:
+
+    500 500
+    scene
+    'https://example.com
+    50 50 400
+    qrcode
+    draw
+    'example-qr.svg
+    savesvg
+
+QR codes are rendered as SVG rectangles, so they remain crisp at any size.
+The core scene, shape, plotting, transformation, and SVG features do not need
+any non-core graphics library.
+
+
+8. Discovering Examples
+-----------------------
+
+List the graphics cookbook recipes with:
+
+    examples Graphics

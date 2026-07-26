@@ -9,7 +9,7 @@ use Getopt::Long qw(GetOptions);
 use lib 'lib';
 use RPN;
 
-my $output = 'docs/Command_Catalog_v4.0.0.txt';
+my $output = 'docs/Command_Catalog_v4.1.0.txt';
 my $check  = 0;
 my $help   = 0;
 
@@ -97,7 +97,7 @@ Usage: perl -Ilib tools/generate_command_catalog.pl [options]
 
 Options:
     --output FILE   Catalog file to write or check
-                    default: docs/Command_Catalog_v4.0.0.txt
+                    default: docs/Command_Catalog_v4.1.0.txt
     --check         Verify FILE matches the generated catalog
     --help          Show this help
 
