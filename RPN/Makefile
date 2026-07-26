@@ -3,6 +3,7 @@ TAR  := gtar
 NAME := rpn-oo
 
 SCRIPT    := rpn.pl
+README    := README.md
 MODS      := lib/RPN.pm \
              lib/RPN/Stack.pm \
              lib/RPN/CodeBlock.pm \
@@ -58,7 +59,7 @@ ROADMAP       := $(shell ls docs/Roadmap*.txt)
 tarball: backup
 
 backup:
-	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(SCRIPT) $(MODS) \
+	$(TAR) -cvzf ../$(NAME)-`date +%Y%m%d-%H%M`.tgz Makefile $(README) $(SCRIPT) $(MODS) \
 		$(TESTDIR) \
 		$(CONSTANTS) \
 		$(TOOLS) \
@@ -97,7 +98,7 @@ version:
 	-grep -i 'version  *=' rpn.pl lib/RPN.pm
 
 gitadd:
-	git add Makefile $(SCRIPT) \
+	git add Makefile $(README) $(SCRIPT) \
 	$(MODS) \
 	$(TOOLS) \
 	$(TESTDIR)*.t \
