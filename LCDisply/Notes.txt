@@ -1,4 +1,4 @@
-7-Segment Display
+ 7-Segment Display
 
 https://en.wikipedia.org/wiki/Seven-segment_display#:~:text=Seven%2Dsegment%20displays%20may%20use,(Numitron)%2C%20and%20others.
 
